@@ -1,0 +1,1788 @@
+{
+  "version": 1,
+  "models": {
+    "Vehicle_Minecart_GoldenOak_001": {
+      "id": "Vehicle_Minecart_GoldenOak_001",
+      "name": "金橡礦車",
+      "url": "assets/models/Vehicle_Minecart_GoldenOak_001.glb",
+      "category": "05_Vehicles",
+      "biome": null,
+      "dimensions": [
+        2.05,
+        1.8041,
+        2.5463
+      ],
+      "triangles": 27521,
+      "meshNodeCount": 6,
+      "bytes": 1464332,
+      "runtimeParts": {
+        "body": "GoldenOak_Body",
+        "wheels": [
+          "GoldenOak_Wheel_FL",
+          "GoldenOak_Wheel_FR",
+          "GoldenOak_Wheel_RL",
+          "GoldenOak_Wheel_RR"
+        ],
+        "lever": "GoldenOak_Lever"
+      },
+      "preview": "assets/previews/Vehicle_Minecart_GoldenOak_001.png"
+    },
+    "Vehicle_Minecart_AzureLake_001": {
+      "id": "Vehicle_Minecart_AzureLake_001",
+      "name": "青湖礦車",
+      "url": "assets/models/Vehicle_Minecart_AzureLake_001.glb",
+      "category": "05_Vehicles",
+      "biome": null,
+      "dimensions": [
+        2.05,
+        1.7875,
+        2.5463
+      ],
+      "triangles": 29397,
+      "meshNodeCount": 6,
+      "bytes": 1561104,
+      "runtimeParts": {
+        "body": "AzureLake_Body",
+        "wheels": [
+          "AzureLake_Wheel_FL",
+          "AzureLake_Wheel_FR",
+          "AzureLake_Wheel_RL",
+          "AzureLake_Wheel_RR"
+        ],
+        "lever": "AzureLake_Lever"
+      },
+      "preview": "assets/previews/Vehicle_Minecart_AzureLake_001.png"
+    },
+    "Vehicle_Minecart_RedCopper_001": {
+      "id": "Vehicle_Minecart_RedCopper_001",
+      "name": "赤銅礦車",
+      "url": "assets/models/Vehicle_Minecart_RedCopper_001.glb",
+      "category": "05_Vehicles",
+      "biome": null,
+      "dimensions": [
+        2.05,
+        1.7875,
+        2.5463
+      ],
+      "triangles": 27999,
+      "meshNodeCount": 6,
+      "bytes": 1363672,
+      "runtimeParts": {
+        "body": "RedCopper_Body",
+        "wheels": [
+          "RedCopper_Wheel_FL",
+          "RedCopper_Wheel_FR",
+          "RedCopper_Wheel_RL",
+          "RedCopper_Wheel_RR"
+        ],
+        "lever": "RedCopper_Lever"
+      },
+      "preview": "assets/previews/Vehicle_Minecart_RedCopper_001.png"
+    },
+    "Environment_Rail_Straight_2m_001": {
+      "id": "Environment_Rail_Straight_2m_001",
+      "name": "直線鐵軌・2m",
+      "url": "assets/models/Environment_Rail_Straight_2m_001.glb",
+      "category": "07_Environment",
+      "biome": null,
+      "dimensions": [
+        2.5,
+        0.405,
+        2.0
+      ],
+      "triangles": 5640,
+      "meshNodeCount": 1,
+      "bytes": 902844
+    },
+    "Environment_Rail_Sleeper_001": {
+      "id": "Environment_Rail_Sleeper_001",
+      "name": "標準木枕",
+      "url": "assets/models/Environment_Rail_Sleeper_001.glb",
+      "category": "07_Environment",
+      "biome": null,
+      "dimensions": [
+        2.5,
+        0.18,
+        0.3
+      ],
+      "triangles": 108,
+      "meshNodeCount": 1,
+      "bytes": 536624
+    },
+    "Environment_Rail_RailSection_1m_001": {
+      "id": "Environment_Rail_RailSection_1m_001",
+      "name": "鋼軌截面母件・1m",
+      "url": "assets/models/Environment_Rail_RailSection_1m_001.glb",
+      "category": "07_Environment",
+      "biome": null,
+      "dimensions": [
+        0.21,
+        0.2,
+        1.0
+      ],
+      "triangles": 764,
+      "meshNodeCount": 1,
+      "bytes": 581324
+    },
+    "Building_Station_Platform4m_001": {
+      "id": "Building_Station_Platform4m_001",
+      "name": "標準月台・4m",
+      "url": "assets/models/Building_Station_Platform4m_001.glb",
+      "category": "06_Buildings",
+      "biome": null,
+      "dimensions": [
+        3.0,
+        0.9161,
+        4.0
+      ],
+      "triangles": 4908,
+      "meshNodeCount": 1,
+      "bytes": 875660
+    },
+    "Building_Station_Canopy4m_001": {
+      "id": "Building_Station_Canopy4m_001",
+      "name": "候車棚・4m",
+      "url": "assets/models/Building_Station_Canopy4m_001.glb",
+      "category": "06_Buildings",
+      "biome": null,
+      "dimensions": [
+        3.415,
+        3.244,
+        4.1456
+      ],
+      "triangles": 7484,
+      "meshNodeCount": 1,
+      "bytes": 1043496
+    },
+    "Building_Station_TicketHut_001": {
+      "id": "Building_Station_TicketHut_001",
+      "name": "青湖售票小站",
+      "url": "assets/models/Building_Station_TicketHut_001.glb",
+      "category": "06_Buildings",
+      "biome": null,
+      "dimensions": [
+        3.915,
+        3.454,
+        3.6578
+      ],
+      "triangles": 21216,
+      "meshNodeCount": 2,
+      "bytes": 2030824
+    },
+    "Prop_Station_StationSign_001": {
+      "id": "Prop_Station_StationSign_001",
+      "name": "青湖站名牌",
+      "url": "assets/models/Prop_Station_StationSign_001.glb",
+      "category": "08_Props",
+      "biome": null,
+      "dimensions": [
+        2.58,
+        2.525,
+        0.44
+      ],
+      "triangles": 6952,
+      "meshNodeCount": 1,
+      "bytes": 1125172
+    },
+    "Prop_Lineside_TracksideLamp_001": {
+      "id": "Prop_Lineside_TracksideLamp_001",
+      "name": "沿線暖光路燈",
+      "url": "assets/models/Prop_Lineside_TracksideLamp_001.glb",
+      "category": "08_Props",
+      "biome": null,
+      "dimensions": [
+        1.25,
+        3.872988,
+        0.56
+      ],
+      "triangles": 2256,
+      "meshNodeCount": 2,
+      "bytes": 802264,
+      "bounds": {
+        "min": [
+          -0.30000001192092896,
+          0.0,
+          -0.2800000011920929
+        ],
+        "max": [
+          0.949999988079071,
+          3.872988224029541,
+          0.2800000011920929
+        ]
+      }
+    },
+    "Plant_Forest_BroadleafTree_001": {
+      "id": "Plant_Forest_BroadleafTree_001",
+      "name": "森林闊葉樹",
+      "url": "assets/models/Plant_Forest_BroadleafTree_001.glb",
+      "category": "04_Plants",
+      "biome": "Forest",
+      "dimensions": [
+        5.017998,
+        6.385102,
+        4.295892
+      ],
+      "triangles": 2516,
+      "meshNodeCount": 1,
+      "bytes": 136412,
+      "bounds": {
+        "min": [
+          -2.488173484802246,
+          0.0,
+          -2.096322774887085
+        ],
+        "max": [
+          2.5298242568969727,
+          6.385101821273565,
+          2.199568748474121
+        ]
+      },
+      "minRailOffset": 4.945065600074802,
+      "footprintRadius": 2.545065600074802,
+      "preview": "assets/previews/Plant_Forest_BroadleafTree_001.png"
+    },
+    "Plant_Forest_ConiferTree_001": {
+      "id": "Plant_Forest_ConiferTree_001",
+      "name": "森林針葉樹",
+      "url": "assets/models/Plant_Forest_ConiferTree_001.glb",
+      "category": "04_Plants",
+      "biome": "Forest",
+      "dimensions": [
+        3.3,
+        7.205755,
+        2.945936
+      ],
+      "triangles": 2540,
+      "meshNodeCount": 1,
+      "bytes": 163160,
+      "bounds": {
+        "min": [
+          -1.65,
+          0.0,
+          -1.4729681830819115
+        ],
+        "max": [
+          1.65,
+          7.205755074042827,
+          1.4729681830819115
+        ]
+      },
+      "minRailOffset": 4.05,
+      "footprintRadius": 1.65
+    },
+    "Plant_Forest_Sapling_001": {
+      "id": "Plant_Forest_Sapling_001",
+      "name": "森林幼樹",
+      "url": "assets/models/Plant_Forest_Sapling_001.glb",
+      "category": "04_Plants",
+      "biome": "Forest",
+      "dimensions": [
+        1.937948,
+        2.824615,
+        1.595328
+      ],
+      "triangles": 1036,
+      "meshNodeCount": 1,
+      "bytes": 58972,
+      "bounds": {
+        "min": [
+          -1.0452197790145874,
+          0.0,
+          -0.7366302013397217
+        ],
+        "max": [
+          0.8927284479141235,
+          2.824614836834371,
+          0.8586978316307068
+        ]
+      },
+      "minRailOffset": 3.5095987266284854,
+      "footprintRadius": 1.1095987266284855
+    },
+    "Plant_Forest_ShrubCluster_001": {
+      "id": "Plant_Forest_ShrubCluster_001",
+      "name": "森林灌木叢",
+      "url": "assets/models/Plant_Forest_ShrubCluster_001.glb",
+      "category": "04_Plants",
+      "biome": "Forest",
+      "dimensions": [
+        2.104735,
+        1.418702,
+        1.835981
+      ],
+      "triangles": 1054,
+      "meshNodeCount": 1,
+      "bytes": 51104,
+      "bounds": {
+        "min": [
+          -1.0690211057662964,
+          0.0,
+          -0.9193507432937622
+        ],
+        "max": [
+          1.0357134342193604,
+          1.4187015313655138,
+          0.9166302680969238
+        ]
+      },
+      "minRailOffset": 3.5316006234999096,
+      "footprintRadius": 1.1316006234999099
+    },
+    "Plant_Forest_FernCluster_001": {
+      "id": "Plant_Forest_FernCluster_001",
+      "name": "森林蕨叢",
+      "url": "assets/models/Plant_Forest_FernCluster_001.glb",
+      "category": "04_Plants",
+      "biome": "Forest",
+      "dimensions": [
+        1.952338,
+        0.556588,
+        1.601995
+      ],
+      "triangles": 2976,
+      "meshNodeCount": 1,
+      "bytes": 199476,
+      "bounds": {
+        "min": [
+          -0.9888599514961243,
+          0.0,
+          -0.8464320302009583
+        ],
+        "max": [
+          0.9634777307510376,
+          0.5565883815288544,
+          0.7555630207061768
+        ]
+      },
+      "minRailOffset": 3.42673093837178,
+      "footprintRadius": 1.02673093837178
+    },
+    "Prop_Forest_TreeStump_001": {
+      "id": "Prop_Forest_TreeStump_001",
+      "name": "年輪苔蘚樹樁",
+      "url": "assets/models/Prop_Forest_TreeStump_001.glb",
+      "category": "08_Props",
+      "biome": "Forest",
+      "dimensions": [
+        1.690751,
+        0.95174,
+        1.461826
+      ],
+      "triangles": 1338,
+      "meshNodeCount": 1,
+      "bytes": 87112,
+      "bounds": {
+        "min": [
+          -0.8312495946884155,
+          0.0,
+          -0.7026393413543701
+        ],
+        "max": [
+          0.8595014810562134,
+          0.9517397936433554,
+          0.7591865658760071
+        ]
+      },
+      "minRailOffset": 3.3047512629994107,
+      "footprintRadius": 0.9047512629994109
+    },
+    "Prop_Forest_FallenLog_001": {
+      "id": "Prop_Forest_FallenLog_001",
+      "name": "分枝苔蘚倒木",
+      "url": "assets/models/Prop_Forest_FallenLog_001.glb",
+      "category": "08_Props",
+      "biome": "Forest",
+      "dimensions": [
+        1.367104,
+        1.208294,
+        3.438
+      ],
+      "triangles": 2024,
+      "meshNodeCount": 1,
+      "bytes": 118840,
+      "bounds": {
+        "min": [
+          -0.6471302509307861,
+          0.0,
+          -1.718999981880188
+        ],
+        "max": [
+          0.7199738025665283,
+          1.2082940936088562,
+          1.718999981880188
+        ]
+      },
+      "minRailOffset": 4.141863424833354,
+      "footprintRadius": 1.741863424833354
+    },
+    "Environment_Hills_RoundHill16m_001": {
+      "id": "Environment_Hills_RoundHill16m_001",
+      "name": "雙肩圓丘・16m",
+      "url": "assets/models/Environment_Hills_RoundHill16m_001.glb",
+      "category": "07_Environment",
+      "biome": "Hills",
+      "dimensions": [
+        16.0,
+        4.193558,
+        16.0
+      ],
+      "triangles": 2662,
+      "meshNodeCount": 1,
+      "bytes": 88308,
+      "bounds": {
+        "min": [
+          -8.0,
+          -0.9,
+          -8.0
+        ],
+        "max": [
+          8.0,
+          3.2935578,
+          8.0
+        ]
+      },
+      "preview": "assets/previews/Environment_Hills_RoundHill16m_001.png"
+    },
+    "Environment_Hills_RollingRidge24m_001": {
+      "id": "Environment_Hills_RollingRidge24m_001",
+      "name": "連續山脊・24m",
+      "url": "assets/models/Environment_Hills_RollingRidge24m_001.glb",
+      "category": "07_Environment",
+      "biome": "Hills",
+      "dimensions": [
+        16.0,
+        5.9,
+        24.0
+      ],
+      "triangles": 3782,
+      "meshNodeCount": 1,
+      "bytes": 115004,
+      "bounds": {
+        "min": [
+          -8.0,
+          -0.9,
+          -12.0
+        ],
+        "max": [
+          8.0,
+          5.0,
+          12.0
+        ]
+      }
+    },
+    "Environment_Hills_StrataRockface8m_001": {
+      "id": "Environment_Hills_StrataRockface8m_001",
+      "name": "風化層狀岩壁・8m",
+      "url": "assets/models/Environment_Hills_StrataRockface8m_001.glb",
+      "category": "07_Environment",
+      "biome": "Hills",
+      "dimensions": [
+        8.203655,
+        4.419264,
+        3.167378
+      ],
+      "triangles": 784,
+      "meshNodeCount": 1,
+      "bytes": 80308,
+      "bounds": {
+        "min": [
+          -4.0049064,
+          0.0,
+          -1.3554911
+        ],
+        "max": [
+          4.1987486,
+          4.4192636,
+          1.8118873
+        ]
+      }
+    },
+    "Plant_Hills_SlopeGrass_001": {
+      "id": "Plant_Hills_SlopeGrass_001",
+      "name": "坡地穗草叢",
+      "url": "assets/models/Plant_Hills_SlopeGrass_001.glb",
+      "category": "04_Plants",
+      "biome": "Hills",
+      "dimensions": [
+        1.348291,
+        0.812836,
+        1.329173
+      ],
+      "triangles": 2904,
+      "meshNodeCount": 1,
+      "bytes": 103704,
+      "bounds": {
+        "min": [
+          -0.6759406,
+          0.0,
+          -0.5584783
+        ],
+        "max": [
+          0.67235,
+          0.8128359,
+          0.7706943
+        ]
+      }
+    },
+    "Prop_Hills_BoulderCluster_001": {
+      "id": "Prop_Hills_BoulderCluster_001",
+      "name": "丘陵裸岩巨石組",
+      "url": "assets/models/Prop_Hills_BoulderCluster_001.glb",
+      "category": "08_Props",
+      "biome": "Hills",
+      "dimensions": [
+        3.93661,
+        2.401574,
+        2.544184
+      ],
+      "triangles": 348,
+      "meshNodeCount": 1,
+      "bytes": 35908,
+      "bounds": {
+        "min": [
+          -1.8457986,
+          0.0,
+          -1.3939416
+        ],
+        "max": [
+          2.090811,
+          2.4015741,
+          1.1502424
+        ]
+      }
+    },
+    "Environment_Hills_DistantRidge48m_001": {
+      "id": "Environment_Hills_DistantRidge48m_001",
+      "name": "遠景群山・48m",
+      "url": "assets/models/Environment_Hills_DistantRidge48m_001.glb",
+      "category": "07_Environment",
+      "biome": "Hills",
+      "dimensions": [
+        48.0,
+        11.61579,
+        18.0
+      ],
+      "triangles": 628,
+      "meshNodeCount": 1,
+      "bytes": 20492,
+      "bounds": {
+        "min": [
+          -24.0,
+          -0.9,
+          -9.0
+        ],
+        "max": [
+          24.0,
+          10.7157898,
+          9.0
+        ]
+      }
+    },
+    "Environment_Pastoral_RaisedField8m_001": {
+      "id": "Environment_Pastoral_RaisedField8m_001",
+      "name": "畦作耕地・8×8m",
+      "url": "assets/models/Environment_Pastoral_RaisedField8m_001.glb",
+      "category": "07_Environment",
+      "biome": "Pastoral",
+      "dimensions": [
+        8.0,
+        0.83,
+        8.0
+      ],
+      "triangles": 164,
+      "meshNodeCount": 1,
+      "bytes": 13328,
+      "bounds": {
+        "min": [
+          -4.0,
+          -0.65,
+          -4.0
+        ],
+        "max": [
+          4.0,
+          0.18,
+          4.0
+        ]
+      }
+    },
+    "Plant_Pastoral_WheatCluster_001": {
+      "id": "Plant_Pastoral_WheatCluster_001",
+      "name": "金黃麥穗叢",
+      "url": "assets/models/Plant_Pastoral_WheatCluster_001.glb",
+      "category": "04_Plants",
+      "biome": "Pastoral",
+      "dimensions": [
+        0.94,
+        1.29038,
+        0.539445
+      ],
+      "triangles": 1320,
+      "meshNodeCount": 1,
+      "bytes": 103020,
+      "bounds": {
+        "min": [
+          -0.48,
+          0.0,
+          -0.2294449
+        ],
+        "max": [
+          0.46,
+          1.29038,
+          0.31
+        ]
+      }
+    },
+    "Plant_Pastoral_CornCluster_001": {
+      "id": "Plant_Pastoral_CornCluster_001",
+      "name": "立體玉米叢",
+      "url": "assets/models/Plant_Pastoral_CornCluster_001.glb",
+      "category": "04_Plants",
+      "biome": "Pastoral",
+      "dimensions": [
+        1.121556,
+        2.229254,
+        1.701693
+      ],
+      "triangles": 804,
+      "meshNodeCount": 1,
+      "bytes": 59484,
+      "bounds": {
+        "min": [
+          -0.5802976,
+          0.0,
+          -0.8170606
+        ],
+        "max": [
+          0.5412583,
+          2.229254,
+          0.8846325
+        ]
+      }
+    },
+    "Plant_Pastoral_AppleTree_001": {
+      "id": "Plant_Pastoral_AppleTree_001",
+      "name": "紅蘋果果樹",
+      "url": "assets/models/Plant_Pastoral_AppleTree_001.glb",
+      "category": "04_Plants",
+      "biome": "Pastoral",
+      "dimensions": [
+        3.729278,
+        4.122565,
+        3.40616
+      ],
+      "triangles": 2594,
+      "meshNodeCount": 1,
+      "bytes": 124452,
+      "bounds": {
+        "min": [
+          -1.7755556,
+          0.0,
+          -1.7205783
+        ],
+        "max": [
+          1.9537228,
+          4.1225648,
+          1.6855822
+        ]
+      }
+    },
+    "Prop_Pastoral_FarmFence4m_001": {
+      "id": "Prop_Pastoral_FarmFence4m_001",
+      "name": "田園木柵欄・4m",
+      "url": "assets/models/Prop_Pastoral_FarmFence4m_001.glb",
+      "category": "08_Props",
+      "biome": "Pastoral",
+      "dimensions": [
+        4.25,
+        1.25,
+        0.27
+      ],
+      "triangles": 688,
+      "meshNodeCount": 2,
+      "bytes": 50180,
+      "bounds": {
+        "min": [
+          -0.125,
+          0.0,
+          -0.135
+        ],
+        "max": [
+          4.125,
+          1.25,
+          0.135
+        ]
+      }
+    },
+    "Prop_Pastoral_HayBaleStack_001": {
+      "id": "Prop_Pastoral_HayBaleStack_001",
+      "name": "綑繩乾草捆組",
+      "url": "assets/models/Prop_Pastoral_HayBaleStack_001.glb",
+      "category": "08_Props",
+      "biome": "Pastoral",
+      "dimensions": [
+        2.07,
+        1.311,
+        0.763
+      ],
+      "triangles": 468,
+      "meshNodeCount": 1,
+      "bytes": 34040,
+      "bounds": {
+        "min": [
+          -1.035,
+          0.0,
+          -0.3615
+        ],
+        "max": [
+          1.035,
+          1.311,
+          0.4015
+        ]
+      }
+    },
+    "Building_Pastoral_WindPump_001": {
+      "id": "Building_Pastoral_WindPump_001",
+      "name": "風車灌溉塔",
+      "url": "assets/models/Building_Pastoral_WindPump_001.glb",
+      "category": "06_Buildings",
+      "biome": "Pastoral",
+      "dimensions": [
+        3.763918,
+        5.736418,
+        1.9025
+      ],
+      "triangles": 1724,
+      "meshNodeCount": 2,
+      "bytes": 121760,
+      "bounds": {
+        "min": [
+          -1.1164179,
+          0.0,
+          -1.1224999
+        ],
+        "max": [
+          2.6475,
+          5.7364178,
+          0.78
+        ]
+      },
+      "preview": "assets/previews/Building_Pastoral_WindPump_001.png"
+    },
+    "Environment_Desert_DuneTile16m_001": {
+      "id": "Environment_Desert_DuneTile16m_001",
+      "name": "風塑沙丘地塊・16×16m",
+      "url": "assets/models/Environment_Desert_DuneTile16m_001.glb",
+      "category": "07_Environment",
+      "biome": "Desert",
+      "dimensions": [
+        16.0,
+        3.782322,
+        16.0
+      ],
+      "triangles": 2432,
+      "meshNodeCount": 1,
+      "bytes": 64908,
+      "bounds": {
+        "min": [
+          -8.0,
+          -0.65,
+          -8.0
+        ],
+        "max": [
+          8.0,
+          3.132322,
+          8.0
+        ]
+      },
+      "preview": "assets/previews/Environment_Desert_DuneTile16m_001.png"
+    },
+    "Environment_Desert_Oasis8m_001": {
+      "id": "Environment_Desert_Oasis8m_001",
+      "name": "綠洲水池・8×8m",
+      "url": "assets/models/Environment_Desert_Oasis8m_001.glb",
+      "category": "07_Environment",
+      "biome": "Desert",
+      "dimensions": [
+        8.0,
+        0.776,
+        8.0
+      ],
+      "triangles": 648,
+      "meshNodeCount": 1,
+      "bytes": 25716,
+      "bounds": {
+        "min": [
+          -4.0,
+          -0.65,
+          -4.0
+        ],
+        "max": [
+          4.0,
+          0.126,
+          4.0
+        ]
+      }
+    },
+    "Environment_Desert_SandstoneArch9m_001": {
+      "id": "Environment_Desert_SandstoneArch9m_001",
+      "name": "砂岩拱門・約9m",
+      "url": "assets/models/Environment_Desert_SandstoneArch9m_001.glb",
+      "category": "07_Environment",
+      "biome": "Desert",
+      "dimensions": [
+        9.44854,
+        4.95701,
+        1.889784
+      ],
+      "triangles": 1016,
+      "meshNodeCount": 1,
+      "bytes": 102176,
+      "bounds": {
+        "min": [
+          -4.699253,
+          -0.2,
+          -0.9414375
+        ],
+        "max": [
+          4.7492871,
+          4.75701,
+          0.9483464
+        ]
+      }
+    },
+    "Prop_Desert_SandstoneCluster_001": {
+      "id": "Prop_Desert_SandstoneCluster_001",
+      "name": "層理砂岩石組",
+      "url": "assets/models/Prop_Desert_SandstoneCluster_001.glb",
+      "category": "08_Props",
+      "biome": "Desert",
+      "dimensions": [
+        3.169379,
+        1.691211,
+        2.265481
+      ],
+      "triangles": 660,
+      "meshNodeCount": 1,
+      "bytes": 64212,
+      "bounds": {
+        "min": [
+          -1.4066389,
+          0.0,
+          -1.2555343
+        ],
+        "max": [
+          1.7627403,
+          1.6912107,
+          1.0099463
+        ]
+      }
+    },
+    "Plant_Desert_SaguaroCactus_001": {
+      "id": "Plant_Desert_SaguaroCactus_001",
+      "name": "多臂仙人掌",
+      "url": "assets/models/Plant_Desert_SaguaroCactus_001.glb",
+      "category": "04_Plants",
+      "biome": "Desert",
+      "dimensions": [
+        1.997191,
+        3.402177,
+        0.80322
+      ],
+      "triangles": 1492,
+      "meshNodeCount": 1,
+      "bytes": 112620,
+      "bounds": {
+        "min": [
+          -1.0376667,
+          0.0,
+          -0.4796
+        ],
+        "max": [
+          0.9595245,
+          3.4021766,
+          0.3236197
+        ]
+      }
+    },
+    "Plant_Desert_DatePalm_001": {
+      "id": "Plant_Desert_DatePalm_001",
+      "name": "綠洲棗椰樹",
+      "url": "assets/models/Plant_Desert_DatePalm_001.glb",
+      "category": "04_Plants",
+      "biome": "Desert",
+      "dimensions": [
+        3.964568,
+        4.889638,
+        3.771581
+      ],
+      "triangles": 2736,
+      "meshNodeCount": 1,
+      "bytes": 132116,
+      "bounds": {
+        "min": [
+          -1.7820429,
+          0.0,
+          -1.9157906
+        ],
+        "max": [
+          2.1825252,
+          4.8896384,
+          1.8557906
+        ]
+      }
+    },
+    "Prop_Desert_Tumbleweed_001": {
+      "id": "Prop_Desert_Tumbleweed_001",
+      "name": "交枝風滾草",
+      "url": "assets/models/Prop_Desert_Tumbleweed_001.glb",
+      "category": "08_Props",
+      "biome": "Desert",
+      "dimensions": [
+        1.145677,
+        1.27161,
+        1.043898
+      ],
+      "triangles": 1452,
+      "meshNodeCount": 1,
+      "bytes": 136304,
+      "bounds": {
+        "min": [
+          -0.6255572,
+          0.0,
+          -0.4944632
+        ],
+        "max": [
+          0.5201196,
+          1.27161,
+          0.5494352
+        ]
+      }
+    },
+    "Building_Rural_VillageHouse6m_001": {
+      "id": "Building_Rural_VillageHouse6m_001",
+      "name": "紅瓦農舍・約6m",
+      "url": "assets/models/Building_Rural_VillageHouse6m_001.glb",
+      "category": "06_Buildings",
+      "biome": "Rural",
+      "dimensions": [
+        5.96,
+        4.37,
+        5.71
+      ],
+      "triangles": 2892,
+      "meshNodeCount": 2,
+      "bytes": 189800,
+      "bounds": {
+        "min": [
+          -2.98,
+          0.0,
+          -2.48
+        ],
+        "max": [
+          2.98,
+          4.3699999,
+          3.23
+        ]
+      },
+      "preview": "assets/previews/Building_Rural_VillageHouse6m_001.png"
+    },
+    "Building_Rural_CountryBarn6m_001": {
+      "id": "Building_Rural_CountryBarn6m_001",
+      "name": "折線屋頂木穀倉・約6m",
+      "url": "assets/models/Building_Rural_CountryBarn6m_001.glb",
+      "category": "06_Buildings",
+      "biome": "Rural",
+      "dimensions": [
+        6.5,
+        4.68,
+        6.585
+      ],
+      "triangles": 924,
+      "meshNodeCount": 1,
+      "bytes": 67572,
+      "bounds": {
+        "min": [
+          -3.25,
+          0.0,
+          -3.1199999
+        ],
+        "max": [
+          3.25,
+          4.6799998,
+          3.4649999
+        ]
+      }
+    },
+    "Prop_Rural_RoofedWell_001": {
+      "id": "Prop_Rural_RoofedWell_001",
+      "name": "棚頂石砌水井",
+      "url": "assets/models/Prop_Rural_RoofedWell_001.glb",
+      "category": "08_Props",
+      "biome": "Rural",
+      "dimensions": [
+        2.69,
+        2.76,
+        2.0
+      ],
+      "triangles": 1456,
+      "meshNodeCount": 1,
+      "bytes": 97788,
+      "bounds": {
+        "min": [
+          -1.26,
+          0.0,
+          -1.0
+        ],
+        "max": [
+          1.4299999,
+          2.76,
+          1.0
+        ]
+      }
+    },
+    "Prop_Rural_StoneWall4m_001": {
+      "id": "Prop_Rural_StoneWall4m_001",
+      "name": "村落矮石牆・4m",
+      "url": "assets/models/Prop_Rural_StoneWall4m_001.glb",
+      "category": "08_Props",
+      "biome": "Rural",
+      "dimensions": [
+        4.0,
+        1.01,
+        0.44
+      ],
+      "triangles": 1524,
+      "meshNodeCount": 1,
+      "bytes": 103172,
+      "bounds": {
+        "min": [
+          0.0,
+          0.0,
+          -0.22
+        ],
+        "max": [
+          4.0,
+          1.01,
+          0.22
+        ]
+      }
+    },
+    "Prop_Rural_Mailbox_001": {
+      "id": "Prop_Rural_Mailbox_001",
+      "name": "立柱郵箱",
+      "url": "assets/models/Prop_Rural_Mailbox_001.glb",
+      "category": "08_Props",
+      "biome": "Rural",
+      "dimensions": [
+        0.95,
+        1.98,
+        0.864
+      ],
+      "triangles": 308,
+      "meshNodeCount": 1,
+      "bytes": 24260,
+      "bounds": {
+        "min": [
+          -0.475,
+          0.0,
+          -0.4
+        ],
+        "max": [
+          0.475,
+          1.98,
+          0.464
+        ]
+      }
+    },
+    "Prop_Rural_Clothesline_001": {
+      "id": "Prop_Rural_Clothesline_001",
+      "name": "木架曬衣繩與衣物",
+      "url": "assets/models/Prop_Rural_Clothesline_001.glb",
+      "category": "08_Props",
+      "biome": "Rural",
+      "dimensions": [
+        4.0,
+        2.2,
+        0.812744
+      ],
+      "triangles": 590,
+      "meshNodeCount": 1,
+      "bytes": 43268,
+      "bounds": {
+        "min": [
+          -2.0,
+          0.0,
+          -0.4063719
+        ],
+        "max": [
+          2.0,
+          2.2,
+          0.4063719
+        ]
+      }
+    },
+    "Environment_Lakeside_WaterTile8m_001": {
+      "id": "Environment_Lakeside_WaterTile8m_001",
+      "name": "靜水湖面地塊・8×8m",
+      "url": "assets/models/Environment_Lakeside_WaterTile8m_001.glb",
+      "category": "07_Environment",
+      "biome": "Lakeside",
+      "dimensions": [
+        8.0,
+        1.0,
+        8.0
+      ],
+      "triangles": 24,
+      "meshNodeCount": 1,
+      "bytes": 5548,
+      "bounds": {
+        "min": [
+          -4.0,
+          -1.2,
+          -4.0
+        ],
+        "max": [
+          4.0,
+          -0.2,
+          4.0
+        ]
+      }
+    },
+    "Environment_Lakeside_StraightShore8m_001": {
+      "id": "Environment_Lakeside_StraightShore8m_001",
+      "name": "直線草岸與淺灘・8m",
+      "url": "assets/models/Environment_Lakeside_StraightShore8m_001.glb",
+      "category": "07_Environment",
+      "biome": "Lakeside",
+      "dimensions": [
+        8.0,
+        1.23,
+        8.0
+      ],
+      "triangles": 56,
+      "meshNodeCount": 1,
+      "bytes": 7032,
+      "bounds": {
+        "min": [
+          -4.0,
+          -1.2,
+          -4.0
+        ],
+        "max": [
+          4.0,
+          0.03,
+          4.0
+        ]
+      }
+    },
+    "Prop_Lakeside_WoodenPier6m_001": {
+      "id": "Prop_Lakeside_WoodenPier6m_001",
+      "name": "木棧碼頭・6m",
+      "url": "assets/models/Prop_Lakeside_WoodenPier6m_001.glb",
+      "category": "08_Props",
+      "biome": "Lakeside",
+      "dimensions": [
+        2.05,
+        1.68,
+        6.0
+      ],
+      "triangles": 1780,
+      "meshNodeCount": 1,
+      "bytes": 130420,
+      "bounds": {
+        "min": [
+          -1.025,
+          -1.1,
+          0.0
+        ],
+        "max": [
+          1.025,
+          0.58,
+          6.0
+        ]
+      }
+    },
+    "Prop_Lakeside_Rowboat4m_001": {
+      "id": "Prop_Lakeside_Rowboat4m_001",
+      "name": "雙槳小划艇・約4m",
+      "url": "assets/models/Prop_Lakeside_Rowboat4m_001.glb",
+      "category": "08_Props",
+      "biome": "Lakeside",
+      "dimensions": [
+        4.124131,
+        0.8,
+        3.8
+      ],
+      "triangles": 476,
+      "meshNodeCount": 1,
+      "bytes": 39220,
+      "bounds": {
+        "min": [
+          -2.0620654,
+          -0.36,
+          -1.9
+        ],
+        "max": [
+          2.0620654,
+          0.44,
+          1.9
+        ]
+      }
+    },
+    "Plant_Lakeside_CattailCluster_001": {
+      "id": "Plant_Lakeside_CattailCluster_001",
+      "name": "香蒲與岸草叢",
+      "url": "assets/models/Plant_Lakeside_CattailCluster_001.glb",
+      "category": "04_Plants",
+      "biome": "Lakeside",
+      "dimensions": [
+        1.296412,
+        1.655508,
+        0.991744
+      ],
+      "triangles": 744,
+      "meshNodeCount": 1,
+      "bytes": 34780,
+      "bounds": {
+        "min": [
+          -0.6099556,
+          0.0,
+          -0.4001106
+        ],
+        "max": [
+          0.6864561,
+          1.6555079,
+          0.591633
+        ]
+      }
+    },
+    "Plant_Lakeside_WeepingWillow_001": {
+      "id": "Plant_Lakeside_WeepingWillow_001",
+      "name": "湖岸垂柳",
+      "url": "assets/models/Plant_Lakeside_WeepingWillow_001.glb",
+      "category": "04_Plants",
+      "biome": "Lakeside",
+      "dimensions": [
+        4.76,
+        5.805539,
+        4.76
+      ],
+      "triangles": 1892,
+      "meshNodeCount": 1,
+      "bytes": 100308,
+      "bounds": {
+        "min": [
+          -2.3800001,
+          0.0,
+          -2.3800001
+        ],
+        "max": [
+          2.3800001,
+          5.8055391,
+          2.3800001
+        ]
+      },
+      "preview": "assets/previews/Plant_Lakeside_WeepingWillow_001.png"
+    },
+    "Prop_Lakeside_ShoreBoulders_001": {
+      "id": "Prop_Lakeside_ShoreBoulders_001",
+      "name": "圓潤濕岸石組",
+      "url": "assets/models/Prop_Lakeside_ShoreBoulders_001.glb",
+      "category": "08_Props",
+      "biome": "Lakeside",
+      "dimensions": [
+        3.139733,
+        1.2,
+        2.118082
+      ],
+      "triangles": 468,
+      "meshNodeCount": 1,
+      "bytes": 18740,
+      "bounds": {
+        "min": [
+          -1.45,
+          0.0,
+          -1.2072825
+        ],
+        "max": [
+          1.6897326,
+          1.2,
+          0.9108
+        ]
+      }
+    },
+    "Environment_Snow_DriftCluster_001": {
+      "id": "Environment_Snow_DriftCluster_001",
+      "name": "風吹雪堆組",
+      "url": "assets/models/Environment_Snow_DriftCluster_001.glb",
+      "category": "07_Environment",
+      "biome": "Snow",
+      "dimensions": [
+        4.553141,
+        0.936,
+        2.742879
+      ],
+      "triangles": 834,
+      "meshNodeCount": 1,
+      "bytes": 28684,
+      "bounds": {
+        "min": [
+          -2.4380348,
+          0.0,
+          -1.2328513
+        ],
+        "max": [
+          2.1151061,
+          0.936,
+          1.5100274
+        ]
+      }
+    },
+    "Plant_Snow_Cedar_001": {
+      "id": "Plant_Snow_Cedar_001",
+      "name": "覆雪雪松",
+      "url": "assets/models/Plant_Snow_Cedar_001.glb",
+      "category": "04_Plants",
+      "biome": "Snow",
+      "dimensions": [
+        3.3,
+        6.945349,
+        2.976946
+      ],
+      "triangles": 3372,
+      "meshNodeCount": 1,
+      "bytes": 149584,
+      "bounds": {
+        "min": [
+          -1.65,
+          0.0,
+          -1.4884731
+        ],
+        "max": [
+          1.65,
+          6.9453489,
+          1.4884731
+        ]
+      },
+      "preview": "assets/previews/Plant_Snow_Cedar_001.png"
+    },
+    "Prop_Snow_BoulderCluster_001": {
+      "id": "Prop_Snow_BoulderCluster_001",
+      "name": "厚雪覆岩組",
+      "url": "assets/models/Prop_Snow_BoulderCluster_001.glb",
+      "category": "08_Props",
+      "biome": "Snow",
+      "dimensions": [
+        3.198715,
+        1.816785,
+        2.384795
+      ],
+      "triangles": 744,
+      "meshNodeCount": 1,
+      "bytes": 63952,
+      "bounds": {
+        "min": [
+          -1.5215638,
+          0.0,
+          -1.3301275
+        ],
+        "max": [
+          1.6771511,
+          1.8167855,
+          1.0546678
+        ]
+      }
+    },
+    "Environment_Snow_IceWall8m_001": {
+      "id": "Environment_Snow_IceWall8m_001",
+      "name": "冰川斷壁・約8m",
+      "url": "assets/models/Environment_Snow_IceWall8m_001.glb",
+      "category": "07_Environment",
+      "biome": "Snow",
+      "dimensions": [
+        8.131733,
+        4.767754,
+        2.481329
+      ],
+      "triangles": 1218,
+      "meshNodeCount": 1,
+      "bytes": 70668,
+      "bounds": {
+        "min": [
+          -4.09825,
+          0.0,
+          -0.9028391
+        ],
+        "max": [
+          4.0334826,
+          4.7677544,
+          1.5784897
+        ]
+      }
+    },
+    "Prop_Snow_IceSpireCluster_001": {
+      "id": "Prop_Snow_IceSpireCluster_001",
+      "name": "冰晶柱簇",
+      "url": "assets/models/Prop_Snow_IceSpireCluster_001.glb",
+      "category": "08_Props",
+      "biome": "Snow",
+      "dimensions": [
+        2.296,
+        2.585,
+        1.7425
+      ],
+      "triangles": 448,
+      "meshNodeCount": 1,
+      "bytes": 24332,
+      "bounds": {
+        "min": [
+          -1.1663678,
+          0.0,
+          -0.8714042
+        ],
+        "max": [
+          1.1296322,
+          2.585,
+          0.8710958
+        ]
+      }
+    },
+    "Environment_Snow_FrozenPond8m_001": {
+      "id": "Environment_Snow_FrozenPond8m_001",
+      "name": "雪岸冰池・8×8m",
+      "url": "assets/models/Environment_Snow_FrozenPond8m_001.glb",
+      "category": "07_Environment",
+      "biome": "Snow",
+      "dimensions": [
+        8.0,
+        0.95,
+        8.0
+      ],
+      "triangles": 742,
+      "meshNodeCount": 1,
+      "bytes": 34320,
+      "bounds": {
+        "min": [
+          -4.0,
+          -0.65,
+          -4.0
+        ],
+        "max": [
+          4.0,
+          0.3,
+          4.0
+        ]
+      }
+    },
+    "Environment_Volcano_Cone16m_001": {
+      "id": "Environment_Volcano_Cone16m_001",
+      "name": "熔岩火山錐・約16m",
+      "url": "assets/models/Environment_Volcano_Cone16m_001.glb",
+      "category": "07_Environment",
+      "biome": "Volcano",
+      "dimensions": [
+        16.521915,
+        7.398286,
+        16.324876
+      ],
+      "triangles": 1692,
+      "meshNodeCount": 1,
+      "bytes": 158688,
+      "bounds": {
+        "min": [
+          -8.1615427,
+          -0.65,
+          -7.8521641
+        ],
+        "max": [
+          8.3603724,
+          6.7482863,
+          8.4727115
+        ]
+      },
+      "preview": "assets/previews/Environment_Volcano_Cone16m_001.png"
+    },
+    "Environment_Volcano_LavaChannel8m_001": {
+      "id": "Environment_Volcano_LavaChannel8m_001",
+      "name": "熔岩河道・8m",
+      "url": "assets/models/Environment_Volcano_LavaChannel8m_001.glb",
+      "category": "07_Environment",
+      "biome": "Volcano",
+      "dimensions": [
+        5.2,
+        1.04,
+        8.0
+      ],
+      "triangles": 954,
+      "meshNodeCount": 1,
+      "bytes": 68088,
+      "bounds": {
+        "min": [
+          -2.6,
+          -0.7,
+          0.0
+        ],
+        "max": [
+          2.6,
+          0.34,
+          8.0
+        ]
+      }
+    },
+    "Environment_Volcano_LavaPool8m_001": {
+      "id": "Environment_Volcano_LavaPool8m_001",
+      "name": "熔岩池・8×8m",
+      "url": "assets/models/Environment_Volcano_LavaPool8m_001.glb",
+      "category": "07_Environment",
+      "biome": "Volcano",
+      "dimensions": [
+        8.0,
+        0.965,
+        8.0
+      ],
+      "triangles": 1032,
+      "meshNodeCount": 1,
+      "bytes": 86492,
+      "bounds": {
+        "min": [
+          -4.0,
+          -0.65,
+          -4.0
+        ],
+        "max": [
+          4.0,
+          0.315,
+          4.0
+        ]
+      }
+    },
+    "Environment_Volcano_BasaltCliff8m_001": {
+      "id": "Environment_Volcano_BasaltCliff8m_001",
+      "name": "柱狀玄武岩壁・約8m",
+      "url": "assets/models/Environment_Volcano_BasaltCliff8m_001.glb",
+      "category": "07_Environment",
+      "biome": "Volcano",
+      "dimensions": [
+        8.237022,
+        4.634671,
+        2.155279
+      ],
+      "triangles": 720,
+      "meshNodeCount": 1,
+      "bytes": 72076,
+      "bounds": {
+        "min": [
+          -4.1185109,
+          0.0,
+          -0.8404924
+        ],
+        "max": [
+          4.1185109,
+          4.6346713,
+          1.3147867
+        ]
+      }
+    },
+    "Prop_Volcano_BoulderCluster_001": {
+      "id": "Prop_Volcano_BoulderCluster_001",
+      "name": "熱裂火山岩組",
+      "url": "assets/models/Prop_Volcano_BoulderCluster_001.glb",
+      "category": "08_Props",
+      "biome": "Volcano",
+      "dimensions": [
+        3.176932,
+        1.78766,
+        2.332583
+      ],
+      "triangles": 452,
+      "meshNodeCount": 1,
+      "bytes": 46756,
+      "bounds": {
+        "min": [
+          -1.5011765,
+          0.0,
+          -1.2736775
+        ],
+        "max": [
+          1.6757557,
+          1.7876604,
+          1.0589051
+        ]
+      }
+    },
+    "Prop_Volcano_ObsidianCluster_001": {
+      "id": "Prop_Volcano_ObsidianCluster_001",
+      "name": "黑曜石晶簇",
+      "url": "assets/models/Prop_Volcano_ObsidianCluster_001.glb",
+      "category": "08_Props",
+      "biome": "Volcano",
+      "dimensions": [
+        2.041068,
+        2.8,
+        1.868832
+      ],
+      "triangles": 428,
+      "meshNodeCount": 1,
+      "bytes": 41552,
+      "bounds": {
+        "min": [
+          -1.0667098,
+          0.0,
+          -0.9596364
+        ],
+        "max": [
+          0.9743582,
+          2.8,
+          0.9091953
+        ]
+      }
+    },
+    "Prop_Volcano_FumaroleVent_001": {
+      "id": "Prop_Volcano_FumaroleVent_001",
+      "name": "噴氣孔與靜態蒸氣",
+      "url": "assets/models/Prop_Volcano_FumaroleVent_001.glb",
+      "category": "08_Props",
+      "biome": "Volcano",
+      "dimensions": [
+        2.67184,
+        2.489454,
+        2.612412
+      ],
+      "triangles": 1392,
+      "meshNodeCount": 1,
+      "bytes": 83376,
+      "bounds": {
+        "min": [
+          -1.3359199,
+          0.0,
+          -1.2344119
+        ],
+        "max": [
+          1.3359199,
+          2.4894543,
+          1.378
+        ]
+      }
+    }
+  },
+  "vehicles": [
+    "Vehicle_Minecart_GoldenOak_001",
+    "Vehicle_Minecart_AzureLake_001",
+    "Vehicle_Minecart_RedCopper_001"
+  ],
+  "biomes": {
+    "Forest": {
+      "name": "森林",
+      "models": [
+        "Plant_Forest_BroadleafTree_001",
+        "Plant_Forest_ConiferTree_001",
+        "Plant_Forest_Sapling_001",
+        "Plant_Forest_ShrubCluster_001",
+        "Plant_Forest_FernCluster_001",
+        "Prop_Forest_TreeStump_001",
+        "Prop_Forest_FallenLog_001"
+      ],
+      "preview": "assets/previews/Plant_Forest_BroadleafTree_001.png"
+    },
+    "Hills": {
+      "name": "丘陵",
+      "models": [
+        "Environment_Hills_RoundHill16m_001",
+        "Environment_Hills_RollingRidge24m_001",
+        "Environment_Hills_StrataRockface8m_001",
+        "Plant_Hills_SlopeGrass_001",
+        "Prop_Hills_BoulderCluster_001",
+        "Environment_Hills_DistantRidge48m_001"
+      ],
+      "preview": "assets/previews/Environment_Hills_RoundHill16m_001.png"
+    },
+    "Pastoral": {
+      "name": "田園",
+      "models": [
+        "Environment_Pastoral_RaisedField8m_001",
+        "Plant_Pastoral_WheatCluster_001",
+        "Plant_Pastoral_CornCluster_001",
+        "Plant_Pastoral_AppleTree_001",
+        "Prop_Pastoral_FarmFence4m_001",
+        "Prop_Pastoral_HayBaleStack_001",
+        "Building_Pastoral_WindPump_001"
+      ],
+      "preview": "assets/previews/Building_Pastoral_WindPump_001.png"
+    },
+    "Desert": {
+      "name": "沙漠",
+      "models": [
+        "Environment_Desert_DuneTile16m_001",
+        "Environment_Desert_Oasis8m_001",
+        "Environment_Desert_SandstoneArch9m_001",
+        "Prop_Desert_SandstoneCluster_001",
+        "Plant_Desert_SaguaroCactus_001",
+        "Plant_Desert_DatePalm_001",
+        "Prop_Desert_Tumbleweed_001"
+      ],
+      "preview": "assets/previews/Environment_Desert_DuneTile16m_001.png"
+    },
+    "Rural": {
+      "name": "鄉村",
+      "models": [
+        "Building_Rural_VillageHouse6m_001",
+        "Building_Rural_CountryBarn6m_001",
+        "Prop_Rural_RoofedWell_001",
+        "Prop_Rural_StoneWall4m_001",
+        "Prop_Rural_Mailbox_001",
+        "Prop_Rural_Clothesline_001"
+      ],
+      "preview": "assets/previews/Building_Rural_VillageHouse6m_001.png"
+    },
+    "Lakeside": {
+      "name": "湖畔",
+      "models": [
+        "Environment_Lakeside_WaterTile8m_001",
+        "Environment_Lakeside_StraightShore8m_001",
+        "Prop_Lakeside_WoodenPier6m_001",
+        "Prop_Lakeside_Rowboat4m_001",
+        "Plant_Lakeside_CattailCluster_001",
+        "Plant_Lakeside_WeepingWillow_001",
+        "Prop_Lakeside_ShoreBoulders_001"
+      ],
+      "preview": "assets/previews/Plant_Lakeside_WeepingWillow_001.png"
+    },
+    "Snow": {
+      "name": "雪地",
+      "models": [
+        "Environment_Snow_DriftCluster_001",
+        "Plant_Snow_Cedar_001",
+        "Prop_Snow_BoulderCluster_001",
+        "Environment_Snow_IceWall8m_001",
+        "Prop_Snow_IceSpireCluster_001",
+        "Environment_Snow_FrozenPond8m_001"
+      ],
+      "preview": "assets/previews/Plant_Snow_Cedar_001.png"
+    },
+    "Volcano": {
+      "name": "火山",
+      "models": [
+        "Environment_Volcano_Cone16m_001",
+        "Environment_Volcano_LavaChannel8m_001",
+        "Environment_Volcano_LavaPool8m_001",
+        "Environment_Volcano_BasaltCliff8m_001",
+        "Prop_Volcano_BoulderCluster_001",
+        "Prop_Volcano_ObsidianCluster_001",
+        "Prop_Volcano_FumaroleVent_001"
+      ],
+      "preview": "assets/previews/Environment_Volcano_Cone16m_001.png"
+    }
+  },
+  "stationModels": [
+    "Building_Station_Platform4m_001",
+    "Building_Station_Canopy4m_001",
+    "Building_Station_TicketHut_001",
+    "Prop_Station_StationSign_001",
+    "Prop_Lineside_TracksideLamp_001"
+  ],
+  "trackModels": [
+    "Environment_Rail_Straight_2m_001",
+    "Environment_Rail_Sleeper_001",
+    "Environment_Rail_RailSection_1m_001"
+  ]
+}
