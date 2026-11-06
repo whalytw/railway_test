@@ -1,0 +1,117 @@
+{
+  "id": "Environment_Volcano_BasaltCliff8m_001",
+  "name": "柱狀玄武岩壁・約8m",
+  "category": "07_Environment",
+  "subcategory": "Volcano/Rockforms",
+  "tags": [
+    "volcano",
+    "lava",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "cliff"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Volcano_Kit_001/source/Volcano_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Volcano/_Shared/Volcano_Kit_001/source/Volcano_Kit_001.blend",
+  "sourceCollection": "VC_05_BasaltCliff8m",
+  "gameFile": "exports/Environment_Volcano_BasaltCliff8m_001.glb",
+  "volcanoFile": "exports/Environment_Volcano_BasaltCliff8m_001.volcano.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "steamStaticGeometry": false
+  },
+  "polycount": 720,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 1,
+  "fileBytes": 72076,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    8.237022,
+    4.634671,
+    2.155279
+  ],
+  "boundsMeters": {
+    "min": [
+      -4.1185109,
+      0.0,
+      -0.8404924
+    ],
+    "max": [
+      4.1185109,
+      4.6346713,
+      1.3147867
+    ]
+  },
+  "highestSurfaceY": 4.6346712574493205,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Environment_Volcano_BasaltCliff8m_001",
+    "title": "柱狀玄武岩壁・約8m",
+    "category": "07_Environment",
+    "group": "Rockforms",
+    "kind": "cliff",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.05
+  },
+  "lava": null,
+  "effects": null,
+  "materialRoles": {
+    "rock": {
+      "material": "MAT_VC_rock"
+    },
+    "lava": {
+      "material": "MAT_VC_lava"
+    },
+    "obsidian": {
+      "material": "MAT_VC_obsidian"
+    },
+    "steam": {
+      "material": "MAT_VC_steam"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可見網格可供射線取樣；未綁定物理引擎。熔岩是靜態美術模型，沒有內建傷害、流動、噴發或破壞規則。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "六根不同高度的六角玄武岩柱與腳部落石，呈柱狀節理輪廓。；岩柱頂端有磨蝕斜角及較淺火山灰色，避免全部呈平整方柱。；底部原點，優先置於平地並微量埋入；需保留完整岩壁與軌道及鏡頭的距離。"
+}

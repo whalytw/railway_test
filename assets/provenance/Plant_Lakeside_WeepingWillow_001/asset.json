@@ -1,0 +1,119 @@
+{
+  "id": "Plant_Lakeside_WeepingWillow_001",
+  "name": "湖岸垂柳",
+  "category": "04_Plants",
+  "subcategory": "Lakeside/Trees",
+  "tags": [
+    "lakeside",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "willow"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Lakeside/_Shared/Lakeside_Kit_001/source/Lakeside_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Lakeside/_Shared/Lakeside_Kit_001/source/Lakeside_Kit_001.blend",
+  "sourceCollection": "LK_07_WeepingWillow",
+  "gameFile": "exports/Plant_Lakeside_WeepingWillow_001.glb",
+  "lakesideFile": "exports/Plant_Lakeside_WeepingWillow_001.lakeside.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "waterlinePlacement": false,
+    "physicalBuoyancy": false
+  },
+  "polycount": 1892,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 100308,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    4.76,
+    5.805539,
+    4.76
+  ],
+  "boundsMeters": {
+    "min": [
+      -2.3800001,
+      0.0,
+      -2.3800001
+    ],
+    "max": [
+      2.3800001,
+      5.8055391,
+      2.3800001
+    ]
+  },
+  "highestSurfaceY": 5.805539131164551,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Plant_Lakeside_WeepingWillow_001",
+    "title": "湖岸垂柳",
+    "category": "04_Plants",
+    "group": "Trees",
+    "kind": "willow",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "compatibleWaterTiles": null,
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.04
+  },
+  "mount": null,
+  "waterline": null,
+  "water": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_LK_ground"
+    },
+    "water": {
+      "material": "MAT_LK_water"
+    },
+    "wood": {
+      "material": "MAT_LK_wood"
+    },
+    "foliage": {
+      "material": "MAT_LK_foliage"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可對實際網格分別取水面、湖床及甲板高度；未綁定物理引擎、船隻浮力或角色導航。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "垂柳包含根、彎幹、分枝、多團樹冠及下垂長葉串。；以底部原點放在岸上平緩地面，檢查完整垂枝與鐵道、碼頭和鏡頭的距離。；樹冠與葉串皆為立體幾何，未內建風動或骨架。"
+}

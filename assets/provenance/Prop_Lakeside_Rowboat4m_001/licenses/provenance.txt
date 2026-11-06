@@ -1,0 +1,6 @@
+Asset: Prop_Lakeside_Rowboat4m_001
+Date: 2026-11-06
+Original procedural geometry created through Blender MCP for the user's GameAssets project.
+Third-party models and textures: none.
+Earlier project assets are read-only demo companions.
+Editable source and scripts included. No CC0 or standalone redistribution licence added.

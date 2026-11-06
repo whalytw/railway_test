@@ -1,0 +1,119 @@
+{
+  "id": "Prop_Rural_Mailbox_001",
+  "name": "立柱郵箱",
+  "category": "08_Props",
+  "subcategory": "Rural/Street_Props",
+  "tags": [
+    "rural",
+    "village",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "mailbox"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Rural/_Shared/Rural_Kit_001/source/Rural_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Rural/_Shared/Rural_Kit_001/source/Rural_Kit_001.blend",
+  "sourceCollection": "RU_07_Mailbox",
+  "gameFile": "exports/Prop_Rural_Mailbox_001.glb",
+  "ruralFile": "exports/Prop_Rural_Mailbox_001.rural.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "optionalDoor": false
+  },
+  "polycount": 308,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 3,
+  "fileBytes": 24260,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    0.95,
+    1.98,
+    0.864
+  ],
+  "boundsMeters": {
+    "min": [
+      -0.475,
+      0.0,
+      -0.4
+    ],
+    "max": [
+      0.475,
+      1.98,
+      0.464
+    ]
+  },
+  "highestSurfaceY": 1.9800000190734863,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Prop_Rural_Mailbox_001",
+    "title": "立柱郵箱",
+    "category": "08_Props",
+    "group": "Street_Props",
+    "kind": "mailbox",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.02
+  },
+  "anchors": null,
+  "door": null,
+  "water": null,
+  "road": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_RU_ground"
+    },
+    "masonry": {
+      "material": "MAT_RU_masonry"
+    },
+    "wood": {
+      "material": "MAT_RU_wood"
+    },
+    "detail": {
+      "material": "MAT_RU_detail"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可供地表、井水及門洞射線取樣；未綁定物理引擎。農舍門可由遊戲端指定角度，其餘水面、衣物與郵箱為靜態造型。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "立柱郵箱包含木柱、圓頂箱體、紅色投遞旗與信封浮飾。；正面朝+Z；箱門與旗為靜態造型，未內建互動或郵件玩法。；底部原點，宜放在巷道外側的草地上。"
+}

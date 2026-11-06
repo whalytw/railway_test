@@ -1,0 +1,167 @@
+{
+  "id": "Environment_Volcano_LavaChannel8m_001",
+  "name": "熔岩河道・8m",
+  "category": "07_Environment",
+  "subcategory": "Volcano/Lavaforms",
+  "tags": [
+    "volcano",
+    "lava",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "channel"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Volcano_Kit_001/source/Volcano_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Volcano/_Shared/Volcano_Kit_001/source/Volcano_Kit_001.blend",
+  "sourceCollection": "VC_03_LavaChannel8m",
+  "gameFile": "exports/Environment_Volcano_LavaChannel8m_001.glb",
+  "volcanoFile": "exports/Environment_Volcano_LavaChannel8m_001.volcano.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "steamStaticGeometry": false
+  },
+  "polycount": 954,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 68088,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    5.2,
+    1.04,
+    8.0
+  ],
+  "boundsMeters": {
+    "min": [
+      -2.6,
+      -0.7,
+      0.0
+    ],
+    "max": [
+      2.6,
+      0.34,
+      8.0
+    ]
+  },
+  "highestSurfaceY": 0.34,
+  "originType": "datum",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "entry centre at surrounding ground datum"
+  },
+  "parameters": {
+    "id": "Environment_Volcano_LavaChannel8m_001",
+    "title": "熔岩河道・8m",
+    "category": "07_Environment",
+    "group": "Lavaforms",
+    "kind": "channel",
+    "originType": "datum"
+  },
+  "ports": [
+    {
+      "id": "Start",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "End",
+      "position": [
+        0,
+        0,
+        8
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "portFamily": "lava_channel",
+  "compatibleTracks": [],
+  "placement": null,
+  "lava": {
+    "surfaceY": -0.12,
+    "opaque": true,
+    "visualOnly": true,
+    "samplePoints": [
+      [
+        0,
+        -0.12,
+        0
+      ],
+      [
+        0,
+        -0.12,
+        8
+      ]
+    ]
+  },
+  "effects": null,
+  "materialRoles": {
+    "rock": {
+      "material": "MAT_VC_rock"
+    },
+    "lava": {
+      "material": "MAT_VC_lava"
+    },
+    "obsidian": {
+      "material": "MAT_VC_obsidian"
+    },
+    "steam": {
+      "material": "MAT_VC_steam"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可見網格可供射線取樣；未綁定物理引擎。熔岩是靜態美術模型，沒有內建傷害、流動、噴發或破壞規則。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "8m長的熔岩河道，包含高低不規則玄武岩岸、實體熔岩與冷卻岩殼。；入口與出口截面相同，可End接Start同向延長；此接點屬熔岩河道，不是鐵軌接點。；周圍地面Y=0，端點熔岩面Y=-0.12m。沿岸是景觀，不預設能行車或通行。"
+}

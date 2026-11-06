@@ -1,0 +1,110 @@
+{
+  "id": "Environment_Hills_DistantRidge48m_001",
+  "name": "遠景群山・48m",
+  "category": "07_Environment",
+  "subcategory": "Hills/Backgrounds",
+  "tags": [
+    "hills",
+    "cartoon",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "background"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-05",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Hills_Kit_001/source/Hills_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Hills/_Shared/Hills_Kit_001/source/Hills_Kit_001.blend",
+  "sourceCollection": "HL_08_DistantRidge48m",
+  "gameFile": "exports/Environment_Hills_DistantRidge48m_001.glb",
+  "hillsFile": "exports/Environment_Hills_DistantRidge48m_001.hills.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "optionalGrassWind": false,
+    "bakedAnimationClips": false
+  },
+  "polycount": 628,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 1,
+  "fileBytes": 20492,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    48.0,
+    11.61579,
+    18.0
+  ],
+  "boundsMeters": {
+    "min": [
+      -24.0,
+      -0.9,
+      -9.0
+    ],
+    "max": [
+      24.0,
+      10.7157898,
+      9.0
+    ]
+  },
+  "highestSurfaceY": 10.715789794921875,
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "centre at surrounding ground datum"
+  },
+  "parameters": {
+    "id": "Environment_Hills_DistantRidge48m_001",
+    "title": "遠景群山・48m",
+    "category": "07_Environment",
+    "group": "Backgrounds",
+    "kind": "background",
+    "width": 48,
+    "length": 18,
+    "step": 2,
+    "base": -0.9
+  },
+  "ports": [],
+  "compatibleTracks": [],
+  "placement": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_HL_ground"
+    },
+    "rock": {
+      "material": "MAT_HL_rock"
+    },
+    "foliage": {
+      "material": "MAT_HL_foliage"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "提供可射線取樣的封閉表面；未綁定物理引擎。高度表是基礎地形參考，嵌入裸岩需以實際可見網格取樣。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "48×18m低面數立體遠山，具多座山峰與偏冷、較低對比的自然色。；適合作遠景輪廓，不需要高解析貼圖。；依鏡頭與霧色配置遠距離；近景行車請使用其他地形。"
+}

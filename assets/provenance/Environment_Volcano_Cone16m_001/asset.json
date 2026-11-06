@@ -1,0 +1,131 @@
+{
+  "id": "Environment_Volcano_Cone16m_001",
+  "name": "熔岩火山錐・約16m",
+  "category": "07_Environment",
+  "subcategory": "Volcano/Landforms",
+  "tags": [
+    "volcano",
+    "lava",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "cone"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Volcano_Kit_001/source/Volcano_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Volcano/_Shared/Volcano_Kit_001/source/Volcano_Kit_001.blend",
+  "sourceCollection": "VC_01_VolcanoCone16m",
+  "gameFile": "exports/Environment_Volcano_Cone16m_001.glb",
+  "volcanoFile": "exports/Environment_Volcano_Cone16m_001.volcano.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "steamStaticGeometry": false
+  },
+  "polycount": 1692,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 158688,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    16.521915,
+    7.398286,
+    16.324876
+  ],
+  "boundsMeters": {
+    "min": [
+      -8.1615427,
+      -0.65,
+      -7.8521641
+    ],
+    "max": [
+      8.3603724,
+      6.7482863,
+      8.4727115
+    ]
+  },
+  "highestSurfaceY": 6.748286293194098,
+  "originType": "datum",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "centre at surrounding ground datum"
+  },
+  "parameters": {
+    "id": "Environment_Volcano_Cone16m_001",
+    "title": "熔岩火山錐・約16m",
+    "category": "07_Environment",
+    "group": "Landforms",
+    "kind": "cone",
+    "originType": "datum"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": null,
+  "lava": {
+    "surfaceY": 4.46,
+    "opaque": true,
+    "visualOnly": true,
+    "samplePoints": [
+      [
+        0,
+        4.46,
+        0
+      ],
+      [
+        0.5,
+        4.46,
+        0.3
+      ]
+    ]
+  },
+  "effects": null,
+  "materialRoles": {
+    "rock": {
+      "material": "MAT_VC_rock"
+    },
+    "lava": {
+      "material": "MAT_VC_lava"
+    },
+    "obsidian": {
+      "material": "MAT_VC_obsidian"
+    },
+    "steam": {
+      "material": "MAT_VC_steam"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可見網格可供射線取樣；未綁定物理引擎。熔岩是靜態美術模型，沒有內建傷害、流動、噴發或破壞規則。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "約16m寬的卡通火山錐，包含多層不規則山坡、立體火山口、內壁與底部熔岩。；狹窄發光熔岩脈沿真實山體表面半嵌，保留不規則轉折與長短差異；不是噴發模擬。；以周圍地面Y=0為基準，底部土層為負Y；適合鐵道旁的主景，軌道不穿越山體。"
+}

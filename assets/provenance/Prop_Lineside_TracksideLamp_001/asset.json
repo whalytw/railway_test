@@ -1,0 +1,116 @@
+{
+  "id": "Prop_Lineside_TracksideLamp_001",
+  "name": "沿線暖光路燈",
+  "category": "08_Props",
+  "subcategory": "Railway_Lineside/Lighting",
+  "tags": [
+    "railway",
+    "lineside",
+    "cartoon",
+    "modular",
+    "threejs",
+    "lamp"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-04",
+  "source": "self_created_from_user_style_references",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_provided_reference",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Lineside_Kit_001/source/Lineside_Kit_001.blend",
+  "sourceLibraryPath": "08_Props/Railway_Lineside/_Shared/Lineside_Kit_001/source/Lineside_Kit_001.blend",
+  "sourceCollection": "LS_01_TracksideLamp",
+  "gameFile": "exports/Prop_Lineside_TracksideLamp_001.glb",
+  "linesideFile": "exports/Prop_Lineside_TracksideLamp_001.lineside.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/active.png"
+  ],
+  "animations": [],
+  "programmaticInteractions": [
+    {
+      "kind": "lamp",
+      "role": "lamp_glow",
+      "defaultOn": true,
+      "defaultStrength": 2.4
+    }
+  ],
+  "polycount": 2256,
+  "polycountUnit": "triangles",
+  "materialCount": 2,
+  "meshNodeCount": 2,
+  "textureResolution": "1024x1024",
+  "embeddedImageCount": 2,
+  "fileBytes": 802264,
+  "sha256": "8245afcf02235f41708f1e5013aa581c8434e17c889c631deb48ac849ef57949",
+  "dimensionsMetersXYZ": [
+    1.25,
+    3.872988,
+    0.56
+  ],
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "post footing centre at ground"
+  },
+  "parameters": {
+    "title": "沿線暖光路燈",
+    "category": "08_Props",
+    "group": "Lighting",
+    "kind": "lamp",
+    "origin": "post footing centre at ground"
+  },
+  "ports": [],
+  "details": {
+    "light": {
+      "position": [
+        0.67,
+        3.23,
+        0
+      ],
+      "color": "#ffe3ae",
+      "intensity": 30,
+      "distance": 8,
+      "decay": 2,
+      "optional": true
+    },
+    "placement": {
+      "recommendedTrackOffsetX": -2.8,
+      "armDirection": "+X"
+    }
+  },
+  "boundsMeters": {
+    "min": [
+      -0.30000001192092896,
+      0.0,
+      -0.2800000011920929
+    ],
+    "max": [
+      0.949999988079071,
+      3.872988224029541,
+      0.2800000011920929
+    ]
+  },
+  "collision": {
+    "provided": false,
+    "note": "遊戲端建立簡化碰撞、角色通行、互動與獨立碰撞；保留排水溝、電纜槽及格柵的實際開口。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "threejsOffline": "passed",
+    "threeRevision": "180",
+    "browserRendering": "not_run_automation_environment_unavailable"
+  },
+  "notes": "木構青湖金屬路燈，燈臂朝+X，暖色發光面為獨立材質、預設開啟。GLB不含燈光；可在Three.js另加低成本PointLight。示範放軌道左側X=-2.8m。"
+}

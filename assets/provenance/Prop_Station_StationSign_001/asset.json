@@ -1,0 +1,77 @@
+{
+  "id": "Prop_Station_StationSign_001",
+  "name": "青湖站名牌",
+  "category": "08_Props",
+  "subcategory": "Railway_Stations/Information",
+  "tags": [
+    "railway",
+    "station",
+    "cartoon",
+    "modular",
+    "threejs",
+    "station_sign"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-03",
+  "source": "self_created_from_user_style_references",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_provided_reference",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../06_Buildings/Railway_Stations/_Shared/Station_Facilities_Set_001/source/Station_Facilities_Set_001.blend",
+  "sourceLibraryPath": "06_Buildings/Railway_Stations/_Shared/Station_Facilities_Set_001/source/Station_Facilities_Set_001.blend",
+  "sourceCollection": "ST_08_StationSign",
+  "gameFile": "exports/Prop_Station_StationSign_001.glb",
+  "stationFile": "exports/Prop_Station_StationSign_001.station.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "polycount": 6952,
+  "polycountUnit": "triangles",
+  "materialCount": 1,
+  "meshNodeCount": 1,
+  "textureResolution": "1024x1024",
+  "fileBytes": 1125172,
+  "dimensionsMetersXYZ": [
+    2.58,
+    2.525,
+    0.44
+  ],
+  "coordinates": {
+    "up": "+Y",
+    "front": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "title": "青湖站名牌",
+    "category": "08_Props",
+    "group": "Information",
+    "kind": "station_sign",
+    "mount": "deck",
+    "origin": "ground centre"
+  },
+  "mountSurface": "deck",
+  "ports": [],
+  "interactions": [],
+  "collision": {
+    "provided": false,
+    "note": "依遊戲引擎建立簡化地板、柱體及牆體碰撞；站房入口須保留可通行空間。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "threejsRuntime": "passed",
+    "threeRevision": "180"
+  },
+  "notes": "沿用金橡木、青湖深色金屬、象牙白和銅色鉚釘。可動部件保留實際鉸點，文字已轉網格；同名station.json記錄月台接點、掛載高度與互動。"
+}

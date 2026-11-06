@@ -1,0 +1,116 @@
+{
+  "id": "Prop_Desert_SandstoneCluster_001",
+  "name": "層理砂岩石組",
+  "category": "08_Props",
+  "subcategory": "Desert/Rocks",
+  "tags": [
+    "desert",
+    "sand",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "boulders"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Desert/_Shared/Desert_Kit_001/source/Desert_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Desert/_Shared/Desert_Kit_001/source/Desert_Kit_001.blend",
+  "sourceCollection": "DS_05_SandstoneBoulders",
+  "gameFile": "exports/Prop_Desert_SandstoneCluster_001.glb",
+  "desertFile": "exports/Prop_Desert_SandstoneCluster_001.desert.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false
+  },
+  "polycount": 660,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 1,
+  "fileBytes": 64212,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    3.169379,
+    1.691211,
+    2.265481
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.4066389,
+      0.0,
+      -1.2555343
+    ],
+    "max": [
+      1.7627403,
+      1.6912107,
+      1.0099463
+    ]
+  },
+  "highestSurfaceY": 1.6912107467651367,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Prop_Desert_SandstoneCluster_001",
+    "title": "層理砂岩石組",
+    "category": "08_Props",
+    "group": "Rocks",
+    "kind": "boulders",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.05
+  },
+  "water": null,
+  "clearance": null,
+  "materialRoles": {
+    "sand": {
+      "material": "MAT_DS_sand"
+    },
+    "rock": {
+      "material": "MAT_DS_rock"
+    },
+    "plant": {
+      "material": "MAT_DS_plant"
+    },
+    "water": {
+      "material": "MAT_DS_water"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "實際網格可供地表與拱門射線取樣；未綁定物理引擎。水面、植物及風滾草為靜態美術幾何。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "三塊不同尺度的風化砂岩，保留立體層狀退縮、磨蝕邊緣與深淺岩帶。；以底部為原點，優先放平地並微量埋入；不在陡坡水平擺放。"
+}

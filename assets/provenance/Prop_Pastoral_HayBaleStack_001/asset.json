@@ -1,0 +1,118 @@
+{
+  "id": "Prop_Pastoral_HayBaleStack_001",
+  "name": "綑繩乾草捆組",
+  "category": "08_Props",
+  "subcategory": "Pastoral/Farm_Props",
+  "tags": [
+    "pastoral",
+    "farm",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "hay"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Pastoral/_Shared/Pastoral_Kit_001/source/Pastoral_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Pastoral/_Shared/Pastoral_Kit_001/source/Pastoral_Kit_001.blend",
+  "sourceCollection": "PA_07_HayBales",
+  "gameFile": "exports/Prop_Pastoral_HayBaleStack_001.glb",
+  "pastoralFile": "exports/Prop_Pastoral_HayBaleStack_001.pastoral.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "optionalRotor": false
+  },
+  "polycount": 468,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 1,
+  "fileBytes": 34040,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    2.07,
+    1.311,
+    0.763
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.035,
+      0.0,
+      -0.3615
+    ],
+    "max": [
+      1.035,
+      1.311,
+      0.4015
+    ]
+  },
+  "highestSurfaceY": 1.3109999895095825,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Prop_Pastoral_HayBaleStack_001",
+    "title": "綑繩乾草捆組",
+    "category": "08_Props",
+    "group": "Farm_Props",
+    "kind": "hay",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.03
+  },
+  "planting": null,
+  "fence": null,
+  "rotor": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_PA_ground"
+    },
+    "foliage": {
+      "material": "MAT_PA_foliage"
+    },
+    "detail": {
+      "material": "MAT_PA_detail"
+    },
+    "metal": {
+      "material": "MAT_PA_metal"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "實際網格可供地表射線取樣；未綁定物理引擎。作物、果實及水面為靜態美術幾何，轉子可由遊戲端更新角度。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "三捆不同位置的方形乾草，保留磨圓邊角、深淺草色與環繞綑繩。；兩捆落地、一捆堆疊；整組以底部為原點，優先放平地。"
+}

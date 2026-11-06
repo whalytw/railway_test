@@ -1,0 +1,67 @@
+{
+  "id": "Environment_Rail_RailSection_1m_001",
+  "name": "鋼軌截面母件・1m",
+  "category": "07_Environment",
+  "tags": [
+    "railway",
+    "cartoon",
+    "stylized",
+    "modular",
+    "threejs",
+    "element"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-03",
+  "source": "self_created_from_user_references",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_provided_reference",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../_Shared/Environment_Railway_Cartoon_Kit_001/source/Railway_Cartoon_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/_Shared/Environment_Railway_Cartoon_Kit_001/source/Railway_Cartoon_Kit_001.blend",
+  "sourceCollection": "01_RailSection_1m",
+  "gameFile": "exports/Environment_Rail_RailSection_1m_001.glb",
+  "pathFile": "exports/Environment_Rail_RailSection_1m_001.track.json",
+  "preview": "previews/thumbnail.png",
+  "animations": [],
+  "polycount": 764,
+  "polycountUnit": "triangles",
+  "textureResolution": "1024x1024",
+  "materialCount": 1,
+  "meshNodeCount": 1,
+  "fileBytes": 581324,
+  "dimensionsMetersXYZ": [
+    0.21,
+    0.2,
+    1.0
+  ],
+  "parameters": {
+    "title": "鋼軌截面母件・1m",
+    "kind": "element",
+    "part": "rail"
+  },
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "module entry centre at local ground level"
+  },
+  "track": {
+    "railCenterSpacingMeters": 1.777,
+    "trackGaugeInnerMeters": 1.6729999999999998,
+    "railHeadWidthMeters": 0.104,
+    "railTopMeters": 0.405,
+    "routes": [],
+    "ports": [],
+    "defaultRoute": null,
+    "terminal": false,
+    "terminalCartCenterClearanceMeters": 0
+  },
+  "notes": "以四張使用者多角度圖作美術依據，按現有礦車踏面配軌。單一圖集材質，PNG 已內嵌；path JSON 與可見鋼軌共用取樣。道岔尖軌為獨立視覺件，實際行車由程式選擇 route。"
+}

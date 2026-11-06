@@ -1,0 +1,100 @@
+{
+  "id": "Plant_Forest_FernCluster_001",
+  "name": "森林蕨叢",
+  "category": "04_Plants",
+  "subcategory": "Forest/Groundcover",
+  "tags": [
+    "forest",
+    "cartoon",
+    "stylized",
+    "threejs",
+    "low-poly",
+    "fern"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-05",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Forest_Kit_001/source/Forest_Kit_001.blend",
+  "sourceLibraryPath": "04_Plants/Forest/_Shared/Forest_Kit_001/source/Forest_Kit_001.blend",
+  "sourceCollection": "FR_05_FernCluster",
+  "gameFile": "exports/Plant_Forest_FernCluster_001.glb",
+  "forestFile": "exports/Plant_Forest_FernCluster_001.forest.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "optional": "Three.js foliage wind shader",
+    "providedAsExample": true,
+    "bakedAnimationClips": false
+  },
+  "polycount": 2976,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 1,
+  "fileBytes": 199476,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    1.952338,
+    0.556588,
+    1.601995
+  ],
+  "boundsMeters": {
+    "min": [
+      -0.9888599514961243,
+      0.0,
+      -0.8464320302009583
+    ],
+    "max": [
+      0.9634777307510376,
+      0.5565883815288544,
+      0.7555630207061768
+    ]
+  },
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "placement": {
+    "groundAnchor": [
+      0,
+      0,
+      0
+    ],
+    "uniformScaleRecommended": true,
+    "baseAtGround": true,
+    "slopeNote": "以實際地表高度安放；大樹、樹樁及倒木優先放平坦平台，不將整棵樹傾斜貼坡。"
+  },
+  "suggestedMinRailCenterOffsetMeters": 3.42673093837178,
+  "footprintRadiusMeters": 1.02673093837178,
+  "collision": {
+    "provided": false,
+    "suggestedTrunkRadiusMeters": null,
+    "note": "視覺素材；沒有預設遊戲碰撞或可破壞行為。大樹可另用簡化樹幹圓柱，灌木、蕨叢與蕈菇可作純裝飾。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "groundOrigin": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "forestDemoClearance": "passed"
+  },
+  "notes": "九條弧形羽狀葉軸，每條帶成對立體小葉；中央另有三條捲曲嫩芽。；小葉是帶薄厚度的封閉網格，不依賴雙面透明材質。；適合近景地被；不建議沿每公尺密集擺放大量重複母件。"
+}

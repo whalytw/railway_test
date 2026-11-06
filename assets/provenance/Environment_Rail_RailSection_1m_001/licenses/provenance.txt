@@ -1,0 +1,4 @@
+資產：Environment_Rail_RailSection_1m_001 / 鋼軌截面母件・1m
+2026-11-03 使用 Blender MCP / bpy 製作，幾何及圖集皆為本次生成，未下載第三方模型或貼圖。
+美術參考為使用者提供的四張鐵軌圖，見 references 指引。未另將參考圖宣告為 CC0，相關公開交付與商用權利未經查證，因此 metadata 保留 null。
+僅存入使用者的 GameAssets，未公開上傳或發布。

@@ -1,0 +1,132 @@
+{
+  "id": "Building_Pastoral_WindPump_001",
+  "name": "風車灌溉塔",
+  "category": "06_Buildings",
+  "subcategory": "Pastoral/Farm_Utilities",
+  "tags": [
+    "pastoral",
+    "farm",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "windpump"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Pastoral/_Shared/Pastoral_Kit_001/source/Pastoral_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Pastoral/_Shared/Pastoral_Kit_001/source/Pastoral_Kit_001.blend",
+  "sourceCollection": "PA_08_WindPump",
+  "gameFile": "exports/Building_Pastoral_WindPump_001.glb",
+  "pastoralFile": "exports/Building_Pastoral_WindPump_001.pastoral.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "optionalRotor": true
+  },
+  "polycount": 1724,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 2,
+  "materialCount": 3,
+  "fileBytes": 121760,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    3.763918,
+    5.736418,
+    1.9025
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.1164179,
+      0.0,
+      -1.1224999
+    ],
+    "max": [
+      2.6475,
+      5.7364178,
+      0.78
+    ]
+  },
+  "highestSurfaceY": 5.736417770385742,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Building_Pastoral_WindPump_001",
+    "title": "風車灌溉塔",
+    "category": "06_Buildings",
+    "group": "Farm_Utilities",
+    "kind": "windpump",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.03
+  },
+  "planting": null,
+  "fence": null,
+  "rotor": {
+    "pivotRole": "pastoral_rotor_pivot",
+    "localAxis": [
+      0,
+      0,
+      1
+    ],
+    "position": [
+      0,
+      4.62,
+      0.58
+    ],
+    "defaultAngleRadians": 0
+  },
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_PA_ground"
+    },
+    "foliage": {
+      "material": "MAT_PA_foliage"
+    },
+    "detail": {
+      "material": "MAT_PA_detail"
+    },
+    "metal": {
+      "material": "MAT_PA_metal"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "實際網格可供地表射線取樣；未綁定物理引擎。作物、果實及水面為靜態美術幾何，轉子可由遊戲端更新角度。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "小型風車灌溉塔，包含支架、交叉拉桿、葉輪、尾舵、抽水管及水槽。；葉輪有獨立RotorPivot空節點，GLB局部旋轉軸為+Z，可由Three.js更新角度。；水槽水面與抽水管為靜態美術幾何，未內建水流、作物生長或灌溉玩法。"
+}

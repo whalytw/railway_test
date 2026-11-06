@@ -1,0 +1,111 @@
+{
+  "id": "Prop_Hills_BoulderCluster_001",
+  "name": "丘陵裸岩巨石組",
+  "category": "08_Props",
+  "subcategory": "Hills/Rocks",
+  "tags": [
+    "hills",
+    "cartoon",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "boulders"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-05",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Hills/_Shared/Hills_Kit_001/source/Hills_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Hills/_Shared/Hills_Kit_001/source/Hills_Kit_001.blend",
+  "sourceCollection": "HL_05_BoulderCluster",
+  "gameFile": "exports/Prop_Hills_BoulderCluster_001.glb",
+  "hillsFile": "exports/Prop_Hills_BoulderCluster_001.hills.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "optionalGrassWind": false,
+    "bakedAnimationClips": false
+  },
+  "polycount": 348,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 1,
+  "fileBytes": 35908,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    3.93661,
+    2.401574,
+    2.544184
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.8457986,
+      0.0,
+      -1.3939416
+    ],
+    "max": [
+      2.090811,
+      2.4015741,
+      1.1502424
+    ]
+  },
+  "highestSurfaceY": 2.40157413482666,
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "base centre"
+  },
+  "parameters": {
+    "id": "Prop_Hills_BoulderCluster_001",
+    "title": "丘陵裸岩巨石組",
+    "category": "08_Props",
+    "group": "Rocks",
+    "kind": "boulders"
+  },
+  "ports": [],
+  "compatibleTracks": [],
+  "placement": {
+    "alignToGroundNormal": false,
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.06
+  },
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_HL_ground"
+    },
+    "rock": {
+      "material": "MAT_HL_rock"
+    },
+    "foliage": {
+      "material": "MAT_HL_foliage"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "提供可射線取樣的封閉表面；未綁定物理引擎。高度表是基礎地形參考，嵌入裸岩需以實際可見網格取樣。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "一塊主巨石及兩塊伴生岩，具有切面、鈍化稜角與不同色階。；以底部為原點，優先置於平地並埋入約0.06m。；獨立沿線道具，不自動視為碰撞、障礙或可破壞物件。"
+}

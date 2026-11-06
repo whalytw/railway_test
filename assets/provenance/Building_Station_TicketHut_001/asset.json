@@ -1,0 +1,91 @@
+{
+  "id": "Building_Station_TicketHut_001",
+  "name": "青湖售票小站",
+  "category": "06_Buildings",
+  "subcategory": "Railway_Stations/Structures",
+  "tags": [
+    "railway",
+    "station",
+    "cartoon",
+    "modular",
+    "threejs",
+    "hut"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-03",
+  "source": "self_created_from_user_style_references",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_provided_reference",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Station_Facilities_Set_001/source/Station_Facilities_Set_001.blend",
+  "sourceLibraryPath": "06_Buildings/Railway_Stations/_Shared/Station_Facilities_Set_001/source/Station_Facilities_Set_001.blend",
+  "sourceCollection": "ST_06_TicketHut",
+  "gameFile": "exports/Building_Station_TicketHut_001.glb",
+  "stationFile": "exports/Building_Station_TicketHut_001.station.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/active.png"
+  ],
+  "animations": [],
+  "polycount": 21216,
+  "polycountUnit": "triangles",
+  "materialCount": 1,
+  "meshNodeCount": 2,
+  "textureResolution": "1024x1024",
+  "fileBytes": 2030824,
+  "dimensionsMetersXYZ": [
+    3.915,
+    3.454,
+    3.6578
+  ],
+  "coordinates": {
+    "up": "+Y",
+    "front": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "title": "青湖售票小站",
+    "category": "06_Buildings",
+    "group": "Structures",
+    "kind": "hut",
+    "mount": "ground",
+    "origin": "ground centre"
+  },
+  "mountSurface": "ground",
+  "ports": [],
+  "interactions": [
+    {
+      "kind": "hut_door",
+      "node": "TicketHut_Door",
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "closed": 0,
+      "open": -1.75,
+      "default": 0
+    }
+  ],
+  "collision": {
+    "provided": false,
+    "note": "依遊戲引擎建立簡化地板、柱體及牆體碰撞；站房入口須保留可通行空間。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "threejsRuntime": "passed",
+    "threeRevision": "180"
+  },
+  "notes": "沿用金橡木、青湖深色金屬、象牙白和銅色鉚釘。可動部件保留實際鉸點，文字已轉網格；同名station.json記錄月台接點、掛載高度與互動。"
+}

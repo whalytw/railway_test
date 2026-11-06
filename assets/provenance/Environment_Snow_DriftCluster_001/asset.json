@@ -1,0 +1,113 @@
+{
+  "id": "Environment_Snow_DriftCluster_001",
+  "name": "風吹雪堆組",
+  "category": "07_Environment",
+  "subcategory": "Snow/Snowforms",
+  "tags": [
+    "snow",
+    "winter",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "drift"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Snow_Kit_001/source/Snow_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Snow/_Shared/Snow_Kit_001/source/Snow_Kit_001.blend",
+  "sourceCollection": "SN_02_SnowDrift",
+  "gameFile": "exports/Environment_Snow_DriftCluster_001.glb",
+  "snowFile": "exports/Environment_Snow_DriftCluster_001.snow.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false
+  },
+  "polycount": 834,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 1,
+  "fileBytes": 28684,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    4.553141,
+    0.936,
+    2.742879
+  ],
+  "boundsMeters": {
+    "min": [
+      -2.4380348,
+      0.0,
+      -1.2328513
+    ],
+    "max": [
+      2.1151061,
+      0.936,
+      1.5100274
+    ]
+  },
+  "highestSurfaceY": 0.9359999895095825,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Environment_Snow_DriftCluster_001",
+    "title": "風吹雪堆組",
+    "category": "07_Environment",
+    "group": "Snowforms",
+    "kind": "drift",
+    "originType": "ground"
+  },
+  "ports": [],
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.03
+  },
+  "mount": null,
+  "snow": null,
+  "ice": null,
+  "materialRoles": {
+    "snow": {
+      "material": "MAT_SN_snow"
+    },
+    "ice": {
+      "material": "MAT_SN_ice"
+    },
+    "detail": {
+      "material": "MAT_SN_detail"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可見網格可供射線取樣；未綁定物理引擎。冰池是靜態美術模型，沒有內建滑行、破冰或落水規則。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "三組有厚度的風吹雪堆，帶低矮波峰、微量不規則輪廓與冷色陰影。；以底部原點放到平坦雪地並微量埋入；不是帶地板的整塊場景。"
+}

@@ -1,0 +1,159 @@
+{
+  "id": "Prop_Lakeside_WoodenPier6m_001",
+  "name": "木棧碼頭・6m",
+  "category": "08_Props",
+  "subcategory": "Lakeside/Piers",
+  "tags": [
+    "lakeside",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "pier"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Lakeside/_Shared/Lakeside_Kit_001/source/Lakeside_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Lakeside/_Shared/Lakeside_Kit_001/source/Lakeside_Kit_001.blend",
+  "sourceCollection": "LK_04_WoodenPier6m",
+  "gameFile": "exports/Prop_Lakeside_WoodenPier6m_001.glb",
+  "lakesideFile": "exports/Prop_Lakeside_WoodenPier6m_001.lakeside.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "waterlinePlacement": false,
+    "physicalBuoyancy": false
+  },
+  "polycount": 1780,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 1,
+  "fileBytes": 130420,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    2.05,
+    1.68,
+    6.0
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.025,
+      -1.1,
+      0.0
+    ],
+    "max": [
+      1.025,
+      0.58,
+      6.0
+    ]
+  },
+  "highestSurfaceY": 0.5799999833106995,
+  "originType": "mount",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "shore mounting datum at pier entry"
+  },
+  "parameters": {
+    "id": "Prop_Lakeside_WoodenPier6m_001",
+    "title": "木棧碼頭・6m",
+    "category": "08_Props",
+    "group": "Piers",
+    "kind": "pier",
+    "originType": "mount"
+  },
+  "ports": [
+    {
+      "id": "Start",
+      "position": [
+        0,
+        0.14,
+        0
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "End",
+      "position": [
+        0,
+        0.14,
+        6
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "portFamily": "walking_pier",
+  "compatibleTracks": [],
+  "compatibleWaterTiles": null,
+  "placement": null,
+  "mount": {
+    "shoreY": 0,
+    "deckTopY": 0.14,
+    "pileBottomY": -1.1,
+    "compatibleWaterY": -0.2
+  },
+  "waterline": null,
+  "water": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_LK_ground"
+    },
+    "water": {
+      "material": "MAT_LK_water"
+    },
+    "wood": {
+      "material": "MAT_LK_wood"
+    },
+    "foliage": {
+      "material": "MAT_LK_foliage"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可對實際網格分別取水面、湖床及甲板高度；未綁定物理引擎、船隻浮力或角色導航。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "6m木棧碼頭，含獨立木板、橫樑、木樁、繫繩與局部扶手。；原點是岸上掛載基準Y=0，甲板頂Y=0.14m，木樁伸到Y=-1.10m；不是底部原點。；由岸邊向局部+Z伸入水面；在本套岸線上可旋轉90度，朝+X延伸。"
+}

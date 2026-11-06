@@ -1,0 +1,100 @@
+{
+  "id": "Prop_Forest_TreeStump_001",
+  "name": "年輪苔蘚樹樁",
+  "category": "08_Props",
+  "subcategory": "Forest/Natural_Debris",
+  "tags": [
+    "forest",
+    "cartoon",
+    "stylized",
+    "threejs",
+    "low-poly",
+    "stump"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-05",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../04_Plants/Forest/_Shared/Forest_Kit_001/source/Forest_Kit_001.blend",
+  "sourceLibraryPath": "04_Plants/Forest/_Shared/Forest_Kit_001/source/Forest_Kit_001.blend",
+  "sourceCollection": "FR_07_TreeStump",
+  "gameFile": "exports/Prop_Forest_TreeStump_001.glb",
+  "forestFile": "exports/Prop_Forest_TreeStump_001.forest.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "optional": "Three.js foliage wind shader",
+    "providedAsExample": true,
+    "bakedAnimationClips": false
+  },
+  "polycount": 1338,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 87112,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    1.690751,
+    0.95174,
+    1.461826
+  ],
+  "boundsMeters": {
+    "min": [
+      -0.8312495946884155,
+      0.0,
+      -0.7026393413543701
+    ],
+    "max": [
+      0.8595014810562134,
+      0.9517397936433554,
+      0.7591865658760071
+    ]
+  },
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "placement": {
+    "groundAnchor": [
+      0,
+      0,
+      0
+    ],
+    "uniformScaleRecommended": true,
+    "baseAtGround": true,
+    "slopeNote": "以實際地表高度安放；大樹、樹樁及倒木優先放平坦平台，不將整棵樹傾斜貼坡。"
+  },
+  "suggestedMinRailCenterOffsetMeters": 3.3047512629994107,
+  "footprintRadiusMeters": 0.9047512629994109,
+  "collision": {
+    "provided": false,
+    "suggestedTrunkRadiusMeters": null,
+    "note": "視覺素材；沒有預設遊戲碰撞或可破壞行為。大樹可另用簡化樹幹圓柱，灌木、蕨叢與蕈菇可作純裝飾。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "groundOrigin": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "forestDemoClearance": "passed"
+  },
+  "notes": "根部、樹皮、切面年輪、切面裂紋、側枝殘根及苔蘚均使用立體幾何。；不含底座地形；以底部原點放在平坦地面。"
+}

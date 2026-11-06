@@ -1,0 +1,6 @@
+2026-11-04。Blender MCP / bpy建立的原創幾何與程序圖集，未下載第三方模型或貼圖。
+參考使用者先前提供的三張礦車圖，美術參考圖權利尚未查證，不宣告CC0。
+本機Microsoft JhengHei文字已轉網格；Blender預覽使用本機字型。
+示範引用既有礦車與鐵軌；railway.js與loadMinecart.js為既有自建helper。Three.js授權另見共用validation/offline/THREE_LICENSE.txt。
+共用原檔（相對本模型資料夾）：../../_Shared/Lineside_Kit_001/source/Lineside_Kit_001.blend
+Collection：LS_01_TracksideLamp

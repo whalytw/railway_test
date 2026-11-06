@@ -1,0 +1,146 @@
+{
+  "id": "Prop_Rural_RoofedWell_001",
+  "name": "棚頂石砌水井",
+  "category": "08_Props",
+  "subcategory": "Rural/Village_Utilities",
+  "tags": [
+    "rural",
+    "village",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "well"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Rural/_Shared/Rural_Kit_001/source/Rural_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Rural/_Shared/Rural_Kit_001/source/Rural_Kit_001.blend",
+  "sourceCollection": "RU_05_RoofedWell",
+  "gameFile": "exports/Prop_Rural_RoofedWell_001.glb",
+  "ruralFile": "exports/Prop_Rural_RoofedWell_001.rural.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "optionalDoor": false
+  },
+  "polycount": 1456,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 3,
+  "fileBytes": 97788,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    2.69,
+    2.76,
+    2.0
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.26,
+      0.0,
+      -1.0
+    ],
+    "max": [
+      1.4299999,
+      2.76,
+      1.0
+    ]
+  },
+  "highestSurfaceY": 2.759999990463257,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Prop_Rural_RoofedWell_001",
+    "title": "棚頂石砌水井",
+    "category": "08_Props",
+    "group": "Village_Utilities",
+    "kind": "well",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.02
+  },
+  "anchors": null,
+  "door": null,
+  "water": {
+    "surfaceY": 0.18,
+    "rayStartY": 0.75,
+    "visualOnly": true,
+    "samplePoints": [
+      [
+        0.34,
+        0.18,
+        0
+      ],
+      [
+        -0.34,
+        0.18,
+        0
+      ],
+      [
+        0,
+        0.18,
+        0.34
+      ],
+      [
+        0,
+        0.18,
+        -0.34
+      ]
+    ]
+  },
+  "road": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_RU_ground"
+    },
+    "masonry": {
+      "material": "MAT_RU_masonry"
+    },
+    "wood": {
+      "material": "MAT_RU_wood"
+    },
+    "detail": {
+      "material": "MAT_RU_detail"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可供地表、井水及門洞射線取樣；未綁定物理引擎。農舍門可由遊戲端指定角度，其餘水面、衣物與郵箱為靜態造型。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "石砌水井有真正井口、井壁、水面、棚頂、木支架、捲軸、吊繩與水桶。；井口中空，水面與懸掛水桶為靜態幾何，未內建取水或繩索模擬。；底部原點，放平地並保留棚頂外形的離軌距離。"
+}

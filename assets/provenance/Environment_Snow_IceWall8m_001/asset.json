@@ -1,0 +1,114 @@
+{
+  "id": "Environment_Snow_IceWall8m_001",
+  "name": "冰川斷壁・約8m",
+  "category": "07_Environment",
+  "subcategory": "Snow/Iceforms",
+  "tags": [
+    "snow",
+    "winter",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "icewall"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Snow_Kit_001/source/Snow_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Snow/_Shared/Snow_Kit_001/source/Snow_Kit_001.blend",
+  "sourceCollection": "SN_05_IceWall8m",
+  "gameFile": "exports/Environment_Snow_IceWall8m_001.glb",
+  "snowFile": "exports/Environment_Snow_IceWall8m_001.snow.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false
+  },
+  "polycount": 1218,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 70668,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    8.131733,
+    4.767754,
+    2.481329
+  ],
+  "boundsMeters": {
+    "min": [
+      -4.09825,
+      0.0,
+      -0.9028391
+    ],
+    "max": [
+      4.0334826,
+      4.7677544,
+      1.5784897
+    ]
+  },
+  "highestSurfaceY": 4.767754377042205,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Environment_Snow_IceWall8m_001",
+    "title": "冰川斷壁・約8m",
+    "category": "07_Environment",
+    "group": "Iceforms",
+    "kind": "icewall",
+    "originType": "ground"
+  },
+  "ports": [],
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.03
+  },
+  "mount": null,
+  "snow": null,
+  "ice": null,
+  "materialRoles": {
+    "snow": {
+      "material": "MAT_SN_snow"
+    },
+    "ice": {
+      "material": "MAT_SN_ice"
+    },
+    "detail": {
+      "material": "MAT_SN_detail"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可見網格可供射線取樣；未綁定物理引擎。冰池是靜態美術模型，沒有內建滑行、破冰或落水規則。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "六塊不同高度的冰川斷壁組成約8m寬冰牆，含雪頂、立體稜面與腳部積雪。；冰體採不透明藍冰材質，避免大量透明物件排序與折射成本。；此款從地面升起，以底部為原點；需保留完整包圍範圍與軌道、鏡頭的距離。"
+}

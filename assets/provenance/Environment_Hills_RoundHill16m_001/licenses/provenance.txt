@@ -1,0 +1,6 @@
+Asset: Environment_Hills_RoundHill16m_001
+Date: 2026-11-05
+Original procedural geometry created through Blender MCP for the user's GameAssets project.
+Third-party models/textures: none.
+Prior project models are read-only companions in the demo.
+Editable source and generation scripts included. No CC0 or standalone redistribution licence is added.

@@ -1,0 +1,156 @@
+{
+  "id": "Prop_Rural_StoneWall4m_001",
+  "name": "村落矮石牆・4m",
+  "category": "08_Props",
+  "subcategory": "Rural/Walls",
+  "tags": [
+    "rural",
+    "village",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "wall"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Rural/_Shared/Rural_Kit_001/source/Rural_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Rural/_Shared/Rural_Kit_001/source/Rural_Kit_001.blend",
+  "sourceCollection": "RU_06_StoneWall4m",
+  "gameFile": "exports/Prop_Rural_StoneWall4m_001.glb",
+  "ruralFile": "exports/Prop_Rural_StoneWall4m_001.rural.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "optionalDoor": false
+  },
+  "polycount": 1524,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 1,
+  "fileBytes": 103172,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    4.0,
+    1.01,
+    0.44
+  ],
+  "boundsMeters": {
+    "min": [
+      0.0,
+      0.0,
+      -0.22
+    ],
+    "max": [
+      4.0,
+      1.01,
+      0.22
+    ]
+  },
+  "highestSurfaceY": 1.01,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "entry ground edge at wall X=0"
+  },
+  "parameters": {
+    "id": "Prop_Rural_StoneWall4m_001",
+    "title": "村落矮石牆・4m",
+    "category": "08_Props",
+    "group": "Walls",
+    "kind": "wall",
+    "originType": "ground"
+  },
+  "ports": [
+    {
+      "id": "Start",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "forward": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "End",
+      "position": [
+        4,
+        0,
+        0
+      ],
+      "forward": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "portFamily": "stone_wall",
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.02
+  },
+  "anchors": null,
+  "door": null,
+  "water": null,
+  "road": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_RU_ground"
+    },
+    "masonry": {
+      "material": "MAT_RU_masonry"
+    },
+    "wood": {
+      "material": "MAT_RU_wood"
+    },
+    "detail": {
+      "material": "MAT_RU_detail"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可供地表、井水及門洞射線取樣；未綁定物理引擎。農舍門可由遊戲端指定角度，其餘水面、衣物與郵箱為靜態造型。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "4m低石牆含錯縫石塊、灰縫及頂部壓石，端面齊平。；原點在入口底邊X=0，沿+X延伸，Start=0、End=4m可銜接。；無需重疊柱體或額外轉180度；底部原點，優先放平地。"
+}

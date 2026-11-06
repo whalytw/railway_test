@@ -1,0 +1,183 @@
+{
+  "id": "Environment_Hills_RoundHill16m_001",
+  "name": "雙肩圓丘・16m",
+  "category": "07_Environment",
+  "subcategory": "Hills/Landforms",
+  "tags": [
+    "hills",
+    "cartoon",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "hill"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-05",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Hills_Kit_001/source/Hills_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Hills/_Shared/Hills_Kit_001/source/Hills_Kit_001.blend",
+  "sourceCollection": "HL_01_RoundHill16m",
+  "gameFile": "exports/Environment_Hills_RoundHill16m_001.glb",
+  "hillsFile": "exports/Environment_Hills_RoundHill16m_001.hills.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "optionalGrassWind": false,
+    "bakedAnimationClips": false
+  },
+  "polycount": 2662,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 88308,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    16.0,
+    4.193558,
+    16.0
+  ],
+  "boundsMeters": {
+    "min": [
+      -8.0,
+      -0.9,
+      -8.0
+    ],
+    "max": [
+      8.0,
+      3.2935578,
+      8.0
+    ]
+  },
+  "highestSurfaceY": 3.293557834625244,
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "centre at surrounding ground datum"
+  },
+  "parameters": {
+    "id": "Environment_Hills_RoundHill16m_001",
+    "title": "雙肩圓丘・16m",
+    "category": "07_Environment",
+    "group": "Landforms",
+    "kind": "hill",
+    "width": 16,
+    "length": 16,
+    "step": 0.5,
+    "base": -0.9
+  },
+  "ports": [
+    {
+      "id": "North",
+      "position": [
+        0,
+        0,
+        8.0
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "South",
+      "position": [
+        0,
+        0,
+        -8.0
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "East",
+      "position": [
+        8.0,
+        0,
+        0
+      ],
+      "forward": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "West",
+      "position": [
+        -8.0,
+        0,
+        0
+      ],
+      "forward": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "compatibleTracks": [],
+  "placement": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_HL_ground"
+    },
+    "rock": {
+      "material": "MAT_HL_rock"
+    },
+    "foliage": {
+      "material": "MAT_HL_foliage"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "提供可射線取樣的封閉表面；未綁定物理引擎。高度表是基礎地形參考，嵌入裸岩需以實際可見網格取樣。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "16×16m草地地塊，兩個相接的圓肩丘陵；邊界回到Y=0，可沿邊接平地。；山坡保留起伏與一處裸岩；地面高度以可見網格取樣。；鐵道可繞行丘腳；若要爬坡，另以既有坡道軌及其路基設計路線。"
+}

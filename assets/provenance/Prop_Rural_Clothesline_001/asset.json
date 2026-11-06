@@ -1,0 +1,120 @@
+{
+  "id": "Prop_Rural_Clothesline_001",
+  "name": "木架曬衣繩與衣物",
+  "category": "08_Props",
+  "subcategory": "Rural/Domestic_Props",
+  "tags": [
+    "rural",
+    "village",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "clothesline"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Rural/_Shared/Rural_Kit_001/source/Rural_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Rural/_Shared/Rural_Kit_001/source/Rural_Kit_001.blend",
+  "sourceCollection": "RU_08_Clothesline",
+  "gameFile": "exports/Prop_Rural_Clothesline_001.glb",
+  "ruralFile": "exports/Prop_Rural_Clothesline_001.rural.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "optionalDoor": false
+  },
+  "polycount": 590,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 43268,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    4.0,
+    2.2,
+    0.812744
+  ],
+  "boundsMeters": {
+    "min": [
+      -2.0,
+      0.0,
+      -0.4063719
+    ],
+    "max": [
+      2.0,
+      2.2,
+      0.4063719
+    ]
+  },
+  "highestSurfaceY": 2.200000047683716,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Prop_Rural_Clothesline_001",
+    "title": "木架曬衣繩與衣物",
+    "category": "08_Props",
+    "group": "Domestic_Props",
+    "kind": "clothesline",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.02
+  },
+  "anchors": null,
+  "door": null,
+  "water": null,
+  "road": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_RU_ground"
+    },
+    "masonry": {
+      "material": "MAT_RU_masonry"
+    },
+    "wood": {
+      "material": "MAT_RU_wood"
+    },
+    "detail": {
+      "material": "MAT_RU_detail"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可供地表、井水及門洞射線取樣；未綁定物理引擎。農舍門可由遊戲端指定角度，其餘水面、衣物與郵箱為靜態造型。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "兩根木架、支撐腳、略下垂的曬衣繩與四件立體衣物。；衣物為有厚度的封閉幾何，保留領口或衣袖輪廓；沒有透明貼片。；底部原點，長邊沿X；未提供布料、風動或洗衣玩法。"
+}

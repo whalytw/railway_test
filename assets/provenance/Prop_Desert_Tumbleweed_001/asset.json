@@ -1,0 +1,116 @@
+{
+  "id": "Prop_Desert_Tumbleweed_001",
+  "name": "交枝風滾草",
+  "category": "08_Props",
+  "subcategory": "Desert/Dry_Plants",
+  "tags": [
+    "desert",
+    "sand",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "tumbleweed"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Desert/_Shared/Desert_Kit_001/source/Desert_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Desert/_Shared/Desert_Kit_001/source/Desert_Kit_001.blend",
+  "sourceCollection": "DS_08_Tumbleweed",
+  "gameFile": "exports/Prop_Desert_Tumbleweed_001.glb",
+  "desertFile": "exports/Prop_Desert_Tumbleweed_001.desert.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false
+  },
+  "polycount": 1452,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 1,
+  "fileBytes": 136304,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    1.145677,
+    1.27161,
+    1.043898
+  ],
+  "boundsMeters": {
+    "min": [
+      -0.6255572,
+      0.0,
+      -0.4944632
+    ],
+    "max": [
+      0.5201196,
+      1.27161,
+      0.5494352
+    ]
+  },
+  "highestSurfaceY": 1.2716100215911865,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Prop_Desert_Tumbleweed_001",
+    "title": "交枝風滾草",
+    "category": "08_Props",
+    "group": "Dry_Plants",
+    "kind": "tumbleweed",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.05
+  },
+  "water": null,
+  "clearance": null,
+  "materialRoles": {
+    "sand": {
+      "material": "MAT_DS_sand"
+    },
+    "rock": {
+      "material": "MAT_DS_rock"
+    },
+    "plant": {
+      "material": "MAT_DS_plant"
+    },
+    "water": {
+      "material": "MAT_DS_water"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "實際網格可供地表與拱門射線取樣；未綁定物理引擎。水面、植物及風滾草為靜態美術幾何。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "交錯彎枝、分叉細枝組成的風滾草球，保留可見空隙，沒有用實心球替代。；底部原點，供沿線乾燥點景或由遊戲端移動；未提供物理滾動或碰撞規則。"
+}

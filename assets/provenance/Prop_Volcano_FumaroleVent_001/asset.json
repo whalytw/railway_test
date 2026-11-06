@@ -1,0 +1,127 @@
+{
+  "id": "Prop_Volcano_FumaroleVent_001",
+  "name": "噴氣孔與靜態蒸氣",
+  "category": "08_Props",
+  "subcategory": "Volcano/Vents",
+  "tags": [
+    "volcano",
+    "lava",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "vent"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Volcano/_Shared/Volcano_Kit_001/source/Volcano_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Volcano/_Shared/Volcano_Kit_001/source/Volcano_Kit_001.blend",
+  "sourceCollection": "VC_08_FumaroleVent",
+  "gameFile": "exports/Prop_Volcano_FumaroleVent_001.glb",
+  "volcanoFile": "exports/Prop_Volcano_FumaroleVent_001.volcano.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "steamStaticGeometry": true
+  },
+  "polycount": 1392,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 3,
+  "fileBytes": 83376,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    2.67184,
+    2.489454,
+    2.612412
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.3359199,
+      0.0,
+      -1.2344119
+    ],
+    "max": [
+      1.3359199,
+      2.4894543,
+      1.378
+    ]
+  },
+  "highestSurfaceY": 2.4894542694091797,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Prop_Volcano_FumaroleVent_001",
+    "title": "噴氣孔與靜態蒸氣",
+    "category": "08_Props",
+    "group": "Vents",
+    "kind": "vent",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.03
+  },
+  "lava": {
+    "surfaceY": 0.24,
+    "opaque": true,
+    "visualOnly": true
+  },
+  "effects": {
+    "steamMaterial": "MAT_VC_steam",
+    "steamStaticGeometry": true,
+    "steamOptional": true,
+    "volumetricSimulation": false
+  },
+  "materialRoles": {
+    "rock": {
+      "material": "MAT_VC_rock"
+    },
+    "lava": {
+      "material": "MAT_VC_lava"
+    },
+    "obsidian": {
+      "material": "MAT_VC_obsidian"
+    },
+    "steam": {
+      "material": "MAT_VC_steam"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可見網格可供射線取樣；未綁定物理引擎。熔岩是靜態美術模型，沒有內建傷害、流動、噴發或破壞規則。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "小型玄武岩噴氣孔，含可見孔口、內部紅熱面、落石及漂移造型蒸氣。；蒸氣為獨立steam材質primitive的靜態封閉幾何，可在Three.js隱藏。；沒有體積煙霧、粒子或流體計算；底部原點，放到實際地表並微量埋入。"
+}

@@ -1,0 +1,99 @@
+{
+  "id": "Plant_Forest_ConiferTree_001",
+  "name": "森林針葉樹",
+  "category": "04_Plants",
+  "subcategory": "Forest/Trees",
+  "tags": [
+    "forest",
+    "cartoon",
+    "stylized",
+    "threejs",
+    "low-poly",
+    "tree"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-05",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Forest_Kit_001/source/Forest_Kit_001.blend",
+  "sourceLibraryPath": "04_Plants/Forest/_Shared/Forest_Kit_001/source/Forest_Kit_001.blend",
+  "sourceCollection": "FR_02_ConiferTree",
+  "gameFile": "exports/Plant_Forest_ConiferTree_001.glb",
+  "forestFile": "exports/Plant_Forest_ConiferTree_001.forest.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "optional": "Three.js foliage wind shader",
+    "providedAsExample": true,
+    "bakedAnimationClips": false
+  },
+  "polycount": 2540,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 163160,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    3.3,
+    7.205755,
+    2.945936
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.65,
+      0.0,
+      -1.4729681830819115
+    ],
+    "max": [
+      1.65,
+      7.205755074042827,
+      1.4729681830819115
+    ]
+  },
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "placement": {
+    "groundAnchor": [
+      0,
+      0,
+      0
+    ],
+    "uniformScaleRecommended": true,
+    "baseAtGround": true,
+    "slopeNote": "以實際地表高度安放；大樹、樹樁及倒木優先放平坦平台，不將整棵樹傾斜貼坡。"
+  },
+  "suggestedMinRailCenterOffsetMeters": 4.05,
+  "footprintRadiusMeters": 1.65,
+  "collision": {
+    "provided": false,
+    "suggestedTrunkRadiusMeters": 0.28,
+    "note": "視覺素材；沒有預設遊戲碰撞或可破壞行為。大樹可另用簡化樹幹圓柱，灌木、蕨叢與蕈菇可作純裝飾。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "groundOrigin": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "forestDemoClearance": "passed"
+  },
+  "notes": "具有外張根部、漸細主幹、四層不規則針葉枝裙及可見側枝。；每層葉裙有不同轉向與起伏，避免完美圓錐的堆疊輪廓。；保留完整下層枝幅，雪地版本可另做覆雪外形。"
+}

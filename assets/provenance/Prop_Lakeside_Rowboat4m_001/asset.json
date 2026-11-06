@@ -1,0 +1,122 @@
+{
+  "id": "Prop_Lakeside_Rowboat4m_001",
+  "name": "雙槳小划艇・約4m",
+  "category": "08_Props",
+  "subcategory": "Lakeside/Boats",
+  "tags": [
+    "lakeside",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "boat"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Lakeside/_Shared/Lakeside_Kit_001/source/Lakeside_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Lakeside/_Shared/Lakeside_Kit_001/source/Lakeside_Kit_001.blend",
+  "sourceCollection": "LK_05_Rowboat4m",
+  "gameFile": "exports/Prop_Lakeside_Rowboat4m_001.glb",
+  "lakesideFile": "exports/Prop_Lakeside_Rowboat4m_001.lakeside.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "waterlinePlacement": true,
+    "physicalBuoyancy": false
+  },
+  "polycount": 476,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 1,
+  "fileBytes": 39220,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    4.124131,
+    0.8,
+    3.8
+  ],
+  "boundsMeters": {
+    "min": [
+      -2.0620654,
+      -0.36,
+      -1.9
+    ],
+    "max": [
+      2.0620654,
+      0.44,
+      1.9
+    ]
+  },
+  "highestSurfaceY": 0.4399999976158142,
+  "originType": "waterline",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "centre at local waterline Y=0"
+  },
+  "parameters": {
+    "id": "Prop_Lakeside_Rowboat4m_001",
+    "title": "雙槳小划艇・約4m",
+    "category": "08_Props",
+    "group": "Boats",
+    "kind": "boat",
+    "originType": "waterline"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "compatibleWaterTiles": null,
+  "placement": null,
+  "mount": null,
+  "waterline": {
+    "localY": 0,
+    "draftMeters": 0.36,
+    "dryFloorY": 0.055,
+    "compatibleWaterY": -0.2
+  },
+  "water": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_LK_ground"
+    },
+    "water": {
+      "material": "MAT_LK_water"
+    },
+    "wood": {
+      "material": "MAT_LK_wood"
+    },
+    "foliage": {
+      "material": "MAT_LK_foliage"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可對實際網格分別取水面、湖床及甲板高度；未綁定物理引擎、船隻浮力或角色導航。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "約4m雙槳小划艇，包含中空船艙、兩張座板、船舷與固定雙槳。；原點為局部水線Y=0，船底低至約-0.36m；整船根節點放到水面Y=-0.20m。；內底平台高於局部水線0.055m，避免靜態水面穿進船艙；不提供划槳或浮力模擬。"
+}

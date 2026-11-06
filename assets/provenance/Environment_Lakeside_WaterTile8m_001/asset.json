@@ -1,0 +1,215 @@
+{
+  "id": "Environment_Lakeside_WaterTile8m_001",
+  "name": "靜水湖面地塊・8×8m",
+  "category": "07_Environment",
+  "subcategory": "Lakeside/Water",
+  "tags": [
+    "lakeside",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "water"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Lakeside_Kit_001/source/Lakeside_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Lakeside/_Shared/Lakeside_Kit_001/source/Lakeside_Kit_001.blend",
+  "sourceCollection": "LK_02_LakeWater8m",
+  "gameFile": "exports/Environment_Lakeside_WaterTile8m_001.glb",
+  "lakesideFile": "exports/Environment_Lakeside_WaterTile8m_001.lakeside.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "waterlinePlacement": false,
+    "physicalBuoyancy": false
+  },
+  "polycount": 24,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 5548,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    8.0,
+    1.0,
+    8.0
+  ],
+  "boundsMeters": {
+    "min": [
+      -4.0,
+      -1.2,
+      -4.0
+    ],
+    "max": [
+      4.0,
+      -0.2,
+      4.0
+    ]
+  },
+  "highestSurfaceY": -0.20000000298023224,
+  "originType": "datum",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "centre at surrounding ground datum"
+  },
+  "parameters": {
+    "id": "Environment_Lakeside_WaterTile8m_001",
+    "title": "靜水湖面地塊・8×8m",
+    "category": "07_Environment",
+    "group": "Water",
+    "kind": "water",
+    "originType": "datum"
+  },
+  "ports": [
+    {
+      "id": "South",
+      "position": [
+        0,
+        -0.2,
+        -4
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "North",
+      "position": [
+        0,
+        -0.2,
+        4
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "West",
+      "position": [
+        -4,
+        -0.2,
+        0
+      ],
+      "forward": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "East",
+      "position": [
+        4,
+        -0.2,
+        0
+      ],
+      "forward": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "portFamily": "lake_water",
+  "compatibleTracks": [],
+  "compatibleWaterTiles": null,
+  "placement": null,
+  "mount": null,
+  "waterline": null,
+  "water": {
+    "surfaceY": -0.2,
+    "bedY": -0.95,
+    "opaque": true,
+    "samplePoints": [
+      [
+        -2,
+        -0.2,
+        -2
+      ],
+      [
+        2,
+        -0.2,
+        -2
+      ],
+      [
+        -2,
+        -0.2,
+        2
+      ],
+      [
+        2,
+        -0.2,
+        2
+      ]
+    ]
+  },
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_LK_ground"
+    },
+    "water": {
+      "material": "MAT_LK_water"
+    },
+    "wood": {
+      "material": "MAT_LK_wood"
+    },
+    "foliage": {
+      "material": "MAT_LK_foliage"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可對實際網格分別取水面、湖床及甲板高度；未綁定物理引擎、船隻浮力或角色導航。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "8×8m湖面與湖床地塊，周圍地面基準Y=0，水面Y=-0.20m、湖床頂Y=-0.95m。；水面採不透明靜態幾何，邊緣使用一致頂點色與高度，方便平鋪。；此款取代原地面，不能再被完整平地蓋住；不提供水流、反射貼圖或物理浮力。"
+}

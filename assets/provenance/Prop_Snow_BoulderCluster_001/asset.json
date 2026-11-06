@@ -1,0 +1,113 @@
+{
+  "id": "Prop_Snow_BoulderCluster_001",
+  "name": "厚雪覆岩組",
+  "category": "08_Props",
+  "subcategory": "Snow/Rocks",
+  "tags": [
+    "snow",
+    "winter",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "boulders"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Snow/_Shared/Snow_Kit_001/source/Snow_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Snow/_Shared/Snow_Kit_001/source/Snow_Kit_001.blend",
+  "sourceCollection": "SN_04_SnowBoulders",
+  "gameFile": "exports/Prop_Snow_BoulderCluster_001.glb",
+  "snowFile": "exports/Prop_Snow_BoulderCluster_001.snow.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false
+  },
+  "polycount": 744,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 63952,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    3.198715,
+    1.816785,
+    2.384795
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.5215638,
+      0.0,
+      -1.3301275
+    ],
+    "max": [
+      1.6771511,
+      1.8167855,
+      1.0546678
+    ]
+  },
+  "highestSurfaceY": 1.816785454750061,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Prop_Snow_BoulderCluster_001",
+    "title": "厚雪覆岩組",
+    "category": "08_Props",
+    "group": "Rocks",
+    "kind": "boulders",
+    "originType": "ground"
+  },
+  "ports": [],
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.05
+  },
+  "mount": null,
+  "snow": null,
+  "ice": null,
+  "materialRoles": {
+    "snow": {
+      "material": "MAT_SN_snow"
+    },
+    "ice": {
+      "material": "MAT_SN_ice"
+    },
+    "detail": {
+      "material": "MAT_SN_detail"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可見網格可供射線取樣；未綁定物理引擎。冰池是靜態美術模型，沒有內建滑行、破冰或落水規則。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "三塊不同大小的岩石，各有沿上半部外形包覆的立體雪帽。；以底部為原點，優先置於平坦雪地並微量埋入；避免水平擺在陡坡而浮空。"
+}

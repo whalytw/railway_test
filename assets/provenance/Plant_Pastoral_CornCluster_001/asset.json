@@ -1,0 +1,119 @@
+{
+  "id": "Plant_Pastoral_CornCluster_001",
+  "name": "立體玉米叢",
+  "category": "04_Plants",
+  "subcategory": "Pastoral/Crops",
+  "tags": [
+    "pastoral",
+    "farm",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "corn"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Pastoral/_Shared/Pastoral_Kit_001/source/Pastoral_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Pastoral/_Shared/Pastoral_Kit_001/source/Pastoral_Kit_001.blend",
+  "sourceCollection": "PA_04_CornCluster",
+  "gameFile": "exports/Plant_Pastoral_CornCluster_001.glb",
+  "pastoralFile": "exports/Plant_Pastoral_CornCluster_001.pastoral.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "optionalRotor": false
+  },
+  "polycount": 804,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 1,
+  "fileBytes": 59484,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    1.121556,
+    2.229254,
+    1.701693
+  ],
+  "boundsMeters": {
+    "min": [
+      -0.5802976,
+      0.0,
+      -0.8170606
+    ],
+    "max": [
+      0.5412583,
+      2.229254,
+      0.8846325
+    ]
+  },
+  "highestSurfaceY": 2.2292540073394775,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Plant_Pastoral_CornCluster_001",
+    "title": "立體玉米叢",
+    "category": "04_Plants",
+    "group": "Crops",
+    "kind": "corn",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.015
+  },
+  "planting": null,
+  "fence": null,
+  "rotor": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_PA_ground"
+    },
+    "foliage": {
+      "material": "MAT_PA_foliage"
+    },
+    "detail": {
+      "material": "MAT_PA_detail"
+    },
+    "metal": {
+      "material": "MAT_PA_metal"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "實際網格可供地表射線取樣；未綁定物理引擎。作物、果實及水面為靜態美術幾何，轉子可由遊戲端更新角度。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "三株玉米，包含彎曲立體長葉、莖節、黃色果穗、苞葉與頂端雄穗。；莖根集中在畦頂平面範圍，葉片可自然伸出畦間；底部原點。"
+}

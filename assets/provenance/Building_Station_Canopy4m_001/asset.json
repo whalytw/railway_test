@@ -1,0 +1,106 @@
+{
+  "id": "Building_Station_Canopy4m_001",
+  "name": "候車棚・4m",
+  "category": "06_Buildings",
+  "subcategory": "Railway_Stations/Structures",
+  "tags": [
+    "railway",
+    "station",
+    "cartoon",
+    "modular",
+    "threejs",
+    "canopy"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-03",
+  "source": "self_created_from_user_style_references",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_provided_reference",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Station_Facilities_Set_001/source/Station_Facilities_Set_001.blend",
+  "sourceLibraryPath": "06_Buildings/Railway_Stations/_Shared/Station_Facilities_Set_001/source/Station_Facilities_Set_001.blend",
+  "sourceCollection": "ST_05_Canopy4m",
+  "gameFile": "exports/Building_Station_Canopy4m_001.glb",
+  "stationFile": "exports/Building_Station_Canopy4m_001.station.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "polycount": 7484,
+  "polycountUnit": "triangles",
+  "materialCount": 1,
+  "meshNodeCount": 1,
+  "textureResolution": "1024x1024",
+  "fileBytes": 1043496,
+  "dimensionsMetersXYZ": [
+    3.415,
+    3.244,
+    4.1456
+  ],
+  "coordinates": {
+    "up": "+Y",
+    "front": "+Z",
+    "unit": "metre",
+    "origin": "platform entry corner"
+  },
+  "parameters": {
+    "title": "候車棚・4m",
+    "category": "06_Buildings",
+    "group": "Structures",
+    "kind": "canopy",
+    "width": 3.0,
+    "length": 4.0,
+    "mount": "deck",
+    "origin": "platform entry corner"
+  },
+  "mountSurface": "deck",
+  "ports": [
+    {
+      "id": "Start",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "End",
+      "position": [
+        0,
+        0,
+        4
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "interactions": [],
+  "collision": {
+    "provided": false,
+    "note": "依遊戲引擎建立簡化地板、柱體及牆體碰撞；站房入口須保留可通行空間。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "threejsRuntime": "passed",
+    "threeRevision": "180"
+  },
+  "notes": "沿用金橡木、青湖深色金屬、象牙白和銅色鉚釘。可動部件保留實際鉸點，文字已轉網格；同名station.json記錄月台接點、掛載高度與互動。"
+}

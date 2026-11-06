@@ -1,0 +1,184 @@
+{
+  "id": "Environment_Lakeside_StraightShore8m_001",
+  "name": "直線草岸與淺灘・8m",
+  "category": "07_Environment",
+  "subcategory": "Lakeside/Shorelines",
+  "tags": [
+    "lakeside",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "shore"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Lakeside_Kit_001/source/Lakeside_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Lakeside/_Shared/Lakeside_Kit_001/source/Lakeside_Kit_001.blend",
+  "sourceCollection": "LK_03_StraightShore8m",
+  "gameFile": "exports/Environment_Lakeside_StraightShore8m_001.glb",
+  "lakesideFile": "exports/Environment_Lakeside_StraightShore8m_001.lakeside.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "waterlinePlacement": false,
+    "physicalBuoyancy": false
+  },
+  "polycount": 56,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 7032,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    8.0,
+    1.23,
+    8.0
+  ],
+  "boundsMeters": {
+    "min": [
+      -4.0,
+      -1.2,
+      -4.0
+    ],
+    "max": [
+      4.0,
+      0.03,
+      4.0
+    ]
+  },
+  "highestSurfaceY": 0.029999999329447746,
+  "originType": "datum",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "centre at surrounding land datum"
+  },
+  "parameters": {
+    "id": "Environment_Lakeside_StraightShore8m_001",
+    "title": "直線草岸與淺灘・8m",
+    "category": "07_Environment",
+    "group": "Shorelines",
+    "kind": "shore",
+    "originType": "datum"
+  },
+  "ports": [
+    {
+      "id": "Start",
+      "position": [
+        0,
+        0,
+        -4
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "End",
+      "position": [
+        0,
+        0,
+        4
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "portFamily": "shoreline",
+  "compatibleTracks": [],
+  "compatibleWaterTiles": [
+    {
+      "assetId": "Environment_Lakeside_WaterTile8m_001",
+      "position": [
+        8,
+        0,
+        0
+      ]
+    }
+  ],
+  "placement": null,
+  "mount": null,
+  "waterline": null,
+  "water": {
+    "surfaceY": -0.2,
+    "shallowBedY": -0.75,
+    "opaque": true,
+    "samplePoints": [
+      [
+        1.6,
+        -0.2,
+        -2
+      ],
+      [
+        2.4,
+        -0.2,
+        0
+      ],
+      [
+        3.2,
+        -0.2,
+        2
+      ]
+    ]
+  },
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_LK_ground"
+    },
+    "water": {
+      "material": "MAT_LK_water"
+    },
+    "wood": {
+      "material": "MAT_LK_wood"
+    },
+    "foliage": {
+      "material": "MAT_LK_foliage"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可對實際網格分別取水面、湖床及甲板高度；未綁定物理引擎、船隻浮力或角色導航。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "8m直線岸坡，局部-X為草岸、+X為淺水，岸上地面Y=0、水面Y=-0.20m。；沿Z可接續岸線，右側湖面地塊中心放X=8m即可銜接；淺水湖床在Y=-0.75m。；水草應取湖床高度落地，不把根部放在水面；草岸與沙岸保留立體坡度。"
+}

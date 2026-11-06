@@ -1,0 +1,119 @@
+{
+  "id": "Plant_Pastoral_AppleTree_001",
+  "name": "紅蘋果果樹",
+  "category": "04_Plants",
+  "subcategory": "Pastoral/Orchard",
+  "tags": [
+    "pastoral",
+    "farm",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "tree"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Pastoral/_Shared/Pastoral_Kit_001/source/Pastoral_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Pastoral/_Shared/Pastoral_Kit_001/source/Pastoral_Kit_001.blend",
+  "sourceCollection": "PA_05_OrchardTree",
+  "gameFile": "exports/Plant_Pastoral_AppleTree_001.glb",
+  "pastoralFile": "exports/Plant_Pastoral_AppleTree_001.pastoral.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "optionalRotor": false
+  },
+  "polycount": 2594,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 124452,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    3.729278,
+    4.122565,
+    3.40616
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.7755556,
+      0.0,
+      -1.7205783
+    ],
+    "max": [
+      1.9537228,
+      4.1225648,
+      1.6855822
+    ]
+  },
+  "highestSurfaceY": 4.122564792633057,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Plant_Pastoral_AppleTree_001",
+    "title": "紅蘋果果樹",
+    "category": "04_Plants",
+    "group": "Orchard",
+    "kind": "tree",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.03
+  },
+  "planting": null,
+  "fence": null,
+  "rotor": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_PA_ground"
+    },
+    "foliage": {
+      "material": "MAT_PA_foliage"
+    },
+    "detail": {
+      "material": "MAT_PA_detail"
+    },
+    "metal": {
+      "material": "MAT_PA_metal"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "實際網格可供地表射線取樣；未綁定物理引擎。作物、果實及水面為靜態美術幾何，轉子可由遊戲端更新角度。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "果樹含根部、樹幹、分枝、多團樹冠及紅蘋果。；蘋果先對真實樹冠射線取樣後半嵌，避免果實漂浮；底部原點，需計算完整樹冠離軌距離。"
+}

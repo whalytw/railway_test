@@ -1,0 +1,117 @@
+{
+  "id": "Prop_Volcano_BoulderCluster_001",
+  "name": "熱裂火山岩組",
+  "category": "08_Props",
+  "subcategory": "Volcano/Rocks",
+  "tags": [
+    "volcano",
+    "lava",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "boulders"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Volcano/_Shared/Volcano_Kit_001/source/Volcano_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Volcano/_Shared/Volcano_Kit_001/source/Volcano_Kit_001.blend",
+  "sourceCollection": "VC_06_VolcanicBoulders",
+  "gameFile": "exports/Prop_Volcano_BoulderCluster_001.glb",
+  "volcanoFile": "exports/Prop_Volcano_BoulderCluster_001.volcano.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "steamStaticGeometry": false
+  },
+  "polycount": 452,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 46756,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    3.176932,
+    1.78766,
+    2.332583
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.5011765,
+      0.0,
+      -1.2736775
+    ],
+    "max": [
+      1.6757557,
+      1.7876604,
+      1.0589051
+    ]
+  },
+  "highestSurfaceY": 1.7876603603363037,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Prop_Volcano_BoulderCluster_001",
+    "title": "熱裂火山岩組",
+    "category": "08_Props",
+    "group": "Rocks",
+    "kind": "boulders",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.05
+  },
+  "lava": null,
+  "effects": null,
+  "materialRoles": {
+    "rock": {
+      "material": "MAT_VC_rock"
+    },
+    "lava": {
+      "material": "MAT_VC_lava"
+    },
+    "obsidian": {
+      "material": "MAT_VC_obsidian"
+    },
+    "steam": {
+      "material": "MAT_VC_steam"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可見網格可供射線取樣；未綁定物理引擎。熔岩是靜態美術模型，沒有內建傷害、流動、噴發或破壞規則。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "三塊不同尺度的深色火山岩，最大岩體前側有窄小發光熱裂縫。；底部原點，優先置於平坦火山灰地並微量埋入；避免在陡坡水平擺放而浮空。"
+}

@@ -1,0 +1,118 @@
+{
+  "id": "Plant_Pastoral_WheatCluster_001",
+  "name": "金黃麥穗叢",
+  "category": "04_Plants",
+  "subcategory": "Pastoral/Crops",
+  "tags": [
+    "pastoral",
+    "farm",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "wheat"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Pastoral/_Shared/Pastoral_Kit_001/source/Pastoral_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Pastoral/_Shared/Pastoral_Kit_001/source/Pastoral_Kit_001.blend",
+  "sourceCollection": "PA_03_WheatCluster",
+  "gameFile": "exports/Plant_Pastoral_WheatCluster_001.glb",
+  "pastoralFile": "exports/Plant_Pastoral_WheatCluster_001.pastoral.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "optionalRotor": false
+  },
+  "polycount": 1320,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 1,
+  "fileBytes": 103020,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    0.94,
+    1.29038,
+    0.539445
+  ],
+  "boundsMeters": {
+    "min": [
+      -0.48,
+      0.0,
+      -0.2294449
+    ],
+    "max": [
+      0.46,
+      1.29038,
+      0.31
+    ]
+  },
+  "highestSurfaceY": 1.2903800010681152,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Plant_Pastoral_WheatCluster_001",
+    "title": "金黃麥穗叢",
+    "category": "04_Plants",
+    "group": "Crops",
+    "kind": "wheat",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.015
+  },
+  "planting": null,
+  "fence": null,
+  "rotor": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_PA_ground"
+    },
+    "foliage": {
+      "material": "MAT_PA_foliage"
+    },
+    "detail": {
+      "material": "MAT_PA_detail"
+    },
+    "metal": {
+      "material": "MAT_PA_metal"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "實際網格可供地表射線取樣；未綁定物理引擎。作物、果實及水面為靜態美術幾何，轉子可由遊戲端更新角度。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "六株不同高度的麥穗，包含莖、立體葉片、成對麥粒與芒尖。；以底部原點置於畦頂並微量埋入；使用封閉幾何，不需要透明植物貼圖。"
+}

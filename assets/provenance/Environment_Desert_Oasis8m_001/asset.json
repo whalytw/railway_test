@@ -1,0 +1,140 @@
+{
+  "id": "Environment_Desert_Oasis8m_001",
+  "name": "綠洲水池・8×8m",
+  "category": "07_Environment",
+  "subcategory": "Desert/Oasis",
+  "tags": [
+    "desert",
+    "sand",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "oasis"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Desert_Kit_001/source/Desert_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Desert/_Shared/Desert_Kit_001/source/Desert_Kit_001.blend",
+  "sourceCollection": "DS_03_Oasis8m",
+  "gameFile": "exports/Environment_Desert_Oasis8m_001.glb",
+  "desertFile": "exports/Environment_Desert_Oasis8m_001.desert.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false
+  },
+  "polycount": 648,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 25716,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    8.0,
+    0.776,
+    8.0
+  ],
+  "boundsMeters": {
+    "min": [
+      -4.0,
+      -0.65,
+      -4.0
+    ],
+    "max": [
+      4.0,
+      0.126,
+      4.0
+    ]
+  },
+  "highestSurfaceY": 0.12600000202655792,
+  "originType": "datum",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "centre at surrounding ground datum"
+  },
+  "parameters": {
+    "id": "Environment_Desert_Oasis8m_001",
+    "title": "綠洲水池・8×8m",
+    "category": "07_Environment",
+    "group": "Oasis",
+    "kind": "oasis",
+    "originType": "datum"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": null,
+  "water": {
+    "surfaceY": -0.12,
+    "opaque": true,
+    "visualOnly": true,
+    "samplePoints": [
+      [
+        -0.7,
+        -0.12,
+        0.7
+      ],
+      [
+        0.8,
+        -0.12,
+        -0.6
+      ],
+      [
+        -1.3,
+        -0.12,
+        -0.2
+      ],
+      [
+        1.1,
+        -0.12,
+        0.5
+      ]
+    ]
+  },
+  "clearance": null,
+  "materialRoles": {
+    "sand": {
+      "material": "MAT_DS_sand"
+    },
+    "rock": {
+      "material": "MAT_DS_rock"
+    },
+    "plant": {
+      "material": "MAT_DS_plant"
+    },
+    "water": {
+      "material": "MAT_DS_water"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "實際網格可供地表與拱門射線取樣；未綁定物理引擎。水面、植物及風滾草為靜態美術幾何。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "8×8m沙岸綠洲水池，含橢圓水面、濕潤岸緣與方形外緣地面。；水面Y=-0.12m、外緣Y=0，水面為不透明靜態幾何；原點不是包圍盒底部。；此款取代整塊平地，避免被平地蓋住；棗椰樹需另外配置於實際岸面。"
+}

@@ -1,0 +1,99 @@
+{
+  "id": "Plant_Forest_ShrubCluster_001",
+  "name": "森林灌木叢",
+  "category": "04_Plants",
+  "subcategory": "Forest/Shrubs",
+  "tags": [
+    "forest",
+    "cartoon",
+    "stylized",
+    "threejs",
+    "low-poly",
+    "shrub"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-05",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Forest_Kit_001/source/Forest_Kit_001.blend",
+  "sourceLibraryPath": "04_Plants/Forest/_Shared/Forest_Kit_001/source/Forest_Kit_001.blend",
+  "sourceCollection": "FR_04_ShrubCluster",
+  "gameFile": "exports/Plant_Forest_ShrubCluster_001.glb",
+  "forestFile": "exports/Plant_Forest_ShrubCluster_001.forest.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "optional": "Three.js foliage wind shader",
+    "providedAsExample": true,
+    "bakedAnimationClips": false
+  },
+  "polycount": 1054,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 51104,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    2.104735,
+    1.418702,
+    1.835981
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.0690211057662964,
+      0.0,
+      -0.9193507432937622
+    ],
+    "max": [
+      1.0357134342193604,
+      1.4187015313655138,
+      0.9166302680969238
+    ]
+  },
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "placement": {
+    "groundAnchor": [
+      0,
+      0,
+      0
+    ],
+    "uniformScaleRecommended": true,
+    "baseAtGround": true,
+    "slopeNote": "以實際地表高度安放；大樹、樹樁及倒木優先放平坦平台，不將整棵樹傾斜貼坡。"
+  },
+  "suggestedMinRailCenterOffsetMeters": 3.5316006234999096,
+  "footprintRadiusMeters": 1.1316006234999099,
+  "collision": {
+    "provided": false,
+    "suggestedTrunkRadiusMeters": null,
+    "note": "視覺素材；沒有預設遊戲碰撞或可破壞行為。大樹可另用簡化樹幹圓柱，灌木、蕨叢與蕈菇可作純裝飾。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "groundOrigin": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "forestDemoClearance": "passed"
+  },
+  "notes": "五組可見木質枝幹及交錯葉團，底部落地，沒有綠色平面貼片。；適合林緣叢生；避免將整叢直接放進軌道與排水側溝。"
+}

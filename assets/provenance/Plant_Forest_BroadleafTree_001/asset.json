@@ -1,0 +1,99 @@
+{
+  "id": "Plant_Forest_BroadleafTree_001",
+  "name": "森林闊葉樹",
+  "category": "04_Plants",
+  "subcategory": "Forest/Trees",
+  "tags": [
+    "forest",
+    "cartoon",
+    "stylized",
+    "threejs",
+    "low-poly",
+    "tree"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-05",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Forest_Kit_001/source/Forest_Kit_001.blend",
+  "sourceLibraryPath": "04_Plants/Forest/_Shared/Forest_Kit_001/source/Forest_Kit_001.blend",
+  "sourceCollection": "FR_01_BroadleafTree",
+  "gameFile": "exports/Plant_Forest_BroadleafTree_001.glb",
+  "forestFile": "exports/Plant_Forest_BroadleafTree_001.forest.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "optional": "Three.js foliage wind shader",
+    "providedAsExample": true,
+    "bakedAnimationClips": false
+  },
+  "polycount": 2516,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 136412,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    5.017998,
+    6.385102,
+    4.295892
+  ],
+  "boundsMeters": {
+    "min": [
+      -2.488173484802246,
+      0.0,
+      -2.096322774887085
+    ],
+    "max": [
+      2.5298242568969727,
+      6.385101821273565,
+      2.199568748474121
+    ]
+  },
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "placement": {
+    "groundAnchor": [
+      0,
+      0,
+      0
+    ],
+    "uniformScaleRecommended": true,
+    "baseAtGround": true,
+    "slopeNote": "以實際地表高度安放；大樹、樹樁及倒木優先放平坦平台，不將整棵樹傾斜貼坡。"
+  },
+  "suggestedMinRailCenterOffsetMeters": 4.945065600074802,
+  "footprintRadiusMeters": 2.545065600074802,
+  "collision": {
+    "provided": false,
+    "suggestedTrunkRadiusMeters": 0.42,
+    "note": "視覺素材；沒有預設遊戲碰撞或可破壞行為。大樹可另用簡化樹幹圓柱，灌木、蕨叢與蕈菇可作純裝飾。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "groundOrigin": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "forestDemoClearance": "passed"
+  },
+  "notes": "具有六條根部、彎曲主幹、分枝與不對稱多層樹冠；葉團及少量實體葉片皆為立體網格。；離軌距離按完整樹冠計算；勿只檢查樹幹是否碰到礦車。；樹冠可使用森林風動範例，樹幹與根部保持固定。"
+}

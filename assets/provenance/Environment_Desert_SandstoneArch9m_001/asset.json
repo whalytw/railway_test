@@ -1,0 +1,193 @@
+{
+  "id": "Environment_Desert_SandstoneArch9m_001",
+  "name": "砂岩拱門・約9m",
+  "category": "07_Environment",
+  "subcategory": "Desert/Rockforms",
+  "tags": [
+    "desert",
+    "sand",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "arch"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Desert_Kit_001/source/Desert_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Desert/_Shared/Desert_Kit_001/source/Desert_Kit_001.blend",
+  "sourceCollection": "DS_04_SandstoneArch9m",
+  "gameFile": "exports/Environment_Desert_SandstoneArch9m_001.glb",
+  "desertFile": "exports/Environment_Desert_SandstoneArch9m_001.desert.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false
+  },
+  "polycount": 1016,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 1,
+  "fileBytes": 102176,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    9.44854,
+    4.95701,
+    1.889784
+  ],
+  "boundsMeters": {
+    "min": [
+      -4.699253,
+      -0.2,
+      -0.9414375
+    ],
+    "max": [
+      4.7492871,
+      4.75701,
+      0.9483464
+    ]
+  },
+  "highestSurfaceY": 4.757009986676186,
+  "originType": "datum",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "centre at surrounding ground and rail mounting datum"
+  },
+  "parameters": {
+    "id": "Environment_Desert_SandstoneArch9m_001",
+    "title": "砂岩拱門・約9m",
+    "category": "07_Environment",
+    "group": "Rockforms",
+    "kind": "arch",
+    "originType": "datum"
+  },
+  "ports": [
+    {
+      "id": "Start",
+      "position": [
+        0,
+        0,
+        -4
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "End",
+      "position": [
+        0,
+        0,
+        4
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "portFamily": "rail_corridor",
+  "compatibleTracks": [
+    {
+      "assetId": "Environment_Rail_Straight_4m_001",
+      "roadbedAssetId": "Environment_Roadbed_Roadbed4m_001",
+      "position": [
+        0,
+        0,
+        -4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assetId": "Environment_Rail_Straight_4m_001",
+      "roadbedAssetId": "Environment_Roadbed_Roadbed4m_001",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "placement": null,
+  "water": null,
+  "clearance": {
+    "referenceInnerRadiusMeters": 3.35,
+    "conservativeInnerRadiusMeters": 3.25,
+    "protectedEnvelopes": [
+      {
+        "halfWidthMeters": 2.4,
+        "maxHeightMeters": 2.0
+      },
+      {
+        "halfWidthMeters": 1.5,
+        "maxHeightMeters": 2.7
+      }
+    ]
+  },
+  "materialRoles": {
+    "sand": {
+      "material": "MAT_DS_sand"
+    },
+    "rock": {
+      "material": "MAT_DS_rock"
+    },
+    "plant": {
+      "material": "MAT_DS_plant"
+    },
+    "water": {
+      "material": "MAT_DS_water"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "實際網格可供地表與拱門射線取樣；未綁定物理引擎。水面、植物及風滾草為靜態美術幾何。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "passed"
+  },
+  "notes": "真正有中空開口的砂岩拱門，含不規則拱身、層理色帶及兩側腳座。；原點是周圍地面Y=0，腳座向負Y埋入；可跨在既有直軌上方。；拱門沿X跨越、行車沿Z通過；兩段直軌與路基放Z=-4/0、Y=0，礦車仍走原.track.json。"
+}

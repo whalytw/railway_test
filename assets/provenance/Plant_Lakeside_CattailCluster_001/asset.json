@@ -1,0 +1,121 @@
+{
+  "id": "Plant_Lakeside_CattailCluster_001",
+  "name": "香蒲與岸草叢",
+  "category": "04_Plants",
+  "subcategory": "Lakeside/Aquatic",
+  "tags": [
+    "lakeside",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "cattail"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Lakeside/_Shared/Lakeside_Kit_001/source/Lakeside_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Lakeside/_Shared/Lakeside_Kit_001/source/Lakeside_Kit_001.blend",
+  "sourceCollection": "LK_06_CattailCluster",
+  "gameFile": "exports/Plant_Lakeside_CattailCluster_001.glb",
+  "lakesideFile": "exports/Plant_Lakeside_CattailCluster_001.lakeside.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "waterlinePlacement": false,
+    "physicalBuoyancy": false
+  },
+  "polycount": 744,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 34780,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    1.296412,
+    1.655508,
+    0.991744
+  ],
+  "boundsMeters": {
+    "min": [
+      -0.6099556,
+      0.0,
+      -0.4001106
+    ],
+    "max": [
+      0.6864561,
+      1.6555079,
+      0.591633
+    ]
+  },
+  "highestSurfaceY": 1.6555079221725464,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Plant_Lakeside_CattailCluster_001",
+    "title": "香蒲與岸草叢",
+    "category": "04_Plants",
+    "group": "Aquatic",
+    "kind": "cattail",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "compatibleWaterTiles": null,
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.025,
+    "referenceSurface": "bed"
+  },
+  "mount": null,
+  "waterline": null,
+  "water": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_LK_ground"
+    },
+    "water": {
+      "material": "MAT_LK_water"
+    },
+    "wood": {
+      "material": "MAT_LK_wood"
+    },
+    "foliage": {
+      "material": "MAT_LK_foliage"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可對實際網格分別取水面、湖床及甲板高度；未綁定物理引擎、船隻浮力或角色導航。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "六株不同高度的香蒲與岸草，包含花穗、莖及立體帶狀葉。；底部原點用於湖床，建議取實際湖床高度後微量埋入，莖會穿過水面露出。；全部為封閉幾何，不需要透明植物貼圖；未內建風動動畫。"
+}

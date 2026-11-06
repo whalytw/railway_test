@@ -1,0 +1,82 @@
+{
+  "id": "Vehicle_Minecart_AzureLake_001",
+  "name": "青湖礦車",
+  "category": "05_Vehicles",
+  "tags": [
+    "cartoon",
+    "stylized",
+    "minecart",
+    "vehicle",
+    "threejs",
+    "glb",
+    "modular-wheels"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-02",
+  "source": "self_created_from_user_references",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_provided_reference",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../_Shared/Vehicle_Minecart_Cartoon_Set_001/source/Minecarts_Cartoon_Set_001.blend",
+  "sourceLibraryPath": "05_Vehicles/_Shared/Vehicle_Minecart_Cartoon_Set_001/source/Minecarts_Cartoon_Set_001.blend",
+  "sourceCollection": "02_AzureLake_青湖礦車",
+  "gameFile": "exports/Vehicle_Minecart_AzureLake_001.glb",
+  "preview": "previews/thumbnail.png",
+  "animations": [],
+  "polycount": 29397,
+  "polycountUnit": "triangles_per_visible_asset",
+  "uniqueMeshTriangles": 23093,
+  "textureResolution": "1024x1024",
+  "textures": {
+    "baseColor": "embedded PNG / sRGB",
+    "metalRoughness": "embedded PNG / non-color; G roughness, B metallic"
+  },
+  "materialCount": 1,
+  "meshNodeCount": 6,
+  "fileBytes": 1561104,
+  "dimensionsMetersXYZ": [
+    2.05,
+    1.7875,
+    2.5463
+  ],
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre",
+    "wheelSpinLocalAxis": "+X",
+    "wheelRadiusMeters": 0.37
+  },
+  "runtimeParts": {
+    "body": "AzureLake_Body",
+    "wheels": [
+      "AzureLake_Wheel_FL",
+      "AzureLake_Wheel_FR",
+      "AzureLake_Wheel_RL",
+      "AzureLake_Wheel_RR"
+    ],
+    "lever": "AzureLake_Lever"
+  },
+  "collision": {
+    "type": "suggested_box",
+    "sizeMeters": [
+      1.72,
+      1.22,
+      2.55
+    ],
+    "centerMeters": [
+      0,
+      1.12,
+      0
+    ],
+    "note": "視遊戲物理需求建立簡化碰撞體；GLB 未包含物理引擎專用碰撞物件。"
+  },
+  "notes": "依使用者多角度圖製作的立體風格化版本。共用一份可編輯 Blender 原檔，三款各自獨立 GLB；輪心及搖桿樞紐保留，動畫由遊戲程式驅動。6 個網格節點、單一圖集材質。PNG 貼圖已內嵌，不需要 Draco/KTX 解碼器。未使用第三方模型。參考圖權利由提供者確認，未額外宣告 CC0。"
+}

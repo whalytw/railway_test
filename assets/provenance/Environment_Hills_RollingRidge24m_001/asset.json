@@ -1,0 +1,183 @@
+{
+  "id": "Environment_Hills_RollingRidge24m_001",
+  "name": "連續山脊・24m",
+  "category": "07_Environment",
+  "subcategory": "Hills/Landforms",
+  "tags": [
+    "hills",
+    "cartoon",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "ridge"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-05",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Hills_Kit_001/source/Hills_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Hills/_Shared/Hills_Kit_001/source/Hills_Kit_001.blend",
+  "sourceCollection": "HL_02_RollingRidge24m",
+  "gameFile": "exports/Environment_Hills_RollingRidge24m_001.glb",
+  "hillsFile": "exports/Environment_Hills_RollingRidge24m_001.hills.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "optionalGrassWind": false,
+    "bakedAnimationClips": false
+  },
+  "polycount": 3782,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 115004,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    16.0,
+    5.9,
+    24.0
+  ],
+  "boundsMeters": {
+    "min": [
+      -8.0,
+      -0.9,
+      -12.0
+    ],
+    "max": [
+      8.0,
+      5.0,
+      12.0
+    ]
+  },
+  "highestSurfaceY": 5.0,
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "centre at surrounding ground datum"
+  },
+  "parameters": {
+    "id": "Environment_Hills_RollingRidge24m_001",
+    "title": "連續山脊・24m",
+    "category": "07_Environment",
+    "group": "Landforms",
+    "kind": "ridge",
+    "width": 16,
+    "length": 24,
+    "step": 0.5,
+    "base": -0.9
+  },
+  "ports": [
+    {
+      "id": "North",
+      "position": [
+        0,
+        0,
+        12.0
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "South",
+      "position": [
+        0,
+        0,
+        -12.0
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "East",
+      "position": [
+        8.0,
+        0,
+        0
+      ],
+      "forward": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "West",
+      "position": [
+        -8.0,
+        0,
+        0
+      ],
+      "forward": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "compatibleTracks": [],
+  "placement": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_HL_ground"
+    },
+    "rock": {
+      "material": "MAT_HL_rock"
+    },
+    "foliage": {
+      "material": "MAT_HL_foliage"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "提供可射線取樣的封閉表面；未綁定物理引擎。高度表是基礎地形參考，嵌入裸岩需以實際可見網格取樣。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "16×24m連續山脊，脊線略彎並有多個高度不同的峰頂。；邊界回到Y=0，山脊中段有岩層露頭；適合作沿線中景。；此款沒有預設行車槽；山口與谷地提供現成保護走廊。"
+}

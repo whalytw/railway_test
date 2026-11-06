@@ -1,0 +1,114 @@
+{
+  "id": "Plant_Snow_Cedar_001",
+  "name": "覆雪雪松",
+  "category": "04_Plants",
+  "subcategory": "Snow/Trees",
+  "tags": [
+    "snow",
+    "winter",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "tree"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Snow/_Shared/Snow_Kit_001/source/Snow_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Snow/_Shared/Snow_Kit_001/source/Snow_Kit_001.blend",
+  "sourceCollection": "SN_03_SnowCedar",
+  "gameFile": "exports/Plant_Snow_Cedar_001.glb",
+  "snowFile": "exports/Plant_Snow_Cedar_001.snow.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false
+  },
+  "polycount": 3372,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 149584,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    3.3,
+    6.945349,
+    2.976946
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.65,
+      0.0,
+      -1.4884731
+    ],
+    "max": [
+      1.65,
+      6.9453489,
+      1.4884731
+    ]
+  },
+  "highestSurfaceY": 6.945348879419267,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Plant_Snow_Cedar_001",
+    "title": "覆雪雪松",
+    "category": "04_Plants",
+    "group": "Trees",
+    "kind": "tree",
+    "originType": "ground"
+  },
+  "ports": [],
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.03
+  },
+  "mount": null,
+  "snow": null,
+  "ice": null,
+  "materialRoles": {
+    "snow": {
+      "material": "MAT_SN_snow"
+    },
+    "ice": {
+      "material": "MAT_SN_ice"
+    },
+    "detail": {
+      "material": "MAT_SN_detail"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可見網格可供射線取樣；未綁定物理引擎。冰池是靜態美術模型，沒有內建滑行、破冰或落水規則。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "卡通雪松風格的覆雪針葉樹，包含根部、主幹、四層綠色枝裙與四層厚雪覆蓋。；積雪與針葉各自為立體幾何；下層針葉露出，根部有小雪丘。；檢查完整樹冠的離軌距離，並將根部原點放到實際雪面高度。"
+}

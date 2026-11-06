@@ -1,0 +1,106 @@
+{
+  "id": "Environment_Rail_Straight_2m_001",
+  "name": "直線鐵軌・2m",
+  "category": "07_Environment",
+  "tags": [
+    "railway",
+    "cartoon",
+    "stylized",
+    "modular",
+    "threejs",
+    "straight"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-03",
+  "source": "self_created_from_user_references",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_provided_reference",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../_Shared/Environment_Railway_Cartoon_Kit_001/source/Railway_Cartoon_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/_Shared/Environment_Railway_Cartoon_Kit_001/source/Railway_Cartoon_Kit_001.blend",
+  "sourceCollection": "06_Straight_2m",
+  "gameFile": "exports/Environment_Rail_Straight_2m_001.glb",
+  "pathFile": "exports/Environment_Rail_Straight_2m_001.track.json",
+  "preview": "previews/thumbnail.png",
+  "animations": [],
+  "polycount": 5640,
+  "polycountUnit": "triangles",
+  "textureResolution": "1024x1024",
+  "materialCount": 1,
+  "meshNodeCount": 1,
+  "fileBytes": 902844,
+  "dimensionsMetersXYZ": [
+    2.5,
+    0.405,
+    2.0
+  ],
+  "parameters": {
+    "title": "直線鐵軌・2m",
+    "kind": "straight",
+    "length": 2
+  },
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "module entry centre at local ground level"
+  },
+  "track": {
+    "railCenterSpacingMeters": 1.777,
+    "trackGaugeInnerMeters": 1.6729999999999998,
+    "railHeadWidthMeters": 0.104,
+    "railTopMeters": 0.405,
+    "routes": [
+      "main"
+    ],
+    "ports": [
+      {
+        "id": "Start",
+        "position": [
+          0.0,
+          0.4050000011920929,
+          0.0
+        ],
+        "forward": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "up": [
+          -0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "id": "End",
+        "position": [
+          0.0,
+          0.4050000011920929,
+          2.0
+        ],
+        "forward": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "up": [
+          -0.0,
+          1.0,
+          0.0
+        ]
+      }
+    ],
+    "defaultRoute": "main",
+    "terminal": false,
+    "terminalCartCenterClearanceMeters": 0
+  },
+  "notes": "以四張使用者多角度圖作美術依據，按現有礦車踏面配軌。單一圖集材質，PNG 已內嵌；path JSON 與可見鋼軌共用取樣。道岔尖軌為獨立視覺件，實際行車由程式選擇 route。"
+}

@@ -1,0 +1,168 @@
+{
+  "id": "Building_Rural_VillageHouse6m_001",
+  "name": "紅瓦農舍・約6m",
+  "category": "06_Buildings",
+  "subcategory": "Rural/Homes",
+  "tags": [
+    "rural",
+    "village",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "house"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Rural/_Shared/Rural_Kit_001/source/Rural_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Rural/_Shared/Rural_Kit_001/source/Rural_Kit_001.blend",
+  "sourceCollection": "RU_03_VillageHouse6m",
+  "gameFile": "exports/Building_Rural_VillageHouse6m_001.glb",
+  "ruralFile": "exports/Building_Rural_VillageHouse6m_001.rural.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "optionalDoor": true
+  },
+  "polycount": 2892,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 2,
+  "materialCount": 3,
+  "fileBytes": 189800,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    5.96,
+    4.37,
+    5.71
+  ],
+  "boundsMeters": {
+    "min": [
+      -2.98,
+      0.0,
+      -2.48
+    ],
+    "max": [
+      2.98,
+      4.3699999,
+      3.23
+    ]
+  },
+  "highestSurfaceY": 4.369999885559082,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Building_Rural_VillageHouse6m_001",
+    "title": "紅瓦農舍・約6m",
+    "category": "06_Buildings",
+    "group": "Homes",
+    "kind": "house",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.02
+  },
+  "anchors": [
+    {
+      "id": "Door",
+      "position": [
+        0,
+        0.16,
+        2.22
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "Step",
+      "position": [
+        0,
+        0,
+        3.23
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "door": {
+    "pivotRole": "rural_door_pivot",
+    "localAxis": [
+      0,
+      1,
+      0
+    ],
+    "outwardAngleSign": -1,
+    "maxOpenRadians": 1.5707963267948966,
+    "openingWidthMeters": 1.12,
+    "openingHeightMeters": 1.96
+  },
+  "water": null,
+  "road": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_RU_ground"
+    },
+    "masonry": {
+      "material": "MAT_RU_masonry"
+    },
+    "wood": {
+      "material": "MAT_RU_wood"
+    },
+    "detail": {
+      "material": "MAT_RU_detail"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可供地表、井水及門洞射線取樣；未綁定物理引擎。農舍門可由遊戲端指定角度，其餘水面、衣物與郵箱為靜態造型。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "紅瓦農舍含瓦片、石基、窗框、煙囪、門前台階與窗下花箱。；前門有真正開口與獨立鉸鏈節點，門片可繞局部Y軸向外開啟。；正面朝+Z，第一階踏點與門口位置存於anchors；底部原點，地基可微量埋入。；保留基本室內地板與牆面，未配置家具、角色通行或門鎖玩法。"
+}

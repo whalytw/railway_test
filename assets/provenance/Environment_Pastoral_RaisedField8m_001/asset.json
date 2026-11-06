@@ -1,0 +1,558 @@
+{
+  "id": "Environment_Pastoral_RaisedField8m_001",
+  "name": "畦作耕地・8×8m",
+  "category": "07_Environment",
+  "subcategory": "Pastoral/Farmland",
+  "tags": [
+    "pastoral",
+    "farm",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "field"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Pastoral_Kit_001/source/Pastoral_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Pastoral/_Shared/Pastoral_Kit_001/source/Pastoral_Kit_001.blend",
+  "sourceCollection": "PA_02_RaisedField8m",
+  "gameFile": "exports/Environment_Pastoral_RaisedField8m_001.glb",
+  "pastoralFile": "exports/Environment_Pastoral_RaisedField8m_001.pastoral.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "optionalRotor": false
+  },
+  "polycount": 164,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 13328,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    8.0,
+    0.83,
+    8.0
+  ],
+  "boundsMeters": {
+    "min": [
+      -4.0,
+      -0.65,
+      -4.0
+    ],
+    "max": [
+      4.0,
+      0.18,
+      4.0
+    ]
+  },
+  "highestSurfaceY": 0.18,
+  "originType": "datum",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "centre at surrounding ground datum"
+  },
+  "parameters": {
+    "id": "Environment_Pastoral_RaisedField8m_001",
+    "title": "畦作耕地・8×8m",
+    "category": "07_Environment",
+    "group": "Farmland",
+    "kind": "field",
+    "originType": "datum"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": null,
+  "planting": {
+    "rowCount": 6,
+    "rowAxis": "+Z",
+    "flatBedY": 0.18,
+    "flatBedHalfWidthMeters": 0.23,
+    "sockets": [
+      {
+        "position": [
+          -2.5,
+          0.18,
+          -2.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          -2.5,
+          0.18,
+          -1.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          -2.5,
+          0.18,
+          -0.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          -2.5,
+          0.18,
+          0.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          -2.5,
+          0.18,
+          1.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          -2.5,
+          0.18,
+          2.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          -1.5,
+          0.18,
+          -2.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          -1.5,
+          0.18,
+          -1.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          -1.5,
+          0.18,
+          -0.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          -1.5,
+          0.18,
+          0.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          -1.5,
+          0.18,
+          1.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          -1.5,
+          0.18,
+          2.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          -0.5,
+          0.18,
+          -2.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          -0.5,
+          0.18,
+          -1.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          -0.5,
+          0.18,
+          -0.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          -0.5,
+          0.18,
+          0.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          -0.5,
+          0.18,
+          1.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          -0.5,
+          0.18,
+          2.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          0.5,
+          0.18,
+          -2.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          0.5,
+          0.18,
+          -1.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          0.5,
+          0.18,
+          -0.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          0.5,
+          0.18,
+          0.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          0.5,
+          0.18,
+          1.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          0.5,
+          0.18,
+          2.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          1.5,
+          0.18,
+          -2.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          1.5,
+          0.18,
+          -1.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          1.5,
+          0.18,
+          -0.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          1.5,
+          0.18,
+          0.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          1.5,
+          0.18,
+          1.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          1.5,
+          0.18,
+          2.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          2.5,
+          0.18,
+          -2.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          2.5,
+          0.18,
+          -1.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          2.5,
+          0.18,
+          -0.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          2.5,
+          0.18,
+          0.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          2.5,
+          0.18,
+          1.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "position": [
+          2.5,
+          0.18,
+          2.5
+        ],
+        "normal": [
+          0,
+          1,
+          0
+        ]
+      }
+    ],
+    "compatibleCropKeys": [
+      "WheatCluster",
+      "CornCluster"
+    ]
+  },
+  "fence": null,
+  "rotor": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_PA_ground"
+    },
+    "foliage": {
+      "material": "MAT_PA_foliage"
+    },
+    "detail": {
+      "material": "MAT_PA_detail"
+    },
+    "metal": {
+      "material": "MAT_PA_metal"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "實際網格可供地表射線取樣；未綁定物理引擎。作物、果實及水面為靜態美術幾何，轉子可由遊戲端更新角度。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "8×8m耕地，含六條立體土畦、裸土畦溝與四周草緣。；36個種植點位於平坦畦頂Y=0.18m，可搭配麥穗叢或玉米叢做批次配置。；原點是周圍地面Y=0，底部土層為負Y；作物由遊戲或示範另外放置，GLB不內含作物。"
+}

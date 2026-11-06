@@ -1,0 +1,139 @@
+{
+  "id": "Building_Rural_CountryBarn6m_001",
+  "name": "折線屋頂木穀倉・約6m",
+  "category": "06_Buildings",
+  "subcategory": "Rural/Farm_Buildings",
+  "tags": [
+    "rural",
+    "village",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "barn"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Rural/_Shared/Rural_Kit_001/source/Rural_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Rural/_Shared/Rural_Kit_001/source/Rural_Kit_001.blend",
+  "sourceCollection": "RU_04_CountryBarn6m",
+  "gameFile": "exports/Building_Rural_CountryBarn6m_001.glb",
+  "ruralFile": "exports/Building_Rural_CountryBarn6m_001.rural.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "optionalDoor": false
+  },
+  "polycount": 924,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 3,
+  "fileBytes": 67572,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    6.5,
+    4.68,
+    6.585
+  ],
+  "boundsMeters": {
+    "min": [
+      -3.25,
+      0.0,
+      -3.1199999
+    ],
+    "max": [
+      3.25,
+      4.6799998,
+      3.4649999
+    ]
+  },
+  "highestSurfaceY": 4.679999828338623,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Building_Rural_CountryBarn6m_001",
+    "title": "折線屋頂木穀倉・約6m",
+    "category": "06_Buildings",
+    "group": "Farm_Buildings",
+    "kind": "barn",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.02
+  },
+  "anchors": [
+    {
+      "id": "DoorFront",
+      "position": [
+        0,
+        0,
+        3.47
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "door": null,
+  "water": null,
+  "road": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_RU_ground"
+    },
+    "masonry": {
+      "material": "MAT_RU_masonry"
+    },
+    "wood": {
+      "material": "MAT_RU_wood"
+    },
+    "detail": {
+      "material": "MAT_RU_detail"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可供地表、井水及門洞射線取樣；未綁定物理引擎。農舍門可由遊戲端指定角度，其餘水面、衣物與郵箱為靜態造型。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "木造穀倉含折線屋頂、紅色板壁、交叉門飾、通風窗與石基。；穀倉門片為固定外觀，未提供室內或開合節點；適合作鐵道旁農村主景。；正面朝+Z，以底部原點置於平地並微量埋入。"
+}

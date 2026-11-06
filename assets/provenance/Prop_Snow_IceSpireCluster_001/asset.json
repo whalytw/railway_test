@@ -1,0 +1,113 @@
+{
+  "id": "Prop_Snow_IceSpireCluster_001",
+  "name": "冰晶柱簇",
+  "category": "08_Props",
+  "subcategory": "Snow/Iceforms",
+  "tags": [
+    "snow",
+    "winter",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "spires"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Snow/_Shared/Snow_Kit_001/source/Snow_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Snow/_Shared/Snow_Kit_001/source/Snow_Kit_001.blend",
+  "sourceCollection": "SN_06_IceSpires",
+  "gameFile": "exports/Prop_Snow_IceSpireCluster_001.glb",
+  "snowFile": "exports/Prop_Snow_IceSpireCluster_001.snow.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false
+  },
+  "polycount": 448,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 24332,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    2.296,
+    2.585,
+    1.7425
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.1663678,
+      0.0,
+      -0.8714042
+    ],
+    "max": [
+      1.1296322,
+      2.585,
+      0.8710958
+    ]
+  },
+  "highestSurfaceY": 2.5850000381469727,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Prop_Snow_IceSpireCluster_001",
+    "title": "冰晶柱簇",
+    "category": "08_Props",
+    "group": "Iceforms",
+    "kind": "spires",
+    "originType": "ground"
+  },
+  "ports": [],
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.03
+  },
+  "mount": null,
+  "snow": null,
+  "ice": null,
+  "materialRoles": {
+    "snow": {
+      "material": "MAT_SN_snow"
+    },
+    "ice": {
+      "material": "MAT_SN_ice"
+    },
+    "detail": {
+      "material": "MAT_SN_detail"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可見網格可供射線取樣；未綁定物理引擎。冰池是靜態美術模型，沒有內建滑行、破冰或落水規則。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "五根不同高度與斜度的尖端冰晶柱，立體切面搭配腳部積雪。；底部原點；作沿線點景，不預設碰撞、傷害或可破壞玩法。"
+}

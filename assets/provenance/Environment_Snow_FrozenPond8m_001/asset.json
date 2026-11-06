@@ -1,0 +1,137 @@
+{
+  "id": "Environment_Snow_FrozenPond8m_001",
+  "name": "雪岸冰池・8×8m",
+  "category": "07_Environment",
+  "subcategory": "Snow/Frozen_Water",
+  "tags": [
+    "snow",
+    "winter",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "pond"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Snow_Kit_001/source/Snow_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Snow/_Shared/Snow_Kit_001/source/Snow_Kit_001.blend",
+  "sourceCollection": "SN_07_FrozenPond8m",
+  "gameFile": "exports/Environment_Snow_FrozenPond8m_001.glb",
+  "snowFile": "exports/Environment_Snow_FrozenPond8m_001.snow.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false
+  },
+  "polycount": 742,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 3,
+  "fileBytes": 34320,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    8.0,
+    0.95,
+    8.0
+  ],
+  "boundsMeters": {
+    "min": [
+      -4.0,
+      -0.65,
+      -4.0
+    ],
+    "max": [
+      4.0,
+      0.3,
+      4.0
+    ]
+  },
+  "highestSurfaceY": 0.30000001192092896,
+  "originType": "datum",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "centre at surrounding ground datum"
+  },
+  "parameters": {
+    "id": "Environment_Snow_FrozenPond8m_001",
+    "title": "雪岸冰池・8×8m",
+    "category": "07_Environment",
+    "group": "Frozen_Water",
+    "kind": "pond",
+    "originType": "datum"
+  },
+  "ports": [],
+  "compatibleTracks": [],
+  "placement": null,
+  "mount": null,
+  "snow": null,
+  "ice": {
+    "surfaceY": 0.02,
+    "opaque": true,
+    "visualOnly": true,
+    "samplePoints": [
+      [
+        -1.5,
+        0.02,
+        1.3
+      ],
+      [
+        1.6,
+        0.02,
+        1.3
+      ],
+      [
+        -1.4,
+        0.02,
+        -1.3
+      ],
+      [
+        1.5,
+        0.02,
+        -1.3
+      ]
+    ]
+  },
+  "materialRoles": {
+    "snow": {
+      "material": "MAT_SN_snow"
+    },
+    "ice": {
+      "material": "MAT_SN_ice"
+    },
+    "detail": {
+      "material": "MAT_SN_detail"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可見網格可供射線取樣；未綁定物理引擎。冰池是靜態美術模型，沒有內建滑行、破冰或落水規則。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "8×8m雪岸冰池，方形外緣雪地內包覆橢圓冰面，附立體冰紋。；冰面Y=0.02m、外緣雪面Y=0.18m；土層底部為負Y，原點不是包圍盒底部。；冰面為不透明靜態幾何；滑行、破冰、落水等行為由遊戲端另行決定。"
+}

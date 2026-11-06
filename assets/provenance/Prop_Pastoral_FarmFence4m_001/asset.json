@@ -1,0 +1,160 @@
+{
+  "id": "Prop_Pastoral_FarmFence4m_001",
+  "name": "田園木柵欄・4m",
+  "category": "08_Props",
+  "subcategory": "Pastoral/Fences",
+  "tags": [
+    "pastoral",
+    "farm",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "fence"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Pastoral/_Shared/Pastoral_Kit_001/source/Pastoral_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Pastoral/_Shared/Pastoral_Kit_001/source/Pastoral_Kit_001.blend",
+  "sourceCollection": "PA_06_FarmFence4m",
+  "gameFile": "exports/Prop_Pastoral_FarmFence4m_001.glb",
+  "pastoralFile": "exports/Prop_Pastoral_FarmFence4m_001.pastoral.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "optionalRotor": false
+  },
+  "polycount": 688,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 2,
+  "materialCount": 2,
+  "fileBytes": 50180,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    4.25,
+    1.25,
+    0.27
+  ],
+  "boundsMeters": {
+    "min": [
+      -0.125,
+      0.0,
+      -0.135
+    ],
+    "max": [
+      4.125,
+      1.25,
+      0.135
+    ]
+  },
+  "highestSurfaceY": 1.25,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "first post ground centre at fence entry"
+  },
+  "parameters": {
+    "id": "Prop_Pastoral_FarmFence4m_001",
+    "title": "田園木柵欄・4m",
+    "category": "08_Props",
+    "group": "Fences",
+    "kind": "fence",
+    "originType": "ground"
+  },
+  "ports": [
+    {
+      "id": "Start",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "forward": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "End",
+      "position": [
+        4,
+        0,
+        0
+      ],
+      "forward": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "portFamily": "fence",
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.03
+  },
+  "planting": null,
+  "fence": {
+    "terminalRole": "pastoral_terminal_post",
+    "terminalVisibleByDefault": true,
+    "lengthMeters": 4
+  },
+  "rotor": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_PA_ground"
+    },
+    "foliage": {
+      "material": "MAT_PA_foliage"
+    },
+    "detail": {
+      "material": "MAT_PA_detail"
+    },
+    "metal": {
+      "material": "MAT_PA_metal"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "實際網格可供地表射線取樣；未綁定物理引擎。作物、果實及水面為靜態美術幾何，轉子可由遊戲端更新角度。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "4m長木柵欄，含雙橫木、交叉支撐與三根立柱。；原點在第一根立柱底部，沿+X延伸；Start在X=0、End在X=4。；終端立柱為獨立節點；連接下一段時隱藏前段終端柱，避免同位置重疊。單段展示時保留。"
+}

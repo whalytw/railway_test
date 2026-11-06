@@ -1,0 +1,187 @@
+{
+  "id": "Environment_Desert_DuneTile16m_001",
+  "name": "風塑沙丘地塊・16×16m",
+  "category": "07_Environment",
+  "subcategory": "Desert/Dunes",
+  "tags": [
+    "desert",
+    "sand",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "dune"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Desert_Kit_001/source/Desert_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Desert/_Shared/Desert_Kit_001/source/Desert_Kit_001.blend",
+  "sourceCollection": "DS_02_DuneTile16m",
+  "gameFile": "exports/Environment_Desert_DuneTile16m_001.glb",
+  "desertFile": "exports/Environment_Desert_DuneTile16m_001.desert.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false
+  },
+  "polycount": 2432,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 1,
+  "fileBytes": 64908,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    16.0,
+    3.782322,
+    16.0
+  ],
+  "boundsMeters": {
+    "min": [
+      -8.0,
+      -0.65,
+      -8.0
+    ],
+    "max": [
+      8.0,
+      3.132322,
+      8.0
+    ]
+  },
+  "highestSurfaceY": 3.132322013572639,
+  "originType": "datum",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "centre at surrounding ground datum"
+  },
+  "parameters": {
+    "id": "Environment_Desert_DuneTile16m_001",
+    "title": "風塑沙丘地塊・16×16m",
+    "category": "07_Environment",
+    "group": "Dunes",
+    "kind": "dune",
+    "originType": "datum"
+  },
+  "ports": [
+    {
+      "id": "South",
+      "position": [
+        0,
+        0,
+        -8
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "North",
+      "position": [
+        0,
+        0,
+        8
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "West",
+      "position": [
+        -8,
+        0,
+        0
+      ],
+      "forward": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "East",
+      "position": [
+        8,
+        0,
+        0
+      ],
+      "forward": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "portFamily": "dune_tile",
+  "compatibleTracks": [],
+  "placement": null,
+  "water": null,
+  "clearance": null,
+  "materialRoles": {
+    "sand": {
+      "material": "MAT_DS_sand"
+    },
+    "rock": {
+      "material": "MAT_DS_rock"
+    },
+    "plant": {
+      "material": "MAT_DS_plant"
+    },
+    "water": {
+      "material": "MAT_DS_water"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "實際網格可供地表與拱門射線取樣；未綁定物理引擎。水面、植物及風滾草為靜態美術幾何。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "16×16m風塑沙丘，含寬緩迎風坡、較陡背風坡及次級沙丘。；四周地表回到Y=0，可銜接平地或重複地塊；最高處需用實際網格取樣。；原點是周圍地面Y=0，土層底部為負Y；沒有預設穿越沙丘的行車路線。"
+}

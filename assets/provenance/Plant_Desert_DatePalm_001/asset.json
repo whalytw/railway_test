@@ -1,0 +1,117 @@
+{
+  "id": "Plant_Desert_DatePalm_001",
+  "name": "綠洲棗椰樹",
+  "category": "04_Plants",
+  "subcategory": "Desert/Palms",
+  "tags": [
+    "desert",
+    "sand",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "palm"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Desert/_Shared/Desert_Kit_001/source/Desert_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Desert/_Shared/Desert_Kit_001/source/Desert_Kit_001.blend",
+  "sourceCollection": "DS_07_DatePalm",
+  "gameFile": "exports/Plant_Desert_DatePalm_001.glb",
+  "desertFile": "exports/Plant_Desert_DatePalm_001.desert.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false
+  },
+  "polycount": 2736,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 132116,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    3.964568,
+    4.889638,
+    3.771581
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.7820429,
+      0.0,
+      -1.9157906
+    ],
+    "max": [
+      2.1825252,
+      4.8896384,
+      1.8557906
+    ]
+  },
+  "highestSurfaceY": 4.889638423919678,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Plant_Desert_DatePalm_001",
+    "title": "綠洲棗椰樹",
+    "category": "04_Plants",
+    "group": "Palms",
+    "kind": "palm",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.035
+  },
+  "water": null,
+  "clearance": null,
+  "materialRoles": {
+    "sand": {
+      "material": "MAT_DS_sand"
+    },
+    "rock": {
+      "material": "MAT_DS_rock"
+    },
+    "plant": {
+      "material": "MAT_DS_plant"
+    },
+    "water": {
+      "material": "MAT_DS_water"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "實際網格可供地表與拱門射線取樣；未綁定物理引擎。水面、植物及風滾草為靜態美術幾何。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "彎曲樹幹的綠洲棗椰樹，含節狀樹皮、羽狀葉、小葉片及兩串棗果。；樹葉、小葉、果實皆為立體幾何；以底部原點放到實際沙岸高度。；優先置於平坦岸地；檢查完整樹冠離軌距離，未內建風動動畫。"
+}

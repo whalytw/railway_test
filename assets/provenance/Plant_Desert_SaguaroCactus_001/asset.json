@@ -1,0 +1,116 @@
+{
+  "id": "Plant_Desert_SaguaroCactus_001",
+  "name": "多臂仙人掌",
+  "category": "04_Plants",
+  "subcategory": "Desert/Cacti",
+  "tags": [
+    "desert",
+    "sand",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "cactus"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Desert/_Shared/Desert_Kit_001/source/Desert_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Desert/_Shared/Desert_Kit_001/source/Desert_Kit_001.blend",
+  "sourceCollection": "DS_06_SaguaroCactus",
+  "gameFile": "exports/Plant_Desert_SaguaroCactus_001.glb",
+  "desertFile": "exports/Plant_Desert_SaguaroCactus_001.desert.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false
+  },
+  "polycount": 1492,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 1,
+  "fileBytes": 112620,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    1.997191,
+    3.402177,
+    0.80322
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.0376667,
+      0.0,
+      -0.4796
+    ],
+    "max": [
+      0.9595245,
+      3.4021766,
+      0.3236197
+    ]
+  },
+  "highestSurfaceY": 3.40217661857605,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Plant_Desert_SaguaroCactus_001",
+    "title": "多臂仙人掌",
+    "category": "04_Plants",
+    "group": "Cacti",
+    "kind": "cactus",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.035
+  },
+  "water": null,
+  "clearance": null,
+  "materialRoles": {
+    "sand": {
+      "material": "MAT_DS_sand"
+    },
+    "rock": {
+      "material": "MAT_DS_rock"
+    },
+    "plant": {
+      "material": "MAT_DS_plant"
+    },
+    "water": {
+      "material": "MAT_DS_water"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "實際網格可供地表與拱門射線取樣；未綁定物理引擎。水面、植物及風滾草為靜態美術幾何。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "多臂仙人掌含有肋紋的主幹、兩支彎臂、小側芽、立體刺與花冠。；全部為封閉幾何，不需要透明植物貼圖；底部原點。；需保留整個臂展與軌道、鏡頭的距離，未內建刺傷或採集玩法。"
+}

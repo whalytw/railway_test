@@ -1,0 +1,120 @@
+{
+  "id": "Prop_Lakeside_ShoreBoulders_001",
+  "name": "圓潤濕岸石組",
+  "category": "08_Props",
+  "subcategory": "Lakeside/Rocks",
+  "tags": [
+    "lakeside",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "boulders"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Lakeside/_Shared/Lakeside_Kit_001/source/Lakeside_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Lakeside/_Shared/Lakeside_Kit_001/source/Lakeside_Kit_001.blend",
+  "sourceCollection": "LK_08_ShoreBoulders",
+  "gameFile": "exports/Prop_Lakeside_ShoreBoulders_001.glb",
+  "lakesideFile": "exports/Prop_Lakeside_ShoreBoulders_001.lakeside.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "bakedAnimationClips": false,
+    "waterlinePlacement": false,
+    "physicalBuoyancy": false
+  },
+  "polycount": 468,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 1,
+  "fileBytes": 18740,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    3.139733,
+    1.2,
+    2.118082
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.45,
+      0.0,
+      -1.2072825
+    ],
+    "max": [
+      1.6897326,
+      1.2,
+      0.9108
+    ]
+  },
+  "highestSurfaceY": 1.2000000476837158,
+  "originType": "ground",
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Prop_Lakeside_ShoreBoulders_001",
+    "title": "圓潤濕岸石組",
+    "category": "08_Props",
+    "group": "Rocks",
+    "kind": "boulders",
+    "originType": "ground"
+  },
+  "ports": [],
+  "portFamily": null,
+  "compatibleTracks": [],
+  "compatibleWaterTiles": null,
+  "placement": {
+    "flatGroundPreferred": true,
+    "embedDepthMeters": 0.04,
+    "referenceSurface": "land_or_bed"
+  },
+  "mount": null,
+  "waterline": null,
+  "water": null,
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_LK_ground"
+    },
+    "water": {
+      "material": "MAT_LK_water"
+    },
+    "wood": {
+      "material": "MAT_LK_wood"
+    },
+    "foliage": {
+      "material": "MAT_LK_foliage"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "可對實際網格分別取水面、湖床及甲板高度；未綁定物理引擎、船隻浮力或角色導航。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "三塊圓潤岸石，低處較深色，保留濕岸石的輪廓與切面。；底部原點，適合岸上或淺水湖床；先取實際地面/湖床高度再微量埋入。"
+}

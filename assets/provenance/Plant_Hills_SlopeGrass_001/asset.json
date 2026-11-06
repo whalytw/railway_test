@@ -1,0 +1,112 @@
+{
+  "id": "Plant_Hills_SlopeGrass_001",
+  "name": "坡地穗草叢",
+  "category": "04_Plants",
+  "subcategory": "Hills/Groundcover",
+  "tags": [
+    "hills",
+    "cartoon",
+    "stylized",
+    "low-poly",
+    "threejs",
+    "grass"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-05",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../../../07_Environment/Hills/_Shared/Hills_Kit_001/source/Hills_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Hills/_Shared/Hills_Kit_001/source/Hills_Kit_001.blend",
+  "sourceCollection": "HL_04_SlopeGrass",
+  "gameFile": "exports/Plant_Hills_SlopeGrass_001.glb",
+  "hillsFile": "exports/Plant_Hills_SlopeGrass_001.hills.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/detail.png"
+  ],
+  "animations": [],
+  "runtimeAnimation": {
+    "optionalGrassWind": true,
+    "bakedAnimationClips": false
+  },
+  "polycount": 2904,
+  "polycountUnit": "triangles",
+  "meshNodeCount": 1,
+  "materialCount": 2,
+  "fileBytes": 103704,
+  "textureResolution": "none; vertex colors",
+  "dimensionsMetersXYZ": [
+    1.348291,
+    0.812836,
+    1.329173
+  ],
+  "boundsMeters": {
+    "min": [
+      -0.6759406,
+      0.0,
+      -0.5584783
+    ],
+    "max": [
+      0.67235,
+      0.8128359,
+      0.7706943
+    ]
+  },
+  "highestSurfaceY": 0.8128358726389706,
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "ground centre"
+  },
+  "parameters": {
+    "id": "Plant_Hills_SlopeGrass_001",
+    "title": "坡地穗草叢",
+    "category": "04_Plants",
+    "group": "Groundcover",
+    "kind": "grass"
+  },
+  "ports": [],
+  "compatibleTracks": [],
+  "placement": {
+    "alignToGroundNormal": true,
+    "maxSlopeDegrees": 35,
+    "embedDepthMeters": 0.015,
+    "uniformScaleRecommended": true
+  },
+  "materialRoles": {
+    "ground": {
+      "material": "MAT_HL_ground"
+    },
+    "rock": {
+      "material": "MAT_HL_rock"
+    },
+    "foliage": {
+      "material": "MAT_HL_foliage"
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "提供可射線取樣的封閉表面；未綁定物理引擎。高度表是基礎地形參考，嵌入裸岩需以實際可見網格取樣。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "closedConnectedPieces": "passed",
+    "threejsLoadAndBounds": "passed",
+    "threeRevision": "180",
+    "protectedRailCorridor": "not_applicable"
+  },
+  "notes": "六簇穗草，含彎曲立體草葉與種穗，不使用透明交叉貼片。；底部原點；可沿地表法線傾斜，建議坡度不超過35°，根部微量埋入。；同一母件可使用InstancedMesh批次配置，葉片可選輕微風動。"
+}
