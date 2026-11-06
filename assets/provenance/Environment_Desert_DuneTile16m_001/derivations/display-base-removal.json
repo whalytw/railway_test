@@ -1,0 +1,60 @@
+{
+  "id": "Environment_Desert_DuneTile16m_001",
+  "applied": true,
+  "originalSha256": "2a6bd619124f638a853049f844bd84aab841574a4ba1568d68be4156e4c1cce8",
+  "cleanedSha256": "fb7bfe2a7fd4a1d83c2d75bc97d23aafdc58a44d9bc358e41ce4754eb9b65817",
+  "before": {
+    "triangles": 2432,
+    "slabSideBottomTriangles": 384,
+    "flatDisplayTopTriangles": 459,
+    "bounds": {
+      "min": [
+        -8,
+        -0.6499999761581421,
+        -8
+      ],
+      "max": [
+        8,
+        3.132322072982788,
+        8
+      ]
+    },
+    "bytes": 64908
+  },
+  "after": {
+    "triangles": 1589,
+    "slabSideBottomTriangles": 0,
+    "flatDisplayTopTriangles": 0,
+    "bounds": {
+      "min": [
+        -8,
+        0,
+        -8
+      ],
+      "max": [
+        6,
+        3.132322072982788,
+        8
+      ]
+    },
+    "bytes": 39480
+  },
+  "originalSlabBottomY": -0.65,
+  "placement": {
+    "localGroundDatumY": 0,
+    "useOriginalBoundingBoxBottomAsGround": false,
+    "embedMeters": 0.015,
+    "note": "Place local Y=0 at the host terrain datum. The open natural foot is intended to blend into host terrain."
+  },
+  "removed": {
+    "slabSideBottomTriangles": 384,
+    "flatDisplayTopTriangles": 459
+  },
+  "preserved": [
+    "natural sloping terrain",
+    "artist vertex positions, normals and colors",
+    "embedded natural rock geometry",
+    "glTF node hierarchy and materials"
+  ],
+  "sourceLibraryModified": false
+}

@@ -1,0 +1,60 @@
+{
+  "id": "Environment_Hills_RoundHill16m_001",
+  "applied": true,
+  "originalSha256": "3780bb707f9c964bed481bff06a600497892d2a767909b4603241cea4b6e08d0",
+  "cleanedSha256": "daf37532161b13d815a52dcd5b4f05030498a1c8ed7f4c1e0064cd0c7823b3cd",
+  "before": {
+    "triangles": 2662,
+    "slabSideBottomTriangles": 382,
+    "flatDisplayTopTriangles": 852,
+    "bounds": {
+      "min": [
+        -8,
+        -0.8999999761581421,
+        -8
+      ],
+      "max": [
+        8,
+        3.29355788230896,
+        8
+      ]
+    },
+    "bytes": 88308
+  },
+  "after": {
+    "triangles": 1428,
+    "slabSideBottomTriangles": 0,
+    "flatDisplayTopTriangles": 0,
+    "bounds": {
+      "min": [
+        -7.5,
+        0,
+        -7.5
+      ],
+      "max": [
+        6.5,
+        3.29355788230896,
+        6.5
+      ]
+    },
+    "bytes": 53924
+  },
+  "originalSlabBottomY": -0.9,
+  "placement": {
+    "localGroundDatumY": 0,
+    "useOriginalBoundingBoxBottomAsGround": false,
+    "embedMeters": 0.015,
+    "note": "Place local Y=0 at the host terrain datum. The open natural foot is intended to blend into host terrain."
+  },
+  "removed": {
+    "slabSideBottomTriangles": 382,
+    "flatDisplayTopTriangles": 852
+  },
+  "preserved": [
+    "natural sloping terrain",
+    "artist vertex positions, normals and colors",
+    "embedded natural rock geometry",
+    "glTF node hierarchy and materials"
+  ],
+  "sourceLibraryModified": false
+}

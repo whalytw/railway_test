@@ -1,6 +1,6 @@
 {
   "name": "rail-loop-lab",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
   "description": "A self-contained Three.js + Blender railway rendering stress test",

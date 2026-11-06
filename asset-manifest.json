@@ -88,7 +88,7 @@
       "dimensions": [
         2.5,
         0.405,
-        2.0
+        2
       ],
       "triangles": 5640,
       "meshNodeCount": 1,
@@ -118,7 +118,7 @@
       "dimensions": [
         0.21,
         0.2,
-        1.0
+        1
       ],
       "triangles": 764,
       "meshNodeCount": 1,
@@ -131,9 +131,9 @@
       "category": "06_Buildings",
       "biome": null,
       "dimensions": [
-        3.0,
+        3,
         0.9161,
-        4.0
+        4
       ],
       "triangles": 4908,
       "meshNodeCount": 1,
@@ -201,7 +201,7 @@
       "bounds": {
         "min": [
           -0.30000001192092896,
-          0.0,
+          0,
           -0.2800000011920929
         ],
         "max": [
@@ -228,7 +228,7 @@
       "bounds": {
         "min": [
           -2.488173484802246,
-          0.0,
+          0,
           -2.096322774887085
         ],
         "max": [
@@ -258,7 +258,7 @@
       "bounds": {
         "min": [
           -1.65,
-          0.0,
+          0,
           -1.4729681830819115
         ],
         "max": [
@@ -287,7 +287,7 @@
       "bounds": {
         "min": [
           -1.0452197790145874,
-          0.0,
+          0,
           -0.7366302013397217
         ],
         "max": [
@@ -316,7 +316,7 @@
       "bounds": {
         "min": [
           -1.0690211057662964,
-          0.0,
+          0,
           -0.9193507432937622
         ],
         "max": [
@@ -345,7 +345,7 @@
       "bounds": {
         "min": [
           -0.9888599514961243,
-          0.0,
+          0,
           -0.8464320302009583
         ],
         "max": [
@@ -374,7 +374,7 @@
       "bounds": {
         "min": [
           -0.8312495946884155,
-          0.0,
+          0,
           -0.7026393413543701
         ],
         "max": [
@@ -403,7 +403,7 @@
       "bounds": {
         "min": [
           -0.6471302509307861,
-          0.0,
+          0,
           -1.718999981880188
         ],
         "max": [
@@ -422,26 +422,33 @@
       "category": "07_Environment",
       "biome": "Hills",
       "dimensions": [
-        16.0,
-        4.193558,
-        16.0
+        14,
+        3.29355788230896,
+        14
       ],
-      "triangles": 2662,
+      "triangles": 1428,
       "meshNodeCount": 1,
-      "bytes": 88308,
+      "bytes": 53924,
       "bounds": {
         "min": [
-          -8.0,
-          -0.9,
-          -8.0
+          -7.5,
+          0,
+          -7.5
         ],
         "max": [
-          8.0,
-          3.2935578,
-          8.0
+          6.5,
+          3.29355788230896,
+          6.5
         ]
       },
-      "preview": "assets/previews/Environment_Hills_RoundHill16m_001.png"
+      "preview": "assets/previews/Environment_Hills_RoundHill16m_001.png",
+      "placement": {
+        "localGroundDatumY": 0,
+        "useOriginalBoundingBoxBottomAsGround": false,
+        "embedMeters": 0.015,
+        "note": "Place local Y=0 at the host terrain datum. The open natural foot is intended to blend into host terrain."
+      },
+      "derivation": "assets/provenance/Environment_Hills_RoundHill16m_001/derivations/display-base-removal.json"
     },
     "Environment_Hills_RollingRidge24m_001": {
       "id": "Environment_Hills_RollingRidge24m_001",
@@ -450,25 +457,32 @@
       "category": "07_Environment",
       "biome": "Hills",
       "dimensions": [
-        16.0,
-        5.9,
-        24.0
+        15,
+        5,
+        24
       ],
-      "triangles": 3782,
+      "triangles": 2812,
       "meshNodeCount": 1,
-      "bytes": 115004,
+      "bytes": 85440,
       "bounds": {
         "min": [
-          -8.0,
-          -0.9,
-          -12.0
+          -7.5,
+          0,
+          -12
         ],
         "max": [
-          8.0,
-          5.0,
-          12.0
+          7.5,
+          5,
+          12
         ]
-      }
+      },
+      "placement": {
+        "localGroundDatumY": 0,
+        "useOriginalBoundingBoxBottomAsGround": false,
+        "embedMeters": 0.015,
+        "note": "Place local Y=0 at the host terrain datum. The open natural foot is intended to blend into host terrain."
+      },
+      "derivation": "assets/provenance/Environment_Hills_RollingRidge24m_001/derivations/display-base-removal.json"
     },
     "Environment_Hills_StrataRockface8m_001": {
       "id": "Environment_Hills_StrataRockface8m_001",
@@ -487,7 +501,7 @@
       "bounds": {
         "min": [
           -4.0049064,
-          0.0,
+          0,
           -1.3554911
         ],
         "max": [
@@ -514,7 +528,7 @@
       "bounds": {
         "min": [
           -0.6759406,
-          0.0,
+          0,
           -0.5584783
         ],
         "max": [
@@ -541,7 +555,7 @@
       "bounds": {
         "min": [
           -1.8457986,
-          0.0,
+          0,
           -1.3939416
         ],
         "max": [
@@ -558,25 +572,32 @@
       "category": "07_Environment",
       "biome": "Hills",
       "dimensions": [
-        48.0,
-        11.61579,
-        18.0
+        46,
+        10.715789794921875,
+        18
       ],
-      "triangles": 628,
+      "triangles": 357,
       "meshNodeCount": 1,
-      "bytes": 20492,
+      "bytes": 10788,
       "bounds": {
         "min": [
-          -24.0,
-          -0.9,
-          -9.0
+          -24,
+          0,
+          -9
         ],
         "max": [
-          24.0,
-          10.7157898,
-          9.0
+          22,
+          10.715789794921875,
+          9
         ]
-      }
+      },
+      "placement": {
+        "localGroundDatumY": 0,
+        "useOriginalBoundingBoxBottomAsGround": false,
+        "embedMeters": 0.015,
+        "note": "Place local Y=0 at the host terrain datum. The open natural foot is intended to blend into host terrain."
+      },
+      "derivation": "assets/provenance/Environment_Hills_DistantRidge48m_001/derivations/display-base-removal.json"
     },
     "Environment_Pastoral_RaisedField8m_001": {
       "id": "Environment_Pastoral_RaisedField8m_001",
@@ -585,23 +606,23 @@
       "category": "07_Environment",
       "biome": "Pastoral",
       "dimensions": [
-        8.0,
+        8,
         0.83,
-        8.0
+        8
       ],
       "triangles": 164,
       "meshNodeCount": 1,
       "bytes": 13328,
       "bounds": {
         "min": [
-          -4.0,
+          -4,
           -0.65,
-          -4.0
+          -4
         ],
         "max": [
-          4.0,
+          4,
           0.18,
-          4.0
+          4
         ]
       }
     },
@@ -622,7 +643,7 @@
       "bounds": {
         "min": [
           -0.48,
-          0.0,
+          0,
           -0.2294449
         ],
         "max": [
@@ -649,7 +670,7 @@
       "bounds": {
         "min": [
           -0.5802976,
-          0.0,
+          0,
           -0.8170606
         ],
         "max": [
@@ -676,7 +697,7 @@
       "bounds": {
         "min": [
           -1.7755556,
-          0.0,
+          0,
           -1.7205783
         ],
         "max": [
@@ -703,7 +724,7 @@
       "bounds": {
         "min": [
           -0.125,
-          0.0,
+          0,
           -0.135
         ],
         "max": [
@@ -730,7 +751,7 @@
       "bounds": {
         "min": [
           -1.035,
-          0.0,
+          0,
           -0.3615
         ],
         "max": [
@@ -757,7 +778,7 @@
       "bounds": {
         "min": [
           -1.1164179,
-          0.0,
+          0,
           -1.1224999
         ],
         "max": [
@@ -775,26 +796,33 @@
       "category": "07_Environment",
       "biome": "Desert",
       "dimensions": [
-        16.0,
-        3.782322,
-        16.0
+        14,
+        3.132322072982788,
+        16
       ],
-      "triangles": 2432,
+      "triangles": 1589,
       "meshNodeCount": 1,
-      "bytes": 64908,
+      "bytes": 39480,
       "bounds": {
         "min": [
-          -8.0,
-          -0.65,
-          -8.0
+          -8,
+          0,
+          -8
         ],
         "max": [
-          8.0,
-          3.132322,
-          8.0
+          6,
+          3.132322072982788,
+          8
         ]
       },
-      "preview": "assets/previews/Environment_Desert_DuneTile16m_001.png"
+      "preview": "assets/previews/Environment_Desert_DuneTile16m_001.png",
+      "placement": {
+        "localGroundDatumY": 0,
+        "useOriginalBoundingBoxBottomAsGround": false,
+        "embedMeters": 0.015,
+        "note": "Place local Y=0 at the host terrain datum. The open natural foot is intended to blend into host terrain."
+      },
+      "derivation": "assets/provenance/Environment_Desert_DuneTile16m_001/derivations/display-base-removal.json"
     },
     "Environment_Desert_Oasis8m_001": {
       "id": "Environment_Desert_Oasis8m_001",
@@ -803,23 +831,23 @@
       "category": "07_Environment",
       "biome": "Desert",
       "dimensions": [
-        8.0,
+        8,
         0.776,
-        8.0
+        8
       ],
       "triangles": 648,
       "meshNodeCount": 1,
       "bytes": 25716,
       "bounds": {
         "min": [
-          -4.0,
+          -4,
           -0.65,
-          -4.0
+          -4
         ],
         "max": [
-          4.0,
+          4,
           0.126,
-          4.0
+          4
         ]
       }
     },
@@ -867,7 +895,7 @@
       "bounds": {
         "min": [
           -1.4066389,
-          0.0,
+          0,
           -1.2555343
         ],
         "max": [
@@ -894,7 +922,7 @@
       "bounds": {
         "min": [
           -1.0376667,
-          0.0,
+          0,
           -0.4796
         ],
         "max": [
@@ -921,7 +949,7 @@
       "bounds": {
         "min": [
           -1.7820429,
-          0.0,
+          0,
           -1.9157906
         ],
         "max": [
@@ -948,7 +976,7 @@
       "bounds": {
         "min": [
           -0.6255572,
-          0.0,
+          0,
           -0.4944632
         ],
         "max": [
@@ -975,7 +1003,7 @@
       "bounds": {
         "min": [
           -2.98,
-          0.0,
+          0,
           -2.48
         ],
         "max": [
@@ -1003,7 +1031,7 @@
       "bounds": {
         "min": [
           -3.25,
-          0.0,
+          0,
           -3.1199999
         ],
         "max": [
@@ -1022,7 +1050,7 @@
       "dimensions": [
         2.69,
         2.76,
-        2.0
+        2
       ],
       "triangles": 1456,
       "meshNodeCount": 1,
@@ -1030,13 +1058,13 @@
       "bounds": {
         "min": [
           -1.26,
-          0.0,
-          -1.0
+          0,
+          -1
         ],
         "max": [
           1.4299999,
           2.76,
-          1.0
+          1
         ]
       }
     },
@@ -1047,7 +1075,7 @@
       "category": "08_Props",
       "biome": "Rural",
       "dimensions": [
-        4.0,
+        4,
         1.01,
         0.44
       ],
@@ -1056,12 +1084,12 @@
       "bytes": 103172,
       "bounds": {
         "min": [
-          0.0,
-          0.0,
+          0,
+          0,
           -0.22
         ],
         "max": [
-          4.0,
+          4,
           1.01,
           0.22
         ]
@@ -1084,7 +1112,7 @@
       "bounds": {
         "min": [
           -0.475,
-          0.0,
+          0,
           -0.4
         ],
         "max": [
@@ -1101,7 +1129,7 @@
       "category": "08_Props",
       "biome": "Rural",
       "dimensions": [
-        4.0,
+        4,
         2.2,
         0.812744
       ],
@@ -1110,12 +1138,12 @@
       "bytes": 43268,
       "bounds": {
         "min": [
-          -2.0,
-          0.0,
+          -2,
+          0,
           -0.4063719
         ],
         "max": [
-          2.0,
+          2,
           2.2,
           0.4063719
         ]
@@ -1128,23 +1156,23 @@
       "category": "07_Environment",
       "biome": "Lakeside",
       "dimensions": [
-        8.0,
-        1.0,
-        8.0
+        8,
+        1,
+        8
       ],
       "triangles": 24,
       "meshNodeCount": 1,
       "bytes": 5548,
       "bounds": {
         "min": [
-          -4.0,
+          -4,
           -1.2,
-          -4.0
+          -4
         ],
         "max": [
-          4.0,
+          4,
           -0.2,
-          4.0
+          4
         ]
       }
     },
@@ -1155,23 +1183,23 @@
       "category": "07_Environment",
       "biome": "Lakeside",
       "dimensions": [
-        8.0,
+        8,
         1.23,
-        8.0
+        8
       ],
       "triangles": 56,
       "meshNodeCount": 1,
       "bytes": 7032,
       "bounds": {
         "min": [
-          -4.0,
+          -4,
           -1.2,
-          -4.0
+          -4
         ],
         "max": [
-          4.0,
+          4,
           0.03,
-          4.0
+          4
         ]
       }
     },
@@ -1184,7 +1212,7 @@
       "dimensions": [
         2.05,
         1.68,
-        6.0
+        6
       ],
       "triangles": 1780,
       "meshNodeCount": 1,
@@ -1193,12 +1221,12 @@
         "min": [
           -1.025,
           -1.1,
-          0.0
+          0
         ],
         "max": [
           1.025,
           0.58,
-          6.0
+          6
         ]
       }
     },
@@ -1246,7 +1274,7 @@
       "bounds": {
         "min": [
           -0.6099556,
-          0.0,
+          0,
           -0.4001106
         ],
         "max": [
@@ -1273,7 +1301,7 @@
       "bounds": {
         "min": [
           -2.3800001,
-          0.0,
+          0,
           -2.3800001
         ],
         "max": [
@@ -1301,7 +1329,7 @@
       "bounds": {
         "min": [
           -1.45,
-          0.0,
+          0,
           -1.2072825
         ],
         "max": [
@@ -1328,7 +1356,7 @@
       "bounds": {
         "min": [
           -2.4380348,
-          0.0,
+          0,
           -1.2328513
         ],
         "max": [
@@ -1355,7 +1383,7 @@
       "bounds": {
         "min": [
           -1.65,
-          0.0,
+          0,
           -1.4884731
         ],
         "max": [
@@ -1383,7 +1411,7 @@
       "bounds": {
         "min": [
           -1.5215638,
-          0.0,
+          0,
           -1.3301275
         ],
         "max": [
@@ -1410,7 +1438,7 @@
       "bounds": {
         "min": [
           -4.09825,
-          0.0,
+          0,
           -0.9028391
         ],
         "max": [
@@ -1437,7 +1465,7 @@
       "bounds": {
         "min": [
           -1.1663678,
-          0.0,
+          0,
           -0.8714042
         ],
         "max": [
@@ -1454,23 +1482,23 @@
       "category": "07_Environment",
       "biome": "Snow",
       "dimensions": [
-        8.0,
+        8,
         0.95,
-        8.0
+        8
       ],
       "triangles": 742,
       "meshNodeCount": 1,
       "bytes": 34320,
       "bounds": {
         "min": [
-          -4.0,
+          -4,
           -0.65,
-          -4.0
+          -4
         ],
         "max": [
-          4.0,
+          4,
           0.3,
-          4.0
+          4
         ]
       }
     },
@@ -1511,7 +1539,7 @@
       "dimensions": [
         5.2,
         1.04,
-        8.0
+        8
       ],
       "triangles": 954,
       "meshNodeCount": 1,
@@ -1520,12 +1548,12 @@
         "min": [
           -2.6,
           -0.7,
-          0.0
+          0
         ],
         "max": [
           2.6,
           0.34,
-          8.0
+          8
         ]
       }
     },
@@ -1536,23 +1564,23 @@
       "category": "07_Environment",
       "biome": "Volcano",
       "dimensions": [
-        8.0,
+        8,
         0.965,
-        8.0
+        8
       ],
       "triangles": 1032,
       "meshNodeCount": 1,
       "bytes": 86492,
       "bounds": {
         "min": [
-          -4.0,
+          -4,
           -0.65,
-          -4.0
+          -4
         ],
         "max": [
-          4.0,
+          4,
           0.315,
-          4.0
+          4
         ]
       }
     },
@@ -1573,7 +1601,7 @@
       "bounds": {
         "min": [
           -4.1185109,
-          0.0,
+          0,
           -0.8404924
         ],
         "max": [
@@ -1600,7 +1628,7 @@
       "bounds": {
         "min": [
           -1.5011765,
-          0.0,
+          0,
           -1.2736775
         ],
         "max": [
@@ -1627,7 +1655,7 @@
       "bounds": {
         "min": [
           -1.0667098,
-          0.0,
+          0,
           -0.9596364
         ],
         "max": [
@@ -1654,7 +1682,7 @@
       "bounds": {
         "min": [
           -1.3359199,
-          0.0,
+          0,
           -1.2344119
         ],
         "max": [

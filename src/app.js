@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { AssetStore, RailWorld, createAtmosphere, PALETTES } from './world.js';
-import { createPhysics, stepPhysics, FIXED_STEP, clamp, lerp, wrap, resolveBiomes, randomGenerator, nextStation, biomeMix } from './core.js';
+import { AssetStore, RailWorld, createAtmosphere, PALETTES } from './world.js?v=2.0.0';
+import { createPhysics, stepPhysics, FIXED_STEP, clamp, lerp, wrap, resolveBiomes, randomGenerator, nextStation, biomeMix, createElevationProfile, leverReference, leverForSpeed, RATED_POWER, CART_MASS, MAX_GRADE, MIN_VERTICAL_RADIUS } from './core.js?v=2.0.0';
 
 const $ = id => document.getElementById(id);
 let renderer, scene, camera, atmosphere, manifest, store, world;
@@ -13,6 +13,7 @@ let longFrameCount = 0, countdownFinished = false;
 const desiredCamera = new THREE.Vector3(), lookTarget = new THREE.Vector3(), smoothLook = new THREE.Vector3();
 const startButton = $('start-button'), loading = $('loading');
 const minimap = $('minimap'), mapContext = minimap.getContext('2d');
+const profileCanvas = $('elevation-profile'), profileContext = profileCanvas.getContext('2d'), slopeSample = {};
 const menu = $('title-screen'), hud = $('game-hud');
 const biomeNames = ['Forest', 'Hills', 'Pastoral', 'Desert', 'Rural', 'Lakeside', 'Snow', 'Volcano'];
 
@@ -43,12 +44,12 @@ function formConfig() {
   const [biomeA, biomeB] = resolveBiomes($('biome-a').value, $('biome-b').value, biomeNames, randomGenerator(`${seed}:biomes`));
   return { biomeA, biomeB, length: Number($('route-length').value), stations: Number($('station-count').value), vehicle: selectedVehicle(),
     density: Number($('density').value), viewDistance: Number($('view-distance').value), resolution: Number($('resolution').value),
-    shadows: $('shadows').value === 'on', seed };
+    shadows: $('shadows').value === 'on', elevationLimit: Number($('elevation-limit').value), seed };
 }
 function savePreferences() {
   try {
     const values = {};
-    for (const id of ['biome-a', 'biome-b', 'route-length', 'station-count', 'density', 'view-distance', 'resolution', 'shadows', 'seed']) values[id] = $(id).value;
+    for (const id of ['biome-a', 'biome-b', 'route-length', 'station-count', 'elevation-limit', 'density', 'view-distance', 'resolution', 'shadows', 'seed']) values[id] = $(id).value;
     values.vehicle = selectedVehicle(); localStorage.setItem('rail-loop-lab:preferences:v1', JSON.stringify(values));
   } catch { /* Private browsing may disable local storage. */ }
 }
@@ -68,6 +69,10 @@ function populateForm() {
   for (let km = 5; km <= 15; km++) {
     const option = document.createElement('option'); option.value = String(km); option.textContent = `${km} 公里`; option.selected = km === 8; $('route-length').append(option);
   }
+  for (let height = 0; height <= 500; height += 25) {
+    const option = document.createElement('option'); option.value = String(height); option.textContent = height === 0 ? '0 m · 平坦' : `${height} 公尺`;
+    option.selected = height === 75; $('elevation-limit').append(option);
+  }
   for (const [index, id] of manifest.vehicles.entries()) {
     const label = document.createElement('label'); label.className = 'vehicle-option';
     const input = document.createElement('input'); input.type = 'radio'; input.name = 'vehicle'; input.value = id; input.checked = index === 0;
@@ -76,7 +81,8 @@ function populateForm() {
     label.append(input, image, text); $('vehicle-choices').append(label);
     input.addEventListener('change', schedulePreview);
   }
-  restorePreferences(); updatePresetHint();
+  restorePreferences(); updatePresetHint(); updateReliefHint(); buildLeverScale();
+  for (const id of ['route-length', 'station-count', 'elevation-limit']) $(id).addEventListener('change', () => { updateReliefHint(); schedulePreview(); });
   $('density').addEventListener('change', updatePresetHint);
   $('biome-a').addEventListener('change', schedulePreview); $('biome-b').addEventListener('change', schedulePreview);
   $('randomize').addEventListener('click', () => {
@@ -85,6 +91,23 @@ function populateForm() {
   });
 }
 function updatePresetHint() { $('preset-hint').textContent = `${$('density').selectedOptions[0].textContent.split(' · ')[0]} / ${Number($('density').value).toLocaleString()} 物件`; }
+function updateReliefHint() {
+  const requested = Number($('elevation-limit').value);
+  if (!requested) { $('relief-hint').textContent = '軌道完全平坦；沿線山丘景觀仍保留。'; return; }
+  const profile = createElevationProfile(Number($('route-length').value) * 1000, requested, Number($('station-count').value));
+  $('relief-hint').textContent = `縱坡 ≤25‰、站區水平；預估實際高差 ${profile.range.toFixed(1)} m${profile.range < requested - 0.1 ? '（依路長限縮）' : ''}。`;
+}
+function buildLeverScale() {
+  for (const kmh of [120, 90, 60, 30, 0, -15, -30]) {
+    const u = leverForSpeed(kmh), reference = leverReference(u);
+    const left = document.createElement('span'), right = document.createElement('span');
+    left.className = `speed-tick${kmh === 0 ? ' neutral' : ''}`; right.className = `power-tick${kmh === 0 ? ' neutral' : ''}`;
+    left.dataset.lever = right.dataset.lever = String(u);
+    left.textContent = kmh === 0 ? 'N / 0' : kmh < 0 ? `−${-kmh}` : String(kmh);
+    right.textContent = `${reference.powerPercent < 10 ? reference.powerPercent.toFixed(1) : reference.powerPercent.toFixed(0)}%`;
+    $('lever-speed-ticks').append(left); $('lever-power-ticks').append(right);
+  }
+}
 function schedulePreview() {
   if (mode !== 'title') return;
   clearTimeout(previewChangeTimer);
@@ -101,7 +124,7 @@ function previewConfig() {
   let a = $('biome-a').value, b = $('biome-b').value;
   if (a === 'random') a = b === 'Forest' ? 'Pastoral' : 'Forest';
   if (b === 'random' || a === b) b = a === 'Lakeside' ? 'Forest' : 'Lakeside';
-  return { biomeA: a, biomeB: b, length: 5, stations: 3, vehicle: selectedVehicle(), density: 2000, viewDistance: 450, resolution: 1, shadows: false, seed: 'LOOP-PREVIEW' };
+  return { biomeA: a, biomeB: b, length: 5, stations: 3, elevationLimit: Number($('elevation-limit').value), vehicle: selectedVehicle(), density: 2000, viewDistance: 450, resolution: 1, shadows: false, seed: 'LOOP-PREVIEW' };
 }
 function updatePreviewCaption(config) { $('preview-caption').textContent = `${manifest.biomes[config.biomeA].name} × ${manifest.biomes[config.biomeB].name} / 即時 3D 預覽`; }
 
@@ -138,6 +161,7 @@ async function startGame(event) {
     $('biome-label').textContent = `A ${manifest.biomes[config.biomeA].name} → B ${manifest.biomes[config.biomeB].name}`;
     $('zone-a-label').textContent = manifest.biomes[config.biomeA].name; $('zone-b-label').textContent = manifest.biomes[config.biomeB].name;
     $('instances').textContent = world.sceneryCount.toLocaleString(); $('pause-label').textContent = '暫停'; $('pause-icon').textContent = 'Ⅱ';
+    $('relief-summary').textContent = `實際高差 ${world.route.elevation.range.toFixed(1)} m / 上限 ${config.elevationLimit} m`;
     mode = 'running'; setThrottle(physics.throttle); setCamera('chase'); updateHUD(); updateCamera(1, true); drawMinimap();
     document.body.dataset.state = 'running'; document.body.dataset.ready = 'true';
   } catch (error) { mode = 'title'; showError(error); }
@@ -164,13 +188,17 @@ async function returnToTitle() {
 }
 
 function setThrottle(value) {
-  value = clamp(value, -1, 1); if (Math.abs(value) < 0.055) value = 0;
+  value = clamp(value, -1, 1); if (Math.abs(value) < 0.015) value = 0;
+  for (const kmh of [120, 90, 60, 30, 0, -15, -30]) { const detent = leverForSpeed(kmh); if (Math.abs(value - detent) < 0.012) { value = detent; break; } }
   physics.throttle = value;
+  const reference = leverReference(value);
   const top = 15 + (1 - value) * 0.5 * ($('lever-track').clientHeight - 30);
   $('lever-handle').style.top = `${top}px`;
   $('lever-handle').setAttribute('aria-valuenow', String(Math.round(value * 100)));
-  $('lever-handle').setAttribute('aria-valuetext', value > 0 ? `前進動力 ${Math.round(value * 100)}%` : value < 0 ? `煞車與倒退動力 ${Math.round(-value * 100)}%` : '中立滑行');
-  $('throttle-value').textContent = value ? `${value > 0 ? '+' : '−'}${Math.round(Math.abs(value) * 100)}%` : 'N';
+  $('lever-handle').setAttribute('aria-valuetext', value ? `平地速度 ${reference.kmh.toFixed(0)} km/h，可用馬力 ${reference.powerPercent.toFixed(1)}%` : '中立滑行');
+  $('throttle-value').textContent = value ? `${reference.kmh < 0 ? '−' : ''}${Math.abs(reference.kmh).toFixed(0)} km/h` : 'N · 滑行';
+  $('power-value').textContent = `${reference.powerPercent < 10 ? reference.powerPercent.toFixed(1) : reference.powerPercent.toFixed(0)}%`;
+  document.querySelectorAll('[data-lever]').forEach(tick => { tick.style.top = `${15 + (1 - Number(tick.dataset.lever)) * 0.5 * ($('lever-track').clientHeight - 30)}px`; });
   const arm = document.querySelector('.lever-arm');
   arm.style.top = `${Math.min(top, $('lever-track').clientHeight * 0.5)}px`;
   arm.style.height = `${Math.abs(top - $('lever-track').clientHeight * 0.5)}px`;
@@ -242,18 +270,21 @@ function updateCamera(dt, snap = false) {
   const p = world.cartSample, cart = world.cart.position;
   if (cameraMode === 'overview') {
     const d = world.route.squareSize, angle = orbitYaw * 0.25;
-    desiredCamera.set(Math.sin(angle) * d * 0.35, d * 1.18, d * 0.70);
-    lookTarget.set(0, -30, 0); camera.fov = 53; camera.far = 45000;
+    const midHeight = world.route.elevation.range * 0.5;
+    desiredCamera.set(Math.sin(angle) * d * 0.35, d * 1.18 + midHeight, d * 0.70);
+    lookTarget.set(0, midHeight - 30, 0); camera.fov = 53; camera.far = 45000;
   } else if (cameraMode === 'cab') {
     const sign = physics.speed < -0.4 ? -1 : 1;
-    desiredCamera.set(cart.x + p.tx * 0.35, 1.98, cart.z + p.tz * 0.35);
-    lookTarget.set(cart.x + p.tx * 45 * sign, 1.65, cart.z + p.tz * 45 * sign);
+    desiredCamera.set(cart.x + p.tx * 0.35, cart.y + 1.60, cart.z + p.tz * 0.35);
+    const ahead = world.route.sample(physics.distance + sign * 45);
+    lookTarget.set(ahead.x, ahead.y + 1.65, ahead.z);
     camera.fov = 72; camera.far = 18000;
   } else {
     const angle = p.yaw + orbitYaw + (mode === 'title' ? 0.58 : 0.20);
     const distance = orbitDistance;
-    desiredCamera.set(cart.x - Math.sin(angle) * distance, 3.6 + Math.sin(orbitPitch) * distance * 0.8, cart.z - Math.cos(angle) * distance);
-    lookTarget.set(cart.x + p.tx * 8, 1.4, cart.z + p.tz * 8);
+    desiredCamera.set(cart.x - Math.sin(angle) * distance, cart.y + 3.6 + Math.sin(orbitPitch) * distance * 0.8, cart.z - Math.cos(angle) * distance);
+    const ahead = world.route.sample((mode === 'title' ? Math.sin(titleTime * 0.022) * 14 : physics.distance) + 8);
+    lookTarget.set(ahead.x, ahead.y + 1.4, ahead.z);
     const terrainY = world.heightAt(desiredCamera.x, desiredCamera.z); desiredCamera.y = Math.max(desiredCamera.y, terrainY + 2);
     camera.fov = 57 + Math.min(6, Math.abs(physics.speed) * 0.13); camera.far = 18000;
   }
@@ -277,13 +308,16 @@ function updateHUD() {
   $('lap-count').textContent = `第 ${Math.floor(physics.odometer / world.route.length) + 1} 圈`;
   const mix = biomeMix(world.cart.position.x, world.cart.position.z, world.route.squareSize);
   $('current-zone').textContent = mix > 0.22 && mix < 0.78 ? '過渡區' : mix < 0.5 ? 'A 區' : 'B 區';
+  const travelGrade = world.cartSample.grade * (physics.speed < -0.1 || Math.abs(physics.speed) < 0.1 && physics.throttle < 0 ? -1 : 1);
+  $('grade-value').textContent = `${Math.abs(travelGrade) < 0.0001 ? '平路' : travelGrade > 0 ? '↗ 上坡' : '↘ 下坡'} · ${(Math.abs(travelGrade) * 1000).toFixed(1)}‰`;
+  $('height-value').textContent = `高度 ${(world.cartSample.y + 0.405).toFixed(1)} m`;
   const next = nextStation(world.route, world.stations, physics.distance, physics.speed < -0.1 || physics.speed < 0.1 && physics.throttle < 0 ? -1 : 1);
   $('next-station').textContent = next.name; $('station-distance').textContent = next.remaining < 25 ? '車站附近' : `${Math.round(next.remaining).toLocaleString()} m`;
   if (physics.countdown > 0) {
     $('countdown').hidden = mode === 'paused'; $('countdown').querySelector('strong').textContent = String(Math.ceil(physics.countdown));
   } else {
     $('countdown').hidden = true;
-    if (!countdownFinished) { countdownFinished = true; notify('出發！推桿已預設前進動力，可隨時拖回中立。'); }
+    if (!countdownFinished) { countdownFinished = true; notify('出發！推桿左側為平地速度，右側為可用馬力；上下坡會影響實際車速。'); }
   }
 }
 function drawMinimap() {
@@ -306,6 +340,21 @@ function drawMinimap() {
   const p = world.cartSample;
   ctx.beginPath(); ctx.arc(mx(p.x), mz(p.z), 10, 0, Math.PI * 2); ctx.fillStyle = '#c26d40'; ctx.fill(); ctx.strokeStyle = '#fff9de'; ctx.lineWidth = 4; ctx.stroke();
   ctx.save(); ctx.translate(mx(p.x), mz(p.z)); ctx.rotate(-p.yaw); ctx.beginPath(); ctx.moveTo(0, 5); ctx.lineTo(-3, -3); ctx.lineTo(3, -3); ctx.closePath(); ctx.fillStyle = '#fff5df'; ctx.fill(); ctx.restore();
+  drawElevationProfile();
+}
+function drawElevationProfile() {
+  const ctx = profileContext, w = profileCanvas.width, h = profileCanvas.height, route = world.route;
+  ctx.clearRect(0, 0, w, h);
+  const range = Math.max(1, route.elevation.range), x = s => 8 + s / route.length * (w - 16);
+  const y = altitude => h - 10 - (altitude - route.elevation.min) / range * (h - 24);
+  ctx.beginPath(); ctx.moveTo(8, h - 3);
+  for (let i = 0; i <= 200; i++) { const p = route.sample(i / 200 * route.length); ctx.lineTo(x(i / 200 * route.length), y(p.y)); }
+  ctx.lineTo(w - 8, h - 3); ctx.closePath(); ctx.fillStyle = '#d7dfc8'; ctx.fill();
+  ctx.beginPath();
+  for (let i = 0; i <= 200; i++) { const p = route.sample(i / 200 * route.length); if (!i) ctx.moveTo(x(0), y(p.y)); else ctx.lineTo(x(i / 200 * route.length), y(p.y)); }
+  ctx.strokeStyle = '#7f956e'; ctx.lineWidth = 2; ctx.stroke();
+  const current = wrap(physics.distance, route.length), altitude = route.sample(current).y;
+  ctx.beginPath(); ctx.arc(x(current), y(altitude), 5, 0, Math.PI * 2); ctx.fillStyle = '#c16d42'; ctx.fill();
 }
 function recordMetrics(dt, now) {
   if (!(dt > 0) || mode !== 'running') return;
@@ -324,16 +373,18 @@ function recordMetrics(dt, now) {
     $('triangles').textContent = info.render.triangles >= 1e6 ? `${(info.render.triangles / 1e6).toFixed(2)}M` : `${(info.render.triangles / 1e3).toFixed(0)}K`;
     fpsHistory.push({ elapsedSeconds: Number(physics.elapsed.toFixed(3)), fps: Number(fps.toFixed(2)), frameTimeMs: Number((1000 / fps).toFixed(3)),
       onePercentLowFps: Number(low.toFixed(2)), drawCalls: info.render.calls, triangles: info.render.triangles, geometries: info.memory.geometries,
-      textures: info.memory.textures, speedKmh: Number((physics.speed * 3.6).toFixed(2)), camera: cameraMode });
+      textures: info.memory.textures, speedKmh: Number((physics.speed * 3.6).toFixed(2)), flatReferenceKmh: Number(leverReference(physics.throttle).kmh.toFixed(2)),
+      powerPercent: Number(leverReference(physics.throttle).powerPercent.toFixed(3)), gradePermille: Number((world.cartSample.grade * 1000).toFixed(3)), altitudeMetres: Number(world.cartSample.y.toFixed(3)), camera: cameraMode });
     // Bounded memory for genuinely unlimited runs: retain at most 4 hours of 1s samples.
     if (fpsHistory.length > 14400) fpsHistory.shift(); metricTime = 0; metricFrames = 0;
   }
 }
 function exportReport() {
   const samples = fpsHistory;
-  const report = { application: 'LOOP · 軌道試驗場', version: '1.0.0', threeVersion: THREE.REVISION, generatedAt: new Date().toISOString(),
+  const report = { application: 'LOOP · 軌道試驗場', version: '2.0.0', threeVersion: THREE.REVISION, generatedAt: new Date().toISOString(),
     settings: sessionConfig, actualTrackLengthMetres: world.route.length, worldUnit: 'metre', elapsedSecondsIncludingCountdown: physics.elapsed,
     odometerMetres: physics.odometer, actualSceneryInstances: world.sceneryCount, trackSegments: world.trackInstances,
+    elevation: world.route.elevation, physicsModel: { massKg: CART_MASS, ratedPowerWatts: RATED_POWER, ratedHorsepower: RATED_POWER / 745.699872, maximumGrade: MAX_GRADE, minimumVerticalRadiusMetres: MIN_VERTICAL_RADIUS },
     viewport: { width: innerWidth, height: innerHeight, pixelRatio: renderer.getPixelRatio() },
     summary: { samples: samples.length, averageFps: samples.length ? Number((samples.reduce((sum, s) => sum + s.fps, 0) / samples.length).toFixed(2)) : null,
       minimumFps: samples.length ? Math.min(...samples.map(s => s.fps)) : null, longFramesOver50ms: longFrameCount },
@@ -353,7 +404,10 @@ function frame(time) {
     // Fixed physical timestep. Keep every foreground second, including slow
     // stress-test frames; background tabs are explicitly paused separately.
     accumulator += realDt;
-    while (accumulator >= FIXED_STEP) { stepPhysics(physics, FIXED_STEP); accumulator -= FIXED_STEP; }
+    while (accumulator >= FIXED_STEP) {
+      world.route.sample(physics.distance + physics.speed * FIXED_STEP * 0.5, slopeSample);
+      stepPhysics(physics, FIXED_STEP, physics.throttle, slopeSample.grade); accumulator -= FIXED_STEP;
+    }
     world.updateCart(physics.distance, physics.odometer, physics.throttle);
     hudElapsed += realDt;
     if (hudElapsed > 0.09) { updateHUD(); drawMinimap(); hudElapsed = 0; }
@@ -371,7 +425,7 @@ function frame(time) {
 
 async function boot() {
   if (location.protocol === 'file:') throw new Error('請透過 HTTP 開啟此專案：執行 START_LOCAL.cmd 後前往 http://127.0.0.1:4173，或使用 GitHub Pages 網址。');
-  const response = await fetch('./asset-manifest.json'); if (!response.ok) throw new Error(`找不到資產清單（HTTP ${response.status}）。請完整解壓縮 ZIP。`);
+  const response = await fetch('./asset-manifest.json?v=2.0.0'); if (!response.ok) throw new Error(`找不到資產清單（HTTP ${response.status}）。請完整解壓縮 ZIP。`);
   manifest = await response.json(); populateForm(); installControls();
   renderer = new THREE.WebGLRenderer({ canvas: $('scene'), antialias: true, powerPreference: 'high-performance', alpha: false });
   renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;

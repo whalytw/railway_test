@@ -1,0 +1,60 @@
+{
+  "id": "Environment_Hills_RollingRidge24m_001",
+  "applied": true,
+  "originalSha256": "8214c52a1e037fbde3031ecdf0a0fcc482864f893ec70575d1567b0ff1628b30",
+  "cleanedSha256": "dbe61b5c1a0bb94affa5481a65f3b9edcd5b3385475c6512aa35387f7516d05b",
+  "before": {
+    "triangles": 3782,
+    "slabSideBottomTriangles": 478,
+    "flatDisplayTopTriangles": 492,
+    "bounds": {
+      "min": [
+        -8,
+        -0.8999999761581421,
+        -12
+      ],
+      "max": [
+        8,
+        5,
+        12
+      ]
+    },
+    "bytes": 115004
+  },
+  "after": {
+    "triangles": 2812,
+    "slabSideBottomTriangles": 0,
+    "flatDisplayTopTriangles": 0,
+    "bounds": {
+      "min": [
+        -7.5,
+        0,
+        -12
+      ],
+      "max": [
+        7.5,
+        5,
+        12
+      ]
+    },
+    "bytes": 85440
+  },
+  "originalSlabBottomY": -0.9,
+  "placement": {
+    "localGroundDatumY": 0,
+    "useOriginalBoundingBoxBottomAsGround": false,
+    "embedMeters": 0.015,
+    "note": "Place local Y=0 at the host terrain datum. The open natural foot is intended to blend into host terrain."
+  },
+  "removed": {
+    "slabSideBottomTriangles": 478,
+    "flatDisplayTopTriangles": 492
+  },
+  "preserved": [
+    "natural sloping terrain",
+    "artist vertex positions, normals and colors",
+    "embedded natural rock geometry",
+    "glTF node hierarchy and materials"
+  ],
+  "sourceLibraryModified": false
+}

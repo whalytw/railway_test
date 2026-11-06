@@ -1,0 +1,289 @@
+{
+  "mode": "--apply",
+  "modifiedModels": [
+    {
+      "id": "Environment_Hills_RoundHill16m_001",
+      "applied": true,
+      "originalSha256": "3780bb707f9c964bed481bff06a600497892d2a767909b4603241cea4b6e08d0",
+      "cleanedSha256": "daf37532161b13d815a52dcd5b4f05030498a1c8ed7f4c1e0064cd0c7823b3cd",
+      "before": {
+        "triangles": 2662,
+        "slabSideBottomTriangles": 382,
+        "flatDisplayTopTriangles": 852,
+        "bounds": {
+          "min": [
+            -8,
+            -0.8999999761581421,
+            -8
+          ],
+          "max": [
+            8,
+            3.29355788230896,
+            8
+          ]
+        },
+        "bytes": 88308
+      },
+      "after": {
+        "triangles": 1428,
+        "slabSideBottomTriangles": 0,
+        "flatDisplayTopTriangles": 0,
+        "bounds": {
+          "min": [
+            -7.5,
+            0,
+            -7.5
+          ],
+          "max": [
+            6.5,
+            3.29355788230896,
+            6.5
+          ]
+        },
+        "bytes": 53924
+      },
+      "originalSlabBottomY": -0.9,
+      "placement": {
+        "localGroundDatumY": 0,
+        "useOriginalBoundingBoxBottomAsGround": false,
+        "embedMeters": 0.015,
+        "note": "Place local Y=0 at the host terrain datum. The open natural foot is intended to blend into host terrain."
+      },
+      "removed": {
+        "slabSideBottomTriangles": 382,
+        "flatDisplayTopTriangles": 852
+      },
+      "preserved": [
+        "natural sloping terrain",
+        "artist vertex positions, normals and colors",
+        "embedded natural rock geometry",
+        "glTF node hierarchy and materials"
+      ],
+      "sourceLibraryModified": false
+    },
+    {
+      "id": "Environment_Hills_RollingRidge24m_001",
+      "applied": true,
+      "originalSha256": "8214c52a1e037fbde3031ecdf0a0fcc482864f893ec70575d1567b0ff1628b30",
+      "cleanedSha256": "dbe61b5c1a0bb94affa5481a65f3b9edcd5b3385475c6512aa35387f7516d05b",
+      "before": {
+        "triangles": 3782,
+        "slabSideBottomTriangles": 478,
+        "flatDisplayTopTriangles": 492,
+        "bounds": {
+          "min": [
+            -8,
+            -0.8999999761581421,
+            -12
+          ],
+          "max": [
+            8,
+            5,
+            12
+          ]
+        },
+        "bytes": 115004
+      },
+      "after": {
+        "triangles": 2812,
+        "slabSideBottomTriangles": 0,
+        "flatDisplayTopTriangles": 0,
+        "bounds": {
+          "min": [
+            -7.5,
+            0,
+            -12
+          ],
+          "max": [
+            7.5,
+            5,
+            12
+          ]
+        },
+        "bytes": 85440
+      },
+      "originalSlabBottomY": -0.9,
+      "placement": {
+        "localGroundDatumY": 0,
+        "useOriginalBoundingBoxBottomAsGround": false,
+        "embedMeters": 0.015,
+        "note": "Place local Y=0 at the host terrain datum. The open natural foot is intended to blend into host terrain."
+      },
+      "removed": {
+        "slabSideBottomTriangles": 478,
+        "flatDisplayTopTriangles": 492
+      },
+      "preserved": [
+        "natural sloping terrain",
+        "artist vertex positions, normals and colors",
+        "embedded natural rock geometry",
+        "glTF node hierarchy and materials"
+      ],
+      "sourceLibraryModified": false
+    },
+    {
+      "id": "Environment_Hills_DistantRidge48m_001",
+      "applied": true,
+      "originalSha256": "36f0e2809d22d2abac3e2e69d2cc6d41dc552efd387c87e8bc1a63a953880e06",
+      "cleanedSha256": "4f6ef272acb7d10f40959da76c9afcaadfef170e07a8ce6627587fda50dd8c41",
+      "before": {
+        "triangles": 628,
+        "slabSideBottomTriangles": 196,
+        "flatDisplayTopTriangles": 75,
+        "bounds": {
+          "min": [
+            -24,
+            -0.8999999761581421,
+            -9
+          ],
+          "max": [
+            24,
+            10.715789794921875,
+            9
+          ]
+        },
+        "bytes": 20492
+      },
+      "after": {
+        "triangles": 357,
+        "slabSideBottomTriangles": 0,
+        "flatDisplayTopTriangles": 0,
+        "bounds": {
+          "min": [
+            -24,
+            0,
+            -9
+          ],
+          "max": [
+            22,
+            10.715789794921875,
+            9
+          ]
+        },
+        "bytes": 10788
+      },
+      "originalSlabBottomY": -0.9,
+      "placement": {
+        "localGroundDatumY": 0,
+        "useOriginalBoundingBoxBottomAsGround": false,
+        "embedMeters": 0.015,
+        "note": "Place local Y=0 at the host terrain datum. The open natural foot is intended to blend into host terrain."
+      },
+      "removed": {
+        "slabSideBottomTriangles": 196,
+        "flatDisplayTopTriangles": 75
+      },
+      "preserved": [
+        "natural sloping terrain",
+        "artist vertex positions, normals and colors",
+        "embedded natural rock geometry",
+        "glTF node hierarchy and materials"
+      ],
+      "sourceLibraryModified": false
+    },
+    {
+      "id": "Environment_Desert_DuneTile16m_001",
+      "applied": true,
+      "originalSha256": "2a6bd619124f638a853049f844bd84aab841574a4ba1568d68be4156e4c1cce8",
+      "cleanedSha256": "fb7bfe2a7fd4a1d83c2d75bc97d23aafdc58a44d9bc358e41ce4754eb9b65817",
+      "before": {
+        "triangles": 2432,
+        "slabSideBottomTriangles": 384,
+        "flatDisplayTopTriangles": 459,
+        "bounds": {
+          "min": [
+            -8,
+            -0.6499999761581421,
+            -8
+          ],
+          "max": [
+            8,
+            3.132322072982788,
+            8
+          ]
+        },
+        "bytes": 64908
+      },
+      "after": {
+        "triangles": 1589,
+        "slabSideBottomTriangles": 0,
+        "flatDisplayTopTriangles": 0,
+        "bounds": {
+          "min": [
+            -8,
+            0,
+            -8
+          ],
+          "max": [
+            6,
+            3.132322072982788,
+            8
+          ]
+        },
+        "bytes": 39480
+      },
+      "originalSlabBottomY": -0.65,
+      "placement": {
+        "localGroundDatumY": 0,
+        "useOriginalBoundingBoxBottomAsGround": false,
+        "embedMeters": 0.015,
+        "note": "Place local Y=0 at the host terrain datum. The open natural foot is intended to blend into host terrain."
+      },
+      "removed": {
+        "slabSideBottomTriangles": 384,
+        "flatDisplayTopTriangles": 459
+      },
+      "preserved": [
+        "natural sloping terrain",
+        "artist vertex positions, normals and colors",
+        "embedded natural rock geometry",
+        "glTF node hierarchy and materials"
+      ],
+      "sourceLibraryModified": false
+    }
+  ],
+  "reviewedUnmodifiedNaturalModels": [
+    {
+      "id": "Environment_Hills_StrataRockface8m_001",
+      "modified": false,
+      "sha256": "309326ced29161f2dec6a8f22af900b9550c12f2cf51b0f66cf9b2fea9a75b17",
+      "reason": "Natural cone, rock, arch or drift outline; no rectangular landscape display slab.",
+      "triangles": 784
+    },
+    {
+      "id": "Environment_Desert_SandstoneArch9m_001",
+      "modified": false,
+      "sha256": "d868d08f274f768597a6a5b44e8ee3c7d7fec64c2d96e73ba480ab78ff5ac9ec",
+      "reason": "Natural cone, rock, arch or drift outline; no rectangular landscape display slab.",
+      "triangles": 1016
+    },
+    {
+      "id": "Environment_Snow_DriftCluster_001",
+      "modified": false,
+      "sha256": "6f65604ce65020bbb870f360d582812d99e096aa6de9c396f9f658e2f4fb6f28",
+      "reason": "Natural cone, rock, arch or drift outline; no rectangular landscape display slab.",
+      "triangles": 834
+    },
+    {
+      "id": "Environment_Snow_IceWall8m_001",
+      "modified": false,
+      "sha256": "4e37fc50f042abe9911861275325f2710055579b25b7439e0880d961e8cac1b8",
+      "reason": "Natural cone, rock, arch or drift outline; no rectangular landscape display slab.",
+      "triangles": 1218
+    },
+    {
+      "id": "Environment_Volcano_Cone16m_001",
+      "modified": false,
+      "sha256": "ee1729e0c848d800b67d0a563cf12074fc64bd2e7cd505049b3f05444503f2a6",
+      "reason": "Natural cone, rock, arch or drift outline; no rectangular landscape display slab.",
+      "triangles": 1692
+    },
+    {
+      "id": "Environment_Volcano_BasaltCliff8m_001",
+      "modified": false,
+      "sha256": "a8f8ae3b530db0c78c6138495fed09e28c74bbaab571b65aec6636f1b6cf9cf4",
+      "reason": "Natural cone, rock, arch or drift outline; no rectangular landscape display slab.",
+      "triangles": 720
+    }
+  ]
+}

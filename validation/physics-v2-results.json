@@ -1,0 +1,109 @@
+{
+  "version": "2.0.0",
+  "massKg": 650,
+  "ratedPowerWatts": 25591.135953703706,
+  "ratedHorsepower": 34.31827859252161,
+  "lever90": {
+    "speed": 25,
+    "kmh": 90,
+    "power": 11005.4179375,
+    "powerPercent": 43.00480430962358
+  },
+  "old53PercentPosition": {
+    "speed": 25.08702095144748,
+    "kmh": 90.31327542521093,
+    "power": 11117.397071901845,
+    "powerPercent": 43.4423743127857
+  },
+  "constantSlopeEquilibriaKmh": {
+    "flat90": 89.9999994560094,
+    "uphill25Permille90": 78.9064388869347,
+    "downhill25Permille90": 101.14911913486299,
+    "uphill25PermilleFull": 111.5800790320801
+  },
+  "flatLeverReduction": {
+    "beforeKmh": 119.99999999767266,
+    "referenceKmh": 90,
+    "afterKmh": 90.0000200727544
+  },
+  "routeFeasibility": [
+    {
+      "lengthMetres": 5000,
+      "stations": 2,
+      "actualThreeDimensionalLength": 4999.999999999987,
+      "elevation": {
+        "requested": 500,
+        "range": 52.5758635094031,
+        "min": 0,
+        "max": 52.5758635094031,
+        "maxGrade": 0.024806177465927635,
+        "feasibleRange": 52.57586350940309
+      }
+    },
+    {
+      "lengthMetres": 5000,
+      "stations": 3,
+      "actualThreeDimensionalLength": 4999.999999999983,
+      "elevation": {
+        "requested": 500,
+        "range": 46.86865034747306,
+        "min": 0,
+        "max": 46.86865034747306,
+        "maxGrade": 0.02480525714777136,
+        "feasibleRange": 46.86865304902971
+      }
+    },
+    {
+      "lengthMetres": 8000,
+      "stations": 2,
+      "actualThreeDimensionalLength": 7999.999999999994,
+      "elevation": {
+        "requested": 500,
+        "range": 86.40780149015674,
+        "min": 0,
+        "max": 86.40780149015674,
+        "maxGrade": 0.024806324071430446,
+        "feasibleRange": 86.40780149015673
+      }
+    },
+    {
+      "lengthMetres": 8000,
+      "stations": 3,
+      "actualThreeDimensionalLength": 7999.999999999987,
+      "elevation": {
+        "requested": 500,
+        "range": 80.29101863489034,
+        "min": 0,
+        "max": 80.29101863489034,
+        "maxGrade": 0.024805714040355743,
+        "feasibleRange": 80.29102295738097
+      }
+    },
+    {
+      "lengthMetres": 15000,
+      "stations": 2,
+      "actualThreeDimensionalLength": 14999.999999999973,
+      "elevation": {
+        "requested": 500,
+        "range": 164.177575345069,
+        "min": 0,
+        "max": 164.177575345069,
+        "maxGrade": 0.02480637461335504,
+        "feasibleRange": 164.17757534506896
+      }
+    },
+    {
+      "lengthMetres": 15000,
+      "stations": 3,
+      "actualThreeDimensionalLength": 14999.999999999929,
+      "elevation": {
+        "requested": 500,
+        "range": 157.6938676226711,
+        "min": 0,
+        "max": 157.6938676226711,
+        "maxGrade": 0.024806038046825876,
+        "feasibleRange": 157.69387572734104
+      }
+    }
+  ]
+}

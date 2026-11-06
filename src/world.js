@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from '../vendor/GLTFLoader.js';
-import { TAU, lerp, clamp, smoothstep, randomGenerator, createRoute, stationsFor, biomeMix, trackSegments } from './core.js';
+import { TAU, lerp, clamp, smoothstep, randomGenerator, createRoute, stationsFor, biomeMix, trackSegments } from './core.js?v=2.0.0';
 
 export const PALETTES = {
   Forest: { ground: '#829565', detail: '#62794d', sky: '#bed0ba', amplitude: 12 },
@@ -16,6 +16,8 @@ export const PALETTES = {
 const q = new THREE.Quaternion(), axisY = new THREE.Vector3(0, 1, 0);
 const position = new THREE.Vector3(), scaling = new THREE.Vector3();
 const placementMatrix = new THREE.Matrix4(), combined = new THREE.Matrix4();
+const rotationEuler = new THREE.Euler(0, 0, 0, 'YXZ'), upAxis = new THREE.Vector3(0, 1, 0);
+const slopeNormal = new THREE.Vector3(), slopeQuaternion = new THREE.Quaternion();
 const yieldFrame = () => new Promise(resolve => setTimeout(resolve, 0));
 
 export class AssetStore {
@@ -29,7 +31,9 @@ export class AssetStore {
       while (queue.length) {
         const id = queue.shift();
         if (!this.cache.has(id)) {
-          if (!this.pending.has(id)) this.pending.set(id, this.loader.loadAsync(this.manifest.models[id].url).then(gltf => {
+          const info = this.manifest.models[id];
+          const assetURL = info.derivation ? `${info.url}?revision=base-free-v2` : info.url;
+          if (!this.pending.has(id)) this.pending.set(id, this.loader.loadAsync(assetURL).then(gltf => {
             const root = gltf.scene;
             root.updateMatrixWorld(true);
             const parts = [];
@@ -66,7 +70,7 @@ export class AssetStore {
 export class RailWorld {
   constructor(scene, store, config) {
     this.scene = scene; this.store = store; this.config = config;
-    this.route = createRoute(config.length * 1000, config.seed);
+    this.route = createRoute(config.length * 1000, config.seed, 8192, { elevationLimit: config.elevationLimit || 0, stations: config.stations });
     this.stations = stationsFor(this.route, config.stations);
     this.group = new THREE.Group(); scene.add(this.group);
     this.cullGroups = []; this.ownedGeometry = []; this.ownedMaterials = []; this.ownedTextures = [];
@@ -76,7 +80,29 @@ export class RailWorld {
     this.colorA = new THREE.Color(this.paletteA.ground); this.colorB = new THREE.Color(this.paletteB.ground);
     this.detailA = new THREE.Color(this.paletteA.detail); this.detailB = new THREE.Color(this.paletteB.detail);
     this.tmpSample = {}; this.cartSample = {};
+    this.elevationField = this.createElevationField();
     this.lake = this.planLake();
+  }
+  createElevationField() {
+    const nx = 32, nz = 16, d = this.route.squareSize, values = new Float64Array((nx + 1) * (nz + 1));
+    const anchors = Array.from({ length: 64 }, (_, i) => this.route.sample(i / 64 * this.route.length));
+    const soft = (d * 0.065) ** 2;
+    for (let z = 0; z <= nz; z++) for (let x = 0; x <= nx; x++) {
+      const wx = -d + 2 * d * x / nx, wz = -d / 2 + d * z / nz;
+      let weighted = 0, total = 0;
+      for (const p of anchors) {
+        const weight = 1 / (((wx - p.x) ** 2 + (wz - p.z) ** 2 + soft) ** 2);
+        weighted += p.y * weight; total += weight;
+      }
+      values[z * (nx + 1) + x] = weighted / total;
+    }
+    return { nx, nz, values };
+  }
+  baseElevation(x, z) {
+    const { nx, nz, values } = this.elevationField, d = this.route.squareSize;
+    const fx = clamp((x + d) / (2 * d) * nx, 0, nx), fz = clamp((z + d / 2) / d * nz, 0, nz);
+    const ix = Math.min(nx - 1, Math.floor(fx)), iz = Math.min(nz - 1, Math.floor(fz)), a = iz * (nx + 1) + ix;
+    return lerp(lerp(values[a], values[a + 1], fx - ix), lerp(values[a + nx + 1], values[a + nx + 2], fx - ix), fz - iz);
   }
   planLake() {
     if (![this.config.biomeA, this.config.biomeB].includes('Lakeside')) return null;
@@ -87,7 +113,7 @@ export class RailWorld {
       const distance = this.route.distanceTo(x, z, 230);
       if (distance > best) { best = distance; chosen = { x, z }; }
     }
-    return { ...chosen, radius: Math.min(150, best * 0.76), depthScale: 0.68, level: -0.16 };
+    return { ...chosen, radius: Math.min(150, best * 0.76), depthScale: 0.68, level: this.baseElevation(chosen.x, chosen.z) - 0.16 };
   }
   lakeRadiusAt(x, z) {
     if (!this.lake) return Infinity;
@@ -98,7 +124,7 @@ export class RailWorld {
     const mix = this.mixAt(x, z), a = lerp(this.paletteA.amplitude, this.paletteB.amplitude, mix);
     const broad = Math.sin(x * 0.0051 + 2) * Math.cos(z * 0.0043 - 0.8);
     const medium = Math.sin(x * 0.014 + z * 0.006) * Math.cos(z * 0.012);
-    let h = (0.55 + broad * 0.6 + medium * 0.19) * a - 1.3;
+    let h = this.baseElevation(x, z) + (0.55 + broad * 0.6 + medium * 0.19) * a - 1.3;
     if (this.lake) {
       const r = this.lakeRadiusAt(x, z), edge = this.lake.radius;
       const basin = lerp(this.lake.level - 2.5, this.lake.level + 1.2, smoothstep(edge - 12, edge + 23, r));
@@ -106,11 +132,13 @@ export class RailWorld {
     }
     return h;
   }
-  heightAt(x, z, knownDistance) {
-    const d = knownDistance ?? this.route.distanceTo(x, z, 70);
-    // The flat verge is wider than a terrain cell diagonal, preventing the
-    // interpolated ground triangles from cutting through rails between vertices.
-    return lerp(-0.07, this.rawHeight(x, z), smoothstep(20, 75, d));
+  heightAt(x, z, knownProximity) {
+    const near = typeof knownProximity === 'object' ? knownProximity : this.route.nearestTo(x, z, 110);
+    const terrain = this.rawHeight(x, z);
+    if (near.y === undefined) return terrain;
+    // A graded earthwork supports the rails; distant land follows the same
+    // elevation field, rather than leaving an elevated railway floating in air.
+    return lerp(near.y - 0.09, terrain, smoothstep(20, 105, near.distance));
   }
   async build(onProgress = () => {}) {
     const ids = [...this.store.manifest.biomes[this.config.biomeA].models, ...this.store.manifest.biomes[this.config.biomeB].models,
@@ -138,7 +166,11 @@ export class RailWorld {
         const mesh = new THREE.InstancedMesh(part.geometry, part.material, values.length);
         for (let i = 0; i < values.length; i++) {
           const p = values[i];
-          position.set(p.x, p.y || 0, p.z); q.setFromAxisAngle(axisY, p.yaw || 0);
+          position.set(p.x, p.y || 0, p.z); q.setFromEuler(rotationEuler.set(p.pitch || 0, p.yaw || 0, p.roll || 0, 'YXZ'));
+          if (p.groundX !== undefined) {
+            slopeNormal.set(-p.groundX, 1, -p.groundZ).normalize();
+            slopeQuaternion.setFromUnitVectors(upAxis, slopeNormal); q.premultiply(slopeQuaternion);
+          }
           scaling.set(p.sx ?? p.scale ?? 1, p.sy ?? p.scale ?? 1, p.sz ?? p.scale ?? 1);
           placementMatrix.compose(position, q, scaling); combined.multiplyMatrices(placementMatrix, part.matrix);
           mesh.setMatrixAt(i, combined);
@@ -155,11 +187,11 @@ export class RailWorld {
   }
   buildTrack() {
     const segments = trackSegments(this.route);
-    const placements = segments.map(s => ({ x: s.x, z: s.z, y: 0, yaw: s.yaw, sz: s.length / 2 }));
+    const placements = segments.map(s => ({ x: s.x, z: s.z, y: s.y, yaw: s.yaw, pitch: s.pitch, sz: s.length / 2 }));
     // Source GLB: +Z forward, two-metre segment; rail top = 0.405 m.
     this.addBatches('Environment_Rail_Straight_2m_001', placements, { size: 96, kind: 'track' });
     this.trackInstances = segments.length;
-    const overviewPoints = this.route.points.filter((_, i) => i % 8 === 0).map(p => new THREE.Vector3(p.x, 0.46, p.z));
+    const overviewPoints = this.route.points.filter((_, i) => i % 8 === 0).map(p => new THREE.Vector3(p.x, p.y + 0.46, p.z));
     const geometry = new THREE.BufferGeometry().setFromPoints(overviewPoints);
     const material = new THREE.LineBasicMaterial({ color: '#926848' });
     this.overviewTrack = new THREE.LineLoop(geometry, material); this.overviewTrack.visible = false;
@@ -178,7 +210,7 @@ export class RailWorld {
         const verts = [], colors = [], indices = [], normals = [];
         for (let z = 0; z <= segments; z++) for (let x = 0; x <= segments; x++) {
           const wx = x0 + x / segments * width, wz = z0 + z / segments * depth;
-          const near = this.route.distanceTo(wx, wz, 80);
+          const near = this.route.nearestTo(wx, wz, 110);
           const h = this.heightAt(wx, wz, near);
           verts.push(wx, h, wz);
           const normal = new THREE.Vector3(this.heightAt(wx - 1, wz) - this.heightAt(wx + 1, wz), 2,
@@ -188,7 +220,7 @@ export class RailWorld {
           color.copy(this.colorA).lerp(this.colorB, mix); detail.copy(this.detailA).lerp(this.detailB, mix);
           color.lerp(detail, speckle);
           // A continuous dusty verge under the entire railway hides biome seams.
-          color.lerp(new THREE.Color('#aca48b'), (1 - smoothstep(3, 9, near)) * 0.40);
+          color.lerp(new THREE.Color('#aca48b'), (1 - smoothstep(3, 9, near.distance)) * 0.40);
           colors.push(color.r, color.g, color.b);
         }
         for (let z = 0; z < segments; z++) for (let x = 0; x < segments; x++) {
@@ -242,6 +274,19 @@ export class RailWorld {
       const baseY = isLandform ? 0 : Math.max(0, bounds.min.y);
       const y = this.heightAt(x, z, near) - baseY * scale - 0.04;
       const p = { x, z, y, scale, yaw: random() * TAU };
+      if (info.derivation && info.placement) {
+        // Base-free hill rims follow the local ground plane and are slightly
+        // buried at the lowest footprint edge, so no floating display plate or
+        // open cut edge is exposed on a hillside.
+        const radius = clamp(maxDim * 0.32, 3, 22);
+        const east = this.heightAt(x + radius, z), west = this.heightAt(x - radius, z);
+        const south = this.heightAt(x, z + radius), north = this.heightAt(x, z - radius);
+        p.groundX = (east - west) / (2 * radius); p.groundZ = (south - north) / (2 * radius);
+        const centre = this.heightAt(x, z);
+        const dip = Math.min(0, east - centre - p.groundX * radius, west - centre + p.groundX * radius,
+          south - centre - p.groundZ * radius, north - centre + p.groundZ * radius);
+        p.y += dip - 0.035 * scale;
+      }
       if (!batches.has(id)) batches.set(id, []);
       batches.get(id).push(p); added++;
       if (added % 4000 === 0) await yieldFrame();
@@ -279,7 +324,7 @@ export class RailWorld {
     const platform = [], canopy = [], hut = [], signs = [], lamps = [];
     for (const s of this.stations) {
       const side = 1;
-      const at = (offset, along = 0, y = 0) => ({ x: s.x + s.nx * offset * side + s.tx * along, z: s.z + s.nz * offset * side + s.tz * along, y, yaw: s.yaw });
+      const at = (offset, along = 0, y = 0) => ({ x: s.x + s.nx * offset * side + s.tx * along, z: s.z + s.nz * offset * side + s.tz * along, y: s.y + y, yaw: s.yaw });
       for (let i = -2; i < 3; i++) { platform.push(at(3.2, i * 4)); if (i >= -1 && i <= 1) canopy.push(at(3.2, i * 4)); }
       hut.push(at(10.5, -4)); signs.push(at(6.1, 8)); lamps.push(at(6.3, -10), at(6.3, 11));
       const board = this.makeLabel(s.name, s.index === 0 ? 'A / DEPARTURE' : `STATION 0${s.index + 1}`);
@@ -329,7 +374,7 @@ export class RailWorld {
     const material = new THREE.MeshBasicMaterial({ color: '#f5f1df', transparent: true, opacity: 0.38, depthWrite: false, fog: false });
     const mesh = new THREE.InstancedMesh(geometry, material, 48);
     for (let i = 0; i < 48; i++) {
-      position.set((random() * 2 - 1) * d * 1.2, 260 + random() * 240, (random() - 0.5) * d * 1.5);
+      position.set((random() * 2 - 1) * d * 1.2, this.route.elevation.max + 260 + random() * 240, (random() - 0.5) * d * 1.5);
       scaling.set(45 + random() * 80, 6 + random() * 13, 18 + random() * 34);
       q.identity(); placementMatrix.compose(position, q, scaling); mesh.setMatrixAt(i, placementMatrix);
     }
@@ -338,7 +383,8 @@ export class RailWorld {
   }
   updateCart(distance, odometer, throttle) {
     const p = this.route.sample(distance, this.cartSample);
-    this.cart.position.set(p.x, 0.381, p.z); this.cart.rotation.y = p.yaw;
+    this.cart.position.set(p.x + 0.381 * p.upX, p.y + 0.381 * p.upY, p.z + 0.381 * p.upZ);
+    this.cart.quaternion.setFromEuler(rotationEuler.set(p.pitch, p.yaw, 0, 'YXZ'));
     q.setFromAxisAngle(new THREE.Vector3(1, 0, 0), distance / 0.346);
     for (const wheel of this.wheels) wheel.node.quaternion.copy(wheel.original).multiply(q);
     if (this.cartLever) {
@@ -384,7 +430,7 @@ export function createAtmosphere(scene, renderer) {
     skyMaterial.uniforms.bottom.value.copy(fog); scene.fog = new THREE.Fog(fog, 170, 600);
   }, update(camera, position, shadows) {
     sky.position.copy(camera.position); sun.castShadow = shadows;
-    sun.position.set(position.x - 100, 170, position.z + 70); sun.target.position.set(position.x, 0, position.z);
+    sun.position.set(position.x - 100, position.y + 170, position.z + 70); sun.target.position.set(position.x, position.y, position.z);
     sun.target.updateMatrixWorld();
   } };
 }
