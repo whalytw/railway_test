@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { clamp, lerp, smoothstep, randomGenerator, TAU } from './core.js?v=3.0.0';
-import { bridgeCoordinates, riverBend } from './route-features.js?v=3.0.0';
+import { clamp, lerp, smoothstep, randomGenerator, TAU } from './core.js?v=4.0.0';
+import { bridgeCoordinates, riverBend } from './route-features.js?v=4.0.0';
 
 const up = new THREE.Vector3(0, 1, 0), frameEuler = new THREE.Euler(0, 0, 0, 'YXZ');
 function ownMesh(world, geometry, material) { const mesh = new THREE.Mesh(geometry, material); world.group.add(mesh); world.ownedGeometry.push(geometry); return mesh; }
@@ -151,7 +151,8 @@ export function buildTunnel(world) {
   }
   const geometry = new THREE.BufferGeometry(); geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3)); geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3)); geometry.setIndex(indices); geometry.computeVertexNormals();
   const material = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 1, side: THREE.DoubleSide });
-  world.ownedMaterials.push(material); ownMesh(world, geometry, material).receiveShadow = true;
+  world.ownedMaterials.push(material);
+  const hill = ownMesh(world, geometry, material); hill.receiveShadow = true; hill.castShadow = Boolean(world.config.sceneryShadows);
   // Concave front face has an open arch notch. No terrain triangle crosses the
   // mouth; the imported stone portal masks the seam around the opening.
   for (const [s, reverse] of [[tunnel.start, false], [tunnel.end, true]]) {
@@ -165,7 +166,7 @@ export function buildTunnel(world) {
     for (let i = 0; i < a.count; i++) { const v = atFrame(p, a.getX(i), a.getY(i)); a.setXYZ(i, v.x, v.y, v.z); }
     cap.computeVertexNormals();
     const rock = new THREE.MeshStandardMaterial({ color: ground.clone().lerp(new THREE.Color('#7e8275'), 0.62), roughness: 1, side: THREE.DoubleSide });
-    world.ownedMaterials.push(rock); ownMesh(world, cap, rock);
+    world.ownedMaterials.push(rock); const face = ownMesh(world, cap, rock); face.receiveShadow = true; face.castShadow = Boolean(world.config.sceneryShadows);
   }
   for (const offset of [22, 58]) {
     const p = route.sample(tunnel.start + offset), light = new THREE.PointLight('#ffd69b', 18, 12, 2);

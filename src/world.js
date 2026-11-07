@@ -1,8 +1,9 @@
 import * as THREE from 'three';
 import { GLTFLoader } from '../vendor/GLTFLoader.js';
-import { TAU, lerp, clamp, wrap, smoothstep, randomGenerator, createRoute, stationsFor, biomeMix, trackSegments } from './core.js?v=3.0.0';
-import { sleeperLayout, sleeperFilter, planRouteFeatures, featureAt, bridgeCoordinates, bridgeGroundHeight, riverBend } from './route-features.js?v=3.0.0';
-import { buildMountainBackdrop, buildVariedClouds, updateClouds, buildBridgeAndRiver, buildTunnel } from './scenery.js?v=3.0.0';
+import { TAU, lerp, clamp, wrap, smoothstep, randomGenerator, createRoute, stationsFor, biomeMix, trackSegments } from './core.js?v=4.0.0';
+import { sleeperLayout, sleeperFilter, planRouteFeatures, featureAt, bridgeCoordinates, bridgeGroundHeight, riverBend } from './route-features.js?v=4.0.0';
+import { buildMountainBackdrop, buildVariedClouds, updateClouds, buildBridgeAndRiver, buildTunnel } from './scenery.js?v=4.0.0';
+import { fitGroundContact, prepareGroundedParts, groundBatchGeometry } from './grounding.js?v=4.0.0';
 
 export const PALETTES = {
   Forest: { ground: '#829565', detail: '#62794d', sky: '#bed0ba', amplitude: 12 },
@@ -34,7 +35,7 @@ export class AssetStore {
         const id = queue.shift();
         if (!this.cache.has(id)) {
           const info = this.manifest.models[id];
-          const assetURL = info.derivation ? `${info.url}?revision=base-free-v2` : info.url;
+          const assetURL = info.derivation ? `${info.url}?revision=grounded-v4` : info.url;
           if (!this.pending.has(id)) this.pending.set(id, this.loader.loadAsync(assetURL).then(gltf => {
             const root = gltf.scene;
             root.updateMatrixWorld(true);
@@ -80,11 +81,12 @@ export class RailWorld {
     this.instanceCount = 0; this.sceneryCount = 0; this.terrainChunks = 0;
     this.wheels = []; this.waterMaterials = [];
     this.partsOverrides = new Map(); this.environmentElapsed = 0; this.lastSpeed = 0;
+    this.groundParts = new Map(); this.terrainGrid = null;
     this.sleeperUniforms = { exposure: { value: 0 }, contrast: { value: 0 }, enabled: { value: config.sleeperFilter === false ? 0 : 1 } };
     this.paletteA = PALETTES[config.biomeA]; this.paletteB = PALETTES[config.biomeB];
     this.colorA = new THREE.Color(this.paletteA.ground); this.colorB = new THREE.Color(this.paletteB.ground);
     this.detailA = new THREE.Color(this.paletteA.detail); this.detailB = new THREE.Color(this.paletteB.detail);
-    this.tmpSample = {}; this.cartSample = {};
+    this.tmpSample = {}; this.cartSample = {}; this.cartFrontSample = {}; this.cartRearSample = {};
     this.elevationField = this.createElevationField();
     this.lake = this.planLake();
     if (this.features.bridge) {
@@ -166,8 +168,14 @@ export class RailWorld {
     onProgress(1, '旅程準備就緒');
     return this;
   }
-  addBatches(id, placements, { size = 160, kind = 'scenery', castShadow = false } = {}) {
-    const bins = new Map(), source = this.partsOverrides.get(id) || this.store.get(id);
+  addBatches(id, placements, { size = 160, kind = 'scenery', castShadow } = {}) {
+    const casts = castShadow ?? (this.config.sceneryShadows && ['scenery', 'landmark'].includes(kind));
+    const bins = new Map();
+    let source = this.partsOverrides.get(id) || this.store.get(id);
+    if (placements[0]?.groundPatch) {
+      if (!this.groundParts.has(id)) this.groundParts.set(id, { parts: prepareGroundedParts(source, this.store.manifest.models[id].placement, this.ownedMaterials) });
+      source = this.groundParts.get(id);
+    }
     for (const p of placements) {
       const key = `${Math.floor(p.x / size)},${Math.floor(p.z / size)}`;
       if (!bins.has(key)) bins.set(key, []);
@@ -177,7 +185,10 @@ export class RailWorld {
       const [cx, cz] = key.split(',').map(Number);
       const group = new THREE.Group(); group.name = `${kind}:${id}:${key}`;
       for (const part of source.parts) {
-        const mesh = new THREE.InstancedMesh(part.geometry, part.material, values.length);
+        const geometry = values[0].groundPatch ? groundBatchGeometry(part, values) : part.geometry;
+        if (geometry !== part.geometry) this.ownedGeometry.push(geometry);
+        const mesh = new THREE.InstancedMesh(geometry, part.material, values.length);
+        if (part.depth) mesh.customDepthMaterial = part.depth;
         for (let i = 0; i < values.length; i++) {
           const p = values[i];
           position.set(p.x, p.y || 0, p.z); q.setFromEuler(rotationEuler.set(p.pitch || 0, p.yaw || 0, p.roll || 0, 'YXZ'));
@@ -192,7 +203,7 @@ export class RailWorld {
         }
         mesh.instanceMatrix.needsUpdate = true;
         mesh.computeBoundingSphere(); mesh.computeBoundingBox();
-        mesh.castShadow = castShadow; mesh.receiveShadow = true;
+        mesh.castShadow = Boolean(casts); mesh.receiveShadow = true;
         group.add(mesh);
       }
       this.group.add(group);
@@ -271,6 +282,7 @@ export class RailWorld {
     const color = new THREE.Color(), detail = new THREE.Color();
     const nx = Math.ceil(2 * d / tile), nz = Math.ceil(d / tile);
     const width = 2 * d / nx, depth = d / nz;
+    this.terrainGrid = { d, nx, nz, width, depth, tiles: [] };
     const riverDetailAt = (x, z) => {
       if (!this.features.bridge) return false;
       const p = bridgeCoordinates(this.features.bridge, x, z);
@@ -317,6 +329,7 @@ export class RailWorld {
         geometry.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
         geometry.setAttribute('normal', new THREE.Float32BufferAttribute(normals, 3));
         geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3)); geometry.setIndex(indices); geometry.computeBoundingSphere();
+        this.terrainGrid.tiles[iz * nx + ix] = { x0, z0, segments, geometry };
         const mesh = new THREE.Mesh(geometry, material); mesh.receiveShadow = true;
         this.group.add(mesh); this.ownedGeometry.push(geometry); this.terrainChunks++;
         this.cullGroups.push({ group: mesh, x: x0 + width / 2, z: z0 + depth / 2, radius: tile, kind: 'terrain' });
@@ -369,7 +382,14 @@ export class RailWorld {
       const baseY = isLandform ? 0 : Math.max(0, bounds.min.y);
       const y = this.heightAt(x, z, near) - baseY * scale - 0.04;
       const p = { x, z, y, scale, yaw: random() * TAU };
-      if (info.derivation && info.placement) {
+      if (info.placement?.footprintAdaptive) {
+        fitGroundContact(this, p, info.placement);
+        // Upright craters and level lava should not grow tall pedestal-like
+        // skirts on steep host slopes. Find a gentler footprint instead.
+        const maximumRelief = /Cone16m/.test(id) ? 1.2 : /LavaPool|LavaChannel/.test(id) ? 0.60 : Infinity;
+        if (p.groundRelief > maximumRelief * scale) continue;
+      }
+      else if (info.derivation && info.placement) {
         // Base-free hill rims follow the local ground plane and are slightly
         // buried at the lowest footprint edge, so no floating display plate or
         // open cut edge is exposed on a hillside.
@@ -482,6 +502,14 @@ export class RailWorld {
   }
   updateCart(distance, odometer, throttle) {
     const p = this.route.sample(distance, this.cartSample);
+    // Use a two-metre track chord for body attitude. The arc-table position is
+    // exact; this removes tiny tangent jumps at successive polyline samples.
+    const front = this.route.sample(distance + 1, this.cartFrontSample), rear = this.route.sample(distance - 1, this.cartRearSample);
+    const dx = front.x - rear.x, dy = front.y - rear.y, dz = front.z - rear.z;
+    const horizontal = Math.hypot(dx, dz), length = Math.hypot(horizontal, dy);
+    p.tx = dx / horizontal; p.tz = dz / horizontal; p.tx3 = dx / length; p.ty = dy / length; p.tz3 = dz / length;
+    p.pitch = -Math.atan2(dy, horizontal); p.yaw = Math.atan2(dx, dz); p.nx = p.tz; p.nz = -p.tx;
+    p.upX = -p.tx * p.ty; p.upY = horizontal / length; p.upZ = -p.tz * p.ty;
     this.cart.position.set(p.x + 0.381 * p.upX, p.y + 0.381 * p.upY, p.z + 0.381 * p.upZ);
     this.cart.quaternion.setFromEuler(rotationEuler.set(p.pitch, p.yaw, 0, 'YXZ'));
     q.setFromAxisAngle(new THREE.Vector3(1, 0, 0), distance / 0.346);
@@ -508,6 +536,7 @@ export class RailWorld {
     this.group.traverse(node => { if (node.isInstancedMesh) node.dispose(); });
     this.ownedGeometry.forEach(g => g.dispose()); this.ownedMaterials.forEach(m => m.dispose()); this.ownedTextures.forEach(t => t.dispose());
     this.group.clear(); this.cullGroups = []; this.wheels = [];
+    this.groundParts.clear(); this.terrainGrid = null;
   }
 }
 
@@ -529,13 +558,25 @@ export function createAtmosphere(scene, renderer) {
   const pmrem = new THREE.PMREMGenerator(renderer); const environment = pmrem.fromScene(envScene, 0.04, 0.1, 200);
   scene.environment = environment.texture; scene.environmentIntensity = 0.55; envSky.geometry.dispose(); pmrem.dispose();
   let outsideFog = new THREE.Color('#c7d5c2');
+  const lightOffset = new THREE.Vector3(-100, 170, 70), lightZ = lightOffset.clone().normalize();
+  const lightX = new THREE.Vector3().crossVectors(new THREE.Vector3(0, 1, 0), lightZ).normalize();
+  const lightY = new THREE.Vector3().crossVectors(lightZ, lightX), focus = new THREE.Vector3();
   return { sun, hemi, sky, environment, setBiomes(a, b) {
     const fog = new THREE.Color(PALETTES[a].sky).lerp(new THREE.Color(PALETTES[b].sky), 0.5);
     skyMaterial.uniforms.bottom.value.copy(fog); scene.fog = new THREE.Fog(fog, 170, 600);
     outsideFog.copy(fog);
-  }, update(camera, position, shadows, tunnel = 0) {
+  }, update(camera, position, shadows, tunnel = 0, sceneryShadows = false) {
     sky.position.copy(camera.position); sun.castShadow = shadows;
-    sun.position.set(position.x - 100, position.y + 170, position.z + 70); sun.target.position.set(position.x, position.y, position.z);
+    const radius = sceneryShadows ? 180 : 70, shadowCamera = sun.shadow.camera;
+    if (shadowCamera.right !== radius) {
+      shadowCamera.left = shadowCamera.bottom = -radius; shadowCamera.right = shadowCamera.top = radius;
+      shadowCamera.updateProjectionMatrix();
+    }
+    // Keep the shadow projection on whole texels as the cart moves.
+    const texel = radius * 2 / sun.shadow.mapSize.x;
+    const x = Math.round(position.dot(lightX) / texel) * texel, y = Math.round(position.dot(lightY) / texel) * texel;
+    focus.copy(lightX).multiplyScalar(x).addScaledVector(lightY, y).addScaledVector(lightZ, position.dot(lightZ));
+    sun.position.copy(focus).add(lightOffset); sun.target.position.copy(focus);
     sun.target.updateMatrixWorld();
     hemi.intensity = lerp(2.2, 0.70, tunnel); sun.intensity = lerp(3.1, 0.30, tunnel);
     scene.environmentIntensity = lerp(0.55, 0.18, tunnel);

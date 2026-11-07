@@ -1,18 +1,22 @@
 import * as THREE from 'three';
-import { AssetStore, RailWorld, createAtmosphere, PALETTES } from './world.js?v=3.0.0';
-import { createPhysics, stepPhysics, FIXED_STEP, clamp, lerp, wrap, resolveBiomes, randomGenerator, nextStation, biomeMix, createElevationProfile, leverReference, leverForSpeed, RATED_POWER, CART_MASS, MAX_GRADE, MIN_VERTICAL_RADIUS } from './core.js?v=3.0.0';
-import { riverBend } from './route-features.js?v=3.0.0';
+import { AssetStore, RailWorld, createAtmosphere, PALETTES } from './world.js?v=4.0.0';
+import { createPhysics, stepPhysics, FIXED_STEP, clamp, lerp, wrap, resolveBiomes, randomGenerator, nextStation, biomeMix, createElevationProfile, leverReference, leverForSpeed, RATED_POWER, CART_MASS, MAX_GRADE, MIN_VERTICAL_RADIUS } from './core.js?v=4.0.0';
+import { riverBend } from './route-features.js?v=4.0.0';
+import { copyMotion, interpolateMotion, zoomView, anchorCamera } from './presentation.js?v=4.0.0';
 
 const $ = id => document.getElementById(id);
 let renderer, scene, camera, atmosphere, manifest, store, world;
 let mode = 'loading', physics = createPhysics(), cameraMode = 'chase', buildEpoch = 0;
 let accumulator = 0, lastTime = 0, hudElapsed = 0, visibilityElapsed = 0, titleTime = 0;
 let orbitYaw = 0, orbitPitch = 0.20, orbitDistance = 18, cameraSnapped = false;
+let cabYaw = 0, cabPitch = 0;
+const previousMotion = copyMotion(physics), renderMotion = copyMotion(physics);
 let dragging = null, previewChangeTimer, notificationTimer;
 let frameSamples = [], fpsHistory = [], metricTime = 0, metricFrames = 0, sessionConfig = null;
 let longFrameCount = 0, countdownFinished = false;
 let filteredFrameTime = 1 / 60;
 const desiredCamera = new THREE.Vector3(), lookTarget = new THREE.Vector3(), smoothLook = new THREE.Vector3();
+const cameraOffset = new THREE.Vector3(), lookOffset = new THREE.Vector3(), eyePosition = new THREE.Vector3(), viewDirection = new THREE.Vector3();
 const startButton = $('start-button'), loading = $('loading');
 const minimap = $('minimap'), mapContext = minimap.getContext('2d');
 const profileCanvas = $('elevation-profile'), profileContext = profileCanvas.getContext('2d'), slopeSample = {};
@@ -46,13 +50,13 @@ function formConfig() {
   const [biomeA, biomeB] = resolveBiomes($('biome-a').value, $('biome-b').value, biomeNames, randomGenerator(`${seed}:biomes`));
   return { biomeA, biomeB, length: Number($('route-length').value), stations: Number($('station-count').value), vehicle: selectedVehicle(),
     density: Number($('density').value), viewDistance: Number($('view-distance').value), resolution: Number($('resolution').value),
-    shadows: $('shadows').value === 'on', elevationLimit: Number($('elevation-limit').value),
+    shadows: $('shadows').value === 'on', sceneryShadows: $('scenery-shadows').value === 'on', elevationLimit: Number($('elevation-limit').value),
     features: $('features').value === 'on', skyline: $('skyline').value === 'on', sleeperFilter: $('sleeper-filter').value === 'on', sleeperSpacing: Number($('sleeper-spacing').value), seed };
 }
 function savePreferences() {
   try {
     const values = {};
-    for (const id of ['biome-a', 'biome-b', 'route-length', 'station-count', 'elevation-limit', 'density', 'view-distance', 'resolution', 'shadows', 'features', 'skyline', 'sleeper-filter', 'sleeper-spacing', 'seed']) values[id] = $(id).value;
+    for (const id of ['biome-a', 'biome-b', 'route-length', 'station-count', 'elevation-limit', 'density', 'view-distance', 'resolution', 'shadows', 'scenery-shadows', 'features', 'skyline', 'sleeper-filter', 'sleeper-spacing', 'seed']) values[id] = $(id).value;
     values.vehicle = selectedVehicle(); localStorage.setItem('rail-loop-lab:preferences:v1', JSON.stringify(values));
   } catch { /* Private browsing may disable local storage. */ }
 }
@@ -128,7 +132,7 @@ function previewConfig() {
   if (a === 'random') a = b === 'Forest' ? 'Pastoral' : 'Forest';
   if (b === 'random' || a === b) b = a === 'Lakeside' ? 'Forest' : 'Lakeside';
   return { biomeA: a, biomeB: b, length: 5, stations: 3, elevationLimit: Number($('elevation-limit').value), vehicle: selectedVehicle(), density: 2000,
-    features: true, skyline: true, sleeperFilter: true, sleeperSpacing: 0.75, viewDistance: 450, resolution: 1, shadows: false, seed: 'LOOP-PREVIEW' };
+    features: true, skyline: true, sleeperFilter: true, sleeperSpacing: 0.75, viewDistance: 450, resolution: 1, shadows: false, sceneryShadows: false, seed: 'LOOP-PREVIEW' };
 }
 function updatePreviewCaption(config) { $('preview-caption').textContent = `${manifest.biomes[config.biomeA].name} × ${manifest.biomes[config.biomeB].name} / 即時 3D 預覽`; }
 
@@ -142,7 +146,7 @@ async function loadWorld(config, showLoading = true) {
     if (world) world.dispose(); world = nextWorld;
     renderer.renderLists.dispose();
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, config.resolution));
-    renderer.shadowMap.enabled = config.shadows; atmosphere.setBiomes(config.biomeA, config.biomeB);
+    renderer.shadowMap.enabled = config.shadows || config.sceneryShadows; atmosphere.setBiomes(config.biomeA, config.biomeB);
     cameraSnapped = false; visibilityElapsed = 100; titleTime = 0; resize();
     return true;
   } catch (error) { nextWorld.dispose(); throw error; }
@@ -157,9 +161,9 @@ async function startGame(event) {
   mode = 'loading'; $('loading-title').textContent = `正在鋪設 ${config.length} 公里軌道`;
   try {
     const loaded = await loadWorld(config, true); if (!loaded) return;
-    sessionConfig = config; physics = createPhysics(); accumulator = 0; lastTime = 0;
+    sessionConfig = config; physics = createPhysics(); copyMotion(physics, previousMotion); copyMotion(physics, renderMotion); accumulator = 0; lastTime = 0;
     fpsHistory = []; frameSamples = []; metricTime = 0; metricFrames = 0; longFrameCount = 0;
-    hudElapsed = 0; countdownFinished = false; cameraMode = 'chase'; orbitYaw = 0; orbitPitch = 0.20; orbitDistance = 18;
+    hudElapsed = 0; countdownFinished = false; cameraMode = 'chase'; orbitYaw = 0; orbitPitch = 0.20; orbitDistance = 18; cabYaw = 0; cabPitch = 0;
     menu.hidden = true; hud.hidden = false; loading.hidden = true; $('pause-overlay').hidden = true;
     $('route-label').textContent = `${config.length}.0 KM`;
     $('biome-label').textContent = `A ${manifest.biomes[config.biomeA].name} → B ${manifest.biomes[config.biomeB].name}`;
@@ -174,7 +178,7 @@ async function startGame(event) {
 function pauseGame(force) {
   if (!['running', 'paused'].includes(mode)) return;
   const paused = force ?? mode === 'running';
-  mode = paused ? 'paused' : 'running'; accumulator = 0; lastTime = 0;
+  mode = paused ? 'paused' : 'running'; lastTime = 0;
   if (paused) world.updateEnvironment(0, 0, 1 / 60);
   $('pause-overlay').hidden = !paused; $('countdown').hidden = paused || physics.countdown <= 0;
   $('pause-label').textContent = paused ? '繼續' : '暫停'; $('pause-icon').textContent = paused ? '▷' : 'Ⅱ';
@@ -186,8 +190,8 @@ async function returnToTitle() {
   $('loading-title').textContent = '返回軌道試驗場';
   try {
     const config = previewConfig(); await loadWorld(config, true);
-    physics = createPhysics(); mode = 'title'; menu.hidden = false; loading.hidden = true; lastTime = 0;
-    orbitYaw = 0; orbitPitch = 0.20; orbitDistance = 18; cameraMode = 'chase'; cameraSnapped = false;
+    physics = createPhysics(); copyMotion(physics, previousMotion); copyMotion(physics, renderMotion); accumulator = 0; mode = 'title'; menu.hidden = false; loading.hidden = true; lastTime = 0;
+    orbitYaw = 0; orbitPitch = 0.20; orbitDistance = 18; cabYaw = 0; cabPitch = 0; cameraMode = 'chase'; cameraSnapped = false;
     updatePreviewCaption(config); document.body.dataset.state = 'title'; resize();
   } catch (error) { showError(error); }
 }
@@ -237,15 +241,29 @@ function installControls() {
   document.querySelectorAll('[data-camera]').forEach(button => button.addEventListener('click', () => setCamera(button.dataset.camera)));
   $('preview-camera').addEventListener('click', () => { cameraMode = cameraMode === 'overview' ? 'chase' : 'overview'; cameraSnapped = false; visibilityElapsed = 100; });
   const canvas = $('scene');
-  canvas.addEventListener('pointerdown', event => { if (mode === 'paused' || cameraMode === 'cab') return; canvas.setPointerCapture(event.pointerId); dragging = { type: 'camera', x: event.clientX, y: event.clientY }; });
+  canvas.addEventListener('pointerdown', event => { if (mode === 'paused') return; canvas.setPointerCapture(event.pointerId); dragging = { type: 'camera', x: event.clientX, y: event.clientY }; });
   canvas.addEventListener('pointermove', event => {
     if (dragging?.type !== 'camera') return;
-    orbitYaw -= (event.clientX - dragging.x) * 0.006;
-    orbitPitch = clamp(orbitPitch + (event.clientY - dragging.y) * 0.004, -0.02, 1.05);
+    if (cameraMode === 'cab') {
+      cabYaw += (event.clientX - dragging.x) * 0.005;
+      cabPitch = clamp(cabPitch - (event.clientY - dragging.y) * 0.004, -1.25, 1.25);
+    } else {
+      orbitYaw -= (event.clientX - dragging.x) * 0.006;
+      orbitPitch = clamp(orbitPitch + (event.clientY - dragging.y) * 0.004, -0.02, 1.05);
+    }
     dragging.x = event.clientX; dragging.y = event.clientY;
   });
-  canvas.addEventListener('pointerup', () => dragging = null); canvas.addEventListener('pointercancel', () => dragging = null);
-  canvas.addEventListener('wheel', event => { if (cameraMode !== 'chase') return; event.preventDefault(); orbitDistance = clamp(orbitDistance + event.deltaY * 0.025, 7, 80); }, { passive: false });
+  canvas.addEventListener('pointerup', () => dragging = null); canvas.addEventListener('pointercancel', () => dragging = null); canvas.addEventListener('lostpointercapture', () => dragging = null);
+  canvas.addEventListener('wheel', event => {
+    if (!['running', 'title'].includes(mode) || cameraMode === 'overview') return;
+    event.preventDefault();
+    const next = zoomView(cameraMode, orbitDistance, event.deltaY, mode === 'title');
+    orbitDistance = next.distance;
+    if (next.mode !== cameraMode) {
+      if (next.mode === 'cab') { cabYaw = 0; cabPitch = 0; }
+      setCamera(next.mode, false);
+    }
+  }, { passive: false });
   document.addEventListener('visibilitychange', () => {
     if (document.hidden && mode === 'running') { pauseGame(true); notify('分頁已切換，行駛與計時自動暫停。'); }
     lastTime = 0; metricTime = 0; metricFrames = 0;
@@ -258,9 +276,12 @@ function installControls() {
   window.addEventListener('resize', resize);
   $('scene').addEventListener('webglcontextlost', event => { event.preventDefault(); if (mode === 'running') pauseGame(true); showError(new Error('GPU 渲染內容已中斷。請降低物件數、解析度或陰影設定後重新載入。')); });
 }
-function setCamera(next) {
-  cameraMode = next; cameraSnapped = false; visibilityElapsed = 100;
+function setCamera(next, snap = true) {
+  cameraMode = next; if (snap) cameraSnapped = false; visibilityElapsed = 100;
+  if (next === 'cab') { orbitDistance = 0; if (snap) { cabYaw = 0; cabPitch = 0; } }
+  else if (next === 'chase' && snap && orbitDistance < 7) orbitDistance = 18;
   document.querySelectorAll('[data-camera]').forEach(button => button.classList.toggle('active', button.dataset.camera === next));
+  $('camera-hint').textContent = next === 'cab' ? '拖曳自由轉頭 · 滾輪向下拉遠' : next === 'chase' ? '拖曳旋轉 · 滾輪最近進入駕駛' : '拖曳旋轉全景';
 }
 function resize() {
   if (!renderer) return;
@@ -272,42 +293,52 @@ function resize() {
 }
 function updateCamera(dt, snap = false) {
   if (!world?.cart) return;
-  const p = world.cartSample, cart = world.cart.position;
-  const structure = mode === 'running' ? world.structureAt(physics.distance, 17) : null;
+  const p = world.cartSample, cart = world.cart.position, distanceAlong = renderMotion.distance;
+  const structure = mode === 'running' ? world.structureAt(distanceAlong, 17) : null;
+  let targetFov;
+  eyePosition.set(cart.x + p.tx3 * 0.35 + p.upX * 1.60, cart.y + p.ty * 0.35 + p.upY * 1.60, cart.z + p.tz3 * 0.35 + p.upZ * 1.60);
   if (cameraMode === 'overview') {
     const d = world.route.squareSize, angle = orbitYaw * 0.25;
     const midHeight = world.route.elevation.range * 0.5;
     desiredCamera.set(Math.sin(angle) * d * 0.35, d * 1.18 + midHeight, d * 0.70);
-    lookTarget.set(0, midHeight - 30, 0); camera.fov = 53; camera.far = 45000;
-  } else if (structure && cameraMode === 'chase') {
-    const behind = world.route.sample(physics.distance - 7.5), ahead = world.route.sample(physics.distance + 5);
-    desiredCamera.set(behind.x, behind.y + 2.35, behind.z);
-    lookTarget.set(ahead.x, ahead.y + 1.3, ahead.z); camera.fov = 64; camera.far = 18000;
+    lookTarget.set(0, midHeight - 30, 0); targetFov = 53; camera.far = 45000;
   } else if (cameraMode === 'cab') {
-    const sign = physics.speed < -0.4 ? -1 : 1;
-    desiredCamera.set(cart.x + p.tx * 0.35, cart.y + 1.60, cart.z + p.tz * 0.35);
-    const ahead = world.route.sample(physics.distance + sign * 45);
-    lookTarget.set(ahead.x, ahead.y + 1.65, ahead.z);
-    camera.fov = 72; camera.far = 18000;
+    const sign = renderMotion.speed < -0.4 ? -1 : 1, horizontal = Math.cos(cabPitch);
+    viewDirection.set(sign * Math.sin(cabYaw) * horizontal, Math.sin(cabPitch), sign * Math.cos(cabYaw) * horizontal).applyQuaternion(world.cart.quaternion);
+    desiredCamera.copy(eyePosition); lookTarget.copy(eyePosition).addScaledVector(viewDirection, 45);
+    targetFov = 72; camera.far = 18000;
   } else {
     const angle = p.yaw + orbitYaw + (mode === 'title' ? 0.58 : 0.20);
     const distance = orbitDistance;
     desiredCamera.set(cart.x - Math.sin(angle) * distance, cart.y + 3.6 + Math.sin(orbitPitch) * distance * 0.8, cart.z - Math.cos(angle) * distance);
-    const ahead = world.route.sample((mode === 'title' ? Math.sin(titleTime * 0.022) * 14 : physics.distance) + 8);
+    const ahead = world.route.sample(distanceAlong + 8);
     lookTarget.set(ahead.x, ahead.y + 1.4, ahead.z);
     const terrainY = world.heightAt(desiredCamera.x, desiredCamera.z); desiredCamera.y = Math.max(desiredCamera.y, terrainY + 2);
-    camera.fov = 57 + Math.min(6, Math.abs(physics.speed) * 0.13); camera.far = 18000;
+    targetFov = 57 + Math.min(6, Math.abs(renderMotion.speed) * 0.13); camera.far = 18000;
+    if (structure) {
+      const behind = world.route.sample(distanceAlong - Math.min(7.5, distance)), ahead = world.route.sample(distanceAlong + 5);
+      desiredCamera.set(behind.x, behind.y + 2.35, behind.z); lookTarget.set(ahead.x, ahead.y + 1.3, ahead.z); targetFov = 64;
+    }
+    // Smoothly travel the last seven metres into the driver's eye position.
+    const eyeBlend = 1 - THREE.MathUtils.smoothstep(distance, 0, 7);
+    desiredCamera.lerp(eyePosition, eyeBlend);
+    viewDirection.set(p.tx3, p.ty, p.tz3);
+    smoothLook.copy(eyePosition).addScaledVector(viewDirection, 45);
+    lookTarget.lerp(smoothLook, eyeBlend); targetFov = lerp(targetFov, 72, eyeBlend);
   }
-  const blend = snap || !cameraSnapped ? 1 : 1 - Math.exp(-dt * (cameraMode === 'cab' ? 30 : 8));
-  camera.position.lerp(desiredCamera, blend); smoothLook.lerp(lookTarget, blend); camera.lookAt(smoothLook); camera.updateProjectionMatrix();
+  const reset = snap || !cameraSnapped, blend = reset ? 1 : 1 - Math.exp(-dt * 12);
+  if (cameraMode === 'overview') {
+    camera.position.lerp(desiredCamera, blend); smoothLook.lerp(lookTarget, blend); camera.lookAt(smoothLook);
+  } else anchorCamera(camera, cart, desiredCamera, lookTarget, cameraOffset, lookOffset, dt, reset, cameraMode === 'cab' ? 30 : 10);
+  camera.fov = lerp(camera.fov, targetFov, blend); camera.updateProjectionMatrix();
   cameraSnapped = true;
   const overview = cameraMode === 'overview', far = world.config.viewDistance;
   scene.fog.near = overview ? world.route.squareSize * 2.5 : far * 0.36;
   scene.fog.far = overview ? world.route.squareSize * 6 : far;
-  const insideTunnel = mode === 'running' && !overview ? world.tunnelFactor(physics.distance - (cameraMode === 'cab' ? 0 : 7.5)) : 0;
+  const insideTunnel = mode === 'running' && !overview ? world.tunnelFactor(distanceAlong - (cameraMode === 'cab' ? 0 : Math.min(7.5, orbitDistance))) : 0;
   scene.fog.near = lerp(scene.fog.near, 3, insideTunnel); scene.fog.far = lerp(scene.fog.far, 68, insideTunnel);
-  world.cart.visible = cameraMode !== 'cab';
-  atmosphere.update(camera, cart, world.config.shadows, insideTunnel);
+  world.cart.visible = cameraMode !== 'cab' && !(cameraMode === 'chase' && camera.position.distanceTo(cart) < 4.2);
+  atmosphere.update(camera, cart, world.config.shadows || world.config.sceneryShadows, insideTunnel, world.config.sceneryShadows);
 }
 function updateHUD() {
   $('timer').textContent = physics.elapsed.toFixed(1);
@@ -409,11 +440,12 @@ function recordMetrics(dt, now) {
 }
 function exportReport() {
   const samples = fpsHistory;
-  const report = { application: 'LOOP · 軌道試驗場', version: '3.0.0', threeVersion: THREE.REVISION, generatedAt: new Date().toISOString(),
+  const report = { application: 'LOOP · 軌道試驗場', version: '4.0.0', threeVersion: THREE.REVISION, generatedAt: new Date().toISOString(),
     settings: sessionConfig, actualTrackLengthMetres: world.route.length, worldUnit: 'metre', elapsedSecondsIncludingCountdown: physics.elapsed,
     odometerMetres: physics.odometer, actualSceneryInstances: world.sceneryCount, trackSegments: world.trackInstances,
     elevation: world.route.elevation, physicsModel: { massKg: CART_MASS, ratedPowerWatts: RATED_POWER, ratedHorsepower: RATED_POWER / 745.699872, maximumGrade: MAX_GRADE, minimumVerticalRadiusMetres: MIN_VERTICAL_RADIUS },
     landmarks: world.features, sleepers: { averagePitchMetres: world.sleeperPitch, instances: world.sleeperInstances, filterEnabled: world.config.sleeperFilter, exposureMetres: world.sleeperUniforms.exposure.value },
+    presentation: { fixedPhysicsStepSeconds: FIXED_STEP, interpolatedMotion: true, chaseAnchoredToCart: true, camera: cameraMode, chaseDistanceMetres: orbitDistance, cabYawRadians: cabYaw, cabPitchRadians: cabPitch },
     viewport: { width: innerWidth, height: innerHeight, pixelRatio: renderer.getPixelRatio() },
     summary: { samples: samples.length, averageFps: samples.length ? Number((samples.reduce((sum, s) => sum + s.fps, 0) / samples.length).toFixed(2)) : null,
       minimumFps: samples.length ? Math.min(...samples.map(s => s.fps)) : null, longFramesOver50ms: longFrameCount },
@@ -427,28 +459,31 @@ function exportReport() {
 function frame(time) {
   requestAnimationFrame(frame);
   if (!renderer || !world || document.hidden) { lastTime = 0; return; }
-  const realDt = lastTime ? (time - lastTime) / 1000 : 1 / 60; lastTime = time;
+  const realDt = lastTime ? (time - lastTime) / 1000 : 0; lastTime = time;
   const dt = Math.min(realDt, 0.1);
   if (mode === 'running') {
     // Fixed physical timestep. Keep every foreground second, including slow
     // stress-test frames; background tabs are explicitly paused separately.
     accumulator += realDt;
     while (accumulator >= FIXED_STEP) {
+      copyMotion(physics, previousMotion);
       world.route.sample(physics.distance + physics.speed * FIXED_STEP * 0.5, slopeSample);
       stepPhysics(physics, FIXED_STEP, physics.throttle, slopeSample.grade); accumulator -= FIXED_STEP;
     }
-    world.updateCart(physics.distance, physics.odometer, physics.throttle);
+    interpolateMotion(previousMotion, physics, accumulator / FIXED_STEP, renderMotion);
+    world.updateCart(renderMotion.distance, renderMotion.odometer, physics.throttle);
     hudElapsed += realDt;
     if (hudElapsed > 0.09) { updateHUD(); drawMinimap(); hudElapsed = 0; }
   } else if (mode === 'title') {
     titleTime += dt;
     // Slow cinematic shunt remains close to the departure station.
-    world.updateCart(Math.sin(titleTime * 0.022) * 14, titleTime * 1.0, 0);
+    renderMotion.distance = Math.sin(titleTime * 0.022) * 14; renderMotion.speed = 0;
+    world.updateCart(renderMotion.distance, titleTime * 1.0, 0);
   }
   if (mode !== 'paused') updateCamera(dt);
   if (mode !== 'paused') {
     filteredFrameTime = lerp(filteredFrameTime, clamp(realDt, 1 / 144, 1 / 20), 0.10);
-    world.updateEnvironment(dt, mode === 'running' ? physics.speed : 0, filteredFrameTime);
+    world.updateEnvironment(dt, mode === 'running' ? renderMotion.speed : 0, filteredFrameTime);
   }
   visibilityElapsed += dt;
   if (visibilityElapsed > 0.18) { world.setVisibility(camera, world.config.viewDistance, cameraMode === 'overview'); visibilityElapsed = 0; }
@@ -458,7 +493,7 @@ function frame(time) {
 
 async function boot() {
   if (location.protocol === 'file:') throw new Error('請透過 HTTP 開啟此專案：執行 START_LOCAL.cmd 後前往 http://127.0.0.1:4173，或使用 GitHub Pages 網址。');
-  const response = await fetch('./asset-manifest.json?v=3.0.0'); if (!response.ok) throw new Error(`找不到資產清單（HTTP ${response.status}）。請完整解壓縮 ZIP。`);
+  const response = await fetch('./asset-manifest.json?v=4.0.0'); if (!response.ok) throw new Error(`找不到資產清單（HTTP ${response.status}）。請完整解壓縮 ZIP。`);
   manifest = await response.json(); populateForm(); installControls();
   renderer = new THREE.WebGLRenderer({ canvas: $('scene'), antialias: true, powerPreference: 'high-performance', alpha: false });
   renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;

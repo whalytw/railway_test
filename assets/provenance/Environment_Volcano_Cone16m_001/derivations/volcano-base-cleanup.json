@@ -1,0 +1,145 @@
+{
+  "id": "Environment_Volcano_Cone16m_001",
+  "operation": "remove-display-foundation-and-retain-natural-volcano",
+  "sourceReadOnly": "07_Environment/Volcano/_Shared/Volcano_Kit_001/source/build_volcano.py",
+  "originalSha256": "ee1729e0c848d800b67d0a563cf12074fc64bd2e7cd505049b3f05444503f2a6",
+  "outputSha256": "8e3a720d80f39b163ac41454db028e1c653d0e74e57d8aeb8c77ce9cd430953b",
+  "before": {
+    "triangles": 1692,
+    "lavaTriangles": 388,
+    "bounds": {
+      "min": [
+        -8.161542892456055,
+        -0.6499999761581421,
+        -7.852164268493652
+      ],
+      "max": [
+        8.360372543334961,
+        6.748286247253418,
+        8.472711563110352
+      ]
+    },
+    "dimensions": [
+      16.521915435791016,
+      7.39828622341156,
+      16.324875831604004
+    ],
+    "bytes": 158688
+  },
+  "after": {
+    "triangles": 1550,
+    "lavaTriangles": 388,
+    "bounds": {
+      "min": [
+        -8.161542892456055,
+        -0.05000000074505806,
+        -7.852164268493652
+      ],
+      "max": [
+        8.360372543334961,
+        6.748286247253418,
+        8.472711563110352
+      ]
+    },
+    "dimensions": [
+      16.521915435791016,
+      6.798286247998476,
+      16.324875831604004
+    ],
+    "bytes": 150004
+  },
+  "removedTriangles": {
+    "circular-plinth-wall-or-bottom": 142
+  },
+  "reprofiledOuterRimVertices": 0,
+  "protectedMoltenSurface": {
+    "before": {
+      "triangles": 388,
+      "sha256": "fb7371a2fcd689b0db8ed1fcb5dcfad7050e425c95011c75f81782c16d8aad0b"
+    },
+    "after": {
+      "triangles": 388,
+      "sha256": "fb7371a2fcd689b0db8ed1fcb5dcfad7050e425c95011c75f81782c16d8aad0b"
+    },
+    "unchanged": true
+  },
+  "placement": {
+    "localGroundDatumY": 0,
+    "groundAnchor": [
+      0,
+      0,
+      0
+    ],
+    "useOriginalBoundingBoxBottomAsGround": false,
+    "alignToGroundNormal": false,
+    "keepUpright": true,
+    "uniformScaleRecommended": true,
+    "footprintAdaptive": true,
+    "embedMeters": 0.015,
+    "footBounds": {
+      "min": [
+        -8.161542892456055,
+        0,
+        -7.852164268493652
+      ],
+      "max": [
+        8.360372543334961,
+        0,
+        8.472711563110352
+      ]
+    },
+    "normalizedFootBounds": {
+      "min": [
+        -1,
+        0,
+        -1
+      ],
+      "max": [
+        1,
+        0,
+        1
+      ]
+    },
+    "footNormalization": {
+      "centreXZ": [
+        0.09941482543945312,
+        0.3102736473083496
+      ],
+      "halfExtentsXZ": [
+        8.260957717895508,
+        8.162437915802002
+      ],
+      "formula": "normalizedXZ=(localXZ-centreXZ)/halfExtentsXZ"
+    },
+    "footprint": {
+      "shape": "irregular-oval",
+      "halfExtentsXZ": [
+        8.4,
+        8.5
+      ]
+    },
+    "rootPlacement": {
+      "strategy": "sampled-ground-datum",
+      "rootLocalDatumY": 0
+    },
+    "terrainConform": {
+      "mode": "contact-band-only",
+      "localYBand": [
+        0,
+        1.65
+      ],
+      "preserveAboveLocalY": 1.65,
+      "contactBoundaryY": 0,
+      "keepCraterAndLavaHorizontal": true,
+      "protectMaterialNamePattern": "lava",
+      "weight": {
+        "formula": "1-smoothstep(0,1.65,localY)",
+        "fullBelowLocalY": 0,
+        "zeroAboveLocalY": 1.65
+      }
+    },
+    "note": "Local Y=0 is the mountain foot datum, not the remaining small rock minimum (-0.05m). Fit the foot to sampled host terrain; keep the upper cone/crater/lava upright. Do not raise by -bounds.minY."
+  },
+  "geometryModified": true,
+  "sourceLibraryModified": false
+}

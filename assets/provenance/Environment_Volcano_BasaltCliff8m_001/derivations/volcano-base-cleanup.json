@@ -1,0 +1,183 @@
+{
+  "id": "Environment_Volcano_BasaltCliff8m_001",
+  "operation": "placement-metadata-only-natural-individual-column-feet",
+  "sourceReadOnly": "07_Environment/Volcano/_Shared/Volcano_Kit_001/source/build_volcano.py",
+  "originalSha256": "a8f8ae3b530db0c78c6138495fed09e28c74bbaab571b65aec6636f1b6cf9cf4",
+  "outputSha256": "a8f8ae3b530db0c78c6138495fed09e28c74bbaab571b65aec6636f1b6cf9cf4",
+  "before": {
+    "triangles": 720,
+    "lavaTriangles": 0,
+    "bounds": {
+      "min": [
+        -4.118510723114014,
+        0,
+        -0.8404924273490906
+      ],
+      "max": [
+        4.118510723114014,
+        4.634671211242676,
+        1.314786672592163
+      ]
+    },
+    "dimensions": [
+      8.237021446228027,
+      4.634671211242676,
+      2.1552790999412537
+    ],
+    "bytes": 72076
+  },
+  "after": {
+    "triangles": 720,
+    "lavaTriangles": 0,
+    "bounds": {
+      "min": [
+        -4.118510723114014,
+        0,
+        -0.8404924273490906
+      ],
+      "max": [
+        4.118510723114014,
+        4.634671211242676,
+        1.314786672592163
+      ]
+    },
+    "dimensions": [
+      8.237021446228027,
+      4.634671211242676,
+      2.1552790999412537
+    ],
+    "bytes": 72076
+  },
+  "removedTriangles": {},
+  "reprofiledOuterRimVertices": 0,
+  "protectedMoltenSurface": {
+    "before": {
+      "triangles": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "after": {
+      "triangles": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "unchanged": true
+  },
+  "placement": {
+    "localGroundDatumY": 0,
+    "groundAnchor": [
+      0,
+      0,
+      0
+    ],
+    "useOriginalBoundingBoxBottomAsGround": false,
+    "alignToGroundNormal": false,
+    "keepUpright": true,
+    "uniformScaleRecommended": true,
+    "footprintAdaptive": true,
+    "embedMeters": 0.035,
+    "footBounds": {
+      "min": [
+        -4.118510723114014,
+        0,
+        -0.8404924273490906
+      ],
+      "max": [
+        4.118510723114014,
+        0,
+        1.314786672592163
+      ]
+    },
+    "normalizedFootBounds": {
+      "min": [
+        -1,
+        0,
+        -1
+      ],
+      "max": [
+        1,
+        0,
+        1
+      ]
+    },
+    "footNormalization": {
+      "centreXZ": [
+        0,
+        0.23714712262153625
+      ],
+      "halfExtentsXZ": [
+        4.118510723114014,
+        1.0776395499706268
+      ],
+      "formula": "normalizedXZ=(localXZ-centreXZ)/halfExtentsXZ"
+    },
+    "footprint": {
+      "shape": "column-cluster",
+      "halfExtentsXZ": [
+        4.12,
+        1.32
+      ]
+    },
+    "rootPlacement": {
+      "strategy": "sampled-ground-datum",
+      "rootLocalDatumY": 0
+    },
+    "terrainConform": {
+      "mode": "contact-band-only",
+      "localYBand": [
+        0,
+        0.6
+      ],
+      "preserveAboveLocalY": 0.85,
+      "contactBoundaryY": 0,
+      "weight": {
+        "formula": "1-smoothstep(.08,.85,localY)",
+        "fullBelowLocalY": 0.08,
+        "zeroAboveLocalY": 0.85
+      }
+    },
+    "contactCentresXZ": [
+      [
+        -3.35,
+        0
+      ],
+      [
+        -2,
+        0
+      ],
+      [
+        -0.65,
+        0
+      ],
+      [
+        0.7,
+        0
+      ],
+      [
+        2.05,
+        0
+      ],
+      [
+        3.35,
+        0
+      ],
+      [
+        -2.8,
+        0.85
+      ],
+      [
+        -1.2,
+        0.85
+      ],
+      [
+        1,
+        0.85
+      ],
+      [
+        2.9,
+        0.85
+      ]
+    ],
+    "note": "Six independent natural basalt columns and their fallen rocks have no shared display base. Keep their geology upright and fit only their individual lower feet to host terrain; never flatten the whole cliff by its bounding box."
+  },
+  "geometryModified": false,
+  "sourceLibraryModified": false
+}

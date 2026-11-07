@@ -1561,26 +1561,104 @@
       "category": "07_Environment",
       "biome": "Volcano",
       "dimensions": [
-        16.521915,
-        7.398286,
-        16.324876
+        16.521915435791016,
+        6.798286247998476,
+        16.324875831604004
       ],
-      "triangles": 1692,
+      "triangles": 1550,
       "meshNodeCount": 1,
-      "bytes": 158688,
+      "bytes": 150004,
       "bounds": {
         "min": [
-          -8.1615427,
-          -0.65,
-          -7.8521641
+          -8.161542892456055,
+          -0.05000000074505806,
+          -7.852164268493652
         ],
         "max": [
-          8.3603724,
-          6.7482863,
-          8.4727115
+          8.360372543334961,
+          6.748286247253418,
+          8.472711563110352
         ]
       },
-      "preview": "assets/previews/Environment_Volcano_Cone16m_001.png"
+      "preview": "assets/previews/Environment_Volcano_Cone16m_001.png",
+      "derivation": "assets/provenance/Environment_Volcano_Cone16m_001/derivations/volcano-base-cleanup.json",
+      "placement": {
+        "localGroundDatumY": 0,
+        "groundAnchor": [
+          0,
+          0,
+          0
+        ],
+        "useOriginalBoundingBoxBottomAsGround": false,
+        "alignToGroundNormal": false,
+        "keepUpright": true,
+        "uniformScaleRecommended": true,
+        "footprintAdaptive": true,
+        "embedMeters": 0.015,
+        "footBounds": {
+          "min": [
+            -8.161542892456055,
+            0,
+            -7.852164268493652
+          ],
+          "max": [
+            8.360372543334961,
+            0,
+            8.472711563110352
+          ]
+        },
+        "normalizedFootBounds": {
+          "min": [
+            -1,
+            0,
+            -1
+          ],
+          "max": [
+            1,
+            0,
+            1
+          ]
+        },
+        "footNormalization": {
+          "centreXZ": [
+            0.09941482543945312,
+            0.3102736473083496
+          ],
+          "halfExtentsXZ": [
+            8.260957717895508,
+            8.162437915802002
+          ],
+          "formula": "normalizedXZ=(localXZ-centreXZ)/halfExtentsXZ"
+        },
+        "footprint": {
+          "shape": "irregular-oval",
+          "halfExtentsXZ": [
+            8.4,
+            8.5
+          ]
+        },
+        "rootPlacement": {
+          "strategy": "sampled-ground-datum",
+          "rootLocalDatumY": 0
+        },
+        "terrainConform": {
+          "mode": "contact-band-only",
+          "localYBand": [
+            0,
+            1.65
+          ],
+          "preserveAboveLocalY": 1.65,
+          "contactBoundaryY": 0,
+          "keepCraterAndLavaHorizontal": true,
+          "protectMaterialNamePattern": "lava",
+          "weight": {
+            "formula": "1-smoothstep(0,1.65,localY)",
+            "fullBelowLocalY": 0,
+            "zeroAboveLocalY": 1.65
+          }
+        },
+        "note": "Local Y=0 is the mountain foot datum, not the remaining small rock minimum (-0.05m). Fit the foot to sampled host terrain; keep the upper cone/crater/lava upright. Do not raise by -bounds.minY."
+      }
     },
     "Environment_Volcano_LavaChannel8m_001": {
       "id": "Environment_Volcano_LavaChannel8m_001",
@@ -1589,24 +1667,129 @@
       "category": "07_Environment",
       "biome": "Volcano",
       "dimensions": [
-        5.2,
-        1.04,
+        5.199999809265137,
+        0.6899999976158142,
         8
       ],
-      "triangles": 954,
+      "triangles": 736,
       "meshNodeCount": 1,
-      "bytes": 68088,
+      "bytes": 59040,
       "bounds": {
         "min": [
-          -2.6,
-          -0.7,
+          -2.5999999046325684,
+          -0.3499999940395355,
           0
         ],
         "max": [
-          2.6,
-          0.34,
+          2.5999999046325684,
+          0.3400000035762787,
           8
         ]
+      },
+      "derivation": "assets/provenance/Environment_Volcano_LavaChannel8m_001/derivations/volcano-base-cleanup.json",
+      "placement": {
+        "localGroundDatumY": 0,
+        "groundAnchor": [
+          0,
+          0,
+          0
+        ],
+        "useOriginalBoundingBoxBottomAsGround": false,
+        "alignToGroundNormal": false,
+        "keepUpright": true,
+        "uniformScaleRecommended": true,
+        "footprintAdaptive": true,
+        "embedMeters": 0.015,
+        "footBounds": {
+          "min": [
+            -2.5999999046325684,
+            0,
+            0
+          ],
+          "max": [
+            2.5999999046325684,
+            0,
+            8
+          ]
+        },
+        "normalizedFootBounds": {
+          "min": [
+            -1,
+            0,
+            -1
+          ],
+          "max": [
+            1,
+            0,
+            1
+          ]
+        },
+        "footNormalization": {
+          "centreXZ": [
+            0,
+            4
+          ],
+          "halfExtentsXZ": [
+            2.5999999046325684,
+            4
+          ],
+          "formula": "normalizedXZ=(localXZ-centreXZ)/halfExtentsXZ"
+        },
+        "footprint": {
+          "shape": "channel",
+          "xRange": [
+            -2.6,
+            2.6
+          ],
+          "zRange": [
+            0,
+            8
+          ],
+          "entryOrigin": true
+        },
+        "rootPlacement": {
+          "strategy": "highest-rendered-footprint-sample-plus-lava-clearance",
+          "lavaLocalY": -0.12,
+          "clearanceWorldMeters": 0.04,
+          "formula": "rootWorldY=maxRenderedFootprintY+0.12*scaleY+0.04",
+          "hostTerrainModificationRequired": false
+        },
+        "terrainConform": {
+          "mode": "bank-contact-only",
+          "contactX": [
+            -2.6,
+            2.6
+          ],
+          "contactBoundaryY": 0,
+          "preserveLavaLevel": true,
+          "lavaLocalY": -0.12,
+          "weight": {
+            "formula": "smoothstep(2.2,2.6,abs(localX))*(1-smoothstep(.02,.24,localY))",
+            "xBeginMeters": 2.2,
+            "xFullMeters": 2.6,
+            "normalizedXBegin": 0.8461538461538461,
+            "normalizedXFull": 1,
+            "fullBelowLocalY": 0.02,
+            "zeroAboveLocalY": 0.24
+          },
+          "endContactBand": {
+            "zEdges": [
+              0,
+              8
+            ],
+            "zBlendDepthMeters": 0.65,
+            "affectOnlyAbsXAbove": 1.4,
+            "fullAtAbsX": 2.2,
+            "combineWithSideWeight": "max",
+            "applyHeightFade": true,
+            "keepMoltenEndPortsLevel": true
+          },
+          "protectedMoltenXRange": [
+            -1.4,
+            1.4
+          ]
+        },
+        "note": "Place root above the highest rendered footprint ground plus lava depth/clearance, not by bed minimum. Pull only the outer bank feet into host terrain. End-edge blending may affect outer rocks only; preserve the central molten ribbon and its z=0/z=8 end ports. Host terrain need not be cut."
       }
     },
     "Environment_Volcano_LavaPool8m_001": {
@@ -1616,24 +1799,111 @@
       "category": "07_Environment",
       "biome": "Volcano",
       "dimensions": [
-        8,
-        0.965,
-        8
+        7.400000095367432,
+        0.5150000005960464,
+        6.800000190734863
       ],
-      "triangles": 1032,
+      "triangles": 582,
       "meshNodeCount": 1,
-      "bytes": 86492,
+      "bytes": 58500,
       "bounds": {
         "min": [
-          -4,
-          -0.65,
-          -4
+          -3.700000047683716,
+          -0.20000000298023224,
+          -3.4000000953674316
         ],
         "max": [
-          4,
-          0.315,
-          4
+          3.700000047683716,
+          0.3149999976158142,
+          3.4000000953674316
         ]
+      },
+      "derivation": "assets/provenance/Environment_Volcano_LavaPool8m_001/derivations/volcano-base-cleanup.json",
+      "placement": {
+        "localGroundDatumY": 0,
+        "groundAnchor": [
+          0,
+          0,
+          0
+        ],
+        "useOriginalBoundingBoxBottomAsGround": false,
+        "alignToGroundNormal": false,
+        "keepUpright": true,
+        "uniformScaleRecommended": true,
+        "footprintAdaptive": true,
+        "embedMeters": 0.015,
+        "footBounds": {
+          "min": [
+            -3.700000047683716,
+            0,
+            -3.4000000953674316
+          ],
+          "max": [
+            3.700000047683716,
+            0,
+            3.4000000953674316
+          ]
+        },
+        "normalizedFootBounds": {
+          "min": [
+            -1,
+            0,
+            -1
+          ],
+          "max": [
+            1,
+            0,
+            1
+          ]
+        },
+        "footNormalization": {
+          "centreXZ": [
+            0,
+            0
+          ],
+          "halfExtentsXZ": [
+            3.700000047683716,
+            3.4000000953674316
+          ],
+          "formula": "normalizedXZ=(localXZ-centreXZ)/halfExtentsXZ"
+        },
+        "footprint": {
+          "shape": "ellipse",
+          "halfExtentsXZ": [
+            3.7,
+            3.4
+          ]
+        },
+        "rootPlacement": {
+          "strategy": "highest-rendered-footprint-sample-plus-lava-clearance",
+          "lavaLocalY": -0.12,
+          "clearanceWorldMeters": 0.04,
+          "formula": "rootWorldY=maxRenderedFootprintY+0.12*scaleY+0.04",
+          "hostTerrainModificationRequired": false
+        },
+        "terrainConform": {
+          "mode": "outer-contact-only",
+          "contactBoundaryY": 0,
+          "preserveLavaLevel": true,
+          "lavaLocalY": -0.12,
+          "outerContactRadiiXZ": [
+            3.7,
+            3.4
+          ],
+          "weight": {
+            "formula": "smoothstep(.94,1,rho)*(1-smoothstep(.02,.22,localY))",
+            "rhoDefinition": "sqrt((localX/3.7)^2+(localZ/3.4)^2)",
+            "radialBegin": 0.94,
+            "radialFull": 1,
+            "fullBelowLocalY": 0.02,
+            "zeroAboveLocalY": 0.22
+          },
+          "protectedMoltenHalfExtentsXZ": [
+            3.13,
+            2.63
+          ]
+        },
+        "note": "Keep molten surface horizontal at local Y=-0.12. Place the root above the highest actually rendered host-ground sample plus lava depth/clearance, then pull only the outer oval foot back to sampled terrain. The original inner rim, crest, molten surface and host terrain remain unchanged."
       }
     },
     "Environment_Volcano_BasaltCliff8m_001": {
@@ -1643,24 +1913,142 @@
       "category": "07_Environment",
       "biome": "Volcano",
       "dimensions": [
-        8.237022,
-        4.634671,
-        2.155279
+        8.237021446228027,
+        4.634671211242676,
+        2.1552790999412537
       ],
       "triangles": 720,
       "meshNodeCount": 1,
       "bytes": 72076,
       "bounds": {
         "min": [
-          -4.1185109,
+          -4.118510723114014,
           0,
-          -0.8404924
+          -0.8404924273490906
         ],
         "max": [
-          4.1185109,
-          4.6346713,
-          1.3147867
+          4.118510723114014,
+          4.634671211242676,
+          1.314786672592163
         ]
+      },
+      "derivation": "assets/provenance/Environment_Volcano_BasaltCliff8m_001/derivations/volcano-base-cleanup.json",
+      "placement": {
+        "localGroundDatumY": 0,
+        "groundAnchor": [
+          0,
+          0,
+          0
+        ],
+        "useOriginalBoundingBoxBottomAsGround": false,
+        "alignToGroundNormal": false,
+        "keepUpright": true,
+        "uniformScaleRecommended": true,
+        "footprintAdaptive": true,
+        "embedMeters": 0.035,
+        "footBounds": {
+          "min": [
+            -4.118510723114014,
+            0,
+            -0.8404924273490906
+          ],
+          "max": [
+            4.118510723114014,
+            0,
+            1.314786672592163
+          ]
+        },
+        "normalizedFootBounds": {
+          "min": [
+            -1,
+            0,
+            -1
+          ],
+          "max": [
+            1,
+            0,
+            1
+          ]
+        },
+        "footNormalization": {
+          "centreXZ": [
+            0,
+            0.23714712262153625
+          ],
+          "halfExtentsXZ": [
+            4.118510723114014,
+            1.0776395499706268
+          ],
+          "formula": "normalizedXZ=(localXZ-centreXZ)/halfExtentsXZ"
+        },
+        "footprint": {
+          "shape": "column-cluster",
+          "halfExtentsXZ": [
+            4.12,
+            1.32
+          ]
+        },
+        "rootPlacement": {
+          "strategy": "sampled-ground-datum",
+          "rootLocalDatumY": 0
+        },
+        "terrainConform": {
+          "mode": "contact-band-only",
+          "localYBand": [
+            0,
+            0.6
+          ],
+          "preserveAboveLocalY": 0.85,
+          "contactBoundaryY": 0,
+          "weight": {
+            "formula": "1-smoothstep(.08,.85,localY)",
+            "fullBelowLocalY": 0.08,
+            "zeroAboveLocalY": 0.85
+          }
+        },
+        "contactCentresXZ": [
+          [
+            -3.35,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -0.65,
+            0
+          ],
+          [
+            0.7,
+            0
+          ],
+          [
+            2.05,
+            0
+          ],
+          [
+            3.35,
+            0
+          ],
+          [
+            -2.8,
+            0.85
+          ],
+          [
+            -1.2,
+            0.85
+          ],
+          [
+            1,
+            0.85
+          ],
+          [
+            2.9,
+            0.85
+          ]
+        ],
+        "note": "Six independent natural basalt columns and their fallen rocks have no shared display base. Keep their geology upright and fit only their individual lower feet to host terrain; never flatten the whole cliff by its bounding box."
       }
     },
     "Prop_Volcano_BoulderCluster_001": {
