@@ -1,0 +1,196 @@
+{
+  "sourceLibraryMetadata": "06_Buildings/Landmarks/Building_Landmark_Lighthouse_001/asset.json",
+  "sourceLibraryExport": "06_Buildings/Landmarks/Building_Landmark_Lighthouse_001/exports/Building_Landmark_Lighthouse_001.glb",
+  "copiedWithoutGeometryChanges": true,
+  "mainSha256": "50ebc47b100247099856f98056a8b57b9b1c2cc09630e2818176c69d054a4058",
+  "lod1Sha256": "9ed780af9bb71d326eda5a8fd8973454a3e8270119429e2d1bbbfb69a9d6044a",
+  "metadata": {
+    "id": "Building_Landmark_Lighthouse_001",
+    "name": "湖岸燈塔",
+    "category": "06_Buildings",
+    "subcategory": "Landmarks",
+    "tags": [
+      "landmark",
+      "low-frequency",
+      "cartoon",
+      "stylized",
+      "low-poly",
+      "threejs",
+      "architecture",
+      "Lighthouse"
+    ],
+    "status": "game_ready",
+    "version": "1.0.0",
+    "createdAt": "2026-11-08",
+    "source": "self_created_procedural_geometry",
+    "sourceUrl": "",
+    "license": {
+      "name": "self_created_user_project",
+      "licenseUrl": "",
+      "proofFile": "licenses/provenance.txt",
+      "allowsCommercialUse": null,
+      "allowsPublicWebDelivery": true,
+      "allowsStandaloneRedistribution": null
+    },
+    "sourceFile": "../../../07_Environment/Landmarks/_Shared/Low_Frequency_Landmarks_Kit_001/source/Low_Frequency_Landmarks_Kit_001.blend",
+    "sourceLibraryPath": "07_Environment/Landmarks/_Shared/Low_Frequency_Landmarks_Kit_001/source/Low_Frequency_Landmarks_Kit_001.blend",
+    "sourceCollection": "LM12_Building_Landmark_Lighthouse_001",
+    "lod1SourceCollection": "LM12_LOD1_Building_Landmark_Lighthouse_001",
+    "gameFile": "exports/Building_Landmark_Lighthouse_001.glb",
+    "landmarkFile": "exports/landmark.json",
+    "preview": "previews/thumbnail.png",
+    "previews": [
+      "previews/thumbnail.png",
+      "previews/reverse.png"
+    ],
+    "animations": [],
+    "runtimeAnimation": {
+      "provided": false,
+      "bakedAnimationClips": false,
+      "note": "轉子、鐘面、望遠筒及水面均為靜態整合幾何。"
+    },
+    "polycount": 1344,
+    "polycountUnit": "triangles",
+    "meshNodeCount": 1,
+    "materialCount": 1,
+    "fileBytes": 119716,
+    "textureResolution": "none; vertex colors",
+    "dimensionsMetersXYZ": [
+      4,
+      12.050000190734863,
+      4
+    ],
+    "boundsMeters": {
+      "min": [
+        -2,
+        0,
+        -2
+      ],
+      "max": [
+        2,
+        12.050000190734863,
+        2
+      ]
+    },
+    "coordinates": {
+      "up": "+Y",
+      "forward": "+Z",
+      "unit": "metre",
+      "origin": "lowest ground datum",
+      "sourceBlenderUp": "+Z",
+      "glbConversion": "[x,z,-y]"
+    },
+    "primaryBiome": "Lakeside",
+    "compatibleBiomes": [
+      "Lakeside",
+      "Hills"
+    ],
+    "biomeConditions": {
+      "Lakeside": "根腳、基礎或橋墩仍需落在岸地／床面，不會自動漂浮或適配水深。"
+    },
+    "frequency": "landmark",
+    "placement": {
+      "groundAnchor": [
+        0,
+        0,
+        0
+      ],
+      "baseAtGround": true,
+      "uniformScaleRecommended": true,
+      "displaySlab": false,
+      "flatGroundPreferred": true,
+      "needsTerrainBlending": false,
+      "installationNote": "以最低點對齊落腳地面，檢查所有根腳、坡腳、基礎或橋墩。大型整組地標不會自動貼坡，需調整周圍地形銜接。",
+      "frontDirectionGLTF": "+Z",
+      "usageNote": "分層塔身、環形露臺、燈室與錐頂；不包含光束或真實照明，應靠岸而非漂在水面。",
+      "spawnRecommendations": {
+        "pool": "low_frequency_landmarks",
+        "suggestedGlobalPoolCountRange": [
+          2,
+          4
+        ],
+        "maxSameAssetPerMap": 1,
+        "minAlongTrackSpacingMeters": 800,
+        "minWorldSpacingMeters": 350,
+        "suggestedDistanceToTrackRangeMeters": [
+          50,
+          180
+        ],
+        "rulesEnforcedByAsset": false,
+        "note": "建議值，需由遊戲生成器執行；2–4 是全圖地標總數，不是每種各 2–4 個。"
+      }
+    },
+    "landmarkDetails": {
+      "lightBeamProvided": false,
+      "emissiveLightingProvided": false
+    },
+    "footprintRadiusMeters": 2.8284,
+    "suggestedMinRailCenterOffsetMeters": 20,
+    "boundingFootprintXZ": {
+      "min": [
+        -2,
+        -2
+      ],
+      "max": [
+        2,
+        2
+      ]
+    },
+    "clearanceNote": "按完整帆翼、樓梯、樹冠及地貌輪廓保守估算，作為造景起始值；未執行礦車或路線淨空測試。縮放時等比調整。",
+    "lods": [
+      {
+        "level": 1,
+        "file": "exports/Building_Landmark_Lighthouse_001_LOD1.glb",
+        "triangles": 896,
+        "fileBytes": 80876,
+        "boundsMeters": {
+          "min": [
+            -2,
+            0,
+            -2
+          ],
+          "max": [
+            2,
+            12.050000190734863,
+            2
+          ]
+        },
+        "dimensionsMetersXYZ": [
+          4,
+          12.050000190734863,
+          4
+        ],
+        "switchToLOD1Meters": 180,
+        "suggestedCullDistanceMeters": 2500
+      }
+    ],
+    "lodNote": "獨立 GLB，需要遊戲建立 THREE.LOD 或距離切換。簡化圓周、框架、欄杆、裝飾與樹冠，保留最低點及主體位置。距離為調校建議。",
+    "collision": {
+      "provided": false,
+      "note": "未附碰撞、導航、攀爬、破壞、鐵軌或路線接續邏輯。拱洞、樹洞和橋面為視覺幾何。"
+    },
+    "interior": {
+      "provided": false,
+      "note": "外觀地標，沒有完整可進入室內。"
+    },
+    "validation": {
+      "glbIntegrity": "passed",
+      "selfContained": "passed",
+      "threejsLoadAndBounds": "passed",
+      "finiteAttributes": "passed",
+      "triangleAreas": "passed",
+      "indexRanges": "passed",
+      "unitNormals": "passed",
+      "groundOrigin": "passed",
+      "noDisplaySlab": "passed",
+      "singleMeshAndMaterial": "passed",
+      "closedConnectedPieces": "passed",
+      "threeRevision": "180",
+      "sha256": "50ebc47b100247099856f98056a8b57b9b1c2cc09630e2818176c69d054a4058",
+      "detailedReport": "exports/validation.json"
+    },
+    "geometryNote": "未附展示地塊；臺座、基礎、橋面、池壁及天然山體是地標本身構件。封閉部件可互相交疊，未做布林聯集。",
+    "notes": "分層塔身、環形露臺、燈室與錐頂；不包含光束或真實照明，應靠岸而非漂在水面。 低頻使用：同種每圖最多一組，全圖地標總量建議 2–4 組；沿軌間隔至少 800 公尺，空間直距至少 350 公尺。"
+  },
+  "licenseProof": "製作日期：2026-11-08\n素材：Building_Landmark_Lighthouse_001 / 湖岸燈塔\n來源：本次為使用者專案，以 Blender MCP 原創程序網格建模。\n未匯入第三方模型、貼圖、HDRI；模型未嵌入字型輪廓，未使用外部模型生成服務。\n用途：依使用者要求存入 GameAssets，供其 Three.js 網頁及共用素材庫使用，可隨該網頁交付 GLB。\n記錄代碼：self_created_user_project。此為來源與用途紀錄，不是 CC0 或其他獨立授權條款；商用及獨立素材轉售條款未另指定。\n"
+}

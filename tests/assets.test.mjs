@@ -17,9 +17,12 @@ test('the selected library has eight biomes, three cars and all station / infras
   for (const id of [...manifest.bridgeModels, ...manifest.tunnelModels, ...manifest.riverModels]) assert.ok(manifest.models[id]);
 });
 
-test('all 74 selected GLBs are valid self-contained glTF 2.0 files', async () => {
-  assert.equal(Object.keys(manifest.models).length, 74);
-  for (const [id, info] of Object.entries(manifest.models)) {
+test('all 192 selected model types and 118 LODs are valid self-contained glTF 2.0 files', async () => {
+  assert.equal(Object.keys(manifest.models).length, 192);
+  assert.equal(manifest.scenery.selectedAdditionalCount, 118);
+  const files = Object.entries(manifest.models).flatMap(([id, info]) => info.lod ? [[id, info], [`${id}:LOD1`, info.lod]] : [[id, info]]);
+  assert.equal(files.length, 310);
+  for (const [id, info] of files) {
     assert.ok(!info.url.startsWith('/'), 'asset URLs must also work under a GitHub project subdirectory');
     const bytes = await readFile(path.join(root, info.url));
     assert.equal(bytes.readUInt32LE(0), 0x46546c67, id); assert.equal(bytes.readUInt32LE(4), 2, id);

@@ -1,0 +1,184 @@
+{
+  "sourceLibraryMetadata": "08_Props/Life_Farm_Lineside/Domestic/Prop_Daily_PicnicTable_001/asset.json",
+  "sourceLibraryExport": "08_Props/Life_Farm_Lineside/Domestic/Prop_Daily_PicnicTable_001/exports/Prop_Daily_PicnicTable_001.glb",
+  "copiedWithoutGeometryChanges": true,
+  "mainSha256": "196a073b2b9dd2d9c4c6757c656c7ca5bfd012b9089a4414b35549034336b16a",
+  "lod1Sha256": "46e32f7304313bf7aafaa44031b3960f3a253533ff2ce56f07cbc8b623e88243",
+  "metadata": {
+    "id": "Prop_Daily_PicnicTable_001",
+    "name": "連座野餐桌",
+    "category": "08_Props",
+    "subcategory": "Life_Farm_Lineside/Domestic",
+    "tags": [
+      "life-farm-lineside",
+      "cross-biome",
+      "cartoon",
+      "stylized",
+      "low-poly",
+      "threejs",
+      "domestic",
+      "PicnicTable"
+    ],
+    "status": "game_ready",
+    "version": "1.0.0",
+    "createdAt": "2026-11-07",
+    "source": "self_created_procedural_geometry",
+    "sourceUrl": "",
+    "license": {
+      "name": "self_created_user_project",
+      "licenseUrl": "",
+      "proofFile": "licenses/provenance.txt",
+      "allowsCommercialUse": null,
+      "allowsPublicWebDelivery": true,
+      "allowsStandaloneRedistribution": null
+    },
+    "sourceFile": "../../_Shared/Life_Farm_Lineside_Kit_001/source/Life_Farm_Lineside_Kit_001.blend",
+    "sourceLibraryPath": "08_Props/Life_Farm_Lineside/_Shared/Life_Farm_Lineside_Kit_001/source/Life_Farm_Lineside_Kit_001.blend",
+    "sourceCollection": "LP24_Prop_Daily_PicnicTable_001",
+    "lod1SourceCollection": "LP24_LOD1_Prop_Daily_PicnicTable_001",
+    "gameFile": "exports/Prop_Daily_PicnicTable_001.glb",
+    "propsFile": "exports/Prop_Daily_PicnicTable_001.props.json",
+    "preview": "previews/thumbnail.png",
+    "previews": [
+      "previews/thumbnail.png",
+      "previews/reverse.png"
+    ],
+    "animations": [],
+    "runtimeAnimation": {
+      "provided": false,
+      "bakedAnimationClips": false,
+      "note": "所有道具為靜態整合網格，輪子、把手、布面、泵桿等沒有獨立動畫或互動節點。"
+    },
+    "polycount": 168,
+    "polycountUnit": "triangles",
+    "meshNodeCount": 1,
+    "materialCount": 1,
+    "fileBytes": 15920,
+    "textureResolution": "none; vertex colors",
+    "dimensionsMetersXYZ": [
+      2.700000047683716,
+      0.847460150718689,
+      1.9600000381469727
+    ],
+    "boundsMeters": {
+      "min": [
+        -1.350000023841858,
+        0,
+        -0.9800000190734863
+      ],
+      "max": [
+        1.350000023841858,
+        0.847460150718689,
+        0.9800000190734863
+      ]
+    },
+    "coordinates": {
+      "up": "+Y",
+      "forward": "+Z",
+      "unit": "metre",
+      "origin": "bottom datum; follow installation mode",
+      "sourceBlenderUp": "+Z",
+      "glbConversion": "[x,z,-y]"
+    },
+    "compatibleBiomes": [
+      "Forest",
+      "Hills",
+      "Pastoral",
+      "Rural",
+      "Lakeside"
+    ],
+    "biomeConditions": {},
+    "usageRole": "domestic",
+    "placement": {
+      "groundAnchor": [
+        0,
+        0,
+        0
+      ],
+      "installationMode": "ground",
+      "baseAtGround": true,
+      "surfaceDatumLocalY": 0.0,
+      "recommendedGroundYOffsetY": -0.0,
+      "uniformScaleRecommended": true,
+      "recommendedUniformScaleRange": [
+        0.9,
+        1.1
+      ],
+      "displaySlab": false,
+      "frequency": "common",
+      "frequencyLabel": "一般配置",
+      "flatGroundPreferred": true,
+      "frontDirectionGLTF": "+Z",
+      "usageNote": "A 形腳架、條板桌面及兩側連座；適合庭院、休憩區與站前綠地。",
+      "heightFormula": "position.y = sampledGroundY - surfaceDatumLocalY * uniformScale",
+      "slopeNote": "優先放平緩地面，檢查桌腳、架腳、支腳與輪緣等所有接觸點；不會自動貼坡或挖空地形。",
+      "installationNote": "將原點放到地表高度；整組道具以最低接觸點接地，不另外附展示地塊。"
+    },
+    "utility": {},
+    "footprintRadiusMeters": 1.6682,
+    "boundingFootprintXZ": {
+      "min": [
+        -1.350000023841858,
+        -0.9800000190734863
+      ],
+      "max": [
+        1.350000023841858,
+        0.9800000190734863
+      ]
+    },
+    "suggestedMinRailCenterOffsetMeters": 4.0682,
+    "clearanceNote": "依整組道具、把手與牽引桿等完整輪廓保守估算；縮放時等比調整。這是配置起始值，未進行遊戲路線碰撞檢查。",
+    "lods": [
+      {
+        "level": 1,
+        "file": "exports/Prop_Daily_PicnicTable_001_LOD1.glb",
+        "triangles": 132,
+        "fileBytes": 12832,
+        "boundsMeters": {
+          "min": [
+            -1.350000023841858,
+            0,
+            -0.9800000190734863
+          ],
+          "max": [
+            1.350000023841858,
+            0.847460150718689,
+            0.9800000190734863
+          ]
+        },
+        "dimensionsMetersXYZ": [
+          2.700000047683716,
+          0.847460150718689,
+          1.9600000381469727
+        ],
+        "switchToLOD1Meters": 50,
+        "suggestedCullDistanceMeters": 350
+      }
+    ],
+    "lodNote": "LOD1 為獨立 GLB，要由遊戲建立 THREE.LOD 或距離切換；縮減圓周、輻條、條板或小五金，保留同一接地基準。距離僅為起始調校值。",
+    "collision": {
+      "provided": false,
+      "note": "視覺素材，未附碰撞、導航、物理或破壞設定；推車、護欄及涵管不會自動具備遊戲功能。"
+    },
+    "programmaticInteractions": [],
+    "validation": {
+      "glbIntegrity": "passed",
+      "selfContained": "passed",
+      "threejsLoadAndBounds": "passed",
+      "finiteAttributes": "passed",
+      "triangleAreas": "passed",
+      "indexRanges": "passed",
+      "unitNormals": "passed",
+      "groundOrigin": "passed",
+      "noDisplaySlab": "passed",
+      "singleMeshAndMaterial": "passed",
+      "closedConnectedPieces": "passed",
+      "threeRevision": "180",
+      "sha256": "196a073b2b9dd2d9c4c6757c656c7ca5bfd012b9089a4414b35549034336b16a",
+      "detailedReport": "exports/validation.json"
+    },
+    "geometryNote": "單一網格可含多個互相交疊的封閉部件，未做布林聯集。盆槽、陶罐及涵管保留實際開口；預覽照明地板不包含在 GLB。",
+    "notes": "A 形腳架、條板桌面及兩側連座；適合庭院、休憩區與站前綠地。 依用途組合成庭院、農事或工務小場景；與其他輪廓交錯擺放，避免相同物件等距排滿。"
+  },
+  "licenseProof": "製作日期：2026-11-07\n素材：Prop_Daily_PicnicTable_001 / 連座野餐桌\n來源：本次為使用者專案，以 Blender MCP 原創程序網格建模。\n未匯入第三方模型、貼圖或 HDRI；模型沒有嵌入字型輪廓，也未使用外部模型生成服務。\n用途：依使用者要求存入 GameAssets，供其 Three.js 軌道網頁及共用素材庫使用，可隨該網頁交付 GLB。\n記錄代碼：self_created_user_project。\n此檔說明製作來源及用途，不是 CC0 或其他獨立授權條款；商用與獨立素材轉售條款未另行指定。\n"
+}

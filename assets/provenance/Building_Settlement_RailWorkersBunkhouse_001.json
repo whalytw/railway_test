@@ -1,0 +1,189 @@
+{
+  "sourceLibraryMetadata": "06_Buildings/Settlement_Architecture/Community/Building_Settlement_RailWorkersBunkhouse_001/asset.json",
+  "sourceLibraryExport": "06_Buildings/Settlement_Architecture/Community/Building_Settlement_RailWorkersBunkhouse_001/exports/Building_Settlement_RailWorkersBunkhouse_001.glb",
+  "copiedWithoutGeometryChanges": true,
+  "mainSha256": "c23835ed8320862b07e405131988fe67b8c02f4cf6d290cf04bc216b966c6d88",
+  "lod1Sha256": "8f9afc1e45265927766455310024373994c9c41cbbed8445ca70861d004958a4",
+  "metadata": {
+    "id": "Building_Settlement_RailWorkersBunkhouse_001",
+    "name": "鐵道工人宿舍",
+    "category": "06_Buildings",
+    "subcategory": "Settlement_Architecture/Community",
+    "tags": [
+      "settlement",
+      "architecture",
+      "cross-biome",
+      "cartoon",
+      "stylized",
+      "low-poly",
+      "threejs",
+      "community",
+      "long-gable"
+    ],
+    "status": "game_ready",
+    "version": "1.0.0",
+    "createdAt": "2026-11-07",
+    "source": "self_created_procedural_geometry",
+    "sourceUrl": "",
+    "license": {
+      "name": "self_created_user_project",
+      "licenseUrl": "",
+      "proofFile": "licenses/provenance.txt",
+      "allowsCommercialUse": null,
+      "allowsPublicWebDelivery": true,
+      "allowsStandaloneRedistribution": null
+    },
+    "sourceFile": "../../_Shared/Settlement_Architecture_Kit_001/source/Settlement_Architecture_Kit_001.blend",
+    "sourceLibraryPath": "06_Buildings/Settlement_Architecture/_Shared/Settlement_Architecture_Kit_001/source/Settlement_Architecture_Kit_001.blend",
+    "sourceCollection": "SA28_Building_Settlement_RailWorkersBunkhouse_001",
+    "lod1SourceCollection": "SA28_LOD1_Building_Settlement_RailWorkersBunkhouse_001",
+    "gameFile": "exports/Building_Settlement_RailWorkersBunkhouse_001.glb",
+    "buildingFile": "exports/Building_Settlement_RailWorkersBunkhouse_001.building.json",
+    "preview": "previews/thumbnail.png",
+    "previews": [
+      "previews/thumbnail.png",
+      "previews/reverse.png"
+    ],
+    "animations": [],
+    "runtimeAnimation": {
+      "bakedAnimationClips": false,
+      "provided": false,
+      "note": "門窗、招牌、水輪與懸鐘均為靜態幾何。"
+    },
+    "polycount": 2476,
+    "polycountUnit": "triangles",
+    "meshNodeCount": 1,
+    "materialCount": 1,
+    "fileBytes": 214380,
+    "textureResolution": "none; vertex colors",
+    "dimensionsMetersXYZ": [
+      10.575000286102295,
+      6.664813041687012,
+      7.340000152587891
+    ],
+    "boundsMeters": {
+      "min": [
+        -4.825000286102295,
+        0,
+        -2.4549999237060547
+      ],
+      "max": [
+        5.75,
+        6.664813041687012,
+        4.885000228881836
+      ]
+    },
+    "coordinates": {
+      "up": "+Y",
+      "forward": "+Z",
+      "unit": "metre",
+      "origin": "ground datum at authored origin; not bounding-box centre",
+      "sourceBlenderUp": "+Z",
+      "glbConversion": "[x,z,-y]"
+    },
+    "compatibleBiomes": [
+      "Forest",
+      "Hills",
+      "Desert",
+      "Rural",
+      "Volcano"
+    ],
+    "biomeConditions": {
+      "Desert": "作為乾燥地區的人造聚落或站場設施；選平整穩定地面，不能直接懸放在陡沙丘上。",
+      "Volcano": "限冷卻外圍的工務或工業聚落，不放入活動熔岩或火山口。"
+    },
+    "roofForm": "long-gable",
+    "usageRole": "community",
+    "placement": {
+      "groundAnchor": [
+        0,
+        0,
+        0
+      ],
+      "baseAtGround": true,
+      "flatGroundRequired": true,
+      "uniformScaleRecommended": true,
+      "recommendedUniformScaleRange": [
+        0.9,
+        1.1
+      ],
+      "frontDirectionGLTF": "+Z",
+      "frontDirectionBlender": "-Y",
+      "displaySlab": false,
+      "frequency": "uncommon",
+      "frequencyLabel": "適量配置",
+      "frontAccessSpaceMeters": 2.0,
+      "usageNote": "長條雙層宿舍、連續入口與外梯；適合站場外圍或冷卻火山工務區。",
+      "slopeNote": "優先放在已找平的地面，不會自動貼坡；請檢查牆腳、柱腳、階梯與外伸構件的所有接觸點。建築保持直立，勿隨坡整棟傾斜。",
+      "frontAccessNote": "正面以門窗立面為準；前方建議另留 2 公尺步行空間。鐘亭、水塔、乾燥棚等開放構造以主要梯架或展示面為正面。"
+    },
+    "footprintRadiusMeters": 7.5449,
+    "boundingFootprintXZ": {
+      "min": [
+        -4.825000286102295,
+        -2.4549999237060547
+      ],
+      "max": [
+        5.75,
+        4.885000228881836
+      ]
+    },
+    "suggestedMinRailCenterOffsetMeters": 9.9449,
+    "clearanceNote": "依完整屋簷、樓梯、附棚及整合貨箱等輪廓保守估算。均勻縮放後須等比調整；這是配置起始值，未執行遊戲線路碰撞測試。",
+    "lods": [
+      {
+        "level": 1,
+        "file": "exports/Building_Settlement_RailWorkersBunkhouse_001_LOD1.glb",
+        "triangles": 1672,
+        "fileBytes": 145244,
+        "dimensionsMetersXYZ": [
+          10.525000095367432,
+          6.630000114440918,
+          7.31000018119812
+        ],
+        "boundsMeters": {
+          "min": [
+            -4.775000095367432,
+            0,
+            -2.424999952316284
+          ],
+          "max": [
+            5.75,
+            6.630000114440918,
+            4.885000228881836
+          ]
+        },
+        "switchToLOD1Meters": 90,
+        "suggestedCullDistanceMeters": 700
+      }
+    ],
+    "lodNote": "LOD1 為獨立 GLB，需在遊戲建立 THREE.LOD 或距離切換。兩版保持接地與主體位置；簡化版減少細框、飾條、欄杆或圓周分段。建議距離需依鏡頭與效能調整。",
+    "collision": {
+      "provided": false,
+      "note": "未附遊戲碰撞、導航、門窗互動或破壞行為；可依主要量體另建簡化碰撞。"
+    },
+    "interior": {
+      "provided": false,
+      "note": "外觀素材；牆面門窗以實體色板和框架表現，未製作可進入的完整室內。開放棚亭保留通透幾何。"
+    },
+    "validation": {
+      "glbIntegrity": "passed",
+      "selfContained": "passed",
+      "threejsLoadAndBounds": "passed",
+      "finiteAttributes": "passed",
+      "triangleAreas": "passed",
+      "indexRanges": "passed",
+      "unitNormals": "passed",
+      "groundOrigin": "passed",
+      "noDisplaySlab": "passed",
+      "singleMeshAndMaterial": "passed",
+      "closedConnectedPieces": "passed",
+      "threeRevision": "180",
+      "sha256": "c23835ed8320862b07e405131988fe67b8c02f4cf6d290cf04bc216b966c6d88",
+      "detailedReport": "exports/validation.json"
+    },
+    "geometryNote": "單一網格內含多個封閉部件，允許互相交疊，未作實體布林聯集。展示照明地板不輸出；牆腳基礎、樓梯、陽台和裝卸台屬於建築。採光面為不透明頂點色。",
+    "notes": "長條雙層宿舍、連續入口與外梯；適合站場外圍或冷卻火山工務區。 同一種建築宜與其他量體混用，依道路調整朝向；公所、學校、磨坊、水塔等作低頻焦點，避免規則等距重複。"
+  },
+  "licenseProof": "製作日期：2026-11-07\n素材：Building_Settlement_RailWorkersBunkhouse_001 / 鐵道工人宿舍\n來源：為使用者專案，以 Blender MCP 原創程序建模。\n無第三方模型、貼圖、HDRI；無外部生成服務；模型不嵌入字型輪廓。\n用途：依使用者要求存入 GameAssets，供其 Three.js 軌道網頁與共用素材庫使用，可隨該網頁交付 GLB。\n記錄代碼：self_created_user_project。\n此檔是來源及用途紀錄，不是 CC0 或其他獨立授權條款；商用與獨立素材轉售條款未另行指定。\n"
+}

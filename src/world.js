@@ -1,9 +1,10 @@
 import * as THREE from 'three';
 import { GLTFLoader } from '../vendor/GLTFLoader.js';
-import { TAU, lerp, clamp, wrap, smoothstep, randomGenerator, createRoute, stationsFor, biomeMix, trackSegments } from './core.js?v=4.0.0';
-import { sleeperLayout, sleeperFilter, planRouteFeatures, featureAt, bridgeCoordinates, bridgeGroundHeight, riverBend } from './route-features.js?v=4.0.0';
-import { buildMountainBackdrop, buildVariedClouds, updateClouds, buildBridgeAndRiver, buildTunnel } from './scenery.js?v=4.0.0';
-import { fitGroundContact, prepareGroundedParts, groundBatchGeometry } from './grounding.js?v=4.0.0';
+import { TAU, lerp, clamp, wrap, smoothstep, randomGenerator, createRoute, stationsFor, biomeMix, trackSegments } from './core.js?v=5.0.0';
+import { sleeperLayout, sleeperFilter, planRouteFeatures, featureAt, bridgeCoordinates, bridgeGroundHeight, riverBend } from './route-features.js?v=5.0.0';
+import { buildMountainBackdrop, buildVariedClouds, updateClouds, buildBridgeAndRiver, buildTunnel } from './scenery.js?v=5.0.0';
+import { fitGroundContact, prepareGroundedParts, groundBatchGeometry, renderedGroundHeight } from './grounding.js?v=5.0.0';
+import { planScenery, indexGroundPads, paddedHeight } from './scenery-plan.js?v=5.0.0';
 
 export const PALETTES = {
   Forest: { ground: '#829565', detail: '#62794d', sky: '#bed0ba', amplitude: 12 },
@@ -26,17 +27,17 @@ const yieldFrame = () => new Promise(resolve => setTimeout(resolve, 0));
 export class AssetStore {
   constructor(manifest) { this.manifest = manifest; this.loader = new GLTFLoader(); this.cache = new Map(); this.pending = new Map(); }
   async load(ids, onProgress = () => {}) {
-    const unique = [...new Set(ids)];
+    const unique = [...new Set(ids)].flatMap(id => this.manifest.models[id].lod ? [{ id, level: 0 }, { id, level: 1 }] : [{ id, level: 0 }]);
     let done = 0;
     // Bound concurrent image decoding on small integrated GPUs.
     const queue = [...unique];
     await Promise.all(Array.from({ length: Math.min(4, queue.length) }, async () => {
       while (queue.length) {
-        const id = queue.shift();
-        if (!this.cache.has(id)) {
+        const { id, level } = queue.shift(), key = level ? `${id}#lod1` : id;
+        if (!this.cache.has(key)) {
           const info = this.manifest.models[id];
-          const assetURL = info.derivation ? `${info.url}?revision=grounded-v4` : info.url;
-          if (!this.pending.has(id)) this.pending.set(id, this.loader.loadAsync(assetURL).then(gltf => {
+          const assetURL = level ? info.lod.url : info.derivation ? `${info.url}?revision=grounded-v4` : info.url;
+          if (!this.pending.has(key)) this.pending.set(key, this.loader.loadAsync(assetURL).then(gltf => {
             const root = gltf.scene;
             root.updateMatrixWorld(true);
             const parts = [];
@@ -47,16 +48,16 @@ export class AssetStore {
               }
             });
             const asset = { root, parts, bounds: new THREE.Box3().setFromObject(root) };
-            this.cache.set(id, asset); this.pending.delete(id);
+            this.cache.set(key, asset); this.pending.delete(key);
             return asset;
-          }).catch(error => { this.pending.delete(id); throw new Error(`模型讀取失敗：${id}。${error.message}`); }));
-          await this.pending.get(id);
+          }).catch(error => { this.pending.delete(key); throw new Error(`模型讀取失敗：${id}。${error.message}`); }));
+          await this.pending.get(key);
         }
         onProgress(++done / unique.length, id);
       }
     }));
   }
-  get(id) { const value = this.cache.get(id); if (!value) throw new Error(`模型尚未載入：${id}`); return value; }
+  get(id, level = 0) { const value = this.cache.get(level ? `${id}#lod1` : id); if (!value) throw new Error(`模型尚未載入：${id}`); return value; }
   dispose() {
     const geometries = new Set(), materials = new Set(), textures = new Set();
     for (const asset of this.cache.values()) for (const part of asset.parts) {
@@ -82,6 +83,7 @@ export class RailWorld {
     this.wheels = []; this.waterMaterials = [];
     this.partsOverrides = new Map(); this.environmentElapsed = 0; this.lastSpeed = 0;
     this.groundParts = new Map(); this.terrainGrid = null;
+    this.sceneryPlan = null; this.groundPadIndex = null;
     this.sleeperUniforms = { exposure: { value: 0 }, contrast: { value: 0 }, enabled: { value: config.sleeperFilter === false ? 0 : 1 } };
     this.paletteA = PALETTES[config.biomeA]; this.paletteB = PALETTES[config.biomeB];
     this.colorA = new THREE.Color(this.paletteA.ground); this.colorB = new THREE.Color(this.paletteB.ground);
@@ -147,17 +149,26 @@ export class RailWorld {
   heightAt(x, z, knownProximity) {
     const near = typeof knownProximity === 'object' ? knownProximity : this.route.nearestTo(x, z, 110);
     const terrain = this.rawHeight(x, z);
-    if (near.y === undefined) return bridgeGroundHeight(this.features.bridge, x, z, terrain);
+    if (near.y === undefined) return paddedHeight(this.groundPadIndex, x, z, bridgeGroundHeight(this.features.bridge, x, z, terrain));
     // A graded earthwork supports the rails; distant land follows the same
     // elevation field, rather than leaving an elevated railway floating in air.
-    return bridgeGroundHeight(this.features.bridge, x, z, lerp(near.y - 0.09, terrain, smoothstep(20, 105, near.distance)));
+    return paddedHeight(this.groundPadIndex, x, z, bridgeGroundHeight(this.features.bridge, x, z, lerp(near.y - 0.09, terrain, smoothstep(20, 105, near.distance))));
+  }
+  async prepareScenery(onProgress = () => {}) {
+    if (this.sceneryPlan || !this.store.manifest || !this.config.density) return;
+    this.sceneryPlan = await planScenery(this, onProgress);
+    this.groundPadIndex = indexGroundPads(this.sceneryPlan.pads);
+    this.sceneryStats = this.sceneryPlan.stats;
   }
   async build(onProgress = () => {}) {
+    onProgress(0.01, '規劃聚落、田區與自然景物…'); await yieldFrame();
+    await this.prepareScenery(p => onProgress(0.01 + p * 0.07, '規劃疏密交錯的沿線風景…'));
     const infrastructure = this.config.features ? ['Building_Bridge_SteelTruss8m_001', 'Building_Bridge_TimberDeck4m_001', 'Building_Bridge_StonePier4m_001', 'Building_Bridge_Abutment_001',
       'Building_Tunnel_StonePortal_001', 'Building_Tunnel_RockStraight4m_001', 'Environment_Terrain_RiverStraight8m_001'] : [];
-    const ids = [...this.store.manifest.biomes[this.config.biomeA].models, ...this.store.manifest.biomes[this.config.biomeB].models,
+    const lakeModels = this.lake ? this.store.manifest.biomes.Lakeside.models : [];
+    const ids = [...this.sceneryPlan.placements.map(p => p.id), ...lakeModels,
       ...this.store.manifest.stationModels, 'Environment_Rail_RailSection_1m_001', 'Environment_Rail_Sleeper_001', 'Environment_Rail_Fastener_001', ...infrastructure, this.config.vehicle];
-    await this.store.load(ids, (p, id) => onProgress(p * 0.4, `讀取 ${this.store.manifest.models[id].name}`));
+    await this.store.load(ids, (p, id) => onProgress(0.08 + p * 0.32, `讀取 ${this.store.manifest.models[id].name}`));
     onProgress(0.42, '鋪設閉合軌道…'); await yieldFrame(); this.buildTrack();
     onProgress(0.55, '混合 A、B 區地表…'); await yieldFrame(); await this.buildTerrain();
     onProgress(0.70, '佈置沿線地景…'); await yieldFrame(); await this.buildScenery();
@@ -184,7 +195,9 @@ export class RailWorld {
     for (const [key, values] of bins) {
       const [cx, cz] = key.split(',').map(Number);
       const group = new THREE.Group(); group.name = `${kind}:${id}:${key}`;
-      for (const part of source.parts) {
+      const lod = this.store.manifest?.models[id]?.lod;
+      const farSource = lod && !values[0].groundPatch ? this.store.get(id, 1) : null;
+      for (const [partIndex, part] of source.parts.entries()) {
         const geometry = values[0].groundPatch ? groundBatchGeometry(part, values) : part.geometry;
         if (geometry !== part.geometry) this.ownedGeometry.push(geometry);
         const mesh = new THREE.InstancedMesh(geometry, part.material, values.length);
@@ -204,6 +217,10 @@ export class RailWorld {
         mesh.instanceMatrix.needsUpdate = true;
         mesh.computeBoundingSphere(); mesh.computeBoundingBox();
         mesh.castShadow = Boolean(casts); mesh.receiveShadow = true;
+        if (farSource?.parts[partIndex]) {
+          const far = farSource.parts[partIndex];
+          mesh.userData.sceneryLOD = { nearGeometry: geometry, nearMaterial: part.material, farGeometry: far.geometry, farMaterial: far.material, switchDistance: lod.switchDistance, far: false };
+        }
         group.add(mesh);
       }
       this.group.add(group);
@@ -276,6 +293,7 @@ export class RailWorld {
     this.partsOverrides.set('Environment_Rail_Sleeper_001', { parts });
   }
   async buildTerrain() {
+    await this.prepareScenery();
     const d = this.route.squareSize, tile = 192;
     const material = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 1, metalness: 0 });
     this.ownedMaterials.push(material);
@@ -284,6 +302,7 @@ export class RailWorld {
     const width = 2 * d / nx, depth = d / nz;
     this.terrainGrid = { d, nx, nz, width, depth, tiles: [] };
     const riverDetailAt = (x, z) => {
+      if (this.sceneryPlan?.pads.some(p => Math.abs(x - p.x) < tile * 0.55 + p.outer && Math.abs(z - p.z) < tile * 0.55 + p.outer)) return true;
       if (!this.features.bridge) return false;
       const p = bridgeCoordinates(this.features.bridge, x, z);
       return Math.abs(p.across) < 36 + tile * 0.72 && Math.abs(p.along) < 204 + tile * 0.72;
@@ -317,6 +336,11 @@ export class RailWorld {
           const mix = this.mixAt(wx, wz), speckle = 0.11 + 0.11 * Math.sin(wx * 0.073) * Math.cos(wz * 0.067);
           color.copy(this.colorA).lerp(this.colorB, mix); detail.copy(this.detailA).lerp(this.detailB, mix);
           color.lerp(detail, speckle);
+          for (const farm of this.sceneryPlan?.farms || []) {
+            const dx = wx - farm.x, dz = wz - farm.z, c = Math.cos(farm.yaw), s = Math.sin(farm.yaw);
+            const edge = Math.max(Math.abs(c * dx - s * dz) / farm.halfWidth, Math.abs(s * dx + c * dz) / farm.halfLength);
+            color.lerp(new THREE.Color('#a48f63'), (1 - smoothstep(0.72, 1.08, edge)) * 0.38);
+          }
           // A continuous dusty verge under the entire railway hides biome seams.
           color.lerp(new THREE.Color('#aca48b'), (1 - smoothstep(3, 9, near.distance)) * 0.40);
           colors.push(color.r, color.g, color.b);
@@ -338,79 +362,50 @@ export class RailWorld {
     }
   }
   async buildScenery() {
-    const random = randomGenerator(`${this.config.seed}:scenery`), d = this.route.squareSize;
-    const batches = new Map(), goal = this.config.density;
-    const choose = (list, r) => list[Math.floor(r * list.length)];
-    let added = 0, attempts = 0;
-    while (added < goal && attempts < goal * 12) {
-      attempts++;
-      let x, z, near;
-      // Most detail lives along the track, with far scenery filling both squares.
-      if (random() < 0.76) {
-        const p = this.route.sample(random() * this.route.length, this.tmpSample);
-        const offset = (random() < 0.5 ? -1 : 1) * (17 + random() ** 1.65 * 185);
-        x = p.x + p.nx * offset; z = p.z + p.nz * offset;
-      } else { x = (random() * 2 - 1) * (d - 25); z = (random() - 0.5) * (d - 50); }
-      if (Math.abs(x) > d - 18 || Math.abs(z) > d * 0.5 - 18) continue;
-      near = this.route.distanceTo(x, z, 85);
-      if (near < 12) continue;
-      if (this.stations.some(s => Math.hypot(x - s.x, z - s.z) < 36)) continue;
-      const biome = random() < this.mixAt(x, z) ? this.config.biomeB : this.config.biomeA;
-      const list = this.store.manifest.biomes[biome].models.filter(id => !/WaterTile|StraightShore|Rowboat|WoodenPier/.test(id));
-      const id = choose(list, random());
-      let scale = 0.78 + random() * 0.65;
-      if (/DistantRidge|RoundHill|RollingRidge|DuneTile|Cone16/.test(id)) {
-        if (near < 42) continue;
-        scale *= near > 110 ? 2.0 : 1.2;
-      }
-      const info = this.store.manifest.models[id], maxDim = Math.max(info.dimensions[0], info.dimensions[2]) * scale;
-      if (near < maxDim * 0.6 + 7) continue;
-      if (this.lakeRadiusAt(x, z) < (this.lake?.radius || 0) + maxDim * 0.5 + 4) continue;
-      if (this.features.bridge) {
-        const river = bridgeCoordinates(this.features.bridge, x, z);
-        if (Math.abs(river.along) < 185 + maxDim * 0.5 && Math.abs(river.across - riverBend(river.along)) < 38 + maxDim * 0.5) continue;
-      }
-      if (this.features.tunnel) {
-        const nearest = this.route.nearestTo(x, z, this.features.tunnel.halfWidth + maxDim * 0.6 + 10);
-        const tunnel = this.features.tunnel;
-        if (nearest.distanceAlong !== undefined && nearest.distanceAlong > tunnel.start - maxDim && nearest.distanceAlong < tunnel.end + maxDim) continue;
-      }
-      const bounds = this.store.get(id).bounds;
-      // Terrain assets deliberately extend below y=0. Preserve their authored
-      // surface origin so their underground foundation stays underground.
-      const isLandform = /^(Environment_)/.test(id);
-      const baseY = isLandform ? 0 : Math.max(0, bounds.min.y);
-      const y = this.heightAt(x, z, near) - baseY * scale - 0.04;
-      const p = { x, z, y, scale, yaw: random() * TAU };
+    await this.prepareScenery();
+    const batches = new Map();
+    for (const p of this.sceneryPlan.placements) {
+      const info = this.store.manifest.models[p.id];
+      const height = (x, z) => renderedGroundHeight(this.terrainGrid, x, z);
+      if (p.role !== 'aquatic') p.y = height(p.x, p.z) - Math.max(0, this.store.get(p.id).bounds.min.y) * p.scale - 0.025;
       if (info.placement?.footprintAdaptive) {
         fitGroundContact(this, p, info.placement);
-        // Upright craters and level lava should not grow tall pedestal-like
-        // skirts on steep host slopes. Find a gentler footprint instead.
-        const maximumRelief = /Cone16m/.test(id) ? 1.2 : /LavaPool|LavaChannel/.test(id) ? 0.60 : Infinity;
-        if (p.groundRelief > maximumRelief * scale) continue;
-      }
-      else if (info.derivation && info.placement) {
-        // Base-free hill rims follow the local ground plane and are slightly
-        // buried at the lowest footprint edge, so no floating display plate or
-        // open cut edge is exposed on a hillside.
-        const radius = clamp(maxDim * 0.32, 3, 22);
-        const east = this.heightAt(x + radius, z), west = this.heightAt(x - radius, z);
-        const south = this.heightAt(x, z + radius), north = this.heightAt(x, z - radius);
+      } else if (info.derivation && info.placement) {
+        const radius = clamp(Math.max(info.dimensions[0], info.dimensions[2]) * p.scale * 0.32, 3, 22);
+        const east = height(p.x + radius, p.z), west = height(p.x - radius, p.z);
+        const south = height(p.x, p.z + radius), north = height(p.x, p.z - radius);
         p.groundX = (east - west) / (2 * radius); p.groundZ = (south - north) / (2 * radius);
-        const centre = this.heightAt(x, z);
-        const dip = Math.min(0, east - centre - p.groundX * radius, west - centre + p.groundX * radius,
-          south - centre - p.groundZ * radius, north - centre + p.groundZ * radius);
-        p.y += dip - 0.035 * scale;
+        const centre = height(p.x, p.z);
+        p.y += Math.min(0, east - centre - p.groundX * radius, west - centre + p.groundX * radius,
+          south - centre - p.groundZ * radius, north - centre + p.groundZ * radius) - 0.035 * p.scale;
       }
-      if (!batches.has(id)) batches.set(id, []);
-      batches.get(id).push(p); added++;
-      if (added % 4000 === 0) await yieldFrame();
+      if (!batches.has(p.id)) batches.set(p.id, []);
+      batches.get(p.id).push(p);
     }
-    for (const [id, placements] of batches) this.addBatches(id, placements, { size: 160, kind: 'scenery' });
-    this.sceneryCount = added;
-    // Broad, level lakes sit away from the rail corridor; repeated source water
-    // tiles remain in the scenery population and this supplies a readable lake.
-    if ([this.config.biomeA, this.config.biomeB].includes('Lakeside')) this.buildLake();
+    for (const [id, placements] of batches) this.addBatches(id, placements, { size: this.store.manifest.models[id].lod ? 224 : 160, kind: 'scenery' });
+    this.sceneryCount = this.sceneryPlan.placements.length;
+    this.buildDistrictPaths();
+    if (this.lake) this.buildLake();
+  }
+  buildDistrictPaths() {
+    const material = new THREE.MeshStandardMaterial({ color: '#aaa18a', roughness: 1, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 });
+    this.ownedMaterials.push(material);
+    for (const district of this.sceneryPlan.districts) {
+      if (district.buildings.length < 2) continue;
+      const verts = [], indices = [], segments = 28, c = Math.cos(district.yaw), s = Math.sin(district.yaw);
+      for (let i = 0; i <= segments; i++) {
+        const v = (i / segments * 2 - 1) * district.laneHalfLength;
+        for (const u of [-2.1, 2.1]) {
+          const x = district.x + c * u + s * v, z = district.z - s * u + c * v;
+          verts.push(x, renderedGroundHeight(this.terrainGrid, x, z) + 0.045, z);
+        }
+        if (i) { const k = (i - 1) * 2; indices.push(k, k + 2, k + 1, k + 1, k + 2, k + 3); }
+      }
+      const geometry = new THREE.BufferGeometry(); geometry.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3)); geometry.setIndex(indices); geometry.computeVertexNormals();
+      const path = new THREE.Mesh(geometry, material); path.receiveShadow = true; path.name = 'village-lane';
+      this.group.add(path); this.ownedGeometry.push(geometry);
+      this.cullGroups.push({ group: path, x: district.x, z: district.z, radius: district.laneHalfLength + 4, kind: 'scenery' });
+    }
   }
   buildLake() {
     if (!this.lake) return;
@@ -527,6 +522,16 @@ export class RailWorld {
       const distance = Math.hypot(cx - item.x, cz - item.z);
       item.group.visible = !(overview && ['track', 'sleepers', 'fasteners'].includes(item.kind)) && distance < radius + item.radius;
       if (item.kind === 'fasteners') item.group.visible = item.group.visible && Math.abs(this.lastSpeed) < 12 && distance < 95;
+      if (item.group.visible) for (const mesh of item.group.children) {
+        const lod = mesh.userData.sceneryLOD;
+        if (!lod) continue;
+        const threshold = lod.switchDistance + item.radius * 0.5;
+        const far = overview || distance > threshold + (lod.far ? -12 : 12);
+        if (far !== lod.far) {
+          mesh.geometry = far ? lod.farGeometry : lod.nearGeometry;
+          mesh.material = far ? lod.farMaterial : lod.nearMaterial; lod.far = far;
+        }
+      }
     }
     this.overviewTrack.visible = overview;
     if (this.clouds) this.clouds.visible = !overview;
@@ -537,6 +542,7 @@ export class RailWorld {
     this.ownedGeometry.forEach(g => g.dispose()); this.ownedMaterials.forEach(m => m.dispose()); this.ownedTextures.forEach(t => t.dispose());
     this.group.clear(); this.cullGroups = []; this.wheels = [];
     this.groundParts.clear(); this.terrainGrid = null;
+    this.sceneryPlan = null; this.groundPadIndex = null;
   }
 }
 

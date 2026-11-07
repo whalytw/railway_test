@@ -1,0 +1,198 @@
+{
+  "sourceLibraryMetadata": "07_Environment/Landmarks/Environment_Landmark_OldTreeCircle_001/asset.json",
+  "sourceLibraryExport": "07_Environment/Landmarks/Environment_Landmark_OldTreeCircle_001/exports/Environment_Landmark_OldTreeCircle_001.glb",
+  "copiedWithoutGeometryChanges": true,
+  "mainSha256": "8ececd623b8a8bf17c31cad6b1e5349bee6c8633401562ce3d9272272ed7cdbe",
+  "lod1Sha256": "43195ce45670fc79a42b4bd9153326b04828d9351777e1585fc256a1c3d2f41e",
+  "metadata": {
+    "id": "Environment_Landmark_OldTreeCircle_001",
+    "name": "古木石環",
+    "category": "07_Environment",
+    "subcategory": "Landmarks",
+    "tags": [
+      "landmark",
+      "low-frequency",
+      "cartoon",
+      "stylized",
+      "low-poly",
+      "threejs",
+      "nature",
+      "OldTreeCircle"
+    ],
+    "status": "game_ready",
+    "version": "1.0.0",
+    "createdAt": "2026-11-08",
+    "source": "self_created_procedural_geometry",
+    "sourceUrl": "",
+    "license": {
+      "name": "self_created_user_project",
+      "licenseUrl": "",
+      "proofFile": "licenses/provenance.txt",
+      "allowsCommercialUse": null,
+      "allowsPublicWebDelivery": true,
+      "allowsStandaloneRedistribution": null
+    },
+    "sourceFile": "../_Shared/Low_Frequency_Landmarks_Kit_001/source/Low_Frequency_Landmarks_Kit_001.blend",
+    "sourceLibraryPath": "07_Environment/Landmarks/_Shared/Low_Frequency_Landmarks_Kit_001/source/Low_Frequency_Landmarks_Kit_001.blend",
+    "sourceCollection": "LM12_Environment_Landmark_OldTreeCircle_001",
+    "lod1SourceCollection": "LM12_LOD1_Environment_Landmark_OldTreeCircle_001",
+    "gameFile": "exports/Environment_Landmark_OldTreeCircle_001.glb",
+    "landmarkFile": "exports/landmark.json",
+    "preview": "previews/thumbnail.png",
+    "previews": [
+      "previews/thumbnail.png",
+      "previews/reverse.png"
+    ],
+    "animations": [],
+    "runtimeAnimation": {
+      "provided": false,
+      "bakedAnimationClips": false,
+      "note": "轉子、鐘面、望遠筒及水面均為靜態整合幾何。"
+    },
+    "polycount": 2232,
+    "polycountUnit": "triangles",
+    "meshNodeCount": 1,
+    "materialCount": 1,
+    "fileBytes": 266248,
+    "textureResolution": "none; vertex colors",
+    "dimensionsMetersXYZ": [
+      11.806070804595947,
+      10.149999618530273,
+      10.186110019683838
+    ],
+    "boundsMeters": {
+      "min": [
+        -5.5515055656433105,
+        0,
+        -5.094069480895996
+      ],
+      "max": [
+        6.254565238952637,
+        10.149999618530273,
+        5.092040538787842
+      ]
+    },
+    "coordinates": {
+      "up": "+Y",
+      "forward": "+Z",
+      "unit": "metre",
+      "origin": "lowest ground datum",
+      "sourceBlenderUp": "+Z",
+      "glbConversion": "[x,z,-y]"
+    },
+    "primaryBiome": "Forest",
+    "compatibleBiomes": [
+      "Forest",
+      "Hills",
+      "Rural",
+      "Lakeside"
+    ],
+    "biomeConditions": {
+      "Lakeside": "根腳、基礎或橋墩仍需落在岸地／床面，不會自動漂浮或適配水深。"
+    },
+    "frequency": "landmark",
+    "placement": {
+      "groundAnchor": [
+        0,
+        0,
+        0
+      ],
+      "baseAtGround": true,
+      "uniformScaleRecommended": true,
+      "displaySlab": false,
+      "flatGroundPreferred": false,
+      "needsTerrainBlending": true,
+      "installationNote": "以最低點對齊落腳地面，檢查所有根腳、坡腳、基礎或橋墩。大型整組地標不會自動貼坡，需調整周圍地形銜接。",
+      "frontDirectionGLTF": "+Z",
+      "usageNote": "中空古木、扭轉支根、闊冠及環列古石；作林間單一焦點，不提供可通行樹洞路徑。",
+      "spawnRecommendations": {
+        "pool": "low_frequency_landmarks",
+        "suggestedGlobalPoolCountRange": [
+          2,
+          4
+        ],
+        "maxSameAssetPerMap": 1,
+        "minAlongTrackSpacingMeters": 800,
+        "minWorldSpacingMeters": 350,
+        "suggestedDistanceToTrackRangeMeters": [
+          50,
+          180
+        ],
+        "rulesEnforcedByAsset": false,
+        "note": "建議值，需由遊戲生成器執行；2–4 是全圖地標總數，不是每種各 2–4 個。"
+      }
+    },
+    "landmarkDetails": {
+      "hollowTrunkProvided": true,
+      "navigablePassageProvided": false
+    },
+    "footprintRadiusMeters": 8.0665,
+    "suggestedMinRailCenterOffsetMeters": 20,
+    "boundingFootprintXZ": {
+      "min": [
+        -5.5515055656433105,
+        -5.094069480895996
+      ],
+      "max": [
+        6.254565238952637,
+        5.092040538787842
+      ]
+    },
+    "clearanceNote": "按完整帆翼、樓梯、樹冠及地貌輪廓保守估算，作為造景起始值；未執行礦車或路線淨空測試。縮放時等比調整。",
+    "lods": [
+      {
+        "level": 1,
+        "file": "exports/Environment_Landmark_OldTreeCircle_001_LOD1.glb",
+        "triangles": 1376,
+        "fileBytes": 158280,
+        "boundsMeters": {
+          "min": [
+            -5.592637538909912,
+            0,
+            -5.055347442626953
+          ],
+          "max": [
+            6.218729496002197,
+            10.149999618530273,
+            5.07818078994751
+          ]
+        },
+        "dimensionsMetersXYZ": [
+          11.81136703491211,
+          10.149999618530273,
+          10.133528232574463
+        ],
+        "switchToLOD1Meters": 250,
+        "suggestedCullDistanceMeters": 4000
+      }
+    ],
+    "lodNote": "獨立 GLB，需要遊戲建立 THREE.LOD 或距離切換。簡化圓周、框架、欄杆、裝飾與樹冠，保留最低點及主體位置。距離為調校建議。",
+    "collision": {
+      "provided": false,
+      "note": "未附碰撞、導航、攀爬、破壞、鐵軌或路線接續邏輯。拱洞、樹洞和橋面為視覺幾何。"
+    },
+    "interior": {
+      "provided": false,
+      "note": "外觀地標，沒有完整可進入室內。"
+    },
+    "validation": {
+      "glbIntegrity": "passed",
+      "selfContained": "passed",
+      "threejsLoadAndBounds": "passed",
+      "finiteAttributes": "passed",
+      "triangleAreas": "passed",
+      "indexRanges": "passed",
+      "unitNormals": "passed",
+      "groundOrigin": "passed",
+      "noDisplaySlab": "passed",
+      "singleMeshAndMaterial": "passed",
+      "closedConnectedPieces": "passed",
+      "threeRevision": "180",
+      "sha256": "8ececd623b8a8bf17c31cad6b1e5349bee6c8633401562ce3d9272272ed7cdbe",
+      "detailedReport": "exports/validation.json"
+    },
+    "geometryNote": "未附展示地塊；臺座、基礎、橋面、池壁及天然山體是地標本身構件。封閉部件可互相交疊，未做布林聯集。",
+    "notes": "中空古木、扭轉支根、闊冠及環列古石；作林間單一焦點，不提供可通行樹洞路徑。 低頻使用：同種每圖最多一組，全圖地標總量建議 2–4 組；沿軌間隔至少 800 公尺，空間直距至少 350 公尺。"
+  },
+  "licenseProof": "製作日期：2026-11-08\n素材：Environment_Landmark_OldTreeCircle_001 / 古木石環\n來源：本次為使用者專案，以 Blender MCP 原創程序網格建模。\n未匯入第三方模型、貼圖、HDRI；模型未嵌入字型輪廓，未使用外部模型生成服務。\n用途：依使用者要求存入 GameAssets，供其 Three.js 網頁及共用素材庫使用，可隨該網頁交付 GLB。\n記錄代碼：self_created_user_project。此為來源與用途紀錄，不是 CC0 或其他獨立授權條款；商用及獨立素材轉售條款未另指定。\n"
+}

@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { clamp, lerp, smoothstep } from './core.js?v=4.0.0';
+import { clamp, lerp, smoothstep } from './core.js?v=5.0.0';
 
 export function groundContactWeight(placement, x, y, z) {
   const conform = placement.terrainConform, w = conform.weight;

@@ -1,0 +1,167 @@
+{
+  "sourceLibraryMetadata": "04_Plants/Common_Nature/Shrubs_Groundcover/Plant_Common_TallGrassFan_001/asset.json",
+  "sourceLibraryExport": "04_Plants/Common_Nature/Shrubs_Groundcover/Plant_Common_TallGrassFan_001/exports/Plant_Common_TallGrassFan_001.glb",
+  "copiedWithoutGeometryChanges": true,
+  "mainSha256": "a5230ad0626ae563dc5311c3c0c2fe316953d79e6016f77f9f195fb7b51d7128",
+  "lod1Sha256": "45813514dde7d18906bda56fef29f9e52ae5986b65d20dbcda6dcc671d867b41",
+  "metadata": {
+    "id": "Plant_Common_TallGrassFan_001",
+    "name": "扇展長葉草叢",
+    "category": "04_Plants",
+    "subcategory": "Common_Nature/Shrubs_Groundcover",
+    "tags": [
+      "common-nature",
+      "cross-biome",
+      "cartoon",
+      "stylized",
+      "low-poly",
+      "threejs",
+      "shrubs_groundcover",
+      "grass"
+    ],
+    "status": "game_ready",
+    "version": "1.0.0",
+    "createdAt": "2026-11-07",
+    "source": "self_created_procedural_geometry",
+    "sourceUrl": "",
+    "license": {
+      "name": "self_created_user_project",
+      "licenseUrl": "",
+      "proofFile": "licenses/provenance.txt",
+      "allowsCommercialUse": null,
+      "allowsPublicWebDelivery": true,
+      "allowsStandaloneRedistribution": null
+    },
+    "sourceFile": "../../../../07_Environment/Common_Nature/_Shared/CrossBiome_Nature_Kit_001/source/CrossBiome_Nature_Kit_001.blend",
+    "sourceLibraryPath": "07_Environment/Common_Nature/_Shared/CrossBiome_Nature_Kit_001/source/CrossBiome_Nature_Kit_001.blend",
+    "sourceCollection": "CN32_Plant_Common_TallGrassFan_001",
+    "lod1SourceCollection": "CN32_LOD1_Plant_Common_TallGrassFan_001",
+    "gameFile": "exports/Plant_Common_TallGrassFan_001.glb",
+    "natureFile": "exports/Plant_Common_TallGrassFan_001.nature.json",
+    "preview": "previews/thumbnail.png",
+    "previews": [
+      "previews/thumbnail.png",
+      "previews/reverse.png"
+    ],
+    "animations": [],
+    "runtimeAnimation": {
+      "bakedAnimationClips": false,
+      "windShaderProvided": false
+    },
+    "polycount": 88,
+    "polycountUnit": "triangles",
+    "meshNodeCount": 1,
+    "materialCount": 1,
+    "fileBytes": 12660,
+    "textureResolution": "none; vertex colors",
+    "dimensionsMetersXYZ": [
+      2.222144842147827,
+      0.8402777910232544,
+      1.94719660282135
+    ],
+    "boundsMeters": {
+      "min": [
+        -1.1666946411132812,
+        0,
+        -0.7980126142501831
+      ],
+      "max": [
+        1.055450201034546,
+        0.8402777910232544,
+        1.149183988571167
+      ]
+    },
+    "coordinates": {
+      "up": "+Y",
+      "forward": "+Z",
+      "unit": "metre",
+      "origin": "ground datum at source origin; not bounding-box centre",
+      "sourceBlenderUp": "+Z",
+      "glbConversion": "[x, z, -y]"
+    },
+    "compatibleBiomes": [
+      "Forest",
+      "Hills",
+      "Pastoral",
+      "Rural",
+      "Lakeside"
+    ],
+    "biomeConditions": {},
+    "placement": {
+      "groundAnchor": [
+        0,
+        0,
+        0
+      ],
+      "baseAtGround": true,
+      "uniformScaleRecommended": true,
+      "recommendedUniformScaleRange": [
+        0.85,
+        1.15
+      ],
+      "embedDepthMetersRange": [
+        0.01,
+        0.03
+      ],
+      "displaySlab": false,
+      "slopeNote": "以地表高度安放原點，必要時微埋約 1–3 公分遮住接縫。大樹保持直立；倒木、根團與石組優先選平緩地面，不能只對齊中心後讓兩端懸空。",
+      "frequency": "common",
+      "frequencyLabel": "一般填充",
+      "usageNote": "封閉立體葉片，無透明貼圖；適合高頻沿線填充。"
+    },
+    "suggestedMinRailCenterOffsetMeters": 4.0376,
+    "footprintRadiusMeters": 1.6376,
+    "clearanceNote": "保守估算涵蓋完整樹冠或枝條；均勻放大後須等比增加離軌距離。這是擺放建議，未執行遊戲路線碰撞測試。",
+    "lods": [
+      {
+        "level": 1,
+        "file": "exports/Plant_Common_TallGrassFan_001_LOD1.glb",
+        "triangles": 56,
+        "fileBytes": 8640,
+        "dimensionsMetersXYZ": [
+          1.9927703738212585,
+          0.8402777910232544,
+          1.94719660282135
+        ],
+        "boundsMeters": {
+          "min": [
+            -1.0173698663711548,
+            0,
+            -0.7980126142501831
+          ],
+          "max": [
+            0.9754005074501038,
+            0.8402777910232544,
+            1.149183988571167
+          ]
+        },
+        "switchToLOD1Meters": 20,
+        "suggestedCullDistanceMeters": 110
+      }
+    ],
+    "lodNote": "獨立 GLB，需由遊戲建立 THREE.LOD 或距離切換；GLB 本身不會自動切換。LOD1 保留同一接地原點，但細節與包圍盒會略有變化。距離僅為起始調校建議。",
+    "collision": {
+      "provided": false,
+      "note": "視覺素材，未附碰撞、導航或破壞行為。樹幹與大石可在遊戲另加簡化碰撞；草叢通常僅作裝飾。"
+    },
+    "validation": {
+      "glbIntegrity": "passed",
+      "selfContained": "passed",
+      "threejsLoadAndBounds": "passed",
+      "finiteAttributes": "passed",
+      "triangleAreas": "passed",
+      "indexRanges": "passed",
+      "unitNormals": "passed",
+      "groundOrigin": "passed",
+      "noDisplaySlab": "passed",
+      "singleMeshAndMaterial": "passed",
+      "closedConnectedPieces": "passed",
+      "threeRevision": "180",
+      "sha256": "a5230ad0626ae563dc5311c3c0c2fe316953d79e6016f77f9f195fb7b51d7128",
+      "detailedReport": "exports/validation.json"
+    },
+    "geometryNote": "單一網格內可含多個封閉部件；枝葉與樹幹允許互相交疊，未做實體布林聯集。葉片有厚度，無透明貼圖。",
+    "notes": "封閉立體葉片，無透明貼圖；適合高頻沿線填充。 同一模型連續出現時，交錯其他輪廓；建議均勻縮放 0.85–1.15 倍並改變朝向。偏冠松等有方向的模型宜順應風向或岸線，避免全部隨機轉向。"
+  },
+  "licenseProof": "製作日期：2026-11-07\n素材：Plant_Common_TallGrassFan_001 / 扇展長葉草叢\n來源：本次為使用者專案原創的 Blender MCP 程序網格建模。\n第三方模型、貼圖、HDRI、字型輪廓：未嵌入模型。\n無外部生成服務或下載素材；沒有引用既有第三方模型作修改。\n用途：依使用者要求，供其 Three.js 軌道網頁與 GameAssets 共用素材庫使用，可隨該網頁交付 GLB。\n記錄代碼：self_created_user_project。\n此紀錄說明製作來源及已授權用途，不是 CC0 或其他獨立授權條款；商用與獨立素材轉售條款未另行指定。\n"
+}

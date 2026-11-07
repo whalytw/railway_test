@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { clamp, lerp, smoothstep, randomGenerator, TAU } from './core.js?v=4.0.0';
-import { bridgeCoordinates, riverBend } from './route-features.js?v=4.0.0';
+import { clamp, lerp, smoothstep, randomGenerator, TAU } from './core.js?v=5.0.0';
+import { bridgeCoordinates, riverBend } from './route-features.js?v=5.0.0';
 
 const up = new THREE.Vector3(0, 1, 0), frameEuler = new THREE.Euler(0, 0, 0, 'YXZ');
 function ownMesh(world, geometry, material) { const mesh = new THREE.Mesh(geometry, material); world.group.add(mesh); world.ownedGeometry.push(geometry); return mesh; }

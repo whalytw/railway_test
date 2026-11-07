@@ -1,0 +1,186 @@
+{
+  "sourceLibraryMetadata": "06_Buildings/Settlement_Architecture/Production/Building_Settlement_SawtoothWorkshop_001/asset.json",
+  "sourceLibraryExport": "06_Buildings/Settlement_Architecture/Production/Building_Settlement_SawtoothWorkshop_001/exports/Building_Settlement_SawtoothWorkshop_001.glb",
+  "copiedWithoutGeometryChanges": true,
+  "mainSha256": "76dd431e8a59b47a61eefe156a3086e2d2dc8b9112801c5c1a7dba0b5d33a695",
+  "lod1Sha256": "87081f675809aac5820935a35fb8f59b6787d5693b9ee3f2dced302113825c9e",
+  "metadata": {
+    "id": "Building_Settlement_SawtoothWorkshop_001",
+    "name": "鋸齒頂工場",
+    "category": "06_Buildings",
+    "subcategory": "Settlement_Architecture/Production",
+    "tags": [
+      "settlement",
+      "architecture",
+      "cross-biome",
+      "cartoon",
+      "stylized",
+      "low-poly",
+      "threejs",
+      "production",
+      "sawtooth"
+    ],
+    "status": "game_ready",
+    "version": "1.0.0",
+    "createdAt": "2026-11-07",
+    "source": "self_created_procedural_geometry",
+    "sourceUrl": "",
+    "license": {
+      "name": "self_created_user_project",
+      "licenseUrl": "",
+      "proofFile": "licenses/provenance.txt",
+      "allowsCommercialUse": null,
+      "allowsPublicWebDelivery": true,
+      "allowsStandaloneRedistribution": null
+    },
+    "sourceFile": "../../_Shared/Settlement_Architecture_Kit_001/source/Settlement_Architecture_Kit_001.blend",
+    "sourceLibraryPath": "06_Buildings/Settlement_Architecture/_Shared/Settlement_Architecture_Kit_001/source/Settlement_Architecture_Kit_001.blend",
+    "sourceCollection": "SA28_Building_Settlement_SawtoothWorkshop_001",
+    "lod1SourceCollection": "SA28_LOD1_Building_Settlement_SawtoothWorkshop_001",
+    "gameFile": "exports/Building_Settlement_SawtoothWorkshop_001.glb",
+    "buildingFile": "exports/Building_Settlement_SawtoothWorkshop_001.building.json",
+    "preview": "previews/thumbnail.png",
+    "previews": [
+      "previews/thumbnail.png",
+      "previews/reverse.png"
+    ],
+    "animations": [],
+    "runtimeAnimation": {
+      "bakedAnimationClips": false,
+      "provided": false,
+      "note": "門窗、招牌、水輪與懸鐘均為靜態幾何。"
+    },
+    "polycount": 1608,
+    "polycountUnit": "triangles",
+    "meshNodeCount": 1,
+    "materialCount": 1,
+    "fileBytes": 139696,
+    "textureResolution": "none; vertex colors",
+    "dimensionsMetersXYZ": [
+      9.010001182556152,
+      4.5,
+      6.619999647140503
+    ],
+    "boundsMeters": {
+      "min": [
+        -4.505000591278076,
+        0,
+        -3.304999828338623
+      ],
+      "max": [
+        4.505000591278076,
+        4.5,
+        3.31499981880188
+      ]
+    },
+    "coordinates": {
+      "up": "+Y",
+      "forward": "+Z",
+      "unit": "metre",
+      "origin": "ground datum at authored origin; not bounding-box centre",
+      "sourceBlenderUp": "+Z",
+      "glbConversion": "[x,z,-y]"
+    },
+    "compatibleBiomes": [
+      "Hills",
+      "Rural",
+      "Volcano"
+    ],
+    "biomeConditions": {
+      "Volcano": "限冷卻外圍的工務或工業聚落，不放入活動熔岩或火山口。"
+    },
+    "roofForm": "sawtooth",
+    "usageRole": "production",
+    "placement": {
+      "groundAnchor": [
+        0,
+        0,
+        0
+      ],
+      "baseAtGround": true,
+      "flatGroundRequired": true,
+      "uniformScaleRecommended": true,
+      "recommendedUniformScaleRange": [
+        0.9,
+        1.1
+      ],
+      "frontDirectionGLTF": "+Z",
+      "frontDirectionBlender": "-Y",
+      "displaySlab": false,
+      "frequency": "rare",
+      "frequencyLabel": "低頻焦點",
+      "frontAccessSpaceMeters": 2.0,
+      "usageNote": "三跨鋸齒採光頂與大門；火山地區限冷卻外圍的人造工業設施。",
+      "slopeNote": "優先放在已找平的地面，不會自動貼坡；請檢查牆腳、柱腳、階梯與外伸構件的所有接觸點。建築保持直立，勿隨坡整棟傾斜。",
+      "frontAccessNote": "正面以門窗立面為準；前方建議另留 2 公尺步行空間。鐘亭、水塔、乾燥棚等開放構造以主要梯架或展示面為正面。"
+    },
+    "footprintRadiusMeters": 5.5932,
+    "boundingFootprintXZ": {
+      "min": [
+        -4.505000591278076,
+        -3.304999828338623
+      ],
+      "max": [
+        4.505000591278076,
+        3.31499981880188
+      ]
+    },
+    "suggestedMinRailCenterOffsetMeters": 7.9932,
+    "clearanceNote": "依完整屋簷、樓梯、附棚及整合貨箱等輪廓保守估算。均勻縮放後須等比調整；這是配置起始值，未執行遊戲線路碰撞測試。",
+    "lods": [
+      {
+        "level": 1,
+        "file": "exports/Building_Settlement_SawtoothWorkshop_001_LOD1.glb",
+        "triangles": 1008,
+        "fileBytes": 88104,
+        "dimensionsMetersXYZ": [
+          8.720000267028809,
+          4.5,
+          6.330000162124634
+        ],
+        "boundsMeters": {
+          "min": [
+            -4.360000133514404,
+            0,
+            -3.1600000858306885
+          ],
+          "max": [
+            4.360000133514404,
+            4.5,
+            3.1700000762939453
+          ]
+        },
+        "switchToLOD1Meters": 90,
+        "suggestedCullDistanceMeters": 700
+      }
+    ],
+    "lodNote": "LOD1 為獨立 GLB，需在遊戲建立 THREE.LOD 或距離切換。兩版保持接地與主體位置；簡化版減少細框、飾條、欄杆或圓周分段。建議距離需依鏡頭與效能調整。",
+    "collision": {
+      "provided": false,
+      "note": "未附遊戲碰撞、導航、門窗互動或破壞行為；可依主要量體另建簡化碰撞。"
+    },
+    "interior": {
+      "provided": false,
+      "note": "外觀素材；牆面門窗以實體色板和框架表現，未製作可進入的完整室內。開放棚亭保留通透幾何。"
+    },
+    "validation": {
+      "glbIntegrity": "passed",
+      "selfContained": "passed",
+      "threejsLoadAndBounds": "passed",
+      "finiteAttributes": "passed",
+      "triangleAreas": "passed",
+      "indexRanges": "passed",
+      "unitNormals": "passed",
+      "groundOrigin": "passed",
+      "noDisplaySlab": "passed",
+      "singleMeshAndMaterial": "passed",
+      "closedConnectedPieces": "passed",
+      "threeRevision": "180",
+      "sha256": "76dd431e8a59b47a61eefe156a3086e2d2dc8b9112801c5c1a7dba0b5d33a695",
+      "detailedReport": "exports/validation.json"
+    },
+    "geometryNote": "單一網格內含多個封閉部件，允許互相交疊，未作實體布林聯集。展示照明地板不輸出；牆腳基礎、樓梯、陽台和裝卸台屬於建築。採光面為不透明頂點色。",
+    "notes": "三跨鋸齒採光頂與大門；火山地區限冷卻外圍的人造工業設施。 同一種建築宜與其他量體混用，依道路調整朝向；公所、學校、磨坊、水塔等作低頻焦點，避免規則等距重複。"
+  },
+  "licenseProof": "製作日期：2026-11-07\n素材：Building_Settlement_SawtoothWorkshop_001 / 鋸齒頂工場\n來源：為使用者專案，以 Blender MCP 原創程序建模。\n無第三方模型、貼圖、HDRI；無外部生成服務；模型不嵌入字型輪廓。\n用途：依使用者要求存入 GameAssets，供其 Three.js 軌道網頁與共用素材庫使用，可隨該網頁交付 GLB。\n記錄代碼：self_created_user_project。\n此檔是來源及用途紀錄，不是 CC0 或其他獨立授權條款；商用與獨立素材轉售條款未另行指定。\n"
+}

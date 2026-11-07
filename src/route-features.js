@@ -1,4 +1,4 @@
-import { clamp, smoothstep, randomGenerator, wrap } from './core.js?v=4.0.0';
+import { clamp, smoothstep, randomGenerator, wrap } from './core.js?v=5.0.0';
 
 export function sleeperLayout(length, spacing = 0.75, seed = 'sleepers') {
   const random = randomGenerator(`${seed}:sleepers`), count = Math.round(length / spacing), pitch = length / count, result = [];

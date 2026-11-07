@@ -1,4 +1,4 @@
-import { clamp, lerp } from './core.js?v=4.0.0';
+import { clamp, lerp } from './core.js?v=5.0.0';
 
 export function copyMotion(state, out = {}) {
   out.distance = state.distance; out.odometer = state.odometer; out.speed = state.speed;

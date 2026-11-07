@@ -1,8 +1,9 @@
 import * as THREE from 'three';
-import { AssetStore, RailWorld, createAtmosphere, PALETTES } from './world.js?v=4.0.0';
-import { createPhysics, stepPhysics, FIXED_STEP, clamp, lerp, wrap, resolveBiomes, randomGenerator, nextStation, biomeMix, createElevationProfile, leverReference, leverForSpeed, RATED_POWER, CART_MASS, MAX_GRADE, MIN_VERTICAL_RADIUS } from './core.js?v=4.0.0';
-import { riverBend } from './route-features.js?v=4.0.0';
-import { copyMotion, interpolateMotion, zoomView, anchorCamera } from './presentation.js?v=4.0.0';
+import { AssetStore, RailWorld, createAtmosphere, PALETTES } from './world.js?v=5.0.0';
+import { createPhysics, stepPhysics, FIXED_STEP, clamp, lerp, wrap, resolveBiomes, randomGenerator, nextStation, biomeMix, createElevationProfile, leverReference, leverForSpeed, RATED_POWER, CART_MASS, MAX_GRADE, MIN_VERTICAL_RADIUS } from './core.js?v=5.0.0';
+import { riverBend } from './route-features.js?v=5.0.0';
+import { copyMotion, interpolateMotion, zoomView, anchorCamera } from './presentation.js?v=5.0.0';
+import { DENSITY_OPTIONS, SCENERY_VERSION } from './scenery-plan.js?v=5.0.0';
 
 const $ = id => document.getElementById(id);
 let renderer, scene, camera, atmosphere, manifest, store, world;
@@ -70,6 +71,11 @@ function restorePreferences() {
   } catch { /* Preferences are optional. */ }
 }
 function populateForm() {
+  $('density').replaceChildren(...DENSITY_OPTIONS.map(count => {
+    const option = document.createElement('option'); option.value = String(count);
+    const label = count === 1000 ? '入門' : count <= 3500 ? '輕量' : count <= 5000 ? '中量' : count <= 10000 ? '標準' : count <= 16000 ? '進階' : count <= 30000 ? '加壓' : '極限';
+    option.textContent = `${label} · ${count.toLocaleString()}`; option.selected = count === 8000; return option;
+  }));
   for (const id of biomeNames) for (const target of ['biome-a', 'biome-b']) {
     const option = document.createElement('option'); option.value = id; option.textContent = manifest.biomes[id].name; $(target).append(option);
   }
@@ -169,6 +175,7 @@ async function startGame(event) {
     $('biome-label').textContent = `A ${manifest.biomes[config.biomeA].name} → B ${manifest.biomes[config.biomeB].name}`;
     $('zone-a-label').textContent = manifest.biomes[config.biomeA].name; $('zone-b-label').textContent = manifest.biomes[config.biomeB].name;
     $('instances').textContent = world.sceneryCount.toLocaleString(); $('pause-label').textContent = '暫停'; $('pause-icon').textContent = 'Ⅱ';
+    $('model-variety').textContent = world.sceneryStats.uniqueModels.toLocaleString();
     $('relief-summary').textContent = `實際高差 ${world.route.elevation.range.toFixed(1)} m / 上限 ${config.elevationLimit} m`;
     mode = 'running'; setThrottle(physics.throttle); setCamera('chase'); updateHUD(); updateCamera(1, true); drawMinimap();
     document.body.dataset.state = 'running'; document.body.dataset.ready = 'true';
@@ -440,9 +447,12 @@ function recordMetrics(dt, now) {
 }
 function exportReport() {
   const samples = fpsHistory;
-  const report = { application: 'LOOP · 軌道試驗場', version: '4.0.0', threeVersion: THREE.REVISION, generatedAt: new Date().toISOString(),
+  const report = { application: 'LOOP · 軌道試驗場', version: '5.0.0', threeVersion: THREE.REVISION, generatedAt: new Date().toISOString(),
     settings: sessionConfig, actualTrackLengthMetres: world.route.length, worldUnit: 'metre', elapsedSecondsIncludingCountdown: physics.elapsed,
     odometerMetres: physics.odometer, actualSceneryInstances: world.sceneryCount, trackSegments: world.trackInstances,
+    sceneryComposition: { version: SCENERY_VERSION, ...world.sceneryStats,
+      landmarks: world.sceneryPlan.landmarks.map(({ id, x, z, along }) => ({ id, x, z, along })),
+      lod: 'Chunked main / LOD1 with distance hysteresis; overview uses LOD1.' },
     elevation: world.route.elevation, physicsModel: { massKg: CART_MASS, ratedPowerWatts: RATED_POWER, ratedHorsepower: RATED_POWER / 745.699872, maximumGrade: MAX_GRADE, minimumVerticalRadiusMetres: MIN_VERTICAL_RADIUS },
     landmarks: world.features, sleepers: { averagePitchMetres: world.sleeperPitch, instances: world.sleeperInstances, filterEnabled: world.config.sleeperFilter, exposureMetres: world.sleeperUniforms.exposure.value },
     presentation: { fixedPhysicsStepSeconds: FIXED_STEP, interpolatedMotion: true, chaseAnchoredToCart: true, camera: cameraMode, chaseDistanceMetres: orbitDistance, cabYawRadians: cabYaw, cabPitchRadians: cabPitch },
@@ -493,7 +503,7 @@ function frame(time) {
 
 async function boot() {
   if (location.protocol === 'file:') throw new Error('請透過 HTTP 開啟此專案：執行 START_LOCAL.cmd 後前往 http://127.0.0.1:4173，或使用 GitHub Pages 網址。');
-  const response = await fetch('./asset-manifest.json?v=4.0.0'); if (!response.ok) throw new Error(`找不到資產清單（HTTP ${response.status}）。請完整解壓縮 ZIP。`);
+  const response = await fetch('./asset-manifest.json?v=5.0.0'); if (!response.ok) throw new Error(`找不到資產清單（HTTP ${response.status}）。請完整解壓縮 ZIP。`);
   manifest = await response.json(); populateForm(); installControls();
   renderer = new THREE.WebGLRenderer({ canvas: $('scene'), antialias: true, powerPreference: 'high-performance', alpha: false });
   renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;

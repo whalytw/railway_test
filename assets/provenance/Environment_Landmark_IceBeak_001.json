@@ -1,0 +1,190 @@
+{
+  "sourceLibraryMetadata": "07_Environment/Landmarks/Environment_Landmark_IceBeak_001/asset.json",
+  "sourceLibraryExport": "07_Environment/Landmarks/Environment_Landmark_IceBeak_001/exports/Environment_Landmark_IceBeak_001.glb",
+  "copiedWithoutGeometryChanges": true,
+  "mainSha256": "158f60bcd21eef83a393cfe39fa5bc7f1ea943708543bd2b2dd466ba434cf81f",
+  "lod1Sha256": "8f66270ad07616530c0a3262a626244899e964e66352a9c268b8b8a3a8649398",
+  "metadata": {
+    "id": "Environment_Landmark_IceBeak_001",
+    "name": "懸冰長喙崖",
+    "category": "07_Environment",
+    "subcategory": "Landmarks",
+    "tags": [
+      "landmark",
+      "low-frequency",
+      "cartoon",
+      "stylized",
+      "low-poly",
+      "threejs",
+      "nature",
+      "IceBeak"
+    ],
+    "status": "game_ready",
+    "version": "1.0.0",
+    "createdAt": "2026-11-08",
+    "source": "self_created_procedural_geometry",
+    "sourceUrl": "",
+    "license": {
+      "name": "self_created_user_project",
+      "licenseUrl": "",
+      "proofFile": "licenses/provenance.txt",
+      "allowsCommercialUse": null,
+      "allowsPublicWebDelivery": true,
+      "allowsStandaloneRedistribution": null
+    },
+    "sourceFile": "../_Shared/Low_Frequency_Landmarks_Kit_001/source/Low_Frequency_Landmarks_Kit_001.blend",
+    "sourceLibraryPath": "07_Environment/Landmarks/_Shared/Low_Frequency_Landmarks_Kit_001/source/Low_Frequency_Landmarks_Kit_001.blend",
+    "sourceCollection": "LM12_Environment_Landmark_IceBeak_001",
+    "lod1SourceCollection": "LM12_LOD1_Environment_Landmark_IceBeak_001",
+    "gameFile": "exports/Environment_Landmark_IceBeak_001.glb",
+    "landmarkFile": "exports/landmark.json",
+    "preview": "previews/thumbnail.png",
+    "previews": [
+      "previews/thumbnail.png",
+      "previews/reverse.png"
+    ],
+    "animations": [],
+    "runtimeAnimation": {
+      "provided": false,
+      "bakedAnimationClips": false,
+      "note": "轉子、鐘面、望遠筒及水面均為靜態整合幾何。"
+    },
+    "polycount": 218,
+    "polycountUnit": "triangles",
+    "meshNodeCount": 1,
+    "materialCount": 1,
+    "fileBytes": 26776,
+    "textureResolution": "none; vertex colors",
+    "dimensionsMetersXYZ": [
+      8.699999809265137,
+      11.399999618530273,
+      3.799999952316284
+    ],
+    "boundsMeters": {
+      "min": [
+        -2.5,
+        0,
+        -1.7999999523162842
+      ],
+      "max": [
+        6.199999809265137,
+        11.399999618530273,
+        2
+      ]
+    },
+    "coordinates": {
+      "up": "+Y",
+      "forward": "+Z",
+      "unit": "metre",
+      "origin": "lowest ground datum",
+      "sourceBlenderUp": "+Z",
+      "glbConversion": "[x,z,-y]"
+    },
+    "primaryBiome": "Snow",
+    "compatibleBiomes": [
+      "Snow"
+    ],
+    "biomeConditions": {},
+    "frequency": "landmark",
+    "placement": {
+      "groundAnchor": [
+        0,
+        0,
+        0
+      ],
+      "baseAtGround": true,
+      "uniformScaleRecommended": true,
+      "displaySlab": false,
+      "flatGroundPreferred": false,
+      "needsTerrainBlending": true,
+      "installationNote": "以最低點對齊落腳地面，檢查所有根腳、坡腳、基礎或橋墩。大型整組地標不會自動貼坡，需調整周圍地形銜接。",
+      "frontDirectionGLTF": "+Z",
+      "usageNote": "高冰崖向外懸挑成長喙狀，具真正下切空間與薄雪頂；為靜態冰景，不含破裂物理。",
+      "spawnRecommendations": {
+        "pool": "low_frequency_landmarks",
+        "suggestedGlobalPoolCountRange": [
+          2,
+          4
+        ],
+        "maxSameAssetPerMap": 1,
+        "minAlongTrackSpacingMeters": 800,
+        "minWorldSpacingMeters": 350,
+        "suggestedDistanceToTrackRangeMeters": [
+          50,
+          180
+        ],
+        "rulesEnforcedByAsset": false,
+        "note": "建議值，需由遊戲生成器執行；2–4 是全圖地標總數，不是每種各 2–4 個。"
+      }
+    },
+    "landmarkDetails": {},
+    "footprintRadiusMeters": 6.5146,
+    "suggestedMinRailCenterOffsetMeters": 20,
+    "boundingFootprintXZ": {
+      "min": [
+        -2.5,
+        -1.7999999523162842
+      ],
+      "max": [
+        6.199999809265137,
+        2
+      ]
+    },
+    "clearanceNote": "按完整帆翼、樓梯、樹冠及地貌輪廓保守估算，作為造景起始值；未執行礦車或路線淨空測試。縮放時等比調整。",
+    "lods": [
+      {
+        "level": 1,
+        "file": "exports/Environment_Landmark_IceBeak_001_LOD1.glb",
+        "triangles": 110,
+        "fileBytes": 14096,
+        "boundsMeters": {
+          "min": [
+            -2.5,
+            0,
+            -1.7999999523162842
+          ],
+          "max": [
+            6.199999809265137,
+            11.399999618530273,
+            2
+          ]
+        },
+        "dimensionsMetersXYZ": [
+          8.699999809265137,
+          11.399999618530273,
+          3.799999952316284
+        ],
+        "switchToLOD1Meters": 250,
+        "suggestedCullDistanceMeters": 4000
+      }
+    ],
+    "lodNote": "獨立 GLB，需要遊戲建立 THREE.LOD 或距離切換。簡化圓周、框架、欄杆、裝飾與樹冠，保留最低點及主體位置。距離為調校建議。",
+    "collision": {
+      "provided": false,
+      "note": "未附碰撞、導航、攀爬、破壞、鐵軌或路線接續邏輯。拱洞、樹洞和橋面為視覺幾何。"
+    },
+    "interior": {
+      "provided": false,
+      "note": "外觀地標，沒有完整可進入室內。"
+    },
+    "validation": {
+      "glbIntegrity": "passed",
+      "selfContained": "passed",
+      "threejsLoadAndBounds": "passed",
+      "finiteAttributes": "passed",
+      "triangleAreas": "passed",
+      "indexRanges": "passed",
+      "unitNormals": "passed",
+      "groundOrigin": "passed",
+      "noDisplaySlab": "passed",
+      "singleMeshAndMaterial": "passed",
+      "closedConnectedPieces": "passed",
+      "threeRevision": "180",
+      "sha256": "158f60bcd21eef83a393cfe39fa5bc7f1ea943708543bd2b2dd466ba434cf81f",
+      "detailedReport": "exports/validation.json"
+    },
+    "geometryNote": "未附展示地塊；臺座、基礎、橋面、池壁及天然山體是地標本身構件。封閉部件可互相交疊，未做布林聯集。",
+    "notes": "高冰崖向外懸挑成長喙狀，具真正下切空間與薄雪頂；為靜態冰景，不含破裂物理。 低頻使用：同種每圖最多一組，全圖地標總量建議 2–4 組；沿軌間隔至少 800 公尺，空間直距至少 350 公尺。"
+  },
+  "licenseProof": "製作日期：2026-11-08\n素材：Environment_Landmark_IceBeak_001 / 懸冰長喙崖\n來源：本次為使用者專案，以 Blender MCP 原創程序網格建模。\n未匯入第三方模型、貼圖、HDRI；模型未嵌入字型輪廓，未使用外部模型生成服務。\n用途：依使用者要求存入 GameAssets，供其 Three.js 網頁及共用素材庫使用，可隨該網頁交付 GLB。\n記錄代碼：self_created_user_project。此為來源與用途紀錄，不是 CC0 或其他獨立授權條款；商用及獨立素材轉售條款未另指定。\n"
+}

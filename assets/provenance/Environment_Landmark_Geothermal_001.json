@@ -1,0 +1,201 @@
+{
+  "sourceLibraryMetadata": "07_Environment/Landmarks/Environment_Landmark_Geothermal_001/asset.json",
+  "sourceLibraryExport": "07_Environment/Landmarks/Environment_Landmark_Geothermal_001/exports/Environment_Landmark_Geothermal_001.glb",
+  "copiedWithoutGeometryChanges": true,
+  "mainSha256": "17f699fbb6b8c05d139c259a22b50c28258972b4ebf0ff5bd1757da120336673",
+  "lod1Sha256": "a71d9becfe6f60f0c3855d177f808e54dbd6a5f862df1b1fb831b3ed3fcbd062",
+  "metadata": {
+    "id": "Environment_Landmark_Geothermal_001",
+    "name": "階池地熱臺地",
+    "category": "07_Environment",
+    "subcategory": "Landmarks",
+    "tags": [
+      "landmark",
+      "low-frequency",
+      "cartoon",
+      "stylized",
+      "low-poly",
+      "threejs",
+      "nature",
+      "Geothermal"
+    ],
+    "status": "game_ready",
+    "version": "1.0.0",
+    "createdAt": "2026-11-08",
+    "source": "self_created_procedural_geometry",
+    "sourceUrl": "",
+    "license": {
+      "name": "self_created_user_project",
+      "licenseUrl": "",
+      "proofFile": "licenses/provenance.txt",
+      "allowsCommercialUse": null,
+      "allowsPublicWebDelivery": true,
+      "allowsStandaloneRedistribution": null
+    },
+    "sourceFile": "../_Shared/Low_Frequency_Landmarks_Kit_001/source/Low_Frequency_Landmarks_Kit_001.blend",
+    "sourceLibraryPath": "07_Environment/Landmarks/_Shared/Low_Frequency_Landmarks_Kit_001/source/Low_Frequency_Landmarks_Kit_001.blend",
+    "sourceCollection": "LM12_Environment_Landmark_Geothermal_001",
+    "lod1SourceCollection": "LM12_LOD1_Environment_Landmark_Geothermal_001",
+    "gameFile": "exports/Environment_Landmark_Geothermal_001.glb",
+    "landmarkFile": "exports/landmark.json",
+    "preview": "previews/thumbnail.png",
+    "previews": [
+      "previews/thumbnail.png",
+      "previews/reverse.png"
+    ],
+    "animations": [],
+    "runtimeAnimation": {
+      "provided": false,
+      "bakedAnimationClips": false,
+      "note": "轉子、鐘面、望遠筒及水面均為靜態整合幾何。"
+    },
+    "polycount": 1176,
+    "polycountUnit": "triangles",
+    "meshNodeCount": 1,
+    "materialCount": 1,
+    "fileBytes": 123560,
+    "textureResolution": "none; vertex colors",
+    "dimensionsMetersXYZ": [
+      8.69167423248291,
+      3.5999999046325684,
+      13.75830888748169
+    ],
+    "boundsMeters": {
+      "min": [
+        -4.262151718139648,
+        0,
+        -6.2620158195495605
+      ],
+      "max": [
+        4.429522514343262,
+        3.5999999046325684,
+        7.496293067932129
+      ]
+    },
+    "coordinates": {
+      "up": "+Y",
+      "forward": "+Z",
+      "unit": "metre",
+      "origin": "lowest ground datum",
+      "sourceBlenderUp": "+Z",
+      "glbConversion": "[x,z,-y]"
+    },
+    "primaryBiome": "Volcano",
+    "compatibleBiomes": [
+      "Volcano",
+      "Hills"
+    ],
+    "biomeConditions": {
+      "Volcano": "階池為靜態礦物池景，沒有溫度、噴氣或熔岩物理。"
+    },
+    "frequency": "landmark",
+    "placement": {
+      "groundAnchor": [
+        0,
+        0,
+        0
+      ],
+      "baseAtGround": true,
+      "uniformScaleRecommended": true,
+      "displaySlab": false,
+      "flatGroundPreferred": false,
+      "needsTerrainBlending": true,
+      "installationNote": "以最低點對齊落腳地面，檢查所有根腳、坡腳、基礎或橋墩。大型整組地標不會自動貼坡，需調整周圍地形銜接。",
+      "frontDirectionGLTF": "+Z",
+      "usageNote": "三層自然輪廓礦物池、內凹池壁與不同高度的靜態水面；沒有噴氣、溫度或水流模擬。",
+      "spawnRecommendations": {
+        "pool": "low_frequency_landmarks",
+        "suggestedGlobalPoolCountRange": [
+          2,
+          4
+        ],
+        "maxSameAssetPerMap": 1,
+        "minAlongTrackSpacingMeters": 800,
+        "minWorldSpacingMeters": 350,
+        "suggestedDistanceToTrackRangeMeters": [
+          50,
+          180
+        ],
+        "rulesEnforcedByAsset": false,
+        "note": "建議值，需由遊戲生成器執行；2–4 是全圖地標總數，不是每種各 2–4 個。"
+      }
+    },
+    "landmarkDetails": {
+      "internalWaterLevelsLocalY": [
+        0.65,
+        1.9,
+        3.4
+      ],
+      "worldWaterlineAlignmentRequired": false,
+      "waterSimulationProvided": false
+    },
+    "footprintRadiusMeters": 8.7072,
+    "suggestedMinRailCenterOffsetMeters": 20,
+    "boundingFootprintXZ": {
+      "min": [
+        -4.262151718139648,
+        -6.2620158195495605
+      ],
+      "max": [
+        4.429522514343262,
+        7.496293067932129
+      ]
+    },
+    "clearanceNote": "按完整帆翼、樓梯、樹冠及地貌輪廓保守估算，作為造景起始值；未執行礦車或路線淨空測試。縮放時等比調整。",
+    "lods": [
+      {
+        "level": 1,
+        "file": "exports/Environment_Landmark_Geothermal_001_LOD1.glb",
+        "triangles": 552,
+        "fileBytes": 58340,
+        "boundsMeters": {
+          "min": [
+            -4.118574619293213,
+            0,
+            -5.902369499206543
+          ],
+          "max": [
+            4.412624835968018,
+            3.5999999046325684,
+            7.481491565704346
+          ]
+        },
+        "dimensionsMetersXYZ": [
+          8.53119945526123,
+          3.5999999046325684,
+          13.383861064910889
+        ],
+        "switchToLOD1Meters": 250,
+        "suggestedCullDistanceMeters": 4000
+      }
+    ],
+    "lodNote": "獨立 GLB，需要遊戲建立 THREE.LOD 或距離切換。簡化圓周、框架、欄杆、裝飾與樹冠，保留最低點及主體位置。距離為調校建議。",
+    "collision": {
+      "provided": false,
+      "note": "未附碰撞、導航、攀爬、破壞、鐵軌或路線接續邏輯。拱洞、樹洞和橋面為視覺幾何。"
+    },
+    "interior": {
+      "provided": false,
+      "note": "外觀地標，沒有完整可進入室內。"
+    },
+    "validation": {
+      "glbIntegrity": "passed",
+      "selfContained": "passed",
+      "threejsLoadAndBounds": "passed",
+      "finiteAttributes": "passed",
+      "triangleAreas": "passed",
+      "indexRanges": "passed",
+      "unitNormals": "passed",
+      "groundOrigin": "passed",
+      "noDisplaySlab": "passed",
+      "singleMeshAndMaterial": "passed",
+      "closedConnectedPieces": "passed",
+      "threeRevision": "180",
+      "sha256": "17f699fbb6b8c05d139c259a22b50c28258972b4ebf0ff5bd1757da120336673",
+      "detailedReport": "exports/validation.json"
+    },
+    "geometryNote": "未附展示地塊；臺座、基礎、橋面、池壁及天然山體是地標本身構件。封閉部件可互相交疊，未做布林聯集。",
+    "notes": "三層自然輪廓礦物池、內凹池壁與不同高度的靜態水面；沒有噴氣、溫度或水流模擬。 低頻使用：同種每圖最多一組，全圖地標總量建議 2–4 組；沿軌間隔至少 800 公尺，空間直距至少 350 公尺。"
+  },
+  "licenseProof": "製作日期：2026-11-08\n素材：Environment_Landmark_Geothermal_001 / 階池地熱臺地\n來源：本次為使用者專案，以 Blender MCP 原創程序網格建模。\n未匯入第三方模型、貼圖、HDRI；模型未嵌入字型輪廓，未使用外部模型生成服務。\n用途：依使用者要求存入 GameAssets，供其 Three.js 網頁及共用素材庫使用，可隨該網頁交付 GLB。\n記錄代碼：self_created_user_project。此為來源與用途紀錄，不是 CC0 或其他獨立授權條款；商用及獨立素材轉售條款未另指定。\n"
+}
