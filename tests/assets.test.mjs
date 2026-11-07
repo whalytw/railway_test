@@ -6,17 +6,19 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const manifest = JSON.parse(await readFile(path.join(root, 'asset-manifest.json'), 'utf8'));
 
-test('the selected library has eight biomes, three cars and all station / track models', async () => {
+test('the selected library has eight biomes, three cars and all station / infrastructure models', async () => {
   assert.equal(Object.keys(manifest.biomes).length, 8); assert.equal(manifest.vehicles.length, 3);
   for (const biome of Object.values(manifest.biomes)) {
     assert.ok(biome.models.length >= 4); await stat(path.join(root, biome.preview));
     for (const id of biome.models) assert.ok(manifest.models[id]);
   }
   for (const id of [...manifest.vehicles, ...manifest.stationModels, ...manifest.trackModels]) assert.ok(manifest.models[id]);
+  assert.equal(manifest.bridgeModels.length, 4); assert.equal(manifest.tunnelModels.length, 3); assert.equal(manifest.riverModels.length, 2);
+  for (const id of [...manifest.bridgeModels, ...manifest.tunnelModels, ...manifest.riverModels]) assert.ok(manifest.models[id]);
 });
 
-test('all 64 selected GLBs are valid self-contained glTF 2.0 files', async () => {
-  assert.equal(Object.keys(manifest.models).length, 64);
+test('all 74 selected GLBs are valid self-contained glTF 2.0 files', async () => {
+  assert.equal(Object.keys(manifest.models).length, 74);
   for (const [id, info] of Object.entries(manifest.models)) {
     assert.ok(!info.url.startsWith('/'), 'asset URLs must also work under a GitHub project subdirectory');
     const bytes = await readFile(path.join(root, info.url));

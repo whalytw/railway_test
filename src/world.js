@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 import { GLTFLoader } from '../vendor/GLTFLoader.js';
-import { TAU, lerp, clamp, smoothstep, randomGenerator, createRoute, stationsFor, biomeMix, trackSegments } from './core.js?v=2.0.0';
+import { TAU, lerp, clamp, wrap, smoothstep, randomGenerator, createRoute, stationsFor, biomeMix, trackSegments } from './core.js?v=3.0.0';
+import { sleeperLayout, sleeperFilter, planRouteFeatures, featureAt, bridgeCoordinates, bridgeGroundHeight, riverBend } from './route-features.js?v=3.0.0';
+import { buildMountainBackdrop, buildVariedClouds, updateClouds, buildBridgeAndRiver, buildTunnel } from './scenery.js?v=3.0.0';
 
 export const PALETTES = {
   Forest: { ground: '#829565', detail: '#62794d', sky: '#bed0ba', amplitude: 12 },
@@ -72,16 +74,24 @@ export class RailWorld {
     this.scene = scene; this.store = store; this.config = config;
     this.route = createRoute(config.length * 1000, config.seed, 8192, { elevationLimit: config.elevationLimit || 0, stations: config.stations });
     this.stations = stationsFor(this.route, config.stations);
+    this.features = config.features ? planRouteFeatures(this.route, this.stations, config.seed) : { bridge: null, tunnel: null };
     this.group = new THREE.Group(); scene.add(this.group);
     this.cullGroups = []; this.ownedGeometry = []; this.ownedMaterials = []; this.ownedTextures = [];
     this.instanceCount = 0; this.sceneryCount = 0; this.terrainChunks = 0;
     this.wheels = []; this.waterMaterials = [];
+    this.partsOverrides = new Map(); this.environmentElapsed = 0; this.lastSpeed = 0;
+    this.sleeperUniforms = { exposure: { value: 0 }, contrast: { value: 0 }, enabled: { value: config.sleeperFilter === false ? 0 : 1 } };
     this.paletteA = PALETTES[config.biomeA]; this.paletteB = PALETTES[config.biomeB];
     this.colorA = new THREE.Color(this.paletteA.ground); this.colorB = new THREE.Color(this.paletteB.ground);
     this.detailA = new THREE.Color(this.paletteA.detail); this.detailB = new THREE.Color(this.paletteB.detail);
     this.tmpSample = {}; this.cartSample = {};
     this.elevationField = this.createElevationField();
     this.lake = this.planLake();
+    if (this.features.bridge) {
+      const b = this.features.bridge, biome = this.mixAt(b.x, b.z) < 0.5 ? config.biomeA : config.biomeB;
+      b.style = ['Forest', 'Pastoral', 'Rural'].includes(biome) ? 'wood' : 'steel';
+      b.name = b.style === 'wood' ? '河谷木橋' : '河谷鋼橋';
+    }
   }
   createElevationField() {
     const nx = 32, nz = 16, d = this.route.squareSize, values = new Float64Array((nx + 1) * (nz + 1));
@@ -135,25 +145,29 @@ export class RailWorld {
   heightAt(x, z, knownProximity) {
     const near = typeof knownProximity === 'object' ? knownProximity : this.route.nearestTo(x, z, 110);
     const terrain = this.rawHeight(x, z);
-    if (near.y === undefined) return terrain;
+    if (near.y === undefined) return bridgeGroundHeight(this.features.bridge, x, z, terrain);
     // A graded earthwork supports the rails; distant land follows the same
     // elevation field, rather than leaving an elevated railway floating in air.
-    return lerp(near.y - 0.09, terrain, smoothstep(20, 105, near.distance));
+    return bridgeGroundHeight(this.features.bridge, x, z, lerp(near.y - 0.09, terrain, smoothstep(20, 105, near.distance)));
   }
   async build(onProgress = () => {}) {
+    const infrastructure = this.config.features ? ['Building_Bridge_SteelTruss8m_001', 'Building_Bridge_TimberDeck4m_001', 'Building_Bridge_StonePier4m_001', 'Building_Bridge_Abutment_001',
+      'Building_Tunnel_StonePortal_001', 'Building_Tunnel_RockStraight4m_001', 'Environment_Terrain_RiverStraight8m_001'] : [];
     const ids = [...this.store.manifest.biomes[this.config.biomeA].models, ...this.store.manifest.biomes[this.config.biomeB].models,
-      ...this.store.manifest.stationModels, 'Environment_Rail_Straight_2m_001', this.config.vehicle];
+      ...this.store.manifest.stationModels, 'Environment_Rail_RailSection_1m_001', 'Environment_Rail_Sleeper_001', 'Environment_Rail_Fastener_001', ...infrastructure, this.config.vehicle];
     await this.store.load(ids, (p, id) => onProgress(p * 0.4, `讀取 ${this.store.manifest.models[id].name}`));
     onProgress(0.42, '鋪設閉合軌道…'); await yieldFrame(); this.buildTrack();
     onProgress(0.55, '混合 A、B 區地表…'); await yieldFrame(); await this.buildTerrain();
     onProgress(0.70, '佈置沿線地景…'); await yieldFrame(); await this.buildScenery();
-    onProgress(0.90, '建立車站與礦車…'); await yieldFrame(); this.buildStations(); this.buildCart();
+    onProgress(0.87, '建立跨河橋與穿山隧道…'); await yieldFrame();
+    if (this.config.features) { buildBridgeAndRiver(this); buildTunnel(this); }
+    onProgress(0.94, '建立車站、礦車與遠景…'); await yieldFrame(); this.buildStations(); this.buildCart();
     this.createClouds();
     onProgress(1, '旅程準備就緒');
     return this;
   }
   addBatches(id, placements, { size = 160, kind = 'scenery', castShadow = false } = {}) {
-    const bins = new Map(), source = this.store.get(id);
+    const bins = new Map(), source = this.partsOverrides.get(id) || this.store.get(id);
     for (const p of placements) {
       const key = `${Math.floor(p.x / size)},${Math.floor(p.z / size)}`;
       if (!bins.has(key)) bins.set(key, []);
@@ -174,6 +188,7 @@ export class RailWorld {
           scaling.set(p.sx ?? p.scale ?? 1, p.sy ?? p.scale ?? 1, p.sz ?? p.scale ?? 1);
           placementMatrix.compose(position, q, scaling); combined.multiplyMatrices(placementMatrix, part.matrix);
           mesh.setMatrixAt(i, combined);
+          if (p.tone !== undefined) mesh.setColorAt(i, new THREE.Color(p.tone, p.tone, p.tone));
         }
         mesh.instanceMatrix.needsUpdate = true;
         mesh.computeBoundingSphere(); mesh.computeBoundingBox();
@@ -187,9 +202,34 @@ export class RailWorld {
   }
   buildTrack() {
     const segments = trackSegments(this.route);
-    const placements = segments.map(s => ({ x: s.x, z: s.z, y: s.y, yaw: s.yaw, pitch: s.pitch, sz: s.length / 2 }));
-    // Source GLB: +Z forward, two-metre segment; rail top = 0.405 m.
-    this.addBatches('Environment_Rail_Straight_2m_001', placements, { size: 96, kind: 'track' });
+    const rails = [];
+    for (const s of segments) {
+      const p = this.route.sample(s.start);
+      for (const side of [-1, 1]) rails.push({ x: s.x + p.nx * side * 0.8885 + p.upX * 0.205,
+        y: s.y + p.upY * 0.205, z: s.z + p.nz * side * 0.8885 + p.upZ * 0.205, yaw: s.yaw, pitch: s.pitch, sz: s.length });
+    }
+    this.addBatches('Environment_Rail_RailSection_1m_001', rails, { size: 96, kind: 'track' });
+    this.prepareSleeperMaterial();
+    const layout = sleeperLayout(this.route.length, this.config.sleeperSpacing || 0.75, this.config.seed), ties = [], bolts = [];
+    this.sleeperPitch = layout.pitch;
+    for (const item of layout.placements) {
+      const p = this.route.sample(item.distance);
+      ties.push({ x: p.x, y: p.y, z: p.z, yaw: p.yaw, pitch: p.pitch, tone: item.tone });
+      for (const side of [-1, 1]) bolts.push({ x: p.x + p.nx * side * 0.8885 + p.upX * 0.18,
+        y: p.y + p.upY * 0.18, z: p.z + p.nz * side * 0.8885 + p.upZ * 0.18, yaw: p.yaw, pitch: p.pitch });
+    }
+    this.addBatches('Environment_Rail_Sleeper_001', ties, { size: 96, kind: 'sleepers' });
+    this.addBatches('Environment_Rail_Fastener_001', bolts, { size: 96, kind: 'fasteners' });
+    this.sleeperInstances = ties.length;
+    const bed = [], bedIndices = [], bedCount = Math.ceil(this.route.length / 2);
+    for (let i = 0; i <= bedCount; i++) {
+      const p = this.route.sample(i / bedCount * this.route.length);
+      for (const side of [-1, 1]) bed.push(p.x + p.nx * side * 1.49, p.y - 0.035, p.z + p.nz * side * 1.49);
+      if (i) { const a = (i - 1) * 2; bedIndices.push(a, a + 2, a + 1, a + 1, a + 2, a + 3); }
+    }
+    const bedGeometry = new THREE.BufferGeometry(); bedGeometry.setAttribute('position', new THREE.Float32BufferAttribute(bed, 3)); bedGeometry.setIndex(bedIndices); bedGeometry.computeVertexNormals();
+    const bedMaterial = new THREE.MeshStandardMaterial({ color: '#a79a7d', roughness: 1, side: THREE.DoubleSide });
+    const bedMesh = new THREE.Mesh(bedGeometry, bedMaterial); bedMesh.receiveShadow = true; this.group.add(bedMesh); this.ownedGeometry.push(bedGeometry); this.ownedMaterials.push(bedMaterial);
     this.trackInstances = segments.length;
     const overviewPoints = this.route.points.filter((_, i) => i % 8 === 0).map(p => new THREE.Vector3(p.x, p.y + 0.46, p.z));
     const geometry = new THREE.BufferGeometry().setFromPoints(overviewPoints);
@@ -197,21 +237,67 @@ export class RailWorld {
     this.overviewTrack = new THREE.LineLoop(geometry, material); this.overviewTrack.visible = false;
     this.group.add(this.overviewTrack); this.ownedGeometry.push(geometry); this.ownedMaterials.push(material);
   }
+  prepareSleeperMaterial() {
+    const original = this.store.get('Environment_Rail_Sleeper_001');
+    const parts = original.parts.map(part => {
+      const geometry = part.geometry.clone(); geometry.computeBoundingBox(); geometry.computeBoundingSphere();
+      geometry.boundingBox.min.z -= 0.8; geometry.boundingBox.max.z += 0.8; geometry.boundingSphere.radius += 0.8;
+      const makeMaterial = source => {
+        const material = source.clone(); material.transparent = true; material.depthWrite = false; material.alphaTest = 0.008;
+        material.onBeforeCompile = shader => {
+          shader.uniforms.uSleeperExposure = this.sleeperUniforms.exposure; shader.uniforms.uSleeperContrast = this.sleeperUniforms.contrast; shader.uniforms.uSleeperFilter = this.sleeperUniforms.enabled;
+          shader.vertexShader = 'uniform float uSleeperExposure; varying float vSleeperZ; varying float vSleeperDepth;\n' + shader.vertexShader;
+          shader.vertexShader = shader.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\ntransformed.z *= (0.30 + uSleeperExposure) / 0.30; vSleeperZ = transformed.z;');
+          shader.vertexShader = shader.vertexShader.replace('#include <project_vertex>', '#include <project_vertex>\nvSleeperDepth = -mvPosition.z;');
+          shader.fragmentShader = 'uniform float uSleeperExposure; uniform float uSleeperContrast; uniform float uSleeperFilter; varying float vSleeperZ; varying float vSleeperDepth;\n' + shader.fragmentShader;
+          shader.fragmentShader = shader.fragmentShader.replace('#include <map_fragment>', `#include <map_fragment>
+            float tieCoverage = 1.0;
+            if (uSleeperExposure > 0.00001) tieCoverage = clamp((min(0.15, vSleeperZ + uSleeperExposure * 0.5) - max(-0.15, vSleeperZ - uSleeperExposure * 0.5)) / uSleeperExposure, 0.0, 1.0);
+            float tieDistance = mix(1.0, 1.0 - smoothstep(85.0, 280.0, vSleeperDepth) * 0.88, uSleeperFilter);
+            diffuseColor.a *= tieCoverage * tieDistance;
+            diffuseColor.rgb = mix(diffuseColor.rgb, vec3(0.45, 0.32, 0.18), uSleeperContrast);`);
+        };
+        material.customProgramCacheKey = () => 'sleeper-exposure-v3'; this.ownedMaterials.push(material); return material;
+      };
+      const material = Array.isArray(part.material) ? part.material.map(makeMaterial) : makeMaterial(part.material);
+      this.ownedGeometry.push(geometry); return { ...part, geometry, material };
+    });
+    this.partsOverrides.set('Environment_Rail_Sleeper_001', { parts });
+  }
   async buildTerrain() {
-    const d = this.route.squareSize, tile = 192, segments = 12;
+    const d = this.route.squareSize, tile = 192;
     const material = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 1, metalness: 0 });
     this.ownedMaterials.push(material);
     const color = new THREE.Color(), detail = new THREE.Color();
     const nx = Math.ceil(2 * d / tile), nz = Math.ceil(d / tile);
     const width = 2 * d / nx, depth = d / nz;
+    const riverDetailAt = (x, z) => {
+      if (!this.features.bridge) return false;
+      const p = bridgeCoordinates(this.features.bridge, x, z);
+      return Math.abs(p.across) < 36 + tile * 0.72 && Math.abs(p.along) < 204 + tile * 0.72;
+    };
     for (let iz = 0; iz < nz; iz++) {
       for (let ix = 0; ix < nx; ix++) {
         const x0 = -d + ix * width, z0 = -d * 0.5 + iz * depth;
+        const cx = x0 + width / 2, cz = z0 + depth / 2, detailedRiver = riverDetailAt(cx, cz);
+        const coarseLeft = !riverDetailAt(cx - width, cz), coarseRight = !riverDetailAt(cx + width, cz);
+        const coarseTop = !riverDetailAt(cx, cz - depth), coarseBottom = !riverDetailAt(cx, cz + depth);
+        const segments = detailedRiver ? 48 : 12;
         const verts = [], colors = [], indices = [], normals = [];
         for (let z = 0; z <= segments; z++) for (let x = 0; x <= segments; x++) {
           const wx = x0 + x / segments * width, wz = z0 + z / segments * depth;
           const near = this.route.nearestTo(wx, wz, 110);
-          const h = this.heightAt(wx, wz, near);
+          let h = this.heightAt(wx, wz, near);
+          // Resolve the narrow river channel without refining the whole map.
+          // Fine-tile edges follow the coarse neighbor's linear edge exactly.
+          const vertical = (x === 0 && coarseLeft) || (x === segments && coarseRight);
+          const horizontal = (z === 0 && coarseTop) || (z === segments && coarseBottom);
+          if (detailedRiver && (vertical || horizontal)) {
+            const t = (vertical ? z : x) / segments * 12, k = Math.min(11, Math.floor(t));
+            const a = vertical ? this.heightAt(wx, z0 + k / 12 * depth) : this.heightAt(x0 + k / 12 * width, wz);
+            const b = vertical ? this.heightAt(wx, z0 + (k + 1) / 12 * depth) : this.heightAt(x0 + (k + 1) / 12 * width, wz);
+            h = lerp(a, b, t - k);
+          }
           verts.push(wx, h, wz);
           const normal = new THREE.Vector3(this.heightAt(wx - 1, wz) - this.heightAt(wx + 1, wz), 2,
             this.heightAt(wx, wz - 1) - this.heightAt(wx, wz + 1)).normalize();
@@ -267,6 +353,15 @@ export class RailWorld {
       const info = this.store.manifest.models[id], maxDim = Math.max(info.dimensions[0], info.dimensions[2]) * scale;
       if (near < maxDim * 0.6 + 7) continue;
       if (this.lakeRadiusAt(x, z) < (this.lake?.radius || 0) + maxDim * 0.5 + 4) continue;
+      if (this.features.bridge) {
+        const river = bridgeCoordinates(this.features.bridge, x, z);
+        if (Math.abs(river.along) < 185 + maxDim * 0.5 && Math.abs(river.across - riverBend(river.along)) < 38 + maxDim * 0.5) continue;
+      }
+      if (this.features.tunnel) {
+        const nearest = this.route.nearestTo(x, z, this.features.tunnel.halfWidth + maxDim * 0.6 + 10);
+        const tunnel = this.features.tunnel;
+        if (nearest.distanceAlong !== undefined && nearest.distanceAlong > tunnel.start - maxDim && nearest.distanceAlong < tunnel.end + maxDim) continue;
+      }
       const bounds = this.store.get(id).bounds;
       // Terrain assets deliberately extend below y=0. Preserve their authored
       // surface origin so their underground foundation stays underground.
@@ -369,17 +464,21 @@ export class RailWorld {
     this.group.add(this.cart); this.updateCart(0, 0, 0);
   }
   createClouds() {
-    const random = randomGenerator(`${this.config.seed}:clouds`), d = this.route.squareSize;
-    const geometry = new THREE.IcosahedronGeometry(1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: '#f5f1df', transparent: true, opacity: 0.38, depthWrite: false, fog: false });
-    const mesh = new THREE.InstancedMesh(geometry, material, 48);
-    for (let i = 0; i < 48; i++) {
-      position.set((random() * 2 - 1) * d * 1.2, this.route.elevation.max + 260 + random() * 240, (random() - 0.5) * d * 1.5);
-      scaling.set(45 + random() * 80, 6 + random() * 13, 18 + random() * 34);
-      q.identity(); placementMatrix.compose(position, q, scaling); mesh.setMatrixAt(i, placementMatrix);
-    }
-    mesh.instanceMatrix.needsUpdate = true; mesh.computeBoundingSphere(); this.group.add(mesh);
-    this.ownedGeometry.push(geometry); this.ownedMaterials.push(material); this.clouds = mesh;
+    if (this.config.skyline === false) { this.clouds = null; return; }
+    buildMountainBackdrop(this); buildVariedClouds(this);
+  }
+  structureAt(distance, padding = 0) { return featureAt(this.features, distance, this.route.length, padding); }
+  tunnelFactor(distance) {
+    const tunnel = this.features.tunnel;
+    if (!tunnel) return 0;
+    const s = wrap(distance, this.route.length);
+    return smoothstep(tunnel.start, tunnel.start + 6, s) * (1 - smoothstep(tunnel.end - 6, tunnel.end, s));
+  }
+  updateEnvironment(dt, speed, frameSeconds) {
+    this.environmentElapsed += dt; this.lastSpeed = speed;
+    const filter = sleeperFilter(speed, frameSeconds, this.sleeperPitch || 0.75, this.config.sleeperFilter !== false);
+    this.sleeperUniforms.exposure.value = filter.exposure; this.sleeperUniforms.contrast.value = filter.contrastReduction; this.sleeperUniforms.enabled.value = filter.enabled;
+    updateClouds(this, this.environmentElapsed);
   }
   updateCart(distance, odometer, throttle) {
     const p = this.route.sample(distance, this.cartSample);
@@ -396,9 +495,13 @@ export class RailWorld {
   setVisibility(camera, farDistance, overview = false) {
     const cx = camera.position.x, cz = camera.position.z;
     const radius = overview ? this.route.squareSize * 4 : farDistance;
-    for (const item of this.cullGroups) item.group.visible = !(overview && item.kind === 'track') && Math.hypot(cx - item.x, cz - item.z) < radius + item.radius;
+    for (const item of this.cullGroups) {
+      const distance = Math.hypot(cx - item.x, cz - item.z);
+      item.group.visible = !(overview && ['track', 'sleepers', 'fasteners'].includes(item.kind)) && distance < radius + item.radius;
+      if (item.kind === 'fasteners') item.group.visible = item.group.visible && Math.abs(this.lastSpeed) < 12 && distance < 95;
+    }
     this.overviewTrack.visible = overview;
-    this.clouds.visible = !overview;
+    if (this.clouds) this.clouds.visible = !overview;
   }
   dispose() {
     this.scene.remove(this.group);
@@ -425,12 +528,17 @@ export function createAtmosphere(scene, renderer) {
   const envScene = new THREE.Scene(); const envSky = new THREE.Mesh(new THREE.SphereGeometry(100, 16, 12), skyMaterial); envScene.add(envSky);
   const pmrem = new THREE.PMREMGenerator(renderer); const environment = pmrem.fromScene(envScene, 0.04, 0.1, 200);
   scene.environment = environment.texture; scene.environmentIntensity = 0.55; envSky.geometry.dispose(); pmrem.dispose();
+  let outsideFog = new THREE.Color('#c7d5c2');
   return { sun, hemi, sky, environment, setBiomes(a, b) {
     const fog = new THREE.Color(PALETTES[a].sky).lerp(new THREE.Color(PALETTES[b].sky), 0.5);
     skyMaterial.uniforms.bottom.value.copy(fog); scene.fog = new THREE.Fog(fog, 170, 600);
-  }, update(camera, position, shadows) {
+    outsideFog.copy(fog);
+  }, update(camera, position, shadows, tunnel = 0) {
     sky.position.copy(camera.position); sun.castShadow = shadows;
     sun.position.set(position.x - 100, position.y + 170, position.z + 70); sun.target.position.set(position.x, position.y, position.z);
     sun.target.updateMatrixWorld();
+    hemi.intensity = lerp(2.2, 0.70, tunnel); sun.intensity = lerp(3.1, 0.30, tunnel);
+    scene.environmentIntensity = lerp(0.55, 0.18, tunnel);
+    if (scene.fog) scene.fog.color.copy(outsideFog).lerp(new THREE.Color('#273b35'), tunnel);
   } };
 }

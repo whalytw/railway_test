@@ -1,6 +1,7 @@
 import * as THREE from 'three';
-import { AssetStore, RailWorld, createAtmosphere, PALETTES } from './world.js?v=2.0.0';
-import { createPhysics, stepPhysics, FIXED_STEP, clamp, lerp, wrap, resolveBiomes, randomGenerator, nextStation, biomeMix, createElevationProfile, leverReference, leverForSpeed, RATED_POWER, CART_MASS, MAX_GRADE, MIN_VERTICAL_RADIUS } from './core.js?v=2.0.0';
+import { AssetStore, RailWorld, createAtmosphere, PALETTES } from './world.js?v=3.0.0';
+import { createPhysics, stepPhysics, FIXED_STEP, clamp, lerp, wrap, resolveBiomes, randomGenerator, nextStation, biomeMix, createElevationProfile, leverReference, leverForSpeed, RATED_POWER, CART_MASS, MAX_GRADE, MIN_VERTICAL_RADIUS } from './core.js?v=3.0.0';
+import { riverBend } from './route-features.js?v=3.0.0';
 
 const $ = id => document.getElementById(id);
 let renderer, scene, camera, atmosphere, manifest, store, world;
@@ -10,6 +11,7 @@ let orbitYaw = 0, orbitPitch = 0.20, orbitDistance = 18, cameraSnapped = false;
 let dragging = null, previewChangeTimer, notificationTimer;
 let frameSamples = [], fpsHistory = [], metricTime = 0, metricFrames = 0, sessionConfig = null;
 let longFrameCount = 0, countdownFinished = false;
+let filteredFrameTime = 1 / 60;
 const desiredCamera = new THREE.Vector3(), lookTarget = new THREE.Vector3(), smoothLook = new THREE.Vector3();
 const startButton = $('start-button'), loading = $('loading');
 const minimap = $('minimap'), mapContext = minimap.getContext('2d');
@@ -44,12 +46,13 @@ function formConfig() {
   const [biomeA, biomeB] = resolveBiomes($('biome-a').value, $('biome-b').value, biomeNames, randomGenerator(`${seed}:biomes`));
   return { biomeA, biomeB, length: Number($('route-length').value), stations: Number($('station-count').value), vehicle: selectedVehicle(),
     density: Number($('density').value), viewDistance: Number($('view-distance').value), resolution: Number($('resolution').value),
-    shadows: $('shadows').value === 'on', elevationLimit: Number($('elevation-limit').value), seed };
+    shadows: $('shadows').value === 'on', elevationLimit: Number($('elevation-limit').value),
+    features: $('features').value === 'on', skyline: $('skyline').value === 'on', sleeperFilter: $('sleeper-filter').value === 'on', sleeperSpacing: Number($('sleeper-spacing').value), seed };
 }
 function savePreferences() {
   try {
     const values = {};
-    for (const id of ['biome-a', 'biome-b', 'route-length', 'station-count', 'elevation-limit', 'density', 'view-distance', 'resolution', 'shadows', 'seed']) values[id] = $(id).value;
+    for (const id of ['biome-a', 'biome-b', 'route-length', 'station-count', 'elevation-limit', 'density', 'view-distance', 'resolution', 'shadows', 'features', 'skyline', 'sleeper-filter', 'sleeper-spacing', 'seed']) values[id] = $(id).value;
     values.vehicle = selectedVehicle(); localStorage.setItem('rail-loop-lab:preferences:v1', JSON.stringify(values));
   } catch { /* Private browsing may disable local storage. */ }
 }
@@ -124,7 +127,8 @@ function previewConfig() {
   let a = $('biome-a').value, b = $('biome-b').value;
   if (a === 'random') a = b === 'Forest' ? 'Pastoral' : 'Forest';
   if (b === 'random' || a === b) b = a === 'Lakeside' ? 'Forest' : 'Lakeside';
-  return { biomeA: a, biomeB: b, length: 5, stations: 3, elevationLimit: Number($('elevation-limit').value), vehicle: selectedVehicle(), density: 2000, viewDistance: 450, resolution: 1, shadows: false, seed: 'LOOP-PREVIEW' };
+  return { biomeA: a, biomeB: b, length: 5, stations: 3, elevationLimit: Number($('elevation-limit').value), vehicle: selectedVehicle(), density: 2000,
+    features: true, skyline: true, sleeperFilter: true, sleeperSpacing: 0.75, viewDistance: 450, resolution: 1, shadows: false, seed: 'LOOP-PREVIEW' };
 }
 function updatePreviewCaption(config) { $('preview-caption').textContent = `${manifest.biomes[config.biomeA].name} × ${manifest.biomes[config.biomeB].name} / 即時 3D 預覽`; }
 
@@ -171,6 +175,7 @@ function pauseGame(force) {
   if (!['running', 'paused'].includes(mode)) return;
   const paused = force ?? mode === 'running';
   mode = paused ? 'paused' : 'running'; accumulator = 0; lastTime = 0;
+  if (paused) world.updateEnvironment(0, 0, 1 / 60);
   $('pause-overlay').hidden = !paused; $('countdown').hidden = paused || physics.countdown <= 0;
   $('pause-label').textContent = paused ? '繼續' : '暫停'; $('pause-icon').textContent = paused ? '▷' : 'Ⅱ';
   document.body.dataset.state = mode;
@@ -268,11 +273,16 @@ function resize() {
 function updateCamera(dt, snap = false) {
   if (!world?.cart) return;
   const p = world.cartSample, cart = world.cart.position;
+  const structure = mode === 'running' ? world.structureAt(physics.distance, 17) : null;
   if (cameraMode === 'overview') {
     const d = world.route.squareSize, angle = orbitYaw * 0.25;
     const midHeight = world.route.elevation.range * 0.5;
     desiredCamera.set(Math.sin(angle) * d * 0.35, d * 1.18 + midHeight, d * 0.70);
     lookTarget.set(0, midHeight - 30, 0); camera.fov = 53; camera.far = 45000;
+  } else if (structure && cameraMode === 'chase') {
+    const behind = world.route.sample(physics.distance - 7.5), ahead = world.route.sample(physics.distance + 5);
+    desiredCamera.set(behind.x, behind.y + 2.35, behind.z);
+    lookTarget.set(ahead.x, ahead.y + 1.3, ahead.z); camera.fov = 64; camera.far = 18000;
   } else if (cameraMode === 'cab') {
     const sign = physics.speed < -0.4 ? -1 : 1;
     desiredCamera.set(cart.x + p.tx * 0.35, cart.y + 1.60, cart.z + p.tz * 0.35);
@@ -294,8 +304,10 @@ function updateCamera(dt, snap = false) {
   const overview = cameraMode === 'overview', far = world.config.viewDistance;
   scene.fog.near = overview ? world.route.squareSize * 2.5 : far * 0.36;
   scene.fog.far = overview ? world.route.squareSize * 6 : far;
+  const insideTunnel = mode === 'running' && !overview ? world.tunnelFactor(physics.distance - (cameraMode === 'cab' ? 0 : 7.5)) : 0;
+  scene.fog.near = lerp(scene.fog.near, 3, insideTunnel); scene.fog.far = lerp(scene.fog.far, 68, insideTunnel);
   world.cart.visible = cameraMode !== 'cab';
-  atmosphere.update(camera, cart, world.config.shadows);
+  atmosphere.update(camera, cart, world.config.shadows, insideTunnel);
 }
 function updateHUD() {
   $('timer').textContent = physics.elapsed.toFixed(1);
@@ -311,6 +323,12 @@ function updateHUD() {
   const travelGrade = world.cartSample.grade * (physics.speed < -0.1 || Math.abs(physics.speed) < 0.1 && physics.throttle < 0 ? -1 : 1);
   $('grade-value').textContent = `${Math.abs(travelGrade) < 0.0001 ? '平路' : travelGrade > 0 ? '↗ 上坡' : '↘ 下坡'} · ${(Math.abs(travelGrade) * 1000).toFixed(1)}‰`;
   $('height-value').textContent = `高度 ${(world.cartSample.y + 0.405).toFixed(1)} m`;
+  const currentFeature = world.structureAt(physics.distance);
+  if (currentFeature) $('feature-status').textContent = `正在通過 · ${currentFeature.name}`;
+  else {
+    const candidates = [world.features.bridge, world.features.tunnel].filter(Boolean).map(f => ({ ...f, remaining: wrap((physics.speed < -0.1 ? physics.distance - f.end : f.start - physics.distance), world.route.length) })).sort((a, b) => a.remaining - b.remaining);
+    $('feature-status').textContent = candidates.length ? `前方地標 · ${candidates[0].name} ${Math.round(candidates[0].remaining).toLocaleString()} m` : '橋隧與河谷已關閉';
+  }
   const next = nextStation(world.route, world.stations, physics.distance, physics.speed < -0.1 || physics.speed < 0.1 && physics.throttle < 0 ? -1 : 1);
   $('next-station').textContent = next.name; $('station-distance').textContent = next.remaining < 25 ? '車站附近' : `${Math.round(next.remaining).toLocaleString()} m`;
   if (physics.countdown > 0) {
@@ -331,11 +349,21 @@ function drawMinimap() {
   ctx.fillStyle = gradient; ctx.beginPath(); ctx.roundRect(mx(-d), mz(-d / 2), 2 * d * scale, d * scale, 12); ctx.fill();
   ctx.setLineDash([4, 6]); ctx.strokeStyle = '#ffffffaa'; ctx.lineWidth = 2;
   ctx.beginPath(); ctx.moveTo(mx(0), mz(-d / 2)); ctx.lineTo(mx(0), mz(d / 2)); ctx.stroke(); ctx.setLineDash([]);
+  const bridge = world.features.bridge;
+  if (bridge) {
+    ctx.beginPath();
+    for (let b = -150; b <= 150; b += 5) { const a = riverBend(b), x = bridge.x + bridge.nx * b + bridge.tx * a, z = bridge.z + bridge.nz * b + bridge.tz * a; if (b === -150) ctx.moveTo(mx(x), mz(z)); else ctx.lineTo(mx(x), mz(z)); }
+    ctx.strokeStyle = '#77aeb7'; ctx.lineWidth = 5; ctx.stroke();
+  }
   const path = () => { ctx.beginPath(); for (let i = 0; i <= world.route.samples; i += 12) { const p = world.route.points[i]; if (i === 0) ctx.moveTo(mx(p.x), mz(p.z)); else ctx.lineTo(mx(p.x), mz(p.z)); } ctx.closePath(); };
   path(); ctx.strokeStyle = '#f8f4df'; ctx.lineWidth = 8; ctx.stroke(); path(); ctx.strokeStyle = '#657c65'; ctx.lineWidth = 3; ctx.stroke();
   for (const station of world.stations) {
     ctx.beginPath(); ctx.arc(mx(station.x), mz(station.z), 10, 0, Math.PI * 2); ctx.fillStyle = '#f6f4e7'; ctx.fill();
     ctx.strokeStyle = '#82927a'; ctx.lineWidth = 2; ctx.stroke(); ctx.fillStyle = '#54704f'; ctx.font = 'bold 11px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(station.index + 1), mx(station.x), mz(station.z));
+  }
+  for (const f of [world.features.bridge, world.features.tunnel].filter(Boolean)) {
+    ctx.fillStyle = f.kind === 'bridge' ? '#427781' : '#92724a'; ctx.beginPath(); ctx.roundRect(mx(f.x) - 11, mz(f.z) - 11, 22, 22, 4); ctx.fill();
+    ctx.fillStyle = '#fff8df'; ctx.font = 'bold 14px "Microsoft JhengHei",sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(f.kind === 'bridge' ? '橋' : '隧', mx(f.x), mz(f.z));
   }
   const p = world.cartSample;
   ctx.beginPath(); ctx.arc(mx(p.x), mz(p.z), 10, 0, Math.PI * 2); ctx.fillStyle = '#c26d40'; ctx.fill(); ctx.strokeStyle = '#fff9de'; ctx.lineWidth = 4; ctx.stroke();
@@ -381,10 +409,11 @@ function recordMetrics(dt, now) {
 }
 function exportReport() {
   const samples = fpsHistory;
-  const report = { application: 'LOOP · 軌道試驗場', version: '2.0.0', threeVersion: THREE.REVISION, generatedAt: new Date().toISOString(),
+  const report = { application: 'LOOP · 軌道試驗場', version: '3.0.0', threeVersion: THREE.REVISION, generatedAt: new Date().toISOString(),
     settings: sessionConfig, actualTrackLengthMetres: world.route.length, worldUnit: 'metre', elapsedSecondsIncludingCountdown: physics.elapsed,
     odometerMetres: physics.odometer, actualSceneryInstances: world.sceneryCount, trackSegments: world.trackInstances,
     elevation: world.route.elevation, physicsModel: { massKg: CART_MASS, ratedPowerWatts: RATED_POWER, ratedHorsepower: RATED_POWER / 745.699872, maximumGrade: MAX_GRADE, minimumVerticalRadiusMetres: MIN_VERTICAL_RADIUS },
+    landmarks: world.features, sleepers: { averagePitchMetres: world.sleeperPitch, instances: world.sleeperInstances, filterEnabled: world.config.sleeperFilter, exposureMetres: world.sleeperUniforms.exposure.value },
     viewport: { width: innerWidth, height: innerHeight, pixelRatio: renderer.getPixelRatio() },
     summary: { samples: samples.length, averageFps: samples.length ? Number((samples.reduce((sum, s) => sum + s.fps, 0) / samples.length).toFixed(2)) : null,
       minimumFps: samples.length ? Math.min(...samples.map(s => s.fps)) : null, longFramesOver50ms: longFrameCount },
@@ -417,6 +446,10 @@ function frame(time) {
     world.updateCart(Math.sin(titleTime * 0.022) * 14, titleTime * 1.0, 0);
   }
   if (mode !== 'paused') updateCamera(dt);
+  if (mode !== 'paused') {
+    filteredFrameTime = lerp(filteredFrameTime, clamp(realDt, 1 / 144, 1 / 20), 0.10);
+    world.updateEnvironment(dt, mode === 'running' ? physics.speed : 0, filteredFrameTime);
+  }
   visibilityElapsed += dt;
   if (visibilityElapsed > 0.18) { world.setVisibility(camera, world.config.viewDistance, cameraMode === 'overview'); visibilityElapsed = 0; }
   renderer.render(scene, camera);
@@ -425,7 +458,7 @@ function frame(time) {
 
 async function boot() {
   if (location.protocol === 'file:') throw new Error('請透過 HTTP 開啟此專案：執行 START_LOCAL.cmd 後前往 http://127.0.0.1:4173，或使用 GitHub Pages 網址。');
-  const response = await fetch('./asset-manifest.json?v=2.0.0'); if (!response.ok) throw new Error(`找不到資產清單（HTTP ${response.status}）。請完整解壓縮 ZIP。`);
+  const response = await fetch('./asset-manifest.json?v=3.0.0'); if (!response.ok) throw new Error(`找不到資產清單（HTTP ${response.status}）。請完整解壓縮 ZIP。`);
   manifest = await response.json(); populateForm(); installControls();
   renderer = new THREE.WebGLRenderer({ canvas: $('scene'), antialias: true, powerPreference: 'high-performance', alpha: false });
   renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;

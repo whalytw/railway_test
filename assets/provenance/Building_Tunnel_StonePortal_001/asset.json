@@ -1,0 +1,116 @@
+{
+  "id": "Building_Tunnel_StonePortal_001",
+  "name": "石砌隧道入口",
+  "category": "06_Buildings",
+  "subcategory": "Railway_Tunnels_Mines/Entrances",
+  "tags": [
+    "railway",
+    "tunnel",
+    "mine",
+    "cartoon",
+    "modular",
+    "threejs",
+    "stone_portal"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-04",
+  "source": "self_created_from_user_style_references",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_provided_reference",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Tunnel_Mine_Kit_001/source/Tunnel_Mine_Kit_001.blend",
+  "sourceLibraryPath": "06_Buildings/Railway_Tunnels_Mines/_Shared/Tunnel_Mine_Kit_001/source/Tunnel_Mine_Kit_001.blend",
+  "sourceCollection": "TM_01_StonePortal",
+  "gameFile": "exports/Building_Tunnel_StonePortal_001.glb",
+  "mineFile": "exports/Building_Tunnel_StonePortal_001.mine.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "programmaticInteractions": [],
+  "polycount": 6936,
+  "polycountUnit": "triangles",
+  "materialCount": 1,
+  "meshNodeCount": 1,
+  "textureResolution": "1024x1024",
+  "fileBytes": 1212016,
+  "sha256": "3aa2ecf421e863c8be49dfadc13305e788082a5d649700c5608254c7eeb6ae20",
+  "dimensionsMetersXYZ": [
+    4.62,
+    4.189947,
+    0.9
+  ],
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "entrance centre at sleeper underside",
+    "approachFace": "-Z"
+  },
+  "parameters": {
+    "title": "石砌隧道入口",
+    "category": "06_Buildings",
+    "group": "Entrances",
+    "kind": "stone_portal",
+    "mount": "port",
+    "origin": "entrance centre at sleeper underside"
+  },
+  "ports": [
+    {
+      "id": "Attach",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "compatibleTracks": [],
+  "boundsMeters": {
+    "min": [
+      -2.309999942779541,
+      -0.15999996662139893,
+      -0.44999998807907104
+    ],
+    "max": [
+      2.309999942779541,
+      4.029946804046631,
+      0.44999998807907104
+    ]
+  },
+  "collision": {
+    "provided": false,
+    "note": "遊戲端建立簡化地板、內壁及門扇碰撞；保留入口及隧道洞口，頂部隱藏只改變顯示。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "threejsRuntime": "passed",
+    "threeRevision": "180"
+  },
+  "notes": "石砌圓拱入口；入口正面朝-Z，+Z深入隧道。Attach在枕木底面中心，搭配標準隧道開口；本件不含岩壁或鐵軌。",
+  "clearance": {
+    "innerHalfWidth": 1.64,
+    "ceilingAtCartEnvelopeY": 3.05,
+    "gateMustBeOpen": false
+  }
+}

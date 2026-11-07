@@ -1,0 +1,1345 @@
+{
+  "threeRevision": "180",
+  "method": "Shipped Three.js GLTFLoader, all real geometry and transforms; texture decoding replaced by an empty texture for Node geometry audit only.",
+  "sourceDefinitionsReadOnly": [
+    "07_Environment/_Shared/Environment_Railway_Cartoon_Kit_001/source/build_railway_kit.py:161,215,353,376",
+    "06_Buildings/Railway_Bridges/_Shared/Bridge_Roadbed_Kit_001/source/build_bridge_roadbed.py:14,54,87,99,123",
+    "06_Buildings/Railway_Tunnels_Mines/_Shared/Tunnel_Mine_Kit_001/source/build_tunnel_mine.py:71,81,110",
+    "07_Environment/Common_Terrain/_Shared/Terrain_Common_Kit_001/source/build_common_terrain.py:39,177"
+  ],
+  "models": {
+    "Building_Bridge_SteelTruss8m_001": {
+      "id": "Building_Bridge_SteelTruss8m_001",
+      "bytes": 1714952,
+      "sha256": "c1b7ab10c5821cc542e9d21804c3081af813ea11a40d13188362c48617de01d8",
+      "triangles": 16652,
+      "meshes": [
+        {
+          "name": "SteelTruss8m_Body",
+          "role": "static",
+          "triangles": 16652
+        }
+      ],
+      "bounds": {
+        "min": [
+          -1.6770000457763672,
+          -0.6000000238418579,
+          -0.11500000208616257
+        ],
+        "max": [
+          1.6770000457763672,
+          3.221095323562622,
+          8.114999771118164
+        ]
+      },
+      "dimensions": [
+        3.3540000915527344,
+        3.82109534740448,
+        8.229999773204327
+      ],
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "entry centre at deck surface"
+      },
+      "ports": [
+        {
+          "id": "Start",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "End",
+          "position": [
+            0,
+            0,
+            8
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "railTop": 0.405,
+      "supportDrop": 0.6,
+      "supportSockets": [
+        {
+          "id": "StartBearing",
+          "position": [
+            0,
+            -0.6000000238418579,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "EndBearing",
+          "position": [
+            0,
+            -0.6000000238418579,
+            8
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "clearance": {
+        "innerHalfWidth": 1.4,
+        "overheadBottomY": 3.045
+      },
+      "sourceTrackPath": "07_Environment/Environment_Rail_Straight_4m_001/exports/Environment_Rail_Straight_4m_001.track.json",
+      "route": {
+        "lengthMeters": 7.999999971588685,
+        "firstSurfacePoint": [
+          0,
+          0,
+          0
+        ],
+        "lastSurfacePoint": [
+          0,
+          0,
+          8
+        ],
+        "firstRailPoint": [
+          0,
+          0.4050000011920929,
+          0
+        ],
+        "lastRailPoint": [
+          0,
+          0.4050000011920929,
+          8
+        ]
+      },
+      "originalAssetModified": false,
+      "includes": {
+        "rails": false,
+        "deck": true,
+        "support": false
+      }
+    },
+    "Building_Bridge_TimberDeck4m_001": {
+      "id": "Building_Bridge_TimberDeck4m_001",
+      "bytes": 1304416,
+      "sha256": "5b23a36be277ef12310387ec1b2ed74a1386de6f347d5681c3900fbe9155e667",
+      "triangles": 10716,
+      "meshes": [
+        {
+          "name": "TimberDeck4m_Body",
+          "role": "static",
+          "triangles": 10716
+        }
+      ],
+      "bounds": {
+        "min": [
+          -1.6770000457763672,
+          -0.6000000238418579,
+          -0.009999990463256836
+        ],
+        "max": [
+          1.6770000457763672,
+          1.1399999856948853,
+          4.009999752044678
+        ]
+      },
+      "dimensions": [
+        3.3540000915527344,
+        1.7400000095367432,
+        4.019999742507935
+      ],
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "entry centre at deck surface"
+      },
+      "ports": [
+        {
+          "id": "Start",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "End",
+          "position": [
+            0,
+            0,
+            4
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "railTop": 0.405,
+      "supportDrop": 0.6,
+      "supportSockets": [
+        {
+          "id": "StartBearing",
+          "position": [
+            0,
+            -0.6000000238418579,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "EndBearing",
+          "position": [
+            0,
+            -0.6000000238418579,
+            4
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "clearance": {
+        "innerHalfWidth": 1.4,
+        "overheadBottomY": null
+      },
+      "sourceTrackPath": "07_Environment/Environment_Rail_Straight_4m_001/exports/Environment_Rail_Straight_4m_001.track.json",
+      "route": {
+        "lengthMeters": 3.9999999857943425,
+        "firstSurfacePoint": [
+          0,
+          0,
+          0
+        ],
+        "lastSurfacePoint": [
+          0,
+          0,
+          4
+        ],
+        "firstRailPoint": [
+          0,
+          0.4050000011920929,
+          0
+        ],
+        "lastRailPoint": [
+          0,
+          0.4050000011920929,
+          4
+        ]
+      },
+      "originalAssetModified": false,
+      "includes": {
+        "rails": false,
+        "deck": true,
+        "support": false
+      }
+    },
+    "Building_Bridge_StonePier4m_001": {
+      "id": "Building_Bridge_StonePier4m_001",
+      "bytes": 1050860,
+      "sha256": "b8cca549b7765ed6dd15e8dcbe3850bbba1b85af61ef0d2e82fc1277437dd66c",
+      "triangles": 6408,
+      "meshes": [
+        {
+          "name": "StonePier4m_Body",
+          "role": "static",
+          "triangles": 6408
+        }
+      ],
+      "bounds": {
+        "min": [
+          -1.8250000476837158,
+          0,
+          -0.9750000238418579
+        ],
+        "max": [
+          1.8250000476837158,
+          4.031899929046631,
+          0.9750000238418579
+        ]
+      },
+      "dimensions": [
+        3.6500000953674316,
+        4.031899929046631,
+        1.9500000476837158
+      ],
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "footing centre"
+      },
+      "ports": [
+        {
+          "id": "Base",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "Bearing",
+          "position": [
+            0,
+            4,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "railTop": 0.405,
+      "supportDrop": 0.6,
+      "supportSockets": [],
+      "bearingHeight": 4,
+      "originalAssetModified": false,
+      "includes": {
+        "rails": false,
+        "deck": false,
+        "support": true
+      }
+    },
+    "Building_Bridge_Abutment_001": {
+      "id": "Building_Bridge_Abutment_001",
+      "bytes": 831936,
+      "sha256": "e397e71608a7f814c4d40dfa4b9edb454137a94cf7f98cbe301f32a87ff268d7",
+      "triangles": 2820,
+      "meshes": [
+        {
+          "name": "Abutment_Body",
+          "role": "static",
+          "triangles": 2820
+        }
+      ],
+      "bounds": {
+        "min": [
+          -2.341827392578125,
+          0,
+          -1.7709304094314575
+        ],
+        "max": [
+          2.3419864177703857,
+          1.600000023841858,
+          0.7799999713897705
+        ]
+      },
+      "dimensions": [
+        4.683813810348511,
+        1.600000023841858,
+        2.550930380821228
+      ],
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "footing centre"
+      },
+      "ports": [
+        {
+          "id": "Base",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "Bearing",
+          "position": [
+            0,
+            1.6,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "railTop": 0.405,
+      "supportDrop": 0.6,
+      "supportSockets": [],
+      "bearingHeight": 1.6,
+      "originalAssetModified": false,
+      "includes": {
+        "rails": false,
+        "deck": false,
+        "support": true
+      }
+    },
+    "Building_Tunnel_StonePortal_001": {
+      "id": "Building_Tunnel_StonePortal_001",
+      "bytes": 1212016,
+      "sha256": "3aa2ecf421e863c8be49dfadc13305e788082a5d649700c5608254c7eeb6ae20",
+      "triangles": 6936,
+      "meshes": [
+        {
+          "name": "StonePortal_Body",
+          "role": "static",
+          "triangles": 6936
+        }
+      ],
+      "bounds": {
+        "min": [
+          -2.309999942779541,
+          -0.1599999964237213,
+          -0.44999998807907104
+        ],
+        "max": [
+          2.309999942779541,
+          4.029946804046631,
+          0.44999998807907104
+        ]
+      },
+      "dimensions": [
+        4.619999885559082,
+        4.189946800470352,
+        0.8999999761581421
+      ],
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "entrance centre at sleeper underside",
+        "approachFace": "-Z"
+      },
+      "ports": [
+        {
+          "id": "Attach",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "railTop": 0.405,
+      "clearance": {
+        "innerHalfWidth": 1.64,
+        "ceilingAtCartEnvelopeY": 3.05,
+        "gateMustBeOpen": false
+      },
+      "originalAssetModified": false,
+      "includes": {
+        "rails": false,
+        "floor": false,
+        "roof": false,
+        "builtInSupportFramesAtZ": []
+      }
+    },
+    "Building_Tunnel_RockStraight4m_001": {
+      "id": "Building_Tunnel_RockStraight4m_001",
+      "bytes": 1300680,
+      "sha256": "9b770d749a461424d25328bba0445bc0b8a986d9036d342841d46380380b649c",
+      "triangles": 9380,
+      "meshes": [
+        {
+          "name": "RockStraight4m_Roof",
+          "role": "tunnel_roof",
+          "triangles": 4584
+        },
+        {
+          "name": "RockStraight4m_WallsFloor",
+          "role": "tunnel_shell",
+          "triangles": 4796
+        }
+      ],
+      "bounds": {
+        "min": [
+          -2.547253370285034,
+          -0.18000000715255737,
+          0
+        ],
+        "max": [
+          2.5352299213409424,
+          4.282912731170654,
+          4.015449047088623
+        ]
+      },
+      "dimensions": [
+        5.082483291625977,
+        4.462912738323212,
+        4.015449047088623
+      ],
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "entry centre at sleeper underside",
+        "approachFace": "+Z"
+      },
+      "ports": [
+        {
+          "id": "Start",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "End",
+          "position": [
+            0,
+            0,
+            4
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "railTop": 0.405,
+      "opening": {
+        "baseInnerHalfWidth": 1.8,
+        "chamberInnerHalfWidth": 1.8,
+        "springHeight": 1.85,
+        "innerCrownHeight": 3.65,
+        "floorBottom": -0.18
+      },
+      "clearance": {
+        "innerHalfWidth": 1.57,
+        "ceilingAtCartEnvelopeY": 3
+      },
+      "sourceTrackPath": "07_Environment/Environment_Rail_Straight_4m_001/exports/Environment_Rail_Straight_4m_001.track.json",
+      "route": {
+        "lengthMeters": 3.9999999857943425,
+        "firstSurfacePoint": [
+          0,
+          0,
+          0
+        ],
+        "lastSurfacePoint": [
+          0,
+          0,
+          4
+        ],
+        "firstRailPoint": [
+          0,
+          0.4050000011920929,
+          0
+        ],
+        "lastRailPoint": [
+          0,
+          0.4050000011920929,
+          4
+        ]
+      },
+      "originalAssetModified": false,
+      "includes": {
+        "rails": false,
+        "floor": true,
+        "roof": true,
+        "builtInSupportFramesAtZ": [
+          0.55,
+          3.45
+        ]
+      }
+    },
+    "Building_Tunnel_SupportFrame_001": {
+      "id": "Building_Tunnel_SupportFrame_001",
+      "bytes": 752560,
+      "sha256": "29bb5874fe1f16d1c4d45282308e230d74efd75c9424311f373e4187b5600dc8",
+      "triangles": 1428,
+      "meshes": [
+        {
+          "name": "SupportFrame_Body",
+          "role": "static",
+          "triangles": 1428
+        }
+      ],
+      "bounds": {
+        "min": [
+          -1.8550000190734863,
+          0,
+          -0.1899999976158142
+        ],
+        "max": [
+          1.8550000190734863,
+          3.25,
+          0.1899999976158142
+        ]
+      },
+      "dimensions": [
+        3.7100000381469727,
+        3.25,
+        0.3799999952316284
+      ],
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "frame centre at sleeper underside",
+        "approachFace": "-Z"
+      },
+      "ports": [
+        {
+          "id": "Attach",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "railTop": 0.405,
+      "clearance": {
+        "innerHalfWidth": 1.57,
+        "ceilingAtCartEnvelopeY": 3,
+        "gateMustBeOpen": false
+      },
+      "originalAssetModified": false,
+      "includes": {
+        "rails": false,
+        "floor": false,
+        "roof": false,
+        "builtInSupportFramesAtZ": []
+      }
+    },
+    "Environment_Terrain_RiverStraight8m_001": {
+      "id": "Environment_Terrain_RiverStraight8m_001",
+      "bytes": 31392,
+      "sha256": "9203a1f8b795d76ffca0642d62c69d19351da14d649e288ccb139b15faccf1f7",
+      "triangles": 642,
+      "meshes": [
+        {
+          "name": "TC_RiverStraight8m_Body_Mesh",
+          "triangles": 216
+        },
+        {
+          "name": "TC_RiverStraight8m_Body_Mesh_1",
+          "triangles": 174
+        },
+        {
+          "name": "TC_RiverStraight8m_Body_Mesh_2",
+          "triangles": 36
+        },
+        {
+          "name": "TC_RiverStraight8m_Body_Mesh_3",
+          "triangles": 216
+        }
+      ],
+      "bounds": {
+        "min": [
+          -4,
+          -2.0999999046325684,
+          0
+        ],
+        "max": [
+          4,
+          0,
+          8
+        ]
+      },
+      "dimensions": [
+        8,
+        2.0999999046325684,
+        8
+      ],
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "bank-level channel entry"
+      },
+      "ports": [
+        {
+          "id": "Start",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "End",
+          "position": [
+            0,
+            0,
+            8
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "crossSection": [
+        {
+          "offset": -4,
+          "height": 0
+        },
+        {
+          "offset": -3.4,
+          "height": 0
+        },
+        {
+          "offset": -2.7,
+          "height": -0.06
+        },
+        {
+          "offset": -2.1,
+          "height": -0.2
+        },
+        {
+          "offset": -1.8,
+          "height": -0.38
+        },
+        {
+          "offset": -1.5,
+          "height": -1
+        },
+        {
+          "offset": -0.75,
+          "height": -1.15
+        },
+        {
+          "offset": 0,
+          "height": -1.2
+        },
+        {
+          "offset": 0.75,
+          "height": -1.15
+        },
+        {
+          "offset": 1.5,
+          "height": -1
+        },
+        {
+          "offset": 1.8,
+          "height": -0.38
+        },
+        {
+          "offset": 2.1,
+          "height": -0.2
+        },
+        {
+          "offset": 2.7,
+          "height": -0.06
+        },
+        {
+          "offset": 3.4,
+          "height": 0
+        },
+        {
+          "offset": 4,
+          "height": 0
+        }
+      ],
+      "water": {
+        "included": false,
+        "levelY": -0.55,
+        "halfWidthMeters": 1.74,
+        "flowDirection": "+route",
+        "surfacePath": {
+          "count": 19,
+          "first": [
+            0,
+            0,
+            0
+          ],
+          "last": [
+            0,
+            0,
+            8
+          ]
+        },
+        "note": "水面由Three.js另建；半寬1.74m，端點須連續，不將水面當碰撞地面。"
+      },
+      "originalAssetModified": false,
+      "includes": {
+        "waterSurface": false,
+        "dryChannelAndBanks": true,
+        "closedBottomAndEndCaps": true,
+        "baseBottomY": -2.1
+      }
+    },
+    "Environment_Terrain_RiverCurve90R8_001": {
+      "id": "Environment_Terrain_RiverCurve90R8_001",
+      "bytes": 68760,
+      "sha256": "fd434c845f226027596f1dca0c2b6dd2815dc53e17f81a47cc3701fba21aee67",
+      "triangles": 982,
+      "meshes": [
+        {
+          "name": "TC_RiverCurve90R8_Body_Mesh",
+          "triangles": 336
+        },
+        {
+          "name": "TC_RiverCurve90R8_Body_Mesh_1",
+          "triangles": 254
+        },
+        {
+          "name": "TC_RiverCurve90R8_Body_Mesh_2",
+          "triangles": 56
+        },
+        {
+          "name": "TC_RiverCurve90R8_Body_Mesh_3",
+          "triangles": 336
+        }
+      ],
+      "bounds": {
+        "min": [
+          -4,
+          -2.0999999046325684,
+          0
+        ],
+        "max": [
+          8,
+          0,
+          12
+        ]
+      },
+      "dimensions": [
+        12,
+        2.0999999046325684,
+        12
+      ],
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "bank-level channel entry"
+      },
+      "ports": [
+        {
+          "id": "Start",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "End",
+          "position": [
+            8,
+            0,
+            8
+          ],
+          "forward": [
+            1,
+            0,
+            0
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "crossSection": [
+        {
+          "offset": -4,
+          "height": 0
+        },
+        {
+          "offset": -3.4,
+          "height": 0
+        },
+        {
+          "offset": -2.7,
+          "height": -0.06
+        },
+        {
+          "offset": -2.1,
+          "height": -0.2
+        },
+        {
+          "offset": -1.8,
+          "height": -0.38
+        },
+        {
+          "offset": -1.5,
+          "height": -1
+        },
+        {
+          "offset": -0.75,
+          "height": -1.15
+        },
+        {
+          "offset": 0,
+          "height": -1.2
+        },
+        {
+          "offset": 0.75,
+          "height": -1.15
+        },
+        {
+          "offset": 1.5,
+          "height": -1
+        },
+        {
+          "offset": 1.8,
+          "height": -0.38
+        },
+        {
+          "offset": 2.1,
+          "height": -0.2
+        },
+        {
+          "offset": 2.7,
+          "height": -0.06
+        },
+        {
+          "offset": 3.4,
+          "height": 0
+        },
+        {
+          "offset": 4,
+          "height": 0
+        }
+      ],
+      "water": {
+        "included": false,
+        "levelY": -0.55,
+        "halfWidthMeters": 1.74,
+        "flowDirection": "+route",
+        "surfacePath": {
+          "count": 29,
+          "first": [
+            0,
+            0,
+            0
+          ],
+          "last": [
+            8,
+            0,
+            8
+          ]
+        },
+        "note": "水面由Three.js另建；半寬1.74m，端點須連續，不將水面當碰撞地面。"
+      },
+      "originalAssetModified": false,
+      "includes": {
+        "waterSurface": false,
+        "dryChannelAndBanks": true,
+        "closedBottomAndEndCaps": true,
+        "baseBottomY": -2.1
+      }
+    },
+    "Environment_Rail_Straight_2m_001": {
+      "id": "Environment_Rail_Straight_2m_001",
+      "bytes": 902844,
+      "sha256": "2443fcee0b94e8b01841a171f7db3afb8b0e95884e079f13cd69935a47d1b591",
+      "triangles": 5640,
+      "meshes": [
+        {
+          "name": "Straight_2m_Static",
+          "role": "rail_static",
+          "triangles": 5640
+        }
+      ],
+      "bounds": {
+        "min": [
+          -1.25,
+          -2.9802322387695312e-8,
+          0
+        ],
+        "max": [
+          1.25,
+          0.4050000011920929,
+          2
+        ]
+      },
+      "dimensions": [
+        2.5,
+        0.4050000309944153,
+        2
+      ],
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "module entry centre at local ground level"
+      },
+      "ports": [],
+      "railTop": 0.405,
+      "originalAssetModified": false,
+      "weldedConnectedComponentCount": 46,
+      "sleeperGeometryAudit": {
+        "count": 4,
+        "centreDistances": [
+          0.25,
+          0.75,
+          1.25,
+          1.75
+        ],
+        "pitchMeters": 0.5,
+        "eachTriangles": [
+          108,
+          108,
+          108,
+          108
+        ],
+        "sourceAlgorithm": "count=max(1,round(route.length/.52)); s=(i+.5)*route.length/count",
+        "fastenerSetsPerSleeper": 2,
+        "fastenerLateralOffsetsMeters": [
+          -0.8885,
+          0.8885
+        ]
+      },
+      "railComponents": [
+        {
+          "triangles": 1436,
+          "bounds": {
+            "min": [
+              -0.9934999942779541,
+              0.20499999821186066,
+              0
+            ],
+            "max": [
+              -0.7834999561309814,
+              0.4050000011920929,
+              2
+            ]
+          },
+          "dimensions": [
+            0.21000003814697266,
+            0.20000000298023224,
+            2
+          ],
+          "centre": [
+            -0.8884999752044678,
+            0.3049999997019768,
+            1
+          ]
+        },
+        {
+          "triangles": 1436,
+          "bounds": {
+            "min": [
+              0.7834999561309814,
+              0.20499999821186066,
+              0
+            ],
+            "max": [
+              0.9934999942779541,
+              0.4050000011920929,
+              2
+            ]
+          },
+          "dimensions": [
+            0.21000003814697266,
+            0.20000000298023224,
+            2
+          ],
+          "centre": [
+            0.8884999752044678,
+            0.3049999997019768,
+            1
+          ]
+        }
+      ]
+    },
+    "Environment_Rail_Sleeper_001": {
+      "id": "Environment_Rail_Sleeper_001",
+      "bytes": 536624,
+      "sha256": "417feecdb3628a859ff3d653d72a7e052f2c4d7861eac2a58a332629787ec24e",
+      "triangles": 108,
+      "meshes": [
+        {
+          "name": "Sleeper_Static",
+          "role": "rail_element",
+          "triangles": 108
+        }
+      ],
+      "bounds": {
+        "min": [
+          -1.25,
+          0,
+          -0.15000000596046448
+        ],
+        "max": [
+          1.25,
+          0.18000000715255737,
+          0.15000000596046448
+        ]
+      },
+      "dimensions": [
+        2.5,
+        0.18000000715255737,
+        0.30000001192092896
+      ],
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "module entry centre at local ground level"
+      },
+      "ports": [],
+      "railTop": 0.405,
+      "originalAssetModified": false,
+      "standardTrackPlacement": {
+        "yOffset": 0,
+        "zCentre": 0,
+        "width": 2.5,
+        "height": 0.18,
+        "depth": 0.3
+      }
+    },
+    "Environment_Rail_RailSection_1m_001": {
+      "id": "Environment_Rail_RailSection_1m_001",
+      "bytes": 581324,
+      "sha256": "1de6200ceed7e99790341e858df6cac80c3e5c97805765bc2af242cd499c65b7",
+      "triangles": 764,
+      "meshes": [
+        {
+          "name": "RailSection_1m_Static",
+          "role": "rail_element",
+          "triangles": 764
+        }
+      ],
+      "bounds": {
+        "min": [
+          -0.10499999672174454,
+          0,
+          0
+        ],
+        "max": [
+          0.10499999672174454,
+          0.20000000298023224,
+          1
+        ]
+      },
+      "dimensions": [
+        0.20999999344348907,
+        0.20000000298023224,
+        1
+      ],
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "module entry centre at local ground level"
+      },
+      "ports": [],
+      "railTop": 0.405,
+      "originalAssetModified": false,
+      "standardTrackPlacement": {
+        "yOffset": 0.205,
+        "lateralOffsets": [
+          -0.8885,
+          0.8885
+        ],
+        "zStart": 0,
+        "zEnd": 1
+      }
+    },
+    "Environment_Rail_Fastener_001": {
+      "id": "Environment_Rail_Fastener_001",
+      "bytes": 547160,
+      "sha256": "a7a5c2c08255ce3b927b64fff44d3c0e29a45d561af8115d9a63bd38ea5ac916",
+      "triangles": 292,
+      "meshes": [
+        {
+          "name": "Fastener_Static",
+          "role": "rail_element",
+          "triangles": 292
+        }
+      ],
+      "bounds": {
+        "min": [
+          -0.17000000178813934,
+          -1.4901161193847656e-8,
+          -0.12999999523162842
+        ],
+        "max": [
+          0.17000000178813934,
+          0.059359997510910034,
+          0.12999999523162842
+        ]
+      },
+      "dimensions": [
+        0.3400000035762787,
+        0.05936001241207123,
+        0.25999999046325684
+      ],
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "module entry centre at local ground level"
+      },
+      "ports": [],
+      "railTop": 0.405,
+      "originalAssetModified": false,
+      "standardTrackPlacement": {
+        "yOffset": 0.18,
+        "lateralOffsets": [
+          -0.8885,
+          0.8885
+        ],
+        "zCentre": 0
+      }
+    }
+  }
+}

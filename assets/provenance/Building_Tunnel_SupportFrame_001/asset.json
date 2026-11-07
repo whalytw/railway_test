@@ -1,0 +1,116 @@
+{
+  "id": "Building_Tunnel_SupportFrame_001",
+  "name": "礦坑支撐木架",
+  "category": "06_Buildings",
+  "subcategory": "Railway_Tunnels_Mines/Supports",
+  "tags": [
+    "railway",
+    "tunnel",
+    "mine",
+    "cartoon",
+    "modular",
+    "threejs",
+    "support_frame"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-04",
+  "source": "self_created_from_user_style_references",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_provided_reference",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Tunnel_Mine_Kit_001/source/Tunnel_Mine_Kit_001.blend",
+  "sourceLibraryPath": "06_Buildings/Railway_Tunnels_Mines/_Shared/Tunnel_Mine_Kit_001/source/Tunnel_Mine_Kit_001.blend",
+  "sourceCollection": "TM_07_SupportFrame",
+  "gameFile": "exports/Building_Tunnel_SupportFrame_001.glb",
+  "mineFile": "exports/Building_Tunnel_SupportFrame_001.mine.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "programmaticInteractions": [],
+  "polycount": 1428,
+  "polycountUnit": "triangles",
+  "materialCount": 1,
+  "meshNodeCount": 1,
+  "textureResolution": "1024x1024",
+  "fileBytes": 752560,
+  "sha256": "29bb5874fe1f16d1c4d45282308e230d74efd75c9424311f373e4187b5600dc8",
+  "dimensionsMetersXYZ": [
+    3.709999,
+    3.25,
+    0.379999
+  ],
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "frame centre at sleeper underside",
+    "approachFace": "-Z"
+  },
+  "parameters": {
+    "title": "礦坑支撐木架",
+    "category": "06_Buildings",
+    "group": "Supports",
+    "kind": "support_frame",
+    "mount": "port",
+    "origin": "frame centre at sleeper underside"
+  },
+  "ports": [
+    {
+      "id": "Attach",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "compatibleTracks": [],
+  "boundsMeters": {
+    "min": [
+      -1.8549995422363281,
+      0.0,
+      -0.18999958038330078
+    ],
+    "max": [
+      1.8549995422363281,
+      3.25,
+      0.18999958038330078
+    ]
+  },
+  "collision": {
+    "provided": false,
+    "note": "遊戲端建立簡化地板、內壁及門扇碰撞；保留入口及隧道洞口，頂部隱藏只改變顯示。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "threejsRuntime": "passed",
+    "threeRevision": "180"
+  },
+  "notes": "獨立支撐木架，Attach基準為枕木底面；不增加路線長度。柱間保守內半寬1.57m，橫梁底約3.01m。",
+  "clearance": {
+    "innerHalfWidth": 1.57,
+    "ceilingAtCartEnvelopeY": 3.0,
+    "gateMustBeOpen": false
+  }
+}

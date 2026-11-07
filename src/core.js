@@ -151,7 +151,7 @@ export function createRoute(lengthMetres, seed = 1, samples = 8192, options = {}
   function nearestTo(x, z, limit = 100, out = {}) {
     const cx = Math.floor(x / cell), cz = Math.floor(z / cell), radius = Math.ceil(limit / cell);
     let best = limit * limit;
-    out.y = undefined; out.grade = 0;
+    out.y = undefined; out.grade = 0; out.distanceAlong = undefined;
     for (let a = -radius; a <= radius; a++) for (let b = -radius; b <= radius; b++) {
       const entries = spatial.get(`${cx + a},${cz + b}`);
       if (!entries) continue;
@@ -160,7 +160,7 @@ export function createRoute(lengthMetres, seed = 1, samples = 8192, options = {}
         const dx = q.x - p.x, dz = q.z - p.z;
         const t = clamp(((x - p.x) * dx + (z - p.z) * dz) / (dx * dx + dz * dz), 0, 1);
         const squared = (x - p.x - t * dx) ** 2 + (z - p.z - t * dz) ** 2;
-        if (squared < best) { best = squared; out.y = lerp(p.y, q.y, t); out.grade = (q.y - p.y) / Math.hypot(dx, dz); }
+        if (squared < best) { best = squared; out.y = lerp(p.y, q.y, t); out.grade = (q.y - p.y) / Math.hypot(dx, dz); out.distanceAlong = lerp(distances[i], distances[Math.min(i + 4, samples)], t); }
       }
     }
     out.distance = Math.sqrt(best); return out;

@@ -1,0 +1,129 @@
+{
+  "id": "Building_Bridge_StonePier4m_001",
+  "name": "石砌橋墩・4m",
+  "category": "06_Buildings",
+  "subcategory": "Railway_Bridges/Supports",
+  "tags": [
+    "railway",
+    "bridge",
+    "roadbed",
+    "cartoon",
+    "modular",
+    "threejs",
+    "pier"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-04",
+  "source": "self_created_from_user_style_references",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_provided_reference",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Bridge_Roadbed_Kit_001/source/Bridge_Roadbed_Kit_001.blend",
+  "sourceLibraryPath": "06_Buildings/Railway_Bridges/_Shared/Bridge_Roadbed_Kit_001/source/Bridge_Roadbed_Kit_001.blend",
+  "sourceCollection": "BR_06_StonePier4m",
+  "gameFile": "exports/Building_Bridge_StonePier4m_001.glb",
+  "infrastructureFile": "exports/Building_Bridge_StonePier4m_001.infrastructure.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "polycount": 6408,
+  "polycountUnit": "triangles",
+  "materialCount": 1,
+  "meshNodeCount": 1,
+  "textureResolution": "1024x1024",
+  "fileBytes": 1050860,
+  "dimensionsMetersXYZ": [
+    3.65,
+    4.0319,
+    1.95
+  ],
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "footing centre"
+  },
+  "parameters": {
+    "title": "石砌橋墩・4m",
+    "category": "06_Buildings",
+    "family": "Railway_Bridges",
+    "group": "Supports",
+    "kind": "pier",
+    "bearingHeight": 4.0,
+    "origin": "footing centre",
+    "mount": "ground"
+  },
+  "ports": [
+    {
+      "id": "Base",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "Bearing",
+      "position": [
+        0,
+        4.0,
+        0
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "supportSockets": [],
+  "compatibleTracks": [],
+  "boundsMeters": {
+    "min": [
+      -1.8249998092651367,
+      0.0,
+      -0.9750003814697266
+    ],
+    "max": [
+      1.8249998092651367,
+      4.031900405883789,
+      0.9750003814697266
+    ]
+  },
+  "collision": {
+    "provided": false,
+    "note": "依遊戲引擎建立簡化橋面、地形及支撐碰撞；須保留桁架行車空間與涵洞的貫通洞口。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "threejsRuntime": "passed",
+    "threeRevision": "180"
+  },
+  "notes": "沿用金橡木、深色護框、象牙白和銅色邊件。橋面／路基以表面為Y=0；橋墩及牆體以地面為Y=0。獨立GLB不含鐵軌；接點、承座和相容鐵軌見同名infrastructure.json。"
+}

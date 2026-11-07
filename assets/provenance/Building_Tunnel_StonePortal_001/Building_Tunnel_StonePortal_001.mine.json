@@ -1,0 +1,60 @@
+{
+  "schema": "railway-mine/1",
+  "assetId": "Building_Tunnel_StonePortal_001",
+  "name": "石砌隧道入口",
+  "kind": "stone_portal",
+  "unit": "metre",
+  "up": "+Y",
+  "forward": "+Z",
+  "origin": "entrance centre at sleeper underside",
+  "mount": "port",
+  "parameters": {
+    "title": "石砌隧道入口",
+    "category": "06_Buildings",
+    "group": "Entrances",
+    "kind": "stone_portal",
+    "mount": "port",
+    "origin": "entrance centre at sleeper underside"
+  },
+  "ports": [
+    {
+      "id": "Attach",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "interactions": [],
+  "compatibleTracks": [],
+  "railTop": 0.405,
+  "approachFace": "-Z",
+  "boundsMeters": {
+    "min": [
+      -2.309999942779541,
+      -0.15999996662139893,
+      -0.44999998807907104
+    ],
+    "max": [
+      2.309999942779541,
+      4.029946804046631,
+      0.44999998807907104
+    ]
+  },
+  "clearance": {
+    "innerHalfWidth": 1.64,
+    "ceilingAtCartEnvelopeY": 3.05,
+    "gateMustBeOpen": false
+  }
+}

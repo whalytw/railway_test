@@ -8,6 +8,55 @@ const { RailWorld } = await import('../src/world.js');
 const { trackSegments } = await import('../src/core.js');
 const config = { length: 8, seed: 'V2-HILLS-RELIEF', stations: 3, elevationLimit: 500, biomeA: 'Rural', biomeB: 'Hills' };
 
+test('both generated tunnel faces have a real open mouth on sloping track', async () => {
+  const { buildTunnel } = await import('../src/scenery.js');
+  const world = new RailWorld(new THREE.Scene(), {}, { ...config, features: true });
+  for (const lap of [-3, -1, 0, 1, 4]) {
+    assert.equal(world.tunnelFactor(world.features.tunnel.centre + lap * world.route.length), 1, 'tunnel lighting must repeat on forward and reverse laps');
+    assert.equal(world.tunnelFactor(world.features.tunnel.end + 20 + lap * world.route.length), 0);
+  }
+  const placements = [];
+  world.addBatches = (id, items) => placements.push({ id, count: items.length });
+  buildTunnel(world); world.group.updateMatrixWorld(true);
+  assert.equal(placements.find(p => p.id.includes('RockStraight')).count, 20);
+  assert.equal(placements.find(p => p.id.includes('StonePortal')).count, 2);
+  const meshes = world.group.children.filter(n => n.isMesh), ray = new THREE.Raycaster();
+  for (const [s, sign] of [[world.features.tunnel.start, 1], [world.features.tunnel.end, -1]]) {
+    const p = world.route.sample(s), euler = new THREE.Euler(p.pitch, p.yaw, 0, 'YXZ');
+    const direction = new THREE.Vector3(0, 0, sign).applyEuler(euler);
+    for (const height of [0.5, 1.6, 2.8]) {
+      const origin = new THREE.Vector3(0, height, -0.5 * sign).applyEuler(euler).add(new THREE.Vector3(p.x, p.y, p.z));
+      ray.set(origin, direction); ray.far = 0.9;
+      assert.equal(ray.intersectObjects(meshes, false).length, 0, 'hill face must not close the tunnel mouth');
+    }
+    const rockOrigin = new THREE.Vector3(3, 1.6, -0.5 * sign).applyEuler(euler).add(new THREE.Vector3(p.x, p.y, p.z));
+    ray.set(rockOrigin, direction);
+    assert.ok(ray.intersectObjects(meshes, false).length > 0, 'the opening must remain surrounded by a solid mountain face');
+  }
+  world.dispose();
+});
+
+test('rendered river terrain leaves the water channel and bridge deck exposed', async () => {
+  const { riverBend } = await import('../src/route-features.js');
+  const world = new RailWorld(new THREE.Scene(), {}, { ...config, length: 5, features: true, seed: 'V3-BRIDGE-TUNNEL', elevationLimit: 0 });
+  await world.buildTerrain();
+  const meshes = world.group.children.filter(n => n.isMesh), bridge = world.features.bridge;
+  const ray = new THREE.Raycaster(), origin = new THREE.Vector3(), down = new THREE.Vector3(0, -1, 0);
+  world.group.updateMatrixWorld(true);
+  for (let b = -120; b <= 120; b += 7) for (const lateral of [-3, 0, 3]) {
+    const a = riverBend(b) + lateral, x = bridge.x + bridge.nx * b + bridge.tx * a, z = bridge.z + bridge.nz * b + bridge.tz * a;
+    origin.set(x, bridge.y + 100, z); ray.set(origin, down);
+    const hit = ray.intersectObjects(meshes, false)[0]; assert.ok(hit, 'river must stay within ground meshes');
+    const water = bridge.y - 6.54 + b * 0.004;
+    assert.ok(hit.point.y < water - 0.05, `ground covers water at river ${b} / ${lateral}: ${hit.point.y - water}`);
+  }
+  for (let s = bridge.start + 2; s < bridge.end - 2; s += 5) {
+    const p = world.route.sample(s); origin.set(p.x, p.y + 100, p.z); ray.set(origin, down);
+    assert.ok(ray.intersectObjects(meshes, false)[0].point.y < p.y - 0.25, 'bridge deck must remain above ground');
+  }
+  world.dispose();
+});
+
 test('terrain meets the elevated track instead of remaining on a y=0 plane', () => {
   const world = new RailWorld(new THREE.Scene(), {}, config);
   for (let s = 0; s < world.route.length; s += 61) {

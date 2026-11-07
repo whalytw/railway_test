@@ -87,12 +87,24 @@
       "biome": null,
       "dimensions": [
         2.5,
-        0.405,
+        0.4050000309944153,
         2
       ],
       "triangles": 5640,
       "meshNodeCount": 1,
-      "bytes": 902844
+      "bytes": 902844,
+      "bounds": {
+        "min": [
+          -1.25,
+          -2.9802322387695312e-8,
+          0
+        ],
+        "max": [
+          1.25,
+          0.4050000011920929,
+          2
+        ]
+      }
     },
     "Environment_Rail_Sleeper_001": {
       "id": "Environment_Rail_Sleeper_001",
@@ -102,12 +114,31 @@
       "biome": null,
       "dimensions": [
         2.5,
-        0.18,
-        0.3
+        0.18000000715255737,
+        0.30000001192092896
       ],
       "triangles": 108,
       "meshNodeCount": 1,
-      "bytes": 536624
+      "bytes": 536624,
+      "bounds": {
+        "min": [
+          -1.25,
+          0,
+          -0.15000000596046448
+        ],
+        "max": [
+          1.25,
+          0.18000000715255737,
+          0.15000000596046448
+        ]
+      },
+      "standardTrackPlacement": {
+        "yOffset": 0,
+        "zCentre": 0,
+        "width": 2.5,
+        "height": 0.18,
+        "depth": 0.3
+      }
     },
     "Environment_Rail_RailSection_1m_001": {
       "id": "Environment_Rail_RailSection_1m_001",
@@ -116,13 +147,34 @@
       "category": "07_Environment",
       "biome": null,
       "dimensions": [
-        0.21,
-        0.2,
+        0.20999999344348907,
+        0.20000000298023224,
         1
       ],
       "triangles": 764,
       "meshNodeCount": 1,
-      "bytes": 581324
+      "bytes": 581324,
+      "bounds": {
+        "min": [
+          -0.10499999672174454,
+          0,
+          0
+        ],
+        "max": [
+          0.10499999672174454,
+          0.20000000298023224,
+          1
+        ]
+      },
+      "standardTrackPlacement": {
+        "yOffset": 0.205,
+        "lateralOffsets": [
+          -0.8885,
+          0.8885
+        ],
+        "zStart": 0,
+        "zEnd": 1
+      }
     },
     "Building_Station_Platform4m_001": {
       "id": "Building_Station_Platform4m_001",
@@ -1691,6 +1743,1414 @@
           1.378
         ]
       }
+    },
+    "Building_Bridge_SteelTruss8m_001": {
+      "id": "Building_Bridge_SteelTruss8m_001",
+      "name": "鋼構桁架橋・8m",
+      "url": "assets/models/Building_Bridge_SteelTruss8m_001.glb",
+      "category": "06_Buildings",
+      "biome": null,
+      "dimensions": [
+        3.3540000915527344,
+        3.82109534740448,
+        8.229999773204327
+      ],
+      "triangles": 16652,
+      "meshNodeCount": 1,
+      "bytes": 1714952,
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "entry centre at deck surface"
+      },
+      "ports": [
+        {
+          "id": "Start",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "End",
+          "position": [
+            0,
+            0,
+            8
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "technicalData": "assets/provenance/Building_Bridge_SteelTruss8m_001/Building_Bridge_SteelTruss8m_001.infrastructure.json",
+      "bounds": {
+        "min": [
+          -1.6770000457763672,
+          -0.6000000238418579,
+          -0.11500000208616257
+        ],
+        "max": [
+          1.6770000457763672,
+          3.221095323562622,
+          8.114999771118164
+        ]
+      },
+      "railTop": 0.405,
+      "supportSockets": [
+        {
+          "id": "StartBearing",
+          "position": [
+            0,
+            -0.6000000238418579,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "EndBearing",
+          "position": [
+            0,
+            -0.6000000238418579,
+            8
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "clearance": {
+        "innerHalfWidth": 1.4,
+        "overheadBottomY": 3.045
+      },
+      "supportDrop": 0.6
+    },
+    "Building_Bridge_TimberDeck4m_001": {
+      "id": "Building_Bridge_TimberDeck4m_001",
+      "name": "木構直橋・4m",
+      "url": "assets/models/Building_Bridge_TimberDeck4m_001.glb",
+      "category": "06_Buildings",
+      "biome": null,
+      "dimensions": [
+        3.3540000915527344,
+        1.7400000095367432,
+        4.019999742507935
+      ],
+      "triangles": 10716,
+      "meshNodeCount": 1,
+      "bytes": 1304416,
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "entry centre at deck surface"
+      },
+      "ports": [
+        {
+          "id": "Start",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "End",
+          "position": [
+            0,
+            0,
+            4
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "technicalData": "assets/provenance/Building_Bridge_TimberDeck4m_001/Building_Bridge_TimberDeck4m_001.infrastructure.json",
+      "bounds": {
+        "min": [
+          -1.6770000457763672,
+          -0.6000000238418579,
+          -0.009999990463256836
+        ],
+        "max": [
+          1.6770000457763672,
+          1.1399999856948853,
+          4.009999752044678
+        ]
+      },
+      "railTop": 0.405,
+      "supportSockets": [
+        {
+          "id": "StartBearing",
+          "position": [
+            0,
+            -0.6000000238418579,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "EndBearing",
+          "position": [
+            0,
+            -0.6000000238418579,
+            4
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "clearance": {
+        "innerHalfWidth": 1.4,
+        "overheadBottomY": null
+      },
+      "supportDrop": 0.6
+    },
+    "Building_Bridge_StonePier4m_001": {
+      "id": "Building_Bridge_StonePier4m_001",
+      "name": "石砌橋墩・4m",
+      "url": "assets/models/Building_Bridge_StonePier4m_001.glb",
+      "category": "06_Buildings",
+      "biome": null,
+      "dimensions": [
+        3.6500000953674316,
+        4.031899929046631,
+        1.9500000476837158
+      ],
+      "triangles": 6408,
+      "meshNodeCount": 1,
+      "bytes": 1050860,
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "footing centre"
+      },
+      "ports": [
+        {
+          "id": "Base",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "Bearing",
+          "position": [
+            0,
+            4,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "technicalData": "assets/provenance/Building_Bridge_StonePier4m_001/Building_Bridge_StonePier4m_001.infrastructure.json",
+      "bounds": {
+        "min": [
+          -1.8250000476837158,
+          0,
+          -0.9750000238418579
+        ],
+        "max": [
+          1.8250000476837158,
+          4.031899929046631,
+          0.9750000238418579
+        ]
+      },
+      "railTop": 0.405,
+      "supportSockets": [],
+      "supportDrop": 0.6,
+      "bearingHeight": 4
+    },
+    "Building_Bridge_Abutment_001": {
+      "id": "Building_Bridge_Abutment_001",
+      "name": "翼牆橋台・1.6m",
+      "url": "assets/models/Building_Bridge_Abutment_001.glb",
+      "category": "06_Buildings",
+      "biome": null,
+      "dimensions": [
+        4.683813810348511,
+        1.600000023841858,
+        2.550930380821228
+      ],
+      "triangles": 2820,
+      "meshNodeCount": 1,
+      "bytes": 831936,
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "footing centre"
+      },
+      "ports": [
+        {
+          "id": "Base",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "Bearing",
+          "position": [
+            0,
+            1.6,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "technicalData": "assets/provenance/Building_Bridge_Abutment_001/Building_Bridge_Abutment_001.infrastructure.json",
+      "bounds": {
+        "min": [
+          -2.341827392578125,
+          0,
+          -1.7709304094314575
+        ],
+        "max": [
+          2.3419864177703857,
+          1.600000023841858,
+          0.7799999713897705
+        ]
+      },
+      "railTop": 0.405,
+      "supportSockets": [],
+      "supportDrop": 0.6,
+      "bearingHeight": 1.6
+    },
+    "Building_Tunnel_StonePortal_001": {
+      "id": "Building_Tunnel_StonePortal_001",
+      "name": "石砌隧道入口",
+      "url": "assets/models/Building_Tunnel_StonePortal_001.glb",
+      "category": "06_Buildings",
+      "biome": null,
+      "dimensions": [
+        4.619999885559082,
+        4.189946800470352,
+        0.8999999761581421
+      ],
+      "triangles": 6936,
+      "meshNodeCount": 1,
+      "bytes": 1212016,
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "entrance centre at sleeper underside",
+        "approachFace": "-Z"
+      },
+      "ports": [
+        {
+          "id": "Attach",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "technicalData": "assets/provenance/Building_Tunnel_StonePortal_001/Building_Tunnel_StonePortal_001.mine.json",
+      "bounds": {
+        "min": [
+          -2.309999942779541,
+          -0.1599999964237213,
+          -0.44999998807907104
+        ],
+        "max": [
+          2.309999942779541,
+          4.029946804046631,
+          0.44999998807907104
+        ]
+      },
+      "clearance": {
+        "innerHalfWidth": 1.64,
+        "ceilingAtCartEnvelopeY": 3.05,
+        "gateMustBeOpen": false
+      },
+      "railTop": 0.405,
+      "approachFace": "-Z"
+    },
+    "Building_Tunnel_RockStraight4m_001": {
+      "id": "Building_Tunnel_RockStraight4m_001",
+      "name": "岩壁直線隧道・4m",
+      "url": "assets/models/Building_Tunnel_RockStraight4m_001.glb",
+      "category": "06_Buildings",
+      "biome": null,
+      "dimensions": [
+        5.082483291625977,
+        4.462912738323212,
+        4.015449047088623
+      ],
+      "triangles": 9380,
+      "meshNodeCount": 2,
+      "bytes": 1300680,
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "entry centre at sleeper underside",
+        "approachFace": "+Z"
+      },
+      "ports": [
+        {
+          "id": "Start",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "End",
+          "position": [
+            0,
+            0,
+            4
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "technicalData": "assets/provenance/Building_Tunnel_RockStraight4m_001/Building_Tunnel_RockStraight4m_001.mine.json",
+      "bounds": {
+        "min": [
+          -2.547253370285034,
+          -0.18000000715255737,
+          0
+        ],
+        "max": [
+          2.5352299213409424,
+          4.282912731170654,
+          4.015449047088623
+        ]
+      },
+      "clearance": {
+        "innerHalfWidth": 1.57,
+        "ceilingAtCartEnvelopeY": 3
+      },
+      "railTop": 0.405,
+      "opening": {
+        "baseInnerHalfWidth": 1.8,
+        "chamberInnerHalfWidth": 1.8,
+        "springHeight": 1.85,
+        "innerCrownHeight": 3.65,
+        "floorBottom": -0.18
+      },
+      "approachFace": "+Z"
+    },
+    "Building_Tunnel_SupportFrame_001": {
+      "id": "Building_Tunnel_SupportFrame_001",
+      "name": "礦坑支撐木架",
+      "url": "assets/models/Building_Tunnel_SupportFrame_001.glb",
+      "category": "06_Buildings",
+      "biome": null,
+      "dimensions": [
+        3.7100000381469727,
+        3.25,
+        0.3799999952316284
+      ],
+      "triangles": 1428,
+      "meshNodeCount": 1,
+      "bytes": 752560,
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "frame centre at sleeper underside",
+        "approachFace": "-Z"
+      },
+      "ports": [
+        {
+          "id": "Attach",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "technicalData": "assets/provenance/Building_Tunnel_SupportFrame_001/Building_Tunnel_SupportFrame_001.mine.json",
+      "bounds": {
+        "min": [
+          -1.8550000190734863,
+          0,
+          -0.1899999976158142
+        ],
+        "max": [
+          1.8550000190734863,
+          3.25,
+          0.1899999976158142
+        ]
+      },
+      "clearance": {
+        "innerHalfWidth": 1.57,
+        "ceilingAtCartEnvelopeY": 3,
+        "gateMustBeOpen": false
+      },
+      "railTop": 0.405,
+      "approachFace": "-Z"
+    },
+    "Environment_Terrain_RiverStraight8m_001": {
+      "id": "Environment_Terrain_RiverStraight8m_001",
+      "name": "直線河床・8m",
+      "url": "assets/models/Environment_Terrain_RiverStraight8m_001.glb",
+      "category": "07_Environment",
+      "biome": null,
+      "dimensions": [
+        8,
+        2.0999999046325684,
+        8
+      ],
+      "triangles": 642,
+      "meshNodeCount": 1,
+      "bytes": 31392,
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "bank-level channel entry"
+      },
+      "ports": [
+        {
+          "id": "Start",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "End",
+          "position": [
+            0,
+            0,
+            8
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "technicalData": "assets/provenance/Environment_Terrain_RiverStraight8m_001/Environment_Terrain_RiverStraight8m_001.terrain.json",
+      "bounds": {
+        "min": [
+          -4,
+          -2.0999999046325684,
+          0
+        ],
+        "max": [
+          4,
+          0,
+          8
+        ]
+      },
+      "water": {
+        "included": false,
+        "levelY": -0.55,
+        "halfWidthMeters": 1.74,
+        "flowDirection": "+route",
+        "surfacePath": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0.44444445
+          ],
+          [
+            0,
+            0,
+            0.8888889
+          ],
+          [
+            0,
+            0,
+            1.33333337
+          ],
+          [
+            0,
+            0,
+            1.77777779
+          ],
+          [
+            0,
+            0,
+            2.22222233
+          ],
+          [
+            0,
+            0,
+            2.66666675
+          ],
+          [
+            0,
+            0,
+            3.11111116
+          ],
+          [
+            0,
+            0,
+            3.55555558
+          ],
+          [
+            0,
+            0,
+            4
+          ],
+          [
+            0,
+            0,
+            4.44444466
+          ],
+          [
+            0,
+            0,
+            4.88888884
+          ],
+          [
+            0,
+            0,
+            5.33333349
+          ],
+          [
+            0,
+            0,
+            5.77777767
+          ],
+          [
+            0,
+            0,
+            6.22222233
+          ],
+          [
+            0,
+            0,
+            6.66666651
+          ],
+          [
+            0,
+            0,
+            7.11111116
+          ],
+          [
+            0,
+            0,
+            7.55555534
+          ],
+          [
+            0,
+            0,
+            8
+          ]
+        ],
+        "note": "水面由Three.js另建；半寬1.74m，端點須連續，不將水面當碰撞地面。",
+        "tangents": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "crossSection": [
+        {
+          "offset": -4,
+          "height": 0
+        },
+        {
+          "offset": -3.4,
+          "height": 0
+        },
+        {
+          "offset": -2.7,
+          "height": -0.06
+        },
+        {
+          "offset": -2.1,
+          "height": -0.2
+        },
+        {
+          "offset": -1.8,
+          "height": -0.38
+        },
+        {
+          "offset": -1.5,
+          "height": -1
+        },
+        {
+          "offset": -0.75,
+          "height": -1.15
+        },
+        {
+          "offset": 0,
+          "height": -1.2
+        },
+        {
+          "offset": 0.75,
+          "height": -1.15
+        },
+        {
+          "offset": 1.5,
+          "height": -1
+        },
+        {
+          "offset": 1.8,
+          "height": -0.38
+        },
+        {
+          "offset": 2.1,
+          "height": -0.2
+        },
+        {
+          "offset": 2.7,
+          "height": -0.06
+        },
+        {
+          "offset": 3.4,
+          "height": 0
+        },
+        {
+          "offset": 4,
+          "height": 0
+        }
+      ]
+    },
+    "Environment_Terrain_RiverCurve90R8_001": {
+      "id": "Environment_Terrain_RiverCurve90R8_001",
+      "name": "彎曲河床・90° R8m",
+      "url": "assets/models/Environment_Terrain_RiverCurve90R8_001.glb",
+      "category": "07_Environment",
+      "biome": null,
+      "dimensions": [
+        12,
+        2.0999999046325684,
+        12
+      ],
+      "triangles": 982,
+      "meshNodeCount": 1,
+      "bytes": 68760,
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "bank-level channel entry"
+      },
+      "ports": [
+        {
+          "id": "Start",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "End",
+          "position": [
+            8,
+            0,
+            8
+          ],
+          "forward": [
+            1,
+            0,
+            0
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "technicalData": "assets/provenance/Environment_Terrain_RiverCurve90R8_001/Environment_Terrain_RiverCurve90R8_001.terrain.json",
+      "bounds": {
+        "min": [
+          -4,
+          -2.0999999046325684,
+          0
+        ],
+        "max": [
+          8,
+          0,
+          12
+        ]
+      },
+      "water": {
+        "included": false,
+        "levelY": -0.55,
+        "halfWidthMeters": 1.74,
+        "flowDirection": "+route",
+        "surfacePath": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01258548,
+            0,
+            0.44856358
+          ],
+          [
+            0.05030232,
+            0,
+            0.89571583
+          ],
+          [
+            0.11303185,
+            0,
+            1.34004974
+          ],
+          [
+            0.20057671,
+            0,
+            1.78016746
+          ],
+          [
+            0.31266144,
+            0,
+            2.21468401
+          ],
+          [
+            0.44893336,
+            0,
+            2.64223242
+          ],
+          [
+            0.60896373,
+            0,
+            3.06146741
+          ],
+          [
+            0.79224908,
+            0,
+            3.47106981
+          ],
+          [
+            0.99821264,
+            0,
+            3.86975121
+          ],
+          [
+            1.22620642,
+            0,
+            4.25625658
+          ],
+          [
+            1.4755131,
+            0,
+            4.62937021
+          ],
+          [
+            1.7453481,
+            0,
+            4.98791838
+          ],
+          [
+            2.03486276,
+            0,
+            5.3307724
+          ],
+          [
+            2.34314585,
+            0,
+            5.65685415
+          ],
+          [
+            2.66922736,
+            0,
+            5.96513748
+          ],
+          [
+            3.01208162,
+            0,
+            6.25465202
+          ],
+          [
+            3.37062955,
+            0,
+            6.52448702
+          ],
+          [
+            3.74374342,
+            0,
+            6.7737937
+          ],
+          [
+            4.13024902,
+            0,
+            7.00178719
+          ],
+          [
+            4.52893019,
+            0,
+            7.2077508
+          ],
+          [
+            4.93853235,
+            0,
+            7.39103603
+          ],
+          [
+            5.35776758,
+            0,
+            7.55106688
+          ],
+          [
+            5.78531599,
+            0,
+            7.68733835
+          ],
+          [
+            6.21983242,
+            0,
+            7.79942322
+          ],
+          [
+            6.65995026,
+            0,
+            7.88696814
+          ],
+          [
+            7.10428429,
+            0,
+            7.94969749
+          ],
+          [
+            7.55143642,
+            0,
+            7.98741436
+          ],
+          [
+            8,
+            0,
+            8
+          ]
+        ],
+        "note": "水面由Three.js另建；半寬1.74m，端點須連續，不將水面當碰撞地面。",
+        "tangents": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0.05607045,
+            0,
+            0.9984268
+          ],
+          [
+            0.11196448,
+            0,
+            0.99371219
+          ],
+          [
+            0.16750622,
+            0,
+            0.98587102
+          ],
+          [
+            0.22252093,
+            0,
+            0.9749279
+          ],
+          [
+            0.2768355,
+            0,
+            0.96091729
+          ],
+          [
+            0.33027905,
+            0,
+            0.94388336
+          ],
+          [
+            0.38268343,
+            0,
+            0.9238795
+          ],
+          [
+            0.43388373,
+            0,
+            0.90096885
+          ],
+          [
+            0.4837189,
+            0,
+            0.8752234
+          ],
+          [
+            0.53203207,
+            0,
+            0.84672421
+          ],
+          [
+            0.57867128,
+            0,
+            0.81556088
+          ],
+          [
+            0.6234898,
+            0,
+            0.7818315
+          ],
+          [
+            0.66634655,
+            0,
+            0.74564219
+          ],
+          [
+            0.70710677,
+            0,
+            0.70710677
+          ],
+          [
+            0.74564219,
+            0,
+            0.66634655
+          ],
+          [
+            0.7818315,
+            0,
+            0.6234898
+          ],
+          [
+            0.81556088,
+            0,
+            0.57867128
+          ],
+          [
+            0.84672421,
+            0,
+            0.53203207
+          ],
+          [
+            0.8752234,
+            0,
+            0.4837189
+          ],
+          [
+            0.90096885,
+            0,
+            0.43388373
+          ],
+          [
+            0.9238795,
+            0,
+            0.38268343
+          ],
+          [
+            0.94388336,
+            0,
+            0.33027905
+          ],
+          [
+            0.96091729,
+            0,
+            0.2768355
+          ],
+          [
+            0.9749279,
+            0,
+            0.22252093
+          ],
+          [
+            0.98587102,
+            0,
+            0.16750622
+          ],
+          [
+            0.99371219,
+            0,
+            0.11196448
+          ],
+          [
+            0.9984268,
+            0,
+            0.05607045
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ]
+      },
+      "crossSection": [
+        {
+          "offset": -4,
+          "height": 0
+        },
+        {
+          "offset": -3.4,
+          "height": 0
+        },
+        {
+          "offset": -2.7,
+          "height": -0.06
+        },
+        {
+          "offset": -2.1,
+          "height": -0.2
+        },
+        {
+          "offset": -1.8,
+          "height": -0.38
+        },
+        {
+          "offset": -1.5,
+          "height": -1
+        },
+        {
+          "offset": -0.75,
+          "height": -1.15
+        },
+        {
+          "offset": 0,
+          "height": -1.2
+        },
+        {
+          "offset": 0.75,
+          "height": -1.15
+        },
+        {
+          "offset": 1.5,
+          "height": -1
+        },
+        {
+          "offset": 1.8,
+          "height": -0.38
+        },
+        {
+          "offset": 2.1,
+          "height": -0.2
+        },
+        {
+          "offset": 2.7,
+          "height": -0.06
+        },
+        {
+          "offset": 3.4,
+          "height": 0
+        },
+        {
+          "offset": 4,
+          "height": 0
+        }
+      ]
+    },
+    "Environment_Rail_Fastener_001": {
+      "id": "Environment_Rail_Fastener_001",
+      "name": "扣件與銅色雙螺栓",
+      "url": "assets/models/Environment_Rail_Fastener_001.glb",
+      "category": "07_Environment",
+      "biome": null,
+      "dimensions": [
+        0.3400000035762787,
+        0.05936001241207123,
+        0.25999999046325684
+      ],
+      "triangles": 292,
+      "meshNodeCount": 1,
+      "bytes": 547160,
+      "coordinates": {
+        "up": "+Y",
+        "forward": "+Z",
+        "unit": "metre",
+        "origin": "module entry centre at local ground level"
+      },
+      "ports": null,
+      "technicalData": "assets/provenance/Environment_Rail_Fastener_001/Environment_Rail_Fastener_001.track.json",
+      "railTopMeters": 0.405,
+      "bounds": {
+        "min": [
+          -0.17000000178813934,
+          -1.4901161193847656e-8,
+          -0.12999999523162842
+        ],
+        "max": [
+          0.17000000178813934,
+          0.059359997510910034,
+          0.12999999523162842
+        ]
+      },
+      "standardTrackPlacement": {
+        "yOffset": 0.18,
+        "lateralOffsets": [
+          -0.8885,
+          0.8885
+        ],
+        "zCentre": 0
+      }
     }
   },
   "vehicles": [
@@ -1811,6 +3271,22 @@
   "trackModels": [
     "Environment_Rail_Straight_2m_001",
     "Environment_Rail_Sleeper_001",
-    "Environment_Rail_RailSection_1m_001"
+    "Environment_Rail_RailSection_1m_001",
+    "Environment_Rail_Fastener_001"
+  ],
+  "bridgeModels": [
+    "Building_Bridge_SteelTruss8m_001",
+    "Building_Bridge_TimberDeck4m_001",
+    "Building_Bridge_StonePier4m_001",
+    "Building_Bridge_Abutment_001"
+  ],
+  "tunnelModels": [
+    "Building_Tunnel_StonePortal_001",
+    "Building_Tunnel_RockStraight4m_001",
+    "Building_Tunnel_SupportFrame_001"
+  ],
+  "riverModels": [
+    "Environment_Terrain_RiverStraight8m_001",
+    "Environment_Terrain_RiverCurve90R8_001"
   ]
 }

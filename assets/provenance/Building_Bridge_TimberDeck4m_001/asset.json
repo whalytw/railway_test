@@ -1,0 +1,176 @@
+{
+  "id": "Building_Bridge_TimberDeck4m_001",
+  "name": "木構直橋・4m",
+  "category": "06_Buildings",
+  "subcategory": "Railway_Bridges/Spans",
+  "tags": [
+    "railway",
+    "bridge",
+    "roadbed",
+    "cartoon",
+    "modular",
+    "threejs",
+    "bridge"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-04",
+  "source": "self_created_from_user_style_references",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_provided_reference",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Bridge_Roadbed_Kit_001/source/Bridge_Roadbed_Kit_001.blend",
+  "sourceLibraryPath": "06_Buildings/Railway_Bridges/_Shared/Bridge_Roadbed_Kit_001/source/Bridge_Roadbed_Kit_001.blend",
+  "sourceCollection": "BR_01_TimberDeck4m",
+  "gameFile": "exports/Building_Bridge_TimberDeck4m_001.glb",
+  "infrastructureFile": "exports/Building_Bridge_TimberDeck4m_001.infrastructure.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "polycount": 10716,
+  "polycountUnit": "triangles",
+  "materialCount": 1,
+  "meshNodeCount": 1,
+  "textureResolution": "1024x1024",
+  "fileBytes": 1304416,
+  "dimensionsMetersXYZ": [
+    3.354,
+    1.74,
+    4.02
+  ],
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "entry centre at deck surface"
+  },
+  "parameters": {
+    "title": "木構直橋・4m",
+    "category": "06_Buildings",
+    "family": "Railway_Bridges",
+    "group": "Spans",
+    "kind": "bridge",
+    "rail": "Straight_4m",
+    "origin": "entry centre at deck surface",
+    "mount": "surface"
+  },
+  "ports": [
+    {
+      "id": "Start",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "up": [
+        -0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "id": "End",
+      "position": [
+        0.0,
+        0.0,
+        4.0
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "up": [
+        -0.0,
+        1.0,
+        0.0
+      ]
+    }
+  ],
+  "supportSockets": [
+    {
+      "id": "StartBearing",
+      "position": [
+        0.0,
+        -0.6000000238418579,
+        0.0
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "up": [
+        -0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "id": "EndBearing",
+      "position": [
+        0.0,
+        -0.6000000238418579,
+        4.0
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "up": [
+        -0.0,
+        1.0,
+        0.0
+      ]
+    }
+  ],
+  "compatibleTracks": [
+    {
+      "assetId": "Environment_Rail_Straight_4m_001",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    }
+  ],
+  "boundsMeters": {
+    "min": [
+      -1.6770000457763672,
+      -0.5999999046325684,
+      -0.009999990463256836
+    ],
+    "max": [
+      1.6770000457763672,
+      1.1399998664855957,
+      4.009999752044678
+    ]
+  },
+  "collision": {
+    "provided": false,
+    "note": "依遊戲引擎建立簡化橋面、地形及支撐碰撞；須保留桁架行車空間與涵洞的貫通洞口。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "threejsRuntime": "passed",
+    "threeRevision": "180"
+  },
+  "notes": "沿用金橡木、深色護框、象牙白和銅色邊件。橋面／路基以表面為Y=0；橋墩及牆體以地面為Y=0。獨立GLB不含鐵軌；接點、承座和相容鐵軌見同名infrastructure.json。"
+}

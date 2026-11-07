@@ -1,0 +1,7 @@
+2026-11-04。Blender MCP / bpy建立的原創幾何與程序PBR圖集，未下載第三方模型或貼圖。
+美術風格參考為使用者先前提供的三款礦車圖，沿用素材庫未查證的權利狀態，不重新宣告CC0。
+預覽與模型文字使用本機Microsoft JhengHei；字形已網格化，GLB沒有網頁字型相依。
+示範引用既有鐵軌與金橡礦車；railway.js及loadMinecart.js複製自本素材庫先前建立的helper。
+共用原檔（相對於本模型資料夾）：
+../../_Shared/Tunnel_Mine_Kit_001/source/Tunnel_Mine_Kit_001.blend
+Collection：TM_07_SupportFrame

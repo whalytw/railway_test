@@ -1,0 +1,60 @@
+{
+  "schema": "railway-mine/1",
+  "assetId": "Building_Tunnel_SupportFrame_001",
+  "name": "礦坑支撐木架",
+  "kind": "support_frame",
+  "unit": "metre",
+  "up": "+Y",
+  "forward": "+Z",
+  "origin": "frame centre at sleeper underside",
+  "mount": "port",
+  "parameters": {
+    "title": "礦坑支撐木架",
+    "category": "06_Buildings",
+    "group": "Supports",
+    "kind": "support_frame",
+    "mount": "port",
+    "origin": "frame centre at sleeper underside"
+  },
+  "ports": [
+    {
+      "id": "Attach",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "interactions": [],
+  "compatibleTracks": [],
+  "railTop": 0.405,
+  "approachFace": "-Z",
+  "boundsMeters": {
+    "min": [
+      -1.8549995422363281,
+      0.0,
+      -0.18999958038330078
+    ],
+    "max": [
+      1.8549995422363281,
+      3.25,
+      0.18999958038330078
+    ]
+  },
+  "clearance": {
+    "innerHalfWidth": 1.57,
+    "ceilingAtCartEnvelopeY": 3.0,
+    "gateMustBeOpen": false
+  }
+}
