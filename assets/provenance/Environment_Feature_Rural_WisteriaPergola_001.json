@@ -1,0 +1,180 @@
+{
+  "sourceLibraryMetadata": "07_Environment/Rural/Signature_Features/Environment_Feature_Rural_WisteriaPergola_001/asset.json",
+  "sourceLibraryExport": "07_Environment/Rural/Signature_Features/Environment_Feature_Rural_WisteriaPergola_001/exports/Environment_Feature_Rural_WisteriaPergola_001.glb",
+  "copiedWithoutGeometryChanges": true,
+  "mainSha256": "dd05a441b15e74f7fd5bac11701b74e30463a229375c600bdd101219ab573dce",
+  "lod1Sha256": "006aa58e402f6119bf74911c9f27069d0197dd5ffed1f71f018d2217edda5a30",
+  "metadata": {
+    "id": "Environment_Feature_Rural_WisteriaPergola_001",
+    "name": "紫藤小棚",
+    "category": "07_Environment",
+    "subcategory": "Rural/Signature_Features",
+    "tags": [
+      "biome-feature",
+      "cartoon",
+      "stylized",
+      "low-poly",
+      "threejs",
+      "rural",
+      "WisteriaPergola"
+    ],
+    "status": "game_ready",
+    "version": "1.0.0",
+    "createdAt": "2026-11-07",
+    "source": "self_created_procedural_geometry",
+    "sourceUrl": "",
+    "license": {
+      "name": "self_created_user_project",
+      "licenseUrl": "",
+      "proofFile": "licenses/provenance.txt",
+      "allowsCommercialUse": null,
+      "allowsPublicWebDelivery": true,
+      "allowsStandaloneRedistribution": null
+    },
+    "sourceFile": "../../../Biome_Features/_Shared/Biome_Features_Kit_001/source/Biome_Features_Kit_001.blend",
+    "sourceLibraryPath": "07_Environment/Biome_Features/_Shared/Biome_Features_Kit_001/source/Biome_Features_Kit_001.blend",
+    "sourceCollection": "BF32_Environment_Feature_Rural_WisteriaPergola_001",
+    "lod1SourceCollection": "BF32_LOD1_Environment_Feature_Rural_WisteriaPergola_001",
+    "gameFile": "exports/Environment_Feature_Rural_WisteriaPergola_001.glb",
+    "featureFile": "exports/feature.json",
+    "preview": "previews/thumbnail.png",
+    "previews": [
+      "previews/thumbnail.png",
+      "previews/reverse.png"
+    ],
+    "animations": [],
+    "runtimeAnimation": {
+      "provided": false,
+      "bakedAnimationClips": false,
+      "note": "枝葉、花瓣、冰雪、水帶與熔岩均為靜態幾何，未附風動、水流或粒子效果。"
+    },
+    "polycount": 2340,
+    "polycountUnit": "triangles",
+    "meshNodeCount": 1,
+    "materialCount": 1,
+    "fileBytes": 290840,
+    "textureResolution": "none; vertex colors",
+    "dimensionsMetersXYZ": [
+      3.700000047683716,
+      3.0399999618530273,
+      2.498331308364868
+    ],
+    "boundsMeters": {
+      "min": [
+        -1.850000023841858,
+        0,
+        -1.249165654182434
+      ],
+      "max": [
+        1.850000023841858,
+        3.0399999618530273,
+        1.249165654182434
+      ]
+    },
+    "coordinates": {
+      "up": "+Y",
+      "forward": "+Z",
+      "unit": "metre",
+      "origin": "lowest datum; follow installation mode",
+      "sourceBlenderUp": "+Z",
+      "glbConversion": "[x,z,-y]"
+    },
+    "primaryBiome": "Rural",
+    "compatibleBiomes": [
+      "Rural",
+      "Pastoral",
+      "Lakeside"
+    ],
+    "biomeConditions": {},
+    "placement": {
+      "groundAnchor": [
+        0,
+        0,
+        0
+      ],
+      "installationMode": "ground",
+      "surfaceDatumLocalY": 0,
+      "baseAtGround": true,
+      "recommendedGroundYOffsetY": 0,
+      "uniformScaleRecommended": true,
+      "displaySlab": false,
+      "frequency": "rare",
+      "frequencyLabel": "低頻焦點",
+      "needsTerrainBlending": false,
+      "requiresTerrainOpening": false,
+      "usageNote": "開放木架、覆頂藤葉及垂掛紫色花串；適合村口小庭院，無行人導航設定。",
+      "heightFormula": "position.y = sampledFootGroundY",
+      "installationNote": "原點放在地表高度，檢查根腳、坡腳與岩體各接觸點；大型地貌需與周圍地表混合，不能只對齊中心後讓兩端懸空。"
+    },
+    "footprintRadiusMeters": 2.2322,
+    "suggestedMinRailCenterOffsetMeters": 4.6322,
+    "boundingFootprintXZ": {
+      "min": [
+        -1.850000023841858,
+        -1.249165654182434
+      ],
+      "max": [
+        1.850000023841858,
+        1.249165654182434
+      ]
+    },
+    "clearanceNote": "按完整樹冠、枝葉或地貌輪廓保守估算；縮放時等比調整。未執行遊戲線路碰撞或橋隧淨空檢查。",
+    "lods": [
+      {
+        "level": 1,
+        "file": "exports/Environment_Feature_Rural_WisteriaPergola_001_LOD1.glb",
+        "triangles": 552,
+        "fileBytes": 58204,
+        "boundsMeters": {
+          "min": [
+            -1.7495191097259521,
+            0,
+            -1.2000000476837158
+          ],
+          "max": [
+            1.7495191097259521,
+            3.0399999618530273,
+            1.2000000476837158
+          ]
+        },
+        "dimensionsMetersXYZ": [
+          3.4990382194519043,
+          3.0399999618530273,
+          2.4000000953674316
+        ],
+        "switchToLOD1Meters": 100,
+        "suggestedCullDistanceMeters": 1000
+      }
+    ],
+    "lodNote": "LOD1 為獨立 GLB，需由遊戲建立 THREE.LOD 或距離切換；保留接地與主要位置，減少細枝、小葉、雪團或曲面分段。距離僅為起始調校建議。",
+    "collision": {
+      "provided": false,
+      "note": "視覺素材，沒有物理、導航、可通行隧道、互動或可破壞行為；空隙由實際網格保留。"
+    },
+    "featureSettings": {
+      "waterSimulationProvided": false,
+      "terrainCutProvided": false,
+      "windShaderProvided": false,
+      "emissiveLightingProvided": false
+    },
+    "validation": {
+      "glbIntegrity": "passed",
+      "selfContained": "passed",
+      "threejsLoadAndBounds": "passed",
+      "finiteAttributes": "passed",
+      "triangleAreas": "passed",
+      "indexRanges": "passed",
+      "unitNormals": "passed",
+      "groundOrigin": "passed",
+      "noDisplaySlab": "passed",
+      "singleMeshAndMaterial": "passed",
+      "closedConnectedPieces": "passed",
+      "threeRevision": "180",
+      "sha256": "dd05a441b15e74f7fd5bac11701b74e30463a229375c600bdd101219ab573dce",
+      "detailedReport": "exports/validation.json"
+    },
+    "geometryNote": "以自然景物本身的輪廓收底，未附展示底板。網格包含有厚度的封閉部件，可互相交疊，未做布林聯集；預覽地面不輸出。",
+    "notes": "開放木架、覆頂藤葉及垂掛紫色花串；適合村口小庭院，無行人導航設定。 主要環境用於分類，其他建議環境見 compatibleBiomes；依地貌、用途與出現頻率混用，避免同一輪廓等距排滿。"
+  },
+  "licenseProof": "製作日期：2026-11-07\n素材：Environment_Feature_Rural_WisteriaPergola_001 / 紫藤小棚\n來源：本次為使用者專案，以 Blender MCP 原創程序網格建模。\n未匯入第三方模型、貼圖、HDRI；模型未嵌入字型輪廓，未使用外部模型生成服務。\n用途：依使用者要求存入 GameAssets，供其 Three.js 網頁及共用素材庫使用，可隨該網頁交付 GLB。\n記錄代碼：self_created_user_project。此為來源及用途紀錄，不是 CC0 或其他獨立授權條款；商用及獨立素材轉售條款未另行指定。\n"
+}

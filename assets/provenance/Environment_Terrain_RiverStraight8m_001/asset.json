@@ -1,0 +1,160 @@
+{
+  "id": "Environment_Terrain_RiverStraight8m_001",
+  "name": "直線河床・8m",
+  "category": "07_Environment",
+  "subcategory": "Common_Terrain/Waterways",
+  "tags": [
+    "terrain",
+    "common",
+    "modular",
+    "cartoon",
+    "stylized",
+    "threejs",
+    "river"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-05",
+  "source": "self_created_procedural_geometry",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_project",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Terrain_Common_Kit_001/source/Terrain_Common_Kit_001.blend",
+  "sourceLibraryPath": "07_Environment/Common_Terrain/_Shared/Terrain_Common_Kit_001/source/Terrain_Common_Kit_001.blend",
+  "sourceCollection": "TC_10_RiverStraight8m",
+  "gameFile": "exports/Environment_Terrain_RiverStraight8m_001.glb",
+  "terrainFile": "exports/Environment_Terrain_RiverStraight8m_001.terrain.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/top.png",
+    "previews/reverse.png"
+  ],
+  "animations": [],
+  "polycount": 642,
+  "polycountUnit": "triangles",
+  "materialCount": 4,
+  "meshNodeCount": 1,
+  "textureResolution": "none; palette and vertex colors",
+  "fileBytes": 31392,
+  "dimensionsMetersXYZ": [
+    8.0,
+    2.1,
+    8.0
+  ],
+  "boundsMeters": {
+    "min": [
+      -4.0,
+      -2.0999999,
+      0.0
+    ],
+    "max": [
+      4.0,
+      0.0,
+      8.0
+    ]
+  },
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "bank-level channel entry"
+  },
+  "parameters": {
+    "title": "直線河床・8m",
+    "group": "Waterways",
+    "kind": "river",
+    "turn": 0,
+    "length": 8
+  },
+  "ports": [
+    {
+      "id": "Start",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "id": "End",
+      "position": [
+        0.0,
+        0.0,
+        8.0
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ]
+    }
+  ],
+  "compatibleTracks": [],
+  "materialRoles": {
+    "grass": {
+      "material": "MAT_TC_grass",
+      "baseColorSRGB": [
+        142,
+        169,
+        105
+      ]
+    },
+    "soil": {
+      "material": "MAT_TC_soil",
+      "baseColorSRGB": [
+        163,
+        119,
+        77
+      ]
+    },
+    "rock": {
+      "material": "MAT_TC_rock",
+      "baseColorSRGB": [
+        155,
+        147,
+        126
+      ]
+    },
+    "bed": {
+      "material": "MAT_TC_bed",
+      "baseColorSRGB": [
+        124,
+        124,
+        105
+      ]
+    }
+  },
+  "collision": {
+    "provided": false,
+    "note": "提供封閉可射線取樣地表，不綁定物理引擎；Three.js地面取樣請用terrainGroundPoint。水面不參與落地。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "sourceMeshManifold": "passed",
+    "seams": "passed",
+    "threejsRuntime": "not_run_environment_unavailable"
+  },
+  "notes": "乾河床包含兩岸草地、土坡及岩質河底；沒有透明水面，避免材質排序與折射效果被烘焙進GLB。；水位建議Y=-0.55m，河底Y=-1.20m；水面半寬1.74m，岸邊約2cm埋入土坡。；橋梁應跨越中央河道；橋面及鐵軌的表面基準皆維持Y=0。"
+}

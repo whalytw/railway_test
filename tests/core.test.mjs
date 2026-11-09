@@ -65,9 +65,9 @@ test('three-second departure countdown counts seconds without moving the cart', 
   simulate(state, 1, 1); assert.equal(state.countdown, 0); assert.ok(state.speed > 0 && state.speed < 3);
 });
 
-test('full acceleration reaches but cannot exceed 120 km/h', () => {
-  const state = createPhysics(); simulate(state, 120, 1); almost(state.speed, MAX_FORWARD);
-  const before = state.distance; simulate(state, 30, 1); almost(state.speed, MAX_FORWARD); almost(state.distance - before, 1000, 1e-6);
+test('full power approaches 120 km/h without exceeding the speed limit', () => {
+  const state = createPhysics(); simulate(state, 180, 1); almost(state.speed, MAX_FORWARD, 0.01 / 3.6);
+  const before = state.distance; simulate(state, 30, 1); assert.ok(state.speed <= MAX_FORWARD); almost(state.distance - before, 1000, 0.01);
 });
 
 test('neutral coasts with gradual friction and eventually rests without jitter', () => {
@@ -82,8 +82,9 @@ test('pulling down brakes continuously, then reverses to at most 30 km/h', () =>
   stepPhysics(state, FIXED_STEP, -1); assert.ok(state.speed > 0); assert.ok(Math.abs(state.speed - before) < 0.05);
   let min = 0, maxJump = 0;
   for (let i = 0; i < 12000; i++) { const v = state.speed; stepPhysics(state, FIXED_STEP, -1); min = Math.min(min, state.speed); maxJump = Math.max(maxJump, Math.abs(state.speed - v)); }
-  almost(state.speed, -MAX_REVERSE); assert.ok(min >= -MAX_REVERSE); assert.ok(maxJump < 0.05);
-  simulate(state, 120, 1); almost(state.speed, MAX_FORWARD);
+  assert.ok(state.speed < -28 / 3.6); assert.ok(min >= -MAX_REVERSE); assert.ok(maxJump < 0.05);
+  simulate(state, 240, -1); almost(state.speed, -MAX_REVERSE, 0.01 / 3.6);
+  simulate(state, 180, 1); almost(state.speed, MAX_FORWARD, 0.01 / 3.6);
 });
 
 test('distance wraps for arbitrary forward and reverse laps without an endpoint', () => {

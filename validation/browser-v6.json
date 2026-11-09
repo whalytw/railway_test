@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "date": "2026-11-09",
+  "specifiedDriverOnTitle": "Animal_CubePet_Panda_001",
+  "actualGameplay": {
+    "driver": "Animal_CubePet_Panda_001",
+    "state": "running",
+    "vehicle": "Vehicle_Minecart_RedCopper_001"
+  },
+  "randomSelectionsObserved": [
+    "方塊無尾熊",
+    "方塊螃蟹",
+    "方塊鸚鵡"
+  ],
+  "consoleErrorsOrWarnings": [],
+  "desktopViewportTested": {
+    "width": 1280,
+    "height": 800
+  },
+  "temporaryViewportRestored": true,
+  "screenshots": [
+    "title-driver.jpg",
+    "gameplay-driver.jpg"
+  ],
+  "performanceBenchmark": false
+}

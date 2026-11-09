@@ -1,0 +1,60 @@
+{
+  "id": "Environment_Hills_DistantRidge48m_001",
+  "applied": true,
+  "originalSha256": "36f0e2809d22d2abac3e2e69d2cc6d41dc552efd387c87e8bc1a63a953880e06",
+  "cleanedSha256": "4f6ef272acb7d10f40959da76c9afcaadfef170e07a8ce6627587fda50dd8c41",
+  "before": {
+    "triangles": 628,
+    "slabSideBottomTriangles": 196,
+    "flatDisplayTopTriangles": 75,
+    "bounds": {
+      "min": [
+        -24,
+        -0.8999999761581421,
+        -9
+      ],
+      "max": [
+        24,
+        10.715789794921875,
+        9
+      ]
+    },
+    "bytes": 20492
+  },
+  "after": {
+    "triangles": 357,
+    "slabSideBottomTriangles": 0,
+    "flatDisplayTopTriangles": 0,
+    "bounds": {
+      "min": [
+        -24,
+        0,
+        -9
+      ],
+      "max": [
+        22,
+        10.715789794921875,
+        9
+      ]
+    },
+    "bytes": 10788
+  },
+  "originalSlabBottomY": -0.9,
+  "placement": {
+    "localGroundDatumY": 0,
+    "useOriginalBoundingBoxBottomAsGround": false,
+    "embedMeters": 0.015,
+    "note": "Place local Y=0 at the host terrain datum. The open natural foot is intended to blend into host terrain."
+  },
+  "removed": {
+    "slabSideBottomTriangles": 196,
+    "flatDisplayTopTriangles": 75
+  },
+  "preserved": [
+    "natural sloping terrain",
+    "artist vertex positions, normals and colors",
+    "embedded natural rock geometry",
+    "glTF node hierarchy and materials"
+  ],
+  "sourceLibraryModified": false
+}

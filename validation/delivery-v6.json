@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "version": "6.0.0",
+  "date": "2026-11-09",
+  "originalV5ModelsUnchanged": 310,
+  "legacyAssetIndexRowsUnchanged": 340,
+  "newIndexEntries": 364,
+  "newAnimalModels": 24,
+  "vehicleChoices": 3,
+  "posture": "standing",
+  "automatedTestsPassed": 58,
+  "driverCartPairs": 72,
+  "browserVerified": true,
+  "githubPublication": "user-managed"
+}

@@ -1,0 +1,174 @@
+{
+  "id": "Environment_Volcano_LavaChannel8m_001",
+  "operation": "remove-display-foundation-and-retain-natural-volcano",
+  "sourceReadOnly": "07_Environment/Volcano/_Shared/Volcano_Kit_001/source/build_volcano.py",
+  "originalSha256": "0a1bcd03f6bb6d8a4d518fd8f8cf4066958575e722e717f694ccab939e199176",
+  "outputSha256": "8e8fc0ec47bffb25f10d476c4ade907c0e04dc03256edcf10625a48ef8632872",
+  "before": {
+    "triangles": 954,
+    "lavaTriangles": 234,
+    "bounds": {
+      "min": [
+        -2.5999999046325684,
+        -0.699999988079071,
+        0
+      ],
+      "max": [
+        2.5999999046325684,
+        0.3400000035762787,
+        8
+      ]
+    },
+    "dimensions": [
+      5.199999809265137,
+      1.0399999916553497,
+      8
+    ],
+    "bytes": 68088
+  },
+  "after": {
+    "triangles": 736,
+    "lavaTriangles": 128,
+    "bounds": {
+      "min": [
+        -2.5999999046325684,
+        -0.3499999940395355,
+        0
+      ],
+      "max": [
+        2.5999999046325684,
+        0.3400000035762787,
+        8
+      ]
+    },
+    "dimensions": [
+      5.199999809265137,
+      0.6899999976158142,
+      8
+    ],
+    "bytes": 59040
+  },
+  "removedTriangles": {
+    "rectangular-channel-foundation": 108,
+    "channel-display-end-cap": 4,
+    "lava-prism-bottom-or-side": 106
+  },
+  "reprofiledOuterRimVertices": 0,
+  "protectedMoltenSurface": {
+    "before": {
+      "triangles": 128,
+      "sha256": "f84336c3e277a7f7fad4263ebd41906d63019e30fd401df0bb4bc099ec283a25"
+    },
+    "after": {
+      "triangles": 128,
+      "sha256": "f84336c3e277a7f7fad4263ebd41906d63019e30fd401df0bb4bc099ec283a25"
+    },
+    "unchanged": true
+  },
+  "placement": {
+    "localGroundDatumY": 0,
+    "groundAnchor": [
+      0,
+      0,
+      0
+    ],
+    "useOriginalBoundingBoxBottomAsGround": false,
+    "alignToGroundNormal": false,
+    "keepUpright": true,
+    "uniformScaleRecommended": true,
+    "footprintAdaptive": true,
+    "embedMeters": 0.015,
+    "footBounds": {
+      "min": [
+        -2.5999999046325684,
+        0,
+        0
+      ],
+      "max": [
+        2.5999999046325684,
+        0,
+        8
+      ]
+    },
+    "normalizedFootBounds": {
+      "min": [
+        -1,
+        0,
+        -1
+      ],
+      "max": [
+        1,
+        0,
+        1
+      ]
+    },
+    "footNormalization": {
+      "centreXZ": [
+        0,
+        4
+      ],
+      "halfExtentsXZ": [
+        2.5999999046325684,
+        4
+      ],
+      "formula": "normalizedXZ=(localXZ-centreXZ)/halfExtentsXZ"
+    },
+    "footprint": {
+      "shape": "channel",
+      "xRange": [
+        -2.6,
+        2.6
+      ],
+      "zRange": [
+        0,
+        8
+      ],
+      "entryOrigin": true
+    },
+    "rootPlacement": {
+      "strategy": "highest-rendered-footprint-sample-plus-lava-clearance",
+      "lavaLocalY": -0.12,
+      "clearanceWorldMeters": 0.04,
+      "formula": "rootWorldY=maxRenderedFootprintY+0.12*scaleY+0.04",
+      "hostTerrainModificationRequired": false
+    },
+    "terrainConform": {
+      "mode": "bank-contact-only",
+      "contactX": [
+        -2.6,
+        2.6
+      ],
+      "contactBoundaryY": 0,
+      "preserveLavaLevel": true,
+      "lavaLocalY": -0.12,
+      "weight": {
+        "formula": "smoothstep(2.2,2.6,abs(localX))*(1-smoothstep(.02,.24,localY))",
+        "xBeginMeters": 2.2,
+        "xFullMeters": 2.6,
+        "normalizedXBegin": 0.8461538461538461,
+        "normalizedXFull": 1,
+        "fullBelowLocalY": 0.02,
+        "zeroAboveLocalY": 0.24
+      },
+      "endContactBand": {
+        "zEdges": [
+          0,
+          8
+        ],
+        "zBlendDepthMeters": 0.65,
+        "affectOnlyAbsXAbove": 1.4,
+        "fullAtAbsX": 2.2,
+        "combineWithSideWeight": "max",
+        "applyHeightFade": true,
+        "keepMoltenEndPortsLevel": true
+      },
+      "protectedMoltenXRange": [
+        -1.4,
+        1.4
+      ]
+    },
+    "note": "Place root above the highest rendered footprint ground plus lava depth/clearance, not by bed minimum. Pull only the outer bank feet into host terrain. End-edge blending may affect outer rocks only; preserve the central molten ribbon and its z=0/z=8 end ports. Host terrain need not be cut."
+  },
+  "geometryModified": true,
+  "sourceLibraryModified": false
+}

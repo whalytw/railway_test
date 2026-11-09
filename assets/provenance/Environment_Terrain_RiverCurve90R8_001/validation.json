@@ -1,0 +1,19 @@
+{
+  "file": "Environment_Terrain_RiverCurve90R8_001.glb",
+  "bytes": 68760,
+  "sha256": "fd434c845f226027596f1dca0c2b6dd2815dc53e17f81a47cc3701fba21aee67",
+  "triangles": 982,
+  "meshNodes": 1,
+  "materials": 4,
+  "embeddedImages": 0,
+  "maxNormalLengthError": 1.1920928955078125e-07,
+  "smallestTriangleArea": 0.05787500999545917,
+  "nonFiniteValues": 0,
+  "degenerateTriangles": 0,
+  "closedSourceManifold": true,
+  "extensionsRequired": [],
+  "passed": true,
+  "vertices": 493,
+  "closedManifold": true,
+  "volumeCubicMeters": 158.74305
+}

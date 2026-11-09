@@ -1,0 +1,156 @@
+{
+  "id": "Environment_Volcano_LavaPool8m_001",
+  "operation": "remove-display-foundation-and-retain-natural-volcano",
+  "sourceReadOnly": "07_Environment/Volcano/_Shared/Volcano_Kit_001/source/build_volcano.py",
+  "originalSha256": "577673d663d09d54791c5f9637b2a7c87f2be77be000080b386ffd09befa483f",
+  "outputSha256": "4fc309ae7b72d8c7b347610ccf511b4c6985542031148eb7e8d5323dd9ba42f0",
+  "before": {
+    "triangles": 1032,
+    "lavaTriangles": 156,
+    "bounds": {
+      "min": [
+        -4,
+        -0.6499999761581421,
+        -4
+      ],
+      "max": [
+        4,
+        0.3149999976158142,
+        4
+      ]
+    },
+    "dimensions": [
+      8,
+      0.9649999737739563,
+      8
+    ],
+    "bytes": 86492
+  },
+  "after": {
+    "triangles": 582,
+    "lavaTriangles": 38,
+    "bounds": {
+      "min": [
+        -3.700000047683716,
+        -0.20000000298023224,
+        -3.4000000953674316
+      ],
+      "max": [
+        3.700000047683716,
+        0.3149999976158142,
+        3.4000000953674316
+      ]
+    },
+    "dimensions": [
+      7.400000095367432,
+      0.5150000005960464,
+      6.800000190734863
+    ],
+    "bytes": 58500
+  },
+  "removedTriangles": {
+    "square-display-foundation": 12,
+    "square-apron-or-lower-rim-closure": 320,
+    "lava-prism-bottom-or-side": 118
+  },
+  "reprofiledOuterRimVertices": 120,
+  "protectedMoltenSurface": {
+    "before": {
+      "triangles": 38,
+      "sha256": "d5a81ea8e3b7c010495401a9dd4d8060727361c6e3368244b3fc36d0f43c8dec"
+    },
+    "after": {
+      "triangles": 38,
+      "sha256": "d5a81ea8e3b7c010495401a9dd4d8060727361c6e3368244b3fc36d0f43c8dec"
+    },
+    "unchanged": true
+  },
+  "placement": {
+    "localGroundDatumY": 0,
+    "groundAnchor": [
+      0,
+      0,
+      0
+    ],
+    "useOriginalBoundingBoxBottomAsGround": false,
+    "alignToGroundNormal": false,
+    "keepUpright": true,
+    "uniformScaleRecommended": true,
+    "footprintAdaptive": true,
+    "embedMeters": 0.015,
+    "footBounds": {
+      "min": [
+        -3.700000047683716,
+        0,
+        -3.4000000953674316
+      ],
+      "max": [
+        3.700000047683716,
+        0,
+        3.4000000953674316
+      ]
+    },
+    "normalizedFootBounds": {
+      "min": [
+        -1,
+        0,
+        -1
+      ],
+      "max": [
+        1,
+        0,
+        1
+      ]
+    },
+    "footNormalization": {
+      "centreXZ": [
+        0,
+        0
+      ],
+      "halfExtentsXZ": [
+        3.700000047683716,
+        3.4000000953674316
+      ],
+      "formula": "normalizedXZ=(localXZ-centreXZ)/halfExtentsXZ"
+    },
+    "footprint": {
+      "shape": "ellipse",
+      "halfExtentsXZ": [
+        3.7,
+        3.4
+      ]
+    },
+    "rootPlacement": {
+      "strategy": "highest-rendered-footprint-sample-plus-lava-clearance",
+      "lavaLocalY": -0.12,
+      "clearanceWorldMeters": 0.04,
+      "formula": "rootWorldY=maxRenderedFootprintY+0.12*scaleY+0.04",
+      "hostTerrainModificationRequired": false
+    },
+    "terrainConform": {
+      "mode": "outer-contact-only",
+      "contactBoundaryY": 0,
+      "preserveLavaLevel": true,
+      "lavaLocalY": -0.12,
+      "outerContactRadiiXZ": [
+        3.7,
+        3.4
+      ],
+      "weight": {
+        "formula": "smoothstep(.94,1,rho)*(1-smoothstep(.02,.22,localY))",
+        "rhoDefinition": "sqrt((localX/3.7)^2+(localZ/3.4)^2)",
+        "radialBegin": 0.94,
+        "radialFull": 1,
+        "fullBelowLocalY": 0.02,
+        "zeroAboveLocalY": 0.22
+      },
+      "protectedMoltenHalfExtentsXZ": [
+        3.13,
+        2.63
+      ]
+    },
+    "note": "Keep molten surface horizontal at local Y=-0.12. Place the root above the highest actually rendered host-ground sample plus lava depth/clearance, then pull only the outer oval foot back to sampled terrain. The original inner rim, crest, molten surface and host terrain remain unchanged."
+  },
+  "geometryModified": true,
+  "sourceLibraryModified": false
+}

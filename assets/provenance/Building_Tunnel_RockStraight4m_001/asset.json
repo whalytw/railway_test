@@ -1,0 +1,158 @@
+{
+  "id": "Building_Tunnel_RockStraight4m_001",
+  "name": "岩壁直線隧道・4m",
+  "category": "06_Buildings",
+  "subcategory": "Railway_Tunnels_Mines/Modules",
+  "tags": [
+    "railway",
+    "tunnel",
+    "mine",
+    "cartoon",
+    "modular",
+    "threejs",
+    "tunnel"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-04",
+  "source": "self_created_from_user_style_references",
+  "sourceUrl": "",
+  "license": {
+    "name": "self_created_user_provided_reference",
+    "licenseUrl": "",
+    "proofFile": "licenses/provenance.txt",
+    "allowsCommercialUse": null,
+    "allowsPublicWebDelivery": null,
+    "allowsStandaloneRedistribution": null
+  },
+  "sourceFile": "../../_Shared/Tunnel_Mine_Kit_001/source/Tunnel_Mine_Kit_001.blend",
+  "sourceLibraryPath": "06_Buildings/Railway_Tunnels_Mines/_Shared/Tunnel_Mine_Kit_001/source/Tunnel_Mine_Kit_001.blend",
+  "sourceCollection": "TM_03_RockStraight4m",
+  "gameFile": "exports/Building_Tunnel_RockStraight4m_001.glb",
+  "mineFile": "exports/Building_Tunnel_RockStraight4m_001.mine.json",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/front.png",
+    "previews/reverse.png",
+    "previews/exterior.png"
+  ],
+  "animations": [],
+  "programmaticInteractions": [
+    {
+      "kind": "cutaway",
+      "roofRole": "tunnel_roof",
+      "default": false
+    }
+  ],
+  "polycount": 9380,
+  "polycountUnit": "triangles",
+  "materialCount": 1,
+  "meshNodeCount": 2,
+  "textureResolution": "1024x1024",
+  "fileBytes": 1300680,
+  "sha256": "9b770d749a461424d25328bba0445bc0b8a986d9036d342841d46380380b649c",
+  "dimensionsMetersXYZ": [
+    5.082483,
+    4.462913,
+    4.015449
+  ],
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "entry centre at sleeper underside",
+    "approachFace": "+Z"
+  },
+  "parameters": {
+    "title": "岩壁直線隧道・4m",
+    "category": "06_Buildings",
+    "group": "Modules",
+    "kind": "tunnel",
+    "rail": "Straight_4m",
+    "mount": "surface",
+    "origin": "entry centre at sleeper underside"
+  },
+  "ports": [
+    {
+      "id": "Start",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "up": [
+        -0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "id": "End",
+      "position": [
+        0,
+        0,
+        4.0
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "up": [
+        -0.0,
+        1.0,
+        0.0
+      ]
+    }
+  ],
+  "compatibleTracks": [
+    {
+      "assetId": "Environment_Rail_Straight_4m_001",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    }
+  ],
+  "boundsMeters": {
+    "min": [
+      -2.547252655029297,
+      -0.18000000715255737,
+      0.0
+    ],
+    "max": [
+      2.5352306365966797,
+      4.282912731170654,
+      4.015449047088623
+    ]
+  },
+  "collision": {
+    "provided": false,
+    "note": "遊戲端建立簡化地板、內壁及門扇碰撞；保留入口及隧道洞口，頂部隱藏只改變顯示。"
+  },
+  "validation": {
+    "glbIntegrity": "passed",
+    "threejsRuntime": "passed",
+    "threeRevision": "180"
+  },
+  "notes": "4m中空直線隧道，內壁、地板與獨立頂部均有實體；Start/End可直接拼接。縮圖為剖視，GLB預設保留頂部。",
+  "clearance": {
+    "innerHalfWidth": 1.57,
+    "ceilingAtCartEnvelopeY": 3.0
+  },
+  "opening": {
+    "baseInnerHalfWidth": 1.8,
+    "chamberInnerHalfWidth": 1.8,
+    "springHeight": 1.85,
+    "innerCrownHeight": 3.65,
+    "floorBottom": -0.18
+  }
+}

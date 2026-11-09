@@ -1,0 +1,181 @@
+{
+  "sourceLibraryMetadata": "07_Environment/Hills/Signature_Features/Environment_Feature_Hills_SawtoothRidge_001/asset.json",
+  "sourceLibraryExport": "07_Environment/Hills/Signature_Features/Environment_Feature_Hills_SawtoothRidge_001/exports/Environment_Feature_Hills_SawtoothRidge_001.glb",
+  "copiedWithoutGeometryChanges": true,
+  "mainSha256": "9e2600161af696fc34a837cd2b261ef011485a507702cdc40345c7da90585cc5",
+  "lod1Sha256": "2ef72f827a3e3e67edbac8d9247e929863095295f9ffe045b549611e554875f6",
+  "metadata": {
+    "id": "Environment_Feature_Hills_SawtoothRidge_001",
+    "name": "斜層鋸齒岩脊",
+    "category": "07_Environment",
+    "subcategory": "Hills/Signature_Features",
+    "tags": [
+      "biome-feature",
+      "cartoon",
+      "stylized",
+      "low-poly",
+      "threejs",
+      "hills",
+      "SawtoothRidge"
+    ],
+    "status": "game_ready",
+    "version": "1.0.0",
+    "createdAt": "2026-11-07",
+    "source": "self_created_procedural_geometry",
+    "sourceUrl": "",
+    "license": {
+      "name": "self_created_user_project",
+      "licenseUrl": "",
+      "proofFile": "licenses/provenance.txt",
+      "allowsCommercialUse": null,
+      "allowsPublicWebDelivery": true,
+      "allowsStandaloneRedistribution": null
+    },
+    "sourceFile": "../../../Biome_Features/_Shared/Biome_Features_Kit_001/source/Biome_Features_Kit_001.blend",
+    "sourceLibraryPath": "07_Environment/Biome_Features/_Shared/Biome_Features_Kit_001/source/Biome_Features_Kit_001.blend",
+    "sourceCollection": "BF32_Environment_Feature_Hills_SawtoothRidge_001",
+    "lod1SourceCollection": "BF32_LOD1_Environment_Feature_Hills_SawtoothRidge_001",
+    "gameFile": "exports/Environment_Feature_Hills_SawtoothRidge_001.glb",
+    "featureFile": "exports/feature.json",
+    "preview": "previews/thumbnail.png",
+    "previews": [
+      "previews/thumbnail.png",
+      "previews/reverse.png"
+    ],
+    "animations": [],
+    "runtimeAnimation": {
+      "provided": false,
+      "bakedAnimationClips": false,
+      "note": "枝葉、花瓣、冰雪、水帶與熔岩均為靜態幾何，未附風動、水流或粒子效果。"
+    },
+    "polycount": 320,
+    "polycountUnit": "triangles",
+    "meshNodeCount": 1,
+    "materialCount": 1,
+    "fileBytes": 38640,
+    "textureResolution": "none; vertex colors",
+    "dimensionsMetersXYZ": [
+      7.652023792266846,
+      5.199999809265137,
+      2.1422664523124695
+    ],
+    "boundsMeters": {
+      "min": [
+        -3.9635009765625,
+        0,
+        -0.902545154094696
+      ],
+      "max": [
+        3.6885228157043457,
+        5.199999809265137,
+        1.2397212982177734
+      ]
+    },
+    "coordinates": {
+      "up": "+Y",
+      "forward": "+Z",
+      "unit": "metre",
+      "origin": "lowest datum; follow installation mode",
+      "sourceBlenderUp": "+Z",
+      "glbConversion": "[x,z,-y]"
+    },
+    "primaryBiome": "Hills",
+    "compatibleBiomes": [
+      "Hills",
+      "Desert"
+    ],
+    "biomeConditions": {
+      "Desert": "適合乾燥岩地或暖地植栽場景，依地形與色調配置；不是全部環境通用的植物。"
+    },
+    "placement": {
+      "groundAnchor": [
+        0,
+        0,
+        0
+      ],
+      "installationMode": "ground",
+      "surfaceDatumLocalY": 0,
+      "baseAtGround": true,
+      "recommendedGroundYOffsetY": 0,
+      "uniformScaleRecommended": true,
+      "displaySlab": false,
+      "frequency": "rare",
+      "frequencyLabel": "低頻焦點",
+      "needsTerrainBlending": true,
+      "requiresTerrainOpening": false,
+      "usageNote": "多片偏斜岩刃形成連續鋸齒輪廓，基部沿岩體自然收邊；適合坡脊中遠景。",
+      "heightFormula": "position.y = sampledFootGroundY",
+      "installationNote": "原點放在地表高度，檢查根腳、坡腳與岩體各接觸點；大型地貌需與周圍地表混合，不能只對齊中心後讓兩端懸空。"
+    },
+    "footprintRadiusMeters": 4.1529,
+    "suggestedMinRailCenterOffsetMeters": 6.5529,
+    "boundingFootprintXZ": {
+      "min": [
+        -3.9635009765625,
+        -0.902545154094696
+      ],
+      "max": [
+        3.6885228157043457,
+        1.2397212982177734
+      ]
+    },
+    "clearanceNote": "按完整樹冠、枝葉或地貌輪廓保守估算；縮放時等比調整。未執行遊戲線路碰撞或橋隧淨空檢查。",
+    "lods": [
+      {
+        "level": 1,
+        "file": "exports/Environment_Feature_Hills_SawtoothRidge_001_LOD1.glb",
+        "triangles": 80,
+        "fileBytes": 11172,
+        "boundsMeters": {
+          "min": [
+            -3.9635009765625,
+            0,
+            -0.902545154094696
+          ],
+          "max": [
+            3.6885228157043457,
+            5.199999809265137,
+            0.807430624961853
+          ]
+        },
+        "dimensionsMetersXYZ": [
+          7.652023792266846,
+          5.199999809265137,
+          1.709975779056549
+        ],
+        "switchToLOD1Meters": 100,
+        "suggestedCullDistanceMeters": 1000
+      }
+    ],
+    "lodNote": "LOD1 為獨立 GLB，需由遊戲建立 THREE.LOD 或距離切換；保留接地與主要位置，減少細枝、小葉、雪團或曲面分段。距離僅為起始調校建議。",
+    "collision": {
+      "provided": false,
+      "note": "視覺素材，沒有物理、導航、可通行隧道、互動或可破壞行為；空隙由實際網格保留。"
+    },
+    "featureSettings": {
+      "waterSimulationProvided": false,
+      "terrainCutProvided": false,
+      "windShaderProvided": false,
+      "emissiveLightingProvided": false
+    },
+    "validation": {
+      "glbIntegrity": "passed",
+      "selfContained": "passed",
+      "threejsLoadAndBounds": "passed",
+      "finiteAttributes": "passed",
+      "triangleAreas": "passed",
+      "indexRanges": "passed",
+      "unitNormals": "passed",
+      "groundOrigin": "passed",
+      "noDisplaySlab": "passed",
+      "singleMeshAndMaterial": "passed",
+      "closedConnectedPieces": "passed",
+      "threeRevision": "180",
+      "sha256": "9e2600161af696fc34a837cd2b261ef011485a507702cdc40345c7da90585cc5",
+      "detailedReport": "exports/validation.json"
+    },
+    "geometryNote": "以自然景物本身的輪廓收底，未附展示底板。網格包含有厚度的封閉部件，可互相交疊，未做布林聯集；預覽地面不輸出。",
+    "notes": "多片偏斜岩刃形成連續鋸齒輪廓，基部沿岩體自然收邊；適合坡脊中遠景。 主要環境用於分類，其他建議環境見 compatibleBiomes；依地貌、用途與出現頻率混用，避免同一輪廓等距排滿。"
+  },
+  "licenseProof": "製作日期：2026-11-07\n素材：Environment_Feature_Hills_SawtoothRidge_001 / 斜層鋸齒岩脊\n來源：本次為使用者專案，以 Blender MCP 原創程序網格建模。\n未匯入第三方模型、貼圖、HDRI；模型未嵌入字型輪廓，未使用外部模型生成服務。\n用途：依使用者要求存入 GameAssets，供其 Three.js 網頁及共用素材庫使用，可隨該網頁交付 GLB。\n記錄代碼：self_created_user_project。此為來源及用途紀錄，不是 CC0 或其他獨立授權條款；商用及獨立素材轉售條款未另行指定。\n"
+}

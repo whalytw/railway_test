@@ -1,0 +1,1806 @@
+{
+  "passed": true,
+  "combinations": 72,
+  "cases": [
+    {
+      "animal": "Animal_CubePet_Beaver_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Beaver_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.0125573021221617,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.265696627652702,
+      "bounds": {
+        "min": [
+          -0.632848313826351,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.632848313826351,
+          2.565101558074155,
+          0.93
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Bee_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Bee_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.9737828306644887,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.2999999999999998,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.6499999999999999,
+          2.991424246366879,
+          0.3291572518854936
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Bunny_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Bunny_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.04,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          3.1354463577270506,
+          0.4530179834365845
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Cat_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Cat_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.0298883369821226,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.2873604212276533,
+      "bounds": {
+        "min": [
+          -0.6436802106138266,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.6436802106138266,
+          2.8061032638443457,
+          0.9299999999999998
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Caterpillar_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Caterpillar_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.8999654049600309,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.6168848618971285,
+          0.2687292058391673
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Chick_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Chick_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.591988904133943,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3000000000000003,
+      "bounds": {
+        "min": [
+          -0.6500000000000001,
+          1.045,
+          -0.8395925349901134
+        ],
+        "max": [
+          0.6500000000000001,
+          1.9887782889620833,
+          -0.04040746500988662
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Cow_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Cow_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.8444385766258682,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.2999999999999998,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.6499999999999999,
+          2.4065525736884656,
+          0.3028803540865428
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Crab_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Crab_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.5565590035129208,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.814947666249259
+        ],
+        "max": [
+          0.65,
+          1.8415750605084669,
+          -0.06505233375074104
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Deer_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Deer_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.8444387074033409,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.7277858773905694,
+          0.3870289339683689
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Dog_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Dog_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.0317460395551563,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.6797362437682395,
+          0.618152975038142
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Elephant_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Elephant_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.6922803863726811,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.035826286490649,
+          0.22971597447348718
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Fish_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Fish_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.6902227945531708,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.8748402749962898
+        ],
+        "max": [
+          0.65,
+          2.1686359575682737,
+          -0.005159725003710092
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Fox_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Fox_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.8057470648591646,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.0071838310739558,
+      "bounds": {
+        "min": [
+          -0.5035919155369779,
+          1.045,
+          -0.9300000000000003
+        ],
+        "max": [
+          0.5035919155369779,
+          2.403751190005703,
+          0.9299999999999999
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Giraffe_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Giraffe_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.8357371680469501,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9299999999999999
+        ],
+        "max": [
+          0.65,
+          2.4772475645545877,
+          0.25340368768621996
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Hog_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Hog_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.9629629459564254,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9299999999999999
+        ],
+        "max": [
+          0.65,
+          2.5046591179519386,
+          0.5153162803417439
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Koala_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Koala_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.6691802614353577,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.904745671145095
+        ],
+        "max": [
+          0.65,
+          2.0238868753490813,
+          0.024745671145095016
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Lion_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Lion_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.787878742340623,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          2.4204844990363554,
+          0.5664271424653521
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Monkey_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Monkey_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.6558048556074321,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3000000000000003,
+      "bounds": {
+        "min": [
+          -0.6500000000000001,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          2.100842152541876,
+          0.23840037976481943
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Panda_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Panda_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.9677320377693762,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          2.497807634025663,
+          0.463396677484725
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Parrot_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Parrot_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.5919888719977922,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3000000000000003,
+      "bounds": {
+        "min": [
+          -0.6500000000000001,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.0402812769321734,
+          0.19612203003744144
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Penguin_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Penguin_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.5937353709126144,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.6499999999999999,
+          1.045,
+          -0.8407714178332778
+        ],
+        "max": [
+          0.6500000000000001,
+          1.9915625935606887,
+          -0.03922858216672226
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Pig_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Pig_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.04,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          2.6928141212463377,
+          0.5884000396728516
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Polar_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Polar_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.04,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.606299905776978,
+          0.6249562788009644
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Tiger_001",
+      "cart": "Vehicle_Minecart_GoldenOak_001",
+      "id": "Animal_CubePet_Tiger_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.9629629459564254,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          2.6916612215984976,
+          0.8989665808683575
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Beaver_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Beaver_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.0125573021221617,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.265696627652702,
+      "bounds": {
+        "min": [
+          -0.632848313826351,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.632848313826351,
+          2.565101558074155,
+          0.93
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Bee_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Bee_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.9737828306644887,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.2999999999999998,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.6499999999999999,
+          2.991424246366879,
+          0.3291572518854936
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Bunny_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Bunny_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.04,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          3.1354463577270506,
+          0.4530179834365845
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Cat_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Cat_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.0298883369821226,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.2873604212276533,
+      "bounds": {
+        "min": [
+          -0.6436802106138266,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.6436802106138266,
+          2.8061032638443457,
+          0.9299999999999998
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Caterpillar_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Caterpillar_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.8999654049600309,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.6168848618971285,
+          0.2687292058391673
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Chick_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Chick_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.591988904133943,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3000000000000003,
+      "bounds": {
+        "min": [
+          -0.6500000000000001,
+          1.045,
+          -0.8395925349901134
+        ],
+        "max": [
+          0.6500000000000001,
+          1.9887782889620833,
+          -0.04040746500988662
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Cow_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Cow_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.8444385766258682,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.2999999999999998,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.6499999999999999,
+          2.4065525736884656,
+          0.3028803540865428
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Crab_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Crab_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.5565590035129208,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.814947666249259
+        ],
+        "max": [
+          0.65,
+          1.8415750605084669,
+          -0.06505233375074104
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Deer_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Deer_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.8444387074033409,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.7277858773905694,
+          0.3870289339683689
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Dog_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Dog_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.0317460395551563,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.6797362437682395,
+          0.618152975038142
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Elephant_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Elephant_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.6922803863726811,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.035826286490649,
+          0.22971597447348718
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Fish_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Fish_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.6902227945531708,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.8748402749962898
+        ],
+        "max": [
+          0.65,
+          2.1686359575682737,
+          -0.005159725003710092
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Fox_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Fox_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.8057470648591646,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.0071838310739558,
+      "bounds": {
+        "min": [
+          -0.5035919155369779,
+          1.045,
+          -0.9300000000000003
+        ],
+        "max": [
+          0.5035919155369779,
+          2.403751190005703,
+          0.9299999999999999
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Giraffe_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Giraffe_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.8357371680469501,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9299999999999999
+        ],
+        "max": [
+          0.65,
+          2.4772475645545877,
+          0.25340368768621996
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Hog_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Hog_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.9629629459564254,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9299999999999999
+        ],
+        "max": [
+          0.65,
+          2.5046591179519386,
+          0.5153162803417439
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Koala_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Koala_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.6691802614353577,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.904745671145095
+        ],
+        "max": [
+          0.65,
+          2.0238868753490813,
+          0.024745671145095016
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Lion_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Lion_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.787878742340623,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          2.4204844990363554,
+          0.5664271424653521
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Monkey_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Monkey_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.6558048556074321,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3000000000000003,
+      "bounds": {
+        "min": [
+          -0.6500000000000001,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          2.100842152541876,
+          0.23840037976481943
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Panda_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Panda_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.9677320377693762,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          2.497807634025663,
+          0.463396677484725
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Parrot_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Parrot_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.5919888719977922,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3000000000000003,
+      "bounds": {
+        "min": [
+          -0.6500000000000001,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.0402812769321734,
+          0.19612203003744144
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Penguin_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Penguin_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.5937353709126144,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.6499999999999999,
+          1.045,
+          -0.8407714178332778
+        ],
+        "max": [
+          0.6500000000000001,
+          1.9915625935606887,
+          -0.03922858216672226
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Pig_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Pig_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.04,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          2.6928141212463377,
+          0.5884000396728516
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Polar_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Polar_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.04,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.606299905776978,
+          0.6249562788009644
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Tiger_001",
+      "cart": "Vehicle_Minecart_AzureLake_001",
+      "id": "Animal_CubePet_Tiger_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.9629629459564254,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          2.6916612215984976,
+          0.8989665808683575
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Beaver_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Beaver_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.0125573021221617,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.265696627652702,
+      "bounds": {
+        "min": [
+          -0.632848313826351,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.632848313826351,
+          2.565101558074155,
+          0.93
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Bee_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Bee_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.9737828306644887,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.2999999999999998,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.6499999999999999,
+          2.991424246366879,
+          0.3291572518854936
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Bunny_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Bunny_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.04,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          3.1354463577270506,
+          0.4530179834365845
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Cat_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Cat_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.0298883369821226,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.2873604212276533,
+      "bounds": {
+        "min": [
+          -0.6436802106138266,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.6436802106138266,
+          2.8061032638443457,
+          0.9299999999999998
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Caterpillar_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Caterpillar_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.8999654049600309,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.6168848618971285,
+          0.2687292058391673
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Chick_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Chick_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.591988904133943,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3000000000000003,
+      "bounds": {
+        "min": [
+          -0.6500000000000001,
+          1.045,
+          -0.8395925349901134
+        ],
+        "max": [
+          0.6500000000000001,
+          1.9887782889620833,
+          -0.04040746500988662
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Cow_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Cow_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.8444385766258682,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.2999999999999998,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.6499999999999999,
+          2.4065525736884656,
+          0.3028803540865428
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Crab_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Crab_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.5565590035129208,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.814947666249259
+        ],
+        "max": [
+          0.65,
+          1.8415750605084669,
+          -0.06505233375074104
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Deer_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Deer_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.8444387074033409,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.7277858773905694,
+          0.3870289339683689
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Dog_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Dog_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.0317460395551563,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.6797362437682395,
+          0.618152975038142
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Elephant_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Elephant_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.6922803863726811,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.035826286490649,
+          0.22971597447348718
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Fish_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Fish_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.6902227945531708,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.8748402749962898
+        ],
+        "max": [
+          0.65,
+          2.1686359575682737,
+          -0.005159725003710092
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Fox_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Fox_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.8057470648591646,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.0071838310739558,
+      "bounds": {
+        "min": [
+          -0.5035919155369779,
+          1.045,
+          -0.9300000000000003
+        ],
+        "max": [
+          0.5035919155369779,
+          2.403751190005703,
+          0.9299999999999999
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Giraffe_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Giraffe_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.8357371680469501,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9299999999999999
+        ],
+        "max": [
+          0.65,
+          2.4772475645545877,
+          0.25340368768621996
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Hog_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Hog_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.9629629459564254,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9299999999999999
+        ],
+        "max": [
+          0.65,
+          2.5046591179519386,
+          0.5153162803417439
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Koala_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Koala_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.6691802614353577,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.904745671145095
+        ],
+        "max": [
+          0.65,
+          2.0238868753490813,
+          0.024745671145095016
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Lion_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Lion_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.787878742340623,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          2.4204844990363554,
+          0.5664271424653521
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Monkey_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Monkey_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.6558048556074321,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3000000000000003,
+      "bounds": {
+        "min": [
+          -0.6500000000000001,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          2.100842152541876,
+          0.23840037976481943
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Panda_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Panda_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.9677320377693762,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          2.497807634025663,
+          0.463396677484725
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Parrot_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Parrot_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.5919888719977922,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3000000000000003,
+      "bounds": {
+        "min": [
+          -0.6500000000000001,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.0402812769321734,
+          0.19612203003744144
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Penguin_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Penguin_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.5937353709126144,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.6499999999999999,
+          1.045,
+          -0.8407714178332778
+        ],
+        "max": [
+          0.6500000000000001,
+          1.9915625935606887,
+          -0.03922858216672226
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Pig_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Pig_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.04,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          2.6928141212463377,
+          0.5884000396728516
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Polar_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Polar_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 1.04,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.9300000000000002
+        ],
+        "max": [
+          0.65,
+          2.606299905776978,
+          0.6249562788009644
+        ]
+      }
+    },
+    {
+      "animal": "Animal_CubePet_Tiger_001",
+      "cart": "Vehicle_Minecart_RedCopper_001",
+      "id": "Animal_CubePet_Tiger_001",
+      "name": "",
+      "license": "CC0-1.0",
+      "posture": "standing",
+      "poseClip": "static",
+      "scale": 0.9629629459564254,
+      "seatTopMetres": 1.045,
+      "targetWidthMetres": 1.3,
+      "actualWidthMetres": 1.3,
+      "bounds": {
+        "min": [
+          -0.65,
+          1.045,
+          -0.93
+        ],
+        "max": [
+          0.65,
+          2.6916612215984976,
+          0.8989665808683575
+        ]
+      }
+    }
+  ]
+}

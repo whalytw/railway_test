@@ -1,0 +1,142 @@
+{
+  "threeRevision": "180",
+  "models": [
+    {
+      "id": "Environment_Volcano_Cone16m_001",
+      "load": "passed",
+      "triangles": 1550,
+      "bytes": 150004,
+      "bounds": {
+        "min": [
+          -8.161542892456055,
+          -0.05000000074505806,
+          -7.852164268493652
+        ],
+        "max": [
+          8.360372543334961,
+          6.748286247253418,
+          8.472711563110352
+        ]
+      },
+      "parts": [
+        {
+          "name": "VC_VolcanoCone16m_Mesh",
+          "triangles": 1162,
+          "matrixDeterminant": 1,
+          "matrixIdentity": true,
+          "localYInverseRoundTrip": "passed"
+        },
+        {
+          "name": "VC_VolcanoCone16m_Mesh_1",
+          "triangles": 388,
+          "matrixDeterminant": 1,
+          "matrixIdentity": true,
+          "localYInverseRoundTrip": "passed"
+        }
+      ],
+      "moltenSurfaceUnchanged": true,
+      "placementDatumY": 0
+    },
+    {
+      "id": "Environment_Volcano_LavaChannel8m_001",
+      "load": "passed",
+      "triangles": 736,
+      "bytes": 59040,
+      "bounds": {
+        "min": [
+          -2.5999999046325684,
+          -0.3499999940395355,
+          0
+        ],
+        "max": [
+          2.5999999046325684,
+          0.3400000035762787,
+          8
+        ]
+      },
+      "parts": [
+        {
+          "name": "VC_LavaChannel8m_Mesh",
+          "triangles": 608,
+          "matrixDeterminant": 1,
+          "matrixIdentity": true,
+          "localYInverseRoundTrip": "passed"
+        },
+        {
+          "name": "VC_LavaChannel8m_Mesh_1",
+          "triangles": 128,
+          "matrixDeterminant": 1,
+          "matrixIdentity": true,
+          "localYInverseRoundTrip": "passed"
+        }
+      ],
+      "moltenSurfaceUnchanged": true,
+      "placementDatumY": 0
+    },
+    {
+      "id": "Environment_Volcano_LavaPool8m_001",
+      "load": "passed",
+      "triangles": 582,
+      "bytes": 58500,
+      "bounds": {
+        "min": [
+          -3.700000047683716,
+          -0.20000000298023224,
+          -3.4000000953674316
+        ],
+        "max": [
+          3.700000047683716,
+          0.3149999976158142,
+          3.4000000953674316
+        ]
+      },
+      "parts": [
+        {
+          "name": "VC_LavaPool8m_Mesh",
+          "triangles": 544,
+          "matrixDeterminant": 1,
+          "matrixIdentity": true,
+          "localYInverseRoundTrip": "passed"
+        },
+        {
+          "name": "VC_LavaPool8m_Mesh_1",
+          "triangles": 38,
+          "matrixDeterminant": 1,
+          "matrixIdentity": true,
+          "localYInverseRoundTrip": "passed"
+        }
+      ],
+      "moltenSurfaceUnchanged": true,
+      "placementDatumY": 0
+    },
+    {
+      "id": "Environment_Volcano_BasaltCliff8m_001",
+      "load": "passed",
+      "triangles": 720,
+      "bytes": 72076,
+      "bounds": {
+        "min": [
+          -4.118510723114014,
+          0,
+          -0.8404924273490906
+        ],
+        "max": [
+          4.118510723114014,
+          4.634671211242676,
+          1.314786672592163
+        ]
+      },
+      "parts": [
+        {
+          "name": "VC_BasaltCliff8m_Body",
+          "triangles": 720,
+          "matrixDeterminant": 1,
+          "matrixIdentity": true,
+          "localYInverseRoundTrip": "passed"
+        }
+      ],
+      "moltenSurfaceUnchanged": true,
+      "placementDatumY": 0
+    }
+  ]
+}

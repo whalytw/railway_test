@@ -1,0 +1,179 @@
+{
+  "passed": true,
+  "date": "2026-11-09",
+  "models": 24,
+  "originalClipsPerModel": 8,
+  "license": "CC0-1.0",
+  "indexEntries": 364,
+  "oldCustomCatRemoved": true,
+  "checks": [
+    {
+      "id": "Animal_CubePet_Beaver_001",
+      "sourceSHA256": "20f91809e69c66625190eb02aebef9ab543f5cf5cb17b8211b1002330584bfac",
+      "gameSHA256": "e391065b75636f401c339441bb50b9db90a3a5606dce21c132ecf3d32dd76845",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Bee_001",
+      "sourceSHA256": "9d3116da6c22eabf0b46efeeec7fceae8fbd01e101fddd4e6746379ff851e192",
+      "gameSHA256": "8130a2279335b45f83785c90b47eb422109834729ccd13c0a21587697c6f4f9e",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Bunny_001",
+      "sourceSHA256": "94b654915d9de70071bcf0bfa13de379a3ba4fdfeb231f0fec49335232cbc821",
+      "gameSHA256": "2d8349c08fb472f9e8b1a8819f323c4c07108a1205463d77d321845a711c7135",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Cat_001",
+      "sourceSHA256": "1e73aaf7d497dd7d2946badf92d189d2333f163e66dced91feb446bc9bdee850",
+      "gameSHA256": "e3a2c799632c3efea2bc1f14cd2fa4011a431f793c8f6385f2da7f071b3aaac0",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Caterpillar_001",
+      "sourceSHA256": "470d2481ba246ff957da0164707326e805c54dde553468a104e83ad9c7281723",
+      "gameSHA256": "5edd15791035b405d173b88c91994ef6e75913b8fca8cb72fb6a916e5087deda",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Chick_001",
+      "sourceSHA256": "86dd5f030c9341486313b35b9e827500c430274a83b5d683cab5b1f55bc1024d",
+      "gameSHA256": "4b2890664322b961b9b8bf3d0c15729c39131e0f281bd13e3b666958269aca21",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Cow_001",
+      "sourceSHA256": "57213ad1b06c1b6959c334215b4473039a7cd47c8500b65977df923e2e3e7929",
+      "gameSHA256": "fee6b747e504c8047ae3a3989d54c18aa5dfa338b611e863e31401244fdf9f09",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Crab_001",
+      "sourceSHA256": "80fa5fd7c3652938d9e3c3024bb97dc9391a0e174fcc8b9459b63c613ed050f6",
+      "gameSHA256": "b9a6ec39fadcdde719109dd0e058c5c74211d8357a8c84494a31d4c0bc05ef8a",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Deer_001",
+      "sourceSHA256": "b37162d91001eefda02bd111c8e836a0c4d805ab0191887459ded0d020624ec2",
+      "gameSHA256": "ac19775c8714c26399755b258393f49e0b540b5e2a7eec833db8d87f6db5a764",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Dog_001",
+      "sourceSHA256": "c127d71ac8794f9710313bbb44800ae33a79f1182cf5c523c4233cc10a93851f",
+      "gameSHA256": "27bd875858965cf47d4259f2a87393fa1797b1d523e20890af4f605690b066af",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Elephant_001",
+      "sourceSHA256": "0831346fb8ddb8e99e42e3f92fb48858551049dc7ea49e641d90fdfc65e057be",
+      "gameSHA256": "ef968e820e11f86b7a1b29e2b849cb9ba2f5e4b4dba47ade67c27f87f0d0fc8a",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Fish_001",
+      "sourceSHA256": "b8432e91000ee6ad3f9223198709329ce46a5886c954ad851d11ae215b1fbbb2",
+      "gameSHA256": "b591623bfdc980aa9cfb18b074323e0b30ecba0745e5c7a533907aebb6fa5849",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Fox_001",
+      "sourceSHA256": "ac1ae804da301371509cff84206e3c6b78ff9c7d02411ef0cd004731090d6b82",
+      "gameSHA256": "7b8e76bea1243251c1b6dc58d66dcdd676ca3f7e4c7439d7d6b7364ed0274740",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Giraffe_001",
+      "sourceSHA256": "ab3562e1edb4dc6b14d5c7c9083ba3052a44ca0ccdcac2c15461d84397dc2f31",
+      "gameSHA256": "68d761a7037509b9b73a960214354325d3e9e571318697ada53f8c872123c4be",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Hog_001",
+      "sourceSHA256": "978b137c139f65c5659632bd9c12a521fbd44b5756168653157b069db8f2faf9",
+      "gameSHA256": "b27f7d661c0000ccf341c4374676363bf6313d157cbb098f2672c41b353e3bef",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Koala_001",
+      "sourceSHA256": "ba13a1975bd746c59e2dce8309736c26597c8a9839602f736e4ec8570ba84fa0",
+      "gameSHA256": "f7889e9b2f69f6663e14aded36e54c140b41995052cf67dcc8d9968a2f6b7618",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Lion_001",
+      "sourceSHA256": "64697c4a76357fe8d9688fe077a5e74e527a6602574fd0941895be84b5883703",
+      "gameSHA256": "090796a845ff0118c0150650fd6447fa082b9ec85a2e91d1f5fe62ff0545156e",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Monkey_001",
+      "sourceSHA256": "4f1ba41bd6380f0daa6205442f8fb797c167d7abceaaa58943eae0e6fc9044a6",
+      "gameSHA256": "54c82f955365010efe90bb76363cb1ed965a36e7560aab462e6d49852caaea38",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Panda_001",
+      "sourceSHA256": "e001aea4fcd1c2dcb384774019f84183e6d0b638ebd986da65fee32bd93d1359",
+      "gameSHA256": "5834b438ca48756f8e6d989bf1984faf60119cc3329a6b9a8e69d37bc95fe355",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Parrot_001",
+      "sourceSHA256": "a028fcccd8559652ea100fabaceb82ef53633e3474025eca593a753b008f52ab",
+      "gameSHA256": "4c2048633e872d621f917344b79bbbff4c4535da54bffe5eac7de1ec59c4773d",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Penguin_001",
+      "sourceSHA256": "ff3d7ccae941ab06773a348b03446f97650043594ab1121a26514c3e2ea6cb29",
+      "gameSHA256": "26273b8f04bebce3ba7a93be1735c0921d2d850cc8a0b106fb0da921cdbf02a0",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Pig_001",
+      "sourceSHA256": "0e09d3c745a7daa1f53ecd320739b94d57a6ea1dfc498da01dd468f3f4c866a1",
+      "gameSHA256": "60288e5ed03e87794000d77c4d997cf5dd341a24ed805e601cd52d1ea9f6b20b",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Polar_001",
+      "sourceSHA256": "8e94b6a8f44b38198f698f2262c3ed7aed34bd1cb3a016f7613fb5eea0897564",
+      "gameSHA256": "c08a129b399dc13c664d28dbd5f49438319f6e69081fa01d17ad09529b0b36d4",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    },
+    {
+      "id": "Animal_CubePet_Tiger_001",
+      "sourceSHA256": "cc70cdfd27ec6550b7a4524a3cc75fd594f94d384cac2bb68504b60d379f47d4",
+      "gameSHA256": "d3865fb9f16284722659e80491e4d8b2f879fdee3026c860928598f4189288f8",
+      "originalGeometryNodesAndAnimationsUnchanged": true,
+      "textureEmbedded": true
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "sourceLibraryMetadata": "08_Props/Life_Farm_Lineside/Domestic/Prop_Daily_PottingBench_001/asset.json",
+  "sourceLibraryExport": "08_Props/Life_Farm_Lineside/Domestic/Prop_Daily_PottingBench_001/exports/Prop_Daily_PottingBench_001.glb",
+  "copiedWithoutGeometryChanges": true,
+  "mainSha256": "773624b9b7a709461fd32eea5470e07502848f61e7413e55271a065790563ad1",
+  "lod1Sha256": "1289e77390ca3e7c01bfe82182b389c1232a2e677e77fa07a954ffd5f7d7665f",
+  "metadata": {
+    "id": "Prop_Daily_PottingBench_001",
+    "name": "園藝整備桌",
+    "category": "08_Props",
+    "subcategory": "Life_Farm_Lineside/Domestic",
+    "tags": [
+      "life-farm-lineside",
+      "cross-biome",
+      "cartoon",
+      "stylized",
+      "low-poly",
+      "threejs",
+      "domestic",
+      "PottingBench"
+    ],
+    "status": "game_ready",
+    "version": "1.0.0",
+    "createdAt": "2026-11-07",
+    "source": "self_created_procedural_geometry",
+    "sourceUrl": "",
+    "license": {
+      "name": "self_created_user_project",
+      "licenseUrl": "",
+      "proofFile": "licenses/provenance.txt",
+      "allowsCommercialUse": null,
+      "allowsPublicWebDelivery": true,
+      "allowsStandaloneRedistribution": null
+    },
+    "sourceFile": "../../_Shared/Life_Farm_Lineside_Kit_001/source/Life_Farm_Lineside_Kit_001.blend",
+    "sourceLibraryPath": "08_Props/Life_Farm_Lineside/_Shared/Life_Farm_Lineside_Kit_001/source/Life_Farm_Lineside_Kit_001.blend",
+    "sourceCollection": "LP24_Prop_Daily_PottingBench_001",
+    "lod1SourceCollection": "LP24_LOD1_Prop_Daily_PottingBench_001",
+    "gameFile": "exports/Prop_Daily_PottingBench_001.glb",
+    "propsFile": "exports/Prop_Daily_PottingBench_001.props.json",
+    "preview": "previews/thumbnail.png",
+    "previews": [
+      "previews/thumbnail.png",
+      "previews/reverse.png"
+    ],
+    "animations": [],
+    "runtimeAnimation": {
+      "provided": false,
+      "bakedAnimationClips": false,
+      "note": "所有道具為靜態整合網格，輪子、把手、布面、泵桿等沒有獨立動畫或互動節點。"
+    },
+    "polycount": 804,
+    "polycountUnit": "triangles",
+    "meshNodeCount": 1,
+    "materialCount": 1,
+    "fileBytes": 86164,
+    "textureResolution": "none; vertex colors",
+    "dimensionsMetersXYZ": [
+      1.5,
+      1.7999999523162842,
+      0.7449999749660492
+    ],
+    "boundsMeters": {
+      "min": [
+        -0.75,
+        0,
+        -0.41999998688697815
+      ],
+      "max": [
+        0.75,
+        1.7999999523162842,
+        0.32499998807907104
+      ]
+    },
+    "coordinates": {
+      "up": "+Y",
+      "forward": "+Z",
+      "unit": "metre",
+      "origin": "bottom datum; follow installation mode",
+      "sourceBlenderUp": "+Z",
+      "glbConversion": "[x,z,-y]"
+    },
+    "compatibleBiomes": [
+      "Forest",
+      "Hills",
+      "Pastoral",
+      "Rural",
+      "Lakeside"
+    ],
+    "biomeConditions": {},
+    "usageRole": "domestic",
+    "placement": {
+      "groundAnchor": [
+        0,
+        0,
+        0
+      ],
+      "installationMode": "ground",
+      "baseAtGround": true,
+      "surfaceDatumLocalY": 0.0,
+      "recommendedGroundYOffsetY": -0.0,
+      "uniformScaleRecommended": true,
+      "recommendedUniformScaleRange": [
+        0.9,
+        1.1
+      ],
+      "displaySlab": false,
+      "frequency": "common",
+      "frequencyLabel": "一般配置",
+      "flatGroundPreferred": true,
+      "frontDirectionGLTF": "+Z",
+      "usageNote": "帶背架、層板、陶盆和園藝器具的小桌；靠牆或育苗棚外配置。",
+      "heightFormula": "position.y = sampledGroundY - surfaceDatumLocalY * uniformScale",
+      "slopeNote": "優先放平緩地面，檢查桌腳、架腳、支腳與輪緣等所有接觸點；不會自動貼坡或挖空地形。",
+      "installationNote": "將原點放到地表高度；整組道具以最低接觸點接地，不另外附展示地塊。"
+    },
+    "utility": {},
+    "footprintRadiusMeters": 0.8596,
+    "boundingFootprintXZ": {
+      "min": [
+        -0.75,
+        -0.41999998688697815
+      ],
+      "max": [
+        0.75,
+        0.32499998807907104
+      ]
+    },
+    "suggestedMinRailCenterOffsetMeters": 3.2596,
+    "clearanceNote": "依整組道具、把手與牽引桿等完整輪廓保守估算；縮放時等比調整。這是配置起始值，未進行遊戲路線碰撞檢查。",
+    "lods": [
+      {
+        "level": 1,
+        "file": "exports/Prop_Daily_PottingBench_001_LOD1.glb",
+        "triangles": 456,
+        "fileBytes": 48048,
+        "boundsMeters": {
+          "min": [
+            -0.75,
+            0,
+            -0.41999998688697815
+          ],
+          "max": [
+            0.75,
+            1.7999999523162842,
+            0.32499998807907104
+          ]
+        },
+        "dimensionsMetersXYZ": [
+          1.5,
+          1.7999999523162842,
+          0.7449999749660492
+        ],
+        "switchToLOD1Meters": 25,
+        "suggestedCullDistanceMeters": 180
+      }
+    ],
+    "lodNote": "LOD1 為獨立 GLB，要由遊戲建立 THREE.LOD 或距離切換；縮減圓周、輻條、條板或小五金，保留同一接地基準。距離僅為起始調校值。",
+    "collision": {
+      "provided": false,
+      "note": "視覺素材，未附碰撞、導航、物理或破壞設定；推車、護欄及涵管不會自動具備遊戲功能。"
+    },
+    "programmaticInteractions": [],
+    "validation": {
+      "glbIntegrity": "passed",
+      "selfContained": "passed",
+      "threejsLoadAndBounds": "passed",
+      "finiteAttributes": "passed",
+      "triangleAreas": "passed",
+      "indexRanges": "passed",
+      "unitNormals": "passed",
+      "groundOrigin": "passed",
+      "noDisplaySlab": "passed",
+      "singleMeshAndMaterial": "passed",
+      "closedConnectedPieces": "passed",
+      "threeRevision": "180",
+      "sha256": "773624b9b7a709461fd32eea5470e07502848f61e7413e55271a065790563ad1",
+      "detailedReport": "exports/validation.json"
+    },
+    "geometryNote": "單一網格可含多個互相交疊的封閉部件，未做布林聯集。盆槽、陶罐及涵管保留實際開口；預覽照明地板不包含在 GLB。",
+    "notes": "帶背架、層板、陶盆和園藝器具的小桌；靠牆或育苗棚外配置。 依用途組合成庭院、農事或工務小場景；與其他輪廓交錯擺放，避免相同物件等距排滿。"
+  },
+  "licenseProof": "製作日期：2026-11-07\n素材：Prop_Daily_PottingBench_001 / 園藝整備桌\n來源：本次為使用者專案，以 Blender MCP 原創程序網格建模。\n未匯入第三方模型、貼圖或 HDRI；模型沒有嵌入字型輪廓，也未使用外部模型生成服務。\n用途：依使用者要求存入 GameAssets，供其 Three.js 軌道網頁及共用素材庫使用，可隨該網頁交付 GLB。\n記錄代碼：self_created_user_project。\n此檔說明製作來源及用途，不是 CC0 或其他獨立授權條款；商用與獨立素材轉售條款未另行指定。\n"
+}

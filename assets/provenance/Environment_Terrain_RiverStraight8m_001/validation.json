@@ -1,0 +1,19 @@
+{
+  "file": "Environment_Terrain_RiverStraight8m_001.glb",
+  "bytes": 31392,
+  "sha256": "9203a1f8b795d76ffca0642d62c69d19351da14d649e288ccb139b15faccf1f7",
+  "triangles": 642,
+  "meshNodes": 1,
+  "materials": 4,
+  "embeddedImages": 0,
+  "maxNormalLengthError": 1.1920928955078125e-07,
+  "smallestTriangleArea": 0.06599999138712853,
+  "nonFiniteValues": 0,
+  "degenerateTriangles": 0,
+  "closedSourceManifold": true,
+  "extensionsRequired": [],
+  "passed": true,
+  "vertices": 323,
+  "closedManifold": true,
+  "volumeCubicMeters": 101.11199
+}

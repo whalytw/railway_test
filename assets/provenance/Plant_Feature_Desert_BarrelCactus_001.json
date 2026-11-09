@@ -1,0 +1,180 @@
+{
+  "sourceLibraryMetadata": "04_Plants/Desert/Signature_Features/Plant_Feature_Desert_BarrelCactus_001/asset.json",
+  "sourceLibraryExport": "04_Plants/Desert/Signature_Features/Plant_Feature_Desert_BarrelCactus_001/exports/Plant_Feature_Desert_BarrelCactus_001.glb",
+  "copiedWithoutGeometryChanges": true,
+  "mainSha256": "86bb23d1b02b7dbf494b2cdadab38016004fd90ce2504e6da05c71bd50ed5a9c",
+  "lod1Sha256": "68ef5c5d162723eae06217e8966f931e4b350adff5b5f44e44505b711bb2039e",
+  "metadata": {
+    "id": "Plant_Feature_Desert_BarrelCactus_001",
+    "name": "金琥仙人球叢",
+    "category": "04_Plants",
+    "subcategory": "Desert/Signature_Features",
+    "tags": [
+      "biome-feature",
+      "cartoon",
+      "stylized",
+      "low-poly",
+      "threejs",
+      "desert",
+      "BarrelCactus"
+    ],
+    "status": "game_ready",
+    "version": "1.0.0",
+    "createdAt": "2026-11-07",
+    "source": "self_created_procedural_geometry",
+    "sourceUrl": "",
+    "license": {
+      "name": "self_created_user_project",
+      "licenseUrl": "",
+      "proofFile": "licenses/provenance.txt",
+      "allowsCommercialUse": null,
+      "allowsPublicWebDelivery": true,
+      "allowsStandaloneRedistribution": null
+    },
+    "sourceFile": "../../../../07_Environment/Biome_Features/_Shared/Biome_Features_Kit_001/source/Biome_Features_Kit_001.blend",
+    "sourceLibraryPath": "07_Environment/Biome_Features/_Shared/Biome_Features_Kit_001/source/Biome_Features_Kit_001.blend",
+    "sourceCollection": "BF32_Plant_Feature_Desert_BarrelCactus_001",
+    "lod1SourceCollection": "BF32_LOD1_Plant_Feature_Desert_BarrelCactus_001",
+    "gameFile": "exports/Plant_Feature_Desert_BarrelCactus_001.glb",
+    "featureFile": "exports/feature.json",
+    "preview": "previews/thumbnail.png",
+    "previews": [
+      "previews/thumbnail.png",
+      "previews/reverse.png"
+    ],
+    "animations": [],
+    "runtimeAnimation": {
+      "provided": false,
+      "bakedAnimationClips": false,
+      "note": "枝葉、花瓣、冰雪、水帶與熔岩均為靜態幾何，未附風動、水流或粒子效果。"
+    },
+    "polycount": 2700,
+    "polycountUnit": "triangles",
+    "meshNodeCount": 1,
+    "materialCount": 1,
+    "fileBytes": 329408,
+    "textureResolution": "none; vertex colors",
+    "dimensionsMetersXYZ": [
+      2.083418607711792,
+      1.4495656490325928,
+      1.4024444818496704
+    ],
+    "boundsMeters": {
+      "min": [
+        -1.0620068311691284,
+        0,
+        -0.6214117407798767
+      ],
+      "max": [
+        1.0214117765426636,
+        1.4495656490325928,
+        0.7810327410697937
+      ]
+    },
+    "coordinates": {
+      "up": "+Y",
+      "forward": "+Z",
+      "unit": "metre",
+      "origin": "lowest datum; follow installation mode",
+      "sourceBlenderUp": "+Z",
+      "glbConversion": "[x,z,-y]"
+    },
+    "primaryBiome": "Desert",
+    "compatibleBiomes": [
+      "Desert"
+    ],
+    "biomeConditions": {
+      "Desert": "適合乾燥岩地或暖地植栽場景，依地形與色調配置；不是全部環境通用的植物。"
+    },
+    "placement": {
+      "groundAnchor": [
+        0,
+        0,
+        0
+      ],
+      "installationMode": "ground",
+      "surfaceDatumLocalY": 0,
+      "baseAtGround": true,
+      "recommendedGroundYOffsetY": 0,
+      "uniformScaleRecommended": true,
+      "displaySlab": false,
+      "frequency": "uncommon",
+      "frequencyLabel": "適量點綴",
+      "needsTerrainBlending": false,
+      "requiresTerrainOpening": false,
+      "usageNote": "大小不同的圓腹仙人球、縱肋與稀疏短刺；與多臂仙人掌交錯使用。",
+      "heightFormula": "position.y = sampledFootGroundY",
+      "installationNote": "原點放在地表高度，檢查根腳、坡腳與岩體各接觸點；大型地貌需與周圍地表混合，不能只對齊中心後讓兩端懸空。"
+    },
+    "footprintRadiusMeters": 1.3183,
+    "suggestedMinRailCenterOffsetMeters": 3.7183,
+    "boundingFootprintXZ": {
+      "min": [
+        -1.0620068311691284,
+        -0.6214117407798767
+      ],
+      "max": [
+        1.0214117765426636,
+        0.7810327410697937
+      ]
+    },
+    "clearanceNote": "按完整樹冠、枝葉或地貌輪廓保守估算；縮放時等比調整。未執行遊戲線路碰撞或橋隧淨空檢查。",
+    "lods": [
+      {
+        "level": 1,
+        "file": "exports/Plant_Feature_Desert_BarrelCactus_001_LOD1.glb",
+        "triangles": 1284,
+        "fileBytes": 155388,
+        "boundsMeters": {
+          "min": [
+            -0.9919967651367188,
+            0,
+            -0.5519962310791016
+          ],
+          "max": [
+            0.9519962668418884,
+            1.450315237045288,
+            0.7119957804679871
+          ]
+        },
+        "dimensionsMetersXYZ": [
+          1.9439930319786072,
+          1.450315237045288,
+          1.2639920115470886
+        ],
+        "switchToLOD1Meters": 55,
+        "suggestedCullDistanceMeters": 450
+      }
+    ],
+    "lodNote": "LOD1 為獨立 GLB，需由遊戲建立 THREE.LOD 或距離切換；保留接地與主要位置，減少細枝、小葉、雪團或曲面分段。距離僅為起始調校建議。",
+    "collision": {
+      "provided": false,
+      "note": "視覺素材，沒有物理、導航、可通行隧道、互動或可破壞行為；空隙由實際網格保留。"
+    },
+    "featureSettings": {
+      "waterSimulationProvided": false,
+      "terrainCutProvided": false,
+      "windShaderProvided": false,
+      "emissiveLightingProvided": false
+    },
+    "validation": {
+      "glbIntegrity": "passed",
+      "selfContained": "passed",
+      "threejsLoadAndBounds": "passed",
+      "finiteAttributes": "passed",
+      "triangleAreas": "passed",
+      "indexRanges": "passed",
+      "unitNormals": "passed",
+      "groundOrigin": "passed",
+      "noDisplaySlab": "passed",
+      "singleMeshAndMaterial": "passed",
+      "closedConnectedPieces": "passed",
+      "threeRevision": "180",
+      "sha256": "86bb23d1b02b7dbf494b2cdadab38016004fd90ce2504e6da05c71bd50ed5a9c",
+      "detailedReport": "exports/validation.json"
+    },
+    "geometryNote": "以自然景物本身的輪廓收底，未附展示底板。網格包含有厚度的封閉部件，可互相交疊，未做布林聯集；預覽地面不輸出。",
+    "notes": "大小不同的圓腹仙人球、縱肋與稀疏短刺；與多臂仙人掌交錯使用。 主要環境用於分類，其他建議環境見 compatibleBiomes；依地貌、用途與出現頻率混用，避免同一輪廓等距排滿。"
+  },
+  "licenseProof": "製作日期：2026-11-07\n素材：Plant_Feature_Desert_BarrelCactus_001 / 金琥仙人球叢\n來源：本次為使用者專案，以 Blender MCP 原創程序網格建模。\n未匯入第三方模型、貼圖、HDRI；模型未嵌入字型輪廓，未使用外部模型生成服務。\n用途：依使用者要求存入 GameAssets，供其 Three.js 網頁及共用素材庫使用，可隨該網頁交付 GLB。\n記錄代碼：self_created_user_project。此為來源及用途紀錄，不是 CC0 或其他獨立授權條款；商用及獨立素材轉售條款未另行指定。\n"
+}

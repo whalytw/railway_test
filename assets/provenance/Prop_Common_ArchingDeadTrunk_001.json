@@ -1,0 +1,166 @@
+{
+  "sourceLibraryMetadata": "08_Props/Common_Nature/Deadwood/Prop_Common_ArchingDeadTrunk_001/asset.json",
+  "sourceLibraryExport": "08_Props/Common_Nature/Deadwood/Prop_Common_ArchingDeadTrunk_001/exports/Prop_Common_ArchingDeadTrunk_001.glb",
+  "copiedWithoutGeometryChanges": true,
+  "mainSha256": "3ff866558ac0c3467e044d8dbb7b4ef3a0ee2e73f837034fed07d103e149cf54",
+  "lod1Sha256": "6ad704526b146e113820cdd061b11d1d40871c19a115ba05cd61941e920e5af2",
+  "metadata": {
+    "id": "Prop_Common_ArchingDeadTrunk_001",
+    "name": "拱曲枯幹",
+    "category": "08_Props",
+    "subcategory": "Common_Nature/Deadwood",
+    "tags": [
+      "common-nature",
+      "cross-biome",
+      "cartoon",
+      "stylized",
+      "low-poly",
+      "threejs",
+      "deadwood",
+      "wood_arch"
+    ],
+    "status": "game_ready",
+    "version": "1.0.0",
+    "createdAt": "2026-11-07",
+    "source": "self_created_procedural_geometry",
+    "sourceUrl": "",
+    "license": {
+      "name": "self_created_user_project",
+      "licenseUrl": "",
+      "proofFile": "licenses/provenance.txt",
+      "allowsCommercialUse": null,
+      "allowsPublicWebDelivery": true,
+      "allowsStandaloneRedistribution": null
+    },
+    "sourceFile": "../../../../07_Environment/Common_Nature/_Shared/CrossBiome_Nature_Kit_001/source/CrossBiome_Nature_Kit_001.blend",
+    "sourceLibraryPath": "07_Environment/Common_Nature/_Shared/CrossBiome_Nature_Kit_001/source/CrossBiome_Nature_Kit_001.blend",
+    "sourceCollection": "CN32_Prop_Common_ArchingDeadTrunk_001",
+    "lod1SourceCollection": "CN32_LOD1_Prop_Common_ArchingDeadTrunk_001",
+    "gameFile": "exports/Prop_Common_ArchingDeadTrunk_001.glb",
+    "natureFile": "exports/Prop_Common_ArchingDeadTrunk_001.nature.json",
+    "preview": "previews/thumbnail.png",
+    "previews": [
+      "previews/thumbnail.png",
+      "previews/reverse.png"
+    ],
+    "animations": [],
+    "runtimeAnimation": {
+      "bakedAnimationClips": false,
+      "windShaderProvided": false
+    },
+    "polycount": 204,
+    "polycountUnit": "triangles",
+    "meshNodeCount": 1,
+    "materialCount": 1,
+    "fileBytes": 27272,
+    "textureResolution": "none; vertex colors",
+    "dimensionsMetersXYZ": [
+      4.296470642089844,
+      1.9077467918395996,
+      1.3075705468654633
+    ],
+    "boundsMeters": {
+      "min": [
+        -2.174755573272705,
+        0,
+        -0.9182137846946716
+      ],
+      "max": [
+        2.1217150688171387,
+        1.9077467918395996,
+        0.3893567621707916
+      ]
+    },
+    "coordinates": {
+      "up": "+Y",
+      "forward": "+Z",
+      "unit": "metre",
+      "origin": "ground datum at source origin; not bounding-box centre",
+      "sourceBlenderUp": "+Z",
+      "glbConversion": "[x, z, -y]"
+    },
+    "compatibleBiomes": [
+      "Forest",
+      "Hills",
+      "Rural",
+      "Lakeside"
+    ],
+    "biomeConditions": {},
+    "placement": {
+      "groundAnchor": [
+        0,
+        0,
+        0
+      ],
+      "baseAtGround": true,
+      "uniformScaleRecommended": true,
+      "recommendedUniformScaleRange": [
+        0.85,
+        1.15
+      ],
+      "embedDepthMetersRange": [
+        0.01,
+        0.03
+      ],
+      "displaySlab": false,
+      "slopeNote": "以地表高度安放原點，必要時微埋約 1–3 公分遮住接縫。大樹保持直立；倒木、根團與石組優先選平緩地面，不能只對齊中心後讓兩端懸空。",
+      "frequency": "rare",
+      "frequencyLabel": "低頻焦點",
+      "usageNote": "弧形枯幹兩端接地，中間保留開口；適合林道旁。"
+    },
+    "suggestedMinRailCenterOffsetMeters": 4.7607,
+    "footprintRadiusMeters": 2.3607,
+    "clearanceNote": "保守估算涵蓋完整樹冠或枝條；均勻放大後須等比增加離軌距離。這是擺放建議，未執行遊戲路線碰撞測試。",
+    "lods": [
+      {
+        "level": 1,
+        "file": "exports/Prop_Common_ArchingDeadTrunk_001_LOD1.glb",
+        "triangles": 158,
+        "fileBytes": 21404,
+        "dimensionsMetersXYZ": [
+          4.287146091461182,
+          1.8838756084442139,
+          1.3090535700321198
+        ],
+        "boundsMeters": {
+          "min": [
+            -2.170811176300049,
+            0,
+            -0.9196968078613281
+          ],
+          "max": [
+            2.116334915161133,
+            1.8838756084442139,
+            0.3893567621707916
+          ]
+        },
+        "switchToLOD1Meters": 45,
+        "suggestedCullDistanceMeters": 300
+      }
+    ],
+    "lodNote": "獨立 GLB，需由遊戲建立 THREE.LOD 或距離切換；GLB 本身不會自動切換。LOD1 保留同一接地原點，但細節與包圍盒會略有變化。距離僅為起始調校建議。",
+    "collision": {
+      "provided": false,
+      "note": "視覺素材，未附碰撞、導航或破壞行為。樹幹與大石可在遊戲另加簡化碰撞；草叢通常僅作裝飾。"
+    },
+    "validation": {
+      "glbIntegrity": "passed",
+      "selfContained": "passed",
+      "threejsLoadAndBounds": "passed",
+      "finiteAttributes": "passed",
+      "triangleAreas": "passed",
+      "indexRanges": "passed",
+      "unitNormals": "passed",
+      "groundOrigin": "passed",
+      "noDisplaySlab": "passed",
+      "singleMeshAndMaterial": "passed",
+      "closedConnectedPieces": "passed",
+      "threeRevision": "180",
+      "sha256": "3ff866558ac0c3467e044d8dbb7b4ef3a0ee2e73f837034fed07d103e149cf54",
+      "detailedReport": "exports/validation.json"
+    },
+    "geometryNote": "單一網格內可含多個封閉部件；枝葉與樹幹允許互相交疊，未做實體布林聯集。葉片有厚度，無透明貼圖。",
+    "notes": "弧形枯幹兩端接地，中間保留開口；適合林道旁。 同一模型連續出現時，交錯其他輪廓；建議均勻縮放 0.85–1.15 倍並改變朝向。偏冠松等有方向的模型宜順應風向或岸線，避免全部隨機轉向。"
+  },
+  "licenseProof": "製作日期：2026-11-07\n素材：Prop_Common_ArchingDeadTrunk_001 / 拱曲枯幹\n來源：本次為使用者專案原創的 Blender MCP 程序網格建模。\n第三方模型、貼圖、HDRI、字型輪廓：未嵌入模型。\n無外部生成服務或下載素材；沒有引用既有第三方模型作修改。\n用途：依使用者要求，供其 Three.js 軌道網頁與 GameAssets 共用素材庫使用，可隨該網頁交付 GLB。\n記錄代碼：self_created_user_project。\n此紀錄說明製作來源及已授權用途，不是 CC0 或其他獨立授權條款；商用與獨立素材轉售條款未另行指定。\n"
+}

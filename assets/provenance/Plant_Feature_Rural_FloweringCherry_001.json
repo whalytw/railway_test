@@ -1,0 +1,181 @@
+{
+  "sourceLibraryMetadata": "04_Plants/Rural/Signature_Features/Plant_Feature_Rural_FloweringCherry_001/asset.json",
+  "sourceLibraryExport": "04_Plants/Rural/Signature_Features/Plant_Feature_Rural_FloweringCherry_001/exports/Plant_Feature_Rural_FloweringCherry_001.glb",
+  "copiedWithoutGeometryChanges": true,
+  "mainSha256": "50d85b8d3385d0ad755a7ba0a6dc2feca12d5751f9470c61a0da62395e9fb06b",
+  "lod1Sha256": "ab8abc77ce585ee559d05411a1c90ab6846348e61eece7fb2cc1e496ee20fe22",
+  "metadata": {
+    "id": "Plant_Feature_Rural_FloweringCherry_001",
+    "name": "粉花垂枝櫻木",
+    "category": "04_Plants",
+    "subcategory": "Rural/Signature_Features",
+    "tags": [
+      "biome-feature",
+      "cartoon",
+      "stylized",
+      "low-poly",
+      "threejs",
+      "rural",
+      "FloweringCherry"
+    ],
+    "status": "game_ready",
+    "version": "1.0.0",
+    "createdAt": "2026-11-07",
+    "source": "self_created_procedural_geometry",
+    "sourceUrl": "",
+    "license": {
+      "name": "self_created_user_project",
+      "licenseUrl": "",
+      "proofFile": "licenses/provenance.txt",
+      "allowsCommercialUse": null,
+      "allowsPublicWebDelivery": true,
+      "allowsStandaloneRedistribution": null
+    },
+    "sourceFile": "../../../../07_Environment/Biome_Features/_Shared/Biome_Features_Kit_001/source/Biome_Features_Kit_001.blend",
+    "sourceLibraryPath": "07_Environment/Biome_Features/_Shared/Biome_Features_Kit_001/source/Biome_Features_Kit_001.blend",
+    "sourceCollection": "BF32_Plant_Feature_Rural_FloweringCherry_001",
+    "lod1SourceCollection": "BF32_LOD1_Plant_Feature_Rural_FloweringCherry_001",
+    "gameFile": "exports/Plant_Feature_Rural_FloweringCherry_001.glb",
+    "featureFile": "exports/feature.json",
+    "preview": "previews/thumbnail.png",
+    "previews": [
+      "previews/thumbnail.png",
+      "previews/reverse.png"
+    ],
+    "animations": [],
+    "runtimeAnimation": {
+      "provided": false,
+      "bakedAnimationClips": false,
+      "note": "枝葉、花瓣、冰雪、水帶與熔岩均為靜態幾何，未附風動、水流或粒子效果。"
+    },
+    "polycount": 1498,
+    "polycountUnit": "triangles",
+    "meshNodeCount": 1,
+    "materialCount": 1,
+    "fileBytes": 188512,
+    "textureResolution": "none; vertex colors",
+    "dimensionsMetersXYZ": [
+      5.2507545948028564,
+      4.149936199188232,
+      4.428359746932983
+    ],
+    "boundsMeters": {
+      "min": [
+        -2.6107544898986816,
+        0,
+        -2.187955379486084
+      ],
+      "max": [
+        2.640000104904175,
+        4.149936199188232,
+        2.2404043674468994
+      ]
+    },
+    "coordinates": {
+      "up": "+Y",
+      "forward": "+Z",
+      "unit": "metre",
+      "origin": "lowest datum; follow installation mode",
+      "sourceBlenderUp": "+Z",
+      "glbConversion": "[x,z,-y]"
+    },
+    "primaryBiome": "Rural",
+    "compatibleBiomes": [
+      "Rural",
+      "Pastoral",
+      "Hills",
+      "Lakeside"
+    ],
+    "biomeConditions": {},
+    "placement": {
+      "groundAnchor": [
+        0,
+        0,
+        0
+      ],
+      "installationMode": "ground",
+      "surfaceDatumLocalY": 0,
+      "baseAtGround": true,
+      "recommendedGroundYOffsetY": 0,
+      "uniformScaleRecommended": true,
+      "displaySlab": false,
+      "frequency": "rare",
+      "frequencyLabel": "低頻焦點",
+      "needsTerrainBlending": false,
+      "requiresTerrainOpening": false,
+      "usageNote": "不對稱垂枝與分散粉白花團；作村落季節性色彩焦點，不大量成排重複。",
+      "heightFormula": "position.y = sampledFootGroundY",
+      "installationNote": "原點放在地表高度，檢查根腳、坡腳與岩體各接觸點；大型地貌需與周圍地表混合，不能只對齊中心後讓兩端懸空。"
+    },
+    "footprintRadiusMeters": 3.4625,
+    "suggestedMinRailCenterOffsetMeters": 5.8625,
+    "boundingFootprintXZ": {
+      "min": [
+        -2.6107544898986816,
+        -2.187955379486084
+      ],
+      "max": [
+        2.640000104904175,
+        2.2404043674468994
+      ]
+    },
+    "clearanceNote": "按完整樹冠、枝葉或地貌輪廓保守估算；縮放時等比調整。未執行遊戲線路碰撞或橋隧淨空檢查。",
+    "lods": [
+      {
+        "level": 1,
+        "file": "exports/Plant_Feature_Rural_FloweringCherry_001_LOD1.glb",
+        "triangles": 414,
+        "fileBytes": 48868,
+        "boundsMeters": {
+          "min": [
+            -2.525010824203491,
+            0,
+            -1.7778106927871704
+          ],
+          "max": [
+            2.5542562007904053,
+            4.149936199188232,
+            2.1459076404571533
+          ]
+        },
+        "dimensionsMetersXYZ": [
+          5.0792670249938965,
+          4.149936199188232,
+          3.9237183332443237
+        ],
+        "switchToLOD1Meters": 55,
+        "suggestedCullDistanceMeters": 450
+      }
+    ],
+    "lodNote": "LOD1 為獨立 GLB，需由遊戲建立 THREE.LOD 或距離切換；保留接地與主要位置，減少細枝、小葉、雪團或曲面分段。距離僅為起始調校建議。",
+    "collision": {
+      "provided": false,
+      "note": "視覺素材，沒有物理、導航、可通行隧道、互動或可破壞行為；空隙由實際網格保留。"
+    },
+    "featureSettings": {
+      "waterSimulationProvided": false,
+      "terrainCutProvided": false,
+      "windShaderProvided": false,
+      "emissiveLightingProvided": false
+    },
+    "validation": {
+      "glbIntegrity": "passed",
+      "selfContained": "passed",
+      "threejsLoadAndBounds": "passed",
+      "finiteAttributes": "passed",
+      "triangleAreas": "passed",
+      "indexRanges": "passed",
+      "unitNormals": "passed",
+      "groundOrigin": "passed",
+      "noDisplaySlab": "passed",
+      "singleMeshAndMaterial": "passed",
+      "closedConnectedPieces": "passed",
+      "threeRevision": "180",
+      "sha256": "50d85b8d3385d0ad755a7ba0a6dc2feca12d5751f9470c61a0da62395e9fb06b",
+      "detailedReport": "exports/validation.json"
+    },
+    "geometryNote": "以自然景物本身的輪廓收底，未附展示底板。網格包含有厚度的封閉部件，可互相交疊，未做布林聯集；預覽地面不輸出。",
+    "notes": "不對稱垂枝與分散粉白花團；作村落季節性色彩焦點，不大量成排重複。 主要環境用於分類，其他建議環境見 compatibleBiomes；依地貌、用途與出現頻率混用，避免同一輪廓等距排滿。"
+  },
+  "licenseProof": "製作日期：2026-11-07\n素材：Plant_Feature_Rural_FloweringCherry_001 / 粉花垂枝櫻木\n來源：本次為使用者專案，以 Blender MCP 原創程序網格建模。\n未匯入第三方模型、貼圖、HDRI；模型未嵌入字型輪廓，未使用外部模型生成服務。\n用途：依使用者要求存入 GameAssets，供其 Three.js 網頁及共用素材庫使用，可隨該網頁交付 GLB。\n記錄代碼：self_created_user_project。此為來源及用途紀錄，不是 CC0 或其他獨立授權條款；商用及獨立素材轉售條款未另行指定。\n"
+}

@@ -1,0 +1,76 @@
+{
+  "schema": "railway-infrastructure/1",
+  "assetId": "Building_Bridge_StonePier4m_001",
+  "name": "石砌橋墩・4m",
+  "kind": "pier",
+  "unit": "metre",
+  "up": "+Y",
+  "forward": "+Z",
+  "origin": "footing centre",
+  "mount": "ground",
+  "parameters": {
+    "title": "石砌橋墩・4m",
+    "category": "06_Buildings",
+    "family": "Railway_Bridges",
+    "group": "Supports",
+    "kind": "pier",
+    "bearingHeight": 4.0,
+    "origin": "footing centre",
+    "mount": "ground"
+  },
+  "ports": [
+    {
+      "id": "Base",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "Bearing",
+      "position": [
+        0,
+        4.0,
+        0
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "supportSockets": [],
+  "compatibleTracks": [],
+  "railTop": 0.405,
+  "supportDrop": 0.6,
+  "interactions": [],
+  "boundsMeters": {
+    "min": [
+      -1.8249998092651367,
+      0.0,
+      -0.9750003814697266
+    ],
+    "max": [
+      1.8249998092651367,
+      4.031900405883789,
+      0.9750003814697266
+    ]
+  }
+}

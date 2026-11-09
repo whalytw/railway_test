@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-09",
+  "passed": 58,
+  "failed": 0,
+  "totalTests": 58,
+  "animalCartPairs": 72,
+  "glbFiles": 334,
+  "animalModels": 24,
+  "clipsPerAnimal": 8,
+  "note": "Full suite passed; driver and presentation tests repeated after title-camera focus adjustment."
+}

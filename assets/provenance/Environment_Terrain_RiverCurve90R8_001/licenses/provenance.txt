@@ -1,0 +1,7 @@
+Asset: Environment_Terrain_RiverCurve90R8_001
+Created: 2026-11-05
+Method: Original procedural mesh construction through Blender MCP for the user's GameAssets project.
+Third-party models/textures: none.
+Style: continued from the project's existing minecart/railway art direction.
+No CC0 declaration or standalone redistribution license is added.
+Source code and editable geometry are included.

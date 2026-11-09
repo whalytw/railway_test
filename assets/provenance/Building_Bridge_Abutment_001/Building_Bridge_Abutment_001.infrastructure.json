@@ -1,0 +1,76 @@
+{
+  "schema": "railway-infrastructure/1",
+  "assetId": "Building_Bridge_Abutment_001",
+  "name": "翼牆橋台・1.6m",
+  "kind": "abutment",
+  "unit": "metre",
+  "up": "+Y",
+  "forward": "+Z",
+  "origin": "footing centre",
+  "mount": "ground",
+  "parameters": {
+    "title": "翼牆橋台・1.6m",
+    "category": "06_Buildings",
+    "family": "Railway_Bridges",
+    "group": "Supports",
+    "kind": "abutment",
+    "bearingHeight": 1.6,
+    "origin": "footing centre",
+    "mount": "ground"
+  },
+  "ports": [
+    {
+      "id": "Base",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "Bearing",
+      "position": [
+        0,
+        1.6,
+        0
+      ],
+      "forward": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "supportSockets": [],
+  "compatibleTracks": [],
+  "railTop": 0.405,
+  "supportDrop": 0.6,
+  "interactions": [],
+  "boundsMeters": {
+    "min": [
+      -2.341827392578125,
+      0.0,
+      -1.770930290222168
+    ],
+    "max": [
+      2.3419857025146484,
+      1.5999999046325684,
+      0.7799997329711914
+    ]
+  }
+}

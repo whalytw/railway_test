@@ -1,0 +1,187 @@
+{
+  "sourceLibraryMetadata": "06_Buildings/Settlement_Architecture/Residential/Building_Settlement_AFrameCabin_001/asset.json",
+  "sourceLibraryExport": "06_Buildings/Settlement_Architecture/Residential/Building_Settlement_AFrameCabin_001/exports/Building_Settlement_AFrameCabin_001.glb",
+  "copiedWithoutGeometryChanges": true,
+  "mainSha256": "3214b6906ac40124f445eb7f4ea68359dadfb6895710ad7ae03c8195dc6efa40",
+  "lod1Sha256": "b64a646099e937687bfaa452efb3158f5114bf70764769467311342460c2464d",
+  "metadata": {
+    "id": "Building_Settlement_AFrameCabin_001",
+    "name": "山林A字木屋",
+    "category": "06_Buildings",
+    "subcategory": "Settlement_Architecture/Residential",
+    "tags": [
+      "settlement",
+      "architecture",
+      "cross-biome",
+      "cartoon",
+      "stylized",
+      "low-poly",
+      "threejs",
+      "residential",
+      "A-frame"
+    ],
+    "status": "game_ready",
+    "version": "1.0.0",
+    "createdAt": "2026-11-07",
+    "source": "self_created_procedural_geometry",
+    "sourceUrl": "",
+    "license": {
+      "name": "self_created_user_project",
+      "licenseUrl": "",
+      "proofFile": "licenses/provenance.txt",
+      "allowsCommercialUse": null,
+      "allowsPublicWebDelivery": true,
+      "allowsStandaloneRedistribution": null
+    },
+    "sourceFile": "../../_Shared/Settlement_Architecture_Kit_001/source/Settlement_Architecture_Kit_001.blend",
+    "sourceLibraryPath": "06_Buildings/Settlement_Architecture/_Shared/Settlement_Architecture_Kit_001/source/Settlement_Architecture_Kit_001.blend",
+    "sourceCollection": "SA28_Building_Settlement_AFrameCabin_001",
+    "lod1SourceCollection": "SA28_LOD1_Building_Settlement_AFrameCabin_001",
+    "gameFile": "exports/Building_Settlement_AFrameCabin_001.glb",
+    "buildingFile": "exports/Building_Settlement_AFrameCabin_001.building.json",
+    "preview": "previews/thumbnail.png",
+    "previews": [
+      "previews/thumbnail.png",
+      "previews/reverse.png"
+    ],
+    "animations": [],
+    "runtimeAnimation": {
+      "bakedAnimationClips": false,
+      "provided": false,
+      "note": "門窗、招牌、水輪與懸鐘均為靜態幾何。"
+    },
+    "polycount": 808,
+    "polycountUnit": "triangles",
+    "meshNodeCount": 1,
+    "materialCount": 1,
+    "fileBytes": 71304,
+    "textureResolution": "none; vertex colors",
+    "dimensionsMetersXYZ": [
+      5.189083576202393,
+      5.162716865539551,
+      6.265000104904175
+    ],
+    "boundsMeters": {
+      "min": [
+        -2.5945417881011963,
+        0,
+        -2.825000047683716
+      ],
+      "max": [
+        2.5945417881011963,
+        5.162716865539551,
+        3.440000057220459
+      ]
+    },
+    "coordinates": {
+      "up": "+Y",
+      "forward": "+Z",
+      "unit": "metre",
+      "origin": "ground datum at authored origin; not bounding-box centre",
+      "sourceBlenderUp": "+Z",
+      "glbConversion": "[x,z,-y]"
+    },
+    "compatibleBiomes": [
+      "Forest",
+      "Hills",
+      "Lakeside",
+      "Snow"
+    ],
+    "biomeConditions": {
+      "Snow": "本模型沒有積雪覆蓋；可用於清雪後的建築地段，積雪外觀需另行處理。"
+    },
+    "roofForm": "A-frame",
+    "usageRole": "residential",
+    "placement": {
+      "groundAnchor": [
+        0,
+        0,
+        0
+      ],
+      "baseAtGround": true,
+      "flatGroundRequired": true,
+      "uniformScaleRecommended": true,
+      "recommendedUniformScaleRange": [
+        0.9,
+        1.1
+      ],
+      "frontDirectionGLTF": "+Z",
+      "frontDirectionBlender": "-Y",
+      "displaySlab": false,
+      "frequency": "uncommon",
+      "frequencyLabel": "適量配置",
+      "frontAccessSpaceMeters": 2.0,
+      "usageNote": "三角形大斜頂、前門與挑窗；雪地適用高斜屋頂外形，但本檔未附積雪。",
+      "slopeNote": "優先放在已找平的地面，不會自動貼坡；請檢查牆腳、柱腳、階梯與外伸構件的所有接觸點。建築保持直立，勿隨坡整棟傾斜。",
+      "frontAccessNote": "正面以門窗立面為準；前方建議另留 2 公尺步行空間。鐘亭、水塔、乾燥棚等開放構造以主要梯架或展示面為正面。"
+    },
+    "footprintRadiusMeters": 4.3087,
+    "boundingFootprintXZ": {
+      "min": [
+        -2.5945417881011963,
+        -2.825000047683716
+      ],
+      "max": [
+        2.5945417881011963,
+        3.440000057220459
+      ]
+    },
+    "suggestedMinRailCenterOffsetMeters": 6.7087,
+    "clearanceNote": "依完整屋簷、樓梯、附棚及整合貨箱等輪廓保守估算。均勻縮放後須等比調整；這是配置起始值，未執行遊戲線路碰撞測試。",
+    "lods": [
+      {
+        "level": 1,
+        "file": "exports/Building_Settlement_AFrameCabin_001_LOD1.glb",
+        "triangles": 520,
+        "fileBytes": 46212,
+        "dimensionsMetersXYZ": [
+          5.099999904632568,
+          5.150000095367432,
+          6.150000095367432
+        ],
+        "boundsMeters": {
+          "min": [
+            -2.549999952316284,
+            0,
+            -2.7750000953674316
+          ],
+          "max": [
+            2.549999952316284,
+            5.150000095367432,
+            3.375
+          ]
+        },
+        "switchToLOD1Meters": 90,
+        "suggestedCullDistanceMeters": 700
+      }
+    ],
+    "lodNote": "LOD1 為獨立 GLB，需在遊戲建立 THREE.LOD 或距離切換。兩版保持接地與主體位置；簡化版減少細框、飾條、欄杆或圓周分段。建議距離需依鏡頭與效能調整。",
+    "collision": {
+      "provided": false,
+      "note": "未附遊戲碰撞、導航、門窗互動或破壞行為；可依主要量體另建簡化碰撞。"
+    },
+    "interior": {
+      "provided": false,
+      "note": "外觀素材；牆面門窗以實體色板和框架表現，未製作可進入的完整室內。開放棚亭保留通透幾何。"
+    },
+    "validation": {
+      "glbIntegrity": "passed",
+      "selfContained": "passed",
+      "threejsLoadAndBounds": "passed",
+      "finiteAttributes": "passed",
+      "triangleAreas": "passed",
+      "indexRanges": "passed",
+      "unitNormals": "passed",
+      "groundOrigin": "passed",
+      "noDisplaySlab": "passed",
+      "singleMeshAndMaterial": "passed",
+      "closedConnectedPieces": "passed",
+      "threeRevision": "180",
+      "sha256": "3214b6906ac40124f445eb7f4ea68359dadfb6895710ad7ae03c8195dc6efa40",
+      "detailedReport": "exports/validation.json"
+    },
+    "geometryNote": "單一網格內含多個封閉部件，允許互相交疊，未作實體布林聯集。展示照明地板不輸出；牆腳基礎、樓梯、陽台和裝卸台屬於建築。採光面為不透明頂點色。",
+    "notes": "三角形大斜頂、前門與挑窗；雪地適用高斜屋頂外形，但本檔未附積雪。 同一種建築宜與其他量體混用，依道路調整朝向；公所、學校、磨坊、水塔等作低頻焦點，避免規則等距重複。"
+  },
+  "licenseProof": "製作日期：2026-11-07\n素材：Building_Settlement_AFrameCabin_001 / 山林A字木屋\n來源：為使用者專案，以 Blender MCP 原創程序建模。\n無第三方模型、貼圖、HDRI；無外部生成服務；模型不嵌入字型輪廓。\n用途：依使用者要求存入 GameAssets，供其 Three.js 軌道網頁與共用素材庫使用，可隨該網頁交付 GLB。\n記錄代碼：self_created_user_project。\n此檔是來源及用途紀錄，不是 CC0 或其他獨立授權條款；商用與獨立素材轉售條款未另行指定。\n"
+}
