@@ -1,0 +1,37 @@
+{
+  "version": "7.0.0",
+  "finishedAt": "2026-11-09T03:54:05.470Z",
+  "sourceSha256": "fb66c032601419f2e9585e4dc9a47cfbe4e76ee5592e316183f65e1fee42d493",
+  "reviewViews": [
+    "tunnel",
+    "river",
+    "farm",
+    "grass"
+  ],
+  "errorsSinceFinalReload": 0,
+  "warningsSinceFinalReload": 0,
+  "gameStarted": true,
+  "driver": "Animal_CubePet_Bunny_001",
+  "odometerKm": 2.5,
+  "modeAtCapture": "paused after positive-speed travel",
+  "settings": {
+    "biomeA": "Pastoral",
+    "biomeB": "Hills",
+    "lengthKm": 5,
+    "density": 5000,
+    "seed": "V7-COUNTRY"
+  },
+  "desktopViewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "screenshots": [
+    "tunnel-v7.jpg",
+    "river-v7.jpg",
+    "farmland-v7.jpg",
+    "grass-v7.jpg",
+    "gameplay-v7-paused.jpg"
+  ],
+  "fpsBenchmarkPerformed": false,
+  "performanceNote": "Browser automation timing is not a controlled same-hardware FPS benchmark."
+}

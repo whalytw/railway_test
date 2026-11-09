@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-import { AssetStore, RailWorld, createAtmosphere, PALETTES } from './world.js?v=6.0.0';
-import { createPhysics, stepPhysics, FIXED_STEP, clamp, lerp, wrap, resolveBiomes, randomGenerator, nextStation, biomeMix, createElevationProfile, leverReference, leverForSpeed, RATED_POWER, CART_MASS, MAX_GRADE, MIN_VERTICAL_RADIUS } from './core.js?v=6.0.0';
-import { riverBend } from './route-features.js?v=6.0.0';
-import { copyMotion, interpolateMotion, zoomView, anchorCamera } from './presentation.js?v=6.0.0';
-import { DENSITY_OPTIONS, SCENERY_VERSION } from './scenery-plan.js?v=6.0.0';
-import { chooseDriver } from './drivers.js?v=6.0.0';
+import { AssetStore, RailWorld, createAtmosphere, PALETTES } from './world.js?v=7.0.0';
+import { createPhysics, stepPhysics, FIXED_STEP, clamp, lerp, wrap, resolveBiomes, randomGenerator, nextStation, biomeMix, createElevationProfile, leverReference, leverForSpeed, RATED_POWER, CART_MASS, MAX_GRADE, MIN_VERTICAL_RADIUS } from './core.js?v=7.0.0';
+import { riverProfile, riverPoint } from './route-features.js?v=7.0.0';
+import { copyMotion, interpolateMotion, zoomView, anchorCamera } from './presentation.js?v=7.0.0';
+import { DENSITY_OPTIONS, SCENERY_VERSION } from './scenery-plan.js?v=7.0.0';
+import { chooseDriver } from './drivers.js?v=7.0.0';
 
 const $ = id => document.getElementById(id);
 let renderer, scene, camera, atmosphere, manifest, store, world;
@@ -434,8 +434,17 @@ function drawMinimap() {
   const bridge = world.features.bridge;
   if (bridge) {
     ctx.beginPath();
-    for (let b = -150; b <= 150; b += 5) { const a = riverBend(b), x = bridge.x + bridge.nx * b + bridge.tx * a, z = bridge.z + bridge.nz * b + bridge.tz * a; if (b === -150) ctx.moveTo(mx(x), mz(z)); else ctx.lineTo(mx(x), mz(z)); }
-    ctx.strokeStyle = '#77aeb7'; ctx.lineWidth = 5; ctx.stroke();
+    const rows = Math.ceil((bridge.river.end - bridge.river.start) / 5);
+    for (const side of [-1, 1]) for (let j = 0; j <= rows; j++) {
+      const i = side < 0 ? j : rows - j, b = lerp(bridge.river.start, bridge.river.end, i / rows);
+      const p = riverPoint(bridge, b, side * Math.max(10, riverProfile(bridge, b).halfWidth));
+      if (side < 0 && j === 0) ctx.moveTo(mx(p.x), mz(p.z)); else ctx.lineTo(mx(p.x), mz(p.z));
+    }
+    ctx.closePath(); ctx.fillStyle = '#77aeb7'; ctx.fill();
+  }
+  for (const farm of world.sceneryPlan?.farms || []) {
+    ctx.save(); ctx.translate(mx(farm.x), mz(farm.z)); ctx.rotate(-farm.yaw);
+    ctx.fillStyle = '#b99e63'; ctx.fillRect(-farm.halfWidth * scale, -farm.halfLength * scale, farm.halfWidth * 2 * scale, farm.halfLength * 2 * scale); ctx.restore();
   }
   const path = () => { ctx.beginPath(); for (let i = 0; i <= world.route.samples; i += 12) { const p = world.route.points[i]; if (i === 0) ctx.moveTo(mx(p.x), mz(p.z)); else ctx.lineTo(mx(p.x), mz(p.z)); } ctx.closePath(); };
   path(); ctx.strokeStyle = '#f8f4df'; ctx.lineWidth = 8; ctx.stroke(); path(); ctx.strokeStyle = '#657c65'; ctx.lineWidth = 3; ctx.stroke();
@@ -491,7 +500,7 @@ function recordMetrics(dt, now) {
 }
 function exportReport() {
   const samples = fpsHistory;
-  const report = { application: 'LOOP · 軌道試驗場', version: '6.0.0', threeVersion: THREE.REVISION, generatedAt: new Date().toISOString(),
+  const report = { application: 'LOOP · 軌道試驗場', version: '7.0.0', threeVersion: THREE.REVISION, generatedAt: new Date().toISOString(),
     settings: sessionConfig, actualTrackLengthMetres: world.route.length, worldUnit: 'metre', elapsedSecondsIncludingCountdown: physics.elapsed,
     animalDriver: { selection: sessionConfig.driverChoice, ...world.driver?.userData.driver },
     odometerMetres: physics.odometer, actualSceneryInstances: world.sceneryCount, trackSegments: world.trackInstances,
@@ -499,6 +508,7 @@ function exportReport() {
       landmarks: world.sceneryPlan.landmarks.map(({ id, x, z, along }) => ({ id, x, z, along })),
       lod: 'Chunked main / LOD1 with distance hysteresis; overview uses LOD1.' },
     elevation: world.route.elevation, physicsModel: { massKg: CART_MASS, ratedPowerWatts: RATED_POWER, ratedHorsepower: RATED_POWER / 745.699872, maximumGrade: MAX_GRADE, minimumVerticalRadiusMetres: MIN_VERTICAL_RADIUS },
+    landscape: { version: '7.0.0', ...world.landscapeStats },
     landmarks: world.features, sleepers: { averagePitchMetres: world.sleeperPitch, instances: world.sleeperInstances, filterEnabled: world.config.sleeperFilter, exposureMetres: world.sleeperUniforms.exposure.value },
     presentation: { fixedPhysicsStepSeconds: FIXED_STEP, interpolatedMotion: true, chaseAnchoredToCart: true, camera: cameraMode, chaseDistanceMetres: orbitDistance, cabYawRadians: cabYaw, cabPitchRadians: cabPitch },
     viewport: { width: innerWidth, height: innerHeight, pixelRatio: renderer.getPixelRatio() },
@@ -548,7 +558,7 @@ function frame(time) {
 
 async function boot() {
   if (location.protocol === 'file:') throw new Error('請透過 HTTP 開啟此專案：執行 START_LOCAL.cmd 後前往 http://127.0.0.1:4173，或使用 GitHub Pages 網址。');
-  const response = await fetch('./asset-manifest.json?v=6.0.0'); if (!response.ok) throw new Error(`找不到資產清單（HTTP ${response.status}）。請完整解壓縮 ZIP。`);
+  const response = await fetch('./asset-manifest.json?v=7.0.0'); if (!response.ok) throw new Error(`找不到資產清單（HTTP ${response.status}）。請完整解壓縮 ZIP。`);
   manifest = await response.json(); populateForm(); installControls();
   renderer = new THREE.WebGLRenderer({ canvas: $('scene'), antialias: true, powerPreference: 'high-performance', alpha: false });
   renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;

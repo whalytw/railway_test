@@ -1,0 +1,40 @@
+{
+  "version": "7.0.0",
+  "waterSamples": 156,
+  "pastoralCases": [
+    {
+      "biomeB": "Hills",
+      "seed": "V7-COUNTRY",
+      "totalFields": 3,
+      "pastoralFields": 2
+    },
+    {
+      "biomeB": "Volcano",
+      "seed": "V7-PASTORAL-HOT",
+      "totalFields": 3,
+      "pastoralFields": 3
+    },
+    {
+      "biomeB": "Snow",
+      "seed": "V7-PASTORAL-COLD",
+      "totalFields": 3,
+      "pastoralFields": 3
+    },
+    {
+      "biomeB": "Rural",
+      "seed": "V7-TWO-FARMLANDS",
+      "totalFields": 3,
+      "pastoralFields": 2
+    }
+  ],
+  "nonDestructiveToGLB": true,
+  "river": {
+    "length": 652,
+    "maxWidth": 39.5680952734079,
+    "lateralRange": 80.30656557228704
+  },
+  "tunnelCutWidthMax": 19,
+  "tunnelApproachLength": 72,
+  "grassTufts": 27008,
+  "grassTrianglesPerTuft": 7
+}

@@ -1,9 +1,10 @@
 // Seeded scene composition. This module uses metres and catalog metadata only;
 // no renderer or Blender source files are needed to reproduce a population.
-import { TAU, clamp, lerp, randomGenerator, wrap } from './core.js?v=6.0.0';
-import { bridgeCoordinates, riverBend } from './route-features.js?v=6.0.0';
+import { TAU, clamp, lerp, randomGenerator, wrap } from './core.js?v=7.0.0';
+import { bridgeCoordinates, riverLocation } from './route-features.js?v=7.0.0';
+import { inFarm } from './landscape-profile.js?v=7.0.0';
 
-export const SCENERY_VERSION = '5.0.0';
+export const SCENERY_VERSION = '7.0.0';
 export const DENSITY_OPTIONS = [1000, 2000, 3500, 5000, 8000, 10000, 12000, 16000, 20000, 30000, 50000];
 const BUILDING_ROLES = ['home', 'shop', 'workshop', 'civic'];
 const NATURAL_ROLES = ['tree', 'shrub', 'rock', 'deadwood', 'feature'];
@@ -53,7 +54,7 @@ export async function planScenery(world, onProgress = () => {}) {
   const { route, config, stations, features, lake } = world;
   const manifest = world.store.manifest, d = route.squareSize, goal = config.density;
   if (!Number.isSafeInteger(goal) || goal < 1) throw new Error('場景物件數必須是正整數。');
-  const random = randomGenerator(`${config.seed}:composition-v5`);
+  const random = randomGenerator(`${config.seed}:composition-v7`);
   const natureRandom = randomGenerator(`${config.seed}:nature-v5`);
   const placements = [], pads = [], districts = [], farms = [], landmarks = [], clusters = [];
   const occupied = new Occupancy(), counts = new Map(), modelList = Object.values(manifest.models).filter(a => a.sceneRole && a.sceneRole !== 'fixed');
@@ -62,8 +63,10 @@ export async function planScenery(world, onProgress = () => {}) {
   const waterAt = (x, z) => {
     if (lake && Math.abs(world.lakeRadiusAt(x, z) - lake.radius) < 42) return true;
     if (!features.bridge) return false;
-    const b = bridgeCoordinates(features.bridge, x, z);
-    return Math.abs(b.along) < 168 && Math.abs(b.across - riverBend(b.along)) < 42;
+    const b = bridgeCoordinates(features.bridge, x, z), river = features.bridge.river;
+    if (b.along < river.start - 20 || b.along > river.end + 20 || Math.abs(b.across) > 160) return false;
+    const p = riverLocation(features.bridge, x, z);
+    return p.along > river.start && p.along < river.end && p.distance < p.halfWidth + 28;
   };
   const pool = (biome, role, context = 'wild', wet = false) => {
     const key = `${biome}/${role}/${context}/${wet}`;
@@ -89,13 +92,19 @@ export async function planScenery(world, onProgress = () => {}) {
     if (stations.some(s => Math.hypot(x - s.x, z - s.z) < 23 + radius)) return null;
     if (!options.water && world.lakeRadiusAt(x, z) < (lake?.radius || 0) + radius + 3) return null;
     if (features.bridge) {
-      const b = bridgeCoordinates(features.bridge, x, z);
-      if (Math.abs(b.along) < 188 + radius && Math.abs(b.across - riverBend(b.along)) < 37 + radius) return null;
+      const b = bridgeCoordinates(features.bridge, x, z), river = features.bridge.river;
+      if (b.along > river.start - radius - 40 && b.along < river.end + radius + 40 && Math.abs(b.across) < 160 + radius) {
+        const p = riverLocation(features.bridge, x, z);
+        if (p.distance < p.halfWidth + 25 + radius) return null;
+      }
     }
     if (features.tunnel) {
       const t = features.tunnel, n = route.nearestTo(x, z, t.halfWidth + radius + 12);
-      if (n.distanceAlong !== undefined && n.distanceAlong > t.start - radius - 12 && n.distanceAlong < t.end + radius + 12) return null;
+      if (n.distanceAlong !== undefined && n.distanceAlong > t.start - t.approachLength - radius && n.distanceAlong < t.end + t.approachLength + radius) return null;
     }
+    // A field is an actual reserved plot, not a few crop models sharing a
+    // patch with subsequently scattered trees and rocks.
+    if (farms.some(f => options.district !== f.id && inFarm(f, x, z, radius + 2))) return null;
     const role = info.sceneRole, strict = BUILDING_ROLES.includes(role) || ['landmark', 'feature'].includes(role) || role.startsWith('prop-');
     const p = { id: info.id, role, x, z, scale, yaw: options.yaw ?? (options.random || random)() * TAU,
       biome: options.biome || biomeAt(x, z), district: options.district || 'wild', radius, strict,
@@ -218,30 +227,54 @@ export async function planScenery(world, onProgress = () => {}) {
     }
   }
 
-  // Crops form readable rows in a small number of actual farm pockets. They
-  // don't appear as random wheat clumps across every part of the map.
-  for (let i = 0; i < Math.round(route.length / 1100); i++) {
-    const s = wrap((i + 0.33) / Math.round(route.length / 1100) * route.length, route.length), a = route.sample(s);
-    const offset = (random() < 0.5 ? -1 : 1) * (75 + random() * 50), x = a.x + a.nx * offset, z = a.z + a.nz * offset;
-    const biome = biomeAt(x, z), crops = pool(biome, 'crop', 'farm'), info = pick(crops, random);
-    if (!info || !['Rural', 'Pastoral', 'Hills'].includes(biome)) continue;
-    const farm = { id: `farm-${farms.length}`, x, z, yaw: a.yaw, biome, halfWidth: 20, halfLength: 25, crop: info.id, plants: 0 };
-    const sx = Math.max(3.6, info.dimensions[0] * 1.13), sz = Math.max(3.4, info.dimensions[2] * 1.16);
-    for (let row = -3; row <= 3; row++) for (let col = -3; col <= 3; col++) {
-      const u = col * sx, v = row * sz;
-      if (Math.abs(u) > farm.halfWidth - 2 || Math.abs(v) > farm.halfLength - 2) continue;
-      const p = candidate(info, x + a.nx * u + a.tx * v, z + a.nz * u + a.tz * v, { biome, district: farm.id, yaw: a.yaw, scale: 0.94 + random() * 0.1 });
-      if (commit(p)) farm.plants++;
-    }
-    if (farm.plants < 8) continue;
-    farms.push(farm);
-    const used = new Set();
-    for (let prop = 0; prop < 5; prop++) {
-      const info = chooseUnique(pool(biome, 'prop-farm', 'farm'), used);
-      if (!info) continue;
-      const u = farm.halfWidth + 4, v = (prop - 2) * 6;
-      const p = candidate(info, x + a.nx * u + a.tx * v, z + a.nz * u + a.tz * v, { biome, district: farm.id, yaw: a.yaw });
-      if (commit(p)) used.add(info.id);
+  // Prioritise two visible Pastoral plots, then alternate the remaining farm
+  // regions. Every accepted plot has tilled soil, aligned crops and a margin
+  // facing the railway, 18–40 m away instead of 75–125 m away.
+  const farmBiomes = [...new Set([config.biomeA, config.biomeB])].filter(b => ['Pastoral', 'Rural', 'Hills'].includes(b));
+  const farmTarget = farmBiomes.length ? clamp(Math.round(route.length / 1500), 3, 7) : 0;
+  const cropIds = ['Plant_Pastoral_WheatCluster_001', 'Plant_Pastoral_CornCluster_001', 'Plant_Feature_Pastoral_Sunflowers_001', 'Plant_Feature_Pastoral_PumpkinVines_001', 'Plant_Feature_Pastoral_VineyardRow_001'];
+  for (let slot = 0; slot < farmTarget; slot++) {
+    const priority = farmBiomes.includes('Pastoral');
+    const index = priority ? (slot - 2 + farmBiomes.indexOf('Pastoral') + 1 + farmBiomes.length) % farmBiomes.length : slot % farmBiomes.length;
+    const biome = slot < 2 && priority ? 'Pastoral' : farmBiomes[index];
+    const available = cropIds.filter(id => manifest.models[id]?.compatibleBiomes?.includes(biome));
+    if (!available.length) continue;
+    const info = manifest.models[available[slot % available.length]];
+    for (let attempt = 0; attempt < 150; attempt++) {
+      const along = wrap(145 + slot / farmTarget * route.length + attempt * route.length / 151, route.length), a = route.sample(along);
+      const offset = (attempt % 2 ? -1 : 1) * (37 + attempt % 3 * 8), x = a.x + a.nx * offset, z = a.z + a.nz * offset;
+      const weight = config.biomeA === biome ? 1 - world.mixAt(x, z) : world.mixAt(x, z);
+      if (weight < 0.56 || farms.some(f => Math.hypot(f.x - x, f.z - z) < 110)) continue;
+      const farm = { id: `farm-${farms.length}`, x, z, yaw: a.yaw, biome, along, halfWidth: 15.5 + slot % 2 * 2,
+        halfLength: 22 + slot % 3 * 3, crop: info.id, plants: 0, rowCount: 8, soil: slot % 2 ? '#9f8764' : '#aa9066' };
+      if (placements.some(p => inFarm(farm, p.x, p.z, p.radius + 3))) continue;
+      const heights = [], corners = [];
+      for (const u of [-farm.halfWidth - 2, 0, farm.halfWidth + 2]) for (const v of [-farm.halfLength - 2, 0, farm.halfLength + 2]) {
+        const px = x + a.nx * u + a.tx * v, pz = z + a.nz * u + a.tz * v;
+        corners.push({ x: px, z: pz }); heights.push(ground(px, pz));
+      }
+      if (Math.max(...heights) - Math.min(...heights) > 4.8 || corners.some(p => Math.abs(p.x) > d - 12 || Math.abs(p.z) > d / 2 - 12 || route.distanceTo(p.x, p.z, 30) < 11 || waterAt(p.x, p.z))) continue;
+      const cropPlacements = [];
+      farm.rowSpacing = (farm.halfWidth * 2 - 4.6) / (farm.rowCount - 1);
+      farm.plantsPerRow = info.id.includes('Wheat') ? 17 : 9;
+      for (let col = 0; col < farm.rowCount; col++) for (let row = 0; row < farm.plantsPerRow; row++) {
+        const u = -farm.halfWidth + 2.3 + col * farm.rowSpacing, v = -farm.halfLength + 2.5 + row * (farm.halfLength * 2 - 5) / (farm.plantsPerRow - 1);
+        const p = candidate(info, x + a.nx * u + a.tx * v, z + a.nz * u + a.tz * v,
+          { biome, district: farm.id, along, yaw: a.yaw, scale: (info.id.includes('Wheat') ? 1.18 : 1.02) + random() * 0.08 });
+        if (p) cropPlacements.push(p);
+      }
+      if (cropPlacements.length < 45) continue;
+      farms.push(farm);
+      for (const p of cropPlacements) if (commit(p)) farm.plants++;
+      const used = new Set();
+      for (let prop = 0; prop < 4; prop++) {
+        const propInfo = prop === 0 ? manifest.models.Prop_Daily_Scarecrow_001 : chooseUnique(pool(biome, 'prop-farm', 'farm'), used);
+        if (!propInfo?.compatibleBiomes?.includes(biome)) continue;
+        const u = farm.halfWidth + 4, v = (prop - 1.5) * 8;
+        const p = candidate(propInfo, x + a.nx * u + a.tx * v, z + a.nz * u + a.tz * v, { biome, district: farm.id, along, yaw: a.yaw });
+        if (commit(p)) used.add(propInfo.id);
+      }
+      break;
     }
   }
   if (lake) {

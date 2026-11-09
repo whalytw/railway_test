@@ -37,17 +37,17 @@ test('both generated tunnel faces have a real open mouth on sloping track', asyn
 });
 
 test('rendered river terrain leaves the water channel and bridge deck exposed', async () => {
-  const { riverBend } = await import('../src/route-features.js');
+  const { riverPoint } = await import('../src/route-features.js');
   const world = new RailWorld(new THREE.Scene(), {}, { ...config, length: 5, features: true, seed: 'V3-BRIDGE-TUNNEL', elevationLimit: 0 });
   await world.buildTerrain();
   const meshes = world.group.children.filter(n => n.isMesh), bridge = world.features.bridge;
   const ray = new THREE.Raycaster(), origin = new THREE.Vector3(), down = new THREE.Vector3(0, -1, 0);
   world.group.updateMatrixWorld(true);
   for (let b = -120; b <= 120; b += 7) for (const lateral of [-3, 0, 3]) {
-    const a = riverBend(b) + lateral, x = bridge.x + bridge.nx * b + bridge.tx * a, z = bridge.z + bridge.nz * b + bridge.tz * a;
+    const p = riverPoint(bridge, b, lateral), { x, z } = p;
     origin.set(x, bridge.y + 100, z); ray.set(origin, down);
     const hit = ray.intersectObjects(meshes, false)[0]; assert.ok(hit, 'river must stay within ground meshes');
-    const water = bridge.y - 6.54 + b * 0.004;
+    const water = p.y;
     assert.ok(hit.point.y < water - 0.05, `ground covers water at river ${b} / ${lateral}: ${hit.point.y - water}`);
   }
   for (let s = bridge.start + 2; s < bridge.end - 2; s += 5) {

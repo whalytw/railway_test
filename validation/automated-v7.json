@@ -1,0 +1,12 @@
+{
+  "version": "7.0.0",
+  "command": "node scripts/verify-v7.mjs",
+  "total": 65,
+  "passed": 65,
+  "failed": 0,
+  "exitCode": 0,
+  "durationMs": 72195,
+  "finishedAt": "2026-11-09T03:46:48.522Z",
+  "sourceSha256": "fb66c032601419f2e9585e4dc9a47cfbe4e76ee5592e316183f65e1fee42d493",
+  "sourceUnchangedDuringTests": true
+}

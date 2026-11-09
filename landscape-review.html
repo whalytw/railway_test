@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LOOP · v7 景觀巡覽</title>
+<style>
+  *{box-sizing:border-box}body{margin:0;background:#ccd6c2;color:#173d36;font-family:system-ui,"Microsoft JhengHei",sans-serif}canvas{display:block;width:100vw;height:100vh}
+  header{position:absolute;top:24px;left:28px;right:28px;display:flex;align-items:center;gap:20px;pointer-events:none}header strong{font-size:25px;letter-spacing:.15em}header span{font-size:12px;letter-spacing:.14em}
+  #status{position:absolute;left:28px;bottom:104px;max-width:calc(100% - 56px);padding:12px 16px;background:#f6f3e8ed;border-radius:9px;font-size:13px}
+  nav{position:absolute;left:28px;right:28px;bottom:28px;display:flex;flex-wrap:wrap;gap:9px}button,a{font:inherit;font-size:14px;border:1px solid #173d3640;background:#f6f3e8ed;color:#173d36;border-radius:9px;padding:13px 18px;text-decoration:none;cursor:pointer}
+  button[aria-pressed=true]{background:#173d36;color:#f6f3e8}button:disabled{opacity:.45;cursor:wait}a{margin-left:auto}#error{position:absolute;top:110px;left:28px;right:28px;color:#8d3529;background:#fff6e8;white-space:pre-wrap}
+  @media(max-width:650px){header{left:16px;top:16px}header strong{font-size:20px}header span{font-size:10px}nav{left:16px;right:16px;bottom:16px;gap:6px}button,a{padding:10px;font-size:12px}#status{left:16px;bottom:120px}}
+</style>
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+<canvas id="review-scene" aria-label="v7 實際遊戲景觀"></canvas>
+<header><strong>LOOP</strong><span>LANDSCAPE / 07<br>景觀巡覽</span></header>
+<div id="status" role="status">正在建立田園與丘陵…</div><pre id="error" hidden></pre>
+<nav aria-label="景觀視角"><button data-view="tunnel" disabled>隧道入口</button><button data-view="river" disabled>彎曲河道</button><button data-view="farm" disabled>田園農地</button><button data-view="grass" disabled>草地近景</button><a href="./index.html">進入試車場 ↗</a></nav>
+<script type="module" src="./src/landscape-review.js?v=7.0.0"></script>
+</html>

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createRoute, stationsFor } from '../src/core.js';
-import { sleeperLayout, sleeperFilter, exposureCoverage, planRouteFeatures, featureAt, bridgeGroundHeight } from '../src/route-features.js';
+import { sleeperLayout, sleeperFilter, exposureCoverage, planRouteFeatures, featureAt, bridgeGroundHeight, riverProfile, riverPoint } from '../src/route-features.js';
 
 test('each route gets a bridge and tunnel clear of all stations with sufficiently gentle module bends', () => {
   for (const length of [5000, 8000, 15000]) for (const count of [2, 3]) for (const seed of ['A', 'B', 'V3-BRIDGE-TUNNEL']) {
@@ -20,9 +20,9 @@ test('bridge terrain is dug below the river bed and blends to natural bank heigh
   const route = createRoute(5000, 'water'), bridge = planRouteFeatures(route, stationsFor(route, 3), 'water').bridge;
   const ground = bridge.y - 0.09;
   assert.ok(bridgeGroundHeight(bridge, bridge.x, bridge.z, ground) < bridge.y - 8);
-  const at = a => ({ x: bridge.x + bridge.tx * a, z: bridge.z + bridge.tz * a });
-  const edge = at(12), distant = at(50);
-  assert.ok(Math.abs(bridgeGroundHeight(bridge, edge.x, edge.z, ground) - (bridge.y - 6.08)) < 0.01);
+  const profile = riverProfile(bridge, 0);
+  const edge = riverPoint(bridge, 0, profile.halfWidth + 7), distant = riverPoint(bridge, 0, profile.halfWidth + 50);
+  assert.ok(Math.abs(bridgeGroundHeight(bridge, edge.x, edge.z, ground) - (profile.waterY + 1.55)) < 0.01);
   assert.equal(bridgeGroundHeight(bridge, distant.x, distant.z, ground), ground);
 });
 

@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "models": {
     "Vehicle_Minecart_GoldenOak_001": {
       "id": "Vehicle_Minecart_GoldenOak_001",
@@ -12846,7 +12846,7 @@
     "Environment_Terrain_RiverCurve90R8_001"
   ],
   "scenery": {
-    "version": "5.0.0",
+    "version": "7.0.0",
     "additionalModels": [
       "Plant_Common_UmbrellaTree_001",
       "Plant_Common_ColumnarPoplar_001",
@@ -13018,5 +13018,12 @@
     "models": 24,
     "posture": "standing",
     "seatTop": 1.045
+  },
+  "landscape": {
+    "version": "7.0.0",
+    "documentation": "LANDSCAPE-v7.md",
+    "groundCover": "procedural world-space colour and seven-triangle instanced tufts",
+    "river": "one shared meandering, variable-width corridor for terrain, water, banks, placement exclusions and minimap",
+    "futureBiomes": "FUTURE-TERRAINS.md; planned only, not selectable in v7"
   }
 }

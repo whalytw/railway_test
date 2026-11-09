@@ -1,0 +1,18 @@
+{
+  "version": "7.0.0",
+  "files": 767,
+  "mainModels": 216,
+  "animalDrivers": 24,
+  "lodModels": 118,
+  "unchangedLegacyGlbs": 334,
+  "sourceSha256": "fb66c032601419f2e9585e4dc9a47cfbe4e76ee5592e316183f65e1fee42d493",
+  "testsPassed": 65,
+  "publishedByAgent": false,
+  "implementedRequests": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "request5Status": "planning only: FUTURE-TERRAINS.md"
+}
