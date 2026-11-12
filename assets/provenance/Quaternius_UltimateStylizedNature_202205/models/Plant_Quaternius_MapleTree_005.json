@@ -1,0 +1,223 @@
+{
+  "id": "Plant_Quaternius_MapleTree_005",
+  "name": "楓樹 05",
+  "author": "Quaternius",
+  "pack": "Quaternius_UltimateStylizedNature_202205",
+  "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html",
+  "vendorRelease": "2022-05",
+  "license": "CC0-1.0",
+  "licenseEvidence": "assets/licenses/Quaternius_UltimateStylizedNature_202205/LicensingReview.zh-TW.md",
+  "originalSourceFile": "Blends/MapleTree_5.blend",
+  "originalSourceSHA256": "c7ea2d1f564ed095f6f196d2ddf7208db45eac206374a66315deaf0908f28e1f",
+  "sourceArchiveName": "Blends-20261109T065115Z-1-001.zip",
+  "sourceArchiveSHA256": "56133f577e873afa77a35629ca955abc9825e30b900e2245095edd1a757b8f30",
+  "sourceLibraryMetadata": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/MapleTree/Plant_Quaternius_MapleTree_005/asset.json",
+  "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/MapleTree/Plant_Quaternius_MapleTree_005/exports/Plant_Quaternius_MapleTree_005.glb",
+  "sourceGLBSHA256": "218f2cd1364fc589abc3e7a4b504c5d36ec8d2e5a4fb892f4c48298c0c181451",
+  "sourceGLBBytes": 2850280,
+  "gameFile": "assets/models/Quaternius_MapleTree_005.glb",
+  "gameSHA256": "a5687a3822c2394e6bcb40d26bd2bf5062df2f86f5e5aed75a62689738f8deaa",
+  "gameBytes": 248884,
+  "transformation": "Only embedded PNG images were externalized and deduplicated by exact SHA-256. Non-image BIN bufferViews were copied byte-for-byte and relocated with 4-byte alignment. Geometry, indices, UVs, normals, tangents, material properties, samplers, nodes and transforms were preserved.",
+  "compatibleBiomes": [
+    "Forest",
+    "Hills",
+    "Pastoral",
+    "Rural",
+    "Lakeside",
+    "Riverbank",
+    "Plateau"
+  ],
+  "placement": {
+    "groundAnchor": [
+      0,
+      0,
+      0
+    ],
+    "baseAtGround": true,
+    "originPolicy": "author-root-xy-ground-z",
+    "recommendedUniformScaleRange": [
+      0.85,
+      1.15
+    ],
+    "embedDepthMetersRange": [
+      0.01,
+      0.03
+    ],
+    "displaySlab": false,
+    "suggestedMinRailCenterOffsetMeters": 6.1911,
+    "footprintRadiusMeters": 3.791135073253536,
+    "clearanceBasis": "horizontal mesh radius + 2.4 m reserved corridor; conservative placement guidance, not a measured game collision certification",
+    "compatibleBiomes": [
+      "Forest",
+      "Hills",
+      "Pastoral",
+      "Rural",
+      "Lakeside",
+      "Riverbank",
+      "Plateau"
+    ],
+    "usageNote": "適合森林、丘陵、村落外圍與湖畔樹群；保留原作者樹冠輪廓與配色，與其他樹型交錯，避免遮住軌道及主景。",
+    "slopeNote": "大樹保持直立；岩石與地表植物依地面法線適度調整，需重新檢查整體接地，不能只讓中心點貼地後讓邊緣懸空。"
+  },
+  "gameUsage": "適合森林、丘陵、村落外圍與湖畔樹群；保留原作者樹冠輪廓與配色，與其他樹型交錯，避免遮住軌道及主景。",
+  "originalNormalization": {
+    "originalMatrix": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "translationApplied": [
+      0,
+      0,
+      -0.0006941246683709323
+    ],
+    "metresPerOriginalUnit": 1,
+    "cleanup": {
+      "removed_unrendered_vertices": 0,
+      "removed_zero_area_faces": 0
+    },
+    "topologyAfterCleanup": {
+      "boundary_edges": 2792,
+      "nonmanifold_edges": 2792,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "degenerate_triangles": 0
+    },
+    "conversionNotes": "../../../_Shared/source/Normalization.zh-TW.md"
+  },
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z (display convention; static nature asset)",
+    "unit": "metre",
+    "origin": "ground datum; see placement.originPolicy",
+    "sourceBlenderUp": "+Z",
+    "glbConversion": "[x,z,-y]"
+  },
+  "images": [
+    {
+      "name": "MapleTree_Bark_Normal",
+      "sha256": "89b0bae2ba458b49119d8ba9f7359bc13184cea9c08dc5f00441b41e9a053943",
+      "url": "assets/textures/nature-v8/89b0bae2ba458b49119d8ba9f7359bc13184cea9c08dc5f00441b41e9a053943.png",
+      "bytes": 1275853
+    },
+    {
+      "name": "MapleTree_Bark",
+      "sha256": "181313e5bb3b365274e1e62969b4312bb1edc18c6cfe88162594bc2da5d278f6",
+      "url": "assets/textures/nature-v8/181313e5bb3b365274e1e62969b4312bb1edc18c6cfe88162594bc2da5d278f6.png",
+      "bytes": 1139693
+    },
+    {
+      "name": "MapleTree_Leaves",
+      "sha256": "a788034f119627160a7e72cbbfc3acd4b9a169d963a679055317b3b53fb12bbf",
+      "url": "assets/textures/nature-v8/a788034f119627160a7e72cbbfc3acd4b9a169d963a679055317b3b53fb12bbf.png",
+      "bytes": 185920
+    }
+  ],
+  "accessorChecks": [
+    {
+      "accessor": 0,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1952,
+      "bytes": 23424,
+      "sha256": "b73d06dc49ec8e0fbddc75ad2c415fa604d4bd977f0c8476dff21aff4cac61b3"
+    },
+    {
+      "accessor": 1,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1952,
+      "bytes": 23424,
+      "sha256": "7699686570e361715734bb367eb50cea2e5f804a56abd4cad8bf95d656f35bb7"
+    },
+    {
+      "accessor": 2,
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 1952,
+      "bytes": 15616,
+      "sha256": "989c490c7d1d26133ab0bee7c9fe62af92d1c3676b80d31e602fbc14420373ea"
+    },
+    {
+      "accessor": 3,
+      "type": "VEC4",
+      "componentType": 5126,
+      "count": 1952,
+      "bytes": 31232,
+      "sha256": "bf2d2ef657766d304cc13f73e6b011f7d7e8aeacac248c617d7410db5bf7b350"
+    },
+    {
+      "accessor": 4,
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 9624,
+      "bytes": 19248,
+      "sha256": "b7dde25e8c04d3cb0292fa8ab71a2abc2857e96ce7487260b076ec060522a9f9"
+    },
+    {
+      "accessor": 5,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 2592,
+      "bytes": 31104,
+      "sha256": "e3fd1952aa3b7f8a5f499e115b6d9d34d0bc3f5c4b58a67daaa6b88d83cc75e7"
+    },
+    {
+      "accessor": 6,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 2592,
+      "bytes": 31104,
+      "sha256": "4afa8eea6835f93669a52c1b1c7c3bce18c68274fd039a8193af2c831f3cda44"
+    },
+    {
+      "accessor": 7,
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 2592,
+      "bytes": 20736,
+      "sha256": "1c28b65b3d78ec7c73579650fdf8d9e925486d0488d35a5702b9e90b6d302fb7"
+    },
+    {
+      "accessor": 8,
+      "type": "VEC4",
+      "componentType": 5126,
+      "count": 2592,
+      "bytes": 41472,
+      "sha256": "5b2e7cbec261721ad9bd3e6eea3bf49a83cd901e814b4ab421ca7f5b6cb13f1f"
+    },
+    {
+      "accessor": 9,
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 3888,
+      "bytes": 7776,
+      "sha256": "9090e839495cd17a1d327c81006e99fdc250ebe6b451d5b0f0956029b065b526"
+    }
+  ],
+  "animationsProvided": false,
+  "lodsProvided": false,
+  "gamePerformanceCertification": false
+}

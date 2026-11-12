@@ -1,0 +1,987 @@
+{
+  "status": "analyzed",
+  "modelsInspected": 41,
+  "foliageModels": 31,
+  "alphaPrimitives": 34,
+  "totalSourceTriangles": 130184,
+  "foliageTriangles": 35864,
+  "independentPositionWeldedIslands": 15486,
+  "models": [
+    {
+      "id": "Plant_Quaternius_BushFlowers_001",
+      "totalTriangles": 478,
+      "opaqueTriangles": 0,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 0,
+          "material": "QUSN_Bush_Leaves",
+          "leafTriangles": 400,
+          "indexed": {
+            "islands": 213,
+            "triangleHistogram": {
+              "1": 26,
+              "2": 187
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 200,
+            "triangleHistogram": {
+              "2": 200
+            },
+            "largestIslandTriangles": 2
+          }
+        },
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_Flowers",
+          "leafTriangles": 78,
+          "indexed": {
+            "islands": 13,
+            "triangleHistogram": {
+              "6": 13
+            },
+            "largestIslandTriangles": 6
+          },
+          "positionWelded": {
+            "islands": 13,
+            "triangleHistogram": {
+              "6": 13
+            },
+            "largestIslandTriangles": 6
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_BushLargeFlowers_001",
+      "totalTriangles": 402,
+      "opaqueTriangles": 0,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 0,
+          "material": "QUSN_Bush_Leaves",
+          "leafTriangles": 276,
+          "indexed": {
+            "islands": 152,
+            "triangleHistogram": {
+              "1": 28,
+              "2": 124
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 138,
+            "triangleHistogram": {
+              "2": 138
+            },
+            "largestIslandTriangles": 2
+          }
+        },
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_Flowers",
+          "leafTriangles": 126,
+          "indexed": {
+            "islands": 21,
+            "triangleHistogram": {
+              "6": 21
+            },
+            "largestIslandTriangles": 6
+          },
+          "positionWelded": {
+            "islands": 21,
+            "triangleHistogram": {
+              "6": 21
+            },
+            "largestIslandTriangles": 6
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_BushLarge_001",
+      "totalTriangles": 276,
+      "opaqueTriangles": 0,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 0,
+          "material": "QUSN_Bush_Leaves",
+          "leafTriangles": 276,
+          "indexed": {
+            "islands": 153,
+            "triangleHistogram": {
+              "1": 30,
+              "2": 123
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 138,
+            "triangleHistogram": {
+              "2": 138
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_BushSmallFlowers_001",
+      "totalTriangles": 274,
+      "opaqueTriangles": 0,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 0,
+          "material": "QUSN_Bush_Leaves",
+          "leafTriangles": 190,
+          "indexed": {
+            "islands": 105,
+            "triangleHistogram": {
+              "1": 20,
+              "2": 85
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 95,
+            "triangleHistogram": {
+              "2": 95
+            },
+            "largestIslandTriangles": 2
+          }
+        },
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_Flowers",
+          "leafTriangles": 84,
+          "indexed": {
+            "islands": 14,
+            "triangleHistogram": {
+              "6": 14
+            },
+            "largestIslandTriangles": 6
+          },
+          "positionWelded": {
+            "islands": 14,
+            "triangleHistogram": {
+              "6": 14
+            },
+            "largestIslandTriangles": 6
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_BushSmall_001",
+      "totalTriangles": 190,
+      "opaqueTriangles": 0,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 0,
+          "material": "QUSN_Bush_Leaves",
+          "leafTriangles": 190,
+          "indexed": {
+            "islands": 105,
+            "triangleHistogram": {
+              "1": 20,
+              "2": 85
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 95,
+            "triangleHistogram": {
+              "2": 95
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_Bush_001",
+      "totalTriangles": 400,
+      "opaqueTriangles": 0,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 0,
+          "material": "QUSN_Bush_Leaves",
+          "leafTriangles": 400,
+          "indexed": {
+            "islands": 213,
+            "triangleHistogram": {
+              "1": 26,
+              "2": 187
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 200,
+            "triangleHistogram": {
+              "2": 200
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_BirchTree_001",
+      "totalTriangles": 4596,
+      "opaqueTriangles": 2688,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_BirchTree_Leaves",
+          "leafTriangles": 1908,
+          "indexed": {
+            "islands": 954,
+            "triangleHistogram": {
+              "2": 954
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 954,
+            "triangleHistogram": {
+              "2": 954
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_BirchTree_002",
+      "totalTriangles": 7660,
+      "opaqueTriangles": 5464,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_BirchTree_Leaves",
+          "leafTriangles": 2196,
+          "indexed": {
+            "islands": 1098,
+            "triangleHistogram": {
+              "2": 1098
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 1098,
+            "triangleHistogram": {
+              "2": 1098
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_BirchTree_003",
+      "totalTriangles": 6818,
+      "opaqueTriangles": 2680,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_BirchTree_Leaves",
+          "leafTriangles": 4138,
+          "indexed": {
+            "islands": 2069,
+            "triangleHistogram": {
+              "2": 2069
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 2069,
+            "triangleHistogram": {
+              "2": 2069
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_BirchTree_004",
+      "totalTriangles": 3562,
+      "opaqueTriangles": 2464,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_BirchTree_Leaves",
+          "leafTriangles": 1098,
+          "indexed": {
+            "islands": 549,
+            "triangleHistogram": {
+              "2": 549
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 549,
+            "triangleHistogram": {
+              "2": 549
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_BirchTree_005",
+      "totalTriangles": 4520,
+      "opaqueTriangles": 3056,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_BirchTree_Leaves",
+          "leafTriangles": 1464,
+          "indexed": {
+            "islands": 732,
+            "triangleHistogram": {
+              "2": 732
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 732,
+            "triangleHistogram": {
+              "2": 732
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_001",
+      "totalTriangles": 4792,
+      "opaqueTriangles": 4792,
+      "foliage": []
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_002",
+      "totalTriangles": 5344,
+      "opaqueTriangles": 5344,
+      "foliage": []
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_003",
+      "totalTriangles": 4928,
+      "opaqueTriangles": 4928,
+      "foliage": []
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_004",
+      "totalTriangles": 3528,
+      "opaqueTriangles": 3528,
+      "foliage": []
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_005",
+      "totalTriangles": 1360,
+      "opaqueTriangles": 1360,
+      "foliage": []
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_006",
+      "totalTriangles": 2984,
+      "opaqueTriangles": 2984,
+      "foliage": []
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_007",
+      "totalTriangles": 3504,
+      "opaqueTriangles": 3504,
+      "foliage": []
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_008",
+      "totalTriangles": 4944,
+      "opaqueTriangles": 4944,
+      "foliage": []
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_009",
+      "totalTriangles": 824,
+      "opaqueTriangles": 824,
+      "foliage": []
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_010",
+      "totalTriangles": 3208,
+      "opaqueTriangles": 3208,
+      "foliage": []
+    },
+    {
+      "id": "Plant_Quaternius_MapleTree_001",
+      "totalTriangles": 3848,
+      "opaqueTriangles": 2984,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_MapleTree_Leaves",
+          "leafTriangles": 864,
+          "indexed": {
+            "islands": 432,
+            "triangleHistogram": {
+              "2": 432
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 432,
+            "triangleHistogram": {
+              "2": 432
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_MapleTree_002",
+      "totalTriangles": 4800,
+      "opaqueTriangles": 3504,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_MapleTree_Leaves",
+          "leafTriangles": 1296,
+          "indexed": {
+            "islands": 648,
+            "triangleHistogram": {
+              "2": 648
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 648,
+            "triangleHistogram": {
+              "2": 648
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_MapleTree_003",
+      "totalTriangles": 6678,
+      "opaqueTriangles": 4944,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_MapleTree_Leaves",
+          "leafTriangles": 1734,
+          "indexed": {
+            "islands": 867,
+            "triangleHistogram": {
+              "2": 867
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 867,
+            "triangleHistogram": {
+              "2": 867
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_MapleTree_004",
+      "totalTriangles": 1256,
+      "opaqueTriangles": 824,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_MapleTree_Leaves",
+          "leafTriangles": 432,
+          "indexed": {
+            "islands": 216,
+            "triangleHistogram": {
+              "2": 216
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 216,
+            "triangleHistogram": {
+              "2": 216
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_MapleTree_005",
+      "totalTriangles": 4504,
+      "opaqueTriangles": 3208,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_MapleTree_Leaves",
+          "leafTriangles": 1296,
+          "indexed": {
+            "islands": 648,
+            "triangleHistogram": {
+              "2": 648
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 648,
+            "triangleHistogram": {
+              "2": 648
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_NormalTree_001",
+      "totalTriangles": 8520,
+      "opaqueTriangles": 4792,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_NormalTree_Leaves",
+          "leafTriangles": 3728,
+          "indexed": {
+            "islands": 1864,
+            "triangleHistogram": {
+              "2": 1864
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 1864,
+            "triangleHistogram": {
+              "2": 1864
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_NormalTree_002",
+      "totalTriangles": 8084,
+      "opaqueTriangles": 5344,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_NormalTree_Leaves",
+          "leafTriangles": 2740,
+          "indexed": {
+            "islands": 1370,
+            "triangleHistogram": {
+              "2": 1370
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 1370,
+            "triangleHistogram": {
+              "2": 1370
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_NormalTree_003",
+      "totalTriangles": 7096,
+      "opaqueTriangles": 4928,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_NormalTree_Leaves",
+          "leafTriangles": 2168,
+          "indexed": {
+            "islands": 1084,
+            "triangleHistogram": {
+              "2": 1084
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 1084,
+            "triangleHistogram": {
+              "2": 1084
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_NormalTree_004",
+      "totalTriangles": 6338,
+      "opaqueTriangles": 3528,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_NormalTree_Leaves",
+          "leafTriangles": 2810,
+          "indexed": {
+            "islands": 1405,
+            "triangleHistogram": {
+              "2": 1405
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 1405,
+            "triangleHistogram": {
+              "2": 1405
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_NormalTree_005",
+      "totalTriangles": 2182,
+      "opaqueTriangles": 1360,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_NormalTree_Leaves",
+          "leafTriangles": 822,
+          "indexed": {
+            "islands": 411,
+            "triangleHistogram": {
+              "2": 411
+            },
+            "largestIslandTriangles": 2
+          },
+          "positionWelded": {
+            "islands": 411,
+            "triangleHistogram": {
+              "2": 411
+            },
+            "largestIslandTriangles": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_PalmTree_001",
+      "totalTriangles": 472,
+      "opaqueTriangles": 184,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_PalmTree_Leaves",
+          "leafTriangles": 288,
+          "indexed": {
+            "islands": 12,
+            "triangleHistogram": {
+              "24": 12
+            },
+            "largestIslandTriangles": 24
+          },
+          "positionWelded": {
+            "islands": 12,
+            "triangleHistogram": {
+              "24": 12
+            },
+            "largestIslandTriangles": 24
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_PalmTree_002",
+      "totalTriangles": 368,
+      "opaqueTriangles": 152,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_PalmTree_Leaves",
+          "leafTriangles": 216,
+          "indexed": {
+            "islands": 9,
+            "triangleHistogram": {
+              "24": 9
+            },
+            "largestIslandTriangles": 24
+          },
+          "positionWelded": {
+            "islands": 9,
+            "triangleHistogram": {
+              "24": 9
+            },
+            "largestIslandTriangles": 24
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_PalmTree_003",
+      "totalTriangles": 344,
+      "opaqueTriangles": 152,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_PalmTree_Leaves",
+          "leafTriangles": 192,
+          "indexed": {
+            "islands": 8,
+            "triangleHistogram": {
+              "24": 8
+            },
+            "largestIslandTriangles": 24
+          },
+          "positionWelded": {
+            "islands": 8,
+            "triangleHistogram": {
+              "24": 8
+            },
+            "largestIslandTriangles": 24
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_PalmTree_004",
+      "totalTriangles": 472,
+      "opaqueTriangles": 184,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_PalmTree_Leaves",
+          "leafTriangles": 288,
+          "indexed": {
+            "islands": 12,
+            "triangleHistogram": {
+              "24": 12
+            },
+            "largestIslandTriangles": 24
+          },
+          "positionWelded": {
+            "islands": 12,
+            "triangleHistogram": {
+              "24": 12
+            },
+            "largestIslandTriangles": 24
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_PalmTree_005",
+      "totalTriangles": 264,
+      "opaqueTriangles": 72,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_PalmTree_Leaves",
+          "leafTriangles": 192,
+          "indexed": {
+            "islands": 8,
+            "triangleHistogram": {
+              "24": 8
+            },
+            "largestIslandTriangles": 24
+          },
+          "positionWelded": {
+            "islands": 8,
+            "triangleHistogram": {
+              "24": 8
+            },
+            "largestIslandTriangles": 24
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_PineTree_001",
+      "totalTriangles": 2128,
+      "opaqueTriangles": 1496,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_PineTree_Leaves",
+          "leafTriangles": 632,
+          "indexed": {
+            "islands": 28,
+            "triangleHistogram": {
+              "14": 8,
+              "26": 20
+            },
+            "largestIslandTriangles": 26
+          },
+          "positionWelded": {
+            "islands": 28,
+            "triangleHistogram": {
+              "14": 8,
+              "26": 20
+            },
+            "largestIslandTriangles": 26
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_PineTree_002",
+      "totalTriangles": 2716,
+      "opaqueTriangles": 1600,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_PineTree_Leaves",
+          "leafTriangles": 1116,
+          "indexed": {
+            "islands": 54,
+            "triangleHistogram": {
+              "14": 24,
+              "26": 30
+            },
+            "largestIslandTriangles": 26
+          },
+          "positionWelded": {
+            "islands": 51,
+            "triangleHistogram": {
+              "14": 18,
+              "26": 30,
+              "28": 3
+            },
+            "largestIslandTriangles": 28
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_PineTree_003",
+      "totalTriangles": 1998,
+      "opaqueTriangles": 1496,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_PineTree_Leaves",
+          "leafTriangles": 502,
+          "indexed": {
+            "islands": 23,
+            "triangleHistogram": {
+              "14": 8,
+              "26": 15
+            },
+            "largestIslandTriangles": 26
+          },
+          "positionWelded": {
+            "islands": 23,
+            "triangleHistogram": {
+              "14": 8,
+              "26": 15
+            },
+            "largestIslandTriangles": 26
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_PineTree_004",
+      "totalTriangles": 2686,
+      "opaqueTriangles": 1664,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_PineTree_Leaves",
+          "leafTriangles": 1022,
+          "indexed": {
+            "islands": 43,
+            "triangleHistogram": {
+              "14": 8,
+              "26": 35
+            },
+            "largestIslandTriangles": 26
+          },
+          "positionWelded": {
+            "islands": 42,
+            "triangleHistogram": {
+              "14": 6,
+              "26": 35,
+              "28": 1
+            },
+            "largestIslandTriangles": 28
+          }
+        }
+      ]
+    },
+    {
+      "id": "Plant_Quaternius_PineTree_005",
+      "totalTriangles": 838,
+      "opaqueTriangles": 136,
+      "foliage": [
+        {
+          "mesh": 0,
+          "primitive": 1,
+          "material": "QUSN_PineTree_Leaves",
+          "leafTriangles": 702,
+          "indexed": {
+            "islands": 33,
+            "triangleHistogram": {
+              "14": 13,
+              "26": 20
+            },
+            "largestIslandTriangles": 26
+          },
+          "positionWelded": {
+            "islands": 32,
+            "triangleHistogram": {
+              "14": 11,
+              "26": 20,
+              "28": 1
+            },
+            "largestIslandTriangles": 28
+          }
+        }
+      ]
+    }
+  ]
+}

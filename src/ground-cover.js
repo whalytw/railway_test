@@ -1,11 +1,11 @@
 import * as THREE from 'three';
-import { lerp, smoothstep, randomGenerator, TAU } from './core.js?v=7.0.0';
-import { riverLocation, bridgeCoordinates } from './route-features.js?v=7.0.0';
-import { renderedGroundHeight } from './grounding.js?v=7.0.0';
-import { GRASS_HABITAT, grassPatch, inFarm } from './landscape-profile.js?v=7.0.0';
+import { lerp, smoothstep, randomGenerator, TAU } from './core.js?v=8.0.0';
+import { riverLocation, bridgeCoordinates } from './route-features.js?v=8.0.0';
+import { renderedGroundHeight } from './grounding.js?v=8.0.0';
+import { GRASS_HABITAT, grassPatch, inFarm } from './landscape-profile.js?v=8.0.0';
 
 export function grassHabitatAt(world, x, z, near) {
-  const mix = world.mixAt(x, z), habitat = lerp(GRASS_HABITAT[world.config.biomeA] || 0, GRASS_HABITAT[world.config.biomeB] || 0, mix);
+  const habitat = world.blendValue(GRASS_HABITAT,x,z);
   if (habitat < 0.02) return 0;
   let weight = habitat * smoothstep(4.8, 8.5, near.distance);
   if (world.lake && world.lakeRadiusAt(x, z) < world.lake.radius + 8) return 0;
@@ -145,7 +145,7 @@ export function buildFarmland(world) {
       const y = renderedGroundHeight(world.terrainGrid, x, z) + 0.035 + 0.11 * ridge;
       positions.push(x, y, z);
       const color = soil.clone().multiplyScalar(0.85 + ridge * 0.20).lerp(cropColor, ridge * 0.34).lerp(path, 1 - smoothstep(-0.1, 1.15, edge));
-      if (edge < -0.7) color.lerp(world.colorA.clone().lerp(world.colorB, world.mixAt(x, z)), smoothstep(0.7, 1.5, -edge));
+      if (edge < -0.7) color.lerp(world.colorAt(x,z), smoothstep(0.7, 1.5, -edge));
       colors.push(color.r, color.g, color.b);
     }
     for (let iz = 0; iz < nz; iz++) for (let ix = 0; ix < nx; ix++) {

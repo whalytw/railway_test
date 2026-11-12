@@ -1,0 +1,225 @@
+{
+  "id": "Plant_Quaternius_PineTree_003",
+  "name": "松樹 03",
+  "author": "Quaternius",
+  "pack": "Quaternius_UltimateStylizedNature_202205",
+  "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html",
+  "vendorRelease": "2022-05",
+  "license": "CC0-1.0",
+  "licenseEvidence": "assets/licenses/Quaternius_UltimateStylizedNature_202205/LicensingReview.zh-TW.md",
+  "originalSourceFile": "Blends/PineTree_3.blend",
+  "originalSourceSHA256": "c1ab5deb50ff62c4b9585921dbe0c109b474beca05936483baed9fd9f86ffab1",
+  "sourceArchiveName": "Blends-20261109T065115Z-1-001.zip",
+  "sourceArchiveSHA256": "56133f577e873afa77a35629ca955abc9825e30b900e2245095edd1a757b8f30",
+  "sourceLibraryMetadata": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/PineTree/Plant_Quaternius_PineTree_003/asset.json",
+  "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/PineTree/Plant_Quaternius_PineTree_003/exports/Plant_Quaternius_PineTree_003.glb",
+  "sourceGLBSHA256": "37562048fb05e0bc35365e46fde0e86e7a06ec30a9dbdf572fabd150af455480",
+  "sourceGLBBytes": 2337240,
+  "gameFile": "assets/models/Quaternius_PineTree_003.glb",
+  "gameSHA256": "7958559a8efcb3f8192de40657c965c02c5d8473383b4bf47431352794eef511",
+  "gameBytes": 80312,
+  "transformation": "Only embedded PNG images were externalized and deduplicated by exact SHA-256. Non-image BIN bufferViews were copied byte-for-byte and relocated with 4-byte alignment. Geometry, indices, UVs, normals, tangents, material properties, samplers, nodes and transforms were preserved.",
+  "compatibleBiomes": [
+    "Forest",
+    "Hills",
+    "Pastoral",
+    "Rural",
+    "Lakeside",
+    "Riverbank",
+    "Plateau",
+    "Snow"
+  ],
+  "placement": {
+    "groundAnchor": [
+      0,
+      0,
+      0
+    ],
+    "baseAtGround": true,
+    "originPolicy": "author-root-xy-ground-z",
+    "recommendedUniformScaleRange": [
+      0.85,
+      1.15
+    ],
+    "embedDepthMetersRange": [
+      0.01,
+      0.03
+    ],
+    "displaySlab": false,
+    "suggestedMinRailCenterOffsetMeters": 3.3262,
+    "footprintRadiusMeters": 0.9261685138528082,
+    "clearanceBasis": "horizontal mesh radius + 2.4 m reserved corridor; conservative placement guidance, not a measured game collision certification",
+    "compatibleBiomes": [
+      "Forest",
+      "Hills",
+      "Pastoral",
+      "Rural",
+      "Lakeside",
+      "Riverbank",
+      "Plateau",
+      "Snow"
+    ],
+    "usageNote": "適合山林、丘陵與高地樹群；雪地使用時另搭配積雪或冷色變體，本模型沒有積雪材質。",
+    "slopeNote": "大樹保持直立；岩石與地表植物依地面法線適度調整，需重新檢查整體接地，不能只讓中心點貼地後讓邊緣懸空。"
+  },
+  "gameUsage": "適合山林、丘陵與高地樹群；雪地使用時另搭配積雪或冷色變體，本模型沒有積雪材質。",
+  "originalNormalization": {
+    "originalMatrix": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "translationApplied": [
+      0,
+      0,
+      -0.001675799721851945
+    ],
+    "metresPerOriginalUnit": 1,
+    "cleanup": {
+      "removed_unrendered_vertices": 0,
+      "removed_zero_area_faces": 0
+    },
+    "topologyAfterCleanup": {
+      "boundary_edges": 408,
+      "nonmanifold_edges": 408,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "degenerate_triangles": 0
+    },
+    "conversionNotes": "../../../_Shared/source/Normalization.zh-TW.md"
+  },
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z (display convention; static nature asset)",
+    "unit": "metre",
+    "origin": "ground datum; see placement.originPolicy",
+    "sourceBlenderUp": "+Z",
+    "glbConversion": "[x,z,-y]"
+  },
+  "images": [
+    {
+      "name": "PineTree_Bark_Normal",
+      "sha256": "b398f7ed6b7163c371707428d6dd79b79719426bf1b5da87227b4c646a30be2e",
+      "url": "assets/textures/nature-v8/b398f7ed6b7163c371707428d6dd79b79719426bf1b5da87227b4c646a30be2e.png",
+      "bytes": 1156385
+    },
+    {
+      "name": "PineTree_Bark",
+      "sha256": "6f6be3f0df8a9615cc488f54d56ca914f266df22675cb8c4dcb0d3dd51a4a385",
+      "url": "assets/textures/nature-v8/6f6be3f0df8a9615cc488f54d56ca914f266df22675cb8c4dcb0d3dd51a4a385.png",
+      "bytes": 632533
+    },
+    {
+      "name": "PineTree_Leaves",
+      "sha256": "11b405cd97651841f1e0293b63bde21915ce6cbf4f4d8d33294f7ba53cfc1fb5",
+      "url": "assets/textures/nature-v8/11b405cd97651841f1e0293b63bde21915ce6cbf4f4d8d33294f7ba53cfc1fb5.png",
+      "bytes": 468076
+    }
+  ],
+  "accessorChecks": [
+    {
+      "accessor": 0,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 912,
+      "bytes": 10944,
+      "sha256": "cb1c48eff420d2b9ac17e4469237a2212496e67f67c64ccc73f69c0ab7ba8491"
+    },
+    {
+      "accessor": 1,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 912,
+      "bytes": 10944,
+      "sha256": "bc981fb0394ed90bbd50373d155abd192bbecb4a759e8a945e7658d80b9711fa"
+    },
+    {
+      "accessor": 2,
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 912,
+      "bytes": 7296,
+      "sha256": "88e6372c2f0be858c9ba4a0cba5da17dc74d0843754a07f31e3532d25f2d9818"
+    },
+    {
+      "accessor": 3,
+      "type": "VEC4",
+      "componentType": 5126,
+      "count": 912,
+      "bytes": 14592,
+      "sha256": "631717ddb811f1c01af2cbc0df39956078917f5d5f8470b3008dba42fde63ff8"
+    },
+    {
+      "accessor": 4,
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 4488,
+      "bytes": 8976,
+      "sha256": "adf9fb98835b4a1f98e533e8544d39f206c359a049f0874cda5156ff0c8524b9"
+    },
+    {
+      "accessor": 5,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 434,
+      "bytes": 5208,
+      "sha256": "8c5f504feb0f7cfa4b8ebb377124acb901464264b1a756bd4c6ab403161e8865"
+    },
+    {
+      "accessor": 6,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 434,
+      "bytes": 5208,
+      "sha256": "fc76f020905d86dcd1c7cf5b44a6dc447ff30d809b1ecde81d49a656a2a6a5b8"
+    },
+    {
+      "accessor": 7,
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 434,
+      "bytes": 3472,
+      "sha256": "e793f887411efa9f23cc5220652bcb215c1f0fd474c6c98c5f9a746d52991449"
+    },
+    {
+      "accessor": 8,
+      "type": "VEC4",
+      "componentType": 5126,
+      "count": 434,
+      "bytes": 6944,
+      "sha256": "e9e85b449e90452c62b66c6faae9fd7e916b7185d5eb7a266bc8dd07a843c31c"
+    },
+    {
+      "accessor": 9,
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 1506,
+      "bytes": 3012,
+      "sha256": "7d5cef3315245e3e48749067ca29220236a1a273fc74ab004de3f50bcd44a21c"
+    }
+  ],
+  "animationsProvided": false,
+  "lodsProvided": false,
+  "gamePerformanceCertification": false
+}

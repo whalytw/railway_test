@@ -1,6 +1,6 @@
 // Metre-based landscape rules shared by renderers, planning and validation.
 // No imported photographs, textures or additional third-party licenses.
-import { clamp, smoothstep } from './core.js?v=7.0.0';
+import { clamp, smoothstep } from './core.js?v=8.0.0';
 
 export function farmCoordinates(farm, x, z) {
   const dx = x - farm.x, dz = z - farm.z, c = Math.cos(farm.yaw), s = Math.sin(farm.yaw);

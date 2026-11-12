@@ -1,0 +1,405 @@
+{
+  "mirror_repository": "https://github.com/tilakpatell/tilakverse-assets",
+  "mirror_pack_path": "quaternius/stylized-nature-pack",
+  "model_size_matches": 63,
+  "sample_model_sha256_match": true,
+  "sample_model": "NormalTree_1.blend",
+  "sample_sha256": "e22a2bd168f05e9b949ee49b4ad56b312c065516d2c86e8cb8367b49bf27c3a7",
+  "normalized_license_matches": true,
+  "texture_count": 21,
+  "files": [
+    {
+      "name": "BirchTree_Bark.png",
+      "status": "ok",
+      "bytes": 23133683,
+      "sha256": "689dd3e55523e999cf9a2271aa1e8ce1ac6a7cf3a2dc4bd796dd76860a33154b",
+      "git_blob_sha1": "281d95c3660dd7fd7c741d4364f2a3829a7e211f",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/BirchTree_Bark.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1aEMsAWATmNyVB7yv_Pupx8LHw0cy6u4p/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "BirchTree_Bark_Normal.png",
+      "status": "ok",
+      "bytes": 22721595,
+      "sha256": "e30ee9c7561742523340d5657056f8392bc0f944da5145f0af7690cd1d2e6a11",
+      "git_blob_sha1": "feb615ed5111ffb4156345149aaa003cbe403d5b",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/BirchTree_Bark_Normal.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1vfDzHgS6CBiL7LW3GKldOE_PhceVh_5k/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "BirchTree_Leaves.png",
+      "status": "ok",
+      "bytes": 77836,
+      "sha256": "8b674a02017d987f8ec0448bd2a52ad788d1235f91b7f00499b4ca071f8e69fe",
+      "git_blob_sha1": "6efb90dac5ea09a0612155a2b6adf57430716986",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/BirchTree_Leaves.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1ZPQRLXANz2z7pXirP2GIUm3nd9h_clwf/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "Bush_Leaves.png",
+      "status": "ok",
+      "bytes": 74828,
+      "sha256": "9f662296a285ca56b1ed56e952a198b93b466ae39ab7b6ee1c1ac1bd1c46242f",
+      "git_blob_sha1": "ce9a7109a74fc8993aa17e4bed3dec6705bb546b",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/Bush_Leaves.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1yBz894w6XWBFvcQ75GDaRoQaunCHx4Q0/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "Flowers.png",
+      "status": "ok",
+      "bytes": 318021,
+      "sha256": "23673fc87e55d8f7cbc699581a164cffec505376bd8b0b90b593dc387aa569fd",
+      "git_blob_sha1": "fbdc53aabb633c54c474f85b56d5cb491606f85e",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/Flowers.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1aVoa3KmIjIlIA5MhvUn7Z5trLRBlM1r6/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "Grass.png",
+      "status": "ok",
+      "bytes": 734927,
+      "sha256": "facde747020acfefdc84d176dd4037282895d200a66fc20b0d9baca470f310f1",
+      "git_blob_sha1": "205ba2b648f1b45a725ffc7bfd4aef65f569fcfc",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha_range": null,
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/Grass.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1JOnNDiQhoUzB637HUMaOASCySSEW9UFx/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "Leaves_BW.png",
+      "status": "ok",
+      "bytes": 105528,
+      "sha256": "1440d34b8c8d2bcf15216bfe7c3c7840b64d8b289b1c2c588528001860f6a6a2",
+      "git_blob_sha1": "c2505bec769e1342068623c27e3a23395c7f09a7",
+      "dimensions": [
+        1000,
+        1000
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/Leaves_BW.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1k3hoJvFC0dR9bt8vGNPpUfmVth3C32DJ/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "MapleTree_Bark.png",
+      "status": "ok",
+      "bytes": 22229469,
+      "sha256": "183645b8dc99e810e9b4c5d48a0944ccff4c2f2a9bd5f1816ab66a367cfe9a92",
+      "git_blob_sha1": "e4a32e2f3d76cda064acfb54ff8bc046de3ced80",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/MapleTree_Bark.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1acgKpeavex4F-60DgC-IAtaQBof6h6JM/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "MapleTree_Bark_Normal.png",
+      "status": "ok",
+      "bytes": 22064128,
+      "sha256": "2e3d97d57838d6e8203f0fab2858bada8ad1e6d6f240c0e898f8e88c110f2f5d",
+      "git_blob_sha1": "a15750eb5de7055c2436a360c44c3f63805a5a42",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/MapleTree_Bark_Normal.png",
+      "original_author_file_url": "https://drive.google.com/file/d/151EDTiGK1Orms3sXDCsT9stYtqnGvl0a/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "MapleTree_Leaves.png",
+      "status": "ok",
+      "bytes": 212333,
+      "sha256": "915f0836e9889e28032662c7aa0d0eb9601ba999eda042c9a4e38690786d6c7b",
+      "git_blob_sha1": "459e97edbade3b5f080db87bcc7a7e7a1268944f",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/MapleTree_Leaves.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1bEUjiz9g2rhWGPu1pyjYmZ_FFtEhXMg1/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "MapleTree_Leaves_BW.png",
+      "status": "ok",
+      "bytes": 138667,
+      "sha256": "6398f4fba1d7612526065f0be51d8c285f57cd3e6883bd4e464c9b7e6d1df15d",
+      "git_blob_sha1": "6dc603b5a8220ab387d35e211ce888f26f41d15d",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/MapleTree_Leaves_BW.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1x1R79Mikluy3vNjKG57F6ECWujC-8Yhg/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "NormalTree_Bark.png",
+      "status": "ok",
+      "bytes": 20875728,
+      "sha256": "17d8836b4eb3462c486bc0ca596d8d4dcde918c0ce0dd37eec9111b2e175be69",
+      "git_blob_sha1": "fc92f8ce941c28c332334785f8af7bd02701dc2a",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/NormalTree_Bark.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1Yj_m3kf_BfoiTNRf67932Jq2MTZqNP2B/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "NormalTree_Bark_Normal.png",
+      "status": "ok",
+      "bytes": 19087640,
+      "sha256": "8136a8d6dc18e6b055c7cb53cf42bc6bac41319e102289d8ba25ee5837fbc39b",
+      "git_blob_sha1": "3c52063135cfb31a7e1947bdbbcb67184e4cbab7",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/NormalTree_Bark_Normal.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1LIstIQfo3n_cK8vWguFg2N42yCJ9plCc/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "NormalTree_Leaves.png",
+      "status": "ok",
+      "bytes": 74828,
+      "sha256": "9f662296a285ca56b1ed56e952a198b93b466ae39ab7b6ee1c1ac1bd1c46242f",
+      "git_blob_sha1": "ce9a7109a74fc8993aa17e4bed3dec6705bb546b",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/NormalTree_Leaves.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1hGjtu8MT0HCZThjRaT-gdrujpc7qi1sW/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "PalmTree_Leaves.png",
+      "status": "ok",
+      "bytes": 279770,
+      "sha256": "6702bdeb0d5496527a049145583c98c4fdaee9fc55ea5d33a3ca2a9014a0cc74",
+      "git_blob_sha1": "725129b87ddc2ed38d4b5f51221d68f0caccd7cf",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PalmTree_Leaves.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1T8j8xCuwT4Ie7FaXLYgvgx1AX4tVOX_G/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "PalmTree_Trunk.png",
+      "status": "ok",
+      "bytes": 21347386,
+      "sha256": "504d8d7e87ad686efd267a4f6eba2b2faacc589b4a169f1904aca1d6ff5e672d",
+      "git_blob_sha1": "59d78c85185f276b4de999a6e45bca112449a70a",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PalmTree_Trunk.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1GeJkoaKTw0A6_lyI2hNZldzGZk43Tq1J/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "PalmTree_Trunk_Normal.png",
+      "status": "ok",
+      "bytes": 8876810,
+      "sha256": "3d93f46d0b12b0007ce9b6b396e2c582092f1e46747d951c0e3008e48d601c78",
+      "git_blob_sha1": "6a6a0df8fe4b1c7ab566684ecaffdf5d1d4486b4",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PalmTree_Trunk_Normal.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1pQhHb_un8hilDaT_BMISoiVJqUZJHceJ/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "PineTree_Bark.png",
+      "status": "ok",
+      "bytes": 15436565,
+      "sha256": "dcda0e989e2d0f6325e2fb994589d6be9e71191dd3f888b15d22720d5527fe0f",
+      "git_blob_sha1": "0519829cf580e8045c450c196d7e3a48fb8332ce",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PineTree_Bark.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1waE0sZebKnv_QchJdxpdQrg4bog5O-PY/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "PineTree_Bark_Normal.png",
+      "status": "ok",
+      "bytes": 20937374,
+      "sha256": "d23c7bbce3f0052ade223d3195c24bc4e8d870b33a23c788c9bd87026fa2c79b",
+      "git_blob_sha1": "dd8cacc33bcbf2ecf229f0c61a9b797ca1a53232",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PineTree_Bark_Normal.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1LLev8AoiSM8WE3Vajd0EQiPFaRUCSjq_/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "PineTree_Leaves.png",
+      "status": "ok",
+      "bytes": 491019,
+      "sha256": "8d3e0b49043639089ec68a36058c5b2ceea3fadded773adf7d9acbd006c49e1c",
+      "git_blob_sha1": "5cebe08cdea69efea0e99059e9781e80560340a9",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PineTree_Leaves.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1MlQ0GHJdnwa03er2jCAPfRcgfl55Vgts/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    },
+    {
+      "name": "Rocks.png",
+      "status": "ok",
+      "bytes": 3036940,
+      "sha256": "643d97219a00269b67f49b03123dff8d138cb4036c1a77153f917a3843332ce0",
+      "git_blob_sha1": "70945f9f0d4917469e7138b41a981e53e9aed6a1",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "alpha_range": null,
+      "download_url": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/Rocks.png",
+      "original_author_file_url": "https://drive.google.com/file/d/1fuJ_X7P-sCTsNIDslKGt7L2V1mCsxsZM/view",
+      "retrieval_note": "Original author's Drive exceeded quota; recovered binary from public CC0 pack mirror after exact source-model and file-list checks."
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "id": "Plant_Quaternius_PineTree_004",
+  "level": 1,
+  "author": "Quaternius",
+  "license": "CC0-1.0",
+  "source": "https://quaternius.com/packs/ultimatestylizednature.html",
+  "sourceGameFile": "assets/models/Quaternius_PineTree_004.glb",
+  "sourceSHA256": "ee7fd34a593d88061a6aa741508d6ee2bcba6ae015d4ec0fc8d82b01e189c818",
+  "outputGameFile": "assets/models/Quaternius_PineTree_004.lod1.glb",
+  "outputSHA256": "d0dbe99a1319d9e10c9025ce6810b040cb86fead5155c0dff97bb906b0f7207f",
+  "method": "Select whole, exact-position-connected leaf islands by deterministic farthest-point sampling in normalized 3D canopy space. Preserve one whole island at each primitive coordinate extreme. Keep 40–50% foliage triangle budget; do not collapse or rescale individual leaf cards.",
+  "opaqueBarkAndFlowersUnchanged": true,
+  "allVertexAttributesUnchanged": true,
+  "allUVsNormalsTangentsUnchanged": true,
+  "exactPerPrimitiveIndexedBoundsPreserved": true,
+  "allMaterialAndNodeSemanticsUnchanged": true,
+  "allSelectedIslandsComplete": true,
+  "sourceTriangles": 2686,
+  "outputTriangles": 2146,
+  "savedTriangles": 540,
+  "sourceBytes": 110320,
+  "outputBytes": 107104,
+  "selections": [
+    {
+      "mesh": 0,
+      "primitive": 1,
+      "material": "QUSN_PineTree_Leaves",
+      "sourceIslands": 42,
+      "retainedIslands": 19,
+      "sourceTriangles": 1022,
+      "retainedTriangles": 482,
+      "retainedFoliageRatio": 0.47162426614481406,
+      "retainedIslandFirstTriangleIndices": [
+        24,
+        92,
+        106,
+        162,
+        190,
+        246,
+        260,
+        274,
+        302,
+        316,
+        358,
+        400,
+        428,
+        456,
+        470,
+        498,
+        512,
+        526,
+        540
+      ]
+    }
+  ],
+  "accessorProofs": [
+    {
+      "accessor": 0,
+      "changedIndexOnly": false,
+      "sourceSHA256": "6e60a635919436693456b15eafc80b0ea62390666b1ff00736dc878642e20a9d",
+      "outputSHA256": "6e60a635919436693456b15eafc80b0ea62390666b1ff00736dc878642e20a9d",
+      "sourceCount": 1011,
+      "outputCount": 1011
+    },
+    {
+      "accessor": 1,
+      "changedIndexOnly": false,
+      "sourceSHA256": "dd2bc524efaaab220bd39b9c8e7cfe1d3eaf3ee433e0f73ce97cc0a063550b4d",
+      "outputSHA256": "dd2bc524efaaab220bd39b9c8e7cfe1d3eaf3ee433e0f73ce97cc0a063550b4d",
+      "sourceCount": 1011,
+      "outputCount": 1011
+    },
+    {
+      "accessor": 2,
+      "changedIndexOnly": false,
+      "sourceSHA256": "d49fd2310c4113fe598d3fc53aab83cccf9c2b74dcfb7cb941b8037abe547ee6",
+      "outputSHA256": "d49fd2310c4113fe598d3fc53aab83cccf9c2b74dcfb7cb941b8037abe547ee6",
+      "sourceCount": 1011,
+      "outputCount": 1011
+    },
+    {
+      "accessor": 3,
+      "changedIndexOnly": false,
+      "sourceSHA256": "bf7e79646c34b6960cd3184da7c96e1e35c6aa625b30f87c3808f7b5bc8d4036",
+      "outputSHA256": "bf7e79646c34b6960cd3184da7c96e1e35c6aa625b30f87c3808f7b5bc8d4036",
+      "sourceCount": 1011,
+      "outputCount": 1011
+    },
+    {
+      "accessor": 4,
+      "changedIndexOnly": false,
+      "sourceSHA256": "1467203a26a2f7440e0f35f53d81bcd948b04ea93906a0e8fdd998f68a8217c8",
+      "outputSHA256": "1467203a26a2f7440e0f35f53d81bcd948b04ea93906a0e8fdd998f68a8217c8",
+      "sourceCount": 4992,
+      "outputCount": 4992
+    },
+    {
+      "accessor": 5,
+      "changedIndexOnly": false,
+      "sourceSHA256": "15d44751a615313082c21c60223eed88a1e8e47068663f3fc39f467a21eab965",
+      "outputSHA256": "15d44751a615313082c21c60223eed88a1e8e47068663f3fc39f467a21eab965",
+      "sourceCount": 874,
+      "outputCount": 874
+    },
+    {
+      "accessor": 6,
+      "changedIndexOnly": false,
+      "sourceSHA256": "b3be66978a60911867cba58380f872e5b43047b176a63071df5d64eb8eee2cdb",
+      "outputSHA256": "b3be66978a60911867cba58380f872e5b43047b176a63071df5d64eb8eee2cdb",
+      "sourceCount": 874,
+      "outputCount": 874
+    },
+    {
+      "accessor": 7,
+      "changedIndexOnly": false,
+      "sourceSHA256": "04d8fc3415d57265ab6aae105016ef54f783ae7b38b7eeab7d8ab803d7440c52",
+      "outputSHA256": "04d8fc3415d57265ab6aae105016ef54f783ae7b38b7eeab7d8ab803d7440c52",
+      "sourceCount": 874,
+      "outputCount": 874
+    },
+    {
+      "accessor": 8,
+      "changedIndexOnly": false,
+      "sourceSHA256": "7409c8706a3e67bd38432212f06d561dec4fa8b41ae7f9591e3f013b09aebba0",
+      "outputSHA256": "7409c8706a3e67bd38432212f06d561dec4fa8b41ae7f9591e3f013b09aebba0",
+      "sourceCount": 874,
+      "outputCount": 874
+    },
+    {
+      "accessor": 9,
+      "changedIndexOnly": true,
+      "sourceSHA256": "d2f2874358a75c2403db1f5cb5d62ab522de19eb5340ad159b336137a7bb039b",
+      "outputSHA256": "35bbf8eab46f6e741d8c07a1418f7f1b9c184b55c967b21de6db6c37beccdf72",
+      "sourceCount": 3066,
+      "outputCount": 1446
+    }
+  ]
+}

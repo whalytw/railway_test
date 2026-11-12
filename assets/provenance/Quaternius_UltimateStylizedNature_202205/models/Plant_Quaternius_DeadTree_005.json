@@ -1,0 +1,173 @@
+{
+  "id": "Plant_Quaternius_DeadTree_005",
+  "name": "枯樹 05",
+  "author": "Quaternius",
+  "pack": "Quaternius_UltimateStylizedNature_202205",
+  "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html",
+  "vendorRelease": "2022-05",
+  "license": "CC0-1.0",
+  "licenseEvidence": "assets/licenses/Quaternius_UltimateStylizedNature_202205/LicensingReview.zh-TW.md",
+  "originalSourceFile": "Blends/DeadTree_5.blend",
+  "originalSourceSHA256": "71b89fc0cb6016661a05bdf4cdeca426c82ad217070fc1df482c0365f40ba293",
+  "sourceArchiveName": "Blends-20261109T065115Z-1-001.zip",
+  "sourceArchiveSHA256": "56133f577e873afa77a35629ca955abc9825e30b900e2245095edd1a757b8f30",
+  "sourceLibraryMetadata": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/DeadTree/Plant_Quaternius_DeadTree_005/asset.json",
+  "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/DeadTree/Plant_Quaternius_DeadTree_005/exports/Plant_Quaternius_DeadTree_005.glb",
+  "sourceGLBSHA256": "07c31d78c78e02f6ac4d9c2ad17baafd64ee52104442b0b7111700cf08c919be",
+  "sourceGLBBytes": 2007112,
+  "gameFile": "assets/models/Quaternius_DeadTree_005.glb",
+  "gameSHA256": "4aa6fdb53261d1bda5f53f75d94e124ad410b949438b8ef4116e42a1ae786331",
+  "gameBytes": 50096,
+  "transformation": "Only embedded PNG images were externalized and deduplicated by exact SHA-256. Non-image BIN bufferViews were copied byte-for-byte and relocated with 4-byte alignment. Geometry, indices, UVs, normals, tangents, material properties, samplers, nodes and transforms were preserved.",
+  "compatibleBiomes": [
+    "Forest",
+    "Hills",
+    "Snow",
+    "Volcano",
+    "Canyon"
+  ],
+  "placement": {
+    "groundAnchor": [
+      0,
+      0,
+      0
+    ],
+    "baseAtGround": true,
+    "originPolicy": "author-root-xy-ground-z",
+    "recommendedUniformScaleRange": [
+      0.85,
+      1.15
+    ],
+    "embedDepthMetersRange": [
+      0.01,
+      0.03
+    ],
+    "displaySlab": false,
+    "suggestedMinRailCenterOffsetMeters": 3.2941,
+    "footprintRadiusMeters": 0.894076846645827,
+    "clearanceBasis": "horizontal mesh radius + 2.4 m reserved corridor; conservative placement guidance, not a measured game collision certification",
+    "compatibleBiomes": [
+      "Forest",
+      "Hills",
+      "Snow",
+      "Volcano",
+      "Canyon"
+    ],
+    "usageNote": "作為林緣、荒地、枯林或火山外圍的少量點景；細枝容易在遠處閃爍，避免整段密集重複。",
+    "slopeNote": "大樹保持直立；岩石與地表植物依地面法線適度調整，需重新檢查整體接地，不能只讓中心點貼地後讓邊緣懸空。"
+  },
+  "gameUsage": "作為林緣、荒地、枯林或火山外圍的少量點景；細枝容易在遠處閃爍，避免整段密集重複。",
+  "originalNormalization": {
+    "originalMatrix": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "translationApplied": [
+      0,
+      0,
+      0.0004049055278301239
+    ],
+    "metresPerOriginalUnit": 1,
+    "cleanup": {
+      "removed_unrendered_vertices": 0,
+      "removed_zero_area_faces": 0
+    },
+    "topologyAfterCleanup": {
+      "boundary_edges": 80,
+      "nonmanifold_edges": 80,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "degenerate_triangles": 0
+    },
+    "conversionNotes": "../../../_Shared/source/Normalization.zh-TW.md"
+  },
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z (display convention; static nature asset)",
+    "unit": "metre",
+    "origin": "ground datum; see placement.originPolicy",
+    "sourceBlenderUp": "+Z",
+    "glbConversion": "[x,z,-y]"
+  },
+  "images": [
+    {
+      "name": "NormalTree_Bark_Normal",
+      "sha256": "5a1855fe22ffd2bf9c5c65ea75091f838962296c382e747c49cfed3611ae7cb7",
+      "url": "assets/textures/nature-v8/5a1855fe22ffd2bf9c5c65ea75091f838962296c382e747c49cfed3611ae7cb7.png",
+      "bytes": 1002880
+    },
+    {
+      "name": "NormalTree_Bark",
+      "sha256": "c07e1af26169abee615e4d7174c19341c818bcef5d0384b4330224e664521332",
+      "url": "assets/textures/nature-v8/c07e1af26169abee615e4d7174c19341c818bcef5d0384b4330224e664521332.png",
+      "bytes": 954187
+    }
+  ],
+  "accessorChecks": [
+    {
+      "accessor": 0,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 825,
+      "bytes": 9900,
+      "sha256": "03320468b355c6f7db81378654c5f4fba12334a03d9fd7d41157891591072529"
+    },
+    {
+      "accessor": 1,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 825,
+      "bytes": 9900,
+      "sha256": "771ee40e05661542bbb6d370e866806c9b9b82f2b6a39cdfc6cce24b37111d7c"
+    },
+    {
+      "accessor": 2,
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 825,
+      "bytes": 6600,
+      "sha256": "24cb8419cdd2565d7a67a213f43918e3f5f98ad4ac9c94615133712caa99e68b"
+    },
+    {
+      "accessor": 3,
+      "type": "VEC4",
+      "componentType": 5126,
+      "count": 825,
+      "bytes": 13200,
+      "sha256": "3d51596f1c2440062dbba838fc4baa4fcc462e46664d7a3af23450551e2d2e7a"
+    },
+    {
+      "accessor": 4,
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 4080,
+      "bytes": 8160,
+      "sha256": "96ae0b23a37434a9b28f729e9d6b1c0fca37c76a5904db978dba33ce862eeb96"
+    }
+  ],
+  "animationsProvided": false,
+  "lodsProvided": false,
+  "gamePerformanceCertification": false
+}

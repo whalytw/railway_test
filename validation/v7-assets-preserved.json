@@ -1,0 +1,1678 @@
+{
+  "version": "8.0.0",
+  "sourceArchive": "RailLoopLab-v7-20261109.zip",
+  "originalGLBs": 334,
+  "allByteIdentical": true,
+  "files": [
+    {
+      "file": "assets/drivers/Animal_CubePet_Beaver_001.glb",
+      "bytes": 160580,
+      "sha256": "e391065b75636f401c339441bb50b9db90a3a5606dce21c132ecf3d32dd76845"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Bee_001.glb",
+      "bytes": 175192,
+      "sha256": "8130a2279335b45f83785c90b47eb422109834729ccd13c0a21587697c6f4f9e"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Bunny_001.glb",
+      "bytes": 142476,
+      "sha256": "2d8349c08fb472f9e8b1a8819f323c4c07108a1205463d77d321845a711c7135"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Cat_001.glb",
+      "bytes": 175980,
+      "sha256": "e3a2c799632c3efea2bc1f14cd2fa4011a431f793c8f6385f2da7f071b3aaac0"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Caterpillar_001.glb",
+      "bytes": 141872,
+      "sha256": "5edd15791035b405d173b88c91994ef6e75913b8fca8cb72fb6a916e5087deda"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Chick_001.glb",
+      "bytes": 136228,
+      "sha256": "4b2890664322b961b9b8bf3d0c15729c39131e0f281bd13e3b666958269aca21"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Cow_001.glb",
+      "bytes": 138944,
+      "sha256": "fee6b747e504c8047ae3a3989d54c18aa5dfa338b611e863e31401244fdf9f09"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Crab_001.glb",
+      "bytes": 161656,
+      "sha256": "b9a6ec39fadcdde719109dd0e058c5c74211d8357a8c84494a31d4c0bc05ef8a"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Deer_001.glb",
+      "bytes": 161296,
+      "sha256": "ac19775c8714c26399755b258393f49e0b540b5e2a7eec833db8d87f6db5a764"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Dog_001.glb",
+      "bytes": 130448,
+      "sha256": "27bd875858965cf47d4259f2a87393fa1797b1d523e20890af4f605690b066af"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Elephant_001.glb",
+      "bytes": 159764,
+      "sha256": "ef968e820e11f86b7a1b29e2b849cb9ba2f5e4b4dba47ade67c27f87f0d0fc8a"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Fish_001.glb",
+      "bytes": 102408,
+      "sha256": "b591623bfdc980aa9cfb18b074323e0b30ecba0745e5c7a533907aebb6fa5849"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Fox_001.glb",
+      "bytes": 152736,
+      "sha256": "7b8e76bea1243251c1b6dc58d66dcdd676ca3f7e4c7439d7d6b7364ed0274740"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Giraffe_001.glb",
+      "bytes": 143576,
+      "sha256": "68d761a7037509b9b73a960214354325d3e9e571318697ada53f8c872123c4be"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Hog_001.glb",
+      "bytes": 152496,
+      "sha256": "b27f7d661c0000ccf341c4374676363bf6313d157cbb098f2672c41b353e3bef"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Koala_001.glb",
+      "bytes": 141912,
+      "sha256": "f7889e9b2f69f6663e14aded36e54c140b41995052cf67dcc8d9968a2f6b7618"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Lion_001.glb",
+      "bytes": 183816,
+      "sha256": "090796a845ff0118c0150650fd6447fa082b9ec85a2e91d1f5fe62ff0545156e"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Monkey_001.glb",
+      "bytes": 185780,
+      "sha256": "54c82f955365010efe90bb76363cb1ed965a36e7560aab462e6d49852caaea38"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Panda_001.glb",
+      "bytes": 144528,
+      "sha256": "5834b438ca48756f8e6d989bf1984faf60119cc3329a6b9a8e69d37bc95fe355"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Parrot_001.glb",
+      "bytes": 164852,
+      "sha256": "4c2048633e872d621f917344b79bbbff4c4535da54bffe5eac7de1ec59c4773d"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Penguin_001.glb",
+      "bytes": 141200,
+      "sha256": "26273b8f04bebce3ba7a93be1735c0921d2d850cc8a0b106fb0da921cdbf02a0"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Pig_001.glb",
+      "bytes": 137908,
+      "sha256": "60288e5ed03e87794000d77c4d997cf5dd341a24ed805e601cd52d1ea9f6b20b"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Polar_001.glb",
+      "bytes": 109884,
+      "sha256": "c08a129b399dc13c664d28dbd5f49438319f6e69081fa01d17ad09529b0b36d4"
+    },
+    {
+      "file": "assets/drivers/Animal_CubePet_Tiger_001.glb",
+      "bytes": 183220,
+      "sha256": "d3865fb9f16284722659e80491e4d8b2f879fdee3026c860928598f4189288f8"
+    },
+    {
+      "file": "assets/models/Building_Bridge_Abutment_001.glb",
+      "bytes": 831936,
+      "sha256": "e397e71608a7f814c4d40dfa4b9edb454137a94cf7f98cbe301f32a87ff268d7"
+    },
+    {
+      "file": "assets/models/Building_Bridge_SteelTruss8m_001.glb",
+      "bytes": 1714952,
+      "sha256": "c1b7ab10c5821cc542e9d21804c3081af813ea11a40d13188362c48617de01d8"
+    },
+    {
+      "file": "assets/models/Building_Bridge_StonePier4m_001.glb",
+      "bytes": 1050860,
+      "sha256": "b8cca549b7765ed6dd15e8dcbe3850bbba1b85af61ef0d2e82fc1277437dd66c"
+    },
+    {
+      "file": "assets/models/Building_Bridge_TimberDeck4m_001.glb",
+      "bytes": 1304416,
+      "sha256": "5b23a36be277ef12310387ec1b2ed74a1386de6f347d5681c3900fbe9155e667"
+    },
+    {
+      "file": "assets/models/Building_Landmark_Armillary_001.glb",
+      "bytes": 91912,
+      "sha256": "867e8825d88951d90f304fcddffd13866750167c2da22c155c85145586d14009"
+    },
+    {
+      "file": "assets/models/Building_Landmark_Armillary_001_LOD1.glb",
+      "bytes": 62228,
+      "sha256": "4f96568b67e0d92d5eea87d514b9149451ebf00a95341188298eca09909f8790"
+    },
+    {
+      "file": "assets/models/Building_Landmark_ClockTower_001.glb",
+      "bytes": 221776,
+      "sha256": "a0c6f9f5d3de00b47a03794c0d9fdec7c95ce0a7a251512b14b8bf95ed65f408"
+    },
+    {
+      "file": "assets/models/Building_Landmark_ClockTower_001_LOD1.glb",
+      "bytes": 143280,
+      "sha256": "2e468ed28f9179b96eb7372ca29a18092b21f0e22973f52b8981a79bb9f7dc65"
+    },
+    {
+      "file": "assets/models/Building_Landmark_FortRuin_001.glb",
+      "bytes": 122144,
+      "sha256": "f0bd4d373680ff87dacddcbe29e7f1175dc575a9b74f4d6085bdbf7b5ca0aec9"
+    },
+    {
+      "file": "assets/models/Building_Landmark_FortRuin_001_LOD1.glb",
+      "bytes": 69280,
+      "sha256": "2c432bd24bee2c8de28efa522d316ca12eff940e20083d9a85da4cea9b028cf4"
+    },
+    {
+      "file": "assets/models/Building_Landmark_Lighthouse_001.glb",
+      "bytes": 119716,
+      "sha256": "50ebc47b100247099856f98056a8b57b9b1c2cc09630e2818176c69d054a4058"
+    },
+    {
+      "file": "assets/models/Building_Landmark_Lighthouse_001_LOD1.glb",
+      "bytes": 80876,
+      "sha256": "9ed780af9bb71d326eda5a8fd8973454a3e8270119429e2d1bbbfb69a9d6044a"
+    },
+    {
+      "file": "assets/models/Building_Landmark_Observatory_001.glb",
+      "bytes": 169464,
+      "sha256": "6af1128cf2a6ed08188d96f1169afa7d3ba6f3d0f988516f154f9cf7128c307b"
+    },
+    {
+      "file": "assets/models/Building_Landmark_Observatory_001_LOD1.glb",
+      "bytes": 87080,
+      "sha256": "6eee52dac877b2d0390e9b4f889009e5880fef1851cdfaca3bfa9bb16b78c1b8"
+    },
+    {
+      "file": "assets/models/Building_Landmark_Watchtower_001.glb",
+      "bytes": 65296,
+      "sha256": "37e77ae5d28c44beb060b5cc9f4cc06064fa408da1b3c7271ee42ec66c211d96"
+    },
+    {
+      "file": "assets/models/Building_Landmark_Watchtower_001_LOD1.glb",
+      "bytes": 51252,
+      "sha256": "ed0d9996c84410c22ad288d1ec82f9ec6a8587495c88688e22894997ed086001"
+    },
+    {
+      "file": "assets/models/Building_Landmark_Windmill_001.glb",
+      "bytes": 140664,
+      "sha256": "92bab64bea6f24256ee812472be735832c86645502883403a22498692ffe493a"
+    },
+    {
+      "file": "assets/models/Building_Landmark_Windmill_001_LOD1.glb",
+      "bytes": 100176,
+      "sha256": "c5168305a5f73e6de9ced2bf800d8f815ae403f0b2fb3498fd816f59bf82a10b"
+    },
+    {
+      "file": "assets/models/Building_Pastoral_WindPump_001.glb",
+      "bytes": 121760,
+      "sha256": "b259296752fff681c8034af2ec313cc15ebad3e32bffdfb3b087c6fd80779e3b"
+    },
+    {
+      "file": "assets/models/Building_Rural_CountryBarn6m_001.glb",
+      "bytes": 67572,
+      "sha256": "ef19ad0e304796c9e2986272cacc11aa6f50bee4821cbe0090fe9c207931fdbf"
+    },
+    {
+      "file": "assets/models/Building_Rural_VillageHouse6m_001.glb",
+      "bytes": 189800,
+      "sha256": "a2f1ae5125324943f486e50fe7d88fe3e90027b81ea4b07ebd8a0fcce3f06c53"
+    },
+    {
+      "file": "assets/models/Building_Settlement_AFrameCabin_001.glb",
+      "bytes": 71304,
+      "sha256": "3214b6906ac40124f445eb7f4ea68359dadfb6895710ad7ae03c8195dc6efa40"
+    },
+    {
+      "file": "assets/models/Building_Settlement_AFrameCabin_001_LOD1.glb",
+      "bytes": 46212,
+      "sha256": "b64a646099e937687bfaa452efb3158f5114bf70764769467311342460c2464d"
+    },
+    {
+      "file": "assets/models/Building_Settlement_AdobeTerraceHouse_001.glb",
+      "bytes": 105740,
+      "sha256": "5a2356279ab86b2ab6d0b9fd7375b1fb7a87b8284edcc2e725db0020bc8b90ce"
+    },
+    {
+      "file": "assets/models/Building_Settlement_AdobeTerraceHouse_001_LOD1.glb",
+      "bytes": 65504,
+      "sha256": "7509933e383fb6dc18646a5b5bcb8fb8255bbffcee645f1295561cbd0dc5173d"
+    },
+    {
+      "file": "assets/models/Building_Settlement_CartwrightWorkshop_001.glb",
+      "bytes": 70840,
+      "sha256": "2b036a77d9bd87a6ca29a65e0f77b722ae78e0f14bb4ac672fa37d746bebbb1c"
+    },
+    {
+      "file": "assets/models/Building_Settlement_CartwrightWorkshop_001_LOD1.glb",
+      "bytes": 43060,
+      "sha256": "b8bec6b39c1c1d8e3dba7fc19f969decdfacb8d268b993122c8f2d7788204641"
+    },
+    {
+      "file": "assets/models/Building_Settlement_CommunityWaterTower_001.glb",
+      "bytes": 40952,
+      "sha256": "fe76a2e74f12db29713e383005d2aeb1056ee8b36f10780313251af60901cc01"
+    },
+    {
+      "file": "assets/models/Building_Settlement_CommunityWaterTower_001_LOD1.glb",
+      "bytes": 35856,
+      "sha256": "ad378c047de2ad9f8041a975b23cb10c668168c1e868b06266ceafb84f77c103"
+    },
+    {
+      "file": "assets/models/Building_Settlement_CornerBakery_001.glb",
+      "bytes": 72372,
+      "sha256": "0b2c382f0198fe9f7c566a19172fadafa2c88dbb80311e9348ba108161ea3a61"
+    },
+    {
+      "file": "assets/models/Building_Settlement_CornerBakery_001_LOD1.glb",
+      "bytes": 45508,
+      "sha256": "f92a7676d54617e93d23fcae54535a018e340ce08552d8e09527c548595908f6"
+    },
+    {
+      "file": "assets/models/Building_Settlement_CourtyardDwelling_001.glb",
+      "bytes": 111824,
+      "sha256": "4937153c6fcc842c4a95995891dc92bf7967dd7f8a58b17f17021df8d6cdff34"
+    },
+    {
+      "file": "assets/models/Building_Settlement_CourtyardDwelling_001_LOD1.glb",
+      "bytes": 65076,
+      "sha256": "957165ab7b9c2abbbe84da30e2ff4ea300192caffc021948b5c80570a0e629d9"
+    },
+    {
+      "file": "assets/models/Building_Settlement_GalleriedInn_001.glb",
+      "bytes": 198496,
+      "sha256": "e7ee7f2078a2087e800c46cf6fb6a591691ef3c7128b3b26b88e4a36a6532490"
+    },
+    {
+      "file": "assets/models/Building_Settlement_GalleriedInn_001_LOD1.glb",
+      "bytes": 125248,
+      "sha256": "c089db8b79f3fd6dcbd34e2be492fc79f6f2f544ba62a64cbdf0afd1f713bc0b"
+    },
+    {
+      "file": "assets/models/Building_Settlement_GeneralStore_001.glb",
+      "bytes": 82260,
+      "sha256": "971e38f8895efa0fc660d69a603d24f82aa16322e1aa64e7d86d7cc32dcd4a4a"
+    },
+    {
+      "file": "assets/models/Building_Settlement_GeneralStore_001_LOD1.glb",
+      "bytes": 46060,
+      "sha256": "753c47fbf37ab8e0cc5da78b5e0f683c5eeb978156979052792718c94dc2b419"
+    },
+    {
+      "file": "assets/models/Building_Settlement_HalfTimberTownhouse_001.glb",
+      "bytes": 128560,
+      "sha256": "dc71a2a8c24f391bd3289385d9554c3dd06d716bf1b5f1f0fb0f0d711e4e3453"
+    },
+    {
+      "file": "assets/models/Building_Settlement_HalfTimberTownhouse_001_LOD1.glb",
+      "bytes": 81068,
+      "sha256": "58fb9255f3896098010a64804269342fb9195b0dee6a6024147bc8513627cb65"
+    },
+    {
+      "file": "assets/models/Building_Settlement_HexagonalBellGazebo_001.glb",
+      "bytes": 28188,
+      "sha256": "3e3f511d53409040bf4d183706ce3dc0fb152a28d6cd567d85b29e4b9efdff31"
+    },
+    {
+      "file": "assets/models/Building_Settlement_HexagonalBellGazebo_001_LOD1.glb",
+      "bytes": 24768,
+      "sha256": "e288c10868de49daa97674b323be138d2d8cf4f16ad59d99c3180859ceca4565"
+    },
+    {
+      "file": "assets/models/Building_Settlement_HippedCottage_001.glb",
+      "bytes": 73648,
+      "sha256": "249c20a4bf3c9ec46e2b0617081c7abfe31bd4ba607780946163306ad770fe95"
+    },
+    {
+      "file": "assets/models/Building_Settlement_HippedCottage_001_LOD1.glb",
+      "bytes": 47860,
+      "sha256": "1424cac945c670cf0c81bdc7badaeb282f3d9ba1a084aa623755861dd2e246a5"
+    },
+    {
+      "file": "assets/models/Building_Settlement_MarketStallPair_001.glb",
+      "bytes": 52836,
+      "sha256": "7d1f88505d306afa5be04b6f22a5160406fb56143164b0f0f5facb19412dbed1"
+    },
+    {
+      "file": "assets/models/Building_Settlement_MarketStallPair_001_LOD1.glb",
+      "bytes": 15988,
+      "sha256": "9245f70a75e7401cec4b95b851dd45ec6cc78339273cce4a47272aa2bb5b64fa"
+    },
+    {
+      "file": "assets/models/Building_Settlement_ProduceDepot_001.glb",
+      "bytes": 80180,
+      "sha256": "aa3567e7c513b235ba3880912aad57ce95e84aa8b0d0cd44d5cce61592ee0315"
+    },
+    {
+      "file": "assets/models/Building_Settlement_ProduceDepot_001_LOD1.glb",
+      "bytes": 51292,
+      "sha256": "ddc4eae4e9f1848388b12d92c73a12ca5d122bf6b62574ae445477703b7817f4"
+    },
+    {
+      "file": "assets/models/Building_Settlement_RailWorkersBunkhouse_001.glb",
+      "bytes": 214380,
+      "sha256": "c23835ed8320862b07e405131988fe67b8c02f4cf6d290cf04bc216b966c6d88"
+    },
+    {
+      "file": "assets/models/Building_Settlement_RailWorkersBunkhouse_001_LOD1.glb",
+      "bytes": 145244,
+      "sha256": "8f9afc1e45265927766455310024373994c9c41cbbed8445ca70861d004958a4"
+    },
+    {
+      "file": "assets/models/Building_Settlement_RaisedGranary_001.glb",
+      "bytes": 63324,
+      "sha256": "c9da449458cce3fbcb5e73b838b9ff8d5cce4bf57d8db70a4beb5e6299eb9dab"
+    },
+    {
+      "file": "assets/models/Building_Settlement_RaisedGranary_001_LOD1.glb",
+      "bytes": 41644,
+      "sha256": "3813ed992464b8a9bee627d38f4622d328fe3f65f06001d22ad676321147bf5c"
+    },
+    {
+      "file": "assets/models/Building_Settlement_RuralSchool_001.glb",
+      "bytes": 122976,
+      "sha256": "ed95382b773a9c1ed2197dfb41fae2170468597082477c06fcadf193574e17ed"
+    },
+    {
+      "file": "assets/models/Building_Settlement_RuralSchool_001_LOD1.glb",
+      "bytes": 74108,
+      "sha256": "abad80e45e97f5db53e22600df1db6fa057c25f8d9f3b31adb0b28f869a553e9"
+    },
+    {
+      "file": "assets/models/Building_Settlement_SawtoothWorkshop_001.glb",
+      "bytes": 139696,
+      "sha256": "76dd431e8a59b47a61eefe156a3086e2d2dc8b9112801c5c1a7dba0b5d33a695"
+    },
+    {
+      "file": "assets/models/Building_Settlement_SawtoothWorkshop_001_LOD1.glb",
+      "bytes": 88104,
+      "sha256": "87081f675809aac5820935a35fb8f59b6787d5693b9ee3f2dced302113825c9e"
+    },
+    {
+      "file": "assets/models/Building_Settlement_StaggeredDuplex_001.glb",
+      "bytes": 131944,
+      "sha256": "a3d4c8248a1b568954a4e9858b1aca07d0803cc0e09dc78d0d0c137ef01945fb"
+    },
+    {
+      "file": "assets/models/Building_Settlement_StaggeredDuplex_001_LOD1.glb",
+      "bytes": 80352,
+      "sha256": "168333ac63adc215c6e0cec7b090b467a4b893e6cbd8ede07051bc606fd1d6ec"
+    },
+    {
+      "file": "assets/models/Building_Settlement_StiltLakesideHouse_001.glb",
+      "bytes": 99028,
+      "sha256": "a258fc7dcb9dbec43aec2465faaaa75c5f5582cb72817aa869f2d5a8d08b80b4"
+    },
+    {
+      "file": "assets/models/Building_Settlement_StiltLakesideHouse_001_LOD1.glb",
+      "bytes": 64660,
+      "sha256": "843906ccd4dabd4f3e0dbf9ef04f8d9c4ba9c4439d8426460162c7c5418aa3e9"
+    },
+    {
+      "file": "assets/models/Building_Settlement_StoneForge_001.glb",
+      "bytes": 58400,
+      "sha256": "6bd4cbf5f4a5681ab533e0a7a0db1b602d0274d8758053a5eb8275fc60615304"
+    },
+    {
+      "file": "assets/models/Building_Settlement_StoneForge_001_LOD1.glb",
+      "bytes": 36412,
+      "sha256": "923c207e8e871cd5bc90a164d246b6031403df297553444fd973b106273b591b"
+    },
+    {
+      "file": "assets/models/Building_Settlement_TeaPavilionShop_001.glb",
+      "bytes": 35596,
+      "sha256": "6bc1eb2014ddeb7c7e6eae04220b32fb5d6ac4ee41c2ce0f9f0cb0f399cc30af"
+    },
+    {
+      "file": "assets/models/Building_Settlement_TeaPavilionShop_001_LOD1.glb",
+      "bytes": 20996,
+      "sha256": "1cc258b7ac7241ac57202b8e9f4746845e3ad710a4248123081d1427a135f8db"
+    },
+    {
+      "file": "assets/models/Building_Settlement_TimberDryingShed_001.glb",
+      "bytes": 46576,
+      "sha256": "b20acc1e77d0a9c253516393966e8b2314d44f0a18b323711b813051a164284e"
+    },
+    {
+      "file": "assets/models/Building_Settlement_TimberDryingShed_001_LOD1.glb",
+      "bytes": 27844,
+      "sha256": "5030c2e6db3bb81de66de0aca6f2472dbe05804ea2c89068d4720f049debe460"
+    },
+    {
+      "file": "assets/models/Building_Settlement_TimberLonghouse_001.glb",
+      "bytes": 103156,
+      "sha256": "9fbe482a2a8985ddd424d549fc1b353dfcf4b72b12672f48a8eda13d111720e6"
+    },
+    {
+      "file": "assets/models/Building_Settlement_TimberLonghouse_001_LOD1.glb",
+      "bytes": 64980,
+      "sha256": "6b36f1cecc8659d4f97ef275adfe9c1e03bb7ac4c874a7d26bca168b5b457eea"
+    },
+    {
+      "file": "assets/models/Building_Settlement_TripleGrowHouse_001.glb",
+      "bytes": 126752,
+      "sha256": "0aecb43919e5d08421b88210375180d25ba03427c4e28bbb34a11c4e5551b2b9"
+    },
+    {
+      "file": "assets/models/Building_Settlement_TripleGrowHouse_001_LOD1.glb",
+      "bytes": 81860,
+      "sha256": "e48692bef1b323821c21f3de9ed97a6ad4e32175e7384c04223f8e277558c7c5"
+    },
+    {
+      "file": "assets/models/Building_Settlement_TwinGrainSilo_001.glb",
+      "bytes": 74672,
+      "sha256": "83b46c433f51901e5c91e51668f22e17ad124675e69e1c147fe7e48b3265c4dc"
+    },
+    {
+      "file": "assets/models/Building_Settlement_TwinGrainSilo_001_LOD1.glb",
+      "bytes": 35092,
+      "sha256": "b625ac5a821aa4adb4f4b55e1e665e3bc0266e4a4039400ae887f45ff330bb8f"
+    },
+    {
+      "file": "assets/models/Building_Settlement_VillageClinic_001.glb",
+      "bytes": 98684,
+      "sha256": "9f24983f3ed445e4390b9c27110a718d43bca9742cf390835239510257e6e32a"
+    },
+    {
+      "file": "assets/models/Building_Settlement_VillageClinic_001_LOD1.glb",
+      "bytes": 64476,
+      "sha256": "0e31703f6d31474738ae4e7b605c5a844e8e5e3e746a65c40fb3d41f2e03f292"
+    },
+    {
+      "file": "assets/models/Building_Settlement_VillageHall_001.glb",
+      "bytes": 139872,
+      "sha256": "e83b34469ac566a7d30baf5c623e4ece2719ad809c43adf90479cfdbc0be035b"
+    },
+    {
+      "file": "assets/models/Building_Settlement_VillageHall_001_LOD1.glb",
+      "bytes": 81020,
+      "sha256": "4bc1e53350fcedc200a8051639da7b133af1bb10e7617b55986ea6c600ad5315"
+    },
+    {
+      "file": "assets/models/Building_Station_Canopy4m_001.glb",
+      "bytes": 1043496,
+      "sha256": "44b17630a86e6477d55ef1f2f8edba96788bfed79419c7ea77ddf556ffbf0016"
+    },
+    {
+      "file": "assets/models/Building_Station_Platform4m_001.glb",
+      "bytes": 875660,
+      "sha256": "d93e302dd9eb539d0426d00122937d310b0942f30bef88f3bb6061a5dfae4a90"
+    },
+    {
+      "file": "assets/models/Building_Station_TicketHut_001.glb",
+      "bytes": 2030824,
+      "sha256": "8b418645c1caf4d479dced13aa82245186273126a8af774b54274c475ece28cc"
+    },
+    {
+      "file": "assets/models/Building_Tunnel_RockStraight4m_001.glb",
+      "bytes": 1300680,
+      "sha256": "9b770d749a461424d25328bba0445bc0b8a986d9036d342841d46380380b649c"
+    },
+    {
+      "file": "assets/models/Building_Tunnel_StonePortal_001.glb",
+      "bytes": 1212016,
+      "sha256": "3aa2ecf421e863c8be49dfadc13305e788082a5d649700c5608254c7eeb6ae20"
+    },
+    {
+      "file": "assets/models/Building_Tunnel_SupportFrame_001.glb",
+      "bytes": 752560,
+      "sha256": "29bb5874fe1f16d1c4d45282308e230d74efd75c9424311f373e4187b5600dc8"
+    },
+    {
+      "file": "assets/models/Environment_Desert_DuneTile16m_001.glb",
+      "bytes": 39480,
+      "sha256": "fb7bfe2a7fd4a1d83c2d75bc97d23aafdc58a44d9bc358e41ce4754eb9b65817"
+    },
+    {
+      "file": "assets/models/Environment_Desert_Oasis8m_001.glb",
+      "bytes": 25716,
+      "sha256": "05efc47127f550ea174fa49e3b0cd9d931e9becc5634e795b6a576bdf7b5a3b2"
+    },
+    {
+      "file": "assets/models/Environment_Desert_SandstoneArch9m_001.glb",
+      "bytes": 102176,
+      "sha256": "d868d08f274f768597a6a5b44e8ee3c7d7fec64c2d96e73ba480ab78ff5ac9ec"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Desert_YardangFins_001.glb",
+      "bytes": 38760,
+      "sha256": "687698ef4fdf08be7a7485dcaa7380a9d0b16eadf39b58d3ff6b3cd0406d8933"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Desert_YardangFins_001_LOD1.glb",
+      "bytes": 11336,
+      "sha256": "486d120322f972b9bb8538e492d022fefe70bff5b02965886304485228a4b768"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Hills_HoodooCluster_001.glb",
+      "bytes": 55932,
+      "sha256": "50b951e607134e01d7fafea7cb2c475f73b9b273887e91ab77534b85b5b999f1"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Hills_HoodooCluster_001_LOD1.glb",
+      "bytes": 36376,
+      "sha256": "909a986f3be6d5f62d48aaa4bdb90f695d08a787492de6b5c841366b24510292"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Hills_KarstPinnacles_001.glb",
+      "bytes": 44448,
+      "sha256": "65b2fa4c581d5b47e96f0b0f13fbf15ee7991452f61eee8f9295b6bdcaca6b0b"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Hills_KarstPinnacles_001_LOD1.glb",
+      "bytes": 18232,
+      "sha256": "26eff4908b09042e52bd5065b64123fcff324350f49a1d5f1973146ba58f9f2f"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Hills_SawtoothRidge_001.glb",
+      "bytes": 38640,
+      "sha256": "9e2600161af696fc34a837cd2b261ef011485a507702cdc40345c7da90585cc5"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Hills_SawtoothRidge_001_LOD1.glb",
+      "bytes": 11172,
+      "sha256": "2ef72f827a3e3e67edbac8d9247e929863095295f9ffe045b549611e554875f6"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Rural_WisteriaPergola_001.glb",
+      "bytes": 290840,
+      "sha256": "dd05a441b15e74f7fd5bac11701b74e30463a229375c600bdd101219ab573dce"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Rural_WisteriaPergola_001_LOD1.glb",
+      "bytes": 58204,
+      "sha256": "006aa58e402f6119bf74911c9f27069d0197dd5ffed1f71f018d2217edda5a30"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Snow_IceArch_001.glb",
+      "bytes": 54936,
+      "sha256": "d2efdfc1b8b51e9bd26317e5dd969fb968593de7c26cfb12c655374b310de4cc"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Snow_IceArch_001_LOD1.glb",
+      "bytes": 23888,
+      "sha256": "146955dc25b7d3bbd40229a763d021dc9e88cff594c24eebf6ac7457a6e880f9"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Snow_SnowWave_001.glb",
+      "bytes": 30364,
+      "sha256": "b43f502b25d224316c0fd6b05694f0b8c1d75930aef13f43b1b0838b30bae9ca"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Snow_SnowWave_001_LOD1.glb",
+      "bytes": 10204,
+      "sha256": "0442795cced8f211fe4c8fe93c5198ab1eb7257e3240fb799130997252610ef7"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Volcano_BrokenLavaShell_001.glb",
+      "bytes": 111536,
+      "sha256": "c17bb467afa165cd76b209ea4f876376fd6a845a50cb3d44ae14d941e47c1368"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Volcano_BrokenLavaShell_001_LOD1.glb",
+      "bytes": 40268,
+      "sha256": "4e55f819776890f39fbe6d199c926c35de59cb8fb7f042b35d8be6c667af1db5"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Volcano_RopedLava_001.glb",
+      "bytes": 143708,
+      "sha256": "241d988db84bb23a72a7302c94d3f93379a4b7fdfafa7dcb26f7747f61b45853"
+    },
+    {
+      "file": "assets/models/Environment_Feature_Volcano_RopedLava_001_LOD1.glb",
+      "bytes": 48964,
+      "sha256": "d678d9210b115e512acca2381dff8ee772860e59e125479417e48bfdbccb7928"
+    },
+    {
+      "file": "assets/models/Environment_Hills_DistantRidge48m_001.glb",
+      "bytes": 10788,
+      "sha256": "4f6ef272acb7d10f40959da76c9afcaadfef170e07a8ce6627587fda50dd8c41"
+    },
+    {
+      "file": "assets/models/Environment_Hills_RollingRidge24m_001.glb",
+      "bytes": 85440,
+      "sha256": "dbe61b5c1a0bb94affa5481a65f3b9edcd5b3385475c6512aa35387f7516d05b"
+    },
+    {
+      "file": "assets/models/Environment_Hills_RoundHill16m_001.glb",
+      "bytes": 53924,
+      "sha256": "daf37532161b13d815a52dcd5b4f05030498a1c8ed7f4c1e0064cd0c7823b3cd"
+    },
+    {
+      "file": "assets/models/Environment_Hills_StrataRockface8m_001.glb",
+      "bytes": 80308,
+      "sha256": "309326ced29161f2dec6a8f22af900b9550c12f2cf51b0f66cf9b2fea9a75b17"
+    },
+    {
+      "file": "assets/models/Environment_Lakeside_StraightShore8m_001.glb",
+      "bytes": 7032,
+      "sha256": "516c67e1c58c22bb04404883ff63470bdc667a45fdc4e725e3b5bf6c9e7470ef"
+    },
+    {
+      "file": "assets/models/Environment_Lakeside_WaterTile8m_001.glb",
+      "bytes": 5548,
+      "sha256": "d5740d1ff9ae46ba6057bc9b772fe0cc2cde816dd71503513b0def0509165a1e"
+    },
+    {
+      "file": "assets/models/Environment_Landmark_Geothermal_001.glb",
+      "bytes": 123560,
+      "sha256": "17f699fbb6b8c05d139c259a22b50c28258972b4ebf0ff5bd1757da120336673"
+    },
+    {
+      "file": "assets/models/Environment_Landmark_Geothermal_001_LOD1.glb",
+      "bytes": 58340,
+      "sha256": "a71d9becfe6f60f0c3855d177f808e54dbd6a5f862df1b1fb831b3ed3fcbd062"
+    },
+    {
+      "file": "assets/models/Environment_Landmark_IceBeak_001.glb",
+      "bytes": 26776,
+      "sha256": "158f60bcd21eef83a393cfe39fa5bc7f1ea943708543bd2b2dd466ba434cf81f"
+    },
+    {
+      "file": "assets/models/Environment_Landmark_IceBeak_001_LOD1.glb",
+      "bytes": 14096,
+      "sha256": "8f66270ad07616530c0a3262a626244899e964e66352a9c268b8b8a3a8649398"
+    },
+    {
+      "file": "assets/models/Environment_Landmark_Mesa_001.glb",
+      "bytes": 41284,
+      "sha256": "3c77d7508b5b5a5d91a0a48bd6fe412af161b2c730bb093b7caa34cf6a1cd9ec"
+    },
+    {
+      "file": "assets/models/Environment_Landmark_Mesa_001_LOD1.glb",
+      "bytes": 12536,
+      "sha256": "feaa3d0da00f9dce7ae88560d49a2592a450bfd3c9c3189f3980c9208b91221f"
+    },
+    {
+      "file": "assets/models/Environment_Landmark_OldTreeCircle_001.glb",
+      "bytes": 266248,
+      "sha256": "8ececd623b8a8bf17c31cad6b1e5349bee6c8633401562ce3d9272272ed7cdbe"
+    },
+    {
+      "file": "assets/models/Environment_Landmark_OldTreeCircle_001_LOD1.glb",
+      "bytes": 158280,
+      "sha256": "43195ce45670fc79a42b4bd9153326b04828d9351777e1585fc256a1c3d2f41e"
+    },
+    {
+      "file": "assets/models/Environment_Pastoral_RaisedField8m_001.glb",
+      "bytes": 13328,
+      "sha256": "f7acedb223f34efdb56ad1ff559ec2702caa0c8286abe42cc5f2d3d6788b28aa"
+    },
+    {
+      "file": "assets/models/Environment_Rail_Fastener_001.glb",
+      "bytes": 547160,
+      "sha256": "a7a5c2c08255ce3b927b64fff44d3c0e29a45d561af8115d9a63bd38ea5ac916"
+    },
+    {
+      "file": "assets/models/Environment_Rail_RailSection_1m_001.glb",
+      "bytes": 581324,
+      "sha256": "1de6200ceed7e99790341e858df6cac80c3e5c97805765bc2af242cd499c65b7"
+    },
+    {
+      "file": "assets/models/Environment_Rail_Sleeper_001.glb",
+      "bytes": 536624,
+      "sha256": "417feecdb3628a859ff3d653d72a7e052f2c4d7861eac2a58a332629787ec24e"
+    },
+    {
+      "file": "assets/models/Environment_Rail_Straight_2m_001.glb",
+      "bytes": 902844,
+      "sha256": "2443fcee0b94e8b01841a171f7db3afb8b0e95884e079f13cd69935a47d1b591"
+    },
+    {
+      "file": "assets/models/Environment_Snow_DriftCluster_001.glb",
+      "bytes": 28684,
+      "sha256": "6f65604ce65020bbb870f360d582812d99e096aa6de9c396f9f658e2f4fb6f28"
+    },
+    {
+      "file": "assets/models/Environment_Snow_FrozenPond8m_001.glb",
+      "bytes": 34320,
+      "sha256": "a01d8705bb1eadd2c26645298bfcd3613fad56cd8bef643df9f8e936908ad2f0"
+    },
+    {
+      "file": "assets/models/Environment_Snow_IceWall8m_001.glb",
+      "bytes": 70668,
+      "sha256": "4e37fc50f042abe9911861275325f2710055579b25b7439e0880d961e8cac1b8"
+    },
+    {
+      "file": "assets/models/Environment_Terrain_RiverCurve90R8_001.glb",
+      "bytes": 68760,
+      "sha256": "fd434c845f226027596f1dca0c2b6dd2815dc53e17f81a47cc3701fba21aee67"
+    },
+    {
+      "file": "assets/models/Environment_Terrain_RiverStraight8m_001.glb",
+      "bytes": 31392,
+      "sha256": "9203a1f8b795d76ffca0642d62c69d19351da14d649e288ccb139b15faccf1f7"
+    },
+    {
+      "file": "assets/models/Environment_Volcano_BasaltCliff8m_001.glb",
+      "bytes": 72076,
+      "sha256": "a8f8ae3b530db0c78c6138495fed09e28c74bbaab571b65aec6636f1b6cf9cf4"
+    },
+    {
+      "file": "assets/models/Environment_Volcano_Cone16m_001.glb",
+      "bytes": 150004,
+      "sha256": "8e3a720d80f39b163ac41454db028e1c653d0e74e57d8aeb8c77ce9cd430953b"
+    },
+    {
+      "file": "assets/models/Environment_Volcano_LavaChannel8m_001.glb",
+      "bytes": 59040,
+      "sha256": "8e8fc0ec47bffb25f10d476c4ade907c0e04dc03256edcf10625a48ef8632872"
+    },
+    {
+      "file": "assets/models/Environment_Volcano_LavaPool8m_001.glb",
+      "bytes": 58500,
+      "sha256": "4fc309ae7b72d8c7b347610ccf511b4c6985542031148eb7e8d5323dd9ba42f0"
+    },
+    {
+      "file": "assets/models/Plant_Common_AutumnMaple_001.glb",
+      "bytes": 261540,
+      "sha256": "79f5201d8807ea8c210a832b556507d6e9f6fcdb7e74cf7d2e1d33c68abcaea0"
+    },
+    {
+      "file": "assets/models/Plant_Common_AutumnMaple_001_LOD1.glb",
+      "bytes": 208056,
+      "sha256": "ee313357e3f88a32aa82fc2895401094537f414a79fbf6b5cf31733e73aec5f1"
+    },
+    {
+      "file": "assets/models/Plant_Common_BerryThicket_001.glb",
+      "bytes": 108668,
+      "sha256": "13fc5f724ef585c04c868bdd59c3059994a3992e7f183521b68d476c58b55595"
+    },
+    {
+      "file": "assets/models/Plant_Common_BerryThicket_001_LOD1.glb",
+      "bytes": 83476,
+      "sha256": "93ce9a123d2edea5b81c4538a612ed630386d5b51c129cab4fa73676a01a1a8e"
+    },
+    {
+      "file": "assets/models/Plant_Common_BroadleafGroundcover_001.glb",
+      "bytes": 9648,
+      "sha256": "a475c9a20f5d24943a1747b587eab3d53f14e3d788e1212735048f5d034c9050"
+    },
+    {
+      "file": "assets/models/Plant_Common_BroadleafGroundcover_001_LOD1.glb",
+      "bytes": 6632,
+      "sha256": "1b114be28e18e7ee5f426bb76abc417c14d7ea8968d8ebfda521211417b67227"
+    },
+    {
+      "file": "assets/models/Plant_Common_ColumnarPoplar_001.glb",
+      "bytes": 59596,
+      "sha256": "45d38e67a9d49c6710564237daf3978220b355a37c9f502c77d041d290f5b2b5"
+    },
+    {
+      "file": "assets/models/Plant_Common_ColumnarPoplar_001_LOD1.glb",
+      "bytes": 43260,
+      "sha256": "40b64035897e2d3f2cc7e5031dc9dee3cd04a76807cdadb39fd8f578ee1f8fdb"
+    },
+    {
+      "file": "assets/models/Plant_Common_CreepingVine_001.glb",
+      "bytes": 19452,
+      "sha256": "2630190908c727d204177b62896689b292290efed02effdd2f622c22ce8fcea3"
+    },
+    {
+      "file": "assets/models/Plant_Common_CreepingVine_001_LOD1.glb",
+      "bytes": 13416,
+      "sha256": "470b62bff1134a96cf9d5bd52567799458a50e1d71eea844b896b8427713ba25"
+    },
+    {
+      "file": "assets/models/Plant_Common_DeadSnag_001.glb",
+      "bytes": 60352,
+      "sha256": "c3d16551b982db58128dce92963824827fc31ad15c3011e66ac3ef3e03ddbf2e"
+    },
+    {
+      "file": "assets/models/Plant_Common_DeadSnag_001_LOD1.glb",
+      "bytes": 49212,
+      "sha256": "68826ec3c293c90d771e6b1d276afaced5474015d9966cd2eb51d520a8ae21f9"
+    },
+    {
+      "file": "assets/models/Plant_Common_DryReedTuft_001.glb",
+      "bytes": 59964,
+      "sha256": "71b8a010b90c064d0d9eed5c5c2ebe2f0703e4bd27c530514ae5ff369f8248c4"
+    },
+    {
+      "file": "assets/models/Plant_Common_DryReedTuft_001_LOD1.glb",
+      "bytes": 35524,
+      "sha256": "ac713c3a89d8de676d012eec537f061df44981dfd339d0c6191f33a3b2360b4e"
+    },
+    {
+      "file": "assets/models/Plant_Common_FloweringShrub_001.glb",
+      "bytes": 93560,
+      "sha256": "512684160f16757bf9105db0670b63dda25bb2f238959216d62cf6789d35b836"
+    },
+    {
+      "file": "assets/models/Plant_Common_FloweringShrub_001_LOD1.glb",
+      "bytes": 70892,
+      "sha256": "6ac59905568b902e220bc6a9600861eafed981e8738b21e5c5ddd16e4adfdadf"
+    },
+    {
+      "file": "assets/models/Plant_Common_GnarledOak_001.glb",
+      "bytes": 82360,
+      "sha256": "a0188ce86ee68943ac8a4980cb3140e87980040e95e7ff7e9d31dbb028be4953"
+    },
+    {
+      "file": "assets/models/Plant_Common_GnarledOak_001_LOD1.glb",
+      "bytes": 57768,
+      "sha256": "21bdd7a550913ed06ab5d06246281b4f06adb6146a23237d10813bd02ac9f5a4"
+    },
+    {
+      "file": "assets/models/Plant_Common_LeaningRiverTree_001.glb",
+      "bytes": 62416,
+      "sha256": "957ccd8c2f0cb531bc243797e8ba1f7cd6e14d7f6582095db298803399b59aab"
+    },
+    {
+      "file": "assets/models/Plant_Common_LeaningRiverTree_001_LOD1.glb",
+      "bytes": 45188,
+      "sha256": "d2cfedd85065900adb68adc9f4d48ab5d7aa2892272ba2406df0aa4d49cd584c"
+    },
+    {
+      "file": "assets/models/Plant_Common_PollardedTree_001.glb",
+      "bytes": 93920,
+      "sha256": "0437f0526a18ff720cc30fc849198f5c134d3ec3da4070c427679174751e16e2"
+    },
+    {
+      "file": "assets/models/Plant_Common_PollardedTree_001_LOD1.glb",
+      "bytes": 63496,
+      "sha256": "866655037021bee6872edc74768fd4080199d9dedb9710030f1cbbba5923d7ec"
+    },
+    {
+      "file": "assets/models/Plant_Common_SpreadingShrub_001.glb",
+      "bytes": 66736,
+      "sha256": "09391f678e04167474be3c58325ed8aabaa1348fbcb0b66785ccd2c627c3f642"
+    },
+    {
+      "file": "assets/models/Plant_Common_SpreadingShrub_001_LOD1.glb",
+      "bytes": 45580,
+      "sha256": "c69872002b89ed0dd30c892413aecba3691dc8d5cc06b2595e7e48deb70d185e"
+    },
+    {
+      "file": "assets/models/Plant_Common_TallGrassFan_001.glb",
+      "bytes": 12660,
+      "sha256": "a5230ad0626ae563dc5311c3c0c2fe316953d79e6016f77f9f195fb7b51d7128"
+    },
+    {
+      "file": "assets/models/Plant_Common_TallGrassFan_001_LOD1.glb",
+      "bytes": 8640,
+      "sha256": "45813514dde7d18906bda56fef29f9e52ae5986b65d20dbcda6dcc671d867b41"
+    },
+    {
+      "file": "assets/models/Plant_Common_UmbrellaTree_001.glb",
+      "bytes": 70296,
+      "sha256": "9201c152d939d0da2703ffbda9d57623b0785a91010c3d3cf4cf164effdc4e01"
+    },
+    {
+      "file": "assets/models/Plant_Common_UmbrellaTree_001_LOD1.glb",
+      "bytes": 49708,
+      "sha256": "adfeb3f85f035deb31eaafd7388e484159e0b7a392bb134fe26c4ec98d4881ae"
+    },
+    {
+      "file": "assets/models/Plant_Common_VaseCrownElm_001.glb",
+      "bytes": 80100,
+      "sha256": "be52e62ec3e062748ce78dd67b77864af1a698cc6c683a5b588ec0d71ff8ba39"
+    },
+    {
+      "file": "assets/models/Plant_Common_VaseCrownElm_001_LOD1.glb",
+      "bytes": 55772,
+      "sha256": "181c86e9814056bb87ff286a0bc67650a4b51c489b80c773dacbd959f23a1ec8"
+    },
+    {
+      "file": "assets/models/Plant_Common_WhiteBarkBirch_001.glb",
+      "bytes": 99576,
+      "sha256": "05e36affcd09481d84b81860b6dd65767753cd56fdaa446557a9833530f11e03"
+    },
+    {
+      "file": "assets/models/Plant_Common_WhiteBarkBirch_001_LOD1.glb",
+      "bytes": 75940,
+      "sha256": "fa8c03441c3a0cd58e57269da0490d8f5cf69aae872af79b4cc381e2b4906b31"
+    },
+    {
+      "file": "assets/models/Plant_Common_WildflowerPatch_001.glb",
+      "bytes": 85936,
+      "sha256": "98b87c9bc52b2285d4c99a08679329a0ad10475ed48954e65826869b5ee78af5"
+    },
+    {
+      "file": "assets/models/Plant_Common_WildflowerPatch_001_LOD1.glb",
+      "bytes": 43772,
+      "sha256": "20174dcaf1654412874e36ac88dd8e3238c05771ac9d551bf696620282b09649"
+    },
+    {
+      "file": "assets/models/Plant_Common_WindsweptPine_001.glb",
+      "bytes": 72680,
+      "sha256": "6bbbf5d55139d358cbc6eb383224a939f5ed5835f09ab884919048b7a0c22ede"
+    },
+    {
+      "file": "assets/models/Plant_Common_WindsweptPine_001_LOD1.glb",
+      "bytes": 51472,
+      "sha256": "738827b7f2cdd10cf7fc887ee2445d2c0dc656bafabc3ee1bcd696a8e6ef0ed9"
+    },
+    {
+      "file": "assets/models/Plant_Desert_DatePalm_001.glb",
+      "bytes": 132116,
+      "sha256": "19345f5ac12527b48857397691f661e43a46ec27f2350714b2794631f85f6e8f"
+    },
+    {
+      "file": "assets/models/Plant_Desert_SaguaroCactus_001.glb",
+      "bytes": 112620,
+      "sha256": "9cc60e71ce1b58006075442955a8452ca3a7e09dab8df68ef204062f03055754"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Desert_AgaveRosette_001.glb",
+      "bytes": 17376,
+      "sha256": "73f452f5e912b5ea6589399d8461f0bc4d09b1eddc62f20527c99f24dcafae19"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Desert_AgaveRosette_001_LOD1.glb",
+      "bytes": 11644,
+      "sha256": "3a6faeabe7292037aa9cf9665df291a817197af1032138564da8cb5701978126"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Desert_BarrelCactus_001.glb",
+      "bytes": 329408,
+      "sha256": "86bb23d1b02b7dbf494b2cdadab38016004fd90ce2504e6da05c71bd50ed5a9c"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Desert_BarrelCactus_001_LOD1.glb",
+      "bytes": 155388,
+      "sha256": "68ef5c5d162723eae06217e8966f931e4b350adff5b5f44e44505b711bb2039e"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Desert_OcotilloFan_001.glb",
+      "bytes": 97888,
+      "sha256": "aed8cca81e2c2f0b149c2ded514cbe32c05a46666bafc6ebfd9831b6f860908a"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Desert_OcotilloFan_001_LOD1.glb",
+      "bytes": 26452,
+      "sha256": "86927fc4ce71bc74ca86014d1a920f2a599c328682a37288b3621d67274ef3bd"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Forest_BambooGrove_001.glb",
+      "bytes": 201448,
+      "sha256": "dfeb3511e6e140de3ea3748a20a5aaeb49f2d141073273ad64e428d22ccbba26"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Forest_BambooGrove_001_LOD1.glb",
+      "bytes": 123384,
+      "sha256": "305b96f9c3d4d84f2cd7e6ddaeb172058b3dc5a8135d6a2e60362b93c9cb264e"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Forest_ButtressTree_001.glb",
+      "bytes": 103852,
+      "sha256": "e132c1fdb9e6891f253d24aa71595c3f018633965db1b2b7d28cc1bcea45f45b"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Forest_ButtressTree_001_LOD1.glb",
+      "bytes": 57124,
+      "sha256": "659520a62f977074f1f3299118cf3548da07ea1d8eefc45f95868bcb21f4ee6c"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Forest_TreeFern_001.glb",
+      "bytes": 116844,
+      "sha256": "23d14f329eab63c5e4a3725e62204ddc62613769df4d3cae8339d2ff255479ef"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Forest_TreeFern_001_LOD1.glb",
+      "bytes": 57808,
+      "sha256": "d6eff33613747dd62a08861c32e6f4513b882a3b933a3b2db67c2230fffa89be"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Hills_HeatherTuft_001.glb",
+      "bytes": 158096,
+      "sha256": "4523123f4c671cac8c9e7333c3695ad21d051d280763817a055202a2f50eaefa"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Hills_HeatherTuft_001_LOD1.glb",
+      "bytes": 61712,
+      "sha256": "bb500d7b433d3aed3ece84161a3c3fb287df86d0c189243e4b2846385f78c13c"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Lakeside_LotusPatch_001.glb",
+      "bytes": 62220,
+      "sha256": "1a9188341e4b69e618e81542c8a8d760aa5abee3ba5b143193fb987a2ccacb0c"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Lakeside_LotusPatch_001_LOD1.glb",
+      "bytes": 39200,
+      "sha256": "292fa5663fc6871a4778afe9aad9ccbc0e68a22a62835e3a59cd9a11688330c6"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Lakeside_StiltRootTree_001.glb",
+      "bytes": 105412,
+      "sha256": "61363a63a7b872ff0530f41fee6dc02185a58bdae6f0522408a564d605e20747"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Lakeside_StiltRootTree_001_LOD1.glb",
+      "bytes": 51896,
+      "sha256": "83f1913961087d4a69d879ade1b1a4b8c1e82d4cf826a977e4d4f791e2a9b4e8"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Pastoral_PumpkinVines_001.glb",
+      "bytes": 150288,
+      "sha256": "df6f655f7ce55c0fabc3fa78928bb6c9c13c67624a12986c9a01788025682f07"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Pastoral_PumpkinVines_001_LOD1.glb",
+      "bytes": 54360,
+      "sha256": "10ac9806bca614879b98b458fe3cabb1e70454c23fd592af98ef304dbd5601b2"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Pastoral_Sunflowers_001.glb",
+      "bytes": 99684,
+      "sha256": "febf45d0e08e6440093b61c00718ad4edb0f39dbec42498a2b62358a0b988615"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Pastoral_Sunflowers_001_LOD1.glb",
+      "bytes": 57544,
+      "sha256": "2defe8839bdd7e86134889535662afdf930bd47a5afa8e50a934d386097784f5"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Pastoral_VineyardRow_001.glb",
+      "bytes": 134244,
+      "sha256": "aa36e379e3c2229b775b5ad220a95db181405b8ff6b48c462a4122f95f9d0fe7"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Pastoral_VineyardRow_001_LOD1.glb",
+      "bytes": 45292,
+      "sha256": "22a564687b873133f0eaa06509e1e4d28e89b910464a11152c793baf1ce36a60"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Rural_FloweringCherry_001.glb",
+      "bytes": 188512,
+      "sha256": "50d85b8d3385d0ad755a7ba0a6dc2feca12d5751f9470c61a0da62395e9fb06b"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Rural_FloweringCherry_001_LOD1.glb",
+      "bytes": 48868,
+      "sha256": "ab8abc77ce585ee559d05411a1c90ab6846348e61eece7fb2cc1e496ee20fe22"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Snow_BentSnowPine_001.glb",
+      "bytes": 95476,
+      "sha256": "b770d74f61bdbd6eb837fedf71199b9c5f0089cc1c35d8692906fb87079414fe"
+    },
+    {
+      "file": "assets/models/Plant_Feature_Snow_BentSnowPine_001_LOD1.glb",
+      "bytes": 39132,
+      "sha256": "a21030ca5ebfd39ac2552110351259e69bac4744233f40d2390d374cd0a3669d"
+    },
+    {
+      "file": "assets/models/Plant_Forest_BroadleafTree_001.glb",
+      "bytes": 136412,
+      "sha256": "0355e38c7774778bdaebbde582f0e84fe8a69e9a3e518e9d902e84cd6baad885"
+    },
+    {
+      "file": "assets/models/Plant_Forest_ConiferTree_001.glb",
+      "bytes": 163160,
+      "sha256": "8ac570480d31767c01391598889873ef5bc23b22956984d7c84aa9805a6b4e1d"
+    },
+    {
+      "file": "assets/models/Plant_Forest_FernCluster_001.glb",
+      "bytes": 199476,
+      "sha256": "24a5dc26607017c92f9f9d7ad57306b53413acac23a086624bf9c8ea667e962e"
+    },
+    {
+      "file": "assets/models/Plant_Forest_Sapling_001.glb",
+      "bytes": 58972,
+      "sha256": "4b6d58792dc37eee630874dc530149ec1cb7efe23a9521be8c0ffd5d1eda42ff"
+    },
+    {
+      "file": "assets/models/Plant_Forest_ShrubCluster_001.glb",
+      "bytes": 51104,
+      "sha256": "0eebdfb83e46614ac41992258c4d608574c1a20a42055b4b3862bd74a4e1323c"
+    },
+    {
+      "file": "assets/models/Plant_Hills_SlopeGrass_001.glb",
+      "bytes": 103704,
+      "sha256": "29bd0c9de4969bec3b6c0e20d3da7ddb61bab2a53f2d4d31aa7361ac26b75a55"
+    },
+    {
+      "file": "assets/models/Plant_Lakeside_CattailCluster_001.glb",
+      "bytes": 34780,
+      "sha256": "b1f88cb371ab1429c9ad51c3df845cbdf77d4a7785a67073a8781e983caa6e91"
+    },
+    {
+      "file": "assets/models/Plant_Lakeside_WeepingWillow_001.glb",
+      "bytes": 100308,
+      "sha256": "6868e5998c4e0d52ae090bed20229eb39859d9903704123246be3b0ee455f2bb"
+    },
+    {
+      "file": "assets/models/Plant_Pastoral_AppleTree_001.glb",
+      "bytes": 124452,
+      "sha256": "122c1b44ae06c36950c54e8bf3423250b17a97d1f5cec2b348a8778952e21210"
+    },
+    {
+      "file": "assets/models/Plant_Pastoral_CornCluster_001.glb",
+      "bytes": 59484,
+      "sha256": "411fbbc59b126b88e208fa7696e4daf48af7e590512899dca51cdf6fb840e406"
+    },
+    {
+      "file": "assets/models/Plant_Pastoral_WheatCluster_001.glb",
+      "bytes": 103020,
+      "sha256": "2dcad08b8567b625df3f7ca5d8062836e939d72145688b09caf0e13139032bd6"
+    },
+    {
+      "file": "assets/models/Plant_Snow_Cedar_001.glb",
+      "bytes": 149584,
+      "sha256": "fd6d880de3622bd815853c8f70b31ed510b71ec35cbebdbcb817672f8ea47f87"
+    },
+    {
+      "file": "assets/models/Prop_Common_ArchingDeadTrunk_001.glb",
+      "bytes": 27272,
+      "sha256": "3ff866558ac0c3467e044d8dbb7b4ef3a0ee2e73f837034fed07d103e149cf54"
+    },
+    {
+      "file": "assets/models/Prop_Common_ArchingDeadTrunk_001_LOD1.glb",
+      "bytes": 21404,
+      "sha256": "6ad704526b146e113820cdd061b11d1d40871c19a115ba05cd61941e920e5af2"
+    },
+    {
+      "file": "assets/models/Prop_Common_BranchTangle_001.glb",
+      "bytes": 38616,
+      "sha256": "d2dc80ce40b9999288d4a211e9489d468876f57e855321784324fd4c47e47d61"
+    },
+    {
+      "file": "assets/models/Prop_Common_BranchTangle_001_LOD1.glb",
+      "bytes": 22748,
+      "sha256": "350cc7e53ac92ebc182e30c0b0815414a7d73a2c07b7c731fa009c408cad96f2"
+    },
+    {
+      "file": "assets/models/Prop_Common_ErodedRockWindow_001.glb",
+      "bytes": 17420,
+      "sha256": "d11840510bc7fd9e2f87bf21e65a082cf112e4469286d583718b3d649b428e91"
+    },
+    {
+      "file": "assets/models/Prop_Common_ErodedRockWindow_001_LOD1.glb",
+      "bytes": 14320,
+      "sha256": "707609a114b4308c591d0a522a1e8d088a83fcc2677fd619f7af1f7d283fce53"
+    },
+    {
+      "file": "assets/models/Prop_Common_ForkedDriftwood_001.glb",
+      "bytes": 26804,
+      "sha256": "5297cd4481c9a1fd4cecfbf6fc9d27efdd41705b5865243b4ff572dc88b81df1"
+    },
+    {
+      "file": "assets/models/Prop_Common_ForkedDriftwood_001_LOD1.glb",
+      "bytes": 21664,
+      "sha256": "dc62a57250109eae006b1c9a9d1d90a35f202d5ec3dab50c86735675b75aeec4"
+    },
+    {
+      "file": "assets/models/Prop_Common_HollowLog_001.glb",
+      "bytes": 16672,
+      "sha256": "4579584b8ea2c0fca8c2081a6c86b87349275a4512df17ab297fd27946cedfa6"
+    },
+    {
+      "file": "assets/models/Prop_Common_HollowLog_001_LOD1.glb",
+      "bytes": 12576,
+      "sha256": "e21f9fa989cc1dc0375fc3b1584248d2a4ce28be0abe38f5877f425b32b164b8"
+    },
+    {
+      "file": "assets/models/Prop_Common_LayeredStoneStack_001.glb",
+      "bytes": 30492,
+      "sha256": "e1fd4e17e2e0a3e5949c9dcbda9f861c2fbf9915987f34f0f1cb980f49139c28"
+    },
+    {
+      "file": "assets/models/Prop_Common_LayeredStoneStack_001_LOD1.glb",
+      "bytes": 22876,
+      "sha256": "562feedbcb217e6e0b8b43175421fb1e67cbb4480ab3da645a713e14f254b2be"
+    },
+    {
+      "file": "assets/models/Prop_Common_LichenOutcrop_001.glb",
+      "bytes": 35488,
+      "sha256": "6b9425e056bad9cf6a138397a999f96f64c1caa915aa6524720bd3a7baba424e"
+    },
+    {
+      "file": "assets/models/Prop_Common_LichenOutcrop_001_LOD1.glb",
+      "bytes": 27632,
+      "sha256": "1eb6180229838bcfd5fd6d4447a4b86c03752a8800e7dc908e5188214c1ec5bc"
+    },
+    {
+      "file": "assets/models/Prop_Common_RiverPebbles_001.glb",
+      "bytes": 66244,
+      "sha256": "fce41fb2e3f6fc1b9b9c070a86c40a0dcab6815f8b6bab9fbade0ad510d1184f"
+    },
+    {
+      "file": "assets/models/Prop_Common_RiverPebbles_001_LOD1.glb",
+      "bytes": 49672,
+      "sha256": "77c0e9c11e6fbd75830cb92d1d85c7459d8667b1a96baaab37c37dfe68f2d28d"
+    },
+    {
+      "file": "assets/models/Prop_Common_RootClaspedBoulder_001.glb",
+      "bytes": 43608,
+      "sha256": "8b760bb486463f2317fc80256b109dc70c5f3d9399d4289ae4b4b18c516aba05"
+    },
+    {
+      "file": "assets/models/Prop_Common_RootClaspedBoulder_001_LOD1.glb",
+      "bytes": 34936,
+      "sha256": "777df295c2888ea4105b9b2bc5b65fb68bd04ba8f5500f6c4c578fada62fe4ac"
+    },
+    {
+      "file": "assets/models/Prop_Common_RoundedBoulder_001.glb",
+      "bytes": 8864,
+      "sha256": "e9c99375dee663447fd5387ed6d43aae5a08fd03b22497255d160ec843389673"
+    },
+    {
+      "file": "assets/models/Prop_Common_RoundedBoulder_001_LOD1.glb",
+      "bytes": 7020,
+      "sha256": "76382b87a1e50dc012873ad38d23058c33005aa66aaf2d94674bcc349debfaa2"
+    },
+    {
+      "file": "assets/models/Prop_Common_ScreeHeap_001.glb",
+      "bytes": 124292,
+      "sha256": "5380fde5acde2b72a7ce853aa7291ec9a4d81e669bcdbc9396abe8ab817232ea"
+    },
+    {
+      "file": "assets/models/Prop_Common_ScreeHeap_001_LOD1.glb",
+      "bytes": 92304,
+      "sha256": "aaa1bdd831d3784693b4d6109a99cab9af2be3f6e1338824271fcc42155f2ab8"
+    },
+    {
+      "file": "assets/models/Prop_Common_SplinteredStump_001.glb",
+      "bytes": 31984,
+      "sha256": "d21394815ed1dbda928ef5a4f5099cfc7836b4b92986c0059ee514c401865434"
+    },
+    {
+      "file": "assets/models/Prop_Common_SplinteredStump_001_LOD1.glb",
+      "bytes": 24704,
+      "sha256": "f434c7c91fd09262c02c457eca667b9626f108d4c927fcc7ded108ebaa2fd2a2"
+    },
+    {
+      "file": "assets/models/Prop_Common_SplitBoulder_001.glb",
+      "bytes": 16168,
+      "sha256": "a14ed9f05835863f05f458c5725fa0f73fbd11feea200a29c8a5f0dc4a0e193e"
+    },
+    {
+      "file": "assets/models/Prop_Common_SplitBoulder_001_LOD1.glb",
+      "bytes": 12184,
+      "sha256": "bfa47a7337fbabb2a99b88f63e303ae9d4889ed2a7fa3351da2a47dad5818ee6"
+    },
+    {
+      "file": "assets/models/Prop_Common_UpturnedRootBall_001.glb",
+      "bytes": 60876,
+      "sha256": "36d9ee0e92e66bdd45fc0dd57e05a99be5127d7d2d498ae4e9745ddebcf57a74"
+    },
+    {
+      "file": "assets/models/Prop_Common_UpturnedRootBall_001_LOD1.glb",
+      "bytes": 47236,
+      "sha256": "65d5d506ad327beb37e6bb0cb10c3afb3cb91ed65a4f02fd7bfaa65799848736"
+    },
+    {
+      "file": "assets/models/Prop_Daily_BeehiveStands_001.glb",
+      "bytes": 28312,
+      "sha256": "6405448e0d10b6645df3fde32b5d6e1754df79065ff5eaeebcd15b8aa5eda392"
+    },
+    {
+      "file": "assets/models/Prop_Daily_BeehiveStands_001_LOD1.glb",
+      "bytes": 24196,
+      "sha256": "100fb67fda49f9fcd9584cc1b4ad35f4835b076336521c2510bda0eeacbb3d16"
+    },
+    {
+      "file": "assets/models/Prop_Daily_BicycleStand_001.glb",
+      "bytes": 96016,
+      "sha256": "fa9a3f55ceb7067f65fffd9de113ae8b521b7b6609b5e79a8f6846f61495ba61"
+    },
+    {
+      "file": "assets/models/Prop_Daily_BicycleStand_001_LOD1.glb",
+      "bytes": 67388,
+      "sha256": "a24399e69f981e94fccc5c422f6b3165a32174d2528e3d3d5d8e355128b22950"
+    },
+    {
+      "file": "assets/models/Prop_Daily_CableReel_001.glb",
+      "bytes": 247068,
+      "sha256": "25845ca563182b8a2cd811c5df0a57e24669b5063ab8f2eef53d315ab4aea444"
+    },
+    {
+      "file": "assets/models/Prop_Daily_CableReel_001_LOD1.glb",
+      "bytes": 85580,
+      "sha256": "f87ef64fe9e9549e29fdb06b4d56a0f75944c82d59558810cb014a45816c18f1"
+    },
+    {
+      "file": "assets/models/Prop_Daily_DeckChair_001.glb",
+      "bytes": 14608,
+      "sha256": "a3d7d25e87a1513fe7a83d6c10b6be6e9105a9e4e125d6b473ef619e8fbc9ca8"
+    },
+    {
+      "file": "assets/models/Prop_Daily_DeckChair_001_LOD1.glb",
+      "bytes": 11496,
+      "sha256": "47806ad2e1efe14ffddbf037c0d78b44a1aac16e133e11eca9147dce8e7043c0"
+    },
+    {
+      "file": "assets/models/Prop_Daily_FarmCart_001.glb",
+      "bytes": 69848,
+      "sha256": "2e9f5c2c4d76a325c3840e3a1f92b51d1f425dc4eb4443b6dcb1971144676a5c"
+    },
+    {
+      "file": "assets/models/Prop_Daily_FarmCart_001_LOD1.glb",
+      "bytes": 52352,
+      "sha256": "2dfe44eca3ffc56bf54eea55f4ec0383892c1ebce644989bd6dc56e0c63d0a6f"
+    },
+    {
+      "file": "assets/models/Prop_Daily_FirewoodRack_001.glb",
+      "bytes": 80896,
+      "sha256": "94f7e301d00f9e46070aa7fdfddfc213fd3e7dfa46388fb34cc2d8bd93cbfdb2"
+    },
+    {
+      "file": "assets/models/Prop_Daily_FirewoodRack_001_LOD1.glb",
+      "bytes": 49112,
+      "sha256": "1baf54b24105cb890f5f1c07f17b7e795c3d9777a2f8f773abbc8313c96e494f"
+    },
+    {
+      "file": "assets/models/Prop_Daily_HandPlough_001.glb",
+      "bytes": 12356,
+      "sha256": "984749c472d3f1c84bbc7b27a62e506baa5bbf6e0ed30a5a213109c56d09b375"
+    },
+    {
+      "file": "assets/models/Prop_Daily_HandPlough_001_LOD1.glb",
+      "bytes": 10932,
+      "sha256": "ff0c4915d1708b6fa70eefc1284c0e36a80a9588eb3c4c5151314c88a0361663"
+    },
+    {
+      "file": "assets/models/Prop_Daily_LuggageHandtruck_001.glb",
+      "bytes": 47620,
+      "sha256": "3bd76cfdf10f8a4fab1f4e46c6790ca15e6141d0b9da18d18a7dd799f6650f92"
+    },
+    {
+      "file": "assets/models/Prop_Daily_LuggageHandtruck_001_LOD1.glb",
+      "bytes": 27648,
+      "sha256": "f4a128a8c68249231f6ff8d4065644a610cae0eeba05ab2b4cdb37b9fd24caeb"
+    },
+    {
+      "file": "assets/models/Prop_Daily_MeshFence_001.glb",
+      "bytes": 28816,
+      "sha256": "315a9aabb14c07524be472a7ba4bf8c9111355bd9f395345217dfe88142b0101"
+    },
+    {
+      "file": "assets/models/Prop_Daily_MeshFence_001_LOD1.glb",
+      "bytes": 18344,
+      "sha256": "eeb77909eff7703cabdc1cb29637ebdf58ba6b2be451e179ed795272a604224c"
+    },
+    {
+      "file": "assets/models/Prop_Daily_OrchardLadder_001.glb",
+      "bytes": 25700,
+      "sha256": "0eb21da3e73d9d69b542b1d09a518c6d3e3094381c9c3aa270a14fd924c67042"
+    },
+    {
+      "file": "assets/models/Prop_Daily_OrchardLadder_001_LOD1.glb",
+      "bytes": 18268,
+      "sha256": "4764a6b38b242d0e098215a36b5e8c63613061a37e6404161a03878251e00a9d"
+    },
+    {
+      "file": "assets/models/Prop_Daily_OutdoorWashbasin_001.glb",
+      "bytes": 26716,
+      "sha256": "b88d92765f14593b90b29c58dec1c1cc7976a0246db802406e7088895abfdd8c"
+    },
+    {
+      "file": "assets/models/Prop_Daily_OutdoorWashbasin_001_LOD1.glb",
+      "bytes": 21100,
+      "sha256": "f00dd22c54cec06c5884c2cf5af5ab91a597a0cad830cf26229c8273fe7bfd4e"
+    },
+    {
+      "file": "assets/models/Prop_Daily_PicnicTable_001.glb",
+      "bytes": 15920,
+      "sha256": "196a073b2b9dd2d9c4c6757c656c7ca5bfd012b9089a4414b35549034336b16a"
+    },
+    {
+      "file": "assets/models/Prop_Daily_PicnicTable_001_LOD1.glb",
+      "bytes": 12832,
+      "sha256": "46e32f7304313bf7aafaa44031b3960f3a253533ff2ce56f07cbc8b623e88243"
+    },
+    {
+      "file": "assets/models/Prop_Daily_PotteryBucketSet_001.glb",
+      "bytes": 74776,
+      "sha256": "7643e8d58f236256fdb3eaa732257bdbeb84e7f0b71baeb7b1729cf2840e4e6e"
+    },
+    {
+      "file": "assets/models/Prop_Daily_PotteryBucketSet_001_LOD1.glb",
+      "bytes": 53976,
+      "sha256": "13075ef047275a28c363111e7709c3e22ab803b16da8c703e98e2d02369b6e6a"
+    },
+    {
+      "file": "assets/models/Prop_Daily_PottingBench_001.glb",
+      "bytes": 86164,
+      "sha256": "773624b9b7a709461fd32eea5470e07502848f61e7413e55271a065790563ad1"
+    },
+    {
+      "file": "assets/models/Prop_Daily_PottingBench_001_LOD1.glb",
+      "bytes": 48048,
+      "sha256": "1289e77390ca3e7c01bfe82182b389c1232a2e677e77fa07a954ffd5f7d7665f"
+    },
+    {
+      "file": "assets/models/Prop_Daily_ProduceCrates_001.glb",
+      "bytes": 84716,
+      "sha256": "c22396b06be2de11b5ee22ddf6498fc5a817b7cdfc3193af44f6a8b373b3644b"
+    },
+    {
+      "file": "assets/models/Prop_Daily_ProduceCrates_001_LOD1.glb",
+      "bytes": 41044,
+      "sha256": "ffa31c70eccf55bd7018ff6e393eae0397dc1dd0814e687ecada103d80f521ac"
+    },
+    {
+      "file": "assets/models/Prop_Daily_PumpAndTrough_001.glb",
+      "bytes": 27072,
+      "sha256": "653484e4b8b68004aee41bad5714553bf5050babdc2e9f8bae71e2b4f9408fed"
+    },
+    {
+      "file": "assets/models/Prop_Daily_PumpAndTrough_001_LOD1.glb",
+      "bytes": 17664,
+      "sha256": "d69f4043d31c7bb130933c7b9fb4fc222e70cdcde8ea23db95bf6945c3bf043c"
+    },
+    {
+      "file": "assets/models/Prop_Daily_RainBarrel_001.glb",
+      "bytes": 55652,
+      "sha256": "6b7fa3972201b681c2d68ce867563e7e93266953c2291f37268b6f63ba805b53"
+    },
+    {
+      "file": "assets/models/Prop_Daily_RainBarrel_001_LOD1.glb",
+      "bytes": 30104,
+      "sha256": "56d1d2ea9d909846b3a7d47e3fb1441c0c2822989cd8c7c3078fd0d838fc3adf"
+    },
+    {
+      "file": "assets/models/Prop_Daily_RoadworkBarricade_001.glb",
+      "bytes": 18840,
+      "sha256": "cdf3ffc88cf43f1ee5dc7aacf04bc41bdbcd94d9f99023f6759dd684992b83c2"
+    },
+    {
+      "file": "assets/models/Prop_Daily_RoadworkBarricade_001_LOD1.glb",
+      "bytes": 14400,
+      "sha256": "e92025a6b10dcb11105a3e6b433481b35529d1ea3faa6c0ae94a31f6f0d623a9"
+    },
+    {
+      "file": "assets/models/Prop_Daily_Scarecrow_001.glb",
+      "bytes": 43504,
+      "sha256": "9a995b617aebc683c20125a58fa417288b6e3d86f27607cb98911dde6162c22c"
+    },
+    {
+      "file": "assets/models/Prop_Daily_Scarecrow_001_LOD1.glb",
+      "bytes": 28372,
+      "sha256": "48aa8d72e51272ea862ddcaa1cec8a912b0509f85cb970afb842c07cb6e13f8c"
+    },
+    {
+      "file": "assets/models/Prop_Daily_SurveyTripod_001.glb",
+      "bytes": 26648,
+      "sha256": "dea66a54928f02d3a9e74cd07dabb9893058ec81a20751fe61b85dad11fad03b"
+    },
+    {
+      "file": "assets/models/Prop_Daily_SurveyTripod_001_LOD1.glb",
+      "bytes": 18452,
+      "sha256": "0f2b98c4790530c0f07ebf0c8f69b55b18e5b1da15f19a41a1aa97652e4aabad"
+    },
+    {
+      "file": "assets/models/Prop_Daily_TarpaulinCargo_001.glb",
+      "bytes": 39796,
+      "sha256": "1af518e72d5c2761ea92a26734726c56da2f86317bd6b38d9e08b218433f373c"
+    },
+    {
+      "file": "assets/models/Prop_Daily_TarpaulinCargo_001_LOD1.glb",
+      "bytes": 25716,
+      "sha256": "f7cd58d4acfba2741f32d049bb71685a8a701dcb0a5a0dac99f8cb52c2d961c2"
+    },
+    {
+      "file": "assets/models/Prop_Daily_Wheelbarrow_001.glb",
+      "bytes": 41380,
+      "sha256": "076f352ee449b41ce117b28a21efb7a6d1f52c138ddf578abf513ce382a098e1"
+    },
+    {
+      "file": "assets/models/Prop_Daily_Wheelbarrow_001_LOD1.glb",
+      "bytes": 29604,
+      "sha256": "0633c3399ee339def65cf942fee7d8956600dfcff6224b521e2b06a26eb4cefb"
+    },
+    {
+      "file": "assets/models/Prop_Desert_SandstoneCluster_001.glb",
+      "bytes": 64212,
+      "sha256": "b56c10865a4479eff701bc420aabf7f24a760c0b96041f2b68667d5d2668719f"
+    },
+    {
+      "file": "assets/models/Prop_Desert_Tumbleweed_001.glb",
+      "bytes": 136304,
+      "sha256": "1e2d6301f1805aa5712616ea4d79dbcd6d93607f837187a9f55ba3fc50ebfd0f"
+    },
+    {
+      "file": "assets/models/Prop_Feature_Forest_BracketFungusTrunk_001.glb",
+      "bytes": 56016,
+      "sha256": "532d566a193b55a6c1b64c34b526344782f26d31f7166c2795037379d3478237"
+    },
+    {
+      "file": "assets/models/Prop_Feature_Forest_BracketFungusTrunk_001_LOD1.glb",
+      "bytes": 20076,
+      "sha256": "079d50851692998c0165e34384f88ced973f25c22c830bc49b849b76d569c1b4"
+    },
+    {
+      "file": "assets/models/Prop_Feature_Snow_FracturedIce_001.glb",
+      "bytes": 16080,
+      "sha256": "52f591483c03c0272a01eb6e9b0c600131f35ff3625595a0fc85651aa5b7a238"
+    },
+    {
+      "file": "assets/models/Prop_Feature_Snow_FracturedIce_001_LOD1.glb",
+      "bytes": 7264,
+      "sha256": "a5c3ec350b7f033a14ccf334ed36354a50bed70ea7a51dc44feb53f481957ad0"
+    },
+    {
+      "file": "assets/models/Prop_Feature_Volcano_SulfurFans_001.glb",
+      "bytes": 23976,
+      "sha256": "33df1ecb2ccdd1c29b63cb7f1c50c5ad138e1fc8b1640425767a57b42b9fac93"
+    },
+    {
+      "file": "assets/models/Prop_Feature_Volcano_SulfurFans_001_LOD1.glb",
+      "bytes": 17568,
+      "sha256": "e1be7cd9ac23918ff55f32016219a5db7b51acf2ce50916811a4cf65033f589b"
+    },
+    {
+      "file": "assets/models/Prop_Forest_FallenLog_001.glb",
+      "bytes": 118840,
+      "sha256": "f3c7f21b2d62cb37f51369aaf0db0903d8f4ec1f17345839ea37cfccf240ad8a"
+    },
+    {
+      "file": "assets/models/Prop_Forest_TreeStump_001.glb",
+      "bytes": 87112,
+      "sha256": "8b5d2baf598ba6f9a7ef395a281b3159bb11017e7f408145babc08c3b741dbe1"
+    },
+    {
+      "file": "assets/models/Prop_Hills_BoulderCluster_001.glb",
+      "bytes": 35908,
+      "sha256": "22d9ea1baf9acd10045f92541b8cd59e12333108882c34d61c6fff343d71c76d"
+    },
+    {
+      "file": "assets/models/Prop_Lakeside_Rowboat4m_001.glb",
+      "bytes": 39220,
+      "sha256": "03e72addb1145d15c9086990791a2008997785910842fe5a07d1e6ed662c94d1"
+    },
+    {
+      "file": "assets/models/Prop_Lakeside_ShoreBoulders_001.glb",
+      "bytes": 18740,
+      "sha256": "d32b0c211ef7464e87e06ec3019a807db6ea8e966221f6738b51ebbe075b5eb7"
+    },
+    {
+      "file": "assets/models/Prop_Lakeside_WoodenPier6m_001.glb",
+      "bytes": 130420,
+      "sha256": "9a3a1605c0dda57c6ddfa56d8bccdf16fc9a3549735335682cf6774451a5bcb5"
+    },
+    {
+      "file": "assets/models/Prop_Lineside_TracksideLamp_001.glb",
+      "bytes": 802264,
+      "sha256": "8245afcf02235f41708f1e5013aa581c8434e17c889c631deb48ac849ef57949"
+    },
+    {
+      "file": "assets/models/Prop_Pastoral_FarmFence4m_001.glb",
+      "bytes": 50180,
+      "sha256": "b85a254a1f2bae2e0b12974fd39b14a0f0ae1e46e2552ce414142eebfcc6466c"
+    },
+    {
+      "file": "assets/models/Prop_Pastoral_HayBaleStack_001.glb",
+      "bytes": 34040,
+      "sha256": "a5e889594336cef6211808d5d5e9b1434786e9fb4ef8cf66d478e7f4a52b6d35"
+    },
+    {
+      "file": "assets/models/Prop_Rural_Clothesline_001.glb",
+      "bytes": 43268,
+      "sha256": "822d5a28878730ec52a646fa8cb599ec911c1d14a40fba60e57f131c4ee76257"
+    },
+    {
+      "file": "assets/models/Prop_Rural_Mailbox_001.glb",
+      "bytes": 24260,
+      "sha256": "991125f7ac206124f864720c0bf4f33ea040f432ca73815142a5a6cb1b924f4c"
+    },
+    {
+      "file": "assets/models/Prop_Rural_RoofedWell_001.glb",
+      "bytes": 97788,
+      "sha256": "21e098ec6f6d18db052c78f631c27c69f5663bd9322d9362c48d714cb9afb7b4"
+    },
+    {
+      "file": "assets/models/Prop_Rural_StoneWall4m_001.glb",
+      "bytes": 103172,
+      "sha256": "5ae8677c0d661e8bf76db5830af674978af757dfbf82bff98ea3be14d38b3bf6"
+    },
+    {
+      "file": "assets/models/Prop_Snow_BoulderCluster_001.glb",
+      "bytes": 63952,
+      "sha256": "763fe885c178eac5d0fbfcd1f7dda4c12162e9878ac3c0aedafb12ee4d725a7b"
+    },
+    {
+      "file": "assets/models/Prop_Snow_IceSpireCluster_001.glb",
+      "bytes": 24332,
+      "sha256": "963d131897b31668aa99b7e10fc5f9aea93a8f8af359be263dad9805aa9a3a51"
+    },
+    {
+      "file": "assets/models/Prop_Station_StationSign_001.glb",
+      "bytes": 1125172,
+      "sha256": "ef83e5dc167e2f24c91888244ea0ccb2b418571f605624b065c7bf770535af97"
+    },
+    {
+      "file": "assets/models/Prop_Volcano_BoulderCluster_001.glb",
+      "bytes": 46756,
+      "sha256": "8c471ad0779f53c4a669c9d7decb765e6d30d2fdc2aeda754a9b35e7a0c15d42"
+    },
+    {
+      "file": "assets/models/Prop_Volcano_FumaroleVent_001.glb",
+      "bytes": 83376,
+      "sha256": "111476f31c307e204853c37f2112562de856ce348fc19a8728fe985c41cc5d7c"
+    },
+    {
+      "file": "assets/models/Prop_Volcano_ObsidianCluster_001.glb",
+      "bytes": 41552,
+      "sha256": "e357895c9fd18cbec4b85b7b3fc5746d3073ddee8c20c658576d2c5e6e6de464"
+    },
+    {
+      "file": "assets/models/Vehicle_Minecart_AzureLake_001.glb",
+      "bytes": 1561104,
+      "sha256": "542cffbf9c951511dfc3bd5dd6f748fdc20c233f3342a1e96dd9028715730028"
+    },
+    {
+      "file": "assets/models/Vehicle_Minecart_GoldenOak_001.glb",
+      "bytes": 1464332,
+      "sha256": "0546822ba6060c2e2527057536d532625b153b1d7e4bfa771683ccb61e46ca88"
+    },
+    {
+      "file": "assets/models/Vehicle_Minecart_RedCopper_001.glb",
+      "bytes": 1363672,
+      "sha256": "f51c86cf106b901e786af67780825084a4225ecaa05f8ee0f17a47b001cd37f9"
+    }
+  ]
+}

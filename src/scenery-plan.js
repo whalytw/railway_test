@@ -1,10 +1,10 @@
 // Seeded scene composition. This module uses metres and catalog metadata only;
 // no renderer or Blender source files are needed to reproduce a population.
-import { TAU, clamp, lerp, randomGenerator, wrap } from './core.js?v=7.0.0';
-import { bridgeCoordinates, riverLocation } from './route-features.js?v=7.0.0';
-import { inFarm } from './landscape-profile.js?v=7.0.0';
+import { TAU, clamp, lerp, randomGenerator, wrap } from './core.js?v=8.0.0';
+import { bridgeCoordinates, riverLocation } from './route-features.js?v=8.0.0';
+import { inFarm } from './landscape-profile.js?v=8.0.0';
 
-export const SCENERY_VERSION = '7.0.0';
+export const SCENERY_VERSION = '8.0.0';
 export const DENSITY_OPTIONS = [1000, 2000, 3500, 5000, 8000, 10000, 12000, 16000, 20000, 30000, 50000];
 const BUILDING_ROLES = ['home', 'shop', 'workshop', 'civic'];
 const NATURAL_ROLES = ['tree', 'shrub', 'rock', 'deadwood', 'feature'];
@@ -44,6 +44,7 @@ class Occupancy {
 
 export function compatibleScenery(info, biome, context = 'wild', nearWater = false) {
   if (!info.compatibleBiomes?.includes(biome)) return false;
+  if(info.nearWaterOnly && !nearWater) return false;
   if (/LeaningRiverTree|StiltRootTree|Cattail|RiverPebbles/.test(info.id) && !nearWater) return false;
   if (biome === 'Desert' && /DryReedTuft|ForkedDriftwood|DatePalm/.test(info.id) && !nearWater) return false;
   if (biome === 'Volcano' && /Common_/.test(info.id) && context === 'hot-rock') return false;
@@ -59,7 +60,8 @@ export async function planScenery(world, onProgress = () => {}) {
   const placements = [], pads = [], districts = [], farms = [], landmarks = [], clusters = [];
   const occupied = new Occupancy(), counts = new Map(), modelList = Object.values(manifest.models).filter(a => a.sceneRole && a.sceneRole !== 'fixed');
   const poolCache = new Map();
-  const biomeAt = (x, z, r = random) => r() < world.mixAt(x, z) ? config.biomeB : config.biomeA;
+  const activeBiomes = world.activeBiomes || [...new Set([config.biomeA,config.biomeB])];
+  const biomeAt = (x, z, r = random) => world.chooseBiomeAt ? world.chooseBiomeAt(x,z,r) : r() < world.mixAt(x,z) ? config.biomeB : config.biomeA;
   const waterAt = (x, z) => {
     if (lake && Math.abs(world.lakeRadiusAt(x, z) - lake.radius) < 42) return true;
     if (!features.bridge) return false;
@@ -172,7 +174,7 @@ export async function planScenery(world, onProgress = () => {}) {
     Rural: ['Plant_Feature_Rural_FloweringCherry_001', 'Environment_Feature_Rural_WisteriaPergola_001'],
     Pastoral: ['Plant_Feature_Rural_FloweringCherry_001'], Lakeside: []
   };
-  for (const biome of [config.biomeA, config.biomeB]) for (const id of showcase[biome] || []) {
+  for (const biome of activeBiomes) for (const id of showcase[biome] || []) {
     const info = manifest.models[id]; if (!info) continue;
     for (let attempt = 0; attempt < 200; attempt++) {
       const along = random() * route.length, a = route.sample(along), offset = (random() < 0.5 ? -1 : 1) * (65 + random() * 100);
@@ -230,7 +232,7 @@ export async function planScenery(world, onProgress = () => {}) {
   // Prioritise two visible Pastoral plots, then alternate the remaining farm
   // regions. Every accepted plot has tilled soil, aligned crops and a margin
   // facing the railway, 18–40 m away instead of 75–125 m away.
-  const farmBiomes = [...new Set([config.biomeA, config.biomeB])].filter(b => ['Pastoral', 'Rural', 'Hills'].includes(b));
+  const farmBiomes = activeBiomes.filter(b => ['Pastoral', 'Rural', 'Hills'].includes(b));
   const farmTarget = farmBiomes.length ? clamp(Math.round(route.length / 1500), 3, 7) : 0;
   const cropIds = ['Plant_Pastoral_WheatCluster_001', 'Plant_Pastoral_CornCluster_001', 'Plant_Feature_Pastoral_Sunflowers_001', 'Plant_Feature_Pastoral_PumpkinVines_001', 'Plant_Feature_Pastoral_VineyardRow_001'];
   for (let slot = 0; slot < farmTarget; slot++) {
@@ -243,7 +245,7 @@ export async function planScenery(world, onProgress = () => {}) {
     for (let attempt = 0; attempt < 150; attempt++) {
       const along = wrap(145 + slot / farmTarget * route.length + attempt * route.length / 151, route.length), a = route.sample(along);
       const offset = (attempt % 2 ? -1 : 1) * (37 + attempt % 3 * 8), x = a.x + a.nx * offset, z = a.z + a.nz * offset;
-      const weight = config.biomeA === biome ? 1 - world.mixAt(x, z) : world.mixAt(x, z);
+      const weight = world.biomeWeight ? world.biomeWeight(biome,x,z) : config.biomeA === biome ? 1-world.mixAt(x,z) : world.mixAt(x,z);
       if (weight < 0.56 || farms.some(f => Math.hypot(f.x - x, f.z - z) < 110)) continue;
       const farm = { id: `farm-${farms.length}`, x, z, yaw: a.yaw, biome, along, halfWidth: 15.5 + slot % 2 * 2,
         halfLength: 22 + slot % 3 * 3, crop: info.id, plants: 0, rowCount: 8, soil: slot % 2 ? '#9f8764' : '#aa9066' };
@@ -277,13 +279,33 @@ export async function planScenery(world, onProgress = () => {}) {
       break;
     }
   }
-  if (lake) {
+  if (lake && lake.kind !== 'oasis') {
     const lotus = modelList.find(a => a.sceneRole === 'aquatic');
     if (lotus) for (let i = 0; i < 12; i++) {
       const angle = random() * TAU, r = lake.radius * (0.66 + random() * 0.14);
       commit(candidate(lotus, lake.x + Math.cos(angle) * r, lake.z + Math.sin(angle) * r * lake.depthScale,
         { biome: 'Lakeside', district: 'shore', water: true }));
     }
+  }
+  // Give each suitable newly imported silhouette an actual placement before
+  // density fill. This fixed seeded pass is independent of the stress count.
+  const imported = modelList.filter(info=>info.scenePack === 'Quaternius_UltimateStylizedNature_202205');
+  const natureCoverage = { available:imported.length, eligible:0, placed:0, missing:[], incompatible:[] };
+  for(const info of imported){
+    const eligible=activeBiomes.filter(b=>info.compatibleBiomes.includes(b));
+    if(!eligible.length){natureCoverage.incompatible.push(info.id);continue;}
+    natureCoverage.eligible++; let done=false;
+    for(let attempt=0;attempt<180&&!done;attempt++){
+      const target=eligible[attempt%eligible.length];
+      let x,z,along;
+      if(info.nearWaterOnly && lake){const angle=(attempt*.61803398875%1)*TAU,r=lake.radius+10+Math.floor(attempt/18)*2;x=lake.x+Math.cos(angle)*r;z=lake.z+Math.sin(angle)*r*lake.depthScale;along=route.nearestTo(x,z,250).distanceAlong;}
+      else{along=random()*route.length;const p=route.sample(along),offset=(attempt%2?-1:1)*(18+random()*115);x=p.x+p.nx*offset;z=p.z+p.nz*offset;}
+      const wet=waterAt(x,z),biome=biomeAt(x,z);
+      if(!eligible.includes(biome)||!compatibleScenery(info,biome,'wild',wet))continue;
+      const p=candidate(info,x,z,{biome,along,district:'nature-v8-showcase'});
+      if(commit(p)){natureCoverage.placed++;done=true;}
+    }
+    if(!done)natureCoverage.missing.push(info.id);
   }
   const compositionCount = placements.length;
 
@@ -343,6 +365,7 @@ export async function planScenery(world, onProgress = () => {}) {
   for (const p of placements) { roleCounts[p.role] = (roleCounts[p.role] || 0) + 1; biomeCounts[p.biome] = (biomeCounts[p.biome] || 0) + 1; }
   return { placements, pads, districts, farms, landmarks, clusters, version: SCENERY_VERSION,
     stats: { requested: goal, placed: placements.length, uniqueModels: counts.size, models: Object.fromEntries(counts), roles: roleCounts, biomes: biomeCounts,
+      naturePack: { ...natureCoverage, modelCounts: Object.fromEntries(imported.filter(info=>counts.has(info.id)).map(info=>[info.id,counts.get(info.id)])) },
       settlementCount: districts.length, buildingCount: placements.filter(p => BUILDING_ROLES.includes(p.role)).length,
       farmCount: farms.length, landmarkCount: landmarks.length, composedInstances: compositionCount, naturalInstances: goal - compositionCount } };
 }

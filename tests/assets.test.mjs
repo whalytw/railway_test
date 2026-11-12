@@ -17,12 +17,12 @@ test('the selected library has eight biomes, three cars and all station / infras
   for (const id of [...manifest.bridgeModels, ...manifest.tunnelModels, ...manifest.riverModels]) assert.ok(manifest.models[id]);
 });
 
-test('all 192 existing models, 24 animal drivers and 118 LODs are valid self-contained glTF 2.0 files', async () => {
-  assert.equal(Object.keys(manifest.models).length, 216);
+test('all 279 models and 144 LODs are valid glTF 2.0 with all image dependencies shipped locally', async () => {
+  assert.equal(Object.keys(manifest.models).length, 279);
   assert.equal(manifest.drivers.length, 24);
   assert.equal(manifest.scenery.selectedAdditionalCount, 118);
   const files = Object.entries(manifest.models).flatMap(([id, info]) => info.lod ? [[id, info], [`${id}:LOD1`, info.lod]] : [[id, info]]);
-  assert.equal(files.length, 334);
+  assert.equal(files.length, 423);
   for (const [id, info] of files) {
     assert.ok(!info.url.startsWith('/'), 'asset URLs must also work under a GitHub project subdirectory');
     const bytes = await readFile(path.join(root, info.url));
@@ -32,7 +32,13 @@ test('all 192 existing models, 24 animal drivers and 118 LODs are valid self-con
     const gltf = JSON.parse(bytes.subarray(20, 20 + bytes.readUInt32LE(12)).toString('utf8').trim());
     assert.equal(gltf.asset.version, '2.0'); assert.ok(gltf.meshes?.length > 0);
     for (const buffer of gltf.buffers || []) assert.ok(!buffer.uri || buffer.uri.startsWith('data:'), `${id}: external buffer`);
-    for (const image of gltf.images || []) assert.ok(image.bufferView !== undefined || image.uri?.startsWith('data:'), `${id}: external image`);
+    for (const image of gltf.images || []) {
+      if(image.bufferView !== undefined || image.uri?.startsWith('data:')) continue;
+      assert.ok(image.uri && !/^[a-z]+:|^\//i.test(image.uri), `${id}: nonlocal image`);
+      const imagePath=path.resolve(path.dirname(path.join(root,info.url)),image.uri);
+      assert.ok(imagePath.startsWith(root+path.sep),`${id}: image escapes project`);
+      const png=await readFile(imagePath);assert.equal(png.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
+    }
     for (const extension of gltf.extensionsRequired || []) assert.ok(!['KHR_draco_mesh_compression', 'EXT_meshopt_compression', 'KHR_texture_basisu'].includes(extension), `${id}: unsupported decoder`);
     if (info.runtimeParts) for (const name of [info.runtimeParts.body, info.runtimeParts.lever, ...info.runtimeParts.wheels]) assert.ok(gltf.nodes.some(node => node.name === name), `${id}: missing ${name}`);
   }

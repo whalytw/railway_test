@@ -1,0 +1,213 @@
+{
+  "id": "Plant_Quaternius_PalmTree_003",
+  "name": "棕櫚樹 03",
+  "author": "Quaternius",
+  "pack": "Quaternius_UltimateStylizedNature_202205",
+  "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html",
+  "vendorRelease": "2022-05",
+  "license": "CC0-1.0",
+  "licenseEvidence": "assets/licenses/Quaternius_UltimateStylizedNature_202205/LicensingReview.zh-TW.md",
+  "originalSourceFile": "Blends/PalmTree_3.blend",
+  "originalSourceSHA256": "54b55ddc6107238fc158787b8af4edc1dc3b676cee60e3fce422ec24fea727a7",
+  "sourceArchiveName": "Blends-20261109T065115Z-1-001.zip",
+  "sourceArchiveSHA256": "56133f577e873afa77a35629ca955abc9825e30b900e2245095edd1a757b8f30",
+  "sourceLibraryMetadata": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/PalmTree/Plant_Quaternius_PalmTree_003/asset.json",
+  "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/PalmTree/Plant_Quaternius_PalmTree_003/exports/Plant_Quaternius_PalmTree_003.glb",
+  "sourceGLBSHA256": "7b2a03cc49acbd1298697162b98ee4b6c1d821a36ec9fccc92dd7bc683c5be8e",
+  "sourceGLBBytes": 1865812,
+  "gameFile": "assets/models/Quaternius_PalmTree_003.glb",
+  "gameSHA256": "0439eebb1e0a8024e6cb711def91740e573aa7d31215de24e707d10507a0d58c",
+  "gameBytes": 19308,
+  "transformation": "Only embedded PNG images were externalized and deduplicated by exact SHA-256. Non-image BIN bufferViews were copied byte-for-byte and relocated with 4-byte alignment. Geometry, indices, UVs, normals, tangents, material properties, samplers, nodes and transforms were preserved.",
+  "compatibleBiomes": [
+    "Desert"
+  ],
+  "placement": {
+    "groundAnchor": [
+      0,
+      0,
+      0
+    ],
+    "baseAtGround": true,
+    "originPolicy": "author-root-xy-ground-z",
+    "recommendedUniformScaleRange": [
+      0.85,
+      1.15
+    ],
+    "embedDepthMetersRange": [
+      0.01,
+      0.03
+    ],
+    "displaySlab": false,
+    "suggestedMinRailCenterOffsetMeters": 5.0355,
+    "footprintRadiusMeters": 2.6354583583012183,
+    "clearanceBasis": "horizontal mesh radius + 2.4 m reserved corridor; conservative placement guidance, not a measured game collision certification",
+    "compatibleBiomes": [
+      "Desert"
+    ],
+    "usageNote": "適合綠洲或亞熱帶路段；寬葉冠需避開軌道與駕駛視線，不能取代沙丘、綠洲水池與地形。",
+    "slopeNote": "大樹保持直立；岩石與地表植物依地面法線適度調整，需重新檢查整體接地，不能只讓中心點貼地後讓邊緣懸空。"
+  },
+  "gameUsage": "沙漠生態區僅配置於水邊綠洲；避免將棕櫚零散放在乾燥沙丘，寬葉冠仍須遵守軌道淨空。",
+  "nearWaterOnly": true,
+  "habitat": "oasis",
+  "originalNormalization": {
+    "originalMatrix": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "translationApplied": [
+      0,
+      0,
+      0.03743772953748703
+    ],
+    "metresPerOriginalUnit": 1,
+    "cleanup": {
+      "removed_unrendered_vertices": 0,
+      "removed_zero_area_faces": 0
+    },
+    "topologyAfterCleanup": {
+      "boundary_edges": 136,
+      "nonmanifold_edges": 136,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "degenerate_triangles": 0
+    },
+    "conversionNotes": "../../../_Shared/source/Normalization.zh-TW.md"
+  },
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z (display convention; static nature asset)",
+    "unit": "metre",
+    "origin": "ground datum; see placement.originPolicy",
+    "sourceBlenderUp": "+Z",
+    "glbConversion": "[x,z,-y]"
+  },
+  "images": [
+    {
+      "name": "PalmTree_Trunk_Normal",
+      "sha256": "ad86678ab722eff3329bd6ae6a7da25a12b0fd9c1abb2144cde7f234d40420d8",
+      "url": "assets/textures/nature-v8/ad86678ab722eff3329bd6ae6a7da25a12b0fd9c1abb2144cde7f234d40420d8.png",
+      "bytes": 793985
+    },
+    {
+      "name": "PalmTree_Trunk",
+      "sha256": "bbe41468a268525104f574e5a18ead0a40e1fed76e671a474a5c418cdced6fa1",
+      "url": "assets/textures/nature-v8/bbe41468a268525104f574e5a18ead0a40e1fed76e671a474a5c418cdced6fa1.png",
+      "bytes": 851272
+    },
+    {
+      "name": "PalmTree_Leaves",
+      "sha256": "d4fe5ccc611f03aff497518cad451999640b6fbfd5ffdc4d2d81e3c483f74dd2",
+      "url": "assets/textures/nature-v8/d4fe5ccc611f03aff497518cad451999640b6fbfd5ffdc4d2d81e3c483f74dd2.png",
+      "bytes": 201313
+    }
+  ],
+  "accessorChecks": [
+    {
+      "accessor": 0,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 98,
+      "bytes": 1176,
+      "sha256": "cb86f6d5d2f84e5d895178a802b6b757fe6ecc57bdf9af292f312434a62d0f9b"
+    },
+    {
+      "accessor": 1,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 98,
+      "bytes": 1176,
+      "sha256": "90ea17e9b4b4872eb66f07465b7aeceb7343528bb7225861ccb10ef919de3a5f"
+    },
+    {
+      "accessor": 2,
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 98,
+      "bytes": 784,
+      "sha256": "cc941ea2202b857d5ca8716c25834ecce3a72e0d7378c72604c554e42ce5d6f0"
+    },
+    {
+      "accessor": 3,
+      "type": "VEC4",
+      "componentType": 5126,
+      "count": 98,
+      "bytes": 1568,
+      "sha256": "96ebeab87dd6503c37c15826fb80b7a210a5bbfa2f363bf8fec7c44d2feafb2a"
+    },
+    {
+      "accessor": 4,
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 456,
+      "bytes": 912,
+      "sha256": "cf987bc79f84fb8bc5880af5dd72711d31b6ee024757e68899c7a24c81878858"
+    },
+    {
+      "accessor": 5,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 184,
+      "bytes": 2208,
+      "sha256": "03ab7edc8a3c745aaf14e1810e8aad010db071a8a26620842b5875b3ca2b75ed"
+    },
+    {
+      "accessor": 6,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 184,
+      "bytes": 2208,
+      "sha256": "a2f64fb492fd48750f67262f34cf4e53dcf43a34b2c04070197cd414b3568d8d"
+    },
+    {
+      "accessor": 7,
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 184,
+      "bytes": 1472,
+      "sha256": "630f65b62b28a83d9a292f5b7176f94571bfc3e0254a886ba78e8360fd632dcc"
+    },
+    {
+      "accessor": 8,
+      "type": "VEC4",
+      "componentType": 5126,
+      "count": 184,
+      "bytes": 2944,
+      "sha256": "f62e962cfcc4346ec870726b30827bb49586a2f329fad01c6dfa2775b196609e"
+    },
+    {
+      "accessor": 9,
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 576,
+      "bytes": 1152,
+      "sha256": "17a0c56176b81dbd7da60b42d86c256b0906027906aa20163ea72f90a4b3f058"
+    }
+  ],
+  "animationsProvided": false,
+  "lodsProvided": false,
+  "gamePerformanceCertification": false
+}

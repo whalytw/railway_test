@@ -12,22 +12,24 @@
   <link rel="stylesheet" href="./scenery-v3.css">
   <link rel="stylesheet" href="./controls-v4.css">
   <link rel="stylesheet" href="./drivers-v6.css">
+  <link rel="stylesheet" href="./mix-v8.css">
   <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
-  <script type="module" src="./src/app.js?v=7.0.0"></script>
+  <script type="module" src="./src/app.js?v=8.0.0"></script>
 </head>
 <body>
   <canvas id="scene" aria-label="三維軌道與地形場景"></canvas>
   <div class="vignette" aria-hidden="true"></div>
   <main id="title-screen" class="title-screen">
     <section class="setup-panel">
-      <header class="brand"><span class="brand-mark" aria-hidden="true">╫</span><span>LOOP<span class="brand-small">軌道試驗場</span></span><span class="edition">FIELD<br>TEST / 07</span></header>
-      <div class="intro"><p class="eyebrow">THREE.JS × BLENDER</p><h1>下一站，<br>沒有終點<span>。</span></h1><p class="intro-copy">樹叢、田野、站前聚落，沿途交錯。<br>挑選地形、礦車與動物駕駛，開始試車。</p></div>
+      <header class="brand"><span class="brand-mark" aria-hidden="true">╫</span><span>LOOP<span class="brand-small">軌道試驗場</span></span><span class="edition">FIELD<br>TEST / 08</span></header>
+      <div class="intro"><p class="eyebrow">THREE.JS × RAPIER × BLENDER</p><h1>下一站，<br>沒有終點<span>。</span></h1><p class="intro-copy">四種風景，調出你的沿途比例。<br>帶著旅伴，感受起伏與彈簧懸吊。</p></div>
       <form id="setup-form">
-        <div class="section-heading"><span>01</span><h2>選擇沿途風景</h2><button type="button" id="randomize" class="text-button" title="隨機挑選兩種不同地形">↻ 隨機搭配</button></div>
-        <div class="biome-fields">
-          <label class="select-field"><span><i class="zone-badge a">A</i>出發區域</span><select id="biome-a" name="biome-a" aria-label="A 區地形"><option value="random">隨機地形</option></select><small id="biome-a-hint">出發車站所在區域</small></label>
-          <label class="select-field"><span><i class="zone-badge b">B</i>遠方區域</span><select id="biome-b" name="biome-b" aria-label="B 區地形"><option value="random">隨機地形</option></select><small>跨區植被與地形自然混合</small></label>
-        </div>
+        <div class="section-heading mix-heading"><span>01</span><h2>調配沿途風景</h2><button type="button" id="randomize" class="text-button" title="隨機選出 2～4 種不同地形及比例">↻ 隨機環境</button></div>
+        <div id="mix-slots" class="mix-slots" role="group" aria-label="最多四種環境及沿軌道路程百分比"></div>
+        <div class="mix-summary-line"><strong id="mix-total">合計 100%</strong><button type="button" id="randomize-ratios" class="text-button">↻ 只隨機比例</button></div>
+        <div id="mix-bar" class="mix-bar" role="img" aria-label="環境路程比例"></div>
+        <p id="mix-summary" class="mix-summary" aria-live="polite"></p>
+        <p class="mix-help">8 種地形中選 1～4 種。調整一項會按原比例分配其餘項目，合計維持 100%。比例依沿軌道路程計算，交界平順漸變。</p>
         <div class="route-fields"><label>軌道總長<select id="route-length" aria-label="軌道總長度"></select></label><label>沿線車站<select id="station-count" aria-label="車站數量"><option value="3">3 座車站</option><option value="2">2 座車站</option></select></label><label>軌道起伏上限<select id="elevation-limit" aria-label="軌道起伏上限"></select></label></div>
         <p id="relief-hint" class="relief-hint">縱坡不超過 25‰；車站區域保持水平。</p>
         <div class="section-heading"><span>02</span><h2>選一台礦車</h2><small>可獨立轉動的車輪</small></div>
@@ -41,7 +43,7 @@
         <details class="landscape-settings"><summary>景觀與高速畫面<span>遠山 · 雲層 · 橋隧</span></summary><div class="settings-grid"><label>橋隧與河谷<select id="features" aria-label="橋隧與河谷"><option value="on" selected>開啟 · 每圈各一段</option><option value="off">關閉</option></select></label><label>遠山與動態雲<select id="skyline" aria-label="遠山與動態雲"><option value="on" selected>開啟</option><option value="off">關閉</option></select></label><label>高速枕木過濾<select id="sleeper-filter" aria-label="高速枕木過濾"><option value="on" selected>自動 · 降低倒行錯覺</option><option value="off">關閉 · 原始細節</option></select></label><label>枕木平均間距<select id="sleeper-spacing" aria-label="枕木平均間距"><option value="0.6">0.60 公尺</option><option value="0.75" selected>0.75 公尺</option><option value="0.9">0.90 公尺</option></select></label></div><p>橋與隧道標示在小地圖。高速過濾只作用於枕木，儀表與場景維持清晰。</p></details>
         <p id="form-error" class="form-error" role="alert" hidden></p>
         <button id="start-button" class="start-button" type="submit"><span>開始試車</span><span class="arrow">↗</span></button>
-        <p class="setup-footnote"><span class="status-dot"></span>24 種動物・Kenney CC0・無限循環</p>
+        <p class="setup-footnote"><span class="status-dot"></span>63 款新自然模型・24 種動物・Rapier 懸吊</p>
       </form>
     </section>
     <div class="preview-caption"><span class="preview-line"></span><p>THE LONG WAY HOME<small id="preview-caption">森林 × 湖畔 / 即時 3D 預覽</small></p></div>
@@ -53,9 +55,10 @@
     <div class="run-brand"><span class="brand-mark">╫</span><span>LOOP<small>軌道試驗場</small></span></div>
     <div class="timer-panel"><span>行駛時間</span><strong id="timer">0.0</strong><small>SECONDS</small></div>
     <div class="fps-panel"><span class="live-dot"></span><strong id="fps">—</strong><span>FPS</span><small id="frame-time">— ms / frame</small></div>
-    <div class="route-panel"><div class="route-panel-heading"><span id="biome-label">A 森林 → B 湖畔</span><span id="route-label">8.0 KM</span></div><canvas id="minimap" width="500" height="260" aria-label="軌道全圖、A B 地形及車站位置"></canvas><div class="map-legend"><span><i class="zone-badge a">A</i><span id="zone-a-label">森林</span></span><span><i class="zone-badge b">B</i><span id="zone-b-label">湖畔</span></span><span class="station-key">● 車站</span></div><canvas id="elevation-profile" width="500" height="84" aria-label="軌道高度剖面與礦車所在位置"></canvas><div class="elevation-legend"><span id="relief-summary">實際高差 0 m</span><span>縱坡 ≤ 25‰</span></div></div>
+    <div class="route-panel"><div class="route-panel-heading"><span id="biome-label">A 森林 → B 湖畔</span><span id="route-label">8.0 KM</span></div><canvas id="minimap" width="500" height="260" aria-label="軌道全圖、混搭地形比例與車站位置"></canvas><div class="map-legend" id="mix-legend"></div><canvas id="elevation-profile" width="500" height="84" aria-label="軌道高度剖面與礦車所在位置"></canvas><div class="elevation-legend"><span id="relief-summary">實際高差 0 m</span><span>縱坡 ≤ 25‰</span></div></div>
     <div class="feature-status" id="feature-status" aria-live="polite">前方地標</div>
     <div class="telemetry-panel" id="telemetry-panel"><div><span>DRAW CALLS</span><b id="draw-calls">—</b></div><div><span>TRIANGLES</span><b id="triangles">—</b></div><div><span>場景實例</span><b id="instances">—</b></div><div><span>地景種類</span><b id="model-variety">—</b></div><div><span>1% LOW FPS</span><b id="low-fps">—</b></div><button id="export-report" type="button" title="下載本次實際量測 JSON">↓ 匯出測試紀錄</button></div>
+    <div class="physics-tools" id="physics-tools"><strong>RAPIER <span id="rapier-version">0.21.0</span> · 120 Hz</strong><p class="physics-reading" id="physics-reading">懸吊 0.0 mm · 撞擊 0 次</p><div><button type="button" id="suspension-test">↕ 懸吊測試</button><button type="button" id="bumper-test">＋ 前方 80 m 擋車器</button><button type="button" id="clear-bumper" hidden>移除擋車器</button></div><p class="physics-reading" id="bumper-status">沿軌受力、彈簧與碰撞求解</p><p class="nature-count" id="nature-count"></p></div>
     <div class="station-toast" id="station-toast"><span>沿線下一站</span><strong id="next-station">始發站</strong><small id="station-distance">0 m</small></div>
     <div class="camera-controls" role="group" aria-label="攝影機視角"><button type="button" data-camera="chase" class="active">追車</button><button type="button" data-camera="cab" title="拖曳自由轉頭，滾輪向下拉遠">駕駛</button><button type="button" data-camera="overview">全景</button></div>
     <small id="camera-hint" class="camera-hint">拖曳旋轉 · 滾輪最近進入駕駛</small>

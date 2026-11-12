@@ -1,0 +1,13 @@
+{
+  "name": "@dimforge/rapier3d-compat",
+  "version": "0.21.0",
+  "license": "Apache-2.0",
+  "source": "https://registry.npmjs.org/@dimforge/rapier3d-compat/-/rapier3d-compat-0.21.0.tgz",
+  "packageIntegrity": "sha512-tCl1HPGwOhn5aCQbgqWbOH+Nx/5fnr3IPAnzQuR7zIhC/raqi2yxC6LhvZqjdI2El5hQgY5RDAwDrAjAi2FdPA==",
+  "repository": "git+https://github.com/dimforge/rapier.git",
+  "module": "rapier.mjs",
+  "moduleBytes": 4340292,
+  "moduleSha256": "02dc6a4e2fffc013bab08fbb44fa68f501d8303615e9afe4c7d89ad4eedda0d0",
+  "wasm": "Embedded base64 in rapier.mjs; no network fetch or separate WASM file required",
+  "retrieved": "2026-11-12"
+}

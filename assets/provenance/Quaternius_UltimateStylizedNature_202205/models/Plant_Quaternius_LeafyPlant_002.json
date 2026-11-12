@@ -1,0 +1,171 @@
+{
+  "id": "Plant_Quaternius_LeafyPlant_002",
+  "name": "葉叢植物 02",
+  "author": "Quaternius",
+  "pack": "Quaternius_UltimateStylizedNature_202205",
+  "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html",
+  "vendorRelease": "2022-05",
+  "license": "CC0-1.0",
+  "licenseEvidence": "assets/licenses/Quaternius_UltimateStylizedNature_202205/LicensingReview.zh-TW.md",
+  "originalSourceFile": "Blends/Plant_2.blend",
+  "originalSourceSHA256": "d880531671d3e87707fdec6c8eb7a80fc455ec7554410643dc901109337fda94",
+  "sourceArchiveName": "Blends-20261109T065115Z-1-001.zip",
+  "sourceArchiveSHA256": "56133f577e873afa77a35629ca955abc9825e30b900e2245095edd1a757b8f30",
+  "sourceLibraryMetadata": "04_Plants/Quaternius_UltimateStylizedNature_202205/Groundcover/LeafyPlants/Plant_Quaternius_LeafyPlant_002/asset.json",
+  "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Groundcover/LeafyPlants/Plant_Quaternius_LeafyPlant_002/exports/Plant_Quaternius_LeafyPlant_002.glb",
+  "sourceGLBSHA256": "c482cff59988831e2f0606fef7abb34e84c408536b0092bab80d9180eb482ee6",
+  "sourceGLBBytes": 306252,
+  "gameFile": "assets/models/Quaternius_LeafyPlant_002.glb",
+  "gameSHA256": "7ece63abcfb57812abeb69811c7648024cb33fa866802a3e83a5131315918208",
+  "gameBytes": 10376,
+  "transformation": "Only embedded PNG images were externalized and deduplicated by exact SHA-256. Non-image BIN bufferViews were copied byte-for-byte and relocated with 4-byte alignment. Geometry, indices, UVs, normals, tangents, material properties, samplers, nodes and transforms were preserved.",
+  "compatibleBiomes": [
+    "Forest",
+    "Hills",
+    "Pastoral",
+    "Rural",
+    "Lakeside",
+    "Riverbank",
+    "Plateau"
+  ],
+  "placement": {
+    "groundAnchor": [
+      0,
+      0,
+      0
+    ],
+    "baseAtGround": true,
+    "originPolicy": "author-root-xy-ground-z",
+    "recommendedUniformScaleRange": [
+      0.7,
+      1.3
+    ],
+    "embedDepthMetersRange": [
+      0.01,
+      0.03
+    ],
+    "displaySlab": false,
+    "suggestedMinRailCenterOffsetMeters": 3.2412,
+    "footprintRadiusMeters": 0.8412190182732309,
+    "clearanceBasis": "horizontal mesh radius + 2.4 m reserved corridor; conservative placement guidance, not a measured game collision certification",
+    "compatibleBiomes": [
+      "Forest",
+      "Hills",
+      "Pastoral",
+      "Rural",
+      "Lakeside",
+      "Riverbank",
+      "Plateau"
+    ],
+    "usageNote": "適合近景草地、林緣與緩坡的地表填充；依地表高度安放，遠處減少草叢密度，避免大量透明或雙面片層互疊。",
+    "slopeNote": "大樹保持直立；岩石與地表植物依地面法線適度調整，需重新檢查整體接地，不能只讓中心點貼地後讓邊緣懸空。"
+  },
+  "gameUsage": "適合近景草地、林緣與緩坡的地表填充；依地表高度安放，遠處減少草叢密度，避免大量透明或雙面片層互疊。",
+  "originalNormalization": {
+    "originalMatrix": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0.9923806190490723,
+        -0.12320998311042786,
+        0
+      ],
+      [
+        0,
+        0.12320998311042786,
+        0.9923806190490723,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "translationApplied": [
+      0,
+      0,
+      0.09831425547599792
+    ],
+    "metresPerOriginalUnit": 1,
+    "cleanup": {
+      "removed_unrendered_vertices": 0,
+      "removed_zero_area_faces": 0
+    },
+    "topologyAfterCleanup": {
+      "boundary_edges": 112,
+      "nonmanifold_edges": 112,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "degenerate_triangles": 0
+    },
+    "conversionNotes": "../../../_Shared/source/Normalization.zh-TW.md"
+  },
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z (display convention; static nature asset)",
+    "unit": "metre",
+    "origin": "ground datum; see placement.originPolicy",
+    "sourceBlenderUp": "+Z",
+    "glbConversion": "[x,z,-y]"
+  },
+  "images": [
+    {
+      "name": "Flowers",
+      "sha256": "60661c6f1cbb3ffe59f3e05dfdee72e4e6490ed7d30272bebc623b1f11899a76",
+      "url": "assets/textures/nature-v8/60661c6f1cbb3ffe59f3e05dfdee72e4e6490ed7d30272bebc623b1f11899a76.png",
+      "bytes": 295904
+    }
+  ],
+  "accessorChecks": [
+    {
+      "accessor": 0,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 152,
+      "bytes": 1824,
+      "sha256": "3895d9a14f66f4bf4939b8edb57a8db8bbbdf08210759e14b99240c4b06e5e23"
+    },
+    {
+      "accessor": 1,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 152,
+      "bytes": 1824,
+      "sha256": "a327391d0367b901abc73485bc8b2a8da9cb928b1352f4aa22895a82e18980fd"
+    },
+    {
+      "accessor": 2,
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 152,
+      "bytes": 1216,
+      "sha256": "2857b060d1cac14ca4ebb9c17b5fc769a37badb20eac7818ddced351711a5935"
+    },
+    {
+      "accessor": 3,
+      "type": "VEC4",
+      "componentType": 5126,
+      "count": 152,
+      "bytes": 2432,
+      "sha256": "879b9fcfc0c5e0cc5dae81753934ed28f37a14db407550fd53d15a3eba9e4091"
+    },
+    {
+      "accessor": 4,
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 480,
+      "bytes": 960,
+      "sha256": "693888c45c3699714ba6ab368c3f1d4afed6d25c3b53ecff53dc3c947ddc054b"
+    }
+  ],
+  "animationsProvided": false,
+  "lodsProvided": false,
+  "gamePerformanceCertification": false
+}

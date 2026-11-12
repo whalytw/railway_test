@@ -1,8 +1,8 @@
 // Optional visual review page. It builds the same RailWorld, assets, materials
 // and terrain as the game; buttons only move its camera to the real locations.
 import * as THREE from 'three';
-import { RailWorld, AssetStore, createAtmosphere } from './world.js?v=7.0.0';
-import { riverPoint } from './route-features.js?v=7.0.0';
+import { RailWorld, AssetStore, createAtmosphere } from './world.js?v=8.0.0';
+import { riverPoint } from './route-features.js?v=8.0.0';
 const canvas = document.getElementById('review-scene'), status = document.getElementById('status');
 let renderer, scene, camera, world, atmosphere, previous = 0, selected = 'tunnel';
 const target = new THREE.Vector3(), focus = new THREE.Vector3();
@@ -48,7 +48,7 @@ async function init() {
   renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
   scene = new THREE.Scene(); camera = new THREE.PerspectiveCamera(52, innerWidth / innerHeight, 0.08, 18000);
   atmosphere = createAtmosphere(scene, renderer); atmosphere.setBiomes('Pastoral', 'Hills'); resize();
-  const manifest = await (await fetch('./asset-manifest.json?v=7.0.0')).json(), store = new AssetStore(manifest);
+  const manifest = await (await fetch('./asset-manifest.json?v=8.0.0')).json(), store = new AssetStore(manifest);
   world = new RailWorld(scene, store, { length: 5, stations: 3, seed: 'V7-COUNTRY', biomeA: 'Pastoral', biomeB: 'Hills', density: 5000,
     elevationLimit: 75, vehicle: manifest.vehicles[1], driver: 'Animal_CubePet_Fox_001', features: true, skyline: true, sleeperFilter: true,
     sleeperSpacing: 0.75, viewDistance: 1400, shadows: false, sceneryShadows: false });

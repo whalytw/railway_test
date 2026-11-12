@@ -1,0 +1,748 @@
+[
+  {
+    "url": "assets/textures/nature-v8/105297fc8c54918ce8005ec542ccbcca4788ff2ae775c854e88b6a9c30c6df60.png",
+    "sha256": "105297fc8c54918ce8005ec542ccbcca4788ff2ae775c854e88b6a9c30c6df60",
+    "bytes": 928127,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 2,
+    "decodedBytes": 3145728,
+    "decodedSHA256": "31c76222a8bc0e05336de93cd1c2bd5ce04ad848cbfe5d2ca0df0a7a662018c5",
+    "embeddedSourceNames": [
+      "Rocks"
+    ],
+    "sourceTextures": [
+      {
+        "name": "Rocks.png",
+        "originalSHA256": "643d97219a00269b67f49b03123dff8d138cb4036c1a77153f917a3843332ce0",
+        "runtimeSHA256": "105297fc8c54918ce8005ec542ccbcca4788ff2ae775c854e88b6a9c30c6df60",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1fuJ_X7P-sCTsNIDslKGt7L2V1mCsxsZM/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/Rocks.png"
+      }
+    ],
+    "usedBy": [
+      "Environment_Quaternius_Rock_001",
+      "Environment_Quaternius_Rock_002",
+      "Environment_Quaternius_Rock_003",
+      "Environment_Quaternius_Rock_004",
+      "Environment_Quaternius_Rock_005"
+    ],
+    "originalTextureName": "Rocks.png",
+    "originalTextureSHA256": "643d97219a00269b67f49b03123dff8d138cb4036c1a77153f917a3843332ce0",
+    "sourceLibraryRuntimeSHA256": "105297fc8c54918ce8005ec542ccbcca4788ff2ae775c854e88b6a9c30c6df60",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/1fuJ_X7P-sCTsNIDslKGt7L2V1mCsxsZM/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/Rocks.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  },
+  {
+    "url": "assets/textures/nature-v8/11b405cd97651841f1e0293b63bde21915ce6cbf4f4d8d33294f7ba53cfc1fb5.png",
+    "sha256": "11b405cd97651841f1e0293b63bde21915ce6cbf4f4d8d33294f7ba53cfc1fb5",
+    "bytes": 468076,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 6,
+    "decodedBytes": 4194304,
+    "decodedSHA256": "28b2a7ebb2384ba18de134f8e9360d378990cfbdb9a336c922dfc06139894af3",
+    "embeddedSourceNames": [
+      "PineTree_Leaves"
+    ],
+    "sourceTextures": [
+      {
+        "name": "PineTree_Leaves.png",
+        "originalSHA256": "8d3e0b49043639089ec68a36058c5b2ceea3fadded773adf7d9acbd006c49e1c",
+        "runtimeSHA256": "11b405cd97651841f1e0293b63bde21915ce6cbf4f4d8d33294f7ba53cfc1fb5",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1MlQ0GHJdnwa03er2jCAPfRcgfl55Vgts/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PineTree_Leaves.png"
+      }
+    ],
+    "usedBy": [
+      "Plant_Quaternius_PineTree_001",
+      "Plant_Quaternius_PineTree_002",
+      "Plant_Quaternius_PineTree_003",
+      "Plant_Quaternius_PineTree_004",
+      "Plant_Quaternius_PineTree_005"
+    ],
+    "originalTextureName": "PineTree_Leaves.png",
+    "originalTextureSHA256": "8d3e0b49043639089ec68a36058c5b2ceea3fadded773adf7d9acbd006c49e1c",
+    "sourceLibraryRuntimeSHA256": "11b405cd97651841f1e0293b63bde21915ce6cbf4f4d8d33294f7ba53cfc1fb5",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/1MlQ0GHJdnwa03er2jCAPfRcgfl55Vgts/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PineTree_Leaves.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  },
+  {
+    "url": "assets/textures/nature-v8/181313e5bb3b365274e1e62969b4312bb1edc18c6cfe88162594bc2da5d278f6.png",
+    "sha256": "181313e5bb3b365274e1e62969b4312bb1edc18c6cfe88162594bc2da5d278f6",
+    "bytes": 1139693,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 2,
+    "decodedBytes": 3145728,
+    "decodedSHA256": "42ea27a5731592ff136790a6997991598fbc14271a0cbe3c040a0e8db38ac366",
+    "embeddedSourceNames": [
+      "MapleTree_Bark"
+    ],
+    "sourceTextures": [
+      {
+        "name": "MapleTree_Bark.png",
+        "originalSHA256": "183645b8dc99e810e9b4c5d48a0944ccff4c2f2a9bd5f1816ab66a367cfe9a92",
+        "runtimeSHA256": "181313e5bb3b365274e1e62969b4312bb1edc18c6cfe88162594bc2da5d278f6",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1acgKpeavex4F-60DgC-IAtaQBof6h6JM/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/MapleTree_Bark.png"
+      }
+    ],
+    "usedBy": [
+      "Plant_Quaternius_DeadTree_006",
+      "Plant_Quaternius_DeadTree_007",
+      "Plant_Quaternius_DeadTree_008",
+      "Plant_Quaternius_DeadTree_009",
+      "Plant_Quaternius_DeadTree_010",
+      "Plant_Quaternius_MapleTree_001",
+      "Plant_Quaternius_MapleTree_002",
+      "Plant_Quaternius_MapleTree_003",
+      "Plant_Quaternius_MapleTree_004",
+      "Plant_Quaternius_MapleTree_005"
+    ],
+    "originalTextureName": "MapleTree_Bark.png",
+    "originalTextureSHA256": "183645b8dc99e810e9b4c5d48a0944ccff4c2f2a9bd5f1816ab66a367cfe9a92",
+    "sourceLibraryRuntimeSHA256": "181313e5bb3b365274e1e62969b4312bb1edc18c6cfe88162594bc2da5d278f6",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/1acgKpeavex4F-60DgC-IAtaQBof6h6JM/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/MapleTree_Bark.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  },
+  {
+    "url": "assets/textures/nature-v8/5396dcb25fb3df8c46d83dd495dd890594ad35039ffb836836f0a005a3c58003.png",
+    "sha256": "5396dcb25fb3df8c46d83dd495dd890594ad35039ffb836836f0a005a3c58003",
+    "bytes": 685488,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 2,
+    "decodedBytes": 3145728,
+    "decodedSHA256": "70a81053a72ae9961793caf638b284888537ba40d6538ebd8dabb7431b6b35db",
+    "embeddedSourceNames": [
+      "Grass"
+    ],
+    "sourceTextures": [
+      {
+        "name": "Grass.png",
+        "originalSHA256": "facde747020acfefdc84d176dd4037282895d200a66fc20b0d9baca470f310f1",
+        "runtimeSHA256": "5396dcb25fb3df8c46d83dd495dd890594ad35039ffb836836f0a005a3c58003",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1JOnNDiQhoUzB637HUMaOASCySSEW9UFx/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/Grass.png"
+      }
+    ],
+    "usedBy": [
+      "Plant_Quaternius_GrassLargeExtruded_001",
+      "Plant_Quaternius_GrassLarge_001",
+      "Plant_Quaternius_GrassSmall_001"
+    ],
+    "originalTextureName": "Grass.png",
+    "originalTextureSHA256": "facde747020acfefdc84d176dd4037282895d200a66fc20b0d9baca470f310f1",
+    "sourceLibraryRuntimeSHA256": "5396dcb25fb3df8c46d83dd495dd890594ad35039ffb836836f0a005a3c58003",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/1JOnNDiQhoUzB637HUMaOASCySSEW9UFx/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/Grass.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  },
+  {
+    "url": "assets/textures/nature-v8/5a1855fe22ffd2bf9c5c65ea75091f838962296c382e747c49cfed3611ae7cb7.png",
+    "sha256": "5a1855fe22ffd2bf9c5c65ea75091f838962296c382e747c49cfed3611ae7cb7",
+    "bytes": 1002880,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 2,
+    "decodedBytes": 3145728,
+    "decodedSHA256": "e8dc66981356b5c523e04e5adb4f9f871085aa6dc4faced4d73241ccf51ed091",
+    "embeddedSourceNames": [
+      "NormalTree_Bark_Normal"
+    ],
+    "sourceTextures": [
+      {
+        "name": "NormalTree_Bark_Normal.png",
+        "originalSHA256": "8136a8d6dc18e6b055c7cb53cf42bc6bac41319e102289d8ba25ee5837fbc39b",
+        "runtimeSHA256": "5a1855fe22ffd2bf9c5c65ea75091f838962296c382e747c49cfed3611ae7cb7",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1LIstIQfo3n_cK8vWguFg2N42yCJ9plCc/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/NormalTree_Bark_Normal.png"
+      }
+    ],
+    "usedBy": [
+      "Plant_Quaternius_DeadTree_001",
+      "Plant_Quaternius_DeadTree_002",
+      "Plant_Quaternius_DeadTree_003",
+      "Plant_Quaternius_DeadTree_004",
+      "Plant_Quaternius_DeadTree_005",
+      "Plant_Quaternius_NormalTree_001",
+      "Plant_Quaternius_NormalTree_002",
+      "Plant_Quaternius_NormalTree_003",
+      "Plant_Quaternius_NormalTree_004",
+      "Plant_Quaternius_NormalTree_005"
+    ],
+    "originalTextureName": "NormalTree_Bark_Normal.png",
+    "originalTextureSHA256": "8136a8d6dc18e6b055c7cb53cf42bc6bac41319e102289d8ba25ee5837fbc39b",
+    "sourceLibraryRuntimeSHA256": "5a1855fe22ffd2bf9c5c65ea75091f838962296c382e747c49cfed3611ae7cb7",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/1LIstIQfo3n_cK8vWguFg2N42yCJ9plCc/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/NormalTree_Bark_Normal.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  },
+  {
+    "url": "assets/textures/nature-v8/60661c6f1cbb3ffe59f3e05dfdee72e4e6490ed7d30272bebc623b1f11899a76.png",
+    "sha256": "60661c6f1cbb3ffe59f3e05dfdee72e4e6490ed7d30272bebc623b1f11899a76",
+    "bytes": 295904,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 6,
+    "decodedBytes": 4194304,
+    "decodedSHA256": "7bf057384ff4cc369990e7ab49d46ab504e0a7f0b4c4da0b8b8f722b084323d9",
+    "embeddedSourceNames": [
+      "Flowers"
+    ],
+    "sourceTextures": [
+      {
+        "name": "Flowers.png",
+        "originalSHA256": "23673fc87e55d8f7cbc699581a164cffec505376bd8b0b90b593dc387aa569fd",
+        "runtimeSHA256": "60661c6f1cbb3ffe59f3e05dfdee72e4e6490ed7d30272bebc623b1f11899a76",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1aVoa3KmIjIlIA5MhvUn7Z5trLRBlM1r6/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/Flowers.png"
+      }
+    ],
+    "usedBy": [
+      "Plant_Quaternius_BushFlowers_001",
+      "Plant_Quaternius_BushLargeFlowers_001",
+      "Plant_Quaternius_BushSmallFlowers_001",
+      "Plant_Quaternius_Petals_001",
+      "Plant_Quaternius_Petals_002",
+      "Plant_Quaternius_Petals_003",
+      "Plant_Quaternius_Petals_004",
+      "Plant_Quaternius_FlowerClump_001",
+      "Plant_Quaternius_FlowerClump_002",
+      "Plant_Quaternius_FlowerClump_003",
+      "Plant_Quaternius_FlowerClump_004",
+      "Plant_Quaternius_FlowerClump_005",
+      "Plant_Quaternius_Flower_001",
+      "Plant_Quaternius_Flower_002",
+      "Plant_Quaternius_LeafyPlantFlowers_001",
+      "Plant_Quaternius_LeafyPlant_001",
+      "Plant_Quaternius_LeafyPlant_002"
+    ],
+    "originalTextureName": "Flowers.png",
+    "originalTextureSHA256": "23673fc87e55d8f7cbc699581a164cffec505376bd8b0b90b593dc387aa569fd",
+    "sourceLibraryRuntimeSHA256": "60661c6f1cbb3ffe59f3e05dfdee72e4e6490ed7d30272bebc623b1f11899a76",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/1aVoa3KmIjIlIA5MhvUn7Z5trLRBlM1r6/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/Flowers.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  },
+  {
+    "url": "assets/textures/nature-v8/6f6be3f0df8a9615cc488f54d56ca914f266df22675cb8c4dcb0d3dd51a4a385.png",
+    "sha256": "6f6be3f0df8a9615cc488f54d56ca914f266df22675cb8c4dcb0d3dd51a4a385",
+    "bytes": 632533,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 2,
+    "decodedBytes": 3145728,
+    "decodedSHA256": "b23a17b4d08366928acdc64ccaf82d3e96f21c02ded74f48ac1139d8b476fd2f",
+    "embeddedSourceNames": [
+      "PineTree_Bark"
+    ],
+    "sourceTextures": [
+      {
+        "name": "PineTree_Bark.png",
+        "originalSHA256": "dcda0e989e2d0f6325e2fb994589d6be9e71191dd3f888b15d22720d5527fe0f",
+        "runtimeSHA256": "6f6be3f0df8a9615cc488f54d56ca914f266df22675cb8c4dcb0d3dd51a4a385",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1waE0sZebKnv_QchJdxpdQrg4bog5O-PY/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PineTree_Bark.png"
+      }
+    ],
+    "usedBy": [
+      "Plant_Quaternius_PineTree_001",
+      "Plant_Quaternius_PineTree_002",
+      "Plant_Quaternius_PineTree_003",
+      "Plant_Quaternius_PineTree_004",
+      "Plant_Quaternius_PineTree_005"
+    ],
+    "originalTextureName": "PineTree_Bark.png",
+    "originalTextureSHA256": "dcda0e989e2d0f6325e2fb994589d6be9e71191dd3f888b15d22720d5527fe0f",
+    "sourceLibraryRuntimeSHA256": "6f6be3f0df8a9615cc488f54d56ca914f266df22675cb8c4dcb0d3dd51a4a385",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/1waE0sZebKnv_QchJdxpdQrg4bog5O-PY/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PineTree_Bark.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  },
+  {
+    "url": "assets/textures/nature-v8/89b0bae2ba458b49119d8ba9f7359bc13184cea9c08dc5f00441b41e9a053943.png",
+    "sha256": "89b0bae2ba458b49119d8ba9f7359bc13184cea9c08dc5f00441b41e9a053943",
+    "bytes": 1275853,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 2,
+    "decodedBytes": 3145728,
+    "decodedSHA256": "3f885475990d720a29912dec519d468da6a776f60fe38918068c97acc7c62d2b",
+    "embeddedSourceNames": [
+      "MapleTree_Bark_Normal"
+    ],
+    "sourceTextures": [
+      {
+        "name": "MapleTree_Bark_Normal.png",
+        "originalSHA256": "2e3d97d57838d6e8203f0fab2858bada8ad1e6d6f240c0e898f8e88c110f2f5d",
+        "runtimeSHA256": "89b0bae2ba458b49119d8ba9f7359bc13184cea9c08dc5f00441b41e9a053943",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/151EDTiGK1Orms3sXDCsT9stYtqnGvl0a/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/MapleTree_Bark_Normal.png"
+      }
+    ],
+    "usedBy": [
+      "Plant_Quaternius_DeadTree_006",
+      "Plant_Quaternius_DeadTree_007",
+      "Plant_Quaternius_DeadTree_008",
+      "Plant_Quaternius_DeadTree_009",
+      "Plant_Quaternius_DeadTree_010",
+      "Plant_Quaternius_MapleTree_001",
+      "Plant_Quaternius_MapleTree_002",
+      "Plant_Quaternius_MapleTree_003",
+      "Plant_Quaternius_MapleTree_004",
+      "Plant_Quaternius_MapleTree_005"
+    ],
+    "originalTextureName": "MapleTree_Bark_Normal.png",
+    "originalTextureSHA256": "2e3d97d57838d6e8203f0fab2858bada8ad1e6d6f240c0e898f8e88c110f2f5d",
+    "sourceLibraryRuntimeSHA256": "89b0bae2ba458b49119d8ba9f7359bc13184cea9c08dc5f00441b41e9a053943",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/151EDTiGK1Orms3sXDCsT9stYtqnGvl0a/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/MapleTree_Bark_Normal.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  },
+  {
+    "url": "assets/textures/nature-v8/a788034f119627160a7e72cbbfc3acd4b9a169d963a679055317b3b53fb12bbf.png",
+    "sha256": "a788034f119627160a7e72cbbfc3acd4b9a169d963a679055317b3b53fb12bbf",
+    "bytes": 185920,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 6,
+    "decodedBytes": 4194304,
+    "decodedSHA256": "f3bb2a4c05f3fa41f9831e08126ddeb9c5c9eaeaee776f1df00ac11a6bdd2cd4",
+    "embeddedSourceNames": [
+      "MapleTree_Leaves"
+    ],
+    "sourceTextures": [
+      {
+        "name": "MapleTree_Leaves.png",
+        "originalSHA256": "915f0836e9889e28032662c7aa0d0eb9601ba999eda042c9a4e38690786d6c7b",
+        "runtimeSHA256": "a788034f119627160a7e72cbbfc3acd4b9a169d963a679055317b3b53fb12bbf",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1bEUjiz9g2rhWGPu1pyjYmZ_FFtEhXMg1/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/MapleTree_Leaves.png"
+      }
+    ],
+    "usedBy": [
+      "Plant_Quaternius_MapleTree_001",
+      "Plant_Quaternius_MapleTree_002",
+      "Plant_Quaternius_MapleTree_003",
+      "Plant_Quaternius_MapleTree_004",
+      "Plant_Quaternius_MapleTree_005"
+    ],
+    "originalTextureName": "MapleTree_Leaves.png",
+    "originalTextureSHA256": "915f0836e9889e28032662c7aa0d0eb9601ba999eda042c9a4e38690786d6c7b",
+    "sourceLibraryRuntimeSHA256": "a788034f119627160a7e72cbbfc3acd4b9a169d963a679055317b3b53fb12bbf",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/1bEUjiz9g2rhWGPu1pyjYmZ_FFtEhXMg1/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/MapleTree_Leaves.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  },
+  {
+    "url": "assets/textures/nature-v8/a7f940360c2a4ee92721962fabd7f096e5afbe790b7e29374e532811b117a5d8.png",
+    "sha256": "a7f940360c2a4ee92721962fabd7f096e5afbe790b7e29374e532811b117a5d8",
+    "bytes": 72843,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 6,
+    "decodedBytes": 4194304,
+    "decodedSHA256": "4680a79c5ab4ba98d949fa9a9c41ee887a6a7035da9e7aaa60ca165dc18fab34",
+    "embeddedSourceNames": [
+      "BirchTree_Leaves"
+    ],
+    "sourceTextures": [
+      {
+        "name": "BirchTree_Leaves.png",
+        "originalSHA256": "8b674a02017d987f8ec0448bd2a52ad788d1235f91b7f00499b4ca071f8e69fe",
+        "runtimeSHA256": "a7f940360c2a4ee92721962fabd7f096e5afbe790b7e29374e532811b117a5d8",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1ZPQRLXANz2z7pXirP2GIUm3nd9h_clwf/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/BirchTree_Leaves.png"
+      }
+    ],
+    "usedBy": [
+      "Plant_Quaternius_BirchTree_001",
+      "Plant_Quaternius_BirchTree_002",
+      "Plant_Quaternius_BirchTree_003",
+      "Plant_Quaternius_BirchTree_004",
+      "Plant_Quaternius_BirchTree_005"
+    ],
+    "originalTextureName": "BirchTree_Leaves.png",
+    "originalTextureSHA256": "8b674a02017d987f8ec0448bd2a52ad788d1235f91b7f00499b4ca071f8e69fe",
+    "sourceLibraryRuntimeSHA256": "a7f940360c2a4ee92721962fabd7f096e5afbe790b7e29374e532811b117a5d8",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/1ZPQRLXANz2z7pXirP2GIUm3nd9h_clwf/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/BirchTree_Leaves.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  },
+  {
+    "url": "assets/textures/nature-v8/ad86678ab722eff3329bd6ae6a7da25a12b0fd9c1abb2144cde7f234d40420d8.png",
+    "sha256": "ad86678ab722eff3329bd6ae6a7da25a12b0fd9c1abb2144cde7f234d40420d8",
+    "bytes": 793985,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 2,
+    "decodedBytes": 3145728,
+    "decodedSHA256": "dab8a3991236312b83278d2f105924bc966cc8cb893631e93fe3b766a942d84d",
+    "embeddedSourceNames": [
+      "PalmTree_Trunk_Normal"
+    ],
+    "sourceTextures": [
+      {
+        "name": "PalmTree_Trunk_Normal.png",
+        "originalSHA256": "3d93f46d0b12b0007ce9b6b396e2c582092f1e46747d951c0e3008e48d601c78",
+        "runtimeSHA256": "ad86678ab722eff3329bd6ae6a7da25a12b0fd9c1abb2144cde7f234d40420d8",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1pQhHb_un8hilDaT_BMISoiVJqUZJHceJ/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PalmTree_Trunk_Normal.png"
+      }
+    ],
+    "usedBy": [
+      "Plant_Quaternius_PalmTree_001",
+      "Plant_Quaternius_PalmTree_002",
+      "Plant_Quaternius_PalmTree_003",
+      "Plant_Quaternius_PalmTree_004",
+      "Plant_Quaternius_PalmTree_005"
+    ],
+    "originalTextureName": "PalmTree_Trunk_Normal.png",
+    "originalTextureSHA256": "3d93f46d0b12b0007ce9b6b396e2c582092f1e46747d951c0e3008e48d601c78",
+    "sourceLibraryRuntimeSHA256": "ad86678ab722eff3329bd6ae6a7da25a12b0fd9c1abb2144cde7f234d40420d8",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/1pQhHb_un8hilDaT_BMISoiVJqUZJHceJ/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PalmTree_Trunk_Normal.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  },
+  {
+    "url": "assets/textures/nature-v8/b398f7ed6b7163c371707428d6dd79b79719426bf1b5da87227b4c646a30be2e.png",
+    "sha256": "b398f7ed6b7163c371707428d6dd79b79719426bf1b5da87227b4c646a30be2e",
+    "bytes": 1156385,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 2,
+    "decodedBytes": 3145728,
+    "decodedSHA256": "c28d2f10e14166523115b396bbd189f2f2aa352fdf0e89661d9b1d7e35d16f4f",
+    "embeddedSourceNames": [
+      "PineTree_Bark_Normal"
+    ],
+    "sourceTextures": [
+      {
+        "name": "PineTree_Bark_Normal.png",
+        "originalSHA256": "d23c7bbce3f0052ade223d3195c24bc4e8d870b33a23c788c9bd87026fa2c79b",
+        "runtimeSHA256": "b398f7ed6b7163c371707428d6dd79b79719426bf1b5da87227b4c646a30be2e",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1LLev8AoiSM8WE3Vajd0EQiPFaRUCSjq_/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PineTree_Bark_Normal.png"
+      }
+    ],
+    "usedBy": [
+      "Plant_Quaternius_PineTree_001",
+      "Plant_Quaternius_PineTree_002",
+      "Plant_Quaternius_PineTree_003",
+      "Plant_Quaternius_PineTree_004",
+      "Plant_Quaternius_PineTree_005"
+    ],
+    "originalTextureName": "PineTree_Bark_Normal.png",
+    "originalTextureSHA256": "d23c7bbce3f0052ade223d3195c24bc4e8d870b33a23c788c9bd87026fa2c79b",
+    "sourceLibraryRuntimeSHA256": "b398f7ed6b7163c371707428d6dd79b79719426bf1b5da87227b4c646a30be2e",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/1LLev8AoiSM8WE3Vajd0EQiPFaRUCSjq_/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PineTree_Bark_Normal.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  },
+  {
+    "url": "assets/textures/nature-v8/bbe41468a268525104f574e5a18ead0a40e1fed76e671a474a5c418cdced6fa1.png",
+    "sha256": "bbe41468a268525104f574e5a18ead0a40e1fed76e671a474a5c418cdced6fa1",
+    "bytes": 851272,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 2,
+    "decodedBytes": 3145728,
+    "decodedSHA256": "15f107ae4d053df80d325e5f3dfc9ac6239e67d3f69709c21aa91aa6f300ac58",
+    "embeddedSourceNames": [
+      "PalmTree_Trunk"
+    ],
+    "sourceTextures": [
+      {
+        "name": "PalmTree_Trunk.png",
+        "originalSHA256": "504d8d7e87ad686efd267a4f6eba2b2faacc589b4a169f1904aca1d6ff5e672d",
+        "runtimeSHA256": "bbe41468a268525104f574e5a18ead0a40e1fed76e671a474a5c418cdced6fa1",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1GeJkoaKTw0A6_lyI2hNZldzGZk43Tq1J/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PalmTree_Trunk.png"
+      }
+    ],
+    "usedBy": [
+      "Plant_Quaternius_PalmTree_001",
+      "Plant_Quaternius_PalmTree_002",
+      "Plant_Quaternius_PalmTree_003",
+      "Plant_Quaternius_PalmTree_004",
+      "Plant_Quaternius_PalmTree_005"
+    ],
+    "originalTextureName": "PalmTree_Trunk.png",
+    "originalTextureSHA256": "504d8d7e87ad686efd267a4f6eba2b2faacc589b4a169f1904aca1d6ff5e672d",
+    "sourceLibraryRuntimeSHA256": "bbe41468a268525104f574e5a18ead0a40e1fed76e671a474a5c418cdced6fa1",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/1GeJkoaKTw0A6_lyI2hNZldzGZk43Tq1J/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PalmTree_Trunk.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  },
+  {
+    "url": "assets/textures/nature-v8/c07e1af26169abee615e4d7174c19341c818bcef5d0384b4330224e664521332.png",
+    "sha256": "c07e1af26169abee615e4d7174c19341c818bcef5d0384b4330224e664521332",
+    "bytes": 954187,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 2,
+    "decodedBytes": 3145728,
+    "decodedSHA256": "7bf2b83c42da46f35619ac38d39287eea770e385f9557c6b04610a7121d13d05",
+    "embeddedSourceNames": [
+      "NormalTree_Bark"
+    ],
+    "sourceTextures": [
+      {
+        "name": "NormalTree_Bark.png",
+        "originalSHA256": "17d8836b4eb3462c486bc0ca596d8d4dcde918c0ce0dd37eec9111b2e175be69",
+        "runtimeSHA256": "c07e1af26169abee615e4d7174c19341c818bcef5d0384b4330224e664521332",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1Yj_m3kf_BfoiTNRf67932Jq2MTZqNP2B/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/NormalTree_Bark.png"
+      }
+    ],
+    "usedBy": [
+      "Plant_Quaternius_DeadTree_001",
+      "Plant_Quaternius_DeadTree_002",
+      "Plant_Quaternius_DeadTree_003",
+      "Plant_Quaternius_DeadTree_004",
+      "Plant_Quaternius_DeadTree_005",
+      "Plant_Quaternius_NormalTree_001",
+      "Plant_Quaternius_NormalTree_002",
+      "Plant_Quaternius_NormalTree_003",
+      "Plant_Quaternius_NormalTree_004",
+      "Plant_Quaternius_NormalTree_005"
+    ],
+    "originalTextureName": "NormalTree_Bark.png",
+    "originalTextureSHA256": "17d8836b4eb3462c486bc0ca596d8d4dcde918c0ce0dd37eec9111b2e175be69",
+    "sourceLibraryRuntimeSHA256": "c07e1af26169abee615e4d7174c19341c818bcef5d0384b4330224e664521332",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/1Yj_m3kf_BfoiTNRf67932Jq2MTZqNP2B/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/NormalTree_Bark.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  },
+  {
+    "url": "assets/textures/nature-v8/ca4591d9c10c01953859e96871d973550191bcef8de5c1d094505a83231d7309.png",
+    "sha256": "ca4591d9c10c01953859e96871d973550191bcef8de5c1d094505a83231d7309",
+    "bytes": 1330657,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 2,
+    "decodedBytes": 3145728,
+    "decodedSHA256": "6a44fca0e2c12c89faf06e5160b6368322eedbf27e5c1bba413153ed96398159",
+    "embeddedSourceNames": [
+      "BirchTree_Bark"
+    ],
+    "sourceTextures": [
+      {
+        "name": "BirchTree_Bark.png",
+        "originalSHA256": "689dd3e55523e999cf9a2271aa1e8ce1ac6a7cf3a2dc4bd796dd76860a33154b",
+        "runtimeSHA256": "ca4591d9c10c01953859e96871d973550191bcef8de5c1d094505a83231d7309",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1aEMsAWATmNyVB7yv_Pupx8LHw0cy6u4p/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/BirchTree_Bark.png"
+      }
+    ],
+    "usedBy": [
+      "Plant_Quaternius_BirchTree_001",
+      "Plant_Quaternius_BirchTree_002",
+      "Plant_Quaternius_BirchTree_003",
+      "Plant_Quaternius_BirchTree_004",
+      "Plant_Quaternius_BirchTree_005"
+    ],
+    "originalTextureName": "BirchTree_Bark.png",
+    "originalTextureSHA256": "689dd3e55523e999cf9a2271aa1e8ce1ac6a7cf3a2dc4bd796dd76860a33154b",
+    "sourceLibraryRuntimeSHA256": "ca4591d9c10c01953859e96871d973550191bcef8de5c1d094505a83231d7309",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/1aEMsAWATmNyVB7yv_Pupx8LHw0cy6u4p/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/BirchTree_Bark.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  },
+  {
+    "url": "assets/textures/nature-v8/d4fe5ccc611f03aff497518cad451999640b6fbfd5ffdc4d2d81e3c483f74dd2.png",
+    "sha256": "d4fe5ccc611f03aff497518cad451999640b6fbfd5ffdc4d2d81e3c483f74dd2",
+    "bytes": 201313,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 6,
+    "decodedBytes": 4194304,
+    "decodedSHA256": "1c586871d4f66228bf5fd9c07b603faa672e59951eebbdd86122d2b71f842e3b",
+    "embeddedSourceNames": [
+      "PalmTree_Leaves"
+    ],
+    "sourceTextures": [
+      {
+        "name": "PalmTree_Leaves.png",
+        "originalSHA256": "6702bdeb0d5496527a049145583c98c4fdaee9fc55ea5d33a3ca2a9014a0cc74",
+        "runtimeSHA256": "d4fe5ccc611f03aff497518cad451999640b6fbfd5ffdc4d2d81e3c483f74dd2",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1T8j8xCuwT4Ie7FaXLYgvgx1AX4tVOX_G/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PalmTree_Leaves.png"
+      }
+    ],
+    "usedBy": [
+      "Plant_Quaternius_PalmTree_001",
+      "Plant_Quaternius_PalmTree_002",
+      "Plant_Quaternius_PalmTree_003",
+      "Plant_Quaternius_PalmTree_004",
+      "Plant_Quaternius_PalmTree_005"
+    ],
+    "originalTextureName": "PalmTree_Leaves.png",
+    "originalTextureSHA256": "6702bdeb0d5496527a049145583c98c4fdaee9fc55ea5d33a3ca2a9014a0cc74",
+    "sourceLibraryRuntimeSHA256": "d4fe5ccc611f03aff497518cad451999640b6fbfd5ffdc4d2d81e3c483f74dd2",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/1T8j8xCuwT4Ie7FaXLYgvgx1AX4tVOX_G/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/PalmTree_Leaves.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  },
+  {
+    "url": "assets/textures/nature-v8/eb89654e4002d043db3769b7678de4202c212c3197aaa48b5ac90327ff5d8dbf.png",
+    "sha256": "eb89654e4002d043db3769b7678de4202c212c3197aaa48b5ac90327ff5d8dbf",
+    "bytes": 69854,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 6,
+    "decodedBytes": 4194304,
+    "decodedSHA256": "9cff6fcaccd212a026673cc8b230b943cfe2da0974974be89f2a88953e0eb695",
+    "embeddedSourceNames": [
+      "Bush_Leaves",
+      "NormalTree_Leaves"
+    ],
+    "sourceTextures": [
+      {
+        "name": "Bush_Leaves.png",
+        "originalSHA256": "9f662296a285ca56b1ed56e952a198b93b466ae39ab7b6ee1c1ac1bd1c46242f",
+        "runtimeSHA256": "eb89654e4002d043db3769b7678de4202c212c3197aaa48b5ac90327ff5d8dbf",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1yBz894w6XWBFvcQ75GDaRoQaunCHx4Q0/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/Bush_Leaves.png"
+      },
+      {
+        "name": "NormalTree_Leaves.png",
+        "originalSHA256": "9f662296a285ca56b1ed56e952a198b93b466ae39ab7b6ee1c1ac1bd1c46242f",
+        "runtimeSHA256": "eb89654e4002d043db3769b7678de4202c212c3197aaa48b5ac90327ff5d8dbf",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1hGjtu8MT0HCZThjRaT-gdrujpc7qi1sW/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/NormalTree_Leaves.png"
+      }
+    ],
+    "usedBy": [
+      "Plant_Quaternius_BushFlowers_001",
+      "Plant_Quaternius_BushLargeFlowers_001",
+      "Plant_Quaternius_BushLarge_001",
+      "Plant_Quaternius_BushSmallFlowers_001",
+      "Plant_Quaternius_BushSmall_001",
+      "Plant_Quaternius_Bush_001",
+      "Plant_Quaternius_NormalTree_001",
+      "Plant_Quaternius_NormalTree_002",
+      "Plant_Quaternius_NormalTree_003",
+      "Plant_Quaternius_NormalTree_004",
+      "Plant_Quaternius_NormalTree_005"
+    ],
+    "originalTextureName": "Bush_Leaves.png",
+    "originalTextureSHA256": "9f662296a285ca56b1ed56e952a198b93b466ae39ab7b6ee1c1ac1bd1c46242f",
+    "sourceLibraryRuntimeSHA256": "eb89654e4002d043db3769b7678de4202c212c3197aaa48b5ac90327ff5d8dbf",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/1yBz894w6XWBFvcQ75GDaRoQaunCHx4Q0/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/Bush_Leaves.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  },
+  {
+    "url": "assets/textures/nature-v8/f2833c4c014333cfc12ae3466be60110270485f09e7dad59f7820ac6510968ed.png",
+    "sha256": "f2833c4c014333cfc12ae3466be60110270485f09e7dad59f7820ac6510968ed",
+    "bytes": 1449265,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "bitDepth": 8,
+    "colorType": 2,
+    "decodedBytes": 3145728,
+    "decodedSHA256": "ef4af892d91c7fe5671eea633c699a45a00efc0cfef05ea8a0e6d4d7224cc16a",
+    "embeddedSourceNames": [
+      "BirchTree_Bark_Normal"
+    ],
+    "sourceTextures": [
+      {
+        "name": "BirchTree_Bark_Normal.png",
+        "originalSHA256": "e30ee9c7561742523340d5657056f8392bc0f944da5145f0af7690cd1d2e6a11",
+        "runtimeSHA256": "f2833c4c014333cfc12ae3466be60110270485f09e7dad59f7820ac6510968ed",
+        "originalAuthorFileUrl": "https://drive.google.com/file/d/1vfDzHgS6CBiL7LW3GKldOE_PhceVh_5k/view",
+        "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/BirchTree_Bark_Normal.png"
+      }
+    ],
+    "usedBy": [
+      "Plant_Quaternius_BirchTree_001",
+      "Plant_Quaternius_BirchTree_002",
+      "Plant_Quaternius_BirchTree_003",
+      "Plant_Quaternius_BirchTree_004",
+      "Plant_Quaternius_BirchTree_005"
+    ],
+    "originalTextureName": "BirchTree_Bark_Normal.png",
+    "originalTextureSHA256": "e30ee9c7561742523340d5657056f8392bc0f944da5145f0af7690cd1d2e6a11",
+    "sourceLibraryRuntimeSHA256": "f2833c4c014333cfc12ae3466be60110270485f09e7dad59f7820ac6510968ed",
+    "matchesLibraryRuntimeBytes": true,
+    "originalAuthorFileUrl": "https://drive.google.com/file/d/1vfDzHgS6CBiL7LW3GKldOE_PhceVh_5k/view",
+    "recoveryMirrorUrl": "https://raw.githubusercontent.com/tilakpatell/tilakverse-assets/main/quaternius/stylized-nature-pack/Textures/BirchTree_Bark_Normal.png",
+    "sourceLibraryTextureManifest": "04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/licenses/texture-manifest.json"
+  }
+]

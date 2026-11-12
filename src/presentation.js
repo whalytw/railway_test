@@ -1,7 +1,8 @@
-import { clamp, lerp } from './core.js?v=7.0.0';
+import { clamp, lerp } from './core.js?v=8.0.0';
 
 export function copyMotion(state, out = {}) {
   out.distance = state.distance; out.odometer = state.odometer; out.speed = state.speed;
+  out.suspensionY = state.suspensionY || 0; out.suspensionVelocity = state.suspensionVelocity || 0;
   return out;
 }
 export function interpolateMotion(previous, current, alpha, out = {}) {
@@ -9,6 +10,8 @@ export function interpolateMotion(previous, current, alpha, out = {}) {
   out.distance = lerp(previous.distance, current.distance, t);
   out.odometer = lerp(previous.odometer, current.odometer, t);
   out.speed = lerp(previous.speed, current.speed, t);
+  out.suspensionY = lerp(previous.suspensionY || 0, current.suspensionY || 0, t);
+  out.suspensionVelocity = lerp(previous.suspensionVelocity || 0, current.suspensionVelocity || 0, t);
   return out;
 }
 

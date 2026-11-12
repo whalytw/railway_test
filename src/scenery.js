@@ -1,9 +1,9 @@
 import * as THREE from 'three';
-import { clamp, lerp, smoothstep, randomGenerator, TAU } from './core.js?v=7.0.0';
-import { riverProfile, riverPoint } from './route-features.js?v=7.0.0';
-import { renderedGroundHeight } from './grounding.js?v=7.0.0';
-import { tunnelFrontShift, tunnelMoundHeight, tunnelCutFactor, GRASS_HABITAT, landNoise } from './landscape-profile.js?v=7.0.0';
-import { createGroundMaterial } from './ground-cover.js?v=7.0.0';
+import { clamp, lerp, smoothstep, randomGenerator, TAU } from './core.js?v=8.0.0';
+import { riverProfile, riverPoint } from './route-features.js?v=8.0.0';
+import { renderedGroundHeight } from './grounding.js?v=8.0.0';
+import { tunnelFrontShift, tunnelMoundHeight, tunnelCutFactor, GRASS_HABITAT, landNoise } from './landscape-profile.js?v=8.0.0';
+import { createGroundMaterial } from './ground-cover.js?v=8.0.0';
 
 const up = new THREE.Vector3(0, 1, 0), frameEuler = new THREE.Euler(0, 0, 0, 'YXZ');
 function ownMesh(world, geometry, material) { const mesh = new THREE.Mesh(geometry, material); world.group.add(mesh); world.ownedGeometry.push(geometry); return mesh; }
@@ -35,9 +35,9 @@ function refineCutFace(source) {
 
 export function buildMountainBackdrop(world) {
   const d = world.route.squareSize, random = randomGenerator(`${world.config.seed}:skyline`);
-  const sky = new THREE.Color(world.paletteA.sky).lerp(new THREE.Color(world.paletteB.sky), 0.5);
-  const snow = [world.config.biomeA, world.config.biomeB].includes('Snow');
-  const volcanic = [world.config.biomeA, world.config.biomeB].includes('Volcano');
+  const sky = world.skyColor();
+  const snow = world.activeBiomes.includes('Snow');
+  const volcanic = world.activeBiomes.includes('Volcano');
   for (let layer = 0; layer < 3; layer++) {
     const n = 192, positions = [], colors = [], indices = [], phase = random() * TAU;
     const rx = d * (2.20 + layer * 0.65), rz = d * (1.75 + layer * 0.50);
@@ -139,7 +139,7 @@ export function buildBridgeAndRiver(world) {
       // exposing the rectangular footings of repeated straight modules.
       const h = world.terrainGrid ? renderedGroundHeight(world.terrainGrid, p.x, p.z) : world.heightAt(p.x, p.z);
       bankVertices.push(p.x, h + 0.025, p.z);
-      const ground = world.colorA.clone().lerp(world.colorB, world.mixAt(p.x, p.z));
+      const ground = world.colorAt(p.x,p.z);
       const color = wetSand.clone().lerp(drySand, Math.min(1, band / 4)).lerp(ground, smoothstep(3, 7, band));
       bankColors.push(color.r, color.g, color.b);
     }
@@ -185,7 +185,7 @@ export function buildTunnel(world) {
   }
   world.addBatches('Building_Tunnel_RockStraight4m_001', modules, { kind: 'tunnel', size: 96 });
   world.addBatches('Building_Tunnel_StonePortal_001', portals, { kind: 'tunnel', size: 96 });
-  const ground = world.colorA.clone().lerp(world.colorB, world.mixAt(tunnel.x, tunnel.z));
+  const ground = world.colorAt(tunnel.x,tunnel.z);
   const material = createGroundMaterial(world); material.side = THREE.DoubleSide;
   world.ownedMaterials.push(material);
   const rockColor = new THREE.Color('#919481').lerp(ground, 0.24);
@@ -208,8 +208,8 @@ export function buildTunnel(world) {
       const cut = excavated ? tunnelCutFactor(localS, x, tunnel.length) : 1;
       const v = vertex(localS, x, mountain * cut); vertices.push(v.x, v.y, v.z);
       const rocky = excavated ? (1 - cut) * smoothstep(0.15, 0.45, cut) * (1 - smoothstep(10, 45, Math.max(0, -localS, localS - tunnel.length))) : 0;
-      const mix = world.mixAt(v.x, v.z), habitat = lerp(GRASS_HABITAT[world.config.biomeA] || 0, GRASS_HABITAT[world.config.biomeB] || 0, mix);
-      const surface = world.colorA.clone().lerp(world.colorB, mix), detail = world.detailA.clone().lerp(world.detailB, mix);
+      const habitat = world.blendValue(GRASS_HABITAT,v.x,v.z);
+      const surface = world.colorAt(v.x,v.z), detail = world.colorAt(v.x,v.z,new THREE.Color(),true);
       surface.lerp(detail, 0.11 + 0.11 * Math.sin(v.x * 0.073) * Math.cos(v.z * 0.067));
       const color = surface.lerp(rockColor, rocky * 0.65).multiplyScalar(1 - smoothstep(0, 2, mountain * cut) * 0.06);
       colors.push(color.r, color.g, color.b);

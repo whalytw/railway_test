@@ -1,0 +1,13 @@
+{
+  "version": "8.0.0",
+  "command": "node scripts/verify-v8.mjs",
+  "total": 80,
+  "passed": 80,
+  "failed": 0,
+  "exitCode": 0,
+  "durationMs": 70523,
+  "finishedAt": "2026-11-12T08:09:07.261Z",
+  "sourceSha256": "0f47392762a16f8466867fdb584469067e50756583c10927b42b7b3c6b12ad91",
+  "fingerprintedFiles": 937,
+  "sourceUnchangedDuringTests": true
+}

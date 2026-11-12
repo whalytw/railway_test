@@ -1,0 +1,181 @@
+{
+  "id": "Environment_Quaternius_Rock_003",
+  "name": "岩石 03",
+  "author": "Quaternius",
+  "pack": "Quaternius_UltimateStylizedNature_202205",
+  "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html",
+  "vendorRelease": "2022-05",
+  "license": "CC0-1.0",
+  "licenseEvidence": "assets/licenses/Quaternius_UltimateStylizedNature_202205/LicensingReview.zh-TW.md",
+  "originalSourceFile": "Blends/Rock_3.blend",
+  "originalSourceSHA256": "e7c6c66238c39c177f7960d983419841fc5a69796c8d8fb57592952bb2d3f758",
+  "sourceArchiveName": "Blends-20261109T065115Z-1-001.zip",
+  "sourceArchiveSHA256": "56133f577e873afa77a35629ca955abc9825e30b900e2245095edd1a757b8f30",
+  "sourceLibraryMetadata": "07_Environment/Quaternius_UltimateStylizedNature_202205/Rocks/Environment_Quaternius_Rock_003/asset.json",
+  "sourceLibraryGLB": "07_Environment/Quaternius_UltimateStylizedNature_202205/Rocks/Environment_Quaternius_Rock_003/exports/Environment_Quaternius_Rock_003.glb",
+  "sourceGLBSHA256": "786f037ace7e6a6cffd28d4c0e154067ff1bf50a40db80e3396c586fe501be02",
+  "sourceGLBBytes": 984056,
+  "gameFile": "assets/models/Quaternius_Rock_003.glb",
+  "gameSHA256": "f4e55e594a04164347bee2946c606163db8a58b89a8137b8b4ab416e046c9263",
+  "gameBytes": 55956,
+  "transformation": "Only embedded PNG images were externalized and deduplicated by exact SHA-256. Non-image BIN bufferViews were copied byte-for-byte and relocated with 4-byte alignment. Geometry, indices, UVs, normals, tangents, material properties, samplers, nodes and transforms were preserved.",
+  "compatibleBiomes": [
+    "Forest",
+    "Hills",
+    "Pastoral",
+    "Rural",
+    "Lakeside",
+    "Riverbank",
+    "Plateau",
+    "Snow",
+    "Desert",
+    "Volcano",
+    "Canyon",
+    "Waterfall"
+  ],
+  "placement": {
+    "groundAnchor": [
+      0,
+      0,
+      0
+    ],
+    "baseAtGround": true,
+    "originPolicy": "bounds-centre-xy-ground-z",
+    "recommendedUniformScaleRange": [
+      0.8,
+      1.4
+    ],
+    "embedDepthMetersRange": [
+      0.02,
+      0.08
+    ],
+    "displaySlab": false,
+    "suggestedMinRailCenterOffsetMeters": 2.9371,
+    "footprintRadiusMeters": 0.5370978426921473,
+    "clearanceBasis": "horizontal mesh radius + 2.4 m reserved corridor; conservative placement guidance, not a measured game collision certification",
+    "compatibleBiomes": [
+      "Forest",
+      "Hills",
+      "Pastoral",
+      "Rural",
+      "Lakeside",
+      "Riverbank",
+      "Plateau",
+      "Snow",
+      "Desert",
+      "Volcano",
+      "Canyon",
+      "Waterfall"
+    ],
+    "usageNote": "適合路旁、林緣與岸邊的小型岩石點景；可略埋入地面，不能取代大型岩壁、峽谷、山脊或瀑布岩盆。",
+    "slopeNote": "大樹保持直立；岩石與地表植物依地面法線適度調整，需重新檢查整體接地，不能只讓中心點貼地後讓邊緣懸空。"
+  },
+  "gameUsage": "適合路旁、林緣與岸邊的小型岩石點景；可略埋入地面，不能取代大型岩壁、峽谷、山脊或瀑布岩盆。",
+  "originalNormalization": {
+    "originalMatrix": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1.6292067073209182e-7,
+        0
+      ],
+      [
+        0,
+        -1.6292067073209182e-7,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "translationApplied": [
+      0.056415051221847534,
+      -0.0026565492153167725,
+      0.12579791247844696
+    ],
+    "metresPerOriginalUnit": 1,
+    "cleanup": {
+      "removed_unrendered_vertices": 0,
+      "removed_zero_area_faces": 0
+    },
+    "topologyAfterCleanup": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "degenerate_triangles": 0
+    },
+    "conversionNotes": "../../../../04_Plants/Quaternius_UltimateStylizedNature_202205/_Shared/source/Normalization.zh-TW.md"
+  },
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z (display convention; static nature asset)",
+    "unit": "metre",
+    "origin": "ground datum; see placement.originPolicy",
+    "sourceBlenderUp": "+Z",
+    "glbConversion": "[x,z,-y]"
+  },
+  "images": [
+    {
+      "name": "Rocks",
+      "sha256": "105297fc8c54918ce8005ec542ccbcca4788ff2ae775c854e88b6a9c30c6df60",
+      "url": "assets/textures/nature-v8/105297fc8c54918ce8005ec542ccbcca4788ff2ae775c854e88b6a9c30c6df60.png",
+      "bytes": 928127
+    }
+  ],
+  "accessorChecks": [
+    {
+      "accessor": 0,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1033,
+      "bytes": 12396,
+      "sha256": "45e92d7670c6889101a865f0bef7fc52994848e6579fff8fd39668ec46675707"
+    },
+    {
+      "accessor": 1,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1033,
+      "bytes": 12396,
+      "sha256": "07dbb128314092f861f7e3e6bd859d83d0efdb07a138cd9f9af43571ded1edaa"
+    },
+    {
+      "accessor": 2,
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 1033,
+      "bytes": 8264,
+      "sha256": "ed4367d56231049a1c6995bc9e3ed94793d1c80bca020ae0afa3671283d4730e"
+    },
+    {
+      "accessor": 3,
+      "type": "VEC4",
+      "componentType": 5126,
+      "count": 1033,
+      "bytes": 16528,
+      "sha256": "b5e033a91e6d6b769b2ff48e8114636e5366f9e1076f56ecd0c6dc2322ba8036"
+    },
+    {
+      "accessor": 4,
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 2136,
+      "bytes": 4272,
+      "sha256": "5bc8edab4d243da6efca44f99524556ea48fc08cfa5f8d99de8992fafa3bc027"
+    }
+  ],
+  "animationsProvided": false,
+  "lodsProvided": false,
+  "gamePerformanceCertification": false
+}

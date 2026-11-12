@@ -1,0 +1,636 @@
+{
+  "id": "Quaternius_UltimateStylizedNature_202205",
+  "author": "Quaternius",
+  "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html",
+  "sourceArchiveName": "Blends-20261109T065115Z-1-001.zip",
+  "sourceArchiveSHA256": "56133f577e873afa77a35629ca955abc9825e30b900e2245095edd1a757b8f30",
+  "license": "CC0-1.0",
+  "sourceCatalogSHA256": "19205f46a49d015f45b57803e8c3cad8ca81ac6b556a36289c606da70d608123",
+  "modelCount": 63,
+  "plants": 58,
+  "rocks": 5,
+  "models": [
+    {
+      "id": "Plant_Quaternius_BushFlowers_001",
+      "gameFile": "assets/models/Quaternius_BushFlowers_001.glb",
+      "gameSHA256": "c38d0c2dd637b2aa5de3ea34a9a0379b5c3e67a41bb79ceda4a6d2c9da30c750",
+      "originalSourceFile": "Blends/Bush_Flowers.blend",
+      "originalSourceSHA256": "8856fb5d794b41cc503c5115a7ced7a540427dfdc2ee6bbe3c06b78a4a87d0eb",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Bushes/Plant_Quaternius_BushFlowers_001/exports/Plant_Quaternius_BushFlowers_001.glb",
+      "sourceGLBSHA256": "fd2f3321fbd38f4020c387ac34f8294c73e03421d94ea425d5a4465174628853"
+    },
+    {
+      "id": "Plant_Quaternius_BushLargeFlowers_001",
+      "gameFile": "assets/models/Quaternius_BushLargeFlowers_001.glb",
+      "gameSHA256": "2ce5b912cdc02d13fd8122a6df2a79010b0bdb66e6c02be46a684fbf8700c9c7",
+      "originalSourceFile": "Blends/Bush_Large_Flowers.blend",
+      "originalSourceSHA256": "eab7ea6d1d6ae1a5d104298aa6d95c595ee93945ff35b51ce937020e9df44ac6",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Bushes/Plant_Quaternius_BushLargeFlowers_001/exports/Plant_Quaternius_BushLargeFlowers_001.glb",
+      "sourceGLBSHA256": "a5b1616614f5172d120d685960f9983c71d736b32b102f13081792bb87728b3e"
+    },
+    {
+      "id": "Plant_Quaternius_BushLarge_001",
+      "gameFile": "assets/models/Quaternius_BushLarge_001.glb",
+      "gameSHA256": "7f86e7bfefaf24f737f8279ef3193cf7d0134a4e0e1c7dfef62df321ab9d3dd9",
+      "originalSourceFile": "Blends/Bush_Large.blend",
+      "originalSourceSHA256": "aa996029c1f6500becd4ec3950bf8410d84f74217152f321e180a5b5051db117",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Bushes/Plant_Quaternius_BushLarge_001/exports/Plant_Quaternius_BushLarge_001.glb",
+      "sourceGLBSHA256": "bd153432e73c108f0f11252bd827c457f657ee250498e6df9f5ab1aff4f7bf94"
+    },
+    {
+      "id": "Plant_Quaternius_BushSmallFlowers_001",
+      "gameFile": "assets/models/Quaternius_BushSmallFlowers_001.glb",
+      "gameSHA256": "01024853ff73734e20de5643b11a3e3f46cbfd92e833fa42138d26589238ca9a",
+      "originalSourceFile": "Blends/Bush_Small_Flowers.blend",
+      "originalSourceSHA256": "8c90a47cea53fa221d87a62302d42a5d83baca575cc5c70154905750992c43d1",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Bushes/Plant_Quaternius_BushSmallFlowers_001/exports/Plant_Quaternius_BushSmallFlowers_001.glb",
+      "sourceGLBSHA256": "b47277a95c84667489251a0e7f44c6e40dd349581571c6e9273595b22952904b"
+    },
+    {
+      "id": "Plant_Quaternius_BushSmall_001",
+      "gameFile": "assets/models/Quaternius_BushSmall_001.glb",
+      "gameSHA256": "afc2fb4cf5785fad79254cd1e9872b3c414c9d56771bde4331f4dc3496020ab4",
+      "originalSourceFile": "Blends/Bush_Small.blend",
+      "originalSourceSHA256": "fb759a41c99dda8e64ee2e3b91c38a446dd551734287fa20d5545fb7a6da144a",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Bushes/Plant_Quaternius_BushSmall_001/exports/Plant_Quaternius_BushSmall_001.glb",
+      "sourceGLBSHA256": "fb66b886ed8677e9b8587a6fadf86df96651519b083b4e54ab9dd7798b5f2c0a"
+    },
+    {
+      "id": "Plant_Quaternius_Bush_001",
+      "gameFile": "assets/models/Quaternius_Bush_001.glb",
+      "gameSHA256": "cca2f2569cc36a6f911daeb12b938b233484e25f07fe9f88cb0472b63e438392",
+      "originalSourceFile": "Blends/Bush.blend",
+      "originalSourceSHA256": "7a11f38e5ec011340f57527b04e59bb691f76fc4116053b534246ba1caf5a4dd",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Bushes/Plant_Quaternius_Bush_001/exports/Plant_Quaternius_Bush_001.glb",
+      "sourceGLBSHA256": "915eef21a8d1b657764323bffa8b3a377c803b8e63c1d500f5b08fb2670303c4"
+    },
+    {
+      "id": "Plant_Quaternius_Petals_001",
+      "gameFile": "assets/models/Quaternius_Petals_001.glb",
+      "gameSHA256": "96520b8631876000ea9b0f2a21c905ccd6da7e18a370c76d6b6a0e05a3af8f68",
+      "originalSourceFile": "Blends/Petals_1.blend",
+      "originalSourceSHA256": "435465f861b8d268e2454ba0283882b0b418314e768cadc308d49fdf6447fdbf",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Flowers/Petals/Plant_Quaternius_Petals_001/exports/Plant_Quaternius_Petals_001.glb",
+      "sourceGLBSHA256": "b768cd1fe5547bb5988ad520100521caad577598890491a602320a4a8c791a99"
+    },
+    {
+      "id": "Plant_Quaternius_Petals_002",
+      "gameFile": "assets/models/Quaternius_Petals_002.glb",
+      "gameSHA256": "9ac2d13478a49d0ee04527827c82a74f0211afde09097f403d3444bec568900c",
+      "originalSourceFile": "Blends/Petals_2.blend",
+      "originalSourceSHA256": "b303c53cbb8e4faab2abba4d3639b5815adde279debc0b1829d219c4ba9ad4fa",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Flowers/Petals/Plant_Quaternius_Petals_002/exports/Plant_Quaternius_Petals_002.glb",
+      "sourceGLBSHA256": "7b1165e8e46523d500467b7c96c83a31a6f4ee17356454b6669e0a4dfe5f4ed8"
+    },
+    {
+      "id": "Plant_Quaternius_Petals_003",
+      "gameFile": "assets/models/Quaternius_Petals_003.glb",
+      "gameSHA256": "9465f2e631aabb78f38e02f33bafd45b87dc50bf5cbb74bd04c6117b50b1db29",
+      "originalSourceFile": "Blends/Petals_3.blend",
+      "originalSourceSHA256": "b529e4e1bf8cce6a3b088737837afc774b2cf07dbdeecaea6c3c61de6b2831cc",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Flowers/Petals/Plant_Quaternius_Petals_003/exports/Plant_Quaternius_Petals_003.glb",
+      "sourceGLBSHA256": "93f246a1fb6ceb638aa676228bf3189604c6ca6e3561e7003e98fb25ccb60a5c"
+    },
+    {
+      "id": "Plant_Quaternius_Petals_004",
+      "gameFile": "assets/models/Quaternius_Petals_004.glb",
+      "gameSHA256": "cbdf35b159277896ab25465a9729849f9a606d5521419f2ffe89af7c91a1e183",
+      "originalSourceFile": "Blends/Petals_4.blend",
+      "originalSourceSHA256": "69fc368edce8767938d7b2bb87b3e309660f55e69da0f500c93972a551641d21",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Flowers/Petals/Plant_Quaternius_Petals_004/exports/Plant_Quaternius_Petals_004.glb",
+      "sourceGLBSHA256": "c710c113f95be09ab49737271514e52484f179196038de1d208fed833012c7b5"
+    },
+    {
+      "id": "Plant_Quaternius_FlowerClump_001",
+      "gameFile": "assets/models/Quaternius_FlowerClump_001.glb",
+      "gameSHA256": "5104a51842d613fd8628442c0586e6791acc06cf3c42d9a936bb784c286ad7b8",
+      "originalSourceFile": "Blends/Flower_1_Clump.blend",
+      "originalSourceSHA256": "6c74966858d351d76d725527ba2f4891bc07b468dffa312976c49618647d8e35",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Flowers/Plant_Quaternius_FlowerClump_001/exports/Plant_Quaternius_FlowerClump_001.glb",
+      "sourceGLBSHA256": "95a40a4bab126147aa79e1d888f12fa9e5942919cc9b809b614467e3ae80616d"
+    },
+    {
+      "id": "Plant_Quaternius_FlowerClump_002",
+      "gameFile": "assets/models/Quaternius_FlowerClump_002.glb",
+      "gameSHA256": "14d5ff4717a4ea57e763a49ee26540446886bbe7494f6480fe4f5961eee7553f",
+      "originalSourceFile": "Blends/Flower_2_Clump.blend",
+      "originalSourceSHA256": "28a11459d8dd832ce5426d8432013233ce1a426c6b4ba7e28ec98a989106863b",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Flowers/Plant_Quaternius_FlowerClump_002/exports/Plant_Quaternius_FlowerClump_002.glb",
+      "sourceGLBSHA256": "8e7fc82fd22950c287072467244c0dd5c4c158c3a1798b6d7f93477f172748e4"
+    },
+    {
+      "id": "Plant_Quaternius_FlowerClump_003",
+      "gameFile": "assets/models/Quaternius_FlowerClump_003.glb",
+      "gameSHA256": "26549380a266773e4198fd66b388a30b7346799c86dd625b84f43e705f8ec45a",
+      "originalSourceFile": "Blends/Flower_3_Clump.blend",
+      "originalSourceSHA256": "46c7cc52e26d5d83693e212a6bc1a5f331aa4f54fe384b5b2651dd217c17920c",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Flowers/Plant_Quaternius_FlowerClump_003/exports/Plant_Quaternius_FlowerClump_003.glb",
+      "sourceGLBSHA256": "208f0688d9fdf0e0e68cc8e8cb78a5d846ceaa332483c4e3c92fe18101326106"
+    },
+    {
+      "id": "Plant_Quaternius_FlowerClump_004",
+      "gameFile": "assets/models/Quaternius_FlowerClump_004.glb",
+      "gameSHA256": "bdd1d41c67e3cc3045adb75c81ceef06c979dcddd85ee84207fa0704ded17535",
+      "originalSourceFile": "Blends/Flower_4_Clump.blend",
+      "originalSourceSHA256": "247f66e4720d51de147273b0c46bec9d467199492cc7e0902cf9746884b2c612",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Flowers/Plant_Quaternius_FlowerClump_004/exports/Plant_Quaternius_FlowerClump_004.glb",
+      "sourceGLBSHA256": "01982a97cf63faf774bbde5d5ef8bbe111cc4a4ad77b7263ec5dc46aaf83bea7"
+    },
+    {
+      "id": "Plant_Quaternius_FlowerClump_005",
+      "gameFile": "assets/models/Quaternius_FlowerClump_005.glb",
+      "gameSHA256": "35eeb994a879e9cbeb48ccc733e729de49f8e3f9542a86da85afc99586bc7b12",
+      "originalSourceFile": "Blends/Flower_5_Clump.blend",
+      "originalSourceSHA256": "d6597e2342c1ed8f40e70339bc2e7849d85f19b98f7817d6d9747cbe6d171e32",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Flowers/Plant_Quaternius_FlowerClump_005/exports/Plant_Quaternius_FlowerClump_005.glb",
+      "sourceGLBSHA256": "e71c7139238032a3a7aeb1fbd63c9668101756d86beff5896d6c62ec7078114e"
+    },
+    {
+      "id": "Plant_Quaternius_Flower_001",
+      "gameFile": "assets/models/Quaternius_Flower_001.glb",
+      "gameSHA256": "1165b91e1bdd9926780176c53a7e8586b3b3a8c7b0c9debd48dcc031365480c5",
+      "originalSourceFile": "Blends/Flower_1.blend",
+      "originalSourceSHA256": "db3d5c17f4690e0284c1b5e2a65fbb808ac11629a78dc14679fc6c8e768fc552",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Flowers/Plant_Quaternius_Flower_001/exports/Plant_Quaternius_Flower_001.glb",
+      "sourceGLBSHA256": "4f9648c00a08144b095dd9e33b7b29238cb4a4cea11db193404a70504198b19c"
+    },
+    {
+      "id": "Plant_Quaternius_Flower_002",
+      "gameFile": "assets/models/Quaternius_Flower_002.glb",
+      "gameSHA256": "903d46f5fd2d9e901c69672b469129af572d0125fd6c39b172198d5544682393",
+      "originalSourceFile": "Blends/Flower_2.blend",
+      "originalSourceSHA256": "d90bf95d691ab5dbc4c39780ad3da4946c57222dc93c6818ab530ec1cf1f9ab2",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Flowers/Plant_Quaternius_Flower_002/exports/Plant_Quaternius_Flower_002.glb",
+      "sourceGLBSHA256": "721be9a7110f9da818185a7bb143682899dbe5ac4b22f145927697cab8b13680"
+    },
+    {
+      "id": "Plant_Quaternius_GrassLargeExtruded_001",
+      "gameFile": "assets/models/Quaternius_GrassLargeExtruded_001.glb",
+      "gameSHA256": "0111f3e7d226204c9e11e670f1ce8c30db2c7b3058936dce49e0d4b97ac452fd",
+      "originalSourceFile": "Blends/Grass_Large_Extruded.blend",
+      "originalSourceSHA256": "faea1a37a9927e3cd16d43b734a64fb80c2f49e26d0da536aa66d2b80322c21a",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Groundcover/Grass/Plant_Quaternius_GrassLargeExtruded_001/exports/Plant_Quaternius_GrassLargeExtruded_001.glb",
+      "sourceGLBSHA256": "138a8dcdd1528fee800bc89e77a2bad0c102da3792fa6db93b39187aeac4171f"
+    },
+    {
+      "id": "Plant_Quaternius_GrassLarge_001",
+      "gameFile": "assets/models/Quaternius_GrassLarge_001.glb",
+      "gameSHA256": "f98f735e6252a3e58acb36657cddc9a7022b858630079a31a8b783727d22435b",
+      "originalSourceFile": "Blends/Grass_Large.blend",
+      "originalSourceSHA256": "b90ecb34452bfb981a217de3fa2ea74e372416f28913839cb2ccc27aedf58f16",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Groundcover/Grass/Plant_Quaternius_GrassLarge_001/exports/Plant_Quaternius_GrassLarge_001.glb",
+      "sourceGLBSHA256": "17e938d275fc3cb4c7df2de51e851abaa24689b4bcb365155b52b72963785680"
+    },
+    {
+      "id": "Plant_Quaternius_GrassSmall_001",
+      "gameFile": "assets/models/Quaternius_GrassSmall_001.glb",
+      "gameSHA256": "65cfeb8b9c2c2113f4878cea5943f7e03a4e3d0b38898e60eaaf2f0dd83c705a",
+      "originalSourceFile": "Blends/Grass_Small.blend",
+      "originalSourceSHA256": "c06ad767e9d31a69a5de6d4bc4aa5eb8fc3758c5a1cd8da7b5dcb0a2805042c6",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Groundcover/Grass/Plant_Quaternius_GrassSmall_001/exports/Plant_Quaternius_GrassSmall_001.glb",
+      "sourceGLBSHA256": "b3bcade288337d79b6425f2e3f62fb2a5235f536eae25b4ddd58beb584d8a371"
+    },
+    {
+      "id": "Plant_Quaternius_LeafyPlantFlowers_001",
+      "gameFile": "assets/models/Quaternius_LeafyPlantFlowers_001.glb",
+      "gameSHA256": "461e292c293052d2d0c9e97466f13e9627a08904188f5c2eeac77a7b7d468650",
+      "originalSourceFile": "Blends/Plant_Flowers.blend",
+      "originalSourceSHA256": "a684626511c7ecfe64b6e1c15d5e2b7d2b6665cf2ec84a569188e941cddccd29",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Groundcover/LeafyPlants/Plant_Quaternius_LeafyPlantFlowers_001/exports/Plant_Quaternius_LeafyPlantFlowers_001.glb",
+      "sourceGLBSHA256": "c0d7e956eeb7e7565e89e313c427e57e62beea1e97e310bdb6d196876671ff93"
+    },
+    {
+      "id": "Plant_Quaternius_LeafyPlant_001",
+      "gameFile": "assets/models/Quaternius_LeafyPlant_001.glb",
+      "gameSHA256": "6131d35370b304743ef06d4fd9050d350879ac750c2765b593d890791e9076e1",
+      "originalSourceFile": "Blends/Plant_1.blend",
+      "originalSourceSHA256": "23573b2451a88a3a8b00a18ef45f782df2c79267961baa1efca1533c1a08a40f",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Groundcover/LeafyPlants/Plant_Quaternius_LeafyPlant_001/exports/Plant_Quaternius_LeafyPlant_001.glb",
+      "sourceGLBSHA256": "6c6a566f335f0655ec7c37168503fd1cc38099bf27c8207c60a5a61b280ad6e8"
+    },
+    {
+      "id": "Plant_Quaternius_LeafyPlant_002",
+      "gameFile": "assets/models/Quaternius_LeafyPlant_002.glb",
+      "gameSHA256": "7ece63abcfb57812abeb69811c7648024cb33fa866802a3e83a5131315918208",
+      "originalSourceFile": "Blends/Plant_2.blend",
+      "originalSourceSHA256": "d880531671d3e87707fdec6c8eb7a80fc455ec7554410643dc901109337fda94",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Groundcover/LeafyPlants/Plant_Quaternius_LeafyPlant_002/exports/Plant_Quaternius_LeafyPlant_002.glb",
+      "sourceGLBSHA256": "c482cff59988831e2f0606fef7abb34e84c408536b0092bab80d9180eb482ee6"
+    },
+    {
+      "id": "Plant_Quaternius_BirchTree_001",
+      "gameFile": "assets/models/Quaternius_BirchTree_001.glb",
+      "gameSHA256": "02df6812c252a724087ef06ba08d7f50f23d089e1d7e3d03d4aee41ba30538b7",
+      "originalSourceFile": "Blends/BirchTree_1.blend",
+      "originalSourceSHA256": "6b2c2d4e53fff8083a4b84b17cdcf82b309288632bde9b2e548585fc56809a07",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/BirchTree/Plant_Quaternius_BirchTree_001/exports/Plant_Quaternius_BirchTree_001.glb",
+      "sourceGLBSHA256": "42792f9f80e2e9970f2c1740794c35bd186632fb054035a630e7f5e7798c2b77"
+    },
+    {
+      "id": "Plant_Quaternius_BirchTree_002",
+      "gameFile": "assets/models/Quaternius_BirchTree_002.glb",
+      "gameSHA256": "e615a582c4845c1a41deb575fce05fa10e3275b7345c728a05000c9fc2937036",
+      "originalSourceFile": "Blends/BirchTree_2.blend",
+      "originalSourceSHA256": "f59305154d4ce4ee5f52e56399e7bd92fa46e4cd15ad7bf114aa6ae14b8b3388",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/BirchTree/Plant_Quaternius_BirchTree_002/exports/Plant_Quaternius_BirchTree_002.glb",
+      "sourceGLBSHA256": "2033b21238439077ecb5ba8ff013d87850653068fb91c502baf8001e8e5664fb"
+    },
+    {
+      "id": "Plant_Quaternius_BirchTree_003",
+      "gameFile": "assets/models/Quaternius_BirchTree_003.glb",
+      "gameSHA256": "9fdd6face7d15d9d23e166477a579bab13868e599dd0331664ad5d4a98677a8f",
+      "originalSourceFile": "Blends/BirchTree_3.blend",
+      "originalSourceSHA256": "d7be49e3a79f2d6e94ae25a3f838010f61858cfc10cd872ad8f7b50d28a0a7ba",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/BirchTree/Plant_Quaternius_BirchTree_003/exports/Plant_Quaternius_BirchTree_003.glb",
+      "sourceGLBSHA256": "dbdbdc1a4769fc1d76af52d18b7cb27eccce573dcc743661bf7829b680f3ba01"
+    },
+    {
+      "id": "Plant_Quaternius_BirchTree_004",
+      "gameFile": "assets/models/Quaternius_BirchTree_004.glb",
+      "gameSHA256": "8d324e165a2df22c04be8e3b100f7ec4e1c96676621bf847b5f9fa9d6be33c0a",
+      "originalSourceFile": "Blends/BirchTree_4.blend",
+      "originalSourceSHA256": "58b7311020775a2fec59528296369fa6e575542571462240e5e1612a3f48a0e2",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/BirchTree/Plant_Quaternius_BirchTree_004/exports/Plant_Quaternius_BirchTree_004.glb",
+      "sourceGLBSHA256": "87425b0301484c96611628bdaab467892e6ca302f405adf68a4a626b9da6b50e"
+    },
+    {
+      "id": "Plant_Quaternius_BirchTree_005",
+      "gameFile": "assets/models/Quaternius_BirchTree_005.glb",
+      "gameSHA256": "c17c58da8fcf68810ea1414de1d1313fa7b6e780d79530855a3c2de7fba1fa62",
+      "originalSourceFile": "Blends/BirchTree_5.blend",
+      "originalSourceSHA256": "1c1a60de614b5a7cc7fa9b1a28a46a1623deec5a1bdf2de05e4b6958ee8f7e93",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/BirchTree/Plant_Quaternius_BirchTree_005/exports/Plant_Quaternius_BirchTree_005.glb",
+      "sourceGLBSHA256": "5115fe14b7468d663d84ca04f80c71edf905cfa51d97725bd7aece7d7f574a65"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_001",
+      "gameFile": "assets/models/Quaternius_DeadTree_001.glb",
+      "gameSHA256": "b69aea7e2b2a9fc80ed477279a64691748655924de00df10c425f2ed5770f2b3",
+      "originalSourceFile": "Blends/DeadTree_1.blend",
+      "originalSourceSHA256": "629875bc57a0f427745393e09d9f29e950a6cd56c00ee14c8dfc6e2b0989de77",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/DeadTree/Plant_Quaternius_DeadTree_001/exports/Plant_Quaternius_DeadTree_001.glb",
+      "sourceGLBSHA256": "202bd005645eeff90f01ef5ce99d76c9b43f1a441e29068a5c69f19fcf51b415"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_002",
+      "gameFile": "assets/models/Quaternius_DeadTree_002.glb",
+      "gameSHA256": "b936c0de807a4220fcdefd9fea50664b880cb6bfb9711ac100c73b0e08219681",
+      "originalSourceFile": "Blends/DeadTree_2.blend",
+      "originalSourceSHA256": "8b52511c62dd20a5968692b631333519595b61e7a5fa7bec033ae6dd92d7fe5d",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/DeadTree/Plant_Quaternius_DeadTree_002/exports/Plant_Quaternius_DeadTree_002.glb",
+      "sourceGLBSHA256": "8d512312cb65745c986fe9db977c1d6dec213299a587eaf088d06e0d93c69678"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_003",
+      "gameFile": "assets/models/Quaternius_DeadTree_003.glb",
+      "gameSHA256": "695593d72f44e32587f60e182e8b4b9468bb5feb46a3937d18a4109fe968fa62",
+      "originalSourceFile": "Blends/DeadTree_3.blend",
+      "originalSourceSHA256": "2ef83286520b93cc257da0fbd1e8ea98032a682b38b5c8a4f963e8bc8a9f87f3",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/DeadTree/Plant_Quaternius_DeadTree_003/exports/Plant_Quaternius_DeadTree_003.glb",
+      "sourceGLBSHA256": "1fb1ad79dc5f271a04b1b62104bb63d006566c7c38eca8675355e4e8c9c9d332"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_004",
+      "gameFile": "assets/models/Quaternius_DeadTree_004.glb",
+      "gameSHA256": "e9360f14d06b35239a4227c8c5e67871d489ccdca8e0dae00bb17fd71693f322",
+      "originalSourceFile": "Blends/DeadTree_4.blend",
+      "originalSourceSHA256": "08f75e960c641a01d1da1f3d66db6345c0882534cbc999d315a0bca155b00545",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/DeadTree/Plant_Quaternius_DeadTree_004/exports/Plant_Quaternius_DeadTree_004.glb",
+      "sourceGLBSHA256": "bfb60605962ccc60c2a74e0fcaf7170457592557b737059950140333744443a2"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_005",
+      "gameFile": "assets/models/Quaternius_DeadTree_005.glb",
+      "gameSHA256": "4aa6fdb53261d1bda5f53f75d94e124ad410b949438b8ef4116e42a1ae786331",
+      "originalSourceFile": "Blends/DeadTree_5.blend",
+      "originalSourceSHA256": "71b89fc0cb6016661a05bdf4cdeca426c82ad217070fc1df482c0365f40ba293",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/DeadTree/Plant_Quaternius_DeadTree_005/exports/Plant_Quaternius_DeadTree_005.glb",
+      "sourceGLBSHA256": "07c31d78c78e02f6ac4d9c2ad17baafd64ee52104442b0b7111700cf08c919be"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_006",
+      "gameFile": "assets/models/Quaternius_DeadTree_006.glb",
+      "gameSHA256": "bec4868536bc4884c3c4dae9f1300819e0180df1444f0596065b4bda1a775d6d",
+      "originalSourceFile": "Blends/DeadTree_6.blend",
+      "originalSourceSHA256": "b96113a52ac82732317d587b12f6ea18eda2573add3e398a2cabcdcae0d143ff",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/DeadTree/Plant_Quaternius_DeadTree_006/exports/Plant_Quaternius_DeadTree_006.glb",
+      "sourceGLBSHA256": "f18e3f4fb7fed1db60f2dee347854d5a74a8824c1ee1b55b62b139b940903be7"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_007",
+      "gameFile": "assets/models/Quaternius_DeadTree_007.glb",
+      "gameSHA256": "7bffef86c7fbd77b8eb3c4ed57ec4592f83a79c5911be9dc8c3d798539481dd9",
+      "originalSourceFile": "Blends/DeadTree_7.blend",
+      "originalSourceSHA256": "e7ae6d425739fc0a796e55153c42e6318633dcbb59530fed07d236379ec1b5d9",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/DeadTree/Plant_Quaternius_DeadTree_007/exports/Plant_Quaternius_DeadTree_007.glb",
+      "sourceGLBSHA256": "f21930940db8beb725d9ed41f3231c4e4edfc032913d9c2d9793bfddf57bb690"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_008",
+      "gameFile": "assets/models/Quaternius_DeadTree_008.glb",
+      "gameSHA256": "2a03cbff4ed0a888419d324a513b7f1ad39e2737594cbe99786b1d36c5bd14ec",
+      "originalSourceFile": "Blends/DeadTree_8.blend",
+      "originalSourceSHA256": "6c1306ba93ddb05dee5e075ba6d905f1bdba7cc67ce81b207e490c3b8c8e73ae",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/DeadTree/Plant_Quaternius_DeadTree_008/exports/Plant_Quaternius_DeadTree_008.glb",
+      "sourceGLBSHA256": "bc668f45cb125c0b7dbdc6195ae9498bbe090266b26925e69a8d49bfdf9b603a"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_009",
+      "gameFile": "assets/models/Quaternius_DeadTree_009.glb",
+      "gameSHA256": "8558c50484e473f6a402fe2e6dd8126d64f9c0a9e51b848310cdd8181f93bda7",
+      "originalSourceFile": "Blends/DeadTree_9.blend",
+      "originalSourceSHA256": "13b94c085e1ace7f133b53c7157a0acded4f80a9de6266bed6f43c0484c4edd4",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/DeadTree/Plant_Quaternius_DeadTree_009/exports/Plant_Quaternius_DeadTree_009.glb",
+      "sourceGLBSHA256": "259060c91e9a195a6a59b34923ab88532fa6270b48ec9c4d0e0f89c828474f8d"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_010",
+      "gameFile": "assets/models/Quaternius_DeadTree_010.glb",
+      "gameSHA256": "4b8072b6ae65930b8b8505f0eabafbe645525d446b04eaf656ae3a76ee6372b8",
+      "originalSourceFile": "Blends/DeadTree_10.blend",
+      "originalSourceSHA256": "ef60645e171f0fb9a444746b468e0d59bed8da596acd689eb5f1f522830791c7",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/DeadTree/Plant_Quaternius_DeadTree_010/exports/Plant_Quaternius_DeadTree_010.glb",
+      "sourceGLBSHA256": "42b2ab50699f8c00385150b2765dd037ff83061f9ef5c6f2b0328c781197ae66"
+    },
+    {
+      "id": "Plant_Quaternius_MapleTree_001",
+      "gameFile": "assets/models/Quaternius_MapleTree_001.glb",
+      "gameSHA256": "6dbadc09649a0f226422f72477e5c28e999d5b46b28e9028fea090cd07c34ba0",
+      "originalSourceFile": "Blends/MapleTree_1.blend",
+      "originalSourceSHA256": "c183a3f66ae181461355f0ab2f882be397fee9c34f72b52b29a11a24cdf7916d",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/MapleTree/Plant_Quaternius_MapleTree_001/exports/Plant_Quaternius_MapleTree_001.glb",
+      "sourceGLBSHA256": "8987ae992f8e402a94b3cfd7df09e78d055debf25a1bfafba01d726a49f00411"
+    },
+    {
+      "id": "Plant_Quaternius_MapleTree_002",
+      "gameFile": "assets/models/Quaternius_MapleTree_002.glb",
+      "gameSHA256": "aba3d9fb3dff6dcd936403bc4405e2b1e525466b8a0dffb1eae08a74d3649a57",
+      "originalSourceFile": "Blends/MapleTree_2.blend",
+      "originalSourceSHA256": "d6ce6ec442312466dc5aaf38da4abf55922c4d2d080c4da39ca49a9dd42bd7a9",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/MapleTree/Plant_Quaternius_MapleTree_002/exports/Plant_Quaternius_MapleTree_002.glb",
+      "sourceGLBSHA256": "6050f09a1f0a586ae16627c215c4cc4ebb60c63e05ff4852b220a17862a2c1cc"
+    },
+    {
+      "id": "Plant_Quaternius_MapleTree_003",
+      "gameFile": "assets/models/Quaternius_MapleTree_003.glb",
+      "gameSHA256": "46f082dc227df13b076e9749b0d2c1ec9cdaaaeb04f135fb1a588ba2e8fc0a41",
+      "originalSourceFile": "Blends/MapleTree_3.blend",
+      "originalSourceSHA256": "7b859d3a504759ef532cd55aff828989e1931cf459253407d3ad8cd14e418fa0",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/MapleTree/Plant_Quaternius_MapleTree_003/exports/Plant_Quaternius_MapleTree_003.glb",
+      "sourceGLBSHA256": "55e437965315f267ff2848e4f065efc7c2cb80a5a9224a13bcbfc3611b29f0a9"
+    },
+    {
+      "id": "Plant_Quaternius_MapleTree_004",
+      "gameFile": "assets/models/Quaternius_MapleTree_004.glb",
+      "gameSHA256": "666ffdec5fe3483eb355df01eee0e75fa45759a5e445f6d9e19732d2baf02609",
+      "originalSourceFile": "Blends/MapleTree_4.blend",
+      "originalSourceSHA256": "f9629a3b6f9809358a6cd52bcd5e7ae9abfb5fe83f343266396caaafb8b77d75",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/MapleTree/Plant_Quaternius_MapleTree_004/exports/Plant_Quaternius_MapleTree_004.glb",
+      "sourceGLBSHA256": "bb9035f50dd1a532389876f4e5d4ff68690800539f2cadd0d3f5d632b9d52be1"
+    },
+    {
+      "id": "Plant_Quaternius_MapleTree_005",
+      "gameFile": "assets/models/Quaternius_MapleTree_005.glb",
+      "gameSHA256": "a5687a3822c2394e6bcb40d26bd2bf5062df2f86f5e5aed75a62689738f8deaa",
+      "originalSourceFile": "Blends/MapleTree_5.blend",
+      "originalSourceSHA256": "c7ea2d1f564ed095f6f196d2ddf7208db45eac206374a66315deaf0908f28e1f",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/MapleTree/Plant_Quaternius_MapleTree_005/exports/Plant_Quaternius_MapleTree_005.glb",
+      "sourceGLBSHA256": "218f2cd1364fc589abc3e7a4b504c5d36ec8d2e5a4fb892f4c48298c0c181451"
+    },
+    {
+      "id": "Plant_Quaternius_NormalTree_001",
+      "gameFile": "assets/models/Quaternius_NormalTree_001.glb",
+      "gameSHA256": "2fe22545cfae202955d4a559c4e116c5f4bcd072f0f3603b3c8c089226d3c7d0",
+      "originalSourceFile": "Blends/NormalTree_1.blend",
+      "originalSourceSHA256": "e22a2bd168f05e9b949ee49b4ad56b312c065516d2c86e8cb8367b49bf27c3a7",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/NormalTree/Plant_Quaternius_NormalTree_001/exports/Plant_Quaternius_NormalTree_001.glb",
+      "sourceGLBSHA256": "64d031f79e81e7d90bb55acd6b78ef91c6ede8f065f4e8cce28c8c9817610e3a"
+    },
+    {
+      "id": "Plant_Quaternius_NormalTree_002",
+      "gameFile": "assets/models/Quaternius_NormalTree_002.glb",
+      "gameSHA256": "9a50872ae52f3618548c620509d63744aa8193db19c738df46da7b009800d4e0",
+      "originalSourceFile": "Blends/NormalTree_2.blend",
+      "originalSourceSHA256": "734b6e9b6ba16d764158de2ab919054cbc8dd2461f8aa903bf44e454a7557445",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/NormalTree/Plant_Quaternius_NormalTree_002/exports/Plant_Quaternius_NormalTree_002.glb",
+      "sourceGLBSHA256": "a3aac9f004fd44bb96adb93a893580302b56d40fdce5d2e858d412359376d268"
+    },
+    {
+      "id": "Plant_Quaternius_NormalTree_003",
+      "gameFile": "assets/models/Quaternius_NormalTree_003.glb",
+      "gameSHA256": "b7671f7fc1b79fab6a6c27e8c0657fb4cd346383c23ae0ae41c47ec1b0d0cf49",
+      "originalSourceFile": "Blends/NormalTree_3.blend",
+      "originalSourceSHA256": "102d5c76a678a151ec013005d42ca254fb8852dfc7c6006564f1ed83b3118582",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/NormalTree/Plant_Quaternius_NormalTree_003/exports/Plant_Quaternius_NormalTree_003.glb",
+      "sourceGLBSHA256": "e63a3c394d3f86ce5c42a8faa2978d5e8236d1bb0547ebb460e2d2f017773438"
+    },
+    {
+      "id": "Plant_Quaternius_NormalTree_004",
+      "gameFile": "assets/models/Quaternius_NormalTree_004.glb",
+      "gameSHA256": "42a33755610195f20ffa99aca84237f7467a136a10f5ab8d3ca324428e34ef23",
+      "originalSourceFile": "Blends/NormalTree_4.blend",
+      "originalSourceSHA256": "c29d02452cd388b7a0b1f0d96722ce6ce169dbcf013db7a2e9295ec9aeeafec6",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/NormalTree/Plant_Quaternius_NormalTree_004/exports/Plant_Quaternius_NormalTree_004.glb",
+      "sourceGLBSHA256": "27c915163f697d93d9a54aaf5a05cf83494d1e73d967bebc985575dd5604eaa7"
+    },
+    {
+      "id": "Plant_Quaternius_NormalTree_005",
+      "gameFile": "assets/models/Quaternius_NormalTree_005.glb",
+      "gameSHA256": "47de2e98c5a677b2913c82d12006345ca53a391a877e0abfe9105920286ee8b7",
+      "originalSourceFile": "Blends/NormalTree_5.blend",
+      "originalSourceSHA256": "538738266d73419a900e461b4ad8d212b74e2dd85df4f9d3691aaf3709d8d14e",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/NormalTree/Plant_Quaternius_NormalTree_005/exports/Plant_Quaternius_NormalTree_005.glb",
+      "sourceGLBSHA256": "795fe3a13bc31fde6fefdd655ad135bd73dcf5bee11663b5b71ae37a75de734c"
+    },
+    {
+      "id": "Plant_Quaternius_PalmTree_001",
+      "gameFile": "assets/models/Quaternius_PalmTree_001.glb",
+      "gameSHA256": "ed2b3c109e7dc1f04c769022ec5f8aa87f8cfee7d151f1eb4fedf5abc05ee027",
+      "originalSourceFile": "Blends/PalmTree_1.blend",
+      "originalSourceSHA256": "52db01bdfe49d7718021dee3918e3159c287260737d9b6babb4d41dc32d6e5cb",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/PalmTree/Plant_Quaternius_PalmTree_001/exports/Plant_Quaternius_PalmTree_001.glb",
+      "sourceGLBSHA256": "3a8c89d0dfffdaa58d0c134de58fcabed8e939211b6756e6d28b62254cdbd738"
+    },
+    {
+      "id": "Plant_Quaternius_PalmTree_002",
+      "gameFile": "assets/models/Quaternius_PalmTree_002.glb",
+      "gameSHA256": "4b7a2c53ab44e489a896d577ff9812b2a864baba915588b4bd5a8839bc53db6e",
+      "originalSourceFile": "Blends/PalmTree_2.blend",
+      "originalSourceSHA256": "a7a3587a097106ab2976886b6c043fa1af3bec95eb628899147ba5679e10a8ab",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/PalmTree/Plant_Quaternius_PalmTree_002/exports/Plant_Quaternius_PalmTree_002.glb",
+      "sourceGLBSHA256": "4ebc5b4ca4183b78ccb05ea366cfd8c0f6b9a2b7959b547fd7f11edf863d34df"
+    },
+    {
+      "id": "Plant_Quaternius_PalmTree_003",
+      "gameFile": "assets/models/Quaternius_PalmTree_003.glb",
+      "gameSHA256": "0439eebb1e0a8024e6cb711def91740e573aa7d31215de24e707d10507a0d58c",
+      "originalSourceFile": "Blends/PalmTree_3.blend",
+      "originalSourceSHA256": "54b55ddc6107238fc158787b8af4edc1dc3b676cee60e3fce422ec24fea727a7",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/PalmTree/Plant_Quaternius_PalmTree_003/exports/Plant_Quaternius_PalmTree_003.glb",
+      "sourceGLBSHA256": "7b2a03cc49acbd1298697162b98ee4b6c1d821a36ec9fccc92dd7bc683c5be8e"
+    },
+    {
+      "id": "Plant_Quaternius_PalmTree_004",
+      "gameFile": "assets/models/Quaternius_PalmTree_004.glb",
+      "gameSHA256": "35390cb6cf3b963fcff6d3f18ad920b71ba4582a1b37a562a805655ece0c09ff",
+      "originalSourceFile": "Blends/PalmTree_4.blend",
+      "originalSourceSHA256": "30976c5541d69595c6c46859ab6ae0d856ab03789512faa3f20c1eea80af7cf9",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/PalmTree/Plant_Quaternius_PalmTree_004/exports/Plant_Quaternius_PalmTree_004.glb",
+      "sourceGLBSHA256": "1a94b4b2737f9c1255dce2ecfb62683fbadf6dc93fdcef58d23c95b0c5a395dc"
+    },
+    {
+      "id": "Plant_Quaternius_PalmTree_005",
+      "gameFile": "assets/models/Quaternius_PalmTree_005.glb",
+      "gameSHA256": "2fe6a5096d2e95b59277ec6bc5d2515970954253291de873718f5f401d94c691",
+      "originalSourceFile": "Blends/PalmTree_5.blend",
+      "originalSourceSHA256": "eb0f693c6577b2b54478122955a78eb44af85115210afc981733dedcb54ff40d",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/PalmTree/Plant_Quaternius_PalmTree_005/exports/Plant_Quaternius_PalmTree_005.glb",
+      "sourceGLBSHA256": "a846d8d920e89ef5c7286c84f4eced19aab7714c48076441c2e31319281ceffd"
+    },
+    {
+      "id": "Plant_Quaternius_PineTree_001",
+      "gameFile": "assets/models/Quaternius_PineTree_001.glb",
+      "gameSHA256": "c9c7cd046b08cb1ba6cc90982cd2779665513a3260c0167b309964f9fd466fbf",
+      "originalSourceFile": "Blends/PineTree_1.blend",
+      "originalSourceSHA256": "1587d7a652502c1c13a8f1e1d9217aa0dcdf0dd7bb2fa05074df4eec8e4e7121",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/PineTree/Plant_Quaternius_PineTree_001/exports/Plant_Quaternius_PineTree_001.glb",
+      "sourceGLBSHA256": "2248dd55e41b38d2294aa9b42f6ee4040d6818a76fc049a34ffbf293d8faa1c6"
+    },
+    {
+      "id": "Plant_Quaternius_PineTree_002",
+      "gameFile": "assets/models/Quaternius_PineTree_002.glb",
+      "gameSHA256": "ac173604a0a7500ee5c0a3b83581a8caf4b92b950d619d910e52e7c7e6748183",
+      "originalSourceFile": "Blends/PineTree_2.blend",
+      "originalSourceSHA256": "8380bc240caffaa37e3de9c66da406ac338fd5e33aa3baec52d99b1cb3dc233b",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/PineTree/Plant_Quaternius_PineTree_002/exports/Plant_Quaternius_PineTree_002.glb",
+      "sourceGLBSHA256": "f6c8100de7ad46b4e18dd09e3d2abfc08261dd20088ca56f2a2cb4296cc7213d"
+    },
+    {
+      "id": "Plant_Quaternius_PineTree_003",
+      "gameFile": "assets/models/Quaternius_PineTree_003.glb",
+      "gameSHA256": "7958559a8efcb3f8192de40657c965c02c5d8473383b4bf47431352794eef511",
+      "originalSourceFile": "Blends/PineTree_3.blend",
+      "originalSourceSHA256": "c1ab5deb50ff62c4b9585921dbe0c109b474beca05936483baed9fd9f86ffab1",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/PineTree/Plant_Quaternius_PineTree_003/exports/Plant_Quaternius_PineTree_003.glb",
+      "sourceGLBSHA256": "37562048fb05e0bc35365e46fde0e86e7a06ec30a9dbdf572fabd150af455480"
+    },
+    {
+      "id": "Plant_Quaternius_PineTree_004",
+      "gameFile": "assets/models/Quaternius_PineTree_004.glb",
+      "gameSHA256": "ee7fd34a593d88061a6aa741508d6ee2bcba6ae015d4ec0fc8d82b01e189c818",
+      "originalSourceFile": "Blends/PineTree_4.blend",
+      "originalSourceSHA256": "d2b4247dc1a977e45aa0ae5ea3f7aeb6de3d22165893d97be84e2f7f0845cc5a",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/PineTree/Plant_Quaternius_PineTree_004/exports/Plant_Quaternius_PineTree_004.glb",
+      "sourceGLBSHA256": "3c01a86fa6ff9e52bd6c9bdd5586227c40f877869e2482e4351546298c9a799c"
+    },
+    {
+      "id": "Plant_Quaternius_PineTree_005",
+      "gameFile": "assets/models/Quaternius_PineTree_005.glb",
+      "gameSHA256": "197196b5992591ed7a8de40e4525d9353d4df2fcae4ad88c88c17932ba91a5ca",
+      "originalSourceFile": "Blends/PineTree_5.blend",
+      "originalSourceSHA256": "a3ad2f353aa7160ce594e1a76276f3ec30be3cb4c674d6e3d33443093efdbaa1",
+      "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/PineTree/Plant_Quaternius_PineTree_005/exports/Plant_Quaternius_PineTree_005.glb",
+      "sourceGLBSHA256": "788b34a0cfa8653bd949910e688d2e3d645bcd0a95daa361f0fdb3ab779228e4"
+    },
+    {
+      "id": "Environment_Quaternius_Rock_001",
+      "gameFile": "assets/models/Quaternius_Rock_001.glb",
+      "gameSHA256": "9762b7820a9138660abedb2322929f403e6da29805e88d73efceb4cf247c535a",
+      "originalSourceFile": "Blends/Rock_1.blend",
+      "originalSourceSHA256": "bdd9e43bc53227b8098087ab6b54d10ec55f8d42b360fc3a5bf341c2e253fa35",
+      "sourceLibraryGLB": "07_Environment/Quaternius_UltimateStylizedNature_202205/Rocks/Environment_Quaternius_Rock_001/exports/Environment_Quaternius_Rock_001.glb",
+      "sourceGLBSHA256": "c794819a61890bd008d755b81a0e32a43f1cec58e6d6fad2cd832baddeb9bd12"
+    },
+    {
+      "id": "Environment_Quaternius_Rock_002",
+      "gameFile": "assets/models/Quaternius_Rock_002.glb",
+      "gameSHA256": "de6e535e613a104ca5bb55e629ea89965250d89ce8f6955f578e338b16a1b4d3",
+      "originalSourceFile": "Blends/Rock_2.blend",
+      "originalSourceSHA256": "dda48376e5116bdd7b01b7619590935a9e3011417db8af4804ab3d1402dba476",
+      "sourceLibraryGLB": "07_Environment/Quaternius_UltimateStylizedNature_202205/Rocks/Environment_Quaternius_Rock_002/exports/Environment_Quaternius_Rock_002.glb",
+      "sourceGLBSHA256": "eb705826c7fc5ed840b4edac6b894300f89afce1ca723e7c65a00e08feb7ce7d"
+    },
+    {
+      "id": "Environment_Quaternius_Rock_003",
+      "gameFile": "assets/models/Quaternius_Rock_003.glb",
+      "gameSHA256": "f4e55e594a04164347bee2946c606163db8a58b89a8137b8b4ab416e046c9263",
+      "originalSourceFile": "Blends/Rock_3.blend",
+      "originalSourceSHA256": "e7c6c66238c39c177f7960d983419841fc5a69796c8d8fb57592952bb2d3f758",
+      "sourceLibraryGLB": "07_Environment/Quaternius_UltimateStylizedNature_202205/Rocks/Environment_Quaternius_Rock_003/exports/Environment_Quaternius_Rock_003.glb",
+      "sourceGLBSHA256": "786f037ace7e6a6cffd28d4c0e154067ff1bf50a40db80e3396c586fe501be02"
+    },
+    {
+      "id": "Environment_Quaternius_Rock_004",
+      "gameFile": "assets/models/Quaternius_Rock_004.glb",
+      "gameSHA256": "f4852ee242788194a1da5530a16b14ad8bfd23d9c48be52a8c1fabcca25f6dcb",
+      "originalSourceFile": "Blends/Rock_4.blend",
+      "originalSourceSHA256": "a3303960f75fb3cbbff4329f16fd020eb5fc47520eb855a838fc77174181e6a4",
+      "sourceLibraryGLB": "07_Environment/Quaternius_UltimateStylizedNature_202205/Rocks/Environment_Quaternius_Rock_004/exports/Environment_Quaternius_Rock_004.glb",
+      "sourceGLBSHA256": "ba5d2ccfe1594195cb561ee6b9a6e74c5454a1ea26aae2435acfbf21d857b129"
+    },
+    {
+      "id": "Environment_Quaternius_Rock_005",
+      "gameFile": "assets/models/Quaternius_Rock_005.glb",
+      "gameSHA256": "a2d82e4ae7dc59518865ba612f9a26908a00228d15b72693ea2d907ebb1f8633",
+      "originalSourceFile": "Blends/Rock_5.blend",
+      "originalSourceSHA256": "f5f686fae61007e4143739a0239e90bca49178cb7864cdb8de9eebba969f0c43",
+      "sourceLibraryGLB": "07_Environment/Quaternius_UltimateStylizedNature_202205/Rocks/Environment_Quaternius_Rock_005/exports/Environment_Quaternius_Rock_005.glb",
+      "sourceGLBSHA256": "9c13d7f53d7127e61ee0ee445b14afaed1f2b0539fecf440da594fc45c6de610"
+    }
+  ],
+  "licenseEvidence": [
+    {
+      "file": "assets/licenses/Quaternius_UltimateStylizedNature_202205/Credits.txt",
+      "bytes": 287,
+      "sha256": "aa8e7676b703ab67873519700e9821e0a77fbea4ecac930ddbfd5d20a9d98555"
+    },
+    {
+      "file": "assets/licenses/Quaternius_UltimateStylizedNature_202205/License.txt",
+      "bytes": 374,
+      "sha256": "de990ef6fc68cffd7fd1ae342c4d0c823b541b8848d8f76bca5d3339f4de6f6e"
+    },
+    {
+      "file": "assets/licenses/Quaternius_UltimateStylizedNature_202205/LicensingReview.zh-TW.md",
+      "bytes": 3567,
+      "sha256": "5c7b06fdfc7d8f3c4a59858ecfd67bb3ebc0a26c42af4cb1aaad33caf40f09c6"
+    },
+    {
+      "file": "assets/licenses/Quaternius_UltimateStylizedNature_202205/mirror-License.txt",
+      "bytes": 362,
+      "sha256": "f22fa91c48be8a5702579b317d69b4375a86ef10e16686d8a323cc7425fadb9d"
+    },
+    {
+      "file": "assets/licenses/Quaternius_UltimateStylizedNature_202205/official-drive-textures.json",
+      "bytes": 73343,
+      "sha256": "e6aa49fa36f026792cc4e131c7f433472e8224a96c2ca26509e37da407036142"
+    },
+    {
+      "file": "assets/licenses/Quaternius_UltimateStylizedNature_202205/official-pack-page.html",
+      "bytes": 15650,
+      "sha256": "2c054b7b887f833a7cf2118dc3d9ae0c9f1fb003dcced848ea2658718d520351"
+    },
+    {
+      "file": "assets/licenses/Quaternius_UltimateStylizedNature_202205/official-qal-page.html",
+      "bytes": 10514,
+      "sha256": "59680d5cf3f81d7071bed19fc7249d23caf3e5c944acd7bc427de7e03cdf12d3"
+    },
+    {
+      "file": "assets/licenses/Quaternius_UltimateStylizedNature_202205/polypizza-pack.html",
+      "bytes": 113711,
+      "sha256": "69e8f1b47ef9ee8a19aa34e450368120f5becefcf0699e3e35fb9e3f580e76bb"
+    },
+    {
+      "file": "assets/licenses/Quaternius_UltimateStylizedNature_202205/texture-manifest.json",
+      "bytes": 23148,
+      "sha256": "7d5605c2e9180b7e403c32c33e781ec6c0e1657224ed0a95f949e6065439141b"
+    },
+    {
+      "file": "assets/licenses/Quaternius_UltimateStylizedNature_202205/texture-recovery.json",
+      "bytes": 17619,
+      "sha256": "3397174a6097b98a82e362b03bfeb74ace396e4a78225be881b46cae93f3dca8"
+    }
+  ],
+  "derivation": "Game-ready library GLBs, externalized PNGs, no geometry simplification, no Blender originals or source archive included.",
+  "licensingCaveat": "This specific May 2022 pack is labeled CC0 on its dedicated official pack page. The official License.txt header says Ultimate Platformer Pack; the later generic QAL page differs. The preserved review and source pages explain this evidence and discrepancy. Do not generalize this pack-specific assessment to other Quaternius releases.",
+  "textureProvenance": "assets/provenance/Quaternius_UltimateStylizedNature_202205/textures.json"
+}

@@ -1,0 +1,223 @@
+{
+  "id": "Plant_Quaternius_BirchTree_002",
+  "name": "白樺樹 02",
+  "author": "Quaternius",
+  "pack": "Quaternius_UltimateStylizedNature_202205",
+  "sourceUrl": "https://quaternius.com/packs/ultimatestylizednature.html",
+  "vendorRelease": "2022-05",
+  "license": "CC0-1.0",
+  "licenseEvidence": "assets/licenses/Quaternius_UltimateStylizedNature_202205/LicensingReview.zh-TW.md",
+  "originalSourceFile": "Blends/BirchTree_2.blend",
+  "originalSourceSHA256": "f59305154d4ce4ee5f52e56399e7bd92fa46e4cd15ad7bf114aa6ae14b8b3388",
+  "sourceArchiveName": "Blends-20261109T065115Z-1-001.zip",
+  "sourceArchiveSHA256": "56133f577e873afa77a35629ca955abc9825e30b900e2245095edd1a757b8f30",
+  "sourceLibraryMetadata": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/BirchTree/Plant_Quaternius_BirchTree_002/asset.json",
+  "sourceLibraryGLB": "04_Plants/Quaternius_UltimateStylizedNature_202205/Trees/BirchTree/Plant_Quaternius_BirchTree_002/exports/Plant_Quaternius_BirchTree_002.glb",
+  "sourceGLBSHA256": "2033b21238439077ecb5ba8ff013d87850653068fb91c502baf8001e8e5664fb",
+  "sourceGLBBytes": 3273688,
+  "gameFile": "assets/models/Quaternius_BirchTree_002.glb",
+  "gameSHA256": "e615a582c4845c1a41deb575fce05fa10e3275b7345c728a05000c9fc2937036",
+  "gameBytes": 420992,
+  "transformation": "Only embedded PNG images were externalized and deduplicated by exact SHA-256. Non-image BIN bufferViews were copied byte-for-byte and relocated with 4-byte alignment. Geometry, indices, UVs, normals, tangents, material properties, samplers, nodes and transforms were preserved.",
+  "compatibleBiomes": [
+    "Forest",
+    "Hills",
+    "Pastoral",
+    "Rural",
+    "Lakeside",
+    "Riverbank",
+    "Plateau"
+  ],
+  "placement": {
+    "groundAnchor": [
+      0,
+      0,
+      0
+    ],
+    "baseAtGround": true,
+    "originPolicy": "author-root-xy-ground-z",
+    "recommendedUniformScaleRange": [
+      0.85,
+      1.15
+    ],
+    "embedDepthMetersRange": [
+      0.01,
+      0.03
+    ],
+    "displaySlab": false,
+    "suggestedMinRailCenterOffsetMeters": 4.192,
+    "footprintRadiusMeters": 1.792006130050113,
+    "clearanceBasis": "horizontal mesh radius + 2.4 m reserved corridor; conservative placement guidance, not a measured game collision certification",
+    "compatibleBiomes": [
+      "Forest",
+      "Hills",
+      "Pastoral",
+      "Rural",
+      "Lakeside",
+      "Riverbank",
+      "Plateau"
+    ],
+    "usageNote": "適合森林、丘陵、村落外圍與湖畔樹群；保留原作者樹冠輪廓與配色，與其他樹型交錯，避免遮住軌道及主景。",
+    "slopeNote": "大樹保持直立；岩石與地表植物依地面法線適度調整，需重新檢查整體接地，不能只讓中心點貼地後讓邊緣懸空。"
+  },
+  "gameUsage": "適合森林、丘陵、村落外圍與湖畔樹群；保留原作者樹冠輪廓與配色，與其他樹型交錯，避免遮住軌道及主景。",
+  "originalNormalization": {
+    "originalMatrix": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "translationApplied": [
+      0,
+      0,
+      0.030497614294290543
+    ],
+    "metresPerOriginalUnit": 1,
+    "cleanup": {
+      "removed_unrendered_vertices": 0,
+      "removed_zero_area_faces": 0
+    },
+    "topologyAfterCleanup": {
+      "boundary_edges": 4768,
+      "nonmanifold_edges": 4768,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "degenerate_triangles": 0
+    },
+    "conversionNotes": "../../../_Shared/source/Normalization.zh-TW.md"
+  },
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z (display convention; static nature asset)",
+    "unit": "metre",
+    "origin": "ground datum; see placement.originPolicy",
+    "sourceBlenderUp": "+Z",
+    "glbConversion": "[x,z,-y]"
+  },
+  "images": [
+    {
+      "name": "BirchTree_Bark_Normal",
+      "sha256": "f2833c4c014333cfc12ae3466be60110270485f09e7dad59f7820ac6510968ed",
+      "url": "assets/textures/nature-v8/f2833c4c014333cfc12ae3466be60110270485f09e7dad59f7820ac6510968ed.png",
+      "bytes": 1449265
+    },
+    {
+      "name": "BirchTree_Bark",
+      "sha256": "ca4591d9c10c01953859e96871d973550191bcef8de5c1d094505a83231d7309",
+      "url": "assets/textures/nature-v8/ca4591d9c10c01953859e96871d973550191bcef8de5c1d094505a83231d7309.png",
+      "bytes": 1330657
+    },
+    {
+      "name": "BirchTree_Leaves",
+      "sha256": "a7f940360c2a4ee92721962fabd7f096e5afbe790b7e29374e532811b117a5d8",
+      "url": "assets/textures/nature-v8/a7f940360c2a4ee92721962fabd7f096e5afbe790b7e29374e532811b117a5d8.png",
+      "bytes": 72843
+    }
+  ],
+  "accessorChecks": [
+    {
+      "accessor": 0,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 3343,
+      "bytes": 40116,
+      "sha256": "5170e424180a4bbb5ae0f1e99c0022955e33e7f0d1a4bd05ecf777e7ac5fe689"
+    },
+    {
+      "accessor": 1,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 3343,
+      "bytes": 40116,
+      "sha256": "9f8486645a4481f077f0b75c5159ad13f12a39dfdddbe5c55ef655fa95b42875"
+    },
+    {
+      "accessor": 2,
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 3343,
+      "bytes": 26744,
+      "sha256": "5a6ae58fe8c2d6e64be2da55c197bb006cf49dde330ed82fcb3508d29168169c"
+    },
+    {
+      "accessor": 3,
+      "type": "VEC4",
+      "componentType": 5126,
+      "count": 3343,
+      "bytes": 53488,
+      "sha256": "c73239967bc573d88fff9a8b5facc43ac0ed13f491c4890380fd9f45d620554a"
+    },
+    {
+      "accessor": 4,
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 16392,
+      "bytes": 32784,
+      "sha256": "f4c87ef7667d66aa0010f2da1684a170e9d6d44a07f9d1f9c594739ada8f906d"
+    },
+    {
+      "accessor": 5,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 4392,
+      "bytes": 52704,
+      "sha256": "61ee7c978a3b4ce9d4da782713ede8d391c82f6d636f2c1d858d04448b5a737f"
+    },
+    {
+      "accessor": 6,
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 4392,
+      "bytes": 52704,
+      "sha256": "7b60f4d6173bfd11a7132ffb444e65355f3c6a43e9afc47726ff00f26c081ad9"
+    },
+    {
+      "accessor": 7,
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 4392,
+      "bytes": 35136,
+      "sha256": "b27c931ea29ff961a78ef2c28e1763ce8f5e49b853c54a3aea2b46d64b4fa396"
+    },
+    {
+      "accessor": 8,
+      "type": "VEC4",
+      "componentType": 5126,
+      "count": 4392,
+      "bytes": 70272,
+      "sha256": "7c7551272997d718cf16053fadaba9da29e5a07cdc6c5f5a876ccf2c04fb773d"
+    },
+    {
+      "accessor": 9,
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 6588,
+      "bytes": 13176,
+      "sha256": "479e44b29e5863d76bf38a5ef94de4b09b963a68caf05c304c8dd4df18a90571"
+    }
+  ],
+  "animationsProvided": false,
+  "lodsProvided": false,
+  "gamePerformanceCertification": false
+}

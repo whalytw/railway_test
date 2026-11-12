@@ -1,12 +1,13 @@
 import * as THREE from 'three';
 import { GLTFLoader } from '../vendor/GLTFLoader.js';
-import { TAU, lerp, clamp, wrap, smoothstep, randomGenerator, createRoute, stationsFor, biomeMix, trackSegments } from './core.js?v=7.0.0';
-import { sleeperLayout, sleeperFilter, planRouteFeatures, featureAt, bridgeCoordinates, bridgeGroundHeight } from './route-features.js?v=7.0.0';
-import { buildMountainBackdrop, buildVariedClouds, updateClouds, buildBridgeAndRiver, buildTunnel } from './scenery.js?v=7.0.0';
-import { fitGroundContact, prepareGroundedParts, groundBatchGeometry, renderedGroundHeight } from './grounding.js?v=7.0.0';
-import { planScenery, indexGroundPads, paddedHeight } from './scenery-plan.js?v=7.0.0';
-import { createStandingDriver } from './drivers.js?v=7.0.0';
-import { createGroundMaterial, grassHabitatAt, buildGrassCover, buildFarmland } from './ground-cover.js?v=7.0.0';
+import { TAU, lerp, clamp, wrap, smoothstep, randomGenerator, createRoute, stationsFor, biomeMix, trackSegments } from './core.js?v=8.0.0';
+import { sleeperLayout, sleeperFilter, planRouteFeatures, featureAt, bridgeCoordinates, bridgeGroundHeight } from './route-features.js?v=8.0.0';
+import { buildMountainBackdrop, buildVariedClouds, updateClouds, buildBridgeAndRiver, buildTunnel } from './scenery.js?v=8.0.0';
+import { fitGroundContact, prepareGroundedParts, groundBatchGeometry, renderedGroundHeight } from './grounding.js?v=8.0.0';
+import { planScenery, indexGroundPads, paddedHeight } from './scenery-plan.js?v=8.0.0';
+import { createBiomeLayout } from './biome-blend.js?v=8.0.0';
+import { createStandingDriver } from './drivers.js?v=8.0.0';
+import { createGroundMaterial, grassHabitatAt, buildGrassCover, buildFarmland } from './ground-cover.js?v=8.0.0';
 
 export const PALETTES = {
   Forest: { ground: '#829565', detail: '#62794d', sky: '#bed0ba', amplitude: 12 },
@@ -27,7 +28,32 @@ const slopeNormal = new THREE.Vector3(), slopeQuaternion = new THREE.Quaternion(
 const yieldFrame = () => new Promise(resolve => setTimeout(resolve, 0));
 
 export class AssetStore {
-  constructor(manifest) { this.manifest = manifest; this.loader = new GLTFLoader(); this.cache = new Map(); this.pending = new Map(); }
+  constructor(manifest) {
+    this.manifest = manifest; this.loader = new GLTFLoader(); this.cache = new Map(); this.pending = new Map();
+    this.sharedTextures = new Map(); this.sharedMaterials = new Map();
+    // ImageBitmapLoader can share decoded images, and the maps below also share
+    // the GPU textures/materials across the 63 independently parsed glTF files.
+    THREE.Cache.enabled = true;
+  }
+  shareMaterial(material, parser, assetURL) {
+    for (const value of Object.values(material)) if (value?.isTexture) {
+      const association = parser.associations.get(value), texture = parser.json.textures?.[association?.textures];
+      const uri = parser.json.images?.[texture?.source]?.uri;
+      if (!uri || !uri.includes('nature-v8/')) continue;
+      const url = new URL(uri, new URL(assetURL, document.baseURI)).href;
+      const key = JSON.stringify([url,value.colorSpace,value.flipY,value.wrapS,value.wrapT,value.magFilter,value.minFilter,value.channel,value.offset.toArray(),value.repeat.toArray(),value.rotation]);
+      const existing = this.sharedTextures.get(key);
+      if (existing) { if(existing!==value){for(const property of Object.keys(material)) if(material[property]===value)material[property]=existing;value.dispose();} }
+      else this.sharedTextures.set(key,value);
+    }
+    const index=parser.associations.get(material)?.materials, definition=parser.json.materials?.[index];
+    if(!definition || !assetURL.includes('Quaternius_'))return material;
+    const maps=Object.entries(material).filter(([,v])=>v?.isTexture).map(([name,v])=>[name,v.uuid]);
+    const key=JSON.stringify([definition,maps,material.vertexColors,material.flatShading,material.side,material.alphaTest,material.transparent]);
+    const existing=this.sharedMaterials.get(key);
+    if(existing){if(material!==existing)material.dispose();return existing;}
+    this.sharedMaterials.set(key,material);return material;
+  }
   async load(ids, onProgress = () => {}) {
     const unique = [...new Set(ids)].flatMap(id => this.manifest.models[id].lod ? [{ id, level: 0 }, { id, level: 1 }] : [{ id, level: 0 }]);
     let done = 0;
@@ -46,6 +72,7 @@ export class AssetStore {
             root.traverse(node => {
               if (node.isMesh) {
                 node.castShadow = false; node.receiveShadow = true;
+                node.material = Array.isArray(node.material) ? node.material.map(m=>this.shareMaterial(m,gltf.parser,assetURL)) : this.shareMaterial(node.material,gltf.parser,assetURL);
                 parts.push({ geometry: node.geometry, material: node.material, matrix: node.matrixWorld.clone() });
               }
             });
@@ -70,6 +97,7 @@ export class AssetStore {
       }
     }
     geometries.forEach(g => g.dispose()); materials.forEach(m => m.dispose()); textures.forEach(t => t.dispose()); this.cache.clear();
+    this.sharedTextures.clear(); this.sharedMaterials.clear(); THREE.Cache.clear();
   }
 }
 
@@ -88,14 +116,20 @@ export class RailWorld {
     this.groundParts = new Map(); this.terrainGrid = null;
     this.sceneryPlan = null; this.groundPadIndex = null;
     this.sleeperUniforms = { exposure: { value: 0 }, contrast: { value: 0 }, enabled: { value: config.sleeperFilter === false ? 0 : 1 } };
+    this.biomeLayout = config.biomeMix ? createBiomeLayout(this.route, config.biomeMix) : null;
+    this.activeBiomes = this.biomeLayout ? this.biomeLayout.mix.map(row => row.biome) : [...new Set([config.biomeA, config.biomeB])];
+    config.biomeA ||= this.activeBiomes[0]; config.biomeB ||= this.activeBiomes[1] || this.activeBiomes[0];
     this.paletteA = PALETTES[config.biomeA]; this.paletteB = PALETTES[config.biomeB];
+    this.paletteMix = this.activeBiomes.map(id => ({ id, palette: PALETTES[id], ground: new THREE.Color(PALETTES[id].ground), detail: new THREE.Color(PALETTES[id].detail), sky: new THREE.Color(PALETTES[id].sky) }));
+    this.amplitudes = Object.fromEntries(this.paletteMix.map(row=>[row.id,row.palette.amplitude]));
+    this.biomeReport = this.biomeLayout?.report() || null;
     this.colorA = new THREE.Color(this.paletteA.ground); this.colorB = new THREE.Color(this.paletteB.ground);
     this.detailA = new THREE.Color(this.paletteA.detail); this.detailB = new THREE.Color(this.paletteB.detail);
     this.tmpSample = {}; this.cartSample = {}; this.cartFrontSample = {}; this.cartRearSample = {};
     this.elevationField = this.createElevationField();
     this.lake = this.planLake();
     if (this.features.bridge) {
-      const b = this.features.bridge, biome = this.mixAt(b.x, b.z) < 0.5 ? config.biomeA : config.biomeB;
+      const b = this.features.bridge, biome = this.dominantBiomeAt(b.x, b.z);
       b.style = ['Forest', 'Pastoral', 'Rural'].includes(biome) ? 'wood' : 'steel';
       b.name = b.style === 'wood' ? '河谷木橋' : '河谷鋼橋';
     }
@@ -122,6 +156,7 @@ export class RailWorld {
     return lerp(lerp(values[a], values[a + 1], fx - ix), lerp(values[a + nx + 1], values[a + nx + 2], fx - ix), fz - iz);
   }
   planLake() {
+    if (this.biomeLayout) return this.planBlendedLake();
     if (![this.config.biomeA, this.config.biomeB].includes('Lakeside')) return null;
     const side = this.config.biomeA === 'Lakeside' ? -1 : 1, d = this.route.squareSize;
     let chosen = null, best = 0;
@@ -136,9 +171,33 @@ export class RailWorld {
     if (!this.lake) return Infinity;
     return Math.hypot(x - this.lake.x, (z - this.lake.z) / this.lake.depthScale);
   }
-  mixAt(x, z) { return biomeMix(x, z, this.route.squareSize); }
+  mixAt(x, z) { return this.biomeLayout ? this.biomeWeight(this.config.biomeB, x, z) : biomeMix(x, z, this.route.squareSize); }
+  weightsAt(x, z) { if (this.biomeLayout) return this.biomeLayout.weightsAt(x, z); const t = biomeMix(x, z, this.route.squareSize); return { [this.config.biomeA]: 1-t, [this.config.biomeB]: t }; }
+  biomeWeight(id, x, z) { return this.weightsAt(x, z)[id] || 0; }
+  chooseBiomeAt(x, z, random = Math.random) { return this.biomeLayout ? this.biomeLayout.choose(this.weightsAt(x,z), random) : random() < this.mixAt(x,z) ? this.config.biomeB : this.config.biomeA; }
+  dominantBiomeAt(x, z) { return this.biomeLayout ? this.biomeLayout.dominant(this.weightsAt(x,z)) : this.mixAt(x,z) < .5 ? this.config.biomeA : this.config.biomeB; }
+  blendValue(values, x, z) { const weights = this.weightsAt(x,z); let total=0; for(const id of this.activeBiomes) total += (values[id] || 0) * (weights[id] || 0); return total; }
+  colorAt(x, z, out = new THREE.Color(), detail = false) { const weights=this.weightsAt(x,z); out.setRGB(0,0,0); for(const row of this.paletteMix){ const c=detail?row.detail:row.ground,w=weights[row.id]||0; out.r+=c.r*w;out.g+=c.g*w;out.b+=c.b*w; } return out; }
+  skyColor(out = new THREE.Color()) { out.setRGB(0,0,0); for(const row of this.paletteMix){const w=this.biomeLayout ? this.biomeLayout.mix.find(v=>v.biome===row.id).percent/100 : .5;out.r+=row.sky.r*w;out.g+=row.sky.g*w;out.b+=row.sky.b*w;} return out; }
+  planBlendedLake() {
+    const biome=this.activeBiomes.includes('Lakeside')?'Lakeside':this.activeBiomes.includes('Desert')?'Desert':null;
+    if(!biome)return null;
+    const region=this.biomeLayout.regions.find(row=>row.biome===biome),center=this.biomeLayout.centerOf(biome),d=this.route.squareSize;
+    let chosen=null,best=-1;
+    for(let i=0;i<72;i++){
+      const s=center+(i%9-4)/9*region.metres*.56,p=this.route.sample(s),side=i%2?-1:1,offset=65+Math.floor(i/9)*13;
+      const x=p.x+p.nx*offset*side,z=p.z+p.nz*offset*side;
+      if(Math.abs(x)>d-40||Math.abs(z)>d/2-40||this.biomeWeight(biome,x,z)<.75)continue;
+      const near=this.route.nearestTo(x,z,210),radius=Math.min(biome==='Desert'?60:135,region.metres*.16,near.distance*.62);
+      if(radius<5||this.stations.some(station=>Math.hypot(x-station.x,z-station.z)<radius+35))continue;
+      if(this.features.bridge){const b=bridgeCoordinates(this.features.bridge,x,z);if(Math.abs(b.across)<radius+170&&b.along>this.features.bridge.river.start-radius&&b.along<this.features.bridge.river.end+radius)continue;}
+      const score=radius+near.distance*.05;
+      if(score>best){best=score;chosen={x,z,radius,depthScale:.68,level:this.baseElevation(x,z)-.16,kind:biome==='Desert'?'oasis':'lake',biome};}
+    }
+    return chosen;
+  }
   rawHeight(x, z) {
-    const mix = this.mixAt(x, z), a = lerp(this.paletteA.amplitude, this.paletteB.amplitude, mix);
+    const a = this.blendValue(this.amplitudes, x, z);
     const broad = Math.sin(x * 0.0051 + 2) * Math.cos(z * 0.0043 - 0.8);
     const medium = Math.sin(x * 0.014 + z * 0.006) * Math.cos(z * 0.012);
     let h = this.baseElevation(x, z) + (0.55 + broad * 0.6 + medium * 0.19) * a - 1.3;
@@ -168,12 +227,12 @@ export class RailWorld {
     await this.prepareScenery(p => onProgress(0.01 + p * 0.07, '規劃疏密交錯的沿線風景…'));
     const infrastructure = this.config.features ? ['Building_Bridge_SteelTruss8m_001', 'Building_Bridge_TimberDeck4m_001', 'Building_Bridge_StonePier4m_001', 'Building_Bridge_Abutment_001',
       'Building_Tunnel_StonePortal_001', 'Building_Tunnel_RockStraight4m_001'] : [];
-    const lakeModels = this.lake ? this.store.manifest.biomes.Lakeside.models : [];
+    const lakeModels = this.lake && this.lake.kind !== 'oasis' && this.lake.radius >= 36 ? this.store.manifest.biomes.Lakeside.models.filter(id => !this.store.manifest.models[id].scenePack?.startsWith('Quaternius')) : [];
     const ids = [...this.sceneryPlan.placements.map(p => p.id), ...lakeModels,
       ...this.store.manifest.stationModels, 'Environment_Rail_RailSection_1m_001', 'Environment_Rail_Sleeper_001', 'Environment_Rail_Fastener_001', ...infrastructure, this.config.vehicle, ...(this.config.driver ? [this.config.driver] : [])];
     await this.store.load(ids, (p, id) => onProgress(0.08 + p * 0.32, `讀取 ${this.store.manifest.models[id].name}`));
     onProgress(0.42, '鋪設閉合軌道…'); await yieldFrame(); this.buildTrack();
-    onProgress(0.55, '混合 A、B 區地表…'); await yieldFrame(); await this.buildTerrain();
+    onProgress(0.55, `混合 ${this.activeBiomes.length} 種環境地表…`); await yieldFrame(); await this.buildTerrain();
     onProgress(0.70, '佈置沿線地景…'); await yieldFrame(); await this.buildScenery();
     onProgress(0.87, '建立跨河橋與穿山隧道…'); await yieldFrame();
     if (this.config.features) { buildBridgeAndRiver(this); buildTunnel(this); }
@@ -338,8 +397,8 @@ export class RailWorld {
             this.heightAt(wx, wz - 1) - this.heightAt(wx, wz + 1)).normalize();
           normals.push(normal.x, normal.y, normal.z);
           grass.push(grassHabitatAt(this, wx, wz, near) * smoothstep(0.60, 0.94, normal.y));
-          const mix = this.mixAt(wx, wz), speckle = 0.11 + 0.11 * Math.sin(wx * 0.073) * Math.cos(wz * 0.067);
-          color.copy(this.colorA).lerp(this.colorB, mix); detail.copy(this.detailA).lerp(this.detailB, mix);
+          const speckle = 0.11 + 0.11 * Math.sin(wx * 0.073) * Math.cos(wz * 0.067);
+          this.colorAt(wx,wz,color); this.colorAt(wx,wz,detail,true);
           color.lerp(detail, speckle);
           for (const farm of this.sceneryPlan?.farms || []) {
             const dx = wx - farm.x, dz = wz - farm.z, c = Math.cos(farm.yaw), s = Math.sin(farm.yaw);
@@ -417,10 +476,11 @@ export class RailWorld {
   buildLake() {
     if (!this.lake) return;
     const { x, z, radius, depthScale, level } = this.lake;
-    const geometry = new THREE.CircleGeometry(radius + 8, 80); geometry.rotateX(-Math.PI / 2);
+    const geometry = new THREE.CircleGeometry(radius + (this.biomeLayout ? Math.min(4,radius*.08) : 8), 80); geometry.rotateX(-Math.PI / 2);
     const material = new THREE.MeshStandardMaterial({ color: '#699eaa', roughness: 0.24, metalness: 0.12 });
     const mesh = new THREE.Mesh(geometry, material); mesh.position.set(x, level, z); mesh.scale.z = depthScale;
     this.group.add(mesh); this.ownedGeometry.push(geometry); this.ownedMaterials.push(material); this.waterMaterials.push(material);
+    if(this.lake.kind === 'oasis' || radius < 36) return;
     // Original Blender water tile, pier, boat and willow form a coherent shore.
     const placements = [];
     for (let dx = -2; dx <= 2; dx++) for (let dz = -2; dz <= 2; dz++) placements.push({ x: x + dx * 8, z: z + dz * 8, y: level + 0.2, yaw: 0 });
@@ -478,7 +538,12 @@ export class RailWorld {
     const prefix = this.config.vehicle.includes('GoldenOak') ? 'GoldenOak' : this.config.vehicle.includes('AzureLake') ? 'AzureLake' : 'RedCopper';
     for (const suffix of ['FL', 'FR', 'RL', 'RR']) {
       const node = this.cart.getObjectByName(`${prefix}_Wheel_${suffix}`);
-      if (node) this.wheels.push({ node, original: node.quaternion.clone() });
+      if (node) {
+        const parents=[];for(let parent=node.parent;parent&&parent!==this.cart;parent=parent.parent)parents.unshift(parent);
+        const matrix=new THREE.Matrix4();for(const parent of parents){parent.updateMatrix();matrix.multiply(parent.matrix);}
+        const suspensionAxis=new THREE.Vector3(0,1,0).applyMatrix3(new THREE.Matrix3().setFromMatrix4(matrix).invert());
+        this.wheels.push({ node, original: node.quaternion.clone(), originalPosition: node.position.clone(), suspensionAxis });
+      }
     }
     this.cartLever = this.cart.getObjectByName(`${prefix}_Lever`);
     this.cartLeverBase = this.cartLever?.quaternion.clone();
@@ -523,7 +588,7 @@ export class RailWorld {
     if (this.grassWind) this.grassWind.value = this.environmentElapsed;
     if (this.riverFlow) this.riverFlow.value = this.environmentElapsed;
   }
-  updateCart(distance, odometer, throttle) {
+  updateCart(distance, odometer, throttle, suspensionY = 0) {
     const p = this.route.sample(distance, this.cartSample);
     // Use a two-metre track chord for body attitude. The arc-table position is
     // exact; this removes tiny tangent jumps at successive polyline samples.
@@ -533,15 +598,31 @@ export class RailWorld {
     p.tx = dx / horizontal; p.tz = dz / horizontal; p.tx3 = dx / length; p.ty = dy / length; p.tz3 = dz / length;
     p.pitch = -Math.atan2(dy, horizontal); p.yaw = Math.atan2(dx, dz); p.nx = p.tz; p.nz = -p.tx;
     p.upX = -p.tx * p.ty; p.upY = horizontal / length; p.upZ = -p.tz * p.ty;
-    this.cart.position.set(p.x + 0.381 * p.upX, p.y + 0.381 * p.upY, p.z + 0.381 * p.upZ);
+    const height=0.381+suspensionY;
+    this.cart.position.set(p.x + height * p.upX, p.y + height * p.upY, p.z + height * p.upZ);
     this.cart.quaternion.setFromEuler(rotationEuler.set(p.pitch, p.yaw, 0, 'YXZ'));
     q.setFromAxisAngle(new THREE.Vector3(1, 0, 0), distance / 0.346);
-    for (const wheel of this.wheels) wheel.node.quaternion.copy(wheel.original).multiply(q);
+    for (const wheel of this.wheels) {
+      wheel.node.quaternion.copy(wheel.original).multiply(q);
+      // Account for nested Blender parent axes/scales. Wheels stay on the rails
+      // while the cart body, lever and animal share the sprung displacement.
+      wheel.node.position.copy(wheel.originalPosition).addScaledVector(wheel.suspensionAxis,-suspensionY);
+    }
     if (this.cartLever) {
       q.setFromAxisAngle(new THREE.Vector3(1, 0, 0), -throttle * 0.35);
       this.cartLever.quaternion.copy(this.cartLeverBase).multiply(q);
     }
     return p;
+  }
+  showTestBumper(distance) {
+    if (distance === null) { if(this.testBumper)this.testBumper.visible=false; return; }
+    if(!this.testBumper){
+      const geometry=new THREE.BoxGeometry(2.5,.24,.36),material=new THREE.MeshStandardMaterial({color:'#cf7a43',roughness:.7});
+      this.ownedGeometry.push(geometry);this.ownedMaterials.push(material);
+      this.testBumper=new THREE.Mesh(geometry,material);this.testBumper.castShadow=this.config.shadows;this.group.add(this.testBumper);
+    }
+    const p=this.route.sample(distance);this.testBumper.position.set(p.x+p.upX*.405,p.y+p.upY*.405,p.z+p.upZ*.405);
+    this.testBumper.quaternion.setFromEuler(rotationEuler.set(p.pitch,p.yaw,0,'YXZ'));this.testBumper.visible=true;
   }
   setVisibility(camera, farDistance, overview = false) {
     const cx = camera.position.x, cz = camera.position.z;
@@ -597,8 +678,9 @@ export function createAtmosphere(scene, renderer) {
   const lightOffset = new THREE.Vector3(-100, 170, 70), lightZ = lightOffset.clone().normalize();
   const lightX = new THREE.Vector3().crossVectors(new THREE.Vector3(0, 1, 0), lightZ).normalize();
   const lightY = new THREE.Vector3().crossVectors(lightZ, lightX), focus = new THREE.Vector3();
-  return { sun, hemi, sky, environment, setBiomes(a, b) {
-    const fog = new THREE.Color(PALETTES[a].sky).lerp(new THREE.Color(PALETTES[b].sky), 0.5);
+  return { sun, hemi, sky, environment, setBiomes(a, b, mixture) {
+    const fog = new THREE.Color(0);
+    for(const row of mixture || [{biome:a,percent:50},{biome:b,percent:50}]){ const c=new THREE.Color(PALETTES[row.biome].sky),w=row.percent/100;fog.r+=c.r*w;fog.g+=c.g*w;fog.b+=c.b*w; }
     skyMaterial.uniforms.bottom.value.copy(fog); scene.fog = new THREE.Fog(fog, 170, 600);
     outsideFog.copy(fog);
   }, update(camera, position, shadows, tunnel = 0, sceneryShadows = false) {

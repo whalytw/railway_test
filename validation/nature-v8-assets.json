@@ -1,0 +1,1021 @@
+{
+  "status": "passed",
+  "pack": "Quaternius_UltimateStylizedNature_202205",
+  "uniqueIDs": 63,
+  "sourceBytes": 99264084,
+  "outputGLBBytes": 7333896,
+  "sharedTextureBytes": 13494235,
+  "outputModelAndTextureBytes": 20828131,
+  "savedBytes": 78435953,
+  "accessorByteComparisons": 457,
+  "externalImageReferences": 126,
+  "uniqueTexturesDecoded": 18,
+  "materials": 91,
+  "alphaMaskMaterials": 48,
+  "multiPrimitiveModels": 28,
+  "allNonImageBufferViewsByteIdentical": true,
+  "allAccessorBytesUnchanged": true,
+  "allGeometryMaterialsTransformsSemanticallyEqual": true,
+  "everyExternalImageByteIdenticalToEmbeddedSource": true,
+  "allPNGChunksCRCValidated": true,
+  "allPNGsFullyDecoded": true,
+  "allRelativeReferencesExist": true,
+  "allCompatibleBiomesPreserved": true,
+  "allOriginalSourceSHA256Preserved": true,
+  "nearWaterOnlyModels": 5,
+  "staticFlowerCrownPieces": 4,
+  "sourceLibraryWritten": false,
+  "sourceArchivesIncluded": false,
+  "sourceBlenderFilesIncluded": false,
+  "licenseEvidenceFiles": 10,
+  "byBiome": {
+    "Forest": 58,
+    "Hills": 58,
+    "Pastoral": 48,
+    "Rural": 48,
+    "Lakeside": 48,
+    "Riverbank": 48,
+    "Plateau": 48,
+    "Snow": 20,
+    "Volcano": 15,
+    "Canyon": 15,
+    "Desert": 10,
+    "Waterfall": 5
+  },
+  "models": [
+    {
+      "id": "Plant_Quaternius_BushFlowers_001",
+      "sourceSHA256": "fd2f3321fbd38f4020c387ac34f8294c73e03421d94ea425d5a4465174628853",
+      "outputSHA256": "c38d0c2dd637b2aa5de3ea34a9a0379b5c3e67a41bb79ceda4a6d2c9da30c750",
+      "sourceBytes": 419836,
+      "outputBytes": 54128,
+      "accessors": 10,
+      "images": 2,
+      "primitives": 2,
+      "triangles": 478,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_BushLargeFlowers_001",
+      "sourceSHA256": "a5b1616614f5172d120d685960f9983c71d736b32b102f13081792bb87728b3e",
+      "outputSHA256": "2ce5b912cdc02d13fd8122a6df2a79010b0bdb66e6c02be46a684fbf8700c9c7",
+      "sourceBytes": 409796,
+      "outputBytes": 44088,
+      "accessors": 10,
+      "images": 2,
+      "primitives": 2,
+      "triangles": 402,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_BushLarge_001",
+      "sourceSHA256": "bd153432e73c108f0f11252bd827c457f657ee250498e6df9f5ab1aff4f7bf94",
+      "outputSHA256": "7f86e7bfefaf24f737f8279ef3193cf7d0134a4e0e1c7dfef62df321ab9d3dd9",
+      "sourceBytes": 104724,
+      "outputBytes": 34896,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 276,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_BushSmallFlowers_001",
+      "sourceSHA256": "b47277a95c84667489251a0e7f44c6e40dd349581571c6e9273595b22952904b",
+      "outputSHA256": "01024853ff73734e20de5643b11a3e3f46cbfd92e833fa42138d26589238ca9a",
+      "sourceBytes": 397112,
+      "outputBytes": 31408,
+      "accessors": 10,
+      "images": 2,
+      "primitives": 2,
+      "triangles": 274,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_BushSmall_001",
+      "sourceSHA256": "fb66b886ed8677e9b8587a6fadf86df96651519b083b4e54ab9dd7798b5f2c0a",
+      "outputSHA256": "afc2fb4cf5785fad79254cd1e9872b3c414c9d56771bde4331f4dc3496020ab4",
+      "sourceBytes": 94652,
+      "outputBytes": 24828,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 190,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_Bush_001",
+      "sourceSHA256": "915eef21a8d1b657764323bffa8b3a377c803b8e63c1d500f5b08fb2670303c4",
+      "outputSHA256": "cca2f2569cc36a6f911daeb12b938b233484e25f07fe9f88cb0472b63e438392",
+      "sourceBytes": 117740,
+      "outputBytes": 47916,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 400,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_Petals_001",
+      "sourceSHA256": "b768cd1fe5547bb5988ad520100521caad577598890491a602320a4a8c791a99",
+      "outputSHA256": "96520b8631876000ea9b0f2a21c905ccd6da7e18a370c76d6b6a0e05a3af8f68",
+      "sourceBytes": 303564,
+      "outputBytes": 7688,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 90,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_Petals_002",
+      "sourceSHA256": "7b1165e8e46523d500467b7c96c83a31a6f4ee17356454b6669e0a4dfe5f4ed8",
+      "outputSHA256": "9ac2d13478a49d0ee04527827c82a74f0211afde09097f403d3444bec568900c",
+      "sourceBytes": 298712,
+      "outputBytes": 2840,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 12,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_Petals_003",
+      "sourceSHA256": "93f246a1fb6ceb638aa676228bf3189604c6ca6e3561e7003e98fb25ccb60a5c",
+      "outputSHA256": "9465f2e631aabb78f38e02f33bafd45b87dc50bf5cbb74bd04c6117b50b1db29",
+      "sourceBytes": 298336,
+      "outputBytes": 2460,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 6,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_Petals_004",
+      "sourceSHA256": "c710c113f95be09ab49737271514e52484f179196038de1d208fed833012c7b5",
+      "outputSHA256": "cbdf35b159277896ab25465a9729849f9a606d5521419f2ffe89af7c91a1e183",
+      "sourceBytes": 298336,
+      "outputBytes": 2460,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 6,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_FlowerClump_001",
+      "sourceSHA256": "95a40a4bab126147aa79e1d888f12fa9e5942919cc9b809b614467e3ae80616d",
+      "outputSHA256": "5104a51842d613fd8628442c0586e6791acc06cf3c42d9a936bb784c286ad7b8",
+      "sourceBytes": 334264,
+      "outputBytes": 38392,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 620,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_FlowerClump_002",
+      "sourceSHA256": "8e7fc82fd22950c287072467244c0dd5c4c158c3a1798b6d7f93477f172748e4",
+      "outputSHA256": "14d5ff4717a4ea57e763a49ee26540446886bbe7494f6480fe4f5961eee7553f",
+      "sourceBytes": 304808,
+      "outputBytes": 8932,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 136,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_FlowerClump_003",
+      "sourceSHA256": "208f0688d9fdf0e0e68cc8e8cb78a5d846ceaa332483c4e3c92fe18101326106",
+      "outputSHA256": "26549380a266773e4198fd66b388a30b7346799c86dd625b84f43e705f8ec45a",
+      "sourceBytes": 304808,
+      "outputBytes": 8932,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 136,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_FlowerClump_004",
+      "sourceSHA256": "01982a97cf63faf774bbde5d5ef8bbe111cc4a4ad77b7263ec5dc46aaf83bea7",
+      "outputSHA256": "bdd1d41c67e3cc3045adb75c81ceef06c979dcddd85ee84207fa0704ded17535",
+      "sourceBytes": 304808,
+      "outputBytes": 8932,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 136,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_FlowerClump_005",
+      "sourceSHA256": "e71c7139238032a3a7aeb1fbd63c9668101756d86beff5896d6c62ec7078114e",
+      "outputSHA256": "35eeb994a879e9cbeb48ccc733e729de49f8e3f9542a86da85afc99586bc7b12",
+      "sourceBytes": 304808,
+      "outputBytes": 8932,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 136,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_Flower_001",
+      "sourceSHA256": "4f9648c00a08144b095dd9e33b7b29238cb4a4cea11db193404a70504198b19c",
+      "outputSHA256": "1165b91e1bdd9926780176c53a7e8586b3b3a8c7b0c9debd48dcc031365480c5",
+      "sourceBytes": 307452,
+      "outputBytes": 11576,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 162,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_Flower_002",
+      "sourceSHA256": "721be9a7110f9da818185a7bb143682899dbe5ac4b22f145927697cab8b13680",
+      "outputSHA256": "903d46f5fd2d9e901c69672b469129af572d0125fd6c39b172198d5544682393",
+      "sourceBytes": 299712,
+      "outputBytes": 3836,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 34,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_GrassLargeExtruded_001",
+      "sourceSHA256": "138a8dcdd1528fee800bc89e77a2bad0c102da3792fa6db93b39187aeac4171f",
+      "outputSHA256": "0111f3e7d226204c9e11e670f1ce8c30db2c7b3058936dce49e0d4b97ac452fd",
+      "sourceBytes": 725820,
+      "outputBytes": 40356,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 516,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_GrassLarge_001",
+      "sourceSHA256": "17e938d275fc3cb4c7df2de51e851abaa24689b4bcb365155b52b72963785680",
+      "outputSHA256": "f98f735e6252a3e58acb36657cddc9a7022b858630079a31a8b783727d22435b",
+      "sourceBytes": 695400,
+      "outputBytes": 9936,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 108,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_GrassSmall_001",
+      "sourceSHA256": "b3bcade288337d79b6425f2e3f62fb2a5235f536eae25b4ddd58beb584d8a371",
+      "outputSHA256": "65cfeb8b9c2c2113f4878cea5943f7e03a4e3d0b38898e60eaaf2f0dd83c705a",
+      "sourceBytes": 691732,
+      "outputBytes": 6272,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 58,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_LeafyPlantFlowers_001",
+      "sourceSHA256": "c0d7e956eeb7e7565e89e313c427e57e62beea1e97e310bdb6d196876671ff93",
+      "outputSHA256": "461e292c293052d2d0c9e97466f13e9627a08904188f5c2eeac77a7b7d468650",
+      "sourceBytes": 314976,
+      "outputBytes": 19100,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 330,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_LeafyPlant_001",
+      "sourceSHA256": "6c6a566f335f0655ec7c37168503fd1cc38099bf27c8207c60a5a61b280ad6e8",
+      "outputSHA256": "6131d35370b304743ef06d4fd9050d350879ac750c2765b593d890791e9076e1",
+      "sourceBytes": 318664,
+      "outputBytes": 22788,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 420,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_LeafyPlant_002",
+      "sourceSHA256": "c482cff59988831e2f0606fef7abb34e84c408536b0092bab80d9180eb482ee6",
+      "outputSHA256": "7ece63abcfb57812abeb69811c7648024cb33fa866802a3e83a5131315918208",
+      "sourceBytes": 306252,
+      "outputBytes": 10376,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 160,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_BirchTree_001",
+      "sourceSHA256": "42792f9f80e2e9970f2c1740794c35bd186632fb054035a630e7f5e7798c2b77",
+      "outputSHA256": "02df6812c252a724087ef06ba08d7f50f23d089e1d7e3d03d4aee41ba30538b7",
+      "sourceBytes": 3145620,
+      "outputBytes": 292924,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 4596,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_BirchTree_002",
+      "sourceSHA256": "2033b21238439077ecb5ba8ff013d87850653068fb91c502baf8001e8e5664fb",
+      "outputSHA256": "e615a582c4845c1a41deb575fce05fa10e3275b7345c728a05000c9fc2937036",
+      "sourceBytes": 3273688,
+      "outputBytes": 420992,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 7660,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_BirchTree_003",
+      "sourceSHA256": "dbdbdc1a4769fc1d76af52d18b7cb27eccce573dcc743661bf7829b680f3ba01",
+      "outputSHA256": "9fdd6face7d15d9d23e166477a579bab13868e599dd0331664ad5d4a98677a8f",
+      "sourceBytes": 3453284,
+      "outputBytes": 600588,
+      "accessors": 12,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 6818,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_BirchTree_004",
+      "sourceSHA256": "87425b0301484c96611628bdaab467892e6ca302f405adf68a4a626b9da6b50e",
+      "outputSHA256": "8d324e165a2df22c04be8e3b100f7ec4e1c96676621bf847b5f9fa9d6be33c0a",
+      "sourceBytes": 3055516,
+      "outputBytes": 202816,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 3562,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_BirchTree_005",
+      "sourceSHA256": "5115fe14b7468d663d84ca04f80c71edf905cfa51d97725bd7aece7d7f574a65",
+      "outputSHA256": "c17c58da8fcf68810ea1414de1d1313fa7b6e780d79530855a3c2de7fba1fa62",
+      "sourceBytes": 3113964,
+      "outputBytes": 261268,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 4520,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_001",
+      "sourceSHA256": "202bd005645eeff90f01ef5ce99d76c9b43f1a441e29068a5c69f19fcf51b415",
+      "outputSHA256": "b69aea7e2b2a9fc80ed477279a64691748655924de00df10c425f2ed5770f2b3",
+      "sourceBytes": 2128656,
+      "outputBytes": 171644,
+      "accessors": 5,
+      "images": 2,
+      "primitives": 1,
+      "triangles": 4792,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_002",
+      "sourceSHA256": "8d512312cb65745c986fe9db977c1d6dec213299a587eaf088d06e0d93c69678",
+      "outputSHA256": "b936c0de807a4220fcdefd9fea50664b880cb6bfb9711ac100c73b0e08219681",
+      "sourceBytes": 2148340,
+      "outputBytes": 191324,
+      "accessors": 5,
+      "images": 2,
+      "primitives": 1,
+      "triangles": 5344,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_003",
+      "sourceSHA256": "1fb1ad79dc5f271a04b1b62104bb63d006566c7c38eca8675355e4e8c9c9d332",
+      "outputSHA256": "695593d72f44e32587f60e182e8b4b9468bb5feb46a3937d18a4109fe968fa62",
+      "sourceBytes": 2133360,
+      "outputBytes": 176348,
+      "accessors": 5,
+      "images": 2,
+      "primitives": 1,
+      "triangles": 4928,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_004",
+      "sourceSHA256": "bfb60605962ccc60c2a74e0fcaf7170457592557b737059950140333744443a2",
+      "outputSHA256": "e9360f14d06b35239a4227c8c5e67871d489ccdca8e0dae00bb17fd71693f322",
+      "sourceBytes": 2083440,
+      "outputBytes": 126428,
+      "accessors": 5,
+      "images": 2,
+      "primitives": 1,
+      "triangles": 3528,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_005",
+      "sourceSHA256": "07c31d78c78e02f6ac4d9c2ad17baafd64ee52104442b0b7111700cf08c919be",
+      "outputSHA256": "4aa6fdb53261d1bda5f53f75d94e124ad410b949438b8ef4116e42a1ae786331",
+      "sourceBytes": 2007112,
+      "outputBytes": 50096,
+      "accessors": 5,
+      "images": 2,
+      "primitives": 1,
+      "triangles": 1360,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_006",
+      "sourceSHA256": "f18e3f4fb7fed1db60f2dee347854d5a74a8824c1ee1b55b62b139b940903be7",
+      "outputSHA256": "bec4868536bc4884c3c4dae9f1300819e0180df1444f0596065b4bda1a775d6d",
+      "sourceBytes": 2522864,
+      "outputBytes": 107364,
+      "accessors": 5,
+      "images": 2,
+      "primitives": 1,
+      "triangles": 2984,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_007",
+      "sourceSHA256": "f21930940db8beb725d9ed41f3231c4e4edfc032913d9c2d9793bfddf57bb690",
+      "outputSHA256": "7bffef86c7fbd77b8eb3c4ed57ec4592f83a79c5911be9dc8c3d798539481dd9",
+      "sourceBytes": 2540720,
+      "outputBytes": 125224,
+      "accessors": 5,
+      "images": 2,
+      "primitives": 1,
+      "triangles": 3504,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_008",
+      "sourceSHA256": "bc668f45cb125c0b7dbdc6195ae9498bbe090266b26925e69a8d49bfdf9b603a",
+      "outputSHA256": "2a03cbff4ed0a888419d324a513b7f1ad39e2737594cbe99786b1d36c5bd14ec",
+      "sourceBytes": 2591456,
+      "outputBytes": 175956,
+      "accessors": 5,
+      "images": 2,
+      "primitives": 1,
+      "triangles": 4944,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_009",
+      "sourceSHA256": "259060c91e9a195a6a59b34923ab88532fa6270b48ec9c4d0e0f89c828474f8d",
+      "outputSHA256": "8558c50484e473f6a402fe2e6dd8126d64f9c0a9e51b848310cdd8181f93bda7",
+      "sourceBytes": 2447304,
+      "outputBytes": 31804,
+      "accessors": 5,
+      "images": 2,
+      "primitives": 1,
+      "triangles": 824,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_DeadTree_010",
+      "sourceSHA256": "42b2ab50699f8c00385150b2765dd037ff83061f9ef5c6f2b0328c781197ae66",
+      "outputSHA256": "4b8072b6ae65930b8b8505f0eabafbe645525d446b04eaf656ae3a76ee6372b8",
+      "sourceBytes": 2530784,
+      "outputBytes": 115284,
+      "accessors": 5,
+      "images": 2,
+      "primitives": 1,
+      "triangles": 3208,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_MapleTree_001",
+      "sourceSHA256": "8987ae992f8e402a94b3cfd7df09e78d055debf25a1bfafba01d726a49f00411",
+      "outputSHA256": "6dbadc09649a0f226422f72477e5c28e999d5b46b28e9028fea090cd07c34ba0",
+      "sourceBytes": 2798292,
+      "outputBytes": 196892,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 3848,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_MapleTree_002",
+      "sourceSHA256": "6050f09a1f0a586ae16627c215c4cc4ebb60c63e05ff4852b220a17862a2c1cc",
+      "outputSHA256": "aba3d9fb3dff6dcd936403bc4405e2b1e525466b8a0dffb1eae08a74d3649a57",
+      "sourceBytes": 2860212,
+      "outputBytes": 258816,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 4800,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_MapleTree_003",
+      "sourceSHA256": "55e437965315f267ff2848e4f065efc7c2cb80a5a9224a13bcbfc3611b29f0a9",
+      "outputSHA256": "46f082dc227df13b076e9749b0d2c1ec9cdaaaeb04f135fb1a588ba2e8fc0a41",
+      "sourceBytes": 2955624,
+      "outputBytes": 354228,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 6678,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_MapleTree_004",
+      "sourceSHA256": "bb9035f50dd1a532389876f4e5d4ff68690800539f2cadd0d3f5d632b9d52be1",
+      "outputSHA256": "666ffdec5fe3483eb355df01eee0e75fa45759a5e445f6d9e19732d2baf02609",
+      "sourceBytes": 2678664,
+      "outputBytes": 77264,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 1256,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_MapleTree_005",
+      "sourceSHA256": "218f2cd1364fc589abc3e7a4b504c5d36ec8d2e5a4fb892f4c48298c0c181451",
+      "outputSHA256": "a5687a3822c2394e6bcb40d26bd2bf5062df2f86f5e5aed75a62689738f8deaa",
+      "sourceBytes": 2850280,
+      "outputBytes": 248884,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 4504,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_NormalTree_001",
+      "sourceSHA256": "64d031f79e81e7d90bb55acd6b78ef91c6ede8f065f4e8cce28c8c9817610e3a",
+      "outputSHA256": "2fe22545cfae202955d4a559c4e116c5f4bcd072f0f3603b3c8c089226d3c7d0",
+      "sourceBytes": 2580172,
+      "outputBytes": 553324,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 8520,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_NormalTree_002",
+      "sourceSHA256": "a3aac9f004fd44bb96adb93a893580302b56d40fdce5d2e858d412359376d268",
+      "outputSHA256": "9a50872ae52f3618548c620509d63744aa8193db19c738df46da7b009800d4e0",
+      "sourceBytes": 2499072,
+      "outputBytes": 472224,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 8084,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_NormalTree_003",
+      "sourceSHA256": "e63a3c394d3f86ce5c42a8faa2978d5e8236d1bb0547ebb460e2d2f017773438",
+      "outputSHA256": "b7671f7fc1b79fab6a6c27e8c0657fb4cd346383c23ae0ae41c47ec1b0d0cf49",
+      "sourceBytes": 2425752,
+      "outputBytes": 398904,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 7096,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_NormalTree_004",
+      "sourceSHA256": "27c915163f697d93d9a54aaf5a05cf83494d1e73d967bebc985575dd5604eaa7",
+      "outputSHA256": "42a33755610195f20ffa99aca84237f7467a136a10f5ab8d3ca324428e34ef23",
+      "sourceBytes": 2441316,
+      "outputBytes": 414468,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 6338,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_NormalTree_005",
+      "sourceSHA256": "795fe3a13bc31fde6fefdd655ad135bd73dcf5bee11663b5b71ae37a75de734c",
+      "outputSHA256": "47de2e98c5a677b2913c82d12006345ca53a391a877e0abfe9105920286ee8b7",
+      "sourceBytes": 2162212,
+      "outputBytes": 135360,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 2182,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_PalmTree_001",
+      "sourceSHA256": "3a8c89d0dfffdaa58d0c134de58fcabed8e939211b6756e6d28b62254cdbd738",
+      "outputSHA256": "ed2b3c109e7dc1f04c769022ec5f8aa87f8cfee7d151f1eb4fedf5abc05ee027",
+      "sourceBytes": 1871672,
+      "outputBytes": 25168,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 472,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_PalmTree_002",
+      "sourceSHA256": "4ebc5b4ca4183b78ccb05ea366cfd8c0f6b9a2b7959b547fd7f11edf863d34df",
+      "outputSHA256": "4b7a2c53ab44e489a896d577ff9812b2a864baba915588b4bd5a8839bc53db6e",
+      "sourceBytes": 1867060,
+      "outputBytes": 20556,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 368,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_PalmTree_003",
+      "sourceSHA256": "7b2a03cc49acbd1298697162b98ee4b6c1d821a36ec9fccc92dd7bc683c5be8e",
+      "outputSHA256": "0439eebb1e0a8024e6cb711def91740e573aa7d31215de24e707d10507a0d58c",
+      "sourceBytes": 1865812,
+      "outputBytes": 19308,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 344,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_PalmTree_004",
+      "sourceSHA256": "1a94b4b2737f9c1255dce2ecfb62683fbadf6dc93fdcef58d23c95b0c5a395dc",
+      "outputSHA256": "35390cb6cf3b963fcff6d3f18ad920b71ba4582a1b37a562a805655ece0c09ff",
+      "sourceBytes": 1871672,
+      "outputBytes": 25168,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 472,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_PalmTree_005",
+      "sourceSHA256": "a846d8d920e89ef5c7286c84f4eced19aab7714c48076441c2e31319281ceffd",
+      "outputSHA256": "2fe6a5096d2e95b59277ec6bc5d2515970954253291de873718f5f401d94c691",
+      "sourceBytes": 1863168,
+      "outputBytes": 16660,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 264,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_PineTree_001",
+      "sourceSHA256": "2248dd55e41b38d2294aa9b42f6ee4040d6818a76fc049a34ffbf293d8faa1c6",
+      "outputSHA256": "c9c7cd046b08cb1ba6cc90982cd2779665513a3260c0167b309964f9fd466fbf",
+      "sourceBytes": 2343300,
+      "outputBytes": 86372,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 2128,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_PineTree_002",
+      "sourceSHA256": "f6c8100de7ad46b4e18dd09e3d2abfc08261dd20088ca56f2a2cb4296cc7213d",
+      "outputSHA256": "ac173604a0a7500ee5c0a3b83581a8caf4b92b950d619d910e52e7c7e6748183",
+      "sourceBytes": 2370448,
+      "outputBytes": 113520,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 2716,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_PineTree_003",
+      "sourceSHA256": "37562048fb05e0bc35365e46fde0e86e7a06ec30a9dbdf572fabd150af455480",
+      "outputSHA256": "7958559a8efcb3f8192de40657c965c02c5d8473383b4bf47431352794eef511",
+      "sourceBytes": 2337240,
+      "outputBytes": 80312,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 1998,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_PineTree_004",
+      "sourceSHA256": "3c01a86fa6ff9e52bd6c9bdd5586227c40f877869e2482e4351546298c9a799c",
+      "outputSHA256": "ee7fd34a593d88061a6aa741508d6ee2bcba6ae015d4ec0fc8d82b01e189c818",
+      "sourceBytes": 2367248,
+      "outputBytes": 110320,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 2686,
+      "checks": "passed"
+    },
+    {
+      "id": "Plant_Quaternius_PineTree_005",
+      "sourceSHA256": "788b34a0cfa8653bd949910e688d2e3d645bcd0a95daa361f0fdb3ab779228e4",
+      "outputSHA256": "197196b5992591ed7a8de40e4525d9353d4df2fcae4ad88c88c17932ba91a5ca",
+      "sourceBytes": 2299260,
+      "outputBytes": 42332,
+      "accessors": 10,
+      "images": 3,
+      "primitives": 2,
+      "triangles": 838,
+      "checks": "passed"
+    },
+    {
+      "id": "Environment_Quaternius_Rock_001",
+      "sourceSHA256": "c794819a61890bd008d755b81a0e32a43f1cec58e6d6fad2cd832baddeb9bd12",
+      "outputSHA256": "9762b7820a9138660abedb2322929f403e6da29805e88d73efceb4cf247c535a",
+      "sourceBytes": 947640,
+      "outputBytes": 19540,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 228,
+      "checks": "passed"
+    },
+    {
+      "id": "Environment_Quaternius_Rock_002",
+      "sourceSHA256": "eb705826c7fc5ed840b4edac6b894300f89afce1ca723e7c65a00e08feb7ce7d",
+      "outputSHA256": "de6e535e613a104ca5bb55e629ea89965250d89ce8f6955f578e338b16a1b4d3",
+      "sourceBytes": 946184,
+      "outputBytes": 18084,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 202,
+      "checks": "passed"
+    },
+    {
+      "id": "Environment_Quaternius_Rock_003",
+      "sourceSHA256": "786f037ace7e6a6cffd28d4c0e154067ff1bf50a40db80e3396c586fe501be02",
+      "outputSHA256": "f4e55e594a04164347bee2946c606163db8a58b89a8137b8b4ab416e046c9263",
+      "sourceBytes": 984056,
+      "outputBytes": 55956,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 712,
+      "checks": "passed"
+    },
+    {
+      "id": "Environment_Quaternius_Rock_004",
+      "sourceSHA256": "ba5d2ccfe1594195cb561ee6b9a6e74c5454a1ea26aae2435acfbf21d857b129",
+      "outputSHA256": "f4852ee242788194a1da5530a16b14ad8bfd23d9c48be52a8c1fabcca25f6dcb",
+      "sourceBytes": 965672,
+      "outputBytes": 37568,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 456,
+      "checks": "passed"
+    },
+    {
+      "id": "Environment_Quaternius_Rock_005",
+      "sourceSHA256": "9c13d7f53d7127e61ee0ee445b14afaed1f2b0539fecf440da594fc45c6de610",
+      "outputSHA256": "a2d82e4ae7dc59518865ba612f9a26908a00228d15b72693ea2d907ebb1f8633",
+      "sourceBytes": 979636,
+      "outputBytes": 51536,
+      "accessors": 5,
+      "images": 1,
+      "primitives": 1,
+      "triangles": 632,
+      "checks": "passed"
+    }
+  ],
+  "textures": [
+    {
+      "url": "assets/textures/nature-v8/105297fc8c54918ce8005ec542ccbcca4788ff2ae775c854e88b6a9c30c6df60.png",
+      "bytes": 928127,
+      "sha256": "105297fc8c54918ce8005ec542ccbcca4788ff2ae775c854e88b6a9c30c6df60",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 2,
+      "usedByModels": 5
+    },
+    {
+      "url": "assets/textures/nature-v8/11b405cd97651841f1e0293b63bde21915ce6cbf4f4d8d33294f7ba53cfc1fb5.png",
+      "bytes": 468076,
+      "sha256": "11b405cd97651841f1e0293b63bde21915ce6cbf4f4d8d33294f7ba53cfc1fb5",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "usedByModels": 5
+    },
+    {
+      "url": "assets/textures/nature-v8/181313e5bb3b365274e1e62969b4312bb1edc18c6cfe88162594bc2da5d278f6.png",
+      "bytes": 1139693,
+      "sha256": "181313e5bb3b365274e1e62969b4312bb1edc18c6cfe88162594bc2da5d278f6",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 2,
+      "usedByModels": 10
+    },
+    {
+      "url": "assets/textures/nature-v8/5396dcb25fb3df8c46d83dd495dd890594ad35039ffb836836f0a005a3c58003.png",
+      "bytes": 685488,
+      "sha256": "5396dcb25fb3df8c46d83dd495dd890594ad35039ffb836836f0a005a3c58003",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 2,
+      "usedByModels": 3
+    },
+    {
+      "url": "assets/textures/nature-v8/5a1855fe22ffd2bf9c5c65ea75091f838962296c382e747c49cfed3611ae7cb7.png",
+      "bytes": 1002880,
+      "sha256": "5a1855fe22ffd2bf9c5c65ea75091f838962296c382e747c49cfed3611ae7cb7",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 2,
+      "usedByModels": 10
+    },
+    {
+      "url": "assets/textures/nature-v8/60661c6f1cbb3ffe59f3e05dfdee72e4e6490ed7d30272bebc623b1f11899a76.png",
+      "bytes": 295904,
+      "sha256": "60661c6f1cbb3ffe59f3e05dfdee72e4e6490ed7d30272bebc623b1f11899a76",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "usedByModels": 17
+    },
+    {
+      "url": "assets/textures/nature-v8/6f6be3f0df8a9615cc488f54d56ca914f266df22675cb8c4dcb0d3dd51a4a385.png",
+      "bytes": 632533,
+      "sha256": "6f6be3f0df8a9615cc488f54d56ca914f266df22675cb8c4dcb0d3dd51a4a385",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 2,
+      "usedByModels": 5
+    },
+    {
+      "url": "assets/textures/nature-v8/89b0bae2ba458b49119d8ba9f7359bc13184cea9c08dc5f00441b41e9a053943.png",
+      "bytes": 1275853,
+      "sha256": "89b0bae2ba458b49119d8ba9f7359bc13184cea9c08dc5f00441b41e9a053943",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 2,
+      "usedByModels": 10
+    },
+    {
+      "url": "assets/textures/nature-v8/a788034f119627160a7e72cbbfc3acd4b9a169d963a679055317b3b53fb12bbf.png",
+      "bytes": 185920,
+      "sha256": "a788034f119627160a7e72cbbfc3acd4b9a169d963a679055317b3b53fb12bbf",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "usedByModels": 5
+    },
+    {
+      "url": "assets/textures/nature-v8/a7f940360c2a4ee92721962fabd7f096e5afbe790b7e29374e532811b117a5d8.png",
+      "bytes": 72843,
+      "sha256": "a7f940360c2a4ee92721962fabd7f096e5afbe790b7e29374e532811b117a5d8",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "usedByModels": 5
+    },
+    {
+      "url": "assets/textures/nature-v8/ad86678ab722eff3329bd6ae6a7da25a12b0fd9c1abb2144cde7f234d40420d8.png",
+      "bytes": 793985,
+      "sha256": "ad86678ab722eff3329bd6ae6a7da25a12b0fd9c1abb2144cde7f234d40420d8",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 2,
+      "usedByModels": 5
+    },
+    {
+      "url": "assets/textures/nature-v8/b398f7ed6b7163c371707428d6dd79b79719426bf1b5da87227b4c646a30be2e.png",
+      "bytes": 1156385,
+      "sha256": "b398f7ed6b7163c371707428d6dd79b79719426bf1b5da87227b4c646a30be2e",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 2,
+      "usedByModels": 5
+    },
+    {
+      "url": "assets/textures/nature-v8/bbe41468a268525104f574e5a18ead0a40e1fed76e671a474a5c418cdced6fa1.png",
+      "bytes": 851272,
+      "sha256": "bbe41468a268525104f574e5a18ead0a40e1fed76e671a474a5c418cdced6fa1",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 2,
+      "usedByModels": 5
+    },
+    {
+      "url": "assets/textures/nature-v8/c07e1af26169abee615e4d7174c19341c818bcef5d0384b4330224e664521332.png",
+      "bytes": 954187,
+      "sha256": "c07e1af26169abee615e4d7174c19341c818bcef5d0384b4330224e664521332",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 2,
+      "usedByModels": 10
+    },
+    {
+      "url": "assets/textures/nature-v8/ca4591d9c10c01953859e96871d973550191bcef8de5c1d094505a83231d7309.png",
+      "bytes": 1330657,
+      "sha256": "ca4591d9c10c01953859e96871d973550191bcef8de5c1d094505a83231d7309",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 2,
+      "usedByModels": 5
+    },
+    {
+      "url": "assets/textures/nature-v8/d4fe5ccc611f03aff497518cad451999640b6fbfd5ffdc4d2d81e3c483f74dd2.png",
+      "bytes": 201313,
+      "sha256": "d4fe5ccc611f03aff497518cad451999640b6fbfd5ffdc4d2d81e3c483f74dd2",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "usedByModels": 5
+    },
+    {
+      "url": "assets/textures/nature-v8/eb89654e4002d043db3769b7678de4202c212c3197aaa48b5ac90327ff5d8dbf.png",
+      "bytes": 69854,
+      "sha256": "eb89654e4002d043db3769b7678de4202c212c3197aaa48b5ac90327ff5d8dbf",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 6,
+      "usedByModels": 11
+    },
+    {
+      "url": "assets/textures/nature-v8/f2833c4c014333cfc12ae3466be60110270485f09e7dad59f7820ac6510968ed.png",
+      "bytes": 1449265,
+      "sha256": "f2833c4c014333cfc12ae3466be60110270485f09e7dad59f7820ac6510968ed",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bitDepth": 8,
+      "colorType": 2,
+      "usedByModels": 5
+    }
+  ]
+}
