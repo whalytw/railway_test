@@ -142,27 +142,29 @@ test('stations share a visible village on each climate with a path clear of ever
   }
 });
 
-test('four-biome percentages still cover the full route, with gradual land colour between turns', async () => {
+test('three turns share the map-area field between tracks and at the flyover', async () => {
   const manifest = JSON.parse(await readFile(new URL('../asset-manifest.json', import.meta.url), 'utf8'));
   const biomeMix = [{ biome: 'Forest', percent: 27 }, { biome: 'Hills', percent: 23 }, { biome: 'Pastoral', percent: 25 }, { biome: 'Lakeside', percent: 25 }];
   const world = new RailWorld(new THREE.Scene(), { manifest }, { ...config, biomeA: undefined, biomeB: undefined, biomeMix, density: 5000, features: true });
   const { route, biomeLayout } = world;
   for (const region of world.biomeReport.regions) {
-    assert.ok(Math.abs(region.actualPercent - region.requestedPercent) < 0.002);
+    assert.ok(Math.abs(region.actualPercent - region.requestedPercent) < 0.025);
   }
   const aDistance = route.distanceAtPhase(0, 0.32), bDistance = route.distanceAtPhase(1, 0.32);
   const a = route.sample(aDistance), b = route.sample(bDistance);
-  const expectedA = biomeLayout.dominant(biomeLayout.weightsAtDistance(aDistance));
-  const expectedB = biomeLayout.dominant(biomeLayout.weightsAtDistance(bDistance));
-  assert.notEqual(expectedA, expectedB);
-  assert.equal(world.dominantBiomeAt(a.x, a.z), expectedA);
-  assert.equal(world.dominantBiomeAt(b.x, b.z), expectedB);
+  assert.deepEqual(world.weightsAt(a.x, a.z), biomeLayout.weightsAtDistance(aDistance));
+  assert.deepEqual(world.weightsAt(b.x, b.z), biomeLayout.weightsAtDistance(bDistance));
   let previous = world.weightsAt(a.x, a.z);
   for (let i = 1; i <= 100; i++) {
     const t = i / 100, w = world.weightsAt(a.x + (b.x - a.x) * t, a.z + (b.z - a.z) * t);
     assert.ok(Math.abs(Object.values(w).reduce((sum, v) => sum + v, 0) - 1) < 1e-9);
-    assert.ok(Math.abs(w[expectedA] - previous[expectedA]) < 0.08);
+    for (const { biome } of biomeMix) assert.ok(Math.abs(w[biome] - previous[biome]) < 0.02);
     previous = w;
+  }
+  for (const crossing of route.crossings) {
+    const above = biomeLayout.weightsAtDistance(crossing.upperDistance);
+    const below = biomeLayout.weightsAtDistance(crossing.lowerDistance);
+    for (const { biome } of biomeMix) assert.ok(Math.abs(above[biome] - below[biome]) < 0.001);
   }
   await world.prepareScenery();
   assert.equal(world.sceneryStats.placed, 5000);

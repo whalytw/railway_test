@@ -1,14 +1,14 @@
 import * as THREE from 'three';
-import { AssetStore, RailWorld, createAtmosphere, PALETTES } from './world.js?v=9.0.0';
-import { createPhysics, stepPhysics, FIXED_STEP, clamp, lerp, wrap, resolveBiomes, randomGenerator, nextStation, biomeMix, createElevationProfile, leverReference, leverForSpeed, RATED_POWER, CART_MASS, MAX_GRADE, MIN_VERTICAL_RADIUS } from './core.js?v=9.0.0';
-import { riverProfile, riverPoint } from './route-features.js?v=9.0.0';
-import { copyMotion, interpolateMotion, zoomView, anchorCamera } from './presentation.js?v=9.0.0';
-import { DENSITY_OPTIONS, SCENERY_VERSION } from './scenery-plan.js?v=9.0.0';
-import { chooseDriver } from './drivers.js?v=9.0.0';
-import { MixControls } from './mix-controls.js?v=9.0.0';
-import { BIOME_COLORS, DEFAULT_MIX } from './biome-blend.js?v=9.0.0';
-import { initRapier, RapierRailPhysics, RAPIER_VERSION } from './rapier-rail.js?v=9.0.0';
-import { FLYOVER_RAIL_SEPARATION, turnIndexAt } from './circuit-route.js?v=9.0.0';
+import { AssetStore, RailWorld, createAtmosphere, PALETTES } from './world.js?v=10.0.0';
+import { createPhysics, stepPhysics, FIXED_STEP, clamp, lerp, wrap, resolveBiomes, randomGenerator, nextStation, biomeMix, createElevationProfile, leverReference, leverForSpeed, RATED_POWER, CART_MASS, MAX_GRADE, MIN_VERTICAL_RADIUS } from './core.js?v=10.0.0';
+import { riverProfile, riverPoint } from './route-features.js?v=10.0.0';
+import { copyMotion, interpolateMotion, zoomView, anchorCamera } from './presentation.js?v=10.0.0';
+import { DENSITY_OPTIONS, SCENERY_VERSION } from './scenery-plan.js?v=10.0.0';
+import { chooseDriver } from './drivers.js?v=10.0.0';
+import { MixControls } from './mix-controls.js?v=10.0.0';
+import { BIOME_COLORS, DEFAULT_MIX } from './biome-blend.js?v=10.0.0';
+import { initRapier, RapierRailPhysics, RAPIER_VERSION } from './rapier-rail.js?v=10.0.0';
+import { FLYOVER_RAIL_SEPARATION, turnIndexAt } from './circuit-route.js?v=10.0.0';
 
 const $ = id => document.getElementById(id);
 let renderer, scene, camera, atmosphere, manifest, store, world;
@@ -29,6 +29,21 @@ const minimap = $('minimap'), mapContext = minimap.getContext('2d');
 const profileCanvas = $('elevation-profile'), profileContext = profileCanvas.getContext('2d'), slopeSample = {};
 const menu = $('title-screen'), hud = $('game-hud');
 const biomeNames = ['Forest', 'Hills', 'Pastoral', 'Desert', 'Rural', 'Lakeside', 'Snow', 'Volcano'];
+const shadowPass = { drawCalls: 0, triangles: 0 };
+let drawCallsBeforeShadow = 0, trianglesBeforeShadow = 0;
+function countShadowPass(renderer) {
+  const info = renderer.info.render;
+  shadowPass.drawCalls = info.calls - drawCallsBeforeShadow;
+  shadowPass.triangles = info.triangles - trianglesBeforeShadow;
+}
+function renderFrame() {
+  const info = renderer.info.render;
+  drawCallsBeforeShadow = info.calls;
+  trianglesBeforeShadow = info.triangles;
+  shadowPass.drawCalls = 0;
+  shadowPass.triangles = 0;
+  renderer.render(scene, camera);
+}
 
 function showError(error) {
   console.error(error); $('error-message').textContent = error.message || String(error); $('error-overlay').hidden = false;
@@ -84,19 +99,20 @@ function formConfig() {
   return { biomeMix, biomeA: biomeMix[0].biome, biomeB: biomeMix[1]?.biome || biomeMix[0].biome, length: Number($('route-length').value),
     turns: Number($('track-turns').value), stations: Number($('station-count').value), vehicle: selectedVehicle(), driver: titleDriverId(), driverChoice: selectedDriverChoice(),
     density: Number($('density').value), viewDistance: Number($('view-distance').value), resolution: Number($('resolution').value),
-    shadows: $('shadows').value === 'on', sceneryShadows: $('scenery-shadows').value === 'on', elevationLimit: Number($('elevation-limit').value),
+    shadows: $('shadows').value === 'on', sceneryShadows: $('scenery-shadows').value === 'on', shadowQuality: $('shadow-quality').value,
+    elevationLimit: Number($('elevation-limit').value),
     features: $('features').value === 'on', skyline: $('skyline').value === 'on', sleeperFilter: $('sleeper-filter').value === 'on', sleeperSpacing: Number($('sleeper-spacing').value), seed };
 }
 function savePreferences() {
   try {
     const values = {};
-    for (const id of ['route-length', 'track-turns', 'station-count', 'elevation-limit', 'density', 'view-distance', 'resolution', 'shadows', 'scenery-shadows', 'features', 'skyline', 'sleeper-filter', 'sleeper-spacing', 'seed', 'driver-select']) values[id] = $(id).value;
-    values.vehicle = selectedVehicle(); values.biomeMix = mixControls.value(); localStorage.setItem('rail-loop-lab:preferences:v8', JSON.stringify(values));
+    for (const id of ['route-length', 'track-turns', 'station-count', 'elevation-limit', 'density', 'view-distance', 'resolution', 'shadows', 'scenery-shadows', 'shadow-quality', 'features', 'skyline', 'sleeper-filter', 'sleeper-spacing', 'seed', 'driver-select']) values[id] = $(id).value;
+    values.vehicle = selectedVehicle(); values.biomeMix = mixControls.value(); localStorage.setItem('rail-loop-lab:preferences:v10', JSON.stringify(values));
   } catch { /* Private browsing may disable local storage. */ }
 }
 function restorePreferences() {
   try {
-    const values = JSON.parse(localStorage.getItem('rail-loop-lab:preferences:v8') || '{}');
+    const values = JSON.parse(localStorage.getItem('rail-loop-lab:preferences:v10') || localStorage.getItem('rail-loop-lab:preferences:v8') || '{}');
     for (const [id, value] of Object.entries(values)) {
       if (id === 'biomeMix') mixControls.set(value);
       else if (id === 'vehicle') { const input = [...document.querySelectorAll('input[name="vehicle"]')].find(el => el.value === value); if (input) input.checked = true; }
@@ -148,7 +164,6 @@ function populateForm() {
 }
 function updatePresetHint() { $('preset-hint').textContent = `${$('density').selectedOptions[0].textContent.split(' · ')[0]} / ${Number($('density').value).toLocaleString()} 物件`; }
 function updateReliefHint() {
-  mixControls?.describe();
   const field = $('elevation-limit'), turns = Number($('track-turns').value), requested = Number(field.value);
   field.options[0].textContent = turns > 1 ? '0 m · 僅跨線坡' : '0 m · 平坦';
   if (turns > 1) {
@@ -206,9 +221,12 @@ async function loadWorld(config, showLoading = true) {
     railPhysics?.dispose(); railPhysics = null;
     if (world) world.dispose(); world = nextWorld;
     world.group.visible = true;
+    world.group.traverse(object => { if (object.isMesh && object.castShadow) object.onAfterShadow = countShadowPass; });
     renderer.renderLists.dispose();
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, config.resolution));
-    renderer.shadowMap.enabled = config.shadows || config.sceneryShadows; atmosphere.setBiomes(config.biomeA, config.biomeB, config.biomeMix);
+    renderer.shadowMap.enabled = config.shadows || config.sceneryShadows;
+    atmosphere.setShadowProfile(world.shadowProfile);
+    atmosphere.setBiomes(config.biomeA, config.biomeB, config.biomeMix);
     cameraSnapped = false; visibilityElapsed = 100; titleTime = 0; resize();
     return true;
   } catch (error) { nextWorld.dispose(); throw error; }
@@ -271,6 +289,7 @@ function placeBumper() {
   const direction=physics.speed<-.1||Math.abs(physics.speed)<.1&&physics.throttle<0?-1:1;
   const distance=physics.distance+direction*80;
   railPhysics.placeBumper(distance);world.showTestBumper(distance);
+  world.testBumper.onAfterShadow = countShadowPass;
   lastImpactNs=0;$('clear-bumper').hidden=false;notify(`已在${direction>0?'前方':'倒車方向'} 80 m 放置測試擋車器。`);
 }
 function clearBumper() { if(!railPhysics)return;railPhysics.clearBumper();world.showTestBumper(null);$('clear-bumper').hidden=true;$('bumper-status').textContent='沿軌受力、彈簧與碰撞求解'; }
@@ -364,7 +383,7 @@ function setCamera(next, snap = true) {
   else if (next === 'chase' && snap && orbitDistance < 7) orbitDistance = 18;
   document.querySelectorAll('[data-camera]').forEach(button => button.classList.toggle('active', button.dataset.camera === next));
   $('camera-hint').textContent = next === 'cab' ? '拖曳自由轉頭 · 滾輪向下拉遠' : next === 'chase' ? '拖曳旋轉 · 滾輪最近進入駕駛' : '拖曳旋轉全景';
-  if(mode==='paused' && world){updateCamera(0,true);world.setVisibility(camera,world.config.viewDistance,next==='overview');renderer.render(scene,camera);}
+  if(mode==='paused' && world){updateCamera(0,true);world.setVisibility(camera,world.config.viewDistance,next==='overview');renderFrame();}
 }
 function resize() {
   if (!renderer) return;
@@ -423,7 +442,7 @@ function updateCamera(dt, snap = false) {
   const insideTunnel = mode === 'running' && !overview ? world.tunnelFactor(distanceAlong - (cameraMode === 'cab' ? 0 : Math.min(7.5, orbitDistance))) : 0;
   scene.fog.near = lerp(scene.fog.near, 3, insideTunnel); scene.fog.far = lerp(scene.fog.far, 68, insideTunnel);
   world.cart.visible = cameraMode !== 'cab' && !(cameraMode === 'chase' && camera.position.distanceTo(cart) < 4.2);
-  atmosphere.update(camera, cart, world.config.shadows || world.config.sceneryShadows, insideTunnel, world.config.sceneryShadows);
+  atmosphere.update(camera, cart, world.config.shadows || world.config.sceneryShadows, insideTunnel);
 }
 function updateHUD() {
   $('timer').textContent = physics.elapsed.toFixed(1);
@@ -564,7 +583,8 @@ function recordMetrics(dt, now) {
     $('draw-calls').textContent = info.render.calls.toLocaleString();
     $('triangles').textContent = info.render.triangles >= 1e6 ? `${(info.render.triangles / 1e6).toFixed(2)}M` : `${(info.render.triangles / 1e3).toFixed(0)}K`;
     fpsHistory.push({ elapsedSeconds: Number(physics.elapsed.toFixed(3)), fps: Number(fps.toFixed(2)), frameTimeMs: Number((1000 / fps).toFixed(3)),
-      onePercentLowFps: Number(low.toFixed(2)), drawCalls: info.render.calls, triangles: info.render.triangles, geometries: info.memory.geometries,
+      onePercentLowFps: Number(low.toFixed(2)), drawCalls: info.render.calls, triangles: info.render.triangles,
+      shadowDrawCalls: shadowPass.drawCalls, shadowTriangles: shadowPass.triangles, geometries: info.memory.geometries,
       textures: info.memory.textures, speedKmh: Number((physics.speed * 3.6).toFixed(2)), flatReferenceKmh: Number(leverReference(physics.throttle).kmh.toFixed(2)),
       powerPercent: Number(leverReference(physics.throttle).powerPercent.toFixed(3)), gradePermille: Number((world.cartSample.grade * 1000).toFixed(3)), altitudeMetres: Number(world.cartSample.y.toFixed(3)), camera: cameraMode });
     // Bounded memory for genuinely unlimited runs: retain at most 4 hours of 1s samples.
@@ -573,7 +593,7 @@ function recordMetrics(dt, now) {
 }
 function exportReport() {
   const samples = fpsHistory;
-  const report = { application: 'LOOP · 軌道試驗場', version: '9.0.0', threeVersion: THREE.REVISION, generatedAt: new Date().toISOString(),
+  const report = { application: 'LOOP · 軌道試驗場', version: '10.0.0', threeVersion: THREE.REVISION, generatedAt: new Date().toISOString(),
     settings: sessionConfig, actualTrackLengthMetres: world.route.length, worldUnit: 'metre', elapsedSecondsIncludingCountdown: physics.elapsed,
     trackLayout: { turns: world.route.turns, turnStartsMetres: world.route.turnStarts, crossings: world.route.crossings,
       stations: world.stations.map(s => ({ name: s.name, platformDistancesMetres: (s.passes ?? [s]).map(pass => pass.distance) })) },
@@ -583,8 +603,9 @@ function exportReport() {
       landmarks: world.sceneryPlan.landmarks.map(({ id, x, z, along }) => ({ id, x, z, along })),
       lod: 'Chunked main / LOD1 with distance hysteresis; overview uses LOD1.' },
     biomeDistribution: world.biomeReport,
+    shadowSettings: { ...world.shadowProfile, widthMetres: world.shadowProfile.radius * 2 },
     elevation: world.route.elevation, physicsModel: { engine: 'Rapier', ...railPhysics.diagnostics(), suspensionYMetres: physics.suspensionY, suspensionVelocityMetresPerSecond: physics.suspensionVelocity, massKg: CART_MASS, ratedPowerWatts: RATED_POWER, ratedHorsepower: RATED_POWER / 745.699872, maximumGrade: MAX_GRADE, minimumVerticalRadiusMetres: MIN_VERTICAL_RADIUS },
-    landscape: { version: '9.0.0', ...world.landscapeStats },
+    landscape: { version: '10.0.0', ...world.landscapeStats },
     landmarks: world.features, sleepers: { averagePitchMetres: world.sleeperPitch, instances: world.sleeperInstances, filterEnabled: world.config.sleeperFilter, exposureMetres: world.sleeperUniforms.exposure.value },
     presentation: { fixedPhysicsStepSeconds: FIXED_STEP, interpolatedMotion: true, chaseAnchoredToCart: true, camera: cameraMode, chaseDistanceMetres: orbitDistance, cabYawRadians: cabYaw, cabPitchRadians: cabPitch },
     viewport: { width: innerWidth, height: innerHeight, pixelRatio: renderer.getPixelRatio() },
@@ -633,13 +654,13 @@ function frame(time) {
   }
   visibilityElapsed += dt;
   if (visibilityElapsed > 0.18) { world.setVisibility(camera, world.config.viewDistance, cameraMode === 'overview'); visibilityElapsed = 0; }
-  renderer.render(scene, camera);
+  renderFrame();
   recordMetrics(realDt, time);
 }
 
 async function boot() {
   if (location.protocol === 'file:') throw new Error('請透過 HTTP 開啟此專案：執行 START_LOCAL.cmd 後前往 http://127.0.0.1:4173，或使用 GitHub Pages 網址。');
-  const response = await fetch('./asset-manifest.json?v=9.0.0'); if (!response.ok) throw new Error(`找不到資產清單（HTTP ${response.status}）。請完整解壓縮 ZIP。`);
+  const response = await fetch('./asset-manifest.json?v=10.0.0'); if (!response.ok) throw new Error(`找不到資產清單（HTTP ${response.status}）。請完整解壓縮 ZIP。`);
   manifest = await response.json();
   loadingProgress(.02,'初始化本機 Rapier 物理引擎…'); await initRapier();
   populateForm(); installControls();
@@ -657,9 +678,9 @@ async function boot() {
 }
 
 window.__LOOP_TEST__ = {
-  snapshot:()=>({mode,version:'9.0.0',physics:{...physics},renderMotion:{...renderMotion},config:world?.config,biomes:world?.biomeReport,scenery:world?.sceneryStats,rapier:railPhysics?.diagnostics(),cart:world?.cart?.position.toArray(),camera:camera?{position:camera.position.toArray(),direction:camera.getWorldDirection(new THREE.Vector3()).toArray(),cartNDC:world?.cart?.position.clone().project(camera).toArray(),cartVisible:world?.cart?.visible,near:camera.near,far:camera.far,fog:[scene.fog.near,scene.fog.far],visibleGroups:world?.cullGroups.filter(g=>g.group.visible).length}:null,wheels:world?.wheels?.map(w=>w.node.getWorldPosition(new THREE.Vector3()).toArray()),textures:renderer?.info.memory.textures,materials:store?.sharedMaterials.size}),
+  snapshot:()=>({mode,version:'10.0.0',physics:{...physics},renderMotion:{...renderMotion},config:world?.config,biomes:world?.biomeReport,scenery:world?.sceneryStats,rapier:railPhysics?.diagnostics(),cart:world?.cart?.position.toArray(),camera:camera?{position:camera.position.toArray(),direction:camera.getWorldDirection(new THREE.Vector3()).toArray(),cartNDC:world?.cart?.position.clone().project(camera).toArray(),cartVisible:world?.cart?.visible,near:camera.near,far:camera.far,fog:[scene.fog.near,scene.fog.far],visibleGroups:world?.cullGroups.filter(g=>g.group.visible).length}:null,wheels:world?.wheels?.map(w=>w.node.getWorldPosition(new THREE.Vector3()).toArray()),textures:renderer?.info.memory.textures,materials:store?.sharedMaterials.size}),
   setMix:rows=>mixControls.set(rows,true),setThrottle,pause:pauseGame,placeBumper,clearBumper,
-  inspectBiome:biome=>{if(!world?.biomeLayout)return;renderMotion.distance=world.biomeLayout.centerOf(biome);world.updateCart(renderMotion.distance,renderMotion.distance,0);cameraSnapped=false;updateCamera(0,true);},
+  inspectBiome:biome=>{const distance=world?.biomeLayout?.centerOf(biome);if(distance==null)return;renderMotion.distance=distance;world.updateCart(distance,distance,0);cameraSnapped=false;updateCamera(0,true);},
   report:()=>({biomes:world?.biomeReport,scenery:world?.sceneryStats,physics:railPhysics?.diagnostics()}),
 };
 // Deterministic foreground simulation is available only on an explicitly opened
@@ -672,8 +693,13 @@ if(location.hostname==='127.0.0.1' && new URLSearchParams(location.search).get('
     copyMotion(physics,previousMotion);copyMotion(physics,renderMotion);accumulator=0;lastTime=0;
     world.updateCart(physics.distance,physics.odometer,physics.throttle,physics.suspensionY);
     updateHUD();drawMinimap();cameraSnapped=false;updateCamera(0,true);world.setVisibility(camera,world.config.viewDistance,cameraMode==='overview');
-    renderer.render(scene,camera);return window.__LOOP_TEST__.snapshot();
+    renderFrame();return window.__LOOP_TEST__.snapshot();
   };
+  window.__LOOP_TEST__.renderCost = () => ({
+    main: { ...renderer.info.render },
+    shadows: { ...shadowPass },
+    shadowProfile: world.shadowProfile,
+  });
 }
 
 boot().catch(showError);

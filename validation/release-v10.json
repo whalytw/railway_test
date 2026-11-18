@@ -1,0 +1,13 @@
+{
+  "version": "10.0.0",
+  "base": {
+    "file": "RailLoopLab-v9-20261118.zip",
+    "version": "9.0.0",
+    "sha256": "7e01af471af5b6ea4f9d7b21210ecdea7e57a5eb12169862b403188f5c66df92"
+  },
+  "testsPassed": 88,
+  "sourceSha256": "5a2b2cbf0f651c400c908722afe458be2577f8c035bbc05785c92222c4cd80b7",
+  "preservedAssetAndVendorFiles": 882,
+  "preservedGlbs": 423,
+  "published": false
+}

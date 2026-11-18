@@ -1,0 +1,381 @@
+{
+  "modelsUsed": 63,
+  "available": 63,
+  "records": [
+    {
+      "seed": "V8-HABITATS-0",
+      "mix": [
+        {
+          "biome": "Forest",
+          "percent": 50
+        },
+        {
+          "biome": "Desert",
+          "percent": 50
+        }
+      ],
+      "lake": {
+        "x": 1478.7540918900054,
+        "z": 170.1475397382983,
+        "radius": 60,
+        "depthScale": 0.68,
+        "level": 72.7908789524602,
+        "kind": "oasis",
+        "biome": "Desert"
+      },
+      "distribution": {
+        "basis": "map-area-soft-weight",
+        "mapAreaSquareMetres": 6478783.476705099,
+        "transitionIncluded": true,
+        "nominalTransitionMetres": 210,
+        "routeLengthMetres": 8000,
+        "regions": [
+          {
+            "biome": "Forest",
+            "requestedPercent": 50,
+            "actualPercent": 49.99997919710877,
+            "weightedSquareMetres": 3239390.39057827,
+            "routePercent": 46.36687218306131,
+            "routeWeightedMetres": 3709.349774644905
+          },
+          {
+            "biome": "Desert",
+            "requestedPercent": 50,
+            "actualPercent": 50.00002080289126,
+            "weightedSquareMetres": 3239393.086126831,
+            "routePercent": 53.63312781693864,
+            "routeWeightedMetres": 4290.650225355092
+          }
+        ]
+      },
+      "nature": {
+        "available": 63,
+        "eligible": 63,
+        "placed": 63,
+        "missing": [],
+        "incompatible": [],
+        "modelCounts": {
+          "Plant_Quaternius_BushFlowers_001": 11,
+          "Plant_Quaternius_BushLargeFlowers_001": 16,
+          "Plant_Quaternius_BushLarge_001": 12,
+          "Plant_Quaternius_BushSmallFlowers_001": 2,
+          "Plant_Quaternius_BushSmall_001": 15,
+          "Plant_Quaternius_Bush_001": 10,
+          "Plant_Quaternius_Petals_001": 12,
+          "Plant_Quaternius_Petals_002": 3,
+          "Plant_Quaternius_Petals_003": 7,
+          "Plant_Quaternius_Petals_004": 12,
+          "Plant_Quaternius_FlowerClump_001": 2,
+          "Plant_Quaternius_FlowerClump_002": 2,
+          "Plant_Quaternius_FlowerClump_003": 8,
+          "Plant_Quaternius_FlowerClump_004": 22,
+          "Plant_Quaternius_FlowerClump_005": 12,
+          "Plant_Quaternius_Flower_001": 19,
+          "Plant_Quaternius_Flower_002": 10,
+          "Plant_Quaternius_GrassLargeExtruded_001": 17,
+          "Plant_Quaternius_GrassLarge_001": 17,
+          "Plant_Quaternius_GrassSmall_001": 13,
+          "Plant_Quaternius_LeafyPlantFlowers_001": 11,
+          "Plant_Quaternius_LeafyPlant_001": 5,
+          "Plant_Quaternius_LeafyPlant_002": 6,
+          "Plant_Quaternius_BirchTree_001": 6,
+          "Plant_Quaternius_BirchTree_002": 3,
+          "Plant_Quaternius_BirchTree_003": 3,
+          "Plant_Quaternius_BirchTree_004": 11,
+          "Plant_Quaternius_BirchTree_005": 12,
+          "Plant_Quaternius_DeadTree_001": 8,
+          "Plant_Quaternius_DeadTree_002": 6,
+          "Plant_Quaternius_DeadTree_003": 19,
+          "Plant_Quaternius_DeadTree_004": 9,
+          "Plant_Quaternius_DeadTree_005": 4,
+          "Plant_Quaternius_DeadTree_006": 6,
+          "Plant_Quaternius_DeadTree_007": 12,
+          "Plant_Quaternius_DeadTree_008": 5,
+          "Plant_Quaternius_DeadTree_009": 22,
+          "Plant_Quaternius_DeadTree_010": 17,
+          "Plant_Quaternius_MapleTree_001": 10,
+          "Plant_Quaternius_MapleTree_002": 11,
+          "Plant_Quaternius_MapleTree_003": 13,
+          "Plant_Quaternius_MapleTree_004": 8,
+          "Plant_Quaternius_MapleTree_005": 8,
+          "Plant_Quaternius_NormalTree_001": 17,
+          "Plant_Quaternius_NormalTree_002": 3,
+          "Plant_Quaternius_NormalTree_003": 7,
+          "Plant_Quaternius_NormalTree_004": 2,
+          "Plant_Quaternius_NormalTree_005": 8,
+          "Plant_Quaternius_PalmTree_001": 1,
+          "Plant_Quaternius_PalmTree_002": 1,
+          "Plant_Quaternius_PalmTree_003": 1,
+          "Plant_Quaternius_PalmTree_004": 1,
+          "Plant_Quaternius_PalmTree_005": 1,
+          "Plant_Quaternius_PineTree_001": 13,
+          "Plant_Quaternius_PineTree_002": 7,
+          "Plant_Quaternius_PineTree_003": 6,
+          "Plant_Quaternius_PineTree_004": 5,
+          "Plant_Quaternius_PineTree_005": 8,
+          "Environment_Quaternius_Rock_001": 128,
+          "Environment_Quaternius_Rock_002": 146,
+          "Environment_Quaternius_Rock_003": 106,
+          "Environment_Quaternius_Rock_004": 107,
+          "Environment_Quaternius_Rock_005": 111
+        }
+      }
+    },
+    {
+      "seed": "V8-HABITATS-1",
+      "mix": [
+        {
+          "biome": "Forest",
+          "percent": 35
+        },
+        {
+          "biome": "Hills",
+          "percent": 25
+        },
+        {
+          "biome": "Pastoral",
+          "percent": 25
+        },
+        {
+          "biome": "Lakeside",
+          "percent": 15
+        }
+      ],
+      "lake": {
+        "x": 1488.283560306588,
+        "z": 472.76518531211644,
+        "radius": 109.12146924085539,
+        "depthScale": 0.68,
+        "level": 69.66226064788108,
+        "kind": "lake",
+        "biome": "Lakeside"
+      },
+      "distribution": {
+        "basis": "map-area-soft-weight",
+        "mapAreaSquareMetres": 6888980.812398752,
+        "transitionIncluded": true,
+        "nominalTransitionMetres": 210,
+        "routeLengthMetres": 8000,
+        "regions": [
+          {
+            "biome": "Forest",
+            "requestedPercent": 35,
+            "actualPercent": 35.00005461499281,
+            "weightedSquareMetres": 2411147.046755939,
+            "routePercent": 29.401536719748,
+            "routeWeightedMetres": 2352.1229375798403
+          },
+          {
+            "biome": "Hills",
+            "requestedPercent": 25,
+            "actualPercent": 24.999812070928368,
+            "weightedSquareMetres": 1722232.2567020024,
+            "routePercent": 24.729151252648883,
+            "routeWeightedMetres": 1978.3321002119105
+          },
+          {
+            "biome": "Pastoral",
+            "requestedPercent": 25,
+            "actualPercent": 25.000073403644514,
+            "weightedSquareMetres": 1722250.2598626742,
+            "routePercent": 30.765880232588845,
+            "routeWeightedMetres": 2461.2704186071073
+          },
+          {
+            "biome": "Lakeside",
+            "requestedPercent": 15,
+            "actualPercent": 15.000059910434297,
+            "weightedSquareMetres": 1033351.2490781362,
+            "routePercent": 15.103431795014263,
+            "routeWeightedMetres": 1208.274543601141
+          }
+        ]
+      },
+      "nature": {
+        "available": 63,
+        "eligible": 58,
+        "placed": 58,
+        "missing": [],
+        "incompatible": [
+          "Plant_Quaternius_PalmTree_001",
+          "Plant_Quaternius_PalmTree_002",
+          "Plant_Quaternius_PalmTree_003",
+          "Plant_Quaternius_PalmTree_004",
+          "Plant_Quaternius_PalmTree_005"
+        ],
+        "modelCounts": {
+          "Plant_Quaternius_BushFlowers_001": 24,
+          "Plant_Quaternius_BushLargeFlowers_001": 25,
+          "Plant_Quaternius_BushLarge_001": 24,
+          "Plant_Quaternius_BushSmallFlowers_001": 21,
+          "Plant_Quaternius_BushSmall_001": 29,
+          "Plant_Quaternius_Bush_001": 31,
+          "Plant_Quaternius_Petals_001": 4,
+          "Plant_Quaternius_Petals_002": 9,
+          "Plant_Quaternius_Petals_003": 10,
+          "Plant_Quaternius_Petals_004": 19,
+          "Plant_Quaternius_FlowerClump_001": 15,
+          "Plant_Quaternius_FlowerClump_002": 14,
+          "Plant_Quaternius_FlowerClump_003": 30,
+          "Plant_Quaternius_FlowerClump_004": 44,
+          "Plant_Quaternius_FlowerClump_005": 14,
+          "Plant_Quaternius_Flower_001": 24,
+          "Plant_Quaternius_Flower_002": 18,
+          "Plant_Quaternius_GrassLargeExtruded_001": 22,
+          "Plant_Quaternius_GrassLarge_001": 15,
+          "Plant_Quaternius_GrassSmall_001": 17,
+          "Plant_Quaternius_LeafyPlantFlowers_001": 19,
+          "Plant_Quaternius_LeafyPlant_001": 13,
+          "Plant_Quaternius_LeafyPlant_002": 19,
+          "Plant_Quaternius_BirchTree_001": 20,
+          "Plant_Quaternius_BirchTree_002": 15,
+          "Plant_Quaternius_BirchTree_003": 20,
+          "Plant_Quaternius_BirchTree_004": 15,
+          "Plant_Quaternius_BirchTree_005": 18,
+          "Plant_Quaternius_DeadTree_001": 7,
+          "Plant_Quaternius_DeadTree_002": 11,
+          "Plant_Quaternius_DeadTree_003": 3,
+          "Plant_Quaternius_DeadTree_004": 2,
+          "Plant_Quaternius_DeadTree_005": 4,
+          "Plant_Quaternius_DeadTree_006": 4,
+          "Plant_Quaternius_DeadTree_007": 8,
+          "Plant_Quaternius_DeadTree_008": 4,
+          "Plant_Quaternius_DeadTree_009": 4,
+          "Plant_Quaternius_DeadTree_010": 1,
+          "Plant_Quaternius_MapleTree_001": 9,
+          "Plant_Quaternius_MapleTree_002": 20,
+          "Plant_Quaternius_MapleTree_003": 9,
+          "Plant_Quaternius_MapleTree_004": 14,
+          "Plant_Quaternius_MapleTree_005": 17,
+          "Plant_Quaternius_NormalTree_001": 12,
+          "Plant_Quaternius_NormalTree_002": 16,
+          "Plant_Quaternius_NormalTree_003": 19,
+          "Plant_Quaternius_NormalTree_004": 11,
+          "Plant_Quaternius_NormalTree_005": 11,
+          "Plant_Quaternius_PineTree_001": 14,
+          "Plant_Quaternius_PineTree_002": 12,
+          "Plant_Quaternius_PineTree_003": 19,
+          "Plant_Quaternius_PineTree_004": 24,
+          "Plant_Quaternius_PineTree_005": 17,
+          "Environment_Quaternius_Rock_001": 42,
+          "Environment_Quaternius_Rock_002": 50,
+          "Environment_Quaternius_Rock_003": 63,
+          "Environment_Quaternius_Rock_004": 71,
+          "Environment_Quaternius_Rock_005": 51
+        }
+      }
+    },
+    {
+      "seed": "V8-HABITATS-2",
+      "mix": [
+        {
+          "biome": "Snow",
+          "percent": 50
+        },
+        {
+          "biome": "Volcano",
+          "percent": 50
+        }
+      ],
+      "lake": null,
+      "distribution": {
+        "basis": "map-area-soft-weight",
+        "mapAreaSquareMetres": 6908033.335898478,
+        "transitionIncluded": true,
+        "nominalTransitionMetres": 210,
+        "routeLengthMetres": 8000,
+        "regions": [
+          {
+            "biome": "Snow",
+            "requestedPercent": 50,
+            "actualPercent": 49.99993551873326,
+            "weightedSquareMetres": 3454012.213561837,
+            "routePercent": 51.575493827709764,
+            "routeWeightedMetres": 4126.039506216781
+          },
+          {
+            "biome": "Volcano",
+            "requestedPercent": 50,
+            "actualPercent": 50.000064481266726,
+            "weightedSquareMetres": 3454021.1223366396,
+            "routePercent": 48.42450617229026,
+            "routeWeightedMetres": 3873.9604937832205
+          }
+        ]
+      },
+      "nature": {
+        "available": 63,
+        "eligible": 20,
+        "placed": 20,
+        "missing": [],
+        "incompatible": [
+          "Plant_Quaternius_BushFlowers_001",
+          "Plant_Quaternius_BushLargeFlowers_001",
+          "Plant_Quaternius_BushLarge_001",
+          "Plant_Quaternius_BushSmallFlowers_001",
+          "Plant_Quaternius_BushSmall_001",
+          "Plant_Quaternius_Bush_001",
+          "Plant_Quaternius_Petals_001",
+          "Plant_Quaternius_Petals_002",
+          "Plant_Quaternius_Petals_003",
+          "Plant_Quaternius_Petals_004",
+          "Plant_Quaternius_FlowerClump_001",
+          "Plant_Quaternius_FlowerClump_002",
+          "Plant_Quaternius_FlowerClump_003",
+          "Plant_Quaternius_FlowerClump_004",
+          "Plant_Quaternius_FlowerClump_005",
+          "Plant_Quaternius_Flower_001",
+          "Plant_Quaternius_Flower_002",
+          "Plant_Quaternius_GrassLargeExtruded_001",
+          "Plant_Quaternius_GrassLarge_001",
+          "Plant_Quaternius_GrassSmall_001",
+          "Plant_Quaternius_LeafyPlantFlowers_001",
+          "Plant_Quaternius_LeafyPlant_001",
+          "Plant_Quaternius_LeafyPlant_002",
+          "Plant_Quaternius_BirchTree_001",
+          "Plant_Quaternius_BirchTree_002",
+          "Plant_Quaternius_BirchTree_003",
+          "Plant_Quaternius_BirchTree_004",
+          "Plant_Quaternius_BirchTree_005",
+          "Plant_Quaternius_MapleTree_001",
+          "Plant_Quaternius_MapleTree_002",
+          "Plant_Quaternius_MapleTree_003",
+          "Plant_Quaternius_MapleTree_004",
+          "Plant_Quaternius_MapleTree_005",
+          "Plant_Quaternius_NormalTree_001",
+          "Plant_Quaternius_NormalTree_002",
+          "Plant_Quaternius_NormalTree_003",
+          "Plant_Quaternius_NormalTree_004",
+          "Plant_Quaternius_NormalTree_005",
+          "Plant_Quaternius_PalmTree_001",
+          "Plant_Quaternius_PalmTree_002",
+          "Plant_Quaternius_PalmTree_003",
+          "Plant_Quaternius_PalmTree_004",
+          "Plant_Quaternius_PalmTree_005"
+        ],
+        "modelCounts": {
+          "Plant_Quaternius_DeadTree_001": 22,
+          "Plant_Quaternius_DeadTree_002": 14,
+          "Plant_Quaternius_DeadTree_003": 24,
+          "Plant_Quaternius_DeadTree_004": 21,
+          "Plant_Quaternius_DeadTree_005": 19,
+          "Plant_Quaternius_DeadTree_006": 17,
+          "Plant_Quaternius_DeadTree_007": 4,
+          "Plant_Quaternius_DeadTree_008": 17,
+          "Plant_Quaternius_DeadTree_009": 11,
+          "Plant_Quaternius_DeadTree_010": 19,
+          "Plant_Quaternius_PineTree_001": 6,
+          "Plant_Quaternius_PineTree_002": 8,
+          "Plant_Quaternius_PineTree_003": 8,
+          "Plant_Quaternius_PineTree_004": 6,
+          "Plant_Quaternius_PineTree_005": 4,
+          "Environment_Quaternius_Rock_001": 205,
+          "Environment_Quaternius_Rock_002": 231,
+          "Environment_Quaternius_Rock_003": 185,
+          "Environment_Quaternius_Rock_004": 199,
+          "Environment_Quaternius_Rock_005": 178
+        }
+      }
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { DEFAULT_MIX, normalizeMix, proportionalIntegers, redistributeShares, randomMix, BIOME_COLORS } from './biome-blend.js?v=9.0.0';
+import { DEFAULT_MIX, normalizeMix, proportionalIntegers, redistributeShares, randomMix, BIOME_COLORS } from './biome-blend.js?v=10.0.0';
 
 export class MixControls {
   constructor(container,biomes,onChange) {
@@ -37,7 +37,7 @@ export class MixControls {
     const chosen=new Set(this.rows.filter(row=>row.biome).map(row=>row.biome));
     this.rows.forEach((row,index)=>{const field=this.fields[index];field.select.value=row.biome;field.number.value=String(row.percent);field.slider.value=String(row.percent);field.number.disabled=field.slider.disabled=!row.biome;field.card.dataset.active=String(Boolean(row.biome));field.card.style.setProperty('--mix-color',BIOME_COLORS[row.biome]||'#9ca994');for(const option of field.select.options)option.disabled=Boolean(option.value&&option.value!==row.biome&&chosen.has(option.value));});
     const active=this.value();const bar=document.getElementById('mix-bar');bar.replaceChildren(...active.map(row=>{const span=document.createElement('span');span.style.width=`${row.percent}%`;span.style.background=BIOME_COLORS[row.biome];span.title=`${this.biomes[row.biome].name} ${row.percent}%`;return span;}));
-    this.describe();
+    document.getElementById('mix-summary').textContent=active.map(row=>`${this.biomes[row.biome].name} ${row.percent}%`).join('　／　');
+    bar.setAttribute('aria-label', '地圖面積比例 ' + document.getElementById('mix-summary').textContent);
   }
-  describe(lengthKm=Number(document.getElementById('route-length')?.value)||8){const active=this.value();document.getElementById('mix-summary').textContent=active.map(row=>`${this.biomes[row.biome].name} ${row.percent}% · ${(lengthKm*row.percent/100).toFixed(2)} km`).join('　／　');document.getElementById('mix-total').textContent='合計 100%';document.getElementById('mix-bar').setAttribute('aria-label',document.getElementById('mix-summary').textContent);}
 }

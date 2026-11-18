@@ -1,14 +1,15 @@
 import * as THREE from 'three';
 import { GLTFLoader } from '../vendor/GLTFLoader.js';
-import { TAU, lerp, clamp, wrap, smoothstep, randomGenerator, stationsFor, biomeMix, trackSegments } from './core.js?v=9.0.0';
-import { createCircuitRoute } from './circuit-route.js?v=9.0.0';
-import { sleeperLayout, sleeperFilter, planRouteFeatures, routeStructures, bridgeCoordinates, bridgeGroundHeight } from './route-features.js?v=9.0.0';
-import { buildMountainBackdrop, buildVariedClouds, updateClouds, buildBridgeAndRiver, buildTunnel, buildGirderBridge } from './scenery.js?v=9.0.0';
-import { fitGroundContact, prepareGroundedParts, groundBatchGeometry, renderedGroundHeight } from './grounding.js?v=9.0.0';
-import { planScenery, indexGroundPads, paddedHeight } from './scenery-plan.js?v=9.0.0';
-import { createBiomeLayout } from './biome-blend.js?v=9.0.0';
-import { createStandingDriver } from './drivers.js?v=9.0.0';
-import { createGroundMaterial, grassHabitatAt, buildGrassCover, buildFarmland } from './ground-cover.js?v=9.0.0';
+import { TAU, lerp, clamp, wrap, smoothstep, randomGenerator, stationsFor, biomeMix, trackSegments } from './core.js?v=10.0.0';
+import { createCircuitRoute } from './circuit-route.js?v=10.0.0';
+import { sleeperLayout, sleeperFilter, planRouteFeatures, routeStructures, bridgeCoordinates, bridgeGroundHeight } from './route-features.js?v=10.0.0';
+import { buildMountainBackdrop, buildVariedClouds, updateClouds, buildBridgeAndRiver, buildTunnel, buildGirderBridge } from './scenery.js?v=10.0.0';
+import { fitGroundContact, prepareGroundedParts, groundBatchGeometry, renderedGroundHeight } from './grounding.js?v=10.0.0';
+import { planScenery, indexGroundPads, paddedHeight } from './scenery-plan.js?v=10.0.0';
+import { createBiomeLayout } from './biome-blend.js?v=10.0.0';
+import { shadowProfile, keepSceneryShadow } from './shadow-profile.js?v=10.0.0';
+import { createStandingDriver } from './drivers.js?v=10.0.0';
+import { createGroundMaterial, grassHabitatAt, buildGrassCover, buildFarmland } from './ground-cover.js?v=10.0.0';
 
 export const PALETTES = {
   Forest: { ground: '#829565', detail: '#62794d', sky: '#bed0ba', amplitude: 12 },
@@ -105,6 +106,7 @@ export class AssetStore {
 export class RailWorld {
   constructor(scene, store, config) {
     this.scene = scene; this.store = store; this.config = config;
+    this.shadowProfile = shadowProfile(config);
     this.route = createCircuitRoute(config.length * 1000, config.seed, { elevationLimit: config.elevationLimit, stations: config.stations, turns: config.turns });
     this.stations = stationsFor(this.route, config.stations);
     this.stationPasses = this.stations.flatMap(s => s.passes ?? [s]).sort((a, b) => a.distance - b.distance);
@@ -132,7 +134,7 @@ export class RailWorld {
     this.groundParts = new Map(); this.terrainGrid = null;
     this.sceneryPlan = null; this.groundPadIndex = null;
     this.sleeperUniforms = { exposure: { value: 0 }, contrast: { value: 0 }, enabled: { value: config.sleeperFilter === false ? 0 : 1 } };
-    this.biomeLayout = config.biomeMix ? createBiomeLayout(this.route, config.biomeMix) : null;
+    this.biomeLayout = config.biomeMix ? createBiomeLayout(this.route, config.biomeMix, config.seed) : null;
     this.activeBiomes = this.biomeLayout ? this.biomeLayout.mix.map(row => row.biome) : [...new Set([config.biomeA, config.biomeB])];
     config.biomeA ||= this.activeBiomes[0]; config.biomeB ||= this.activeBiomes[1] || this.activeBiomes[0];
     this.paletteA = PALETTES[config.biomeA]; this.paletteB = PALETTES[config.biomeB];
@@ -199,19 +201,35 @@ export class RailWorld {
   colorAt(x, z, out = new THREE.Color(), detail = false) { const weights=this.weightsAt(x,z); out.setRGB(0,0,0); for(const row of this.paletteMix){ const c=detail?row.detail:row.ground,w=weights[row.id]||0; out.r+=c.r*w;out.g+=c.g*w;out.b+=c.b*w; } return out; }
   skyColor(out = new THREE.Color()) { out.setRGB(0,0,0); for(const row of this.paletteMix){const w=this.biomeLayout ? this.biomeLayout.mix.find(v=>v.biome===row.id).percent/100 : .5;out.r+=row.sky.r*w;out.g+=row.sky.g*w;out.b+=row.sky.b*w;} return out; }
   planBlendedLake() {
-    const biome=this.activeBiomes.includes('Lakeside')?'Lakeside':this.activeBiomes.includes('Desert')?'Desert':null;
-    if(!biome)return null;
-    const region=this.biomeLayout.regions.find(row=>row.biome===biome),center=this.biomeLayout.centerOf(biome),d=this.route.squareSize;
-    let chosen=null,best=-1;
-    for(let i=0;i<72;i++){
-      const s=center+(i%9-4)/9*region.metres*.56,p=this.route.sample(s),side=i%2?-1:1,offset=65+Math.floor(i/9)*13;
-      const x=p.x+p.nx*offset*side,z=p.z+p.nz*offset*side;
-      if(Math.abs(x)>d-40||Math.abs(z)>d/2-40||this.biomeWeight(biome,x,z)<.75)continue;
-      const near=this.route.nearestTo(x,z,210),radius=Math.min(biome==='Desert'?60:135,region.metres*.16,near.distance*.62);
-      if(radius<5||this.stationPasses.some(station=>Math.hypot(x-station.x,z-station.z)<radius+35))continue;
-      if(this.features.bridge){const b=bridgeCoordinates(this.features.bridge,x,z);if(Math.abs(b.across)<radius+170&&b.along>this.features.bridge.river.start-radius&&b.along<this.features.bridge.river.end+radius)continue;}
-      const score=radius+near.distance*.05;
-      if(score>best){best=score;chosen={x,z,radius,depthScale:.68,level:this.baseElevation(x,z)-.16,kind:biome==='Desert'?'oasis':'lake',biome};}
+    const biome = this.activeBiomes.includes('Lakeside') ? 'Lakeside' : this.activeBiomes.includes('Desert') ? 'Desert' : null;
+    if (!biome) return null;
+    const region = this.biomeReport.regions.find(row => row.biome === biome), d = this.route.squareSize;
+    const maximumRadius = Math.min(biome === 'Desert' ? 60 : 135, Math.sqrt(region.weightedSquareMetres) * 0.22);
+    const bridge = this.features.bridge;
+    let chosen = null, best = -Infinity;
+    const consider = (x, z) => {
+      const edge = Math.min(d - Math.abs(x), (d / 2 - Math.abs(z)) / 0.68);
+      if (edge < 34 || this.biomeWeight(biome, x, z) < 0.72) return;
+      const distance = this.route.distanceTo(x, z, 225);
+      const radius = Math.min(maximumRadius, distance * 0.62, edge - 17);
+      if (radius < 7 || this.stationPasses.some(station => Math.hypot(x - station.x, z - station.z) < radius + 35)) return;
+      if (bridge) {
+        const b = bridgeCoordinates(bridge, x, z);
+        if (Math.abs(b.across) < radius + 170 && b.along > bridge.river.start - radius && b.along < bridge.river.end + radius) return;
+      }
+      if (this.biomeWeight(biome, x - radius * 0.68, z) < 0.52 || this.biomeWeight(biome, x + radius * 0.68, z) < 0.52) return;
+      const score = radius - Math.abs(distance - 135) * 0.26;
+      if (score > best) {
+        best = score;
+        chosen = { x, z, radius, depthScale: 0.68, level: this.baseElevation(x, z) - 0.16, kind: biome === 'Desert' ? 'oasis' : 'lake', biome };
+      }
+    };
+    for (let i = 0; i < 112; i++) {
+      const p = this.route.sample((i + 0.5) / 112 * this.route.length);
+      for (const offset of [-176, -128, -84, -50, 50, 84, 128, 176]) consider(p.x + p.nx * offset, p.z + p.nz * offset);
+    }
+    if (!chosen) for (let j = 0; j < 13; j++) for (let i = 0; i < 26; i++) {
+      consider(-d + (i + 0.5) / 26 * 2 * d, (j + 0.5) / 13 * d - d / 2);
     }
     return chosen;
   }
@@ -305,6 +323,7 @@ export class RailWorld {
     return this;
   }
   addBatches(id, placements, { size = 160, kind = 'scenery', castShadow } = {}) {
+    const info = this.store.manifest?.models?.[id];
     const casts = castShadow ?? (this.config.sceneryShadows && ['scenery', 'landmark'].includes(kind));
     const bins = new Map();
     let source = this.partsOverrides.get(id) || this.store.get(id);
@@ -320,8 +339,9 @@ export class RailWorld {
     for (const [key, values] of bins) {
       const [cx, cz] = key.split(',').map(Number);
       const group = new THREE.Group(); group.name = `${kind}:${id}:${key}`;
-      const lod = this.store.manifest?.models[id]?.lod;
+      const lod = info?.lod;
       const farSource = lod && !values[0].groundPatch ? this.store.get(id, 1) : null;
+      const castsHere = casts && (kind !== 'scenery' || keepSceneryShadow(info, values, this.shadowProfile));
       for (const [partIndex, part] of source.parts.entries()) {
         const geometry = values[0].groundPatch ? groundBatchGeometry(part, values) : part.geometry;
         if (geometry !== part.geometry) this.ownedGeometry.push(geometry);
@@ -341,7 +361,7 @@ export class RailWorld {
         }
         mesh.instanceMatrix.needsUpdate = true;
         mesh.computeBoundingSphere(); mesh.computeBoundingBox();
-        mesh.castShadow = Boolean(casts); mesh.receiveShadow = true;
+        mesh.castShadow = Boolean(castsHere); mesh.receiveShadow = true;
         if (farSource?.parts[partIndex]) {
           const far = farSource.parts[partIndex];
           mesh.userData.sceneryLOD = { nearGeometry: geometry, nearMaterial: part.material, farGeometry: far.geometry, farMaterial: far.material, switchDistance: lod.switchDistance, far: false };
@@ -775,13 +795,21 @@ export function createAtmosphere(scene, renderer) {
     for(const row of mixture || [{biome:a,percent:50},{biome:b,percent:50}]){ const c=new THREE.Color(PALETTES[row.biome].sky),w=row.percent/100;fog.r+=c.r*w;fog.g+=c.g*w;fog.b+=c.b*w; }
     skyMaterial.uniforms.bottom.value.copy(fog); scene.fog = new THREE.Fog(fog, 170, 600);
     outsideFog.copy(fog);
-  }, update(camera, position, shadows, tunnel = 0, sceneryShadows = false) {
-    sky.position.copy(camera.position); sun.castShadow = shadows;
-    const radius = sceneryShadows ? 180 : 70, shadowCamera = sun.shadow.camera;
+  }, setShadowProfile(profile) {
+    const { mapSize, radius } = profile, shadowCamera = sun.shadow.camera;
+    if (sun.shadow.mapSize.x !== mapSize) {
+      sun.shadow.map?.dispose(); sun.shadow.map = null;
+      sun.shadow.mapPass?.dispose(); sun.shadow.mapPass = null;
+      sun.shadow.mapSize.set(mapSize, mapSize);
+      sun.shadow.needsUpdate = true;
+    }
     if (shadowCamera.right !== radius) {
       shadowCamera.left = shadowCamera.bottom = -radius; shadowCamera.right = shadowCamera.top = radius;
       shadowCamera.updateProjectionMatrix();
     }
+  }, update(camera, position, shadows, tunnel = 0) {
+    sky.position.copy(camera.position); sun.castShadow = shadows;
+    const radius = sun.shadow.camera.right;
     // Keep the shadow projection on whole texels as the cart moves.
     const texel = radius * 2 / sun.shadow.mapSize.x;
     const x = Math.round(position.dot(lightX) / texel) * texel, y = Math.round(position.dot(lightY) / texel) * texel;

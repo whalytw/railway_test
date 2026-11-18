@@ -1,5 +1,5 @@
-// Percentages measure soft-weighted railway distance, never object counts or map area.
-import { clamp, lerp, wrap, smoothstep } from './core.js?v=9.0.0';
+// Each geographical coordinate has one shared biome mixture.
+import { TAU, clamp, smoothstep, randomGenerator } from './core.js?v=10.0.0';
 
 export const BIOME_IDS = ['Forest','Hills','Pastoral','Desert','Rural','Lakeside','Snow','Volcano'];
 export const BIOME_COLORS = { Forest:'#58816a', Hills:'#9eac71', Pastoral:'#d0b662', Desert:'#d4a879', Rural:'#a68162', Lakeside:'#6da7b4', Snow:'#c6dcdf', Volcano:'#897389' };
@@ -46,73 +46,112 @@ export function randomMix(random=Math.random,count=4,selected=null) {
   return ids.map((biome,i)=>({biome,percent:minimum+shares[i]}));
 }
 
-export function createBiomeLayout(route, input) {
-  const mix=normalizeMix(input), length=route.length;
-  const lead=Math.min(length*mix[0].percent/100*0.35,180);
-  let cursor=0;
-  const regions=mix.map((row,index)=>{const start=cursor;cursor+=length*row.percent/100;return{...row,index,start,end:cursor,metres:cursor-start};});
-  const boundaries=regions.length===1?[]:regions.map((region,index)=>({at:region.start,left:regions[(index+regions.length-1)%regions.length].biome,right:region.biome,halfWidth:Math.min(75,regions[(index+regions.length-1)%regions.length].metres*0.2,region.metres*0.2)}));
-  function weightsAtDistance(distance,out={}) {
-    for(const key of Object.keys(out))delete out[key];
-    const s=wrap(distance+lead,length);
-    const own=regions.find(region=>s>=region.start&&s<region.end)||regions.at(-1);
-    out[own.biome]=1;
-    for(const boundary of boundaries){const delta=wrap(s-boundary.at+length/2,length)-length/2;
-      if(Math.abs(delta)<=boundary.halfWidth){const t=smoothstep(-boundary.halfWidth,boundary.halfWidth,delta);for(const key of Object.keys(out))delete out[key];out[boundary.left]=1-t;out[boundary.right]=t;break;}}
+export function createBiomeLayout(route, input, seed = 'map') {
+  const mix = normalizeMix(input), d = route.squareSize, area = 2 * d * d;
+  const random = randomGenerator(seed + ':biome-field');
+  const phase = Array.from({ length: 3 }, () => random() * TAU);
+  const tilt = (random() - 0.5) * 0.58;
+  const halfWidth = mix.length === 1 ? 0 : clamp(d * 0.09, 56, 105);
+  function field(x, z) {
+    const u = x / d, v = z / d;
+    return x + tilt * z + d * (0.18 * Math.sin(TAU * v + phase[0])
+      + 0.074 * Math.sin(2 * TAU * v + phase[1])
+      + 0.047 * Math.sin(TAU * (v + 0.48 * u) + phase[2]));
+  }
+
+  // Solve the cumulative area of each smooth boundary on a uniform world grid.
+  // Shared transition widths keep the cumulative weights ordered in small regions.
+  const nx = 160, nz = 80, samples = new Float64Array(nx * nz);
+  let low = Infinity, high = -Infinity;
+  for (let j = 0; j < nz; j++) for (let i = 0; i < nx; i++) {
+    const value = field(-d + (i + 0.5) / nx * 2 * d, (j + 0.5) / nz * d - d / 2);
+    samples[j * nx + i] = value;
+    low = Math.min(low, value); high = Math.max(high, value);
+  }
+  let accumulated = 0;
+  const boundaries = mix.slice(0, -1).map(row => {
+    accumulated += row.percent / 100;
+    let left = low - halfWidth, right = high + halfWidth;
+    for (let step = 0; step < 28; step++) {
+      const mid = (left + right) / 2;
+      let included = 0;
+      for (const value of samples) included += 1 - smoothstep(mid - halfWidth, mid + halfWidth, value);
+      if (included < accumulated * samples.length) left = mid;
+      else right = mid;
+    }
+    return (left + right) / 2;
+  });
+  function weightsAtField(value, out) {
+    let previous = 0;
+    for (const [i, boundary] of boundaries.entries()) {
+      const next = 1 - smoothstep(boundary - halfWidth, boundary + halfWidth, value);
+      out[mix[i].biome] = next - previous;
+      previous = next;
+    }
+    out[mix.at(-1).biome] = 1 - previous;
     return out;
   }
-  // Coarse global segments cover the whole map; exact nearby queries preserve
-  // the distance quota where the player actually drives. Far interiors fade
-  // to the weighted regional base, avoiding a discontinuous Voronoi ridge.
-  const anchors=Array.from({length:129},(_,i)=>({...route.sample(i/128*length),s:i/128*length}));
-  function nearestPhase(x,z) {
-    let best=Infinity,distance=0;
-    for(let i=0;i<128;i++){const a=anchors[i],b=anchors[i+1],dx=b.x-a.x,dz=b.z-a.z,t=clamp(((x-a.x)*dx+(z-a.z)*dz)/(dx*dx+dz*dz),0,1),d=(x-a.x-t*dx)**2+(z-a.z-t*dz)**2;
-      if(d<best){best=d;distance=lerp(a.s,b.s,t);}}
-    if(best<180**2){const exact=route.nearestTo(x,z,Math.max(32,Math.sqrt(best)+8));if(exact.distanceAlong!==undefined)return{s:exact.distanceAlong,distance:exact.distance};}
-    return{s:distance,distance:Math.sqrt(best)};
-  }
-  const nearTurns = route.turns > 1 ? route.turnStarts.map(() => ({})) : null;
-  const trackWeights = {};
-  function weightsBetweenTracks(x, z) {
-    const out = Object.fromEntries(mix.map(row => [row.biome, 0]));
-    let total = 0, nearest = Infinity;
-    for (let turn = 0; turn < nearTurns.length; turn++) {
-      const p = route.nearestOnTurn(turn, x, z, 140, nearTurns[turn], true);
-      if (p.distanceAlong === undefined) continue;
-      // The hillside material blends across neighbouring corridors. At a
-      // flyover the terrain follows the supported track beneath the deck.
-      const weight = (1 - smoothstep(92, 140, p.distance)) / (1 + (p.distance / 6) ** 4);
-      weightsAtDistance(p.distanceAlong, trackWeights);
-      for (const row of mix) out[row.biome] += (trackWeights[row.biome] || 0) * weight;
-      total += weight;
-      nearest = Math.min(nearest, p.distance);
+  let lastX = NaN, lastZ = NaN, lastWeights;
+  const single = mix.length === 1 ? { [mix[0].biome]: 1 } : null;
+  function weightsAt(x, z, out) {
+    if (out) return weightsAtField(field(x, z), out);
+    if (single) return single;
+    if (x !== lastX || z !== lastZ) {
+      lastX = x; lastZ = z;
+      lastWeights = weightsAtField(field(x, z), {});
     }
-    const fade = smoothstep(82, 140, nearest);
-    for (const row of mix) out[row.biome] = total
-      ? lerp(out[row.biome] / total, row.percent / 100, fade)
-      : row.percent / 100;
-    return out;
+    return lastWeights;
   }
-  const singleBiome = mix.length === 1 ? { [mix[0].biome]: 1 } : null;
-  let lastX=NaN,lastZ=NaN,lastWeights={};
-  function weightsAt(x,z) {
-    if (singleBiome) return singleBiome;
-    if(x===lastX&&z===lastZ)return lastWeights;
-    let out;
-    if (nearTurns) out = weightsBetweenTracks(x, z);
-    else {
-      const nearest=nearestPhase(x,z);
-      out=weightsAtDistance(nearest.s,{});
-      const fade=smoothstep(145,290,nearest.distance);
-      if(fade>0)for(const row of mix)out[row.biome]=lerp(out[row.biome]||0,row.percent/100,fade);
+  const location = {};
+  function weightsAtDistance(distance, out = {}) {
+    const p = route.sample(distance, location);
+    return weightsAt(p.x, p.z, out);
+  }
+  function choose(weights, randomSource = Math.random) {
+    let remaining = randomSource();
+    for (const row of mix) {
+      remaining -= weights[row.biome] || 0;
+      if (remaining < 0) return row.biome;
     }
-    lastX=x;lastZ=z;lastWeights=out;return out;
+    return mix.at(-1).biome;
   }
-  function choose(weights,random=Math.random){let remaining=random();for(const row of mix){remaining-=weights[row.biome]||0;if(remaining<0)return row.biome;}return mix.at(-1).biome;}
-  function dominant(weights){let id=mix[0].biome,best=-1;for(const row of mix)if((weights[row.biome]||0)>best){id=row.biome;best=weights[row.biome]||0;}return id;}
-  function report(samples=16384){const sums=Object.fromEntries(mix.map(row=>[row.biome,0]));for(let i=0;i<samples;i++){const weights=weightsAtDistance((i+.5)/samples*length);for(const row of mix)sums[row.biome]+=(weights[row.biome]||0)/samples*length;}
-    return{basis:'rail-distance-soft-weight',transitionIncluded:true,routeLengthMetres:length,maximumTransitionMetres:boundaries.length?Math.max(...boundaries.map(row=>row.halfWidth*2)):0,regions:regions.map(row=>({biome:row.biome,requestedPercent:row.percent,actualPercent:sums[row.biome]/length*100,weightedMetres:sums[row.biome],nominalMetres:row.metres,startDistance:wrap(row.start-lead,length),endDistance:wrap(row.end-lead,length)}))};}
-  return{mix,regions,boundaries,lead,weightsAtDistance,weightsAt,nearestPhase,choose,dominant,report,
-    centerOf:biome=>{const r=regions.find(region=>region.biome===biome);return r?wrap((r.start+r.end)*.5-lead,length):null;}};
+  function dominant(weights) {
+    let best = mix[0].biome;
+    for (const row of mix) if ((weights[row.biome] || 0) > (weights[best] || 0)) best = row.biome;
+    return best;
+  }
+  function report(railSamples = 4096) {
+    const areaShares = mix.map(() => 0), railShares = mix.map(() => 0), weights = {};
+    // Independently measure the finished field with a finer grid.
+    const columns = 192, rows = 96;
+    for (let j = 0; j < rows; j++) for (let i = 0; i < columns; i++) {
+      weightsAt(-d + (i + 0.5) / columns * 2 * d, (j + 0.5) / rows * d - d / 2, weights);
+      mix.forEach((row, k) => { areaShares[k] += weights[row.biome]; });
+    }
+    for (let i = 0; i < railSamples; i++) {
+      weightsAtDistance((i + 0.5) / railSamples * route.length, weights);
+      mix.forEach((row, k) => { railShares[k] += weights[row.biome]; });
+    }
+    return {
+      basis: 'map-area-soft-weight', mapAreaSquareMetres: area, transitionIncluded: true,
+      nominalTransitionMetres: halfWidth * 2, routeLengthMetres: route.length,
+      regions: mix.map((row, i) => {
+        const share = areaShares[i] / (columns * rows), railShare = railShares[i] / railSamples;
+        return { biome: row.biome, requestedPercent: row.percent, actualPercent: share * 100,
+          weightedSquareMetres: share * area, routePercent: railShare * 100, routeWeightedMetres: railShare * route.length };
+      })
+    };
+  }
+  function centerOf(biome) {
+    if (!mix.some(row => row.biome === biome)) return null;
+    let best = 0, distance = null;
+    const weights = {};
+    for (let i = 0; i < 512; i++) {
+      const s = route.length * (i + 0.5) / 512;
+      const value = weightsAtDistance(s, weights)[biome];
+      if (value > best) { best = value; distance = s; }
+    }
+    return distance;
+  }
+  return { mix, weightsAtDistance, weightsAt, choose, dominant, report, centerOf };
 }

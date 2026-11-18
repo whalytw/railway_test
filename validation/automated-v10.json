@@ -1,0 +1,13 @@
+{
+  "version": "10.0.0",
+  "command": "node scripts/verify-v10.mjs",
+  "total": 88,
+  "passed": 88,
+  "failed": 0,
+  "exitCode": 0,
+  "durationMs": 46534,
+  "finishedAt": "2026-11-18T10:59:39.220Z",
+  "sourceSha256": "5a2b2cbf0f651c400c908722afe458be2577f8c035bbc05785c92222c4cd80b7",
+  "fingerprintedFiles": 942,
+  "sourceUnchangedDuringTests": true
+}

@@ -1,0 +1,463 @@
+{
+  "graphicsRenderer": "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "viewport": [
+    1280,
+    760
+  ],
+  "framesPerStationaryView": 48,
+  "results": {
+    "wide": {
+      "configuration": {
+        "biomeMix": [
+          {
+            "biome": "Snow",
+            "percent": 50
+          },
+          {
+            "biome": "Rural",
+            "percent": 50
+          }
+        ],
+        "biomeA": "Snow",
+        "biomeB": "Rural",
+        "length": 8,
+        "turns": 3,
+        "stations": 3,
+        "vehicle": "Vehicle_Minecart_GoldenOak_001",
+        "driver": "Animal_CubePet_Fox_001",
+        "driverChoice": "Animal_CubePet_Fox_001",
+        "density": 1000,
+        "viewDistance": 300,
+        "resolution": 1,
+        "shadows": true,
+        "sceneryShadows": true,
+        "shadowQuality": "wide",
+        "elevationLimit": 75,
+        "features": true,
+        "skyline": true,
+        "sleeperFilter": true,
+        "sleeperSpacing": 0.75,
+        "seed": "V10-SNOW-RURAL"
+      },
+      "biomes": {
+        "basis": "map-area-soft-weight",
+        "mapAreaSquareMetres": 1835826.108134375,
+        "transitionIncluded": true,
+        "nominalTransitionMetres": 172.45400242318783,
+        "routeLengthMetres": 8000,
+        "regions": [
+          {
+            "biome": "Snow",
+            "requestedPercent": 50,
+            "actualPercent": 50.0000119551959,
+            "weightedSquareMetres": 917913.2735437951,
+            "routePercent": 52.14572083773823,
+            "routeWeightedMetres": 4171.657667019058
+          },
+          {
+            "biome": "Rural",
+            "requestedPercent": 50,
+            "actualPercent": 49.99998804480412,
+            "weightedSquareMetres": 917912.8345905803,
+            "routePercent": 47.8542791622618,
+            "routeWeightedMetres": 3828.342332980944
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "elapsed": 3.5583333333333234,
+          "distance": 0.1996777057647705,
+          "position": [
+            -523.8441212083474,
+            6.580999994386165,
+            -0.18935881249835104
+          ],
+          "main": {
+            "frame": 58,
+            "calls": 99,
+            "triangles": 1419567,
+            "points": 0,
+            "lines": 0
+          },
+          "shadows": {
+            "drawCalls": 83,
+            "triangles": 268403
+          },
+          "profile": {
+            "quality": "wide",
+            "mapSize": 2048,
+            "radius": 180,
+            "minimumSceneryHeight": 0
+          },
+          "frameMs": 16.666666666666668
+        },
+        {
+          "elapsed": 18.999999999999563,
+          "distance": 235.8808250427246,
+          "position": [
+            -458.6575922719412,
+            5.382935242755422,
+            -208.88984083740223
+          ],
+          "main": {
+            "frame": 115,
+            "calls": 121,
+            "triangles": 1661459,
+            "points": 0,
+            "lines": 0
+          },
+          "shadows": {
+            "drawCalls": 121,
+            "triangles": 280823
+          },
+          "profile": {
+            "quality": "wide",
+            "mapSize": 2048,
+            "radius": 180,
+            "minimumSceneryHeight": 0
+          },
+          "frameMs": 16.662499999999984
+        },
+        {
+          "elapsed": 38.99999999999843,
+          "distance": 820.0799865722656,
+          "position": [
+            95.86925299312408,
+            1.986575087187187,
+            -343.53406210209255
+          ],
+          "main": {
+            "frame": 173,
+            "calls": 178,
+            "triangles": 2123471,
+            "points": 0,
+            "lines": 0
+          },
+          "shadows": {
+            "drawCalls": 109,
+            "triangles": 511405
+          },
+          "profile": {
+            "quality": "wide",
+            "mapSize": 2048,
+            "radius": 180,
+            "minimumSceneryHeight": 0
+          },
+          "frameMs": 16.662499999999984
+        },
+        {
+          "elapsed": 60.99999999999718,
+          "distance": 1515.4668579101562,
+          "position": [
+            528.0050605556663,
+            0.8396096042608259,
+            68.42625829695919
+          ],
+          "main": {
+            "frame": 231,
+            "calls": 159,
+            "triangles": 2021711,
+            "points": 0,
+            "lines": 0
+          },
+          "shadows": {
+            "drawCalls": 130,
+            "triangles": 263109
+          },
+          "profile": {
+            "quality": "wide",
+            "mapSize": 2048,
+            "radius": 180,
+            "minimumSceneryHeight": 0
+          },
+          "frameMs": 16.67500000000003
+        },
+        {
+          "elapsed": 83.00000000001212,
+          "distance": 2212.2789764404297,
+          "position": [
+            -58.272357055547126,
+            0.6694732674341038,
+            356.7261370553939
+          ],
+          "main": {
+            "frame": 289,
+            "calls": 102,
+            "triangles": 1548067,
+            "points": 0,
+            "lines": 0
+          },
+          "shadows": {
+            "drawCalls": 62,
+            "triangles": 82277
+          },
+          "profile": {
+            "quality": "wide",
+            "mapSize": 2048,
+            "radius": 180,
+            "minimumSceneryHeight": 0
+          },
+          "frameMs": 16.666666666666668
+        },
+        {
+          "elapsed": 104.00000000002883,
+          "distance": 2877.4031677246094,
+          "position": [
+            -504.1057941485218,
+            0.38117509380285713,
+            -60.802591554407876
+          ],
+          "main": {
+            "frame": 347,
+            "calls": 99,
+            "triangles": 1402779,
+            "points": 0,
+            "lines": 0
+          },
+          "shadows": {
+            "drawCalls": 89,
+            "triangles": 273409
+          },
+          "profile": {
+            "quality": "wide",
+            "mapSize": 2048,
+            "radius": 180,
+            "minimumSceneryHeight": 0
+          },
+          "frameMs": 16.666666666666668
+        }
+      ],
+      "shadowAverage": 279904.3333333333,
+      "shadowCallsAverage": 99,
+      "meanFrameMs": 16.666666666666668
+    },
+    "near": {
+      "configuration": {
+        "biomeMix": [
+          {
+            "biome": "Snow",
+            "percent": 50
+          },
+          {
+            "biome": "Rural",
+            "percent": 50
+          }
+        ],
+        "biomeA": "Snow",
+        "biomeB": "Rural",
+        "length": 8,
+        "turns": 3,
+        "stations": 3,
+        "vehicle": "Vehicle_Minecart_GoldenOak_001",
+        "driver": "Animal_CubePet_Fox_001",
+        "driverChoice": "Animal_CubePet_Fox_001",
+        "density": 1000,
+        "viewDistance": 300,
+        "resolution": 1,
+        "shadows": true,
+        "sceneryShadows": true,
+        "shadowQuality": "near",
+        "elevationLimit": 75,
+        "features": true,
+        "skyline": true,
+        "sleeperFilter": true,
+        "sleeperSpacing": 0.75,
+        "seed": "V10-SNOW-RURAL"
+      },
+      "biomes": {
+        "basis": "map-area-soft-weight",
+        "mapAreaSquareMetres": 1835826.108134375,
+        "transitionIncluded": true,
+        "nominalTransitionMetres": 172.45400242318783,
+        "routeLengthMetres": 8000,
+        "regions": [
+          {
+            "biome": "Snow",
+            "requestedPercent": 50,
+            "actualPercent": 50.0000119551959,
+            "weightedSquareMetres": 917913.2735437951,
+            "routePercent": 52.14572083773823,
+            "routeWeightedMetres": 4171.657667019058
+          },
+          {
+            "biome": "Rural",
+            "requestedPercent": 50,
+            "actualPercent": 49.99998804480412,
+            "weightedSquareMetres": 917912.8345905803,
+            "routePercent": 47.8542791622618,
+            "routeWeightedMetres": 3828.342332980944
+          }
+        ]
+      },
+      "checkpoints": [
+        {
+          "elapsed": 0.3833333333333337,
+          "distance": 0,
+          "position": [
+            -523.7807617078072,
+            6.580999994386165,
+            0
+          ],
+          "main": {
+            "frame": 51,
+            "calls": 99,
+            "triangles": 1419567,
+            "points": 0,
+            "lines": 0
+          },
+          "shadows": {
+            "drawCalls": 51,
+            "triangles": 239629
+          },
+          "profile": {
+            "quality": "near",
+            "mapSize": 1024,
+            "radius": 80,
+            "minimumSceneryHeight": 0.85
+          },
+          "frameMs": 16.662500000000023
+        },
+        {
+          "elapsed": 18.999999999999563,
+          "distance": 235.8808250427246,
+          "position": [
+            -458.6575922719412,
+            5.382935242755422,
+            -208.88984083740223
+          ],
+          "main": {
+            "frame": 108,
+            "calls": 121,
+            "triangles": 1661459,
+            "points": 0,
+            "lines": 0
+          },
+          "shadows": {
+            "drawCalls": 23,
+            "triangles": 36221
+          },
+          "profile": {
+            "quality": "near",
+            "mapSize": 1024,
+            "radius": 80,
+            "minimumSceneryHeight": 0.85
+          },
+          "frameMs": 16.662500000000023
+        },
+        {
+          "elapsed": 38.99999999999843,
+          "distance": 820.0799865722656,
+          "position": [
+            95.86925299312408,
+            1.986575087187187,
+            -343.53406210209255
+          ],
+          "main": {
+            "frame": 166,
+            "calls": 178,
+            "triangles": 2123471,
+            "points": 0,
+            "lines": 0
+          },
+          "shadows": {
+            "drawCalls": 26,
+            "triangles": 216923
+          },
+          "profile": {
+            "quality": "near",
+            "mapSize": 1024,
+            "radius": 80,
+            "minimumSceneryHeight": 0.85
+          },
+          "frameMs": 16.666666666666668
+        },
+        {
+          "elapsed": 60.99999999999718,
+          "distance": 1515.4668579101562,
+          "position": [
+            528.0050605556663,
+            0.8396096042608259,
+            68.42625829695919
+          ],
+          "main": {
+            "frame": 224,
+            "calls": 159,
+            "triangles": 2021711,
+            "points": 0,
+            "lines": 0
+          },
+          "shadows": {
+            "drawCalls": 31,
+            "triangles": 62561
+          },
+          "profile": {
+            "quality": "near",
+            "mapSize": 1024,
+            "radius": 80,
+            "minimumSceneryHeight": 0.85
+          },
+          "frameMs": 16.666666666666668
+        },
+        {
+          "elapsed": 83.00000000001212,
+          "distance": 2212.2789764404297,
+          "position": [
+            -58.272357055547126,
+            0.6694732674341038,
+            356.7261370553939
+          ],
+          "main": {
+            "frame": 282,
+            "calls": 102,
+            "triangles": 1548067,
+            "points": 0,
+            "lines": 0
+          },
+          "shadows": {
+            "drawCalls": 23,
+            "triangles": 46299
+          },
+          "profile": {
+            "quality": "near",
+            "mapSize": 1024,
+            "radius": 80,
+            "minimumSceneryHeight": 0.85
+          },
+          "frameMs": 16.65625
+        },
+        {
+          "elapsed": 104.00000000002883,
+          "distance": 2877.4031677246094,
+          "position": [
+            -504.1057941485218,
+            0.38117509380285713,
+            -60.802591554407876
+          ],
+          "main": {
+            "frame": 340,
+            "calls": 99,
+            "triangles": 1402779,
+            "points": 0,
+            "lines": 0
+          },
+          "shadows": {
+            "drawCalls": 59,
+            "triangles": 242651
+          },
+          "profile": {
+            "quality": "near",
+            "mapSize": 1024,
+            "radius": 80,
+            "minimumSceneryHeight": 0.85
+          },
+          "frameMs": 16.67291666666665
+        }
+      ],
+      "shadowAverage": 140714,
+      "shadowCallsAverage": 35.5,
+      "meanFrameMs": 16.66458333333334
+    }
+  },
+  "errors": []
+}

@@ -30,20 +30,23 @@ test('independently parsed foliage shares GPU resources without disposing a live
  delete globalThis.document;
 });
 
-test('all 70 four-biome combinations preserve their along-track quotas, closed-loop continuity and near-track spatial weights',()=>{
+test('all 70 four-biome combinations preserve map-area quotas and sample one continuous world field',()=>{
  const route=createRoute(8000,'V8-QUOTAS',8192,{elevationLimit:75,stations:3});let cases=0;
  const configurations=[];
  for(let a=0;a<5;a++)for(let b=a+1;b<6;b++)for(let c=b+1;c<7;c++)for(let d=c+1;d<8;d++)configurations.push([a,b,c,d].map((index,i)=>({biome:BIOME_IDS[index],percent:[40,30,20,10][i]})));
  assert.equal(configurations.length,70);
- for(const mix of configurations){const layout=createBiomeLayout(route,mix),report=layout.report(4096);for(const row of report.regions)assert.ok(Math.abs(row.requestedPercent-row.actualPercent)<.0001,JSON.stringify(row));
+ for(const mix of configurations){const layout=createBiomeLayout(route,mix,'V10-AREA-'+cases),report=layout.report(4096);
+  assert.equal(report.basis,'map-area-soft-weight');
+  assert.ok(Math.abs(report.regions.reduce((sum,row)=>sum+row.routePercent,0)-100)<1e-8);
+  for(const row of report.regions)assert.ok(Math.abs(row.requestedPercent-row.actualPercent)<.025,JSON.stringify(row));
   for(const s of [-1e-5,0,1e-5,route.length-1e-5,route.length,route.length+1e-5]){const weights=layout.weightsAtDistance(s);assert.ok(Math.abs(Object.values(weights).reduce((a,b)=>a+b,0)-1)<1e-12);}
-  for(let i=0;i<512;i++){const s=(i+.37)/512*route.length,p=route.sample(s),actual=layout.weightsAt(p.x,p.z),expected=layout.weightsAtDistance(s);for(const row of mix)assert.ok(Math.abs((actual[row.biome]||0)-(expected[row.biome]||0))<.003,'spatial region must follow actual railway distance');}
+  for(let i=0;i<512;i++){const s=(i+.37)/512*route.length,p=route.sample(s);assert.deepEqual(layout.weightsAtDistance(s),layout.weightsAt(p.x,p.z));}
   cases++;
  }assert.equal(cases,70);
- for(const mix of [[{biome:'Snow',percent:100}],[{biome:'Forest',percent:97},{biome:'Desert',percent:1},{biome:'Lakeside',percent:1},{biome:'Volcano',percent:1}]]){const layout=createBiomeLayout(route,mix);for(const row of layout.report().regions)assert.ok(Math.abs(row.actualPercent-row.requestedPercent)<.0001);}
+ for(const mix of [[{biome:'Snow',percent:100}],[{biome:'Forest',percent:97},{biome:'Desert',percent:1},{biome:'Lakeside',percent:1},{biome:'Volcano',percent:1}]]){const layout=createBiomeLayout(route,mix);for(const row of layout.report().regions)assert.ok(Math.abs(row.actualPercent-row.requestedPercent)<.025);}
 });
 
-test('every imported model is actually placed in a compatible habitat across representative v8 maps',async()=>{
+test('every imported model is actually placed in a compatible habitat across representative maps',async()=>{
  const configurations=[['Forest',50,'Desert',50],['Forest',35,'Hills',25,'Pastoral',25,'Lakeside',15],['Snow',50,'Volcano',50]];
  const used=new Set(),records=[];
  for(const [i,config]of configurations.entries()){
@@ -61,7 +64,7 @@ test('every imported model is actually placed in a compatible habitat across rep
  }
  const imported=Object.keys(manifest.models).filter(id=>manifest.models[id].scenePack==='Quaternius_UltimateStylizedNature_202205');
  const missing=imported.filter(id=>!used.has(id));assert.deepEqual(missing,[],'all 63 imports must be used, not merely present in the manifest');
- await writeFile(new URL('../validation/biome-v9-coverage.json',import.meta.url),JSON.stringify({modelsUsed:used.size,available:imported.length,records},null,2)+'\n');
+ await writeFile(new URL('../validation/biome-v10-coverage.json',import.meta.url),JSON.stringify({modelsUsed:used.size,available:imported.length,records},null,2)+'\n');
 });
 
 test('sprung cart body moves with Rapier Y while every wheel stays on its exact original rail position',async()=>{

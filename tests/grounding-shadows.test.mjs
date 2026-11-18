@@ -72,6 +72,31 @@ test('map-object and vehicle shadows can be enabled independently for stress com
   }
 });
 
+test('near shadow quality keeps the large casters and lets small scenery receive shadows', () => {
+  const box = new THREE.BoxGeometry(1, 1, 1), material = new THREE.MeshBasicMaterial();
+  const store = {
+    manifest: { models: {
+      pebble: { sceneRole: 'rock', dimensions: [0.31, 0.25, 0.31] },
+      rock: { sceneRole: 'rock', dimensions: [1.2, 1.05, 1.2] },
+      tree: { sceneRole: 'tree', dimensions: [0.6, 0.81, 0.6] }
+    } },
+    get: () => ({ parts: [{ geometry: box, material, matrix: new THREE.Matrix4() }] })
+  };
+  for (const quality of ['near', 'wide']) {
+    const world = new RailWorld(new THREE.Scene(), store, { length: 5, stations: 3, turns: 3, biomeA: 'Snow', biomeB: 'Rural',
+      shadowQuality: quality, sceneryShadows: true, shadows: true, seed: 'NEAR-SHADOWS' });
+    for (const id of ['pebble', 'rock', 'tree']) world.addBatches(id, [{ x: 0, z: 0 }]);
+    const meshes = world.cullGroups.map(item => item.group.children[0]);
+    assert.equal(meshes[0].castShadow, quality === 'wide');
+    assert.ok(meshes.slice(1).every(mesh => mesh.castShadow));
+    assert.ok(meshes.every(mesh => mesh.receiveShadow));
+    assert.equal(world.shadowProfile.mapSize, quality === 'near' ? 1024 : 2048);
+    assert.equal(world.shadowProfile.radius, quality === 'near' ? 80 : 180);
+    world.dispose();
+  }
+  box.dispose(); material.dispose();
+});
+
 test('scenery generation fills the requested population while rejecting pedestal-like volcanic footprints', async () => {
   const geometry = new THREE.BoxGeometry(), material = new THREE.MeshStandardMaterial();
   const store = { manifest, get(id) { const b = manifest.models[id].bounds; return { bounds: new THREE.Box3(new THREE.Vector3(...b.min), new THREE.Vector3(...b.max)), parts: [{ geometry, material, matrix: new THREE.Matrix4() }] }; } };

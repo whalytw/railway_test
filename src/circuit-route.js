@@ -1,4 +1,4 @@
-import { TAU, MAX_GRADE, MIN_VERTICAL_RADIUS, clamp, lerp, wrap, smoothstep, randomGenerator, createRoute, routeFromPolyline } from './core.js?v=9.0.0';
+import { TAU, MAX_GRADE, MIN_VERTICAL_RADIUS, clamp, lerp, wrap, smoothstep, randomGenerator, createRoute, routeFromPolyline } from './core.js?v=10.0.0';
 
 export const FLYOVER_RAIL_SEPARATION = 6.2;
 const STATION_HALF_LENGTH = 32;
