@@ -1,4 +1,4 @@
-import { clamp, smoothstep, randomGenerator, wrap } from './core.js?v=8.0.0';
+import { clamp, smoothstep, randomGenerator, wrap } from './core.js?v=9.0.0';
 
 export function sleeperLayout(length, spacing = 0.75, seed = 'sleepers') {
   const random = randomGenerator(`${seed}:sleepers`), count = Math.round(length / spacing), pitch = length / count, result = [];
@@ -21,6 +21,7 @@ function stationClearance(distance, stations, length) {
   return Math.min(...stations.map(s => Math.abs(wrap(distance - s.distance + length / 2, length) - length / 2)));
 }
 export function planRouteFeatures(route, stations, seed = 'features') {
+  if (route.turns > 1) return planCircuitFeatures(route, stations, seed);
   const random = randomGenerator(`${seed}:features`);
   function choose(target, length, kind, previous) {
     let best = null, score = Infinity;
@@ -63,9 +64,117 @@ export function planRouteFeatures(route, stations, seed = 'features') {
   }
   return { bridge, tunnel };
 }
+
+// One river can be crossed on several turns. Each physical crossing gets its
+// own deck, so the river never removes the ground from a neighboring track.
+const CIRCUIT_BRIDGE_HALF_SPAN = 40;
+function planCircuitFeatures(route, stations, seed) {
+  const random = randomGenerator(`${seed}:circuit-water`);
+  const turnIds = Array.from({ length: route.turns }, (_, i) => i);
+  const allPlatforms = stations.flatMap(station => station.passes);
+  const riverPhase = (stations.length === 3 ? 0.16 : 0.24) + (random() - 0.5) * 0.045;
+  const riverPhaseAngle = random() * Math.PI * 2, wideSide = random() < 0.5 ? -1 : 1;
+  let bridge = null;
+  for (const offset of [0, -0.02, 0.02, -0.045, 0.045, -0.07, 0.07]) {
+    const u = riverPhase + offset, centre = route.distanceAtPhase(Math.floor(route.turns / 2), u);
+    const frame = route.sample(centre);
+    const spans = [], bankPositions = [];
+    const crossCoordinate = s => {
+      const p = route.sample(s);
+      return bridgeCoordinates(frame, p.x, p.z).across;
+    };
+    for (const lane of turnIds) {
+      const s = route.distanceAtPhase(lane, u);
+      const edge = (target, lo, hi) => {
+        if (crossCoordinate(lo) > target || crossCoordinate(hi) < target) return null;
+        for (let i = 0; i < 20; i++) {
+          const mid = (lo + hi) / 2;
+          if (crossCoordinate(mid) < target) lo = mid; else hi = mid;
+        }
+        return (lo + hi) / 2;
+      };
+      const start = edge(-CIRCUIT_BRIDGE_HALF_SPAN, s - 130, s + 130), end = edge(CIRCUIT_BRIDGE_HALF_SPAN, s - 130, s + 130);
+      const crossing = edge(0, s - 90, s + 90);
+      if (start === null || end === null || crossing === null || end - start > 150) break;
+      const point = route.sample(crossing);
+      const closeStation = stationClearance(crossing, allPlatforms, route.length) < (end - start) / 2 + 65;
+      if (closeStation || Math.abs(point.x) > route.squareSize - 100 || Math.abs(point.z) > route.squareSize / 2 - 95) break;
+      for (const at of [start, crossing, end]) {
+        const p = route.sample(at);
+        bankPositions.push(bridgeCoordinates(frame, p.x, p.z).along);
+      }
+      spans.push({ kind: 'bridge', name: '河谷橋', start, end, centre: crossing, length: end - start, turnIndex: lane, ...point });
+    }
+    if (spans.length !== route.turns) continue;
+    const minRail = Math.min(...spans.flatMap(span => [route.sample(span.start).y, span.y, route.sample(span.end).y]));
+    const deckMin = Math.min(...bankPositions), deckMax = Math.max(...bankPositions);
+    const river = { phase: riverPhaseAngle, wideSide, amplitude: 27, datum: minRail, deckMin, deckMax,
+      straightHalfLength: Math.max(-deckMin, deckMax) + 14, start: Math.min(deckMin - 42, -128), end: Math.max(deckMax + 42, 128) };
+    const candidate = { ...frame, centre, kind: 'bridge', name: '河谷橋群', spans, river };
+    // Cap the bends at the map edge while leaving a reach beyond each deck.
+    for (const sign of [-1, 1]) {
+      const side = sign < 0 ? 'start' : 'end', lastDeck = sign < 0 ? -deckMin : deckMax;
+      const goal = Math.max(lastDeck + 56, 172);
+      let extent = lastDeck + 35;
+      for (; extent < goal; extent += 6) {
+        const p = riverPoint(candidate, extent * sign);
+        if (Math.abs(p.x) > route.squareSize - 24 || Math.abs(p.z) > route.squareSize / 2 - 24) break;
+      }
+      river[side] = extent * sign;
+    }
+    const avoidsOtherTrack = route.points.every((p, i) => {
+      if (i % 12 || spans.some(span => route.distances[i] >= span.start && route.distances[i] <= span.end)) return true;
+      const q = bridgeCoordinates(frame, p.x, p.z);
+      if (q.along < river.start - 16 || q.along > river.end + 16) return true;
+      const profile = riverProfile(candidate, q.along);
+      return Math.abs(q.across - profile.centre) > profile.halfWidth + 25;
+    });
+    if (!avoidsOtherTrack) continue;
+    bridge = candidate;
+    break;
+  }
+
+  let tunnel = null, best = -Infinity;
+  const approachLength = 26;
+  for (const lane of turnIds) for (let i = 0; i < 39; i++) {
+    const u = 0.10 + i * 0.015, centre = route.distanceAtPhase(lane, u), start = centre - 40, end = centre + 40;
+    if (u > route.exchangePhases[0] - 0.035 || end + approachLength + 10 >= route.distanceAtPhase(lane, route.exchangePhases[0])
+      || stationClearance(centre, allPlatforms, route.length) < 115) continue;
+    let available = 35;
+    for (let s = start - approachLength - 6; s <= end + approachLength + 6; s += 5) {
+      const p = route.sample(s);
+      if (bridge) {
+        const q = bridgeCoordinates(bridge, p.x, p.z);
+        if (q.along > bridge.river.start - 26 && q.along < bridge.river.end + 26
+          && Math.abs(q.across - riverBend(q.along, bridge)) < 59) { available = 0; break; }
+      }
+      for (const other of turnIds) {
+        if (other !== lane) available = Math.min(available, route.nearestOnTurn(other, p.x, p.z, 46).distance - 7);
+      }
+    }
+    if (available < 12) continue;
+    let moduleDeviation = 0;
+    for (let s = start; s < end; s += 4) {
+      const a = route.sample(s), b = route.sample(s + 4), m = route.sample(s + 2);
+      moduleDeviation = Math.max(moduleDeviation, Math.hypot(m.x - (a.x + b.x) / 2, m.y - (a.y + b.y) / 2, m.z - (a.z + b.z) / 2));
+    }
+    const score = available - moduleDeviation * 70 - Math.abs(u - 0.59) * 19;
+    if (score <= best || moduleDeviation > 0.08) continue;
+    best = score;
+    tunnel = { kind: 'tunnel', name: '山脈隧道', centre, start, end, length: 80, halfWidth: Math.min(25, available),
+      hillHeight: Math.min(14, available * 0.68), approachLength, moduleDeviation, turnIndex: lane, ...route.sample(centre) };
+  }
+  return { bridge, tunnel };
+}
+
+export function routeStructures(features) {
+  const bridge = features?.bridge;
+  return [...(bridge?.spans ?? (bridge ? [bridge] : [])), ...[features?.tunnel, features?.overpass].filter(Boolean), ...(features?.underpasses || [])];
+}
+
 export function featureAt(features, distance, routeLength, padding = 0) {
   const s = wrap(distance, routeLength);
-  return [features?.bridge, features?.tunnel].find(f => f && s >= f.start - padding && s <= f.end + padding) || null;
+  return routeStructures(features).find(f => s >= f.start - padding && s <= f.end + padding) || null;
 }
 export function bridgeCoordinates(bridge, x, z) {
   const dx = x - bridge.x, dz = z - bridge.z;
@@ -73,9 +182,10 @@ export function bridgeCoordinates(bridge, x, z) {
 }
 export function riverBend(along, bridge) {
   const phase = bridge?.river?.phase || 0, amplitude = bridge?.river?.amplitude || 32;
+  const straight = bridge?.river?.straightHalfLength ?? 22;
   // Keep the bridge crossing centred, then open into clearly visible S bends.
   const bend = Math.sin(along / 92 + phase) - Math.sin(phase) + 0.25 * (Math.sin(along / 41 + phase * 0.7) - Math.sin(phase * 0.7));
-  return amplitude * bend * smoothstep(22, 85, Math.abs(along));
+  return amplitude * bend * smoothstep(straight, straight + 63, Math.abs(along));
 }
 export function riverProfile(bridge, along) {
   const river = bridge?.river || { start: -420, end: 420, wideSide: 1, phase: 0 };
@@ -87,7 +197,7 @@ export function riverProfile(bridge, along) {
   const scallop = (1 + Math.sin(along / 47 + river.phase)) * 0.8 * smoothstep(24, 110, Math.abs(along));
   const halfWidth = (5.8 + 12.5 * reach + scallop) * fade;
   const slope = (riverBend(along + 0.2, bridge) - riverBend(along - 0.2, bridge)) / 0.4;
-  return { along, centre: riverBend(along, bridge), halfWidth, slope, fade, waterY: bridge.y - 6.54 + along * 0.004 };
+  return { along, centre: riverBend(along, bridge), halfWidth, slope, fade, waterY: (river.datum ?? bridge.y) - 6.54 + along * 0.004 };
 }
 export function riverPoint(bridge, along, offset = 0) {
   const p = riverProfile(bridge, along), inv = 1 / Math.hypot(1, p.slope);
@@ -122,7 +232,10 @@ export function bridgeGroundHeight(bridge, x, z, normalHeight) {
   const height = normalHeight + (bed - normalHeight) * weight;
   // Keep the complete bridge span clear, including the dry approaches to its
   // abutments; a narrow central stream must not bury the end deck modules.
-  const underDeck = (1 - smoothstep(bridge.length / 2 - 4, bridge.length / 2 + 2, Math.abs(local.across)))
-    * (1 - smoothstep(4, 20, Math.abs(local.along)));
+  const halfSpan = bridge.spans ? CIRCUIT_BRIDGE_HALF_SPAN : bridge.length / 2;
+  const alongDeck = bridge.spans
+    ? smoothstep(river.deckMin - 10, river.deckMin - 3, local.along) * (1 - smoothstep(river.deckMax + 3, river.deckMax + 10, local.along))
+    : 1 - smoothstep(4, 20, Math.abs(local.along));
+  const underDeck = (1 - smoothstep(halfSpan - 4, halfSpan + 2, Math.abs(local.across))) * alongDeck;
   return Math.min(height, normalHeight - 1.4 * underDeck);
 }

@@ -12,17 +12,17 @@
   <link rel="stylesheet" href="./scenery-v3.css">
   <link rel="stylesheet" href="./controls-v4.css">
   <link rel="stylesheet" href="./drivers-v6.css">
-  <link rel="stylesheet" href="./mix-v8.css">
+  <link rel="stylesheet" href="./mix-v8.css?v=9.0.0">
   <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
-  <script type="module" src="./src/app.js?v=8.0.0"></script>
+  <script type="module" src="./src/app.js?v=9.0.0"></script>
 </head>
 <body>
   <canvas id="scene" aria-label="三維軌道與地形場景"></canvas>
   <div class="vignette" aria-hidden="true"></div>
   <main id="title-screen" class="title-screen">
     <section class="setup-panel">
-      <header class="brand"><span class="brand-mark" aria-hidden="true">╫</span><span>LOOP<span class="brand-small">軌道試驗場</span></span><span class="edition">FIELD<br>TEST / 08</span></header>
-      <div class="intro"><p class="eyebrow">THREE.JS × RAPIER × BLENDER</p><h1>下一站，<br>沒有終點<span>。</span></h1><p class="intro-copy">四種風景，調出你的沿途比例。<br>帶著旅伴，感受起伏與彈簧懸吊。</p></div>
+      <header class="brand"><span class="brand-mark" aria-hidden="true">╫</span><span>LOOP<span class="brand-small">軌道試驗場</span></span><span class="edition">FIELD<br>TEST / 09</span></header>
+      <div class="intro"><p class="eyebrow">THREE.JS × RAPIER × BLENDER</p><h1>下一站，<br>沒有終點<span>。</span></h1><p class="intro-copy">設定沿途地形，選擇 1～3 圈軌道。<br>帶著旅伴穿過山丘與站旁聚落。</p></div>
       <form id="setup-form">
         <div class="section-heading mix-heading"><span>01</span><h2>調配沿途風景</h2><button type="button" id="randomize" class="text-button" title="隨機選出 2～4 種不同地形及比例">↻ 隨機環境</button></div>
         <div id="mix-slots" class="mix-slots" role="group" aria-label="最多四種環境及沿軌道路程百分比"></div>
@@ -30,7 +30,12 @@
         <div id="mix-bar" class="mix-bar" role="img" aria-label="環境路程比例"></div>
         <p id="mix-summary" class="mix-summary" aria-live="polite"></p>
         <p class="mix-help">8 種地形中選 1～4 種。調整一項會按原比例分配其餘項目，合計維持 100%。比例依沿軌道路程計算，交界平順漸變。</p>
-        <div class="route-fields"><label>軌道總長<select id="route-length" aria-label="軌道總長度"></select></label><label>沿線車站<select id="station-count" aria-label="車站數量"><option value="3">3 座車站</option><option value="2">2 座車站</option></select></label><label>軌道起伏上限<select id="elevation-limit" aria-label="軌道起伏上限"></select></label></div>
+        <div class="route-fields">
+          <label>軌道圈數<select id="track-turns" aria-label="軌道圈數" aria-describedby="relief-hint"><option value="1" selected>1 圈</option><option value="2">2 圈</option><option value="3">3 圈</option></select></label>
+          <label>軌道總長<select id="route-length" aria-label="軌道總長度"></select></label>
+          <label>沿線車站<select id="station-count" aria-label="車站數量"><option value="3">3 座車站</option><option value="2">2 座車站</option></select></label>
+          <label>軌道起伏上限<select id="elevation-limit" aria-label="軌道起伏上限"></select></label>
+        </div>
         <p id="relief-hint" class="relief-hint">縱坡不超過 25‰；車站區域保持水平。</p>
         <div class="section-heading"><span>02</span><h2>選一台礦車</h2><small>可獨立轉動的車輪</small></div>
         <div id="vehicle-choices" class="vehicle-choices" role="radiogroup" aria-label="礦車選擇"></div>
@@ -40,9 +45,9 @@
           <div class="driver-fields"><label for="driver-select">動物駕駛</label><select id="driver-select" aria-label="動物駕駛"><option value="random">隨機動物</option></select><strong id="driver-name">挑選你的旅伴</strong><small id="driver-status" role="status">依車廂調整大小，站在椅墊上</small></div>
         </div>
         <details class="stress-settings"><summary><span>壓力測試設定</span><span class="detail-hint" id="preset-hint">標準 / 8,000 物件</span></summary><div class="settings-grid"><label>場景物件數<select id="density" aria-label="場景物件數"><option value="2000">輕量 · 2,000</option><option value="8000" selected>標準 · 8,000</option><option value="20000">加壓 · 20,000</option><option value="50000">極限 · 50,000</option></select></label><label>可視距離<select id="view-distance" aria-label="可視距離"><option value="300">300 公尺</option><option value="550" selected>550 公尺</option><option value="900">900 公尺</option><option value="1400">1,400 公尺</option></select></label><label>渲染解析度<select id="resolution" aria-label="渲染解析度"><option value="0.75">0.75× · 省電</option><option value="1" selected>1× · 標準</option><option value="1.5">1.5× · 精細</option><option value="2">2× · 高負載</option></select></label><label>車輛與設施陰影<select id="shadows" aria-label="車輛與設施陰影"><option value="off" selected>關閉 · 效能優先</option><option value="on">開啟 · 畫質優先</option></select></label><label>地景物件陰影<select id="scenery-shadows" aria-label="地景物件陰影"><option value="off" selected>關閉 · 效能優先</option><option value="on">開啟 · 樹木、岩石、山體</option></select></label><label class="seed-field">地圖種子<input id="seed" aria-label="地圖種子" placeholder="留空，每次產生新路線" maxlength="40" autocomplete="off"></label></div><p>11 段物件數可選，包含 5,000 與 12,000。數量指地景實例，並非模型種類；不含鐵軌與固定設施。相同種子可重現配置，提高密度會增加自然景物，聚落與地標維持限量。兩類陰影可獨立開關。</p></details>
-        <details class="landscape-settings"><summary>景觀與高速畫面<span>遠山 · 雲層 · 橋隧</span></summary><div class="settings-grid"><label>橋隧與河谷<select id="features" aria-label="橋隧與河谷"><option value="on" selected>開啟 · 每圈各一段</option><option value="off">關閉</option></select></label><label>遠山與動態雲<select id="skyline" aria-label="遠山與動態雲"><option value="on" selected>開啟</option><option value="off">關閉</option></select></label><label>高速枕木過濾<select id="sleeper-filter" aria-label="高速枕木過濾"><option value="on" selected>自動 · 降低倒行錯覺</option><option value="off">關閉 · 原始細節</option></select></label><label>枕木平均間距<select id="sleeper-spacing" aria-label="枕木平均間距"><option value="0.6">0.60 公尺</option><option value="0.75" selected>0.75 公尺</option><option value="0.9">0.90 公尺</option></select></label></div><p>橋與隧道標示在小地圖。高速過濾只作用於枕木，儀表與場景維持清晰。</p></details>
+        <details class="landscape-settings"><summary>景觀與高速畫面<span>遠山 · 雲層 · 橋隧</span></summary><div class="settings-grid"><label>橋隧與河谷<select id="features" aria-label="橋隧與河谷"><option value="on" selected>開啟 · 沿線橋隧</option><option value="off">關閉</option></select></label><label>遠山與動態雲<select id="skyline" aria-label="遠山與動態雲"><option value="on" selected>開啟</option><option value="off">關閉</option></select></label><label>高速枕木過濾<select id="sleeper-filter" aria-label="高速枕木過濾"><option value="on" selected>自動 · 降低倒行錯覺</option><option value="off">關閉 · 原始細節</option></select></label><label>枕木平均間距<select id="sleeper-spacing" aria-label="枕木平均間距"><option value="0.6">0.60 公尺</option><option value="0.75" selected>0.75 公尺</option><option value="0.9">0.90 公尺</option></select></label></div><p>橋、隧道與跨線高架橋會標示在小地圖。高速過濾只作用於枕木，儀表與場景維持清晰。</p></details>
         <p id="form-error" class="form-error" role="alert" hidden></p>
-        <button id="start-button" class="start-button" type="submit"><span>開始試車</span><span class="arrow">↗</span></button>
+        <button id="start-button" class="start-button" type="submit" disabled><span>開始試車</span><span class="arrow">↗</span></button>
         <p class="setup-footnote"><span class="status-dot"></span>63 款新自然模型・24 種動物・Rapier 懸吊</p>
       </form>
     </section>

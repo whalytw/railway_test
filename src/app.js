@@ -1,13 +1,14 @@
 import * as THREE from 'three';
-import { AssetStore, RailWorld, createAtmosphere, PALETTES } from './world.js?v=8.0.0';
-import { createPhysics, stepPhysics, FIXED_STEP, clamp, lerp, wrap, resolveBiomes, randomGenerator, nextStation, biomeMix, createElevationProfile, leverReference, leverForSpeed, RATED_POWER, CART_MASS, MAX_GRADE, MIN_VERTICAL_RADIUS } from './core.js?v=8.0.0';
-import { riverProfile, riverPoint } from './route-features.js?v=8.0.0';
-import { copyMotion, interpolateMotion, zoomView, anchorCamera } from './presentation.js?v=8.0.0';
-import { DENSITY_OPTIONS, SCENERY_VERSION } from './scenery-plan.js?v=8.0.0';
-import { chooseDriver } from './drivers.js?v=8.0.0';
-import { MixControls } from './mix-controls.js?v=8.0.0';
-import { BIOME_COLORS, DEFAULT_MIX } from './biome-blend.js?v=8.0.0';
-import { initRapier, RapierRailPhysics, RAPIER_VERSION } from './rapier-rail.js?v=8.0.0';
+import { AssetStore, RailWorld, createAtmosphere, PALETTES } from './world.js?v=9.0.0';
+import { createPhysics, stepPhysics, FIXED_STEP, clamp, lerp, wrap, resolveBiomes, randomGenerator, nextStation, biomeMix, createElevationProfile, leverReference, leverForSpeed, RATED_POWER, CART_MASS, MAX_GRADE, MIN_VERTICAL_RADIUS } from './core.js?v=9.0.0';
+import { riverProfile, riverPoint } from './route-features.js?v=9.0.0';
+import { copyMotion, interpolateMotion, zoomView, anchorCamera } from './presentation.js?v=9.0.0';
+import { DENSITY_OPTIONS, SCENERY_VERSION } from './scenery-plan.js?v=9.0.0';
+import { chooseDriver } from './drivers.js?v=9.0.0';
+import { MixControls } from './mix-controls.js?v=9.0.0';
+import { BIOME_COLORS, DEFAULT_MIX } from './biome-blend.js?v=9.0.0';
+import { initRapier, RapierRailPhysics, RAPIER_VERSION } from './rapier-rail.js?v=9.0.0';
+import { FLYOVER_RAIL_SEPARATION, turnIndexAt } from './circuit-route.js?v=9.0.0';
 
 const $ = id => document.getElementById(id);
 let renderer, scene, camera, atmosphere, manifest, store, world;
@@ -76,11 +77,12 @@ async function updateTitleDriver() {
 }
 function formConfig() {
   const seed = seedValue();
-  for(const id of ['route-length','station-count','elevation-limit','density','view-distance','resolution','sleeper-spacing']) {
+  for(const id of ['route-length','track-turns','station-count','elevation-limit','density','view-distance','resolution','sleeper-spacing']) {
     if(!$(id).selectedOptions.length || !Number.isFinite(Number($(id).value))) throw new Error('設定值已失效，請重新選擇路線與畫面設定。');
   }
   const biomeMix = mixControls.value();
-  return { biomeMix, biomeA: biomeMix[0].biome, biomeB: biomeMix[1]?.biome || biomeMix[0].biome, length: Number($('route-length').value), stations: Number($('station-count').value), vehicle: selectedVehicle(), driver: titleDriverId(), driverChoice: selectedDriverChoice(),
+  return { biomeMix, biomeA: biomeMix[0].biome, biomeB: biomeMix[1]?.biome || biomeMix[0].biome, length: Number($('route-length').value),
+    turns: Number($('track-turns').value), stations: Number($('station-count').value), vehicle: selectedVehicle(), driver: titleDriverId(), driverChoice: selectedDriverChoice(),
     density: Number($('density').value), viewDistance: Number($('view-distance').value), resolution: Number($('resolution').value),
     shadows: $('shadows').value === 'on', sceneryShadows: $('scenery-shadows').value === 'on', elevationLimit: Number($('elevation-limit').value),
     features: $('features').value === 'on', skyline: $('skyline').value === 'on', sleeperFilter: $('sleeper-filter').value === 'on', sleeperSpacing: Number($('sleeper-spacing').value), seed };
@@ -88,7 +90,7 @@ function formConfig() {
 function savePreferences() {
   try {
     const values = {};
-    for (const id of ['route-length', 'station-count', 'elevation-limit', 'density', 'view-distance', 'resolution', 'shadows', 'scenery-shadows', 'features', 'skyline', 'sleeper-filter', 'sleeper-spacing', 'seed', 'driver-select']) values[id] = $(id).value;
+    for (const id of ['route-length', 'track-turns', 'station-count', 'elevation-limit', 'density', 'view-distance', 'resolution', 'shadows', 'scenery-shadows', 'features', 'skyline', 'sleeper-filter', 'sleeper-spacing', 'seed', 'driver-select']) values[id] = $(id).value;
     values.vehicle = selectedVehicle(); values.biomeMix = mixControls.value(); localStorage.setItem('rail-loop-lab:preferences:v8', JSON.stringify(values));
   } catch { /* Private browsing may disable local storage. */ }
 }
@@ -138,7 +140,8 @@ function populateForm() {
     $('driver-select').value = 'random'; titleDriver = chooseDriver('random', manifest.drivers, Math.random, previous);
     updateTitleDriver().catch(error => notify(error.message));
   });
-  for (const id of ['route-length', 'station-count', 'elevation-limit']) $(id).addEventListener('change', () => { updateReliefHint(); schedulePreview(); });
+  for (const id of ['route-length', 'track-turns', 'station-count', 'elevation-limit']) $(id).addEventListener('change', () => { updateReliefHint(); schedulePreview(); });
+  for (const id of ['features', 'skyline', 'seed']) $(id).addEventListener('change', schedulePreview);
   $('density').addEventListener('change', updatePresetHint);
   $('randomize').addEventListener('click', () => mixControls.randomize(false));
   $('randomize-ratios').addEventListener('click', () => mixControls.randomize(true));
@@ -146,7 +149,12 @@ function populateForm() {
 function updatePresetHint() { $('preset-hint').textContent = `${$('density').selectedOptions[0].textContent.split(' · ')[0]} / ${Number($('density').value).toLocaleString()} 物件`; }
 function updateReliefHint() {
   mixControls?.describe();
-  const requested = Number($('elevation-limit').value);
+  const field = $('elevation-limit'), turns = Number($('track-turns').value), requested = Number(field.value);
+  field.options[0].textContent = turns > 1 ? '0 m · 僅跨線坡' : '0 m · 平坦';
+  if (turns > 1) {
+    $('relief-hint').textContent = `全線 ${$('route-length').value} 公里繞 ${turns} 圈。高架交會保留 ${FLYOVER_RAIL_SEPARATION} m 軌面高差，縱坡 ≤25‰。`;
+    return;
+  }
   if (!requested) { $('relief-hint').textContent = '軌道完全平坦；沿線山丘景觀仍保留。'; return; }
   const profile = createElevationProfile(Number($('route-length').value) * 1000, requested, Number($('station-count').value));
   $('relief-hint').textContent = `縱坡 ≤25‰、站區水平；預估實際高差 ${profile.range.toFixed(1)} m${profile.range < requested - 0.1 ? '（依路長限縮）' : ''}。`;
@@ -169,19 +177,21 @@ function schedulePreview() {
     if (mode !== 'title') return;
     try {
       const config = previewConfig();
-      await loadWorld(config, false);
-      if (mode === 'title') { await updateTitleDriver(); updatePreviewCaption(world.config); }
+      const loaded = await loadWorld(config, false);
+      if (loaded && mode === 'title') { await updateTitleDriver(); updatePreviewCaption(world.config); }
     } catch (error) { notify(error.message); }
   }, 300);
 }
 function previewConfig() {
   const biomeMix = mixControls.value();
-  return { biomeMix, biomeA: biomeMix[0].biome, biomeB: biomeMix[1]?.biome || biomeMix[0].biome, length: Number($('route-length').value), stations: Number($('station-count').value), elevationLimit: Number($('elevation-limit').value), vehicle: selectedVehicle(), driver: titleDriverId(), driverChoice: selectedDriverChoice(), density: 2000,
-    features: $('features').value === 'on', skyline: $('skyline').value === 'on', sleeperFilter: true, sleeperSpacing: 0.75, viewDistance: 450, resolution: 1, shadows: false, sceneryShadows: false, seed: 'LOOP-PREVIEW' };
+  return { biomeMix, biomeA: biomeMix[0].biome, biomeB: biomeMix[1]?.biome || biomeMix[0].biome, length: Number($('route-length').value),
+    turns: Number($('track-turns').value), stations: Number($('station-count').value), elevationLimit: Number($('elevation-limit').value),
+    vehicle: selectedVehicle(), driver: titleDriverId(), driverChoice: selectedDriverChoice(), density: 2000,
+    features: $('features').value === 'on', skyline: $('skyline').value === 'on', sleeperFilter: true, sleeperSpacing: 0.75, viewDistance: 450, resolution: 1, shadows: false, sceneryShadows: false, seed: $('seed').value.trim() || 'LOOP-PREVIEW' };
 }
 
 function updatePreviewCaption(config) {
-  $('preview-caption').textContent = `${config.biomeMix.map(row=>`${manifest.biomes[row.biome].name} ${row.percent}%`).join(' / ')} · ${manifest.models[config.driver]?.name || ''}駕駛`;
+  $('preview-caption').textContent = `${config.turns} 圈 · ${config.biomeMix.map(row=>`${manifest.biomes[row.biome].name} ${row.percent}%`).join(' / ')} · ${manifest.models[config.driver]?.name || ''}駕駛`;
   updateDriverCard(config.driver);
 }
 
@@ -189,11 +199,13 @@ async function loadWorld(config, showLoading = true) {
   const epoch = ++buildEpoch;
   if (showLoading) { loading.hidden = false; loadingProgress(0, '開始建立新場景…'); }
   const nextWorld = new RailWorld(scene, store, config);
+  nextWorld.group.visible = false;
   try {
     await nextWorld.build((p, text) => { if (showLoading && epoch === buildEpoch) loadingProgress(p, text); });
     if (epoch !== buildEpoch) { nextWorld.dispose(); return false; }
     railPhysics?.dispose(); railPhysics = null;
     if (world) world.dispose(); world = nextWorld;
+    world.group.visible = true;
     renderer.renderLists.dispose();
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, config.resolution));
     renderer.shadowMap.enabled = config.shadows || config.sceneryShadows; atmosphere.setBiomes(config.biomeA, config.biomeB, config.biomeMix);
@@ -208,14 +220,15 @@ async function startGame(event) {
   let config;
   try { config = formConfig(); } catch (error) { $('form-error').hidden = false; $('form-error').textContent = error.message; return; }
   $('form-error').hidden = true; startButton.disabled = true; clearTimeout(previewChangeTimer); savePreferences();
-  mode = 'loading'; $('loading-title').textContent = `正在鋪設 ${config.length} 公里軌道`;
+  mode = 'loading'; $('loading-title').textContent = `正在鋪設 ${config.length} 公里 · ${config.turns} 圈軌道`;
   try {
     const loaded = await loadWorld(config, true); if (!loaded) return;
     sessionConfig = config; physics = createPhysics(); railPhysics = new RapierRailPhysics(world.route); railPhysics.reset(physics); lastCollisionCount = 0; copyMotion(physics, previousMotion); copyMotion(physics, renderMotion); accumulator = 0; lastTime = 0;
     fpsHistory = []; frameSamples = []; metricTime = 0; metricFrames = 0; longFrameCount = 0;
     hudElapsed = 0; countdownFinished = false; cameraMode = 'chase'; orbitYaw = 0; orbitPitch = 0.20; orbitDistance = 18; cabYaw = 0; cabPitch = 0;
+    lastImpactNs = 0;
     menu.hidden = true; hud.hidden = false; loading.hidden = true; $('pause-overlay').hidden = true;
-    $('route-label').textContent = `${config.length}.0 KM`;
+    $('route-label').textContent = `${config.length} km · ${config.turns} 圈`;
     $('biome-label').textContent = config.biomeMix.map(row=>`${manifest.biomes[row.biome].name} ${row.percent}%`).join(' / ');
     $('mix-legend').replaceChildren(...config.biomeMix.map(row=>{const span=document.createElement('span');span.className='mix-legend';const dot=document.createElement('i');dot.className='mix-dot';dot.style.background=BIOME_COLORS[row.biome];span.append(dot,`${manifest.biomes[row.biome].name} ${row.percent}%`);return span;}));
     $('rapier-version').textContent = RAPIER_VERSION; $('clear-bumper').hidden = true; $('bumper-status').textContent = '沿軌受力、彈簧與碰撞求解';
@@ -223,7 +236,9 @@ async function startGame(event) {
     $('nature-count').textContent = `新模型 ${Object.keys(nature.modelCounts).length} / 63 款 · 依地形與水岸生境配置`;
     $('instances').textContent = world.sceneryCount.toLocaleString(); $('pause-label').textContent = '暫停'; $('pause-icon').textContent = 'Ⅱ';
     $('model-variety').textContent = world.sceneryStats.uniqueModels.toLocaleString();
-    $('relief-summary').textContent = `實際高差 ${world.route.elevation.range.toFixed(1)} m / 上限 ${config.elevationLimit} m`;
+    const elevation = world.route.elevation;
+    const elevationLabel = config.turns > 1 && !config.elevationLimit ? '含跨線' : `上限 ${config.elevationLimit} m`;
+    $('relief-summary').textContent = `實際高差 ${elevation.range.toFixed(1)} m / ${elevationLabel}`;
     mode = 'running'; setThrottle(physics.throttle); setCamera('chase'); updateHUD(); updateCamera(1, true); drawMinimap();
     document.body.dataset.state = 'running'; document.body.dataset.ready = 'true'; document.body.dataset.driver = config.driver;
   } catch (error) { mode = 'title'; showError(error); }
@@ -418,7 +433,8 @@ function updateHUD() {
   const stateText = physics.countdown > 0 ? '準備出發' : speed < -0.2 ? '倒退行駛' : physics.throttle === 0 ? Math.abs(speed) < 0.2 ? '已停止' : '中立滑行' : physics.throttle < 0 && speed > 0.2 ? '物理煞車' : Math.abs(speed) >= 119.8 ? '最高速度' : '動力行駛';
   $('drive-state').textContent = stateText;
   $('odometer').textContent = (physics.odometer / 1000).toFixed(2);
-  $('lap-count').textContent = `第 ${Math.floor(physics.odometer / world.route.length) + 1} 圈`;
+  const turn = turnIndexAt(world.route, renderMotion.distance);
+  $('lap-count').textContent = world.route.turns > 1 ? `第 ${turn + 1}/${world.route.turns} 圈` : `第 ${Math.floor(physics.odometer / world.route.length) + 1} 圈`;
   const weights=world.biomeLayout.weightsAtDistance(renderMotion.distance), dominant=world.biomeLayout.dominant(weights);
   $('current-zone').textContent = `${manifest.biomes[dominant].name}${(weights[dominant]||0)<.98?' · 交界':''}`;
   $('physics-reading').textContent = `懸吊 ${((physics.suspensionY||0)*1000).toFixed(1)} mm · 撞擊 ${physics.collisionCount||0} 次`;
@@ -430,10 +446,10 @@ function updateHUD() {
   const currentFeature = world.structureAt(physics.distance);
   if (currentFeature) $('feature-status').textContent = `正在通過 · ${currentFeature.name}`;
   else {
-    const candidates = [world.features.bridge, world.features.tunnel].filter(Boolean).map(f => ({ ...f, remaining: wrap((physics.speed < -0.1 ? physics.distance - f.end : f.start - physics.distance), world.route.length) })).sort((a, b) => a.remaining - b.remaining);
+    const candidates = world.structures.map(f => ({ ...f, remaining: wrap((physics.speed < -0.1 ? physics.distance - f.end : f.start - physics.distance), world.route.length) })).sort((a, b) => a.remaining - b.remaining);
     $('feature-status').textContent = candidates.length ? `前方地標 · ${candidates[0].name} ${Math.round(candidates[0].remaining).toLocaleString()} m` : '橋隧與河谷已關閉';
   }
-  const next = nextStation(world.route, world.stations, physics.distance, physics.speed < -0.1 || physics.speed < 0.1 && physics.throttle < 0 ? -1 : 1);
+  const next = nextStation(world.route, world.stationPasses, physics.distance, physics.speed < -0.1 || physics.speed < 0.1 && physics.throttle < 0 ? -1 : 1);
   $('next-station').textContent = next.name; $('station-distance').textContent = next.remaining < 25 ? '車站附近' : `${Math.round(next.remaining).toLocaleString()} m`;
   if (physics.countdown > 0) {
     $('countdown').hidden = mode === 'paused'; $('countdown').querySelector('strong').textContent = String(Math.ceil(physics.countdown));
@@ -471,15 +487,43 @@ function drawMinimap() {
     ctx.save(); ctx.translate(mx(farm.x), mz(farm.z)); ctx.rotate(-farm.yaw);
     ctx.fillStyle = '#b99e63'; ctx.fillRect(-farm.halfWidth * scale, -farm.halfLength * scale, farm.halfWidth * 2 * scale, farm.halfLength * 2 * scale); ctx.restore();
   }
-  const path = () => { ctx.beginPath(); for (let i = 0; i <= world.route.samples; i += 12) { const p = world.route.points[i]; if (i === 0) ctx.moveTo(mx(p.x), mz(p.z)); else ctx.lineTo(mx(p.x), mz(p.z)); } ctx.closePath(); };
-  path(); ctx.strokeStyle = '#f8f4df'; ctx.lineWidth = 8; ctx.stroke(); for(let i=0;i<384;i++){const a=world.route.sample(i/384*world.route.length),b=world.route.sample((i+1)/384*world.route.length),weights=world.biomeLayout.weightsAtDistance((i+.5)/384*world.route.length);ctx.beginPath();ctx.moveTo(mx(a.x),mz(a.z));ctx.lineTo(mx(b.x),mz(b.z));ctx.strokeStyle=BIOME_COLORS[world.biomeLayout.dominant(weights)];ctx.lineWidth=3;ctx.stroke();}
+  const route = world.route, current = turnIndexAt(route, renderMotion.distance);
+  if (!world.minimapTracks) world.minimapTracks = route.turnStarts.map((start, turn) => {
+    const end = route.turnStarts[turn + 1] ?? route.length, samples = Math.ceil((end - start) / 20);
+    const outline = new Path2D(), sections = new Map();
+    let a = route.sample(start);
+    outline.moveTo(mx(a.x), mz(a.z));
+    for (let i = 0; i < samples; i++) {
+      const b = route.sample(lerp(start, end, (i + 1) / samples));
+      const weights = world.biomeLayout.weightsAtDistance(lerp(start, end, (i + 0.5) / samples));
+      const color = BIOME_COLORS[world.biomeLayout.dominant(weights)];
+      if (!sections.has(color)) sections.set(color, new Path2D());
+      const section = sections.get(color);
+      section.moveTo(mx(a.x), mz(a.z)); section.lineTo(mx(b.x), mz(b.z));
+      outline.lineTo(mx(b.x), mz(b.z));
+      a = b;
+    }
+    return { outline, sections };
+  });
+  for (const [turn, track] of world.minimapTracks.entries()) {
+    const active = turn === current;
+    ctx.strokeStyle = '#f8f4df'; ctx.lineWidth = active ? 7 : 4; ctx.stroke(track.outline);
+    ctx.globalAlpha = active ? 1 : 0.68;
+    ctx.lineWidth = active ? 3.5 : 2;
+    for (const [color, section] of track.sections) {
+      ctx.strokeStyle = color; ctx.stroke(section);
+    }
+    ctx.globalAlpha = 1;
+  }
   for (const station of world.stations) {
     ctx.beginPath(); ctx.arc(mx(station.x), mz(station.z), 10, 0, Math.PI * 2); ctx.fillStyle = '#f6f4e7'; ctx.fill();
     ctx.strokeStyle = '#82927a'; ctx.lineWidth = 2; ctx.stroke(); ctx.fillStyle = '#54704f'; ctx.font = 'bold 11px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(station.index + 1), mx(station.x), mz(station.z));
   }
-  for (const f of [world.features.bridge, world.features.tunnel].filter(Boolean)) {
-    ctx.fillStyle = f.kind === 'bridge' ? '#427781' : '#92724a'; ctx.beginPath(); ctx.roundRect(mx(f.x) - 11, mz(f.z) - 11, 22, 22, 4); ctx.fill();
-    ctx.fillStyle = '#fff8df'; ctx.font = 'bold 14px "Microsoft JhengHei",sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(f.kind === 'bridge' ? '橋' : '隧', mx(f.x), mz(f.z));
+  for (const f of [world.features.bridge, world.features.tunnel, world.features.overpass].filter(Boolean)) {
+    ctx.fillStyle = f.kind === 'bridge' ? '#427781' : f.kind === 'overpass' ? '#535f8a' : '#92724a';
+    ctx.beginPath(); ctx.roundRect(mx(f.x) - 11, mz(f.z) - 11, 22, 22, 4); ctx.fill();
+    ctx.fillStyle = '#fff8df'; ctx.font = 'bold 14px "Microsoft JhengHei",sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(f.kind === 'bridge' ? '橋' : f.kind === 'overpass' ? '跨' : '隧', mx(f.x), mz(f.z));
   }
   const p = world.cartSample;
   ctx.beginPath(); ctx.arc(mx(p.x), mz(p.z), 10, 0, Math.PI * 2); ctx.fillStyle = '#c26d40'; ctx.fill(); ctx.strokeStyle = '#fff9de'; ctx.lineWidth = 4; ctx.stroke();
@@ -497,6 +541,10 @@ function drawElevationProfile() {
   ctx.beginPath();
   for (let i = 0; i <= 200; i++) { const p = route.sample(i / 200 * route.length); if (!i) ctx.moveTo(x(0), y(p.y)); else ctx.lineTo(x(i / 200 * route.length), y(p.y)); }
   ctx.strokeStyle = '#7f956e'; ctx.lineWidth = 2; ctx.stroke();
+  for (const distance of route.turnStarts.slice(1)) {
+    ctx.beginPath(); ctx.moveTo(x(distance), 6); ctx.lineTo(x(distance), h - 4);
+    ctx.strokeStyle = '#93a187'; ctx.lineWidth = 1; ctx.stroke();
+  }
   const current = wrap(physics.distance, route.length), altitude = route.sample(current).y;
   ctx.beginPath(); ctx.arc(x(current), y(altitude), 5, 0, Math.PI * 2); ctx.fillStyle = '#c16d42'; ctx.fill();
 }
@@ -525,8 +573,10 @@ function recordMetrics(dt, now) {
 }
 function exportReport() {
   const samples = fpsHistory;
-  const report = { application: 'LOOP · 軌道試驗場', version: '8.0.0', threeVersion: THREE.REVISION, generatedAt: new Date().toISOString(),
+  const report = { application: 'LOOP · 軌道試驗場', version: '9.0.0', threeVersion: THREE.REVISION, generatedAt: new Date().toISOString(),
     settings: sessionConfig, actualTrackLengthMetres: world.route.length, worldUnit: 'metre', elapsedSecondsIncludingCountdown: physics.elapsed,
+    trackLayout: { turns: world.route.turns, turnStartsMetres: world.route.turnStarts, crossings: world.route.crossings,
+      stations: world.stations.map(s => ({ name: s.name, platformDistancesMetres: (s.passes ?? [s]).map(pass => pass.distance) })) },
     animalDriver: { selection: sessionConfig.driverChoice, ...world.driver?.userData.driver },
     odometerMetres: physics.odometer, actualSceneryInstances: world.sceneryCount, trackSegments: world.trackInstances,
     sceneryComposition: { version: SCENERY_VERSION, ...world.sceneryStats,
@@ -534,7 +584,7 @@ function exportReport() {
       lod: 'Chunked main / LOD1 with distance hysteresis; overview uses LOD1.' },
     biomeDistribution: world.biomeReport,
     elevation: world.route.elevation, physicsModel: { engine: 'Rapier', ...railPhysics.diagnostics(), suspensionYMetres: physics.suspensionY, suspensionVelocityMetresPerSecond: physics.suspensionVelocity, massKg: CART_MASS, ratedPowerWatts: RATED_POWER, ratedHorsepower: RATED_POWER / 745.699872, maximumGrade: MAX_GRADE, minimumVerticalRadiusMetres: MIN_VERTICAL_RADIUS },
-    landscape: { version: '8.0.0', ...world.landscapeStats },
+    landscape: { version: '9.0.0', ...world.landscapeStats },
     landmarks: world.features, sleepers: { averagePitchMetres: world.sleeperPitch, instances: world.sleeperInstances, filterEnabled: world.config.sleeperFilter, exposureMetres: world.sleeperUniforms.exposure.value },
     presentation: { fixedPhysicsStepSeconds: FIXED_STEP, interpolatedMotion: true, chaseAnchoredToCart: true, camera: cameraMode, chaseDistanceMetres: orbitDistance, cabYawRadians: cabYaw, cabPitchRadians: cabPitch },
     viewport: { width: innerWidth, height: innerHeight, pixelRatio: renderer.getPixelRatio() },
@@ -589,7 +639,7 @@ function frame(time) {
 
 async function boot() {
   if (location.protocol === 'file:') throw new Error('請透過 HTTP 開啟此專案：執行 START_LOCAL.cmd 後前往 http://127.0.0.1:4173，或使用 GitHub Pages 網址。');
-  const response = await fetch('./asset-manifest.json?v=8.0.0'); if (!response.ok) throw new Error(`找不到資產清單（HTTP ${response.status}）。請完整解壓縮 ZIP。`);
+  const response = await fetch('./asset-manifest.json?v=9.0.0'); if (!response.ok) throw new Error(`找不到資產清單（HTTP ${response.status}）。請完整解壓縮 ZIP。`);
   manifest = await response.json();
   loadingProgress(.02,'初始化本機 Rapier 物理引擎…'); await initRapier();
   populateForm(); installControls();
@@ -601,12 +651,13 @@ async function boot() {
   atmosphere = createAtmosphere(scene, renderer); store = new AssetStore(manifest);
   requestAnimationFrame(frame);
   const config = previewConfig(); await loadWorld(config, true);
-  mode = 'title'; menu.hidden = false; loading.hidden = true; updatePreviewCaption(config); resize();
+  mode = 'title'; menu.hidden = false; loading.hidden = true; startButton.disabled = false;
+  updatePreviewCaption(config); resize();
   document.body.dataset.ready = 'true'; document.body.dataset.state = 'title';
 }
 
 window.__LOOP_TEST__ = {
-  snapshot:()=>({mode,version:'8.0.0',physics:{...physics},renderMotion:{...renderMotion},config:world?.config,biomes:world?.biomeReport,scenery:world?.sceneryStats,rapier:railPhysics?.diagnostics(),cart:world?.cart?.position.toArray(),camera:camera?{position:camera.position.toArray(),direction:camera.getWorldDirection(new THREE.Vector3()).toArray(),cartNDC:world?.cart?.position.clone().project(camera).toArray(),cartVisible:world?.cart?.visible,near:camera.near,far:camera.far,fog:[scene.fog.near,scene.fog.far],visibleGroups:world?.cullGroups.filter(g=>g.group.visible).length}:null,wheels:world?.wheels?.map(w=>w.node.getWorldPosition(new THREE.Vector3()).toArray()),textures:renderer?.info.memory.textures,materials:store?.sharedMaterials.size}),
+  snapshot:()=>({mode,version:'9.0.0',physics:{...physics},renderMotion:{...renderMotion},config:world?.config,biomes:world?.biomeReport,scenery:world?.sceneryStats,rapier:railPhysics?.diagnostics(),cart:world?.cart?.position.toArray(),camera:camera?{position:camera.position.toArray(),direction:camera.getWorldDirection(new THREE.Vector3()).toArray(),cartNDC:world?.cart?.position.clone().project(camera).toArray(),cartVisible:world?.cart?.visible,near:camera.near,far:camera.far,fog:[scene.fog.near,scene.fog.far],visibleGroups:world?.cullGroups.filter(g=>g.group.visible).length}:null,wheels:world?.wheels?.map(w=>w.node.getWorldPosition(new THREE.Vector3()).toArray()),textures:renderer?.info.memory.textures,materials:store?.sharedMaterials.size}),
   setMix:rows=>mixControls.set(rows,true),setThrottle,pause:pauseGame,placeBumper,clearBumper,
   inspectBiome:biome=>{if(!world?.biomeLayout)return;renderMotion.distance=world.biomeLayout.centerOf(biome);world.updateCart(renderMotion.distance,renderMotion.distance,0);cameraSnapped=false;updateCamera(0,true);},
   report:()=>({biomes:world?.biomeReport,scenery:world?.sceneryStats,physics:railPhysics?.diagnostics()}),

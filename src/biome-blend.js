@@ -1,5 +1,5 @@
 // Percentages measure soft-weighted railway distance, never object counts or map area.
-import { clamp, lerp, wrap, smoothstep } from './core.js?v=8.0.0';
+import { clamp, lerp, wrap, smoothstep } from './core.js?v=9.0.0';
 
 export const BIOME_IDS = ['Forest','Hills','Pastoral','Desert','Rural','Lakeside','Snow','Volcano'];
 export const BIOME_COLORS = { Forest:'#58816a', Hills:'#9eac71', Pastoral:'#d0b662', Desert:'#d4a879', Rural:'#a68162', Lakeside:'#6da7b4', Snow:'#c6dcdf', Volcano:'#897389' };
@@ -72,12 +72,41 @@ export function createBiomeLayout(route, input) {
     if(best<180**2){const exact=route.nearestTo(x,z,Math.max(32,Math.sqrt(best)+8));if(exact.distanceAlong!==undefined)return{s:exact.distanceAlong,distance:exact.distance};}
     return{s:distance,distance:Math.sqrt(best)};
   }
+  const nearTurns = route.turns > 1 ? route.turnStarts.map(() => ({})) : null;
+  const trackWeights = {};
+  function weightsBetweenTracks(x, z) {
+    const out = Object.fromEntries(mix.map(row => [row.biome, 0]));
+    let total = 0, nearest = Infinity;
+    for (let turn = 0; turn < nearTurns.length; turn++) {
+      const p = route.nearestOnTurn(turn, x, z, 140, nearTurns[turn], true);
+      if (p.distanceAlong === undefined) continue;
+      // The hillside material blends across neighbouring corridors. At a
+      // flyover the terrain follows the supported track beneath the deck.
+      const weight = (1 - smoothstep(92, 140, p.distance)) / (1 + (p.distance / 6) ** 4);
+      weightsAtDistance(p.distanceAlong, trackWeights);
+      for (const row of mix) out[row.biome] += (trackWeights[row.biome] || 0) * weight;
+      total += weight;
+      nearest = Math.min(nearest, p.distance);
+    }
+    const fade = smoothstep(82, 140, nearest);
+    for (const row of mix) out[row.biome] = total
+      ? lerp(out[row.biome] / total, row.percent / 100, fade)
+      : row.percent / 100;
+    return out;
+  }
+  const singleBiome = mix.length === 1 ? { [mix[0].biome]: 1 } : null;
   let lastX=NaN,lastZ=NaN,lastWeights={};
   function weightsAt(x,z) {
+    if (singleBiome) return singleBiome;
     if(x===lastX&&z===lastZ)return lastWeights;
-    const nearest=nearestPhase(x,z),out=weightsAtDistance(nearest.s,{});
-    const fade=smoothstep(145,290,nearest.distance);
-    if(fade>0)for(const row of mix)out[row.biome]=lerp(out[row.biome]||0,row.percent/100,fade);
+    let out;
+    if (nearTurns) out = weightsBetweenTracks(x, z);
+    else {
+      const nearest=nearestPhase(x,z);
+      out=weightsAtDistance(nearest.s,{});
+      const fade=smoothstep(145,290,nearest.distance);
+      if(fade>0)for(const row of mix)out[row.biome]=lerp(out[row.biome]||0,row.percent/100,fade);
+    }
     lastX=x;lastZ=z;lastWeights=out;return out;
   }
   function choose(weights,random=Math.random){let remaining=random();for(const row of mix){remaining-=weights[row.biome]||0;if(remaining<0)return row.biome;}return mix.at(-1).biome;}

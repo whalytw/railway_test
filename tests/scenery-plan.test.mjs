@@ -41,9 +41,10 @@ test('mixed nature respects biome compatibility, full rail clearance and real wa
   for (const [biomeA, biomeB] of [['Forest', 'Hills'], ['Pastoral', 'Rural'], ['Desert', 'Lakeside'], ['Snow', 'Volcano']]) {
     const world = makeWorld({ biomeA, biomeB, density: 5000, seed: `V5-${biomeA}-${biomeB}` });
     const plan = await planScenery(world);
+    const stationDistricts = new Set(plan.districts.filter(district => district.station).map(district => district.id));
     for (const p of plan.placements) {
       const info = manifest.models[p.id];
-      assert.ok(info.compatibleBiomes.includes(p.biome), `${p.id} / ${p.biome}`);
+      assert.ok(info.compatibleBiomes.includes(p.biome) || stationDistricts.has(p.district) && info.stationBiomes?.includes(p.biome), `${p.id} / ${p.biome}`);
       assert.ok(world.route.distanceTo(p.x, p.z, p.radius + 8) >= p.radius + 6.99, `${p.id}: rail footprint`);
       assert.ok(world.stations.every(s => Math.hypot(p.x - s.x, p.z - s.z) >= 23 + p.radius - 1e-7));
       assert.ok(!manifest.scenery.deferredModels[p.id]);

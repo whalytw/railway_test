@@ -1,8 +1,8 @@
 import * as THREE from 'three';
-import { lerp, smoothstep, randomGenerator, TAU } from './core.js?v=8.0.0';
-import { riverLocation, bridgeCoordinates } from './route-features.js?v=8.0.0';
-import { renderedGroundHeight } from './grounding.js?v=8.0.0';
-import { GRASS_HABITAT, grassPatch, inFarm } from './landscape-profile.js?v=8.0.0';
+import { lerp, smoothstep, randomGenerator, TAU } from './core.js?v=9.0.0';
+import { riverLocation, bridgeCoordinates } from './route-features.js?v=9.0.0';
+import { renderedGroundHeight } from './grounding.js?v=9.0.0';
+import { GRASS_HABITAT, grassPatch, inFarm } from './landscape-profile.js?v=9.0.0';
 
 export function grassHabitatAt(world, x, z, near) {
   const habitat = world.blendValue(GRASS_HABITAT,x,z);
@@ -22,7 +22,7 @@ export function grassHabitatAt(world, x, z, near) {
   for (const pad of world.groundPadIndex?.get(`${Math.floor(x / 64)},${Math.floor(z / 64)}`) || []) {
     weight *= smoothstep(pad.inner, pad.inner + 4, Math.hypot(x - pad.x, z - pad.z));
   }
-  if (world.stations.some(s => Math.hypot(x - s.x, z - s.z) < 26)) return 0;
+  if ((world.stationPasses ?? world.stations).some(s => Math.hypot(x - s.x, z - s.z) < 26)) return 0;
   return weight;
 }
 

@@ -124,6 +124,13 @@ export function createRoute(lengthMetres, seed = 1, samples = 8192, options = {}
   }
   // Map is 2D × D: two adjoining, equal D × D biome squares.
   const squareSize = Math.max(maxX + 140, maxZ * 2 + 180);
+  return routeFromPolyline(points, distances, lengthMetres, squareSize,
+    { requested: elevation.requested, range: maxHeight - minHeight, min: minHeight, max: maxHeight, maxGrade, feasibleRange: elevation.feasibleRange });
+}
+
+// The cart, rail meshes and surveys share a single arc-length table in every mode.
+export function routeFromPolyline(points, distances, lengthMetres, squareSize, elevation) {
+  const samples = points.length - 1;
   const spatial = new Map(), cell = 64;
   // Index segments, not just vertices, so distance queries remain accurate.
   for (let i = 0; i < samples; i += 4) {
@@ -148,7 +155,7 @@ export function createRoute(lengthMetres, seed = 1, samples = 8192, options = {}
     out.yaw = Math.atan2(out.tx, out.tz);
     return out;
   }
-  function nearestTo(x, z, limit = 100, out = {}) {
+  function nearestTo(x, z, limit = 100, out = {}, acceptSegment) {
     const cx = Math.floor(x / cell), cz = Math.floor(z / cell), radius = Math.ceil(limit / cell);
     let best = limit * limit;
     out.y = undefined; out.grade = 0; out.distanceAlong = undefined;
@@ -156,6 +163,7 @@ export function createRoute(lengthMetres, seed = 1, samples = 8192, options = {}
       const entries = spatial.get(`${cx + a},${cz + b}`);
       if (!entries) continue;
       for (const i of entries) {
+        if (acceptSegment && !acceptSegment(i)) continue;
         const p = points[i], q = points[Math.min(i + 4, samples)];
         const dx = q.x - p.x, dz = q.z - p.z;
         const t = clamp(((x - p.x) * dx + (z - p.z) * dz) / (dx * dx + dz * dz), 0, 1);
@@ -166,8 +174,7 @@ export function createRoute(lengthMetres, seed = 1, samples = 8192, options = {}
     out.distance = Math.sqrt(best); return out;
   }
   const distanceTo = (x, z, limit = 100) => nearestTo(x, z, limit).distance;
-  return { length: lengthMetres, points, distances, samples, squareSize, sample, distanceTo, nearestTo,
-    elevation: { requested: elevation.requested, range: maxHeight - minHeight, min: minHeight, max: maxHeight, maxGrade, feasibleRange: elevation.feasibleRange } };
+  return { length: lengthMetres, points, distances, samples, squareSize, sample, distanceTo, nearestTo, elevation };
 }
 
 export function biomeMix(x, z, squareSize) {
@@ -249,11 +256,15 @@ export function stepPhysics(state, dt, throttle = state.throttle, grade = 0) {
 }
 
 export function stationsFor(route, count) {
-  return Array.from({ length: count }, (_, i) => ({
-    index: i, distance: i * route.length / count,
-    name: ['始發站', '林野站', '遠山站'][i],
-    ...route.sample(i * route.length / count)
-  }));
+  return Array.from({ length: count }, (_, index) => {
+    const name = ['始發站', '林野站', '遠山站'][index];
+    if (!route.stationDistances) {
+      const distance = index * route.length / count;
+      return { index, name, distance, ...route.sample(distance) };
+    }
+    const passes = route.stationDistances[index].map((distance, turnIndex) => ({ index, name, distance, turnIndex, ...route.sample(distance) }));
+    return { ...passes[0], passes };
+  });
 }
 
 export function nextStation(route, stations, signedDistance, direction = 1) {

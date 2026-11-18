@@ -5,3 +5,11 @@
 @media(max-width:760px){.physics-tools{top:auto;left:12px;bottom:91px;max-width:210px;padding:8px 9px}.physics-tools .nature-count{display:none}.physics-tools button{font-size:9px;padding:5px}.physics-reading{font-size:9px;margin:3px 0}.physics-tools>strong{font-size:9px}.route-panel-heading span:first-child{font-size:9px}.mix-legend{font-size:8px!important}.mix-help{line-height:1.7}}
 
 @media(max-width:760px) and (orientation:portrait){.physics-tools{top:340px;bottom:auto;left:15px;max-width:165px;padding:7px 9px}.physics-tools>div{display:grid;grid-template-columns:1fr}.physics-tools .physics-reading{max-width:145px}.physics-tools button{text-align:left}}
+
+.route-fields{grid-template-columns:repeat(2,minmax(0,1fr))}
+#route-label,#lap-count{white-space:nowrap}
+@media (max-width:760px) and (max-height:650px) and (orientation:portrait) {
+  .physics-tools{top:auto;bottom:166px;max-width:186px}
+  .physics-tools>div{display:flex;gap:4px}
+  .physics-tools .physics-reading{line-height:1.35}
+}

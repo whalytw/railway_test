@@ -1,0 +1,16 @@
+{
+  "version": "9.0.0",
+  "base": {
+    "file": "RailLoopLab-v8-20261112.zip",
+    "version": "8.0.0",
+    "sha256": "eba44a02c9aa7911abc052a067f9b1ec201767d8949de3a336e8a97ac24518d2"
+  },
+  "testsPassed": 87,
+  "sourceSha256": "d3ded181a0fbf0569250a8d6ee633ead64c24a2c339c09ae059fd02a14583f22",
+  "unchangedAssetAndVendorFiles": 882,
+  "unchangedGlbFiles": 423,
+  "mainModels": 279,
+  "animalDrivers": 24,
+  "lodModels": 144,
+  "published": false
+}

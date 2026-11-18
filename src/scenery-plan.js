@@ -1,10 +1,10 @@
 // Seeded scene composition. This module uses metres and catalog metadata only;
 // no renderer or Blender source files are needed to reproduce a population.
-import { TAU, clamp, lerp, randomGenerator, wrap } from './core.js?v=8.0.0';
-import { bridgeCoordinates, riverLocation } from './route-features.js?v=8.0.0';
-import { inFarm } from './landscape-profile.js?v=8.0.0';
+import { TAU, clamp, lerp, randomGenerator, wrap } from './core.js?v=9.0.0';
+import { bridgeCoordinates, riverLocation } from './route-features.js?v=9.0.0';
+import { inFarm } from './landscape-profile.js?v=9.0.0';
 
-export const SCENERY_VERSION = '8.0.0';
+export const SCENERY_VERSION = '9.0.0';
 export const DENSITY_OPTIONS = [1000, 2000, 3500, 5000, 8000, 10000, 12000, 16000, 20000, 30000, 50000];
 const BUILDING_ROLES = ['home', 'shop', 'workshop', 'civic'];
 const NATURAL_ROLES = ['tree', 'shrub', 'rock', 'deadwood', 'feature'];
@@ -12,6 +12,11 @@ const FREQUENCY_WEIGHT = { common: 2, uncommon: 1, rare: 0.35, landmark: 1 };
 const yieldFrame = () => new Promise(resolve => setTimeout(resolve, 0));
 const gaussian = r => (r() + r() + r() + r() - 2) * 0.92;
 const alongGap = (a, b, length) => Math.min(wrap(a - b, length), wrap(b - a, length));
+function pointSegmentDistance(x, z, a, b) {
+  const dx = b.x - a.x, dz = b.z - a.z;
+  const t = clamp(((x - a.x) * dx + (z - a.z) * dz) / (dx * dx + dz * dz), 0, 1);
+  return Math.hypot(x - a.x - dx * t, z - a.z - dz * t);
+}
 
 function pick(items, random) {
   if (!items.length) return null;
@@ -43,7 +48,8 @@ class Occupancy {
 }
 
 export function compatibleScenery(info, biome, context = 'wild', nearWater = false) {
-  if (!info.compatibleBiomes?.includes(biome)) return false;
+  const stationCompatible = context === 'station' && info.stationBiomes?.includes(biome);
+  if (!info.compatibleBiomes?.includes(biome) && !stationCompatible) return false;
   if(info.nearWaterOnly && !nearWater) return false;
   if (/LeaningRiverTree|StiltRootTree|Cattail|RiverPebbles/.test(info.id) && !nearWater) return false;
   if (biome === 'Desert' && /DryReedTuft|ForkedDriftwood|DatePalm/.test(info.id) && !nearWater) return false;
@@ -91,7 +97,7 @@ export async function planScenery(world, onProgress = () => {}) {
     const clearance = Math.max(7 + radius, (info.minimumRailOffset || 0) * scale + 2);
     const nearest = route.nearestTo(x, z, Math.max(115, clearance + 1));
     if (nearest.distance < clearance) return null;
-    if (stations.some(s => Math.hypot(x - s.x, z - s.z) < 23 + radius)) return null;
+    if (world.stationPasses.some(s => Math.hypot(x - s.x, z - s.z) < 23 + radius)) return null;
     if (!options.water && world.lakeRadiusAt(x, z) < (lake?.radius || 0) + radius + 3) return null;
     if (features.bridge) {
       const b = bridgeCoordinates(features.bridge, x, z), river = features.bridge.river;
@@ -101,12 +107,21 @@ export async function planScenery(world, onProgress = () => {}) {
       }
     }
     if (features.tunnel) {
-      const t = features.tunnel, n = route.nearestTo(x, z, t.halfWidth + radius + 12);
+      const t = features.tunnel;
+      const n = route.turns > 1 ? route.nearestOnTurn(t.turnIndex, x, z, t.halfWidth + radius + 12) : route.nearestTo(x, z, t.halfWidth + radius + 12);
       if (n.distanceAlong !== undefined && n.distanceAlong > t.start - t.approachLength - radius && n.distanceAlong < t.end + t.approachLength + radius) return null;
     }
     // A field is an actual reserved plot, not a few crop models sharing a
     // patch with subsequently scattered trees and rocks.
     if (farms.some(f => options.district !== f.id && inFarm(f, x, z, radius + 2))) return null;
+    if (features.overpass) {
+      const over = features.overpass;
+      const n = route.nearestOnTurn(route.turns - 1, x, z, radius + 9);
+      if (n.distanceAlong >= over.start - radius && n.distanceAlong <= over.end + radius) return null;
+    }
+    if (districts.some(d => d.accessPath && (
+      pointSegmentDistance(x, z, ...d.accessPath) < radius + 1.65
+      || pointSegmentDistance(x, z, ...d.laneEnds) < radius + 2.6))) return null;
     const role = info.sceneRole, strict = BUILDING_ROLES.includes(role) || ['landmark', 'feature'].includes(role) || role.startsWith('prop-');
     const p = { id: info.id, role, x, z, scale, yaw: options.yaw ?? (options.random || random)() * TAU,
       biome: options.biome || biomeAt(x, z), district: options.district || 'wild', radius, strict,
@@ -117,6 +132,7 @@ export async function planScenery(world, onProgress = () => {}) {
     // long logs, level lava or ice structures hanging above the ground.
     const flat = strict || role === 'deadwood';
     const limit = role === 'feature' || role === 'landmark' ? Math.max(2.5, radius * 0.45)
+      : options.stationPlot ? Math.max(4.6, radius * 0.62)
       : BUILDING_ROLES.includes(role) ? Math.max(1.6, radius * 0.30)
       : flat ? Math.max(0.22, radius * 0.10) : Math.max(1.2, radius * 0.7);
     if (sample.range > limit) return null;
@@ -128,21 +144,70 @@ export async function planScenery(world, onProgress = () => {}) {
       // The entire blending ring must also stay out of the railway earthwork.
       if (nearest.distance < outer + 21) return null;
       const level = options.groundLevel ?? sample.y - 0.025;
-      if (Math.abs(level - sample.y) > 2.6) return null;
+      if (Math.abs(level - sample.y) > (options.stationPlot ? 5.2 : 2.6)) return null;
       // Different earthwork levels must not have overlapping flat interiors.
       // Plots along the same village lane deliberately share one level.
       if (pads.some(p => Math.abs(level - p.y) > 0.001 && Math.hypot(x - p.x, z - p.z) < inner + p.inner + 1)) return null;
-      pads.push({ x, z, y: level, inner, outer });
-      p.pad = pads.length - 1;
+      p.groundPad = { x, z, y: level, inner, outer };
     }
     return p;
   }
   function commit(p) {
     if (!p || placements.length >= goal) return false;
+    if (p.groundPad) { p.pad = pads.length; pads.push(p.groundPad); delete p.groundPad; }
     placements.push(p); occupied.add(p); counts.set(p.id, (counts.get(p.id) || 0) + 1); return true;
   }
   function chooseUnique(items, used, max = Infinity) {
     return pick(items.filter(a => !used.has(a.id) && (counts.get(a.id) || 0) < Math.min(max, a.sceneRole === 'civic' ? 1 : Infinity)), random);
+  }
+
+  // Reserve the station hamlets before scattering distant landmarks or fields.
+  // A single village serves all the platforms at the same geographic station.
+  for (const station of stations) {
+    let best = null;
+    const sides = route.turns === 1 ? [1, -1] : [1];
+    for (const side of sides) {
+      for (const [offset, jog] of [[35, 0], [38, -17], [38, 17], [48, 0], [54, -22], [54, 22], [50, -39], [50, 39], [65, 0]]) {
+        const at = (width, along = 0) => ({ x: station.x + station.nx * width * side + station.tx * along,
+          z: station.z + station.nz * width * side + station.tz * along });
+        const origin = at(offset, jog), rowCentre = at(offset + 15, jog);
+        const biome = world.dominantBiomeAt(origin.x, origin.z);
+        const homes = pool(biome, 'home', 'station'), shops = pool(biome, 'shop', 'station');
+        const types = [...homes, ...shops, ...pool(biome, 'workshop', 'station'), ...pool(biome, 'civic', 'station')];
+        if (!types.length) continue;
+        const district = { id: `settlement-${districts.length}`, ...origin, yaw: station.yaw, along: station.distance, side,
+          groundY: ground(rowCentre.x, rowCentre.z) - 0.025, station: true, stationIndex: station.index, biome, buildings: [], laneHalfLength: 36,
+          accessPath: [at(17, 6), at(offset, jog + 6)], laneEnds: [at(offset, jog - 36), at(offset, jog + 36)] };
+        if ([...district.accessPath, ...district.laneEnds].some(p => Math.abs(p.x) > d - 12 || Math.abs(p.z) > d / 2 - 12
+          || world.lakeRadiusAt(p.x, p.z) < (lake?.radius || 0) + 7)) continue;
+        const target = ['Volcano', 'Snow', 'Desert'].includes(biome) ? 3 : 5, used = new Set();
+        for (const [slot, along] of [-24, 24, -8, 8, 0].slice(0, target).entries()) {
+          const preferred = slot === 2 ? shops : homes;
+          const info = chooseUnique(preferred, used, 3) || chooseUnique(types, used, 3);
+          if (!info) continue;
+          const scale = scaleFor(info), yaw = station.yaw - side * Math.PI / 2 + gaussian(random) * 0.045;
+          let building = null;
+          for (const setback of [14, 20, 27, 36, 44]) {
+            for (const shift of [0, -6, 6, -12, 12]) {
+              const { x, z } = at(offset + setback, jog + along + shift);
+              if (district.buildings.some(p => Math.hypot(p.x - x, p.z - z) < p.radius + info.footprintRadius * scale + 0.9)) continue;
+              building = candidate(info, x, z, { biome, scale, yaw, district: district.id, along: station.distance, stationPlot: true, groundLevel: district.groundY });
+              if (building) break;
+            }
+            if (building) break;
+          }
+          if (building) { district.buildings.push(building); used.add(info.id); }
+        }
+        if (!best || district.buildings.length > best.buildings.length) best = district;
+        if (best.buildings.length >= 3) break;
+      }
+      if (best?.buildings.length >= 3) break;
+    }
+    if (best?.buildings.length) {
+      best.buildings = best.buildings.filter(commit);
+      station.platformSide = best.side;
+      districts.push(best);
+    }
   }
 
   // Landmarks are a global pool: two to four distinct silhouettes, independent
@@ -185,31 +250,30 @@ export async function planScenery(world, onProgress = () => {}) {
     }
   }
 
-  // Station hamlets plus a few smaller settlements create destinations between
-  // open stretches. Buildings face a local lane, with varied roofs and uses.
-  const anchors = stations.map(s => ({ along: s.distance, station: true }));
+  // Separate the stations with a few smaller settlements and open stretches.
+  const anchors = [];
   for (let i = 0; i < Math.round(route.length / 2600); i++) {
     const along = wrap((i + 0.56) / Math.round(route.length / 2600) * route.length, route.length);
-    if (stations.every(s => alongGap(s.distance, along, route.length) > 450)) anchors.push({ along, station: false });
+    if (world.stationPasses.every(s => alongGap(s.distance, along, route.length) > 375)) anchors.push(along);
   }
-  for (const anchor of anchors) {
-    const a = route.sample(anchor.along), side = anchor.station ? 1 : (random() < 0.5 ? -1 : 1);
-    const offset = anchor.station ? 70 : 70 + random() * 30;
+  for (const along of anchors) {
+    const a = route.sample(along), side = random() < 0.5 ? -1 : 1;
+    const offset = 70 + random() * 30;
     const cx = a.x + a.nx * offset * side, cz = a.z + a.nz * offset * side, biome = biomeAt(cx, cz);
     const remote = ['Snow', 'Volcano', 'Desert'].includes(biome), used = new Set();
-    const district = { id: `settlement-${districts.length}`, x: cx, z: cz, yaw: a.yaw, biome, along: anchor.along, groundY: ground(cx, cz) - 0.025, station: anchor.station, buildings: [], laneHalfLength: 42 };
-    const target = remote ? 2 + Math.floor(random() * 2) : (anchor.station ? 7 : 4) + Math.floor(random() * 3);
+    const district = { id: `settlement-${districts.length}`, x: cx, z: cz, yaw: a.yaw, biome, along, groundY: ground(cx, cz) - 0.025, station: false, buildings: [], laneHalfLength: 42 };
+    const target = (remote ? 2 : 4) + Math.floor(random() * 3);
     for (let slot = 0; slot < target; slot++) {
-      const role = slot === 0 && anchor.station ? 'shop' : slot === 1 ? 'workshop' : slot === 2 && anchor.station ? 'civic' : 'home';
+      const role = slot === 1 ? 'workshop' : 'home';
       let choices = pool(biome, role, 'settlement');
       if (!choices.length) choices = BUILDING_ROLES.flatMap(r => pool(biome, r, 'settlement'));
       const info = chooseUnique(choices, used, role === 'civic' ? 1 : 3);
       if (!info) continue;
       for (let trial = 0; trial < 16; trial++) {
-        const laneSide = slot % 2 ? 1 : -1, along = -28 + Math.floor(slot / 2) * 19 + gaussian(random) * 4;
+        const laneSide = slot % 2 ? 1 : -1, lot = -28 + Math.floor(slot / 2) * 19 + gaussian(random) * 4;
         const width = 10 + info.footprintRadius + random() * 3;
-        const x = cx + a.tx * along + a.nx * laneSide * width, z = cz + a.tz * along + a.nz * laneSide * width;
-        const p = candidate(info, x, z, { biome, district: district.id, along: anchor.along, groundLevel: district.groundY, yaw: a.yaw + (laneSide === 1 ? -Math.PI / 2 : Math.PI / 2) + gaussian(random) * 0.025 });
+        const x = cx + a.tx * lot + a.nx * laneSide * width, z = cz + a.tz * lot + a.nz * laneSide * width;
+        const p = candidate(info, x, z, { biome, district: district.id, along, groundLevel: district.groundY, yaw: a.yaw + (laneSide === 1 ? -Math.PI / 2 : Math.PI / 2) + gaussian(random) * 0.025 });
         if (commit(p)) { used.add(info.id); district.buildings.push(p); break; }
       }
     }
@@ -367,6 +431,7 @@ export async function planScenery(world, onProgress = () => {}) {
     stats: { requested: goal, placed: placements.length, uniqueModels: counts.size, models: Object.fromEntries(counts), roles: roleCounts, biomes: biomeCounts,
       naturePack: { ...natureCoverage, modelCounts: Object.fromEntries(imported.filter(info=>counts.has(info.id)).map(info=>[info.id,counts.get(info.id)])) },
       settlementCount: districts.length, buildingCount: placements.filter(p => BUILDING_ROLES.includes(p.role)).length,
+      stationVillageCount: districts.filter(d => d.station).length,
       farmCount: farms.length, landmarkCount: landmarks.length, composedInstances: compositionCount, naturalInstances: goal - compositionCount } };
 }
 

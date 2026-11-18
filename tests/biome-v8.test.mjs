@@ -50,12 +50,18 @@ test('every imported model is actually placed in a compatible habitat across rep
   const biomeMix=[];for(let j=0;j<config.length;j+=2)biomeMix.push({biome:config[j],percent:config[j+1]});
   const world=new RailWorld(new THREE.Scene(),{manifest},{biomeMix,length:8,stations:3,elevationLimit:75,density:2000,features:true,seed:`V8-HABITATS-${i}`});
   const plan=await planScenery(world);assert.equal(plan.placements.length,2000);
-  for(const p of plan.placements){const info=manifest.models[p.id];assert.ok(info.compatibleBiomes.includes(p.biome));assert.ok(world.route.distanceTo(p.x,p.z,p.radius+8)>=p.radius+6.99);if(info.scenePack==='Quaternius_UltimateStylizedNature_202205')used.add(p.id);}
+  const stationDistricts = new Set(plan.districts.filter(district => district.station).map(district => district.id));
+  for (const p of plan.placements) {
+    const info = manifest.models[p.id];
+    assert.ok(info.compatibleBiomes.includes(p.biome) || stationDistricts.has(p.district) && info.stationBiomes?.includes(p.biome));
+    assert.ok(world.route.distanceTo(p.x, p.z, p.radius + 8) >= p.radius + 6.99);
+    if (info.scenePack === 'Quaternius_UltimateStylizedNature_202205') used.add(p.id);
+  }
   records.push({seed:world.config.seed,mix:biomeMix,lake:world.lake,distribution:world.biomeReport,nature:plan.stats.naturePack});world.dispose();
  }
  const imported=Object.keys(manifest.models).filter(id=>manifest.models[id].scenePack==='Quaternius_UltimateStylizedNature_202205');
  const missing=imported.filter(id=>!used.has(id));assert.deepEqual(missing,[],'all 63 imports must be used, not merely present in the manifest');
- await writeFile(new URL('../validation/biome-v8-coverage.json',import.meta.url),JSON.stringify({modelsUsed:used.size,available:imported.length,records},null,2)+'\n');
+ await writeFile(new URL('../validation/biome-v9-coverage.json',import.meta.url),JSON.stringify({modelsUsed:used.size,available:imported.length,records},null,2)+'\n');
 });
 
 test('sprung cart body moves with Rapier Y while every wheel stays on its exact original rail position',async()=>{

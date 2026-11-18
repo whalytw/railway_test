@@ -1,12 +1,12 @@
 {
   "name": "rail-loop-lab",
-  "version": "8.0.0",
+  "version": "9.0.0",
   "private": true,
   "type": "module",
   "description": "Offline Three.js railway test with distance-weighted biomes and Rapier physics",
   "scripts": {
     "start": "node server.mjs",
     "test": "node --test tests/*.test.mjs",
-    "verify": "node scripts/verify-v8.mjs"
+    "verify": "node scripts/verify-v9.mjs"
   }
 }

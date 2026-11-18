@@ -6106,6 +6106,7 @@
       "bytes": 73648,
       "scenePack": "settlement",
       "sceneRole": "home",
+      "stationBiomes": ["Snow"],
       "compatibleBiomes": [
         "Forest",
         "Hills",
@@ -6176,6 +6177,7 @@
       "bytes": 103156,
       "scenePack": "settlement",
       "sceneRole": "home",
+      "stationBiomes": ["Snow"],
       "compatibleBiomes": [
         "Forest",
         "Hills",
@@ -6383,6 +6385,7 @@
       "bytes": 105740,
       "scenePack": "settlement",
       "sceneRole": "home",
+      "stationBiomes": ["Volcano"],
       "compatibleBiomes": [
         "Desert",
         "Hills",

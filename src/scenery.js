@@ -1,9 +1,9 @@
 import * as THREE from 'three';
-import { clamp, lerp, smoothstep, randomGenerator, TAU } from './core.js?v=8.0.0';
-import { riverProfile, riverPoint } from './route-features.js?v=8.0.0';
-import { renderedGroundHeight } from './grounding.js?v=8.0.0';
-import { tunnelFrontShift, tunnelMoundHeight, tunnelCutFactor, GRASS_HABITAT, landNoise } from './landscape-profile.js?v=8.0.0';
-import { createGroundMaterial } from './ground-cover.js?v=8.0.0';
+import { clamp, lerp, smoothstep, randomGenerator, TAU } from './core.js?v=9.0.0';
+import { riverProfile, riverPoint } from './route-features.js?v=9.0.0';
+import { renderedGroundHeight } from './grounding.js?v=9.0.0';
+import { tunnelFrontShift, tunnelMoundHeight, tunnelCutFactor, GRASS_HABITAT, landNoise } from './landscape-profile.js?v=9.0.0';
+import { createGroundMaterial } from './ground-cover.js?v=9.0.0';
 
 const up = new THREE.Vector3(0, 1, 0), frameEuler = new THREE.Euler(0, 0, 0, 'YXZ');
 function ownMesh(world, geometry, material) { const mesh = new THREE.Mesh(geometry, material); world.group.add(mesh); world.ownedGeometry.push(geometry); return mesh; }
@@ -109,19 +109,23 @@ export function updateClouds(world, time) {
 export function buildBridgeAndRiver(world) {
   const bridge = world.features.bridge, route = world.route;
   if (!bridge) return;
-  const spans = [], piers = [], abutments = [];
-  const spanLength = bridge.style === 'wood' ? 4 : 8;
-  for (let s = bridge.start; s < bridge.end - 0.1; s += spanLength) spans.push(alongPlacement(route, s, s + spanLength, spanLength));
-  for (let s = bridge.start + 8; s < bridge.end - 2; s += 16) {
-    const p = route.sample(s), bottom = world.heightAt(p.x, p.z), top = p.y - 0.60;
-    piers.push({ x: p.x, y: bottom - 0.12, z: p.z, yaw: p.yaw, sy: Math.max(0.2, (top - bottom + 0.12) / 4) });
+  if (bridge.spans) {
+    for (const span of bridge.spans) buildGirderBridge(world, span, span.turnIndex);
+  } else {
+    const spans = [], piers = [], abutments = [];
+    const spanLength = bridge.style === 'wood' ? 4 : 8;
+    for (let s = bridge.start; s < bridge.end - 0.1; s += spanLength) spans.push(alongPlacement(route, s, s + spanLength, spanLength));
+    for (let s = bridge.start + 8; s < bridge.end - 2; s += 16) {
+      const p = route.sample(s), bottom = world.heightAt(p.x, p.z), top = p.y - 0.60;
+      piers.push({ x: p.x, y: bottom - 0.12, z: p.z, yaw: p.yaw, sy: Math.max(0.2, (top - bottom + 0.12) / 4) });
+    }
+    for (const [s, sign] of [[bridge.start, 1], [bridge.end, -1]]) {
+      const p = route.sample(s); abutments.push({ x: p.x, y: p.y - 2.2, z: p.z, yaw: p.yaw + (sign < 0 ? Math.PI : 0) });
+    }
+    world.addBatches(bridge.style === 'wood' ? 'Building_Bridge_TimberDeck4m_001' : 'Building_Bridge_SteelTruss8m_001', spans, { kind: 'bridge', size: 96, castShadow: world.config.shadows });
+    world.addBatches('Building_Bridge_StonePier4m_001', piers, { kind: 'bridge', castShadow: world.config.shadows });
+    world.addBatches('Building_Bridge_Abutment_001', abutments, { kind: 'bridge', castShadow: world.config.shadows });
   }
-  for (const [s, sign] of [[bridge.start, 1], [bridge.end, -1]]) {
-    const p = route.sample(s); abutments.push({ x: p.x, y: p.y - 2.2, z: p.z, yaw: p.yaw + (sign < 0 ? Math.PI : 0) });
-  }
-  world.addBatches(bridge.style === 'wood' ? 'Building_Bridge_TimberDeck4m_001' : 'Building_Bridge_SteelTruss8m_001', spans, { kind: 'bridge', size: 96, castShadow: world.config.shadows });
-  world.addBatches('Building_Bridge_StonePier4m_001', piers, { kind: 'bridge', castShadow: world.config.shadows });
-  world.addBatches('Building_Bridge_Abutment_001', abutments, { kind: 'bridge', castShadow: world.config.shadows });
   const positions = [], uvs = [], indices = [], colors = [], bankVertices = [], bankColors = [], bankIndices = [];
   const river = bridge.river, rows = Math.ceil((river.end - river.start) / 2.8);
   const deep = new THREE.Color('#559da5'), shallows = new THREE.Color('#92bdb0');
@@ -175,6 +179,87 @@ export function buildBridgeAndRiver(world) {
     riverMaxWidth: Math.max(...Array.from({ length: 101 }, (_, i) => riverProfile(bridge, lerp(river.start, river.end, i / 100)).halfWidth * 2)) };
 }
 
+// Open girders follow the arc table. There is no deck or column on the lower
+// railway: each pier is checked against every other turn before being built.
+export function buildGirderBridge(world, span, turnIndex) {
+  const route = world.route;
+  const concrete = new THREE.MeshStandardMaterial({ color: '#b6b3a4', roughness: 0.91 });
+  const steel = new THREE.MeshStandardMaterial({ color: '#486461', roughness: 0.65, metalness: 0.18 });
+  const group = new THREE.Group();
+  group.name = span.kind === 'overpass' ? 'grade-separated-flyover' : 'river-rail-bridge';
+  world.group.add(group);
+  world.ownedMaterials.push(concrete, steel);
+  const register = mesh => {
+    mesh.receiveShadow = true;
+    mesh.castShadow = Boolean(world.config.shadows);
+    group.add(mesh);
+    world.ownedGeometry.push(mesh.geometry);
+    return mesh;
+  };
+  function girder(left, right, bottom, top, material) {
+    const steps = Math.ceil(span.length / 2.0), vertices = [], indices = [];
+    for (let i = 0; i <= steps; i++) {
+      const p = route.sample(lerp(span.start, span.end, i / steps));
+      for (const [x, y] of [[left, bottom], [right, bottom], [right, top], [left, top]]) {
+        vertices.push(...atFrame(p, x, y));
+      }
+      if (i) for (let j = 0; j < 4; j++) {
+        const a = (i - 1) * 4 + j, b = (i - 1) * 4 + (j + 1) % 4;
+        indices.push(a, b, a + 4, b, b + 4, a + 4);
+      }
+    }
+    const k = steps * 4;
+    indices.push(0, 3, 2, 0, 2, 1, k, k + 1, k + 2, k, k + 2, k + 3);
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+    geometry.setIndex(indices);
+    geometry.computeVertexNormals();
+    register(new THREE.Mesh(geometry, material));
+  }
+  girder(-2.56, 2.56, -0.67, -0.05, concrete);
+  for (const side of [-1, 1]) {
+    const x = side * 1.98;
+    girder(x - 0.23, x + 0.23, -1.02, -0.60, steel);
+    const edge = side * 2.37;
+    girder(edge - 0.047, edge + 0.047, 0.89, 0.99, steel);
+    girder(edge - 0.035, edge + 0.035, 0.46, 0.53, steel);
+  }
+  function boxInstances(width, height, depth, values, material) {
+    if (!values.length) return;
+    const mesh = register(new THREE.InstancedMesh(new THREE.BoxGeometry(width, height, depth), material, values.length));
+    const dummy = new THREE.Object3D();
+    values.forEach(({ p, x, y, dy = 1 }, i) => {
+      dummy.position.copy(atFrame(p, x, y));
+      dummy.rotation.y = p.yaw;
+      dummy.scale.y = dy;
+      dummy.updateMatrix();
+      mesh.setMatrixAt(i, dummy.matrix);
+    });
+    mesh.computeBoundingSphere();
+  }
+  const posts = [];
+  for (let s = span.start + 1; s < span.end; s += 3.6) for (const side of [-1, 1]) posts.push({ p: route.sample(s), x: side * 2.37, y: 0.43 });
+  boxInstances(0.11, 1.02, 0.13, posts, steel);
+  const piers = [], caps = [];
+  for (let s = span.start + 4; s < span.end; s += 18) {
+    for (const shift of [0, 3, -3, 6, -6]) {
+      const distance = s + shift;
+      if (distance < span.start + 1 || distance > span.end - 1) continue;
+      const p = route.sample(distance);
+      const blocked = route.turnStarts.some((_, lane) => lane !== turnIndex && route.nearestOnTurn(lane, p.x, p.z, 6).distance < 4.9);
+      if (blocked) continue;
+      const ground = world.groundHeight(p.x, p.z), depth = p.y - 0.82 - ground;
+      if (depth < 0.30) continue;
+      piers.push({ p, x: 0, y: -0.91 - depth * 0.5, dy: depth + 0.33 });
+      caps.push({ p, x: 0, y: -0.93 });
+      break;
+    }
+  }
+  boxInstances(1.8, 1, 1.65, piers, concrete);
+  boxInstances(4.5, 0.43, 1.9, caps, concrete);
+  world.cullGroups.push({ group, x: span.x, z: span.z, radius: span.length / 2 + 8, kind: 'bridge' });
+}
+
 export function buildTunnel(world) {
   const tunnel = world.features.tunnel, route = world.route;
   if (!tunnel) return;
@@ -189,7 +274,8 @@ export function buildTunnel(world) {
   const material = createGroundMaterial(world); material.side = THREE.DoubleSide;
   world.ownedMaterials.push(material);
   const rockColor = new THREE.Color('#919481').lerp(ground, 0.24);
-  const columns = [-58, -49, -40, -32, -25, -20, -16, -13, -11, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 16, 20, 25, 32, 40, 49, 58];
+  const offsets = [-49, -40, -32, -25, -20, -16, -13, -11, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 16, 20, 25, 32, 40, 49];
+  const columns = [-tunnel.halfWidth, ...offsets.filter(x => Math.abs(x) < tunnel.halfWidth), tunnel.halfWidth];
   function frameAt(localS, x) {
     const front = 1 - smoothstep(0, 28, Math.abs(localS)), back = 1 - smoothstep(0, 28, Math.abs(localS - tunnel.length));
     return route.sample(tunnel.start + localS + tunnelFrontShift(tunnel, x) * (front - back));
@@ -200,7 +286,7 @@ export function buildTunnel(world) {
     v.y = lerp(groundY, Math.max(v.y, groundY), smoothstep(0, 1.4, height)); return v;
   }
   // Three open surfaces meet at the small excavated rock cut. There is no
-  // cross-map end cap: the grassy shoulders extend 72 m into both approaches.
+  // cross-map end cap: the grassy shoulders taper into the approaches.
   for (const [start, end, excavated, label] of [[-tunnel.approachLength, 0, true, 'approach-a'], [0, tunnel.length, false, 'roof'], [tunnel.length, tunnel.length + tunnel.approachLength, true, 'approach-b']]) {
     const rows = Math.ceil((end - start) / 2.5), vertices = [], colors = [], indices = [], grasses = [];
     for (let i = 0; i <= rows; i++) for (const x of columns) {

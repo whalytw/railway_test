@@ -1,13 +1,14 @@
 import * as THREE from 'three';
 import { GLTFLoader } from '../vendor/GLTFLoader.js';
-import { TAU, lerp, clamp, wrap, smoothstep, randomGenerator, createRoute, stationsFor, biomeMix, trackSegments } from './core.js?v=8.0.0';
-import { sleeperLayout, sleeperFilter, planRouteFeatures, featureAt, bridgeCoordinates, bridgeGroundHeight } from './route-features.js?v=8.0.0';
-import { buildMountainBackdrop, buildVariedClouds, updateClouds, buildBridgeAndRiver, buildTunnel } from './scenery.js?v=8.0.0';
-import { fitGroundContact, prepareGroundedParts, groundBatchGeometry, renderedGroundHeight } from './grounding.js?v=8.0.0';
-import { planScenery, indexGroundPads, paddedHeight } from './scenery-plan.js?v=8.0.0';
-import { createBiomeLayout } from './biome-blend.js?v=8.0.0';
-import { createStandingDriver } from './drivers.js?v=8.0.0';
-import { createGroundMaterial, grassHabitatAt, buildGrassCover, buildFarmland } from './ground-cover.js?v=8.0.0';
+import { TAU, lerp, clamp, wrap, smoothstep, randomGenerator, stationsFor, biomeMix, trackSegments } from './core.js?v=9.0.0';
+import { createCircuitRoute } from './circuit-route.js?v=9.0.0';
+import { sleeperLayout, sleeperFilter, planRouteFeatures, routeStructures, bridgeCoordinates, bridgeGroundHeight } from './route-features.js?v=9.0.0';
+import { buildMountainBackdrop, buildVariedClouds, updateClouds, buildBridgeAndRiver, buildTunnel, buildGirderBridge } from './scenery.js?v=9.0.0';
+import { fitGroundContact, prepareGroundedParts, groundBatchGeometry, renderedGroundHeight } from './grounding.js?v=9.0.0';
+import { planScenery, indexGroundPads, paddedHeight } from './scenery-plan.js?v=9.0.0';
+import { createBiomeLayout } from './biome-blend.js?v=9.0.0';
+import { createStandingDriver } from './drivers.js?v=9.0.0';
+import { createGroundMaterial, grassHabitatAt, buildGrassCover, buildFarmland } from './ground-cover.js?v=9.0.0';
 
 export const PALETTES = {
   Forest: { ground: '#829565', detail: '#62794d', sky: '#bed0ba', amplitude: 12 },
@@ -104,9 +105,24 @@ export class AssetStore {
 export class RailWorld {
   constructor(scene, store, config) {
     this.scene = scene; this.store = store; this.config = config;
-    this.route = createRoute(config.length * 1000, config.seed, 8192, { elevationLimit: config.elevationLimit || 0, stations: config.stations });
+    this.route = createCircuitRoute(config.length * 1000, config.seed, { elevationLimit: config.elevationLimit, stations: config.stations, turns: config.turns });
     this.stations = stationsFor(this.route, config.stations);
+    this.stationPasses = this.stations.flatMap(s => s.passes ?? [s]).sort((a, b) => a.distance - b.distance);
     this.features = config.features ? planRouteFeatures(this.route, this.stations, config.seed) : { bridge: null, tunnel: null };
+    const { overpass, crossings } = this.route;
+    if (overpass) {
+      this.features.overpass = overpass;
+      this.features.underpasses = crossings.map(crossing => {
+        const centre = crossing.lowerDistance, lower = this.route.sample(centre), upper = this.route.sample(crossing.upperDistance);
+        const sine = Math.abs(lower.tx * upper.tz - lower.tz * upper.tx);
+        const margin = clamp(3.2 / Math.max(sine, 0.08) + 3, 9, 37);
+        return { kind: 'underpass', name: '高架橋下方', start: centre - margin, end: centre + margin, centre, ...lower };
+      });
+      const steps = Math.ceil(overpass.length / 12);
+      this.flyoverSamples = Array.from({ length: steps + 1 }, (_, i) => this.route.sample(lerp(overpass.start, overpass.end, i / steps)));
+      this.groundProximities = Array.from({ length: this.route.turns }, () => ({}));
+    }
+    this.structures = routeStructures(this.features);
     this.group = new THREE.Group(); scene.add(this.group);
     this.cullGroups = []; this.ownedGeometry = []; this.ownedMaterials = []; this.ownedTextures = [];
     this.instanceCount = 0; this.sceneryCount = 0; this.terrainChunks = 0;
@@ -130,13 +146,14 @@ export class RailWorld {
     this.lake = this.planLake();
     if (this.features.bridge) {
       const b = this.features.bridge, biome = this.dominantBiomeAt(b.x, b.z);
-      b.style = ['Forest', 'Pastoral', 'Rural'].includes(biome) ? 'wood' : 'steel';
-      b.name = b.style === 'wood' ? '河谷木橋' : '河谷鋼橋';
+      b.style = b.spans ? 'girder' : ['Forest', 'Pastoral', 'Rural'].includes(biome) ? 'wood' : 'steel';
+      if (!b.spans) b.name = b.style === 'wood' ? '河谷木橋' : '河谷鋼橋';
     }
   }
   createElevationField() {
     const nx = 32, nz = 16, d = this.route.squareSize, values = new Float64Array((nx + 1) * (nz + 1));
-    const anchors = Array.from({ length: 64 }, (_, i) => this.route.sample(i / 64 * this.route.length));
+    const anchors = Array.from({ length: 64 }, (_, i) => this.route.sample(i / 64 * this.route.length))
+      .filter((_, i) => !this.route.overpass || i / 64 * this.route.length < this.route.overpass.start || i / 64 * this.route.length > this.route.overpass.end);
     const soft = (d * 0.065) ** 2;
     for (let z = 0; z <= nz; z++) for (let x = 0; x <= nx; x++) {
       const wx = -d + 2 * d * x / nx, wz = -d / 2 + d * z / nz;
@@ -162,9 +179,11 @@ export class RailWorld {
     let chosen = null, best = 0;
     for (let i = 0; i < 70; i++) {
       const x = side * d * (0.16 + (i % 10) * 0.065), z = d * (-0.25 + Math.floor(i / 10) * 0.08);
+      if (this.stations.some(s => Math.hypot(x - s.x - s.nx * 47, z - s.z - s.nz * 47) < 215)) continue;
       const distance = this.route.distanceTo(x, z, 230);
       if (distance > best) { best = distance; chosen = { x, z }; }
     }
+    if (!chosen || best < 45) return null;
     return { ...chosen, radius: Math.min(150, best * 0.76), depthScale: 0.68, level: this.baseElevation(chosen.x, chosen.z) - 0.16 };
   }
   lakeRadiusAt(x, z) {
@@ -189,7 +208,7 @@ export class RailWorld {
       const x=p.x+p.nx*offset*side,z=p.z+p.nz*offset*side;
       if(Math.abs(x)>d-40||Math.abs(z)>d/2-40||this.biomeWeight(biome,x,z)<.75)continue;
       const near=this.route.nearestTo(x,z,210),radius=Math.min(biome==='Desert'?60:135,region.metres*.16,near.distance*.62);
-      if(radius<5||this.stations.some(station=>Math.hypot(x-station.x,z-station.z)<radius+35))continue;
+      if(radius<5||this.stationPasses.some(station=>Math.hypot(x-station.x,z-station.z)<radius+35))continue;
       if(this.features.bridge){const b=bridgeCoordinates(this.features.bridge,x,z);if(Math.abs(b.across)<radius+170&&b.along>this.features.bridge.river.start-radius&&b.along<this.features.bridge.river.end+radius)continue;}
       const score=radius+near.distance*.05;
       if(score>best){best=score;chosen={x,z,radius,depthScale:.68,level:this.baseElevation(x,z)-.16,kind:biome==='Desert'?'oasis':'lake',biome};}
@@ -206,15 +225,56 @@ export class RailWorld {
       const basin = lerp(this.lake.level - 2.5, this.lake.level + 1.2, smoothstep(edge - 12, edge + 23, r));
       h = lerp(basin, h, smoothstep(edge + 23, edge + 65, r));
     }
+    const hill = this.route.tracksideHill;
+    if (hill) {
+      const dx = x - hill.x, dz = z - hill.z;
+      const radius = Math.hypot((dx * hill.tx + dz * hill.tz) / hill.halfLength, (dx * hill.tz - dz * hill.tx) / hill.halfWidth);
+      h += hill.height * (1 - smoothstep(0.05, 1, radius));
+    }
     return h;
+  }
+  groundHeight(x, z) {
+    return this.terrainGrid ? renderedGroundHeight(this.terrainGrid, x, z) : this.heightAt(x, z);
   }
   heightAt(x, z, knownProximity) {
     const near = typeof knownProximity === 'object' ? knownProximity : this.route.nearestTo(x, z, 110);
     const terrain = this.rawHeight(x, z);
+    if (this.route.turns > 1) return this.circuitGroundHeight(x, z, near, terrain);
     if (near.y === undefined) return paddedHeight(this.groundPadIndex, x, z, bridgeGroundHeight(this.features.bridge, x, z, terrain));
     // A graded earthwork supports the rails; distant land follows the same
     // elevation field, rather than leaving an elevated railway floating in air.
     return paddedHeight(this.groundPadIndex, x, z, bridgeGroundHeight(this.features.bridge, x, z, lerp(near.y - 0.09, terrain, smoothstep(20, 105, near.distance))));
+  }
+  circuitGroundHeight(x, z, near, terrain) {
+    const route = this.route, overpass = route.overpass;
+    if (near.distance < 61) {
+      // Each supported track contributes its embankment or cut. The flyover
+      // itself is excluded, so the roadbed below always follows the lower rail.
+      let weightSum = 0, heightSum = 0, influence = 0, closest = null;
+      for (let lane = 0; lane < route.turns; lane++) {
+        const p = route.nearestOnTurn(lane, x, z, 55, this.groundProximities[lane], true);
+        if (p.y === undefined) continue;
+        const w = 1 - smoothstep(7, 44, p.distance);
+        const priority = w / (2 + (Math.max(0, p.distance - 3) / 2) ** 4);
+        weightSum += priority;
+        heightSum += (p.y - 0.10) * priority;
+        influence = Math.max(influence, w);
+        if (!closest || p.distance < closest.distance) closest = p;
+      }
+      if (weightSum > 0) {
+        terrain = lerp(terrain, heightSum / weightSum, influence);
+        terrain = lerp(terrain, closest.y - 0.10, 1 - smoothstep(5.3, 8, closest.distance));
+      }
+      if (this.flyoverSamples.some(p => (p.x - x) ** 2 + (p.z - z) ** 2 < 20 ** 2)) {
+        const deck = route.nearestTo(x, z, 16, this.deckProximity ||= {}, i => !route.groundSegment(i));
+        if (deck.y !== undefined) {
+          const end = Math.min(deck.distanceAlong - overpass.start, overpass.end - deck.distanceAlong);
+          const cut = (1 - smoothstep(4.4, 13.5, deck.distance)) * smoothstep(0, 11, end);
+          terrain -= Math.max(0, terrain - (deck.y - 1.18)) * cut;
+        }
+      }
+    }
+    return paddedHeight(this.groundPadIndex, x, z, bridgeGroundHeight(this.features.bridge, x, z, terrain));
   }
   async prepareScenery(onProgress = () => {}) {
     if (this.sceneryPlan || !this.store.manifest || !this.config.density) return;
@@ -225,8 +285,10 @@ export class RailWorld {
   async build(onProgress = () => {}) {
     onProgress(0.01, '規劃聚落、田區與自然景物…'); await yieldFrame();
     await this.prepareScenery(p => onProgress(0.01 + p * 0.07, '規劃疏密交錯的沿線風景…'));
-    const infrastructure = this.config.features ? ['Building_Bridge_SteelTruss8m_001', 'Building_Bridge_TimberDeck4m_001', 'Building_Bridge_StonePier4m_001', 'Building_Bridge_Abutment_001',
-      'Building_Tunnel_StonePortal_001', 'Building_Tunnel_RockStraight4m_001'] : [];
+    const infrastructure = [
+      ...(this.features.bridge && !this.features.bridge.spans ? ['Building_Bridge_SteelTruss8m_001', 'Building_Bridge_TimberDeck4m_001', 'Building_Bridge_StonePier4m_001', 'Building_Bridge_Abutment_001'] : []),
+      ...(this.features.tunnel ? ['Building_Tunnel_StonePortal_001', 'Building_Tunnel_RockStraight4m_001'] : [])
+    ];
     const lakeModels = this.lake && this.lake.kind !== 'oasis' && this.lake.radius >= 36 ? this.store.manifest.biomes.Lakeside.models.filter(id => !this.store.manifest.models[id].scenePack?.startsWith('Quaternius')) : [];
     const ids = [...this.sceneryPlan.placements.map(p => p.id), ...lakeModels,
       ...this.store.manifest.stationModels, 'Environment_Rail_RailSection_1m_001', 'Environment_Rail_Sleeper_001', 'Environment_Rail_Fastener_001', ...infrastructure, this.config.vehicle, ...(this.config.driver ? [this.config.driver] : [])];
@@ -234,8 +296,9 @@ export class RailWorld {
     onProgress(0.42, '鋪設閉合軌道…'); await yieldFrame(); this.buildTrack();
     onProgress(0.55, `混合 ${this.activeBiomes.length} 種環境地表…`); await yieldFrame(); await this.buildTerrain();
     onProgress(0.70, '佈置沿線地景…'); await yieldFrame(); await this.buildScenery();
-    onProgress(0.87, '建立跨河橋與穿山隧道…'); await yieldFrame();
-    if (this.config.features) { buildBridgeAndRiver(this); buildTunnel(this); }
+    onProgress(0.87, '建立橋梁、立體交會與隧道…'); await yieldFrame();
+    if (this.features.overpass) buildGirderBridge(this, this.features.overpass, this.route.turns - 1);
+    buildBridgeAndRiver(this); buildTunnel(this);
     onProgress(0.94, '建立車站、礦車與遠景…'); await yieldFrame(); this.buildStations(); this.buildCart();
     this.createClouds();
     onProgress(1, '旅程準備就緒');
@@ -356,15 +419,16 @@ export class RailWorld {
   }
   async buildTerrain() {
     await this.prepareScenery();
-    const d = this.route.squareSize, tile = 192;
+    const d = this.route.squareSize, multi = this.route.turns > 1, tile = multi ? 128 : 192;
     const material = createGroundMaterial(this);
     this.ownedMaterials.push(material);
     const color = new THREE.Color(), detail = new THREE.Color();
     const nx = Math.ceil(2 * d / tile), nz = Math.ceil(d / tile);
     const width = 2 * d / nx, depth = d / nz;
     this.terrainGrid = { d, nx, nz, width, depth, tiles: [] };
-    const riverDetailAt = (x, z) => {
+    const detailedAt = (x, z) => {
       if (this.sceneryPlan?.pads.some(p => Math.abs(x - p.x) < tile * 0.55 + p.outer && Math.abs(z - p.z) < tile * 0.55 + p.outer)) return true;
+      if (multi && this.route.distanceTo(x, z, tile + 55) < tile * 0.75 + 43) return true;
       if (!this.features.bridge) return false;
       const p = bridgeCoordinates(this.features.bridge, x, z);
       const r = this.features.bridge.river;
@@ -373,30 +437,32 @@ export class RailWorld {
     for (let iz = 0; iz < nz; iz++) {
       for (let ix = 0; ix < nx; ix++) {
         const x0 = -d + ix * width, z0 = -d * 0.5 + iz * depth;
-        const cx = x0 + width / 2, cz = z0 + depth / 2, detailedRiver = riverDetailAt(cx, cz);
-        const coarseLeft = !riverDetailAt(cx - width, cz), coarseRight = !riverDetailAt(cx + width, cz);
-        const coarseTop = !riverDetailAt(cx, cz - depth), coarseBottom = !riverDetailAt(cx, cz + depth);
-        const segments = detailedRiver ? 48 : 12;
+        const cx = x0 + width / 2, cz = z0 + depth / 2, detailed = detailedAt(cx, cz);
+        const coarseLeft = !detailedAt(cx - width, cz), coarseRight = !detailedAt(cx + width, cz);
+        const coarseTop = !detailedAt(cx, cz - depth), coarseBottom = !detailedAt(cx, cz + depth);
+        const segments = detailed ? 48 : 12;
         const verts = [], colors = [], indices = [], normals = [], grass = [];
         for (let z = 0; z <= segments; z++) for (let x = 0; x <= segments; x++) {
           const wx = x0 + x / segments * width, wz = z0 + z / segments * depth;
           const near = this.route.nearestTo(wx, wz, 110);
           let h = this.heightAt(wx, wz, near);
-          // Resolve the narrow river channel without refining the whole map.
+          // Resolve rail beds and the river channel without refining the whole map.
           // Fine-tile edges follow the coarse neighbor's linear edge exactly.
           const vertical = (x === 0 && coarseLeft) || (x === segments && coarseRight);
           const horizontal = (z === 0 && coarseTop) || (z === segments && coarseBottom);
-          if (detailedRiver && (vertical || horizontal)) {
+          if (detailed && (vertical || horizontal)) {
             const t = (vertical ? z : x) / segments * 12, k = Math.min(11, Math.floor(t));
             const a = vertical ? this.heightAt(wx, z0 + k / 12 * depth) : this.heightAt(x0 + k / 12 * width, wz);
             const b = vertical ? this.heightAt(wx, z0 + (k + 1) / 12 * depth) : this.heightAt(x0 + (k + 1) / 12 * width, wz);
             h = lerp(a, b, t - k);
           }
           verts.push(wx, h, wz);
-          const normal = new THREE.Vector3(this.heightAt(wx - 1, wz) - this.heightAt(wx + 1, wz), 2,
-            this.heightAt(wx, wz - 1) - this.heightAt(wx, wz + 1)).normalize();
-          normals.push(normal.x, normal.y, normal.z);
-          grass.push(grassHabitatAt(this, wx, wz, near) * smoothstep(0.60, 0.94, normal.y));
+          if (!multi || x === 0 || z === 0 || x === segments || z === segments) {
+            const normal = new THREE.Vector3(this.heightAt(wx - 1, wz) - this.heightAt(wx + 1, wz), 2,
+              this.heightAt(wx, wz - 1) - this.heightAt(wx, wz + 1)).normalize();
+            normals.push(normal.x, normal.y, normal.z);
+          } else normals.push(0, 1, 0);
+          grass.push(grassHabitatAt(this, wx, wz, near));
           const speckle = 0.11 + 0.11 * Math.sin(wx * 0.073) * Math.cos(wz * 0.067);
           this.colorAt(wx,wz,color); this.colorAt(wx,wz,detail,true);
           color.lerp(detail, speckle);
@@ -413,9 +479,17 @@ export class RailWorld {
           const a = z * (segments + 1) + x, b = a + 1, c = a + segments + 1, e = c + 1;
           indices.push(a, c, b, b, c, e);
         }
+        if (multi) for (let z = 1; z < segments; z++) for (let x = 1; x < segments; x++) {
+          const index = (z * (segments + 1) + x) * 3;
+          const dx = (verts[index - 2] - verts[index + 4]) * segments / (2 * width);
+          const dz = (verts[index - (segments + 1) * 3 + 1] - verts[index + (segments + 1) * 3 + 1]) * segments / (2 * depth);
+          const length = Math.hypot(dx, 1, dz);
+          normals[index] = dx / length; normals[index + 1] = 1 / length; normals[index + 2] = dz / length;
+        }
         const geometry = new THREE.BufferGeometry();
         geometry.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
         geometry.setAttribute('normal', new THREE.Float32BufferAttribute(normals, 3));
+        for (let i = 0; i < grass.length; i++) grass[i] *= smoothstep(0.60, 0.94, normals[i * 3 + 1]);
         geometry.setAttribute('landGrass', new THREE.Float32BufferAttribute(grass, 1));
         geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3)); geometry.setIndex(indices); geometry.computeBoundingSphere();
         this.terrainGrid.tiles[iz * nx + ix] = { x0, z0, segments, geometry };
@@ -456,21 +530,33 @@ export class RailWorld {
   buildDistrictPaths() {
     const material = new THREE.MeshStandardMaterial({ color: '#aaa18a', roughness: 1, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 });
     this.ownedMaterials.push(material);
+    const buildPath = (waypoints, halfWidth, name, district) => {
+      const verts = [], indices = [];
+      for (let piece = 1; piece < waypoints.length; piece++) {
+        const a = waypoints[piece - 1], b = waypoints[piece], dx = b.x - a.x, dz = b.z - a.z;
+        const length = Math.hypot(dx, dz), segments = Math.ceil(length / 0.9);
+        for (let i = 0; i <= segments; i++) {
+          const x = lerp(a.x, b.x, i / segments), z = lerp(a.z, b.z, i / segments);
+          for (const side of [-halfWidth, halfWidth]) {
+            const wx = x + dz / length * side, wz = z - dx / length * side;
+            verts.push(wx, this.groundHeight(wx, wz) + 0.08, wz);
+          }
+          if (i) { const k = verts.length / 3 - 4; indices.push(k, k + 2, k + 1, k + 1, k + 2, k + 3); }
+        }
+      }
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
+      geometry.setIndex(indices); geometry.computeVertexNormals();
+      const path = new THREE.Mesh(geometry, material); path.receiveShadow = true; path.name = name;
+      this.group.add(path); this.ownedGeometry.push(geometry);
+      this.cullGroups.push({ group: path, x: district.x, z: district.z, radius: district.laneHalfLength + 65, kind: 'scenery' });
+    };
     for (const district of this.sceneryPlan.districts) {
       if (district.buildings.length < 2) continue;
-      const verts = [], indices = [], segments = 28, c = Math.cos(district.yaw), s = Math.sin(district.yaw);
-      for (let i = 0; i <= segments; i++) {
-        const v = (i / segments * 2 - 1) * district.laneHalfLength;
-        for (const u of [-2.1, 2.1]) {
-          const x = district.x + c * u + s * v, z = district.z - s * u + c * v;
-          verts.push(x, renderedGroundHeight(this.terrainGrid, x, z) + 0.045, z);
-        }
-        if (i) { const k = (i - 1) * 2; indices.push(k, k + 2, k + 1, k + 1, k + 2, k + 3); }
-      }
-      const geometry = new THREE.BufferGeometry(); geometry.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3)); geometry.setIndex(indices); geometry.computeVertexNormals();
-      const path = new THREE.Mesh(geometry, material); path.receiveShadow = true; path.name = 'village-lane';
-      this.group.add(path); this.ownedGeometry.push(geometry);
-      this.cullGroups.push({ group: path, x: district.x, z: district.z, radius: district.laneHalfLength + 4, kind: 'scenery' });
+      const tx = Math.sin(district.yaw), tz = Math.cos(district.yaw);
+      const ends = [-district.laneHalfLength, district.laneHalfLength].map(v => ({ x: district.x + tx * v, z: district.z + tz * v }));
+      buildPath(ends, 2.1, 'village-lane', district);
+      if (district.accessPath) buildPath(district.accessPath, 1.35, 'station-access-path', district);
     }
   }
   buildLake() {
@@ -499,16 +585,19 @@ export class RailWorld {
   }
   buildStations() {
     const platform = [], canopy = [], hut = [], signs = [], lamps = [];
-    for (const s of this.stations) {
-      const side = 1;
+    for (const s of this.stationPasses) {
+      const main = !s.turnIndex;
+      const side = s.turnIndex ? 1 : this.stations[s.index].platformSide ?? 1;
       const at = (offset, along = 0, y = 0) => ({ x: s.x + s.nx * offset * side + s.tx * along, z: s.z + s.nz * offset * side + s.tz * along, y: s.y + y, yaw: s.yaw });
       for (let i = -2; i < 3; i++) { platform.push(at(3.2, i * 4)); if (i >= -1 && i <= 1) canopy.push(at(3.2, i * 4)); }
-      hut.push(at(10.5, -4)); signs.push(at(6.1, 8)); lamps.push(at(6.3, -10), at(6.3, 11));
-      const board = this.makeLabel(s.name, s.index === 0 ? 'A / DEPARTURE' : `STATION 0${s.index + 1}`);
+      if (main) hut.push(at(10.5, -4));
+      signs.push(at(6.1, 8)); lamps.push(at(6.3, -10), at(6.3, 11));
+      const subtitle = this.route.turns > 1 ? `第 ${s.turnIndex + 1} 圈月台` : s.index === 0 ? 'A / DEPARTURE' : `STATION 0${s.index + 1}`;
+      const board = this.makeLabel(s.name, subtitle);
       const p = at(4.7, 0, 5.6); board.position.set(p.x, p.y, p.z); board.scale.set(9.6, 3.0, 1); this.group.add(board);
-      const padGeo = new THREE.BoxGeometry(23, 0.18, 35);
+      const padGeo = new THREE.BoxGeometry(main ? 23 : 8.5, 0.18, main ? 35 : 29);
       const padMat = new THREE.MeshStandardMaterial({ color: '#c3bda5', roughness: 0.95 });
-      const pad = new THREE.Mesh(padGeo, padMat); const padP = at(9.0, 0, -0.08);
+      const pad = new THREE.Mesh(padGeo, padMat); const padP = at(main ? 9 : 4.5, 0, -0.08);
       pad.position.set(padP.x, padP.y, padP.z); pad.rotation.y = s.yaw; pad.receiveShadow = true; this.group.add(pad);
       this.ownedGeometry.push(padGeo); this.ownedMaterials.push(padMat);
     }
@@ -525,7 +614,7 @@ export class RailWorld {
     ctx.fillStyle = '#173d36'; ctx.beginPath(); ctx.roundRect(4, 4, 760, 228, 14); ctx.fill();
     ctx.strokeStyle = '#cdd5a9'; ctx.lineWidth = 2; ctx.strokeRect(16, 16, 736, 204);
     ctx.textAlign = 'center'; ctx.fillStyle = '#f3efd5'; ctx.font = '500 70px "Microsoft JhengHei",sans-serif'; ctx.fillText(title, 384, 116);
-    ctx.fillStyle = '#bdc99b'; ctx.font = '22px "Segoe UI",sans-serif'; ctx.fillText(subtitle, 384, 177);
+    ctx.fillStyle = '#bdc99b'; ctx.font = '24px "Microsoft JhengHei","Segoe UI",sans-serif'; ctx.fillText(subtitle, 384, 177);
     const texture = new THREE.CanvasTexture(canvas); texture.colorSpace = THREE.SRGBColorSpace;
     const material = new THREE.SpriteMaterial({ map: texture, depthTest: true, sizeAttenuation: true });
     this.ownedTextures.push(texture); this.ownedMaterials.push(material);
@@ -573,7 +662,10 @@ export class RailWorld {
     if (this.config.skyline === false) { this.clouds = null; return; }
     buildMountainBackdrop(this); buildVariedClouds(this);
   }
-  structureAt(distance, padding = 0) { return featureAt(this.features, distance, this.route.length, padding); }
+  structureAt(distance, padding = 0) {
+    const s = wrap(distance, this.route.length);
+    return this.structures.find(f => s >= f.start - padding && s <= f.end + padding) || null;
+  }
   tunnelFactor(distance) {
     const tunnel = this.features.tunnel;
     if (!tunnel) return 0;
