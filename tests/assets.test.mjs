@@ -17,12 +17,12 @@ test('the selected library has eight biomes, three cars and all station / infras
   for (const id of [...manifest.bridgeModels, ...manifest.tunnelModels, ...manifest.riverModels]) assert.ok(manifest.models[id]);
 });
 
-test('all 279 models and 144 LODs are valid glTF 2.0 with all image dependencies shipped locally', async () => {
-  assert.equal(Object.keys(manifest.models).length, 279);
+test('all 280 models and 144 LODs are valid glTF 2.0 with all image dependencies shipped locally', async () => {
+  assert.equal(Object.keys(manifest.models).length, 280);
   assert.equal(manifest.drivers.length, 24);
   assert.equal(manifest.scenery.selectedAdditionalCount, 118);
   const files = Object.entries(manifest.models).flatMap(([id, info]) => info.lod ? [[id, info], [`${id}:LOD1`, info.lod]] : [[id, info]]);
-  assert.equal(files.length, 423);
+  assert.equal(files.length, 424);
   for (const [id, info] of files) {
     assert.ok(!info.url.startsWith('/'), 'asset URLs must also work under a GitHub project subdirectory');
     const bytes = await readFile(path.join(root, info.url));

@@ -10,7 +10,7 @@ const { riverProfile, riverPoint, riverLocation } = await import('../src/route-f
 const { buildTunnel, buildBridgeAndRiver } = await import('../src/scenery.js');
 const { planGrassCover, buildGrassCover, buildFarmland } = await import('../src/ground-cover.js');
 const { renderedGroundHeight } = await import('../src/grounding.js');
-const { inFarm } = await import('../src/landscape-profile.js');
+const { inFarm, TUNNEL_WIDTH_SCALE } = await import('../src/landscape-profile.js');
 const manifest = JSON.parse(await readFile(new URL('../asset-manifest.json', import.meta.url), 'utf8'));
 const config = { length: 5, stations: 3, elevationLimit: 75, biomeA: 'Pastoral', biomeB: 'Hills', seed: 'V7-COUNTRY', density: 1000, features: true };
 const make = overrides => new RailWorld(new THREE.Scene(), { manifest }, { ...config, ...overrides });
@@ -56,7 +56,7 @@ test('tunnel cuts are narrow, curved and the approach shoulders meet the surroun
     const inverse = new THREE.Matrix4().makeRotationFromEuler(new THREE.Euler(p.pitch, p.yaw, 0, 'YXZ')).invert();
     const a = faces[j].geometry.attributes.position, xs = [], zs = [];
     for (let i = 0; i < a.count; i++) { const v = new THREE.Vector3().fromBufferAttribute(a, i).sub(new THREE.Vector3(p.x, p.y, p.z)).applyMatrix4(inverse); xs.push(v.x); zs.push(v.z); }
-    assert.ok(Math.max(...xs) - Math.min(...xs) < 19, 'no 68 m wall across the mountain');
+    assert.ok(Math.max(...xs) - Math.min(...xs) < 19 * TUNNEL_WIDTH_SCALE, 'the rock cut stays within the widened mouth and shoulders');
     assert.ok(Math.max(...zs) - Math.min(...zs) > 4, 'the cut must wrap around the portal rather than remain one plane');
   }
   for (const mesh of world.group.children.filter(n => /^tunnel-mountain-/.test(n.name))) {
@@ -65,7 +65,7 @@ test('tunnel cuts are narrow, curved and the approach shoulders meet the surroun
       assert.ok(Math.abs(a.getY(i) - renderedGroundHeight(world.terrainGrid, a.getX(i), a.getZ(i))) < 0.041, 'outer mountain edge must disappear into the actual rendered terrain');
     }
   }
-  report.tunnelCutWidthMax = 19; report.tunnelApproachLength = world.features.tunnel.approachLength;
+  report.tunnelCutWidthMax = 19 * TUNNEL_WIDTH_SCALE; report.tunnelApproachLength = world.features.tunnel.approachLength;
 });
 
 test('Pastoral always supplies visible reserved fields with readable crop rows', async () => {

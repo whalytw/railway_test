@@ -1,5 +1,5 @@
 import * as RAPIER from '../vendor/rapier/rapier.mjs';
-import { CART_MASS, FIXED_STEP, GRAVITY, MAX_FORWARD, MAX_REVERSE, clamp, createPhysics, stepPhysics } from './core.js?v=10.0.0';
+import { CART_MASS, FIXED_STEP, GRAVITY, MAX_FORWARD, MAX_REVERSE, TURBO_SPEED, TURBO_RAMP_SECONDS, clamp, createPhysics, stepPhysics } from './core.js?v=11.0.0';
 
 export const RAPIER_VERSION = '0.21.0';
 const BOGIE_MASS = CART_MASS * 0.2;
@@ -45,7 +45,7 @@ export class RapierRailPhysics {
     this.sampleBehind = {}; this.sampleAhead = {};
     this.disposed = false;
     this.boundState = null;
-    this.reset();
+    this.reset(options.state);
   }
 
   reset(state) {
@@ -57,6 +57,7 @@ export class RapierRailPhysics {
     this.boundState = target;
     this.origin = target.distance;
     this.steps = 0; this.rebaseCount = 0; this.collisions = 0;
+    this.turboSpeed = 0;
     this.contactImpulse = 0; this.peakContactForce = 0; this.normalAcceleration = 0;
     this.maxAbsLocalX = 0;
     this.activeContacts = new Set();
@@ -91,7 +92,7 @@ export class RapierRailPhysics {
     return target;
   }
 
-  step(state, dt, throttle = state.throttle, grade = 0) {
+  step(state, dt, throttle = state.throttle, grade = 0, turbo = false) {
     this.assertLive();
     if (!(dt > 0 && dt <= 0.1)) throw new Error('Simulation requires a small positive timestep.');
     if (!Number.isFinite(throttle)) throw new Error('Throttle must be finite.');
@@ -100,7 +101,8 @@ export class RapierRailPhysics {
     const previousSpeed = this.bogie.linvel().x;
     const previousX = this.bogie.translation().x;
     const previousCountdown = Math.max(0, state.countdown);
-    Object.assign(this.reference, state, { speed: previousSpeed });
+    const baseSpeed = previousSpeed - Math.min(this.turboSpeed, Math.max(0, previousSpeed));
+    Object.assign(this.reference, state, { speed: baseSpeed });
     // Reuse the tested traction/brake/resistance law as a force reference only.
     // Its provisional speed and distance are never used as the physical result.
     stepPhysics(this.reference, dt, throttle, grade);
@@ -122,10 +124,21 @@ export class RapierRailPhysics {
     this.bogie.resetForces(true);
     this.chassis.resetForces(true);
     this.chassis.setGravityScale(cosTheta, true);
-    const forceX = this.reference.acceleration * CART_MASS;
+    // The boost adds a temporary forward speed component through force. The
+    // normal traction and rolling law continues to apply to the base speed.
+    const targetBoost = turbo && throttle >= 0 && previousSpeed >= -0.05 && !this.activeContacts.size ? TURBO_SPEED : 0;
+    const boostStep = TURBO_SPEED * activeDt / TURBO_RAMP_SECONDS;
+    const boostDelta = clamp(targetBoost - this.turboSpeed, -boostStep, boostStep);
+    this.turboSpeed += boostDelta;
+    // Releasing the boost can dissipate forward momentum down to rest.
+    const release = Math.max(boostDelta, -Math.max(0, previousSpeed));
+    const tractionForce = this.reference.acceleration * CART_MASS;
+    // Both constrained masses receive the same longitudinal boost acceleration.
+    const boostAcceleration = release / activeDt;
+    const forceX = tractionForce + boostAcceleration * CART_MASS;
     const momentumBefore = BOGIE_MASS * previousSpeed + SPRUNG_MASS * this.chassis.linvel().x;
-    this.bogie.addForce({ x: forceX, y: 0, z: 0 }, true);
-    this.chassis.addForce({ x: 0, y: -SPRUNG_MASS * this.normalAcceleration, z: 0 }, true);
+    this.bogie.addForce({ x: tractionForce + boostAcceleration * BOGIE_MASS, y: 0, z: 0 }, true);
+    this.chassis.addForce({ x: boostAcceleration * SPRUNG_MASS, y: -SPRUNG_MASS * this.normalAcceleration, z: 0 }, true);
     this.world.timestep = activeDt;
     this.world.step(this.events);
     this.steps++;
@@ -151,7 +164,7 @@ export class RapierRailPhysics {
       this.contactImpulse = Math.abs(momentumAfter - momentumBefore - forceX * activeDt);
     }
     let speed = this.bogie.linvel().x;
-    const limited = clamp(speed, -MAX_REVERSE, MAX_FORWARD);
+    const limited = clamp(speed, -MAX_REVERSE, MAX_FORWARD + this.turboSpeed);
     if (limited !== speed) {
       // A dissipative governor: remove excess speed with a physical impulse.
       this.bogie.applyImpulse({ x: BOGIE_MASS * (limited - speed), y: 0, z: 0 }, true);
@@ -214,6 +227,7 @@ export class RapierRailPhysics {
     state.collisionCount = this.collisions;
     state.rapierSteps = this.steps;
     state.solverVersion = RAPIER_VERSION;
+    state.turboKmh = this.turboSpeed * 3.6;
   }
 
   diagnostics() {
@@ -230,6 +244,7 @@ export class RapierRailPhysics {
       maxAbsLocalX: this.maxAbsLocalX,
       originMetres: this.origin, localX: this.disposed ? null : this.bogie.translation().x,
       distance: this.boundState?.distance ?? 0, speed: this.boundState?.speed ?? 0,
+      turboKmh: this.turboSpeed * 3.6,
       bumperDistance: this.bumperDistance,
       suspensionEquilibriumMetres: this.equilibriumY,
       suspensionStiffnessNpm: this.options.suspensionStiffness,

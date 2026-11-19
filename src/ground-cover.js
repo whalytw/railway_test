@@ -1,8 +1,8 @@
 import * as THREE from 'three';
-import { lerp, smoothstep, randomGenerator, TAU } from './core.js?v=10.0.0';
-import { riverLocation, bridgeCoordinates } from './route-features.js?v=10.0.0';
-import { renderedGroundHeight } from './grounding.js?v=10.0.0';
-import { GRASS_HABITAT, grassPatch, inFarm } from './landscape-profile.js?v=10.0.0';
+import { lerp, smoothstep, randomGenerator, TAU } from './core.js?v=11.0.0';
+import { riverLocation, bridgeCoordinates } from './route-features.js?v=11.0.0';
+import { renderedGroundHeight } from './grounding.js?v=11.0.0';
+import { GRASS_HABITAT, grassPatch, inFarm } from './landscape-profile.js?v=11.0.0';
 
 export function grassHabitatAt(world, x, z, near) {
   const habitat = world.blendValue(GRASS_HABITAT,x,z);

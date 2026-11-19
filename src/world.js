@@ -1,15 +1,16 @@
 import * as THREE from 'three';
 import { GLTFLoader } from '../vendor/GLTFLoader.js';
-import { TAU, lerp, clamp, wrap, smoothstep, randomGenerator, stationsFor, biomeMix, trackSegments } from './core.js?v=10.0.0';
-import { createCircuitRoute } from './circuit-route.js?v=10.0.0';
-import { sleeperLayout, sleeperFilter, planRouteFeatures, routeStructures, bridgeCoordinates, bridgeGroundHeight } from './route-features.js?v=10.0.0';
-import { buildMountainBackdrop, buildVariedClouds, updateClouds, buildBridgeAndRiver, buildTunnel, buildGirderBridge } from './scenery.js?v=10.0.0';
-import { fitGroundContact, prepareGroundedParts, groundBatchGeometry, renderedGroundHeight } from './grounding.js?v=10.0.0';
-import { planScenery, indexGroundPads, paddedHeight } from './scenery-plan.js?v=10.0.0';
-import { createBiomeLayout } from './biome-blend.js?v=10.0.0';
-import { shadowProfile, keepSceneryShadow } from './shadow-profile.js?v=10.0.0';
-import { createStandingDriver } from './drivers.js?v=10.0.0';
-import { createGroundMaterial, grassHabitatAt, buildGrassCover, buildFarmland } from './ground-cover.js?v=10.0.0';
+import { TAU, lerp, clamp, wrap, smoothstep, randomGenerator, stationsFor, biomeMix, trackSegments } from './core.js?v=11.0.0';
+import { createCircuitRoute } from './circuit-route.js?v=11.0.0';
+import { sleeperLayout, sleeperFilter, planRouteFeatures, routeStructures, bridgeCoordinates, bridgeGroundHeight } from './route-features.js?v=11.0.0';
+import { buildMountainBackdrop, buildVariedClouds, updateClouds, buildBridgeAndRiver, buildTunnel, buildGirderBridge } from './scenery.js?v=11.0.0';
+import { fitGroundContact, prepareGroundedParts, groundBatchGeometry, renderedGroundHeight } from './grounding.js?v=11.0.0';
+import { planScenery, indexGroundPads, paddedHeight } from './scenery-plan.js?v=11.0.0';
+import { createBiomeLayout } from './biome-blend.js?v=11.0.0';
+import { shadowProfile, keepSceneryShadow } from './shadow-profile.js?v=11.0.0';
+import { createStandingDriver } from './drivers.js?v=11.0.0';
+import { TURBO_ASSET_ID, TurboPair, createTurboResources } from './turbo-visual.js?v=11.0.0';
+import { createGroundMaterial, grassHabitatAt, buildGrassCover, buildFarmland } from './ground-cover.js?v=11.0.0';
 
 export const PALETTES = {
   Forest: { ground: '#829565', detail: '#62794d', sky: '#bed0ba', amplitude: 12 },
@@ -128,7 +129,7 @@ export class RailWorld {
     this.group = new THREE.Group(); scene.add(this.group);
     this.cullGroups = []; this.ownedGeometry = []; this.ownedMaterials = []; this.ownedTextures = [];
     this.instanceCount = 0; this.sceneryCount = 0; this.terrainChunks = 0;
-    this.wheels = []; this.waterMaterials = [];
+    this.wheels = []; this.carts = []; this.waterMaterials = [];
     this.driver = null; this.driverRequest = 0; this.disposed = false;
     this.partsOverrides = new Map(); this.environmentElapsed = 0; this.lastSpeed = 0;
     this.groundParts = new Map(); this.terrainGrid = null;
@@ -308,8 +309,11 @@ export class RailWorld {
       ...(this.features.tunnel ? ['Building_Tunnel_StonePortal_001', 'Building_Tunnel_RockStraight4m_001'] : [])
     ];
     const lakeModels = this.lake && this.lake.kind !== 'oasis' && this.lake.radius >= 36 ? this.store.manifest.biomes.Lakeside.models.filter(id => !this.store.manifest.models[id].scenePack?.startsWith('Quaternius')) : [];
+    const selections = this.config.fleet ?? [this.config];
+    const vehicles = selections.flatMap(({ vehicle, driver }) => driver ? [vehicle, driver] : [vehicle]);
     const ids = [...this.sceneryPlan.placements.map(p => p.id), ...lakeModels,
-      ...this.store.manifest.stationModels, 'Environment_Rail_RailSection_1m_001', 'Environment_Rail_Sleeper_001', 'Environment_Rail_Fastener_001', ...infrastructure, this.config.vehicle, ...(this.config.driver ? [this.config.driver] : [])];
+      ...this.store.manifest.stationModels, 'Environment_Rail_RailSection_1m_001', 'Environment_Rail_Sleeper_001', 'Environment_Rail_Fastener_001', ...infrastructure,
+      ...vehicles, ...(this.config.playable ? [TURBO_ASSET_ID] : [])];
     await this.store.load(ids, (p, id) => onProgress(0.08 + p * 0.32, `讀取 ${this.store.manifest.models[id].name}`));
     onProgress(0.42, '鋪設閉合軌道…'); await yieldFrame(); this.buildTrack();
     onProgress(0.55, `混合 ${this.activeBiomes.length} 種環境地表…`); await yieldFrame(); await this.buildTerrain();
@@ -641,34 +645,47 @@ export class RailWorld {
     return new THREE.Sprite(material);
   }
   buildCart() {
-    const source = this.store.get(this.config.vehicle);
-    this.cart = source.root.clone(true);
-    this.cart.traverse(node => { if (node.isMesh) { node.castShadow = this.config.shadows; node.receiveShadow = true; } });
-    const prefix = this.config.vehicle.includes('GoldenOak') ? 'GoldenOak' : this.config.vehicle.includes('AzureLake') ? 'AzureLake' : 'RedCopper';
+    const fleet = this.config.fleet ?? [this.config];
+    const resources = this.config.playable ? createTurboResources(this) : null;
+    this.carts = fleet.map((selection, index) => this.buildCartRig(selection, this.route.turnStarts[fleet.length - index - 1], resources));
+    this.primaryCart = this.carts[Math.floor(this.carts.length / 2)];
+    this.cart = this.primaryCart.root;
+    this.wheels = this.primaryCart.wheels;
+    this.cartSample = this.primaryCart.sample;
+    for (const [index, rig] of this.carts.entries()) {
+      if (fleet[index].driver) this.attachDriver(fleet[index].driver, rig);
+      this.updateCart(rig.departure, 0, 0, 0, rig);
+    }
+  }
+  buildCartRig({ vehicle }, departure, resources) {
+    const source = this.store.get(vehicle), root = source.root.clone(true), wheels = [];
+    root.name = vehicle;
+    root.traverse(node => { if (node.isMesh) { node.castShadow = this.config.shadows; node.receiveShadow = true; } });
+    const prefix = vehicle.includes('GoldenOak') ? 'GoldenOak' : vehicle.includes('AzureLake') ? 'AzureLake' : 'RedCopper';
     for (const suffix of ['FL', 'FR', 'RL', 'RR']) {
-      const node = this.cart.getObjectByName(`${prefix}_Wheel_${suffix}`);
+      const node = root.getObjectByName(`${prefix}_Wheel_${suffix}`);
       if (node) {
-        const parents=[];for(let parent=node.parent;parent&&parent!==this.cart;parent=parent.parent)parents.unshift(parent);
+        const parents=[];for(let parent=node.parent;parent&&parent!==root;parent=parent.parent)parents.unshift(parent);
         const matrix=new THREE.Matrix4();for(const parent of parents){parent.updateMatrix();matrix.multiply(parent.matrix);}
         const suspensionAxis=new THREE.Vector3(0,1,0).applyMatrix3(new THREE.Matrix3().setFromMatrix4(matrix).invert());
-        this.wheels.push({ node, original: node.quaternion.clone(), originalPosition: node.position.clone(), suspensionAxis });
+        wheels.push({ node, original: node.quaternion.clone(), originalPosition: node.position.clone(), suspensionAxis });
       }
     }
-    this.cartLever = this.cart.getObjectByName(`${prefix}_Lever`);
-    this.cartLeverBase = this.cartLever?.quaternion.clone();
-    this.cart.position.y = 0.405 - 0.024;
-    this.group.add(this.cart);
-    if (this.config.driver) this.attachDriver(this.config.driver);
-    this.updateCart(0, 0, 0);
+    const lever = root.getObjectByName(`${prefix}_Lever`);
+    this.group.add(root);
+    const halfWidth = resources ? Math.max(-source.bounds.min.x, source.bounds.max.x) : 0;
+    const turbo = resources ? new TurboPair(this, root, halfWidth, resources) : null;
+    return { root, vehicle, departure, wheels, lever, leverBase: lever?.quaternion.clone(), sample: {}, frontSample: {}, rearSample: {}, driver: null, turbo };
   }
-  attachDriver(id) {
+  attachDriver(id, rig = this.primaryCart) {
     if (!this.store.manifest.drivers?.includes(id)) throw new Error('找不到動物駕駛。');
-    const next = createStandingDriver(this.store.get(id).root, this.config.vehicle, {
+    const next = createStandingDriver(this.store.get(id).root, rig.vehicle, {
       id, name: this.store.manifest.models[id].name, shadows: this.config.shadows,
       staticClip: this.store.get(id).animations?.find(clip => clip.name === 'static')
     });
-    if (this.driver) this.cart.remove(this.driver);
-    this.cart.add(next); this.driver = next; this.config.driver = id;
+    if (rig.driver) rig.root.remove(rig.driver);
+    rig.root.add(next); rig.driver = next;
+    if (rig === this.primaryCart) { this.driver = next; this.config.driver = id; }
     return next;
   }
   async setDriver(id) {
@@ -693,36 +710,41 @@ export class RailWorld {
     return smoothstep(tunnel.start, tunnel.start + 6, s) * (1 - smoothstep(tunnel.end - 6, tunnel.end, s));
   }
   updateEnvironment(dt, speed, frameSeconds) {
-    this.environmentElapsed += dt; this.lastSpeed = speed;
-    const filter = sleeperFilter(speed, frameSeconds, this.sleeperPitch || 0.75, this.config.sleeperFilter !== false);
-    this.sleeperUniforms.exposure.value = filter.exposure; this.sleeperUniforms.contrast.value = filter.contrastReduction; this.sleeperUniforms.enabled.value = filter.enabled;
+    this.environmentElapsed += dt;
+    this.updateTrackFilter(speed, frameSeconds);
     updateClouds(this, this.environmentElapsed);
     if (this.grassWind) this.grassWind.value = this.environmentElapsed;
     if (this.riverFlow) this.riverFlow.value = this.environmentElapsed;
   }
-  updateCart(distance, odometer, throttle, suspensionY = 0) {
-    const p = this.route.sample(distance, this.cartSample);
+  updateTrackFilter(speed, frameSeconds) {
+    this.lastSpeed = speed;
+    const filter = sleeperFilter(speed, frameSeconds, this.sleeperPitch || 0.75, this.config.sleeperFilter !== false);
+    this.sleeperUniforms.exposure.value = filter.exposure; this.sleeperUniforms.contrast.value = filter.contrastReduction; this.sleeperUniforms.enabled.value = filter.enabled;
+  }
+  updateCart(distance, odometer, throttle, suspensionY = 0, rig = this.primaryCart) {
+    const cart = rig?.root ?? this.cart;
+    const p = this.route.sample(distance, rig?.sample ?? this.cartSample);
     // Use a two-metre track chord for body attitude. The arc-table position is
     // exact; this removes tiny tangent jumps at successive polyline samples.
-    const front = this.route.sample(distance + 1, this.cartFrontSample), rear = this.route.sample(distance - 1, this.cartRearSample);
+    const front = this.route.sample(distance + 1, rig?.frontSample ?? this.cartFrontSample), rear = this.route.sample(distance - 1, rig?.rearSample ?? this.cartRearSample);
     const dx = front.x - rear.x, dy = front.y - rear.y, dz = front.z - rear.z;
     const horizontal = Math.hypot(dx, dz), length = Math.hypot(horizontal, dy);
     p.tx = dx / horizontal; p.tz = dz / horizontal; p.tx3 = dx / length; p.ty = dy / length; p.tz3 = dz / length;
     p.pitch = -Math.atan2(dy, horizontal); p.yaw = Math.atan2(dx, dz); p.nx = p.tz; p.nz = -p.tx;
     p.upX = -p.tx * p.ty; p.upY = horizontal / length; p.upZ = -p.tz * p.ty;
     const height=0.381+suspensionY;
-    this.cart.position.set(p.x + height * p.upX, p.y + height * p.upY, p.z + height * p.upZ);
-    this.cart.quaternion.setFromEuler(rotationEuler.set(p.pitch, p.yaw, 0, 'YXZ'));
+    cart.position.set(p.x + height * p.upX, p.y + height * p.upY, p.z + height * p.upZ);
+    cart.quaternion.setFromEuler(rotationEuler.set(p.pitch, p.yaw, 0, 'YXZ'));
     q.setFromAxisAngle(new THREE.Vector3(1, 0, 0), distance / 0.346);
-    for (const wheel of this.wheels) {
+    for (const wheel of rig?.wheels ?? this.wheels) {
       wheel.node.quaternion.copy(wheel.original).multiply(q);
       // Account for nested Blender parent axes/scales. Wheels stay on the rails
       // while the cart body, lever and animal share the sprung displacement.
       wheel.node.position.copy(wheel.originalPosition).addScaledVector(wheel.suspensionAxis,-suspensionY);
     }
-    if (this.cartLever) {
+    if (rig?.lever) {
       q.setFromAxisAngle(new THREE.Vector3(1, 0, 0), -throttle * 0.35);
-      this.cartLever.quaternion.copy(this.cartLeverBase).multiply(q);
+      rig.lever.quaternion.copy(rig.leverBase).multiply(q);
     }
     return p;
   }
@@ -761,6 +783,8 @@ export class RailWorld {
   dispose() {
     this.disposed = true; ++this.driverRequest; this.driver = null;
     this.scene.remove(this.group);
+    for (const rig of this.carts) rig.turbo?.dispose();
+    this.carts = []; this.primaryCart = null;
     this.group.traverse(node => { if (node.isInstancedMesh) node.dispose(); });
     this.ownedGeometry.forEach(g => g.dispose()); this.ownedMaterials.forEach(m => m.dispose()); this.ownedTextures.forEach(t => t.dispose());
     this.group.clear(); this.cullGroups = []; this.wheels = [];

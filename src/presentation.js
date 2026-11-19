@@ -1,4 +1,4 @@
-import { clamp, lerp } from './core.js?v=10.0.0';
+import { clamp, lerp } from './core.js?v=11.0.0';
 
 export function copyMotion(state, out = {}) {
   out.distance = state.distance; out.odometer = state.odometer; out.speed = state.speed;
@@ -19,6 +19,17 @@ export function zoomView(mode, distance, deltaY, preview = false) {
   if (mode === 'overview') return { mode, distance };
   const next = clamp((mode === 'cab' ? 0 : distance) + deltaY * 0.025, preview ? 7 : 0, 80);
   return { mode: !preview && next < 0.001 ? 'cab' : 'chase', distance: next };
+}
+
+// Divide the real framebuffer so fractional render resolutions leave no gaps.
+export function partitionViewports(width, height, pixelRatio, count, left = 0) {
+  const inset = Math.max(0, Math.min(width - count, Math.round(left * pixelRatio)));
+  const playableWidth = width - inset;
+  return Array.from({ length: count }, (_, i) => {
+    const start = inset + Math.floor(playableWidth * i / count);
+    const end = inset + Math.floor(playableWidth * (i + 1) / count);
+    return { x: start / pixelRatio, y: 0, width: (end - start) / pixelRatio, height: height / pixelRatio };
+  });
 }
 
 // Damping world positions makes the cart alternately catch and leave the

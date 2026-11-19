@@ -1,0 +1,179 @@
+{
+  "id": "Prop_Aircraft_TurbofanExterior_LowPoly_001",
+  "name": "完整渦扇引擎・輕量旋轉版",
+  "category": "08_Props",
+  "subcategory": "Machinery/Aircraft_Engines",
+  "tags": [
+    "aircraft",
+    "jet-engine",
+    "turbofan",
+    "low-poly",
+    "under-10000-triangles",
+    "animated",
+    "fan-rotor",
+    "cc0",
+    "glb",
+    "threejs"
+  ],
+  "status": "game_ready",
+  "version": "1.0.0",
+  "createdAt": "2026-11-16",
+  "source": "third_party_cc0_derived",
+  "author": "Innerscene (original); simplified derivative for user project",
+  "sourceUrl": "https://www.innerscene.com/tools/library/3d-parts/turbofan-exterior-assembly-f68ba851",
+  "license": {
+    "name": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "proofFile": "licenses/provenance.txt",
+    "legalCodeFile": "licenses/original-CC0-1.0-legalcode.txt",
+    "allowsCommercialUse": true,
+    "allowsPublicWebDelivery": true,
+    "allowsModification": true,
+    "allowsStandaloneRedistribution": true,
+    "requiresAttribution": false
+  },
+  "sourceFile": "source/Prop_Aircraft_TurbofanExterior_LowPoly_001.blend",
+  "sourceLibraryPath": "08_Props/Machinery/Aircraft_Engines/Prop_Aircraft_TurbofanExterior_LowPoly_001/source/Prop_Aircraft_TurbofanExterior_LowPoly_001.blend",
+  "sourceCollection": "Prop_Aircraft_TurbofanExterior_LowPoly_001",
+  "sourceBuildScript": "source/build_simplified.py",
+  "gameFile": "exports/Prop_Aircraft_TurbofanExterior_LowPoly_001.glb",
+  "preview": "previews/thumbnail.png",
+  "previews": [
+    "previews/thumbnail.png",
+    "previews/reverse.png",
+    "previews/spin-frame002.png"
+  ],
+  "animations": [
+    "FanSpin"
+  ],
+  "animationType": "node rotation; no skin or skeleton",
+  "rigged": false,
+  "runtimeAnimation": {
+    "provided": true,
+    "clip": "FanSpin",
+    "durationSeconds": 1.0,
+    "referenceRPM": 60,
+    "rotorNode": "FanRotor",
+    "staticNode": "StaticShell",
+    "axisLocalGLTF": [
+      0,
+      0,
+      1
+    ],
+    "loopRecommended": true,
+    "speedControl": "AnimationAction.timeScale = desiredRPM / 60",
+    "note": "60 RPM 為示範動畫轉速，不是實際引擎工程數據。播放端設定 LoopRepeat 才會持續循環。"
+  },
+  "programmaticInteractions": [
+    {
+      "kind": "rotation",
+      "role": "fan_rotor",
+      "node": "FanRotor",
+      "axisLocalGLTF": [
+        0,
+        0,
+        1
+      ],
+      "note": "可由程式控制轉速；手動旋轉時停止 FanSpin，以免兩種控制互相覆蓋。"
+    }
+  ],
+  "polycount": 8612,
+  "polycountUnit": "triangles",
+  "vertices": 7529,
+  "meshNodeCount": 2,
+  "materialCount": 3,
+  "drawPrimitiveCount": 4,
+  "textureResolution": "none; material parameters",
+  "fileBytes": 237564,
+  "sha256": "1c0194fd3ff83982f8b9831d011f3662b02aca4ea6659495094236b18fc64a61",
+  "dimensionsMetersXYZ": [
+    1.5999599695205688,
+    1.5999599966817186,
+    3.070000410079956
+  ],
+  "boundsMeters": {
+    "min": [
+      -0.7999799847602844,
+      1.9999999494757503e-05,
+      -1.5350004434585571
+    ],
+    "max": [
+      0.7999799847602844,
+      1.5999799966812134,
+      1.534999966621399
+    ]
+  },
+  "coordinates": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "metre",
+    "origin": "original provider origin preserved",
+    "rotorPivotGLTF": [
+      0.0,
+      0.7999999523162842,
+      1.2350000143051147
+    ]
+  },
+  "placement": {
+    "displaySlab": false,
+    "installationMode": "mounted-or-display",
+    "note": "沒有支架、地板、預覽燈光或相機；依 boundsMeters.min[1] 調整落地位置。"
+  },
+  "derivation": {
+    "originalAssetId": "Prop_Aircraft_TurbofanExterior_001",
+    "originalAssetLibraryPath": "08_Props/Machinery/Aircraft_Engines/Prop_Aircraft_TurbofanExterior_001",
+    "originalSourceUrl": "https://www.innerscene.com/tools/library/3d-parts/turbofan-exterior-assembly-f68ba851",
+    "originalSha256": "a7c70ceb258c6a8f54baf49acf7fd3ce8877de904dfb335e2e1ab7c7d412fd3a",
+    "originalTriangles": 212334,
+    "reductionPercent": 95.94412576412633,
+    "fanBladeCount": 20,
+    "originalFanTrianglesPreserved": 4386,
+    "methods": [
+      "revolve the original nacelle cross section with 96 radial segments",
+      "simplify spinner, nozzle and tail",
+      "omit hidden internal machinery",
+      "add a lightweight dark intake backing",
+      "combine into stationary casing and one moving rotor",
+      "share three materials",
+      "add a one-second rotation clip"
+    ],
+    "removedInternalParts": [
+      "Combustor_case",
+      "Compressor_case",
+      "Compressor_rotor_1",
+      "Compressor_rotor_2",
+      "Compressor_rotor_3",
+      "Compressor_rotor_4",
+      "Compressor_rotor_5",
+      "Compressor_rotor_6",
+      "Compressor_rotor_7",
+      "High_pressure_turbine_1",
+      "High_pressure_turbine_2",
+      "Inner_shaft",
+      "Low_pressure_turbine_3",
+      "Low_pressure_turbine_4",
+      "Perforated_combustor_liner"
+    ],
+    "sourceOriginalUnchanged": true
+  },
+  "collision": {
+    "provided": false,
+    "rotorCasingIntersectionCheck": "24 sampled orientations; no surface intersections found"
+  },
+  "lods": [],
+  "validation": {
+    "buildReport": "validation/build-report.json",
+    "exportReport": "validation/export-verification.json",
+    "under10000Triangles": "passed",
+    "exportedGlbReimport": "passed",
+    "unitNormals": "passed",
+    "finiteAttributes": "passed",
+    "animationFullTurn": "passed",
+    "loopEndpoint": "passed",
+    "rotorAxisFixed": "passed",
+    "casingStatic": "passed",
+    "selfContained": "passed",
+    "originalUnchanged": "passed"
+  },
+  "notes": "另存的低面數衍生版，原版 GLB、Blender 檔與註解維持原狀。主要保留外觀、完整20片扇葉與旋轉；不再保留原本完整內部機械。未自動替換任何既有遊戲素材。"
+}

@@ -17,3 +17,7 @@ v7 的草地顏色、短草幾何、河道、田區與隧道山坡由本專案�
 **Quaternius Ultimate Stylized Nature Pack（May 2022）**：Quaternius，63 款，特定版本依作者專屬作品頁的 CC0 1.0 聲明使用。作者頁 https://quaternius.com/packs/ultimatestylizednature.html 。原授權、查核、通用授權頁差異與貼圖取得紀錄見 `assets/licenses/Quaternius_UltimateStylizedNature_202205/`；逐模型出處及衍生資訊見 `assets/provenance/Quaternius_UltimateStylizedNature_202205/`。遊戲主模型提取重複貼圖並新增部分 LOD；不將第三方模型宣稱為原創。
 
 **Rapier @dimforge/rapier3d-compat 0.21.0**：Dimforge，Apache-2.0。完整原文見 `vendor/rapier/LICENSE`，固定版本、官方 registry tarball、SHA-512 與本機 SHA-256 見 `vendor/rapier/version.json`。ESM 內嵌 WASM，執行時不需外部下載。引擎原始碼 https://github.com/dimforge/rapier ，文件 https://rapier.rs/ 。此授權與素材的 CC0 分別適用。
+
+## v11 渦輪
+
+遊戲使用 GameAssets 收錄的 `Prop_Aircraft_TurbofanExterior_LowPoly_001.glb`。模型衍生自 Innerscene 發布的 CC0 1.0 Turbofan Exterior Assembly，包含 8,612 個三角形和旋轉扇葉動畫。來源紀錄與授權全文收在 `assets/licenses/Innerscene_Turbofan/`。 [Innerscene 原始模型](https://www.innerscene.com/tools/library/3d-parts/turbofan-exterior-assembly-f68ba851)

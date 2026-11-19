@@ -1,6 +1,6 @@
 // Metre-based landscape rules shared by renderers, planning and validation.
 // No imported photographs, textures or additional third-party licenses.
-import { clamp, smoothstep } from './core.js?v=10.0.0';
+import { clamp, smoothstep } from './core.js?v=11.0.0';
 
 export function farmCoordinates(farm, x, z) {
   const dx = x - farm.x, dz = z - farm.z, c = Math.cos(farm.yaw), s = Math.sin(farm.yaw);
@@ -26,9 +26,12 @@ export function grassPatch(x, z) {
 
 // The mountain continues well past the portal. Only the excavated mouth has a
 // rock face; approach slopes taper continuously into the surrounding ground.
+export const TUNNEL_WIDTH_SCALE = 1.50;
+export const TUNNEL_HEIGHT_SCALE = 1.34;
 export function tunnelFrontShift(tunnel, x) {
-  const a = Math.max(0, Math.abs(x) - 2.35);
-  return -Math.min(6.2, a * a * 0.15) * (1 - smoothstep(10, 24, Math.abs(x)));
+  const lateral = Math.abs(x) / TUNNEL_WIDTH_SCALE;
+  const a = Math.max(0, lateral - 2.35);
+  return -Math.min(6.2, a * a * 0.15) * (1 - smoothstep(10, 24, lateral));
 }
 export function tunnelMoundHeight(tunnel, localS, x) {
   const length = tunnel.length, approach = tunnel.approachLength || 72;
@@ -43,5 +46,5 @@ export function tunnelMoundHeight(tunnel, localS, x) {
 }
 export function tunnelCutFactor(localS, x, length) {
   const outside = Math.max(0, -localS, localS - length);
-  return smoothstep(2.35 + outside * 0.07, 9 + outside * 0.25, Math.abs(x));
+  return smoothstep(2.35 + outside * 0.07, 9 + outside * 0.25, Math.abs(x) / TUNNEL_WIDTH_SCALE);
 }

@@ -1,10 +1,10 @@
 // Seeded scene composition. This module uses metres and catalog metadata only;
 // no renderer or Blender source files are needed to reproduce a population.
-import { TAU, clamp, lerp, randomGenerator, wrap } from './core.js?v=10.0.0';
-import { bridgeCoordinates, riverLocation } from './route-features.js?v=10.0.0';
-import { inFarm } from './landscape-profile.js?v=10.0.0';
+import { TAU, clamp, lerp, randomGenerator, wrap } from './core.js?v=11.0.0';
+import { bridgeCoordinates, riverLocation } from './route-features.js?v=11.0.0';
+import { inFarm } from './landscape-profile.js?v=11.0.0';
 
-export const SCENERY_VERSION = '10.0.0';
+export const SCENERY_VERSION = '11.0.0';
 export const DENSITY_OPTIONS = [1000, 2000, 3500, 5000, 8000, 10000, 12000, 16000, 20000, 30000, 50000];
 const BUILDING_ROLES = ['home', 'shop', 'workshop', 'civic'];
 const NATURAL_ROLES = ['tree', 'shrub', 'rock', 'deadwood', 'feature'];

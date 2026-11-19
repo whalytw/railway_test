@@ -1,0 +1,16 @@
+素材：完整渦扇引擎・輕量旋轉版
+素材 ID：Prop_Aircraft_TurbofanExterior_LowPoly_001
+原始作者：Innerscene
+原始來源：https://www.innerscene.com/tools/library/3d-parts/turbofan-exterior-assembly-f68ba851
+原始素材授權：CC0 1.0 Universal
+原始素材 ID：Prop_Aircraft_TurbofanExterior_001
+原始 GLB SHA-256：a7c70ceb258c6a8f54baf49acf7fd3ce8877de904dfb335e2e1ab7c7d412fd3a
+簡化 GLB SHA-256：1c0194fd3ff83982f8b9831d011f3662b02aca4ea6659495094236b18fc64a61
+收錄日期：2026-11-16（Asia/Taipei）
+
+本檔是已確認 CC0 原模型的簡化衍生版，不是原始下載檔的逐位元副本。
+本次以原截面重建外罩，保留原20片扇葉，簡化鼻錐／尾部、移除內部機械、加入簡化暗色背襯與旋轉動畫。
+original-source-page.html、original-library-terms.html、original-CC0-1.0-legalcode.txt 為原始來源及 CC0 授權證據。
+原始素材的原下載 GLB、Blender 檔與 metadata 未覆寫。
+CC0 允許複製、修改與散布、商業使用，無強制署名；不授與商標或專利權。
+此為視覺模型與示範轉子動畫，不是實際引擎製造、氣動、熱力或轉速資料。

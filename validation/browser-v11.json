@@ -1,0 +1,2005 @@
+{
+  "gpu": "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "three": {
+    "launch": {
+      "mode": "paused",
+      "version": "11.0.0",
+      "physics": {
+        "speed": 1.579425573348999,
+        "acceleration": 2.1255111694335938,
+        "driveAcceleration": 2.157463,
+        "distance": 2160.7375798955673,
+        "odometer": 0.5935758352279663,
+        "elapsed": 3.874999999999989,
+        "countdown": 0,
+        "throttle": 1,
+        "grade": 0,
+        "governor": false,
+        "suspensionY": -5.613835674100898e-9,
+        "suspensionVelocity": 2.0941560308074259e-7,
+        "contactImpulse": 0,
+        "collisionCount": 0,
+        "rapierSteps": 105,
+        "solverVersion": "0.21.0",
+        "turboKmh": 0
+      },
+      "renderMotion": {
+        "distance": 2160.7375798955673,
+        "odometer": 0.5935758352279663,
+        "speed": 1.579425573348999,
+        "suspensionY": -5.613835674100898e-9,
+        "suspensionVelocity": 2.0941560308074259e-7
+      },
+      "config": {
+        "biomeMix": [
+          {
+            "biome": "Lakeside",
+            "percent": 22
+          },
+          {
+            "biome": "Volcano",
+            "percent": 19
+          },
+          {
+            "biome": "Rural",
+            "percent": 31
+          },
+          {
+            "biome": "Desert",
+            "percent": 28.000000000000004
+          }
+        ],
+        "biomeA": "Lakeside",
+        "biomeB": "Volcano",
+        "length": 6,
+        "turns": 3,
+        "stations": 3,
+        "vehicle": "Vehicle_Minecart_GoldenOak_001",
+        "driverChoice": "Animal_CubePet_Fox_001",
+        "driver": "Animal_CubePet_Fox_001",
+        "fleet": [
+          {
+            "vehicle": "Vehicle_Minecart_AzureLake_001",
+            "driverChoice": "Animal_CubePet_Bunny_001",
+            "driver": "Animal_CubePet_Bunny_001"
+          },
+          {
+            "vehicle": "Vehicle_Minecart_GoldenOak_001",
+            "driverChoice": "Animal_CubePet_Fox_001",
+            "driver": "Animal_CubePet_Fox_001"
+          },
+          {
+            "vehicle": "Vehicle_Minecart_RedCopper_001",
+            "driverChoice": "Animal_CubePet_Deer_001",
+            "driver": "Animal_CubePet_Deer_001"
+          }
+        ],
+        "playable": true,
+        "density": 1000,
+        "viewDistance": 300,
+        "resolution": 1,
+        "shadows": true,
+        "sceneryShadows": true,
+        "shadowQuality": "near",
+        "elevationLimit": 100,
+        "features": true,
+        "skyline": true,
+        "sleeperFilter": true,
+        "sleeperSpacing": 0.75,
+        "seed": "V11-THREE-CHASE"
+      },
+      "biomes": {
+        "basis": "map-area-soft-weight",
+        "mapAreaSquareMetres": 1291064.9093663099,
+        "transitionIncluded": true,
+        "nominalTransitionMetres": 144.62106185384692,
+        "routeLengthMetres": 6000,
+        "regions": [
+          {
+            "biome": "Lakeside",
+            "requestedPercent": 22,
+            "actualPercent": 22.00001510366089,
+            "weightedSquareMetres": 284034.4750586539,
+            "routePercent": 5.219971597329561,
+            "routeWeightedMetres": 313.19829583977366
+          },
+          {
+            "biome": "Volcano",
+            "requestedPercent": 19,
+            "actualPercent": 18.999975863552113,
+            "weightedSquareMetres": 245302.02116238984,
+            "routePercent": 33.573492249722584,
+            "routeWeightedMetres": 2014.4095349833551
+          },
+          {
+            "biome": "Rural",
+            "requestedPercent": 31,
+            "actualPercent": 31.000003181679688,
+            "weightedSquareMetres": 400230.162981106,
+            "routePercent": 50.81150414478166,
+            "routeWeightedMetres": 3048.6902486869
+          },
+          {
+            "biome": "Desert",
+            "requestedPercent": 28.000000000000004,
+            "actualPercent": 28.000005851107247,
+            "weightedSquareMetres": 361498.2501641592,
+            "routePercent": 10.395032008166154,
+            "routeWeightedMetres": 623.7019204899693
+          }
+        ]
+      },
+      "scenery": {
+        "requested": 1000,
+        "placed": 1000,
+        "uniqueModels": 131,
+        "models": {
+          "Building_Settlement_AdobeTerraceHouse_001": 3,
+          "Building_Settlement_SawtoothWorkshop_001": 1,
+          "Building_Settlement_StoneForge_001": 1,
+          "Building_Settlement_TimberLonghouse_001": 1,
+          "Building_Settlement_HalfTimberTownhouse_001": 1,
+          "Building_Settlement_CornerBakery_001": 1,
+          "Building_Settlement_CourtyardDwelling_001": 2,
+          "Building_Settlement_HippedCottage_001": 1,
+          "Building_Settlement_MarketStallPair_001": 1,
+          "Building_Rural_VillageHouse6m_001": 1,
+          "Building_Landmark_Observatory_001": 1,
+          "Environment_Landmark_Geothermal_001": 1,
+          "Environment_Volcano_Cone16m_001": 1,
+          "Environment_Feature_Volcano_RopedLava_001": 2,
+          "Environment_Feature_Volcano_BrokenLavaShell_001": 1,
+          "Plant_Feature_Rural_FloweringCherry_001": 1,
+          "Environment_Feature_Rural_WisteriaPergola_001": 3,
+          "Environment_Feature_Desert_YardangFins_001": 1,
+          "Plant_Feature_Desert_OcotilloFan_001": 4,
+          "Prop_Daily_TarpaulinCargo_001": 1,
+          "Prop_Daily_MeshFence_001": 1,
+          "Prop_Daily_CableReel_001": 2,
+          "Prop_Daily_PicnicTable_001": 2,
+          "Prop_Daily_OutdoorWashbasin_001": 5,
+          "Prop_Daily_RainBarrel_001": 4,
+          "Prop_Daily_PottingBench_001": 3,
+          "Prop_Daily_FirewoodRack_001": 3,
+          "Prop_Daily_PotteryBucketSet_001": 2,
+          "Prop_Daily_DeckChair_001": 2,
+          "Prop_Daily_BicycleStand_001": 2,
+          "Prop_Rural_Mailbox_001": 2,
+          "Plant_Pastoral_WheatCluster_001": 136,
+          "Prop_Daily_Scarecrow_001": 1,
+          "Prop_Daily_ProduceCrates_001": 1,
+          "Prop_Daily_Wheelbarrow_001": 1,
+          "Prop_Daily_PumpAndTrough_001": 1,
+          "Plant_Pastoral_CornCluster_001": 72,
+          "Plant_Feature_Pastoral_Sunflowers_001": 72,
+          "Plant_Feature_Pastoral_PumpkinVines_001": 67,
+          "Prop_Daily_HandPlough_001": 1,
+          "Plant_Feature_Lakeside_LotusPatch_001": 12,
+          "Plant_Quaternius_BushFlowers_001": 2,
+          "Plant_Quaternius_BushLargeFlowers_001": 5,
+          "Plant_Quaternius_BushLarge_001": 7,
+          "Plant_Quaternius_BushSmallFlowers_001": 3,
+          "Plant_Quaternius_BushSmall_001": 9,
+          "Plant_Quaternius_Bush_001": 6,
+          "Plant_Quaternius_Petals_001": 1,
+          "Plant_Quaternius_Petals_002": 1,
+          "Plant_Quaternius_Petals_003": 4,
+          "Plant_Quaternius_Petals_004": 6,
+          "Plant_Quaternius_FlowerClump_001": 5,
+          "Plant_Quaternius_FlowerClump_002": 5,
+          "Plant_Quaternius_FlowerClump_003": 7,
+          "Plant_Quaternius_FlowerClump_004": 2,
+          "Plant_Quaternius_FlowerClump_005": 5,
+          "Plant_Quaternius_Flower_001": 10,
+          "Plant_Quaternius_Flower_002": 1,
+          "Plant_Quaternius_GrassLargeExtruded_001": 5,
+          "Plant_Quaternius_GrassLarge_001": 6,
+          "Plant_Quaternius_GrassSmall_001": 3,
+          "Plant_Quaternius_LeafyPlantFlowers_001": 5,
+          "Plant_Quaternius_LeafyPlant_001": 5,
+          "Plant_Quaternius_LeafyPlant_002": 3,
+          "Plant_Quaternius_BirchTree_001": 3,
+          "Plant_Quaternius_BirchTree_002": 1,
+          "Plant_Quaternius_BirchTree_003": 4,
+          "Plant_Quaternius_BirchTree_004": 1,
+          "Plant_Quaternius_BirchTree_005": 5,
+          "Plant_Quaternius_DeadTree_001": 2,
+          "Plant_Quaternius_DeadTree_002": 4,
+          "Plant_Quaternius_DeadTree_003": 1,
+          "Plant_Quaternius_DeadTree_004": 3,
+          "Plant_Quaternius_DeadTree_005": 4,
+          "Plant_Quaternius_DeadTree_006": 1,
+          "Plant_Quaternius_DeadTree_007": 2,
+          "Plant_Quaternius_DeadTree_008": 2,
+          "Plant_Quaternius_DeadTree_009": 1,
+          "Plant_Quaternius_DeadTree_010": 2,
+          "Plant_Quaternius_MapleTree_001": 2,
+          "Plant_Quaternius_MapleTree_002": 4,
+          "Plant_Quaternius_MapleTree_003": 4,
+          "Plant_Quaternius_MapleTree_004": 2,
+          "Plant_Quaternius_MapleTree_005": 2,
+          "Plant_Quaternius_NormalTree_001": 2,
+          "Plant_Quaternius_NormalTree_002": 2,
+          "Plant_Quaternius_NormalTree_003": 3,
+          "Plant_Quaternius_NormalTree_004": 2,
+          "Plant_Quaternius_NormalTree_005": 2,
+          "Plant_Quaternius_PineTree_001": 8,
+          "Plant_Quaternius_PineTree_002": 6,
+          "Plant_Quaternius_PineTree_003": 2,
+          "Plant_Quaternius_PineTree_004": 2,
+          "Plant_Quaternius_PineTree_005": 3,
+          "Environment_Quaternius_Rock_001": 30,
+          "Environment_Quaternius_Rock_002": 41,
+          "Environment_Quaternius_Rock_003": 39,
+          "Environment_Quaternius_Rock_004": 53,
+          "Environment_Quaternius_Rock_005": 47,
+          "Plant_Common_BerryThicket_001": 3,
+          "Plant_Common_ColumnarPoplar_001": 3,
+          "Prop_Common_RoundedBoulder_001": 38,
+          "Prop_Common_SplitBoulder_001": 13,
+          "Plant_Feature_Desert_AgaveRosette_001": 6,
+          "Prop_Common_LichenOutcrop_001": 9,
+          "Plant_Common_PollardedTree_001": 1,
+          "Plant_Common_DryReedTuft_001": 4,
+          "Prop_Desert_Tumbleweed_001": 2,
+          "Plant_Desert_SaguaroCactus_001": 9,
+          "Prop_Common_ScreeHeap_001": 26,
+          "Prop_Common_RootClaspedBoulder_001": 1,
+          "Prop_Common_ErodedRockWindow_001": 3,
+          "Prop_Common_LayeredStoneStack_001": 7,
+          "Plant_Common_DeadSnag_001": 3,
+          "Prop_Common_ForkedDriftwood_001": 1,
+          "Prop_Volcano_FumaroleVent_001": 6,
+          "Prop_Volcano_ObsidianCluster_001": 9,
+          "Prop_Desert_SandstoneCluster_001": 2,
+          "Prop_Common_ArchingDeadTrunk_001": 1,
+          "Environment_Feature_Hills_HoodooCluster_001": 2,
+          "Prop_Common_BranchTangle_001": 5,
+          "Plant_Feature_Desert_BarrelCactus_001": 6,
+          "Plant_Common_SpreadingShrub_001": 5,
+          "Plant_Common_BroadleafGroundcover_001": 7,
+          "Plant_Common_FloweringShrub_001": 1,
+          "Environment_Volcano_BasaltCliff8m_001": 1,
+          "Prop_Volcano_BoulderCluster_001": 2,
+          "Prop_Common_HollowLog_001": 2,
+          "Environment_Desert_DuneTile16m_001": 1,
+          "Environment_Desert_SandstoneArch9m_001": 1,
+          "Plant_Feature_Hills_HeatherTuft_001": 1
+        },
+        "roles": {
+          "home": 9,
+          "workshop": 2,
+          "shop": 2,
+          "landmark": 2,
+          "feature": 12,
+          "tree": 90,
+          "shrub": 152,
+          "prop-lineside": 4,
+          "prop-domestic": 25,
+          "crop": 347,
+          "prop-farm": 5,
+          "aquatic": 12,
+          "rock": 329,
+          "deadwood": 9
+        },
+        "biomes": {
+          "Volcano": 188,
+          "Rural": 639,
+          "Desert": 107,
+          "Lakeside": 66
+        },
+        "naturePack": {
+          "available": 63,
+          "eligible": 63,
+          "placed": 58,
+          "missing": [
+            "Plant_Quaternius_PalmTree_001",
+            "Plant_Quaternius_PalmTree_002",
+            "Plant_Quaternius_PalmTree_003",
+            "Plant_Quaternius_PalmTree_004",
+            "Plant_Quaternius_PalmTree_005"
+          ],
+          "incompatible": [],
+          "modelCounts": {
+            "Plant_Quaternius_BushFlowers_001": 2,
+            "Plant_Quaternius_BushLargeFlowers_001": 5,
+            "Plant_Quaternius_BushLarge_001": 7,
+            "Plant_Quaternius_BushSmallFlowers_001": 3,
+            "Plant_Quaternius_BushSmall_001": 9,
+            "Plant_Quaternius_Bush_001": 6,
+            "Plant_Quaternius_Petals_001": 1,
+            "Plant_Quaternius_Petals_002": 1,
+            "Plant_Quaternius_Petals_003": 4,
+            "Plant_Quaternius_Petals_004": 6,
+            "Plant_Quaternius_FlowerClump_001": 5,
+            "Plant_Quaternius_FlowerClump_002": 5,
+            "Plant_Quaternius_FlowerClump_003": 7,
+            "Plant_Quaternius_FlowerClump_004": 2,
+            "Plant_Quaternius_FlowerClump_005": 5,
+            "Plant_Quaternius_Flower_001": 10,
+            "Plant_Quaternius_Flower_002": 1,
+            "Plant_Quaternius_GrassLargeExtruded_001": 5,
+            "Plant_Quaternius_GrassLarge_001": 6,
+            "Plant_Quaternius_GrassSmall_001": 3,
+            "Plant_Quaternius_LeafyPlantFlowers_001": 5,
+            "Plant_Quaternius_LeafyPlant_001": 5,
+            "Plant_Quaternius_LeafyPlant_002": 3,
+            "Plant_Quaternius_BirchTree_001": 3,
+            "Plant_Quaternius_BirchTree_002": 1,
+            "Plant_Quaternius_BirchTree_003": 4,
+            "Plant_Quaternius_BirchTree_004": 1,
+            "Plant_Quaternius_BirchTree_005": 5,
+            "Plant_Quaternius_DeadTree_001": 2,
+            "Plant_Quaternius_DeadTree_002": 4,
+            "Plant_Quaternius_DeadTree_003": 1,
+            "Plant_Quaternius_DeadTree_004": 3,
+            "Plant_Quaternius_DeadTree_005": 4,
+            "Plant_Quaternius_DeadTree_006": 1,
+            "Plant_Quaternius_DeadTree_007": 2,
+            "Plant_Quaternius_DeadTree_008": 2,
+            "Plant_Quaternius_DeadTree_009": 1,
+            "Plant_Quaternius_DeadTree_010": 2,
+            "Plant_Quaternius_MapleTree_001": 2,
+            "Plant_Quaternius_MapleTree_002": 4,
+            "Plant_Quaternius_MapleTree_003": 4,
+            "Plant_Quaternius_MapleTree_004": 2,
+            "Plant_Quaternius_MapleTree_005": 2,
+            "Plant_Quaternius_NormalTree_001": 2,
+            "Plant_Quaternius_NormalTree_002": 2,
+            "Plant_Quaternius_NormalTree_003": 3,
+            "Plant_Quaternius_NormalTree_004": 2,
+            "Plant_Quaternius_NormalTree_005": 2,
+            "Plant_Quaternius_PineTree_001": 8,
+            "Plant_Quaternius_PineTree_002": 6,
+            "Plant_Quaternius_PineTree_003": 2,
+            "Plant_Quaternius_PineTree_004": 2,
+            "Plant_Quaternius_PineTree_005": 3,
+            "Environment_Quaternius_Rock_001": 30,
+            "Environment_Quaternius_Rock_002": 41,
+            "Environment_Quaternius_Rock_003": 39,
+            "Environment_Quaternius_Rock_004": 53,
+            "Environment_Quaternius_Rock_005": 47
+          }
+        },
+        "settlementCount": 3,
+        "buildingCount": 13,
+        "stationVillageCount": 3,
+        "farmCount": 4,
+        "landmarkCount": 2,
+        "composedInstances": 473,
+        "naturalInstances": 527
+      },
+      "rapier": {
+        "engine": "Rapier",
+        "version": "0.21.0",
+        "disposed": false,
+        "model": "Dynamic rail-distance bogie and sprung chassis; vertical prismatic force motor",
+        "massKg": 650,
+        "bogieMassKg": 130,
+        "sprungMassKg": 520,
+        "actualMassKg": 650,
+        "fixedStepSeconds": 0.008333333333333333,
+        "solverIterations": 8,
+        "ccd": true,
+        "rapierSteps": 105,
+        "collisionCount": 0,
+        "contactImpulseNs": 0,
+        "peakContactForceN": 0,
+        "normalAccelerationMps2": 0,
+        "rebaseCount": 0,
+        "rebaseDistanceMetres": 192,
+        "maxAbsLocalX": 0.5935758352279663,
+        "originMetres": 2160.1440040603393,
+        "localX": 0.5935758352279663,
+        "distance": 2160.7375798955673,
+        "speed": 1.579425573348999,
+        "turboKmh": 0,
+        "bumperDistance": null,
+        "suspensionEquilibriumMetres": 0.31500903333333335,
+        "suspensionStiffnessNpm": 60000,
+        "suspensionDampingNspm": 9000
+      },
+      "turboOn": false,
+      "cart": [
+        -394.9872249700831,
+        0.38099999438616433,
+        -0.5933313139447833
+      ],
+      "camera": {
+        "position": [
+          -390.9522284870756,
+          6.841838357835046,
+          16.948584299297607
+        ],
+        "direction": [
+          -0.14867159912654876,
+          -0.20608468313759176,
+          -0.9671741616633653
+        ],
+        "cartNDC": [
+          -0.21665491504049256,
+          -0.25451922708008123,
+          0.9873131270721187
+        ],
+        "cartVisible": true,
+        "near": 0.12,
+        "far": 18000,
+        "fog": [
+          108,
+          300
+        ],
+        "visibleGroups": 278
+      },
+      "carts": [
+        {
+          "vehicle": "Vehicle_Minecart_AzureLake_001",
+          "driver": "Animal_CubePet_Bunny_001",
+          "departure": 4125.470637035713,
+          "state": {
+            "speed": 1.579425573348999,
+            "acceleration": 2.1255111694335938,
+            "driveAcceleration": 2.157463,
+            "distance": 4126.0642128709405,
+            "odometer": 0.5935758352279663,
+            "elapsed": 3.874999999999989,
+            "countdown": 0,
+            "throttle": 1,
+            "grade": 0,
+            "governor": false,
+            "suspensionY": -5.613835674100898e-9,
+            "suspensionVelocity": 2.0941560308074259e-7,
+            "contactImpulse": 0,
+            "collisionCount": 0,
+            "rapierSteps": 105,
+            "solverVersion": "0.21.0",
+            "turboKmh": 0
+          },
+          "position": [
+            -359.31888838239826,
+            0.38099999438616433,
+            -0.5900407113796142
+          ],
+          "viewport": {
+            "x": 0,
+            "y": 0,
+            "width": 640,
+            "height": 1080
+          },
+          "camera": [
+            -353.8902034646264,
+            6.841838357835046,
+            16.571817581461417
+          ],
+          "direction": [
+            -0.22489608683947135,
+            -0.20611728911756322,
+            -0.9523326169207478
+          ],
+          "cartVisible": true,
+          "turboVisible": false,
+          "pods": [
+            {
+              "position": [
+                0,
+                0,
+                0
+              ],
+              "scale": 1,
+              "exhaust": true
+            },
+            {
+              "position": [
+                0,
+                0,
+                0
+              ],
+              "scale": 1,
+              "exhaust": true
+            }
+          ]
+        },
+        {
+          "vehicle": "Vehicle_Minecart_GoldenOak_001",
+          "driver": "Animal_CubePet_Fox_001",
+          "departure": 2160.1440040603393,
+          "state": {
+            "speed": 1.579425573348999,
+            "acceleration": 2.1255111694335938,
+            "driveAcceleration": 2.157463,
+            "distance": 2160.7375798955673,
+            "odometer": 0.5935758352279663,
+            "elapsed": 3.874999999999989,
+            "countdown": 0,
+            "throttle": 1,
+            "grade": 0,
+            "governor": false,
+            "suspensionY": -5.613835674100898e-9,
+            "suspensionVelocity": 2.0941560308074259e-7,
+            "contactImpulse": 0,
+            "collisionCount": 0,
+            "rapierSteps": 105,
+            "solverVersion": "0.21.0",
+            "turboKmh": 0
+          },
+          "position": [
+            -394.9872249700831,
+            0.38099999438616433,
+            -0.5933313139447833
+          ],
+          "viewport": {
+            "x": 640,
+            "y": 0,
+            "width": 640,
+            "height": 1080
+          },
+          "camera": [
+            -390.9522284870756,
+            6.841838357835046,
+            16.948584299297607
+          ],
+          "direction": [
+            -0.14867159912654876,
+            -0.20608468313759176,
+            -0.9671741616633653
+          ],
+          "cartVisible": true,
+          "turboVisible": false,
+          "pods": [
+            {
+              "position": [
+                0,
+                0,
+                0
+              ],
+              "scale": 1,
+              "exhaust": true
+            },
+            {
+              "position": [
+                0,
+                0,
+                0
+              ],
+              "scale": 1,
+              "exhaust": true
+            }
+          ]
+        },
+        {
+          "vehicle": "Vehicle_Minecart_RedCopper_001",
+          "driver": "Animal_CubePet_Deer_001",
+          "departure": 0,
+          "state": {
+            "speed": 1.579425573348999,
+            "acceleration": 2.1255111694335938,
+            "driveAcceleration": 2.157463,
+            "distance": 0.5935758352279663,
+            "odometer": 0.5935758352279663,
+            "elapsed": 3.874999999999989,
+            "countdown": 0,
+            "throttle": 1,
+            "grade": 0,
+            "governor": false,
+            "suspensionY": -5.613835674100898e-9,
+            "suspensionVelocity": 2.0941560308074259e-7,
+            "contactImpulse": 0,
+            "collisionCount": 0,
+            "rapierSteps": 105,
+            "solverVersion": "0.21.0",
+            "turboKmh": 0
+          },
+          "position": [
+            -434.59441152347796,
+            6.580999994386165,
+            -0.5915631343896743
+          ],
+          "viewport": {
+            "x": 1280,
+            "y": 0,
+            "width": 640,
+            "height": 1080
+          },
+          "camera": [
+            -429.624200719989,
+            13.041838357835047,
+            16.70863930861318
+          ],
+          "direction": [
+            -0.20116719587042955,
+            -0.20605404001678682,
+            -0.9576395417370719
+          ],
+          "cartVisible": true,
+          "turboVisible": false,
+          "pods": [
+            {
+              "position": [
+                0,
+                0,
+                0
+              ],
+              "scale": 1,
+              "exhaust": true
+            },
+            {
+              "position": [
+                0,
+                0,
+                0
+              ],
+              "scale": 1,
+              "exhaust": true
+            }
+          ]
+        }
+      ],
+      "wheels": [
+        [
+          -394.1316520122311,
+          0.7510000047683716,
+          -1.4259319820268
+        ],
+        [
+          -395.88505513836554,
+          0.7510000047683716,
+          -1.3801794235696017
+        ],
+        [
+          -394.08939480180067,
+          0.7510000047683716,
+          0.193516795680035
+        ],
+        [
+          -395.8427979279351,
+          0.7510000047683716,
+          0.23926935413723327
+        ]
+      ],
+      "textures": 39,
+      "materials": 13
+    },
+    "increases": [
+      30.294792938232423,
+      30.201848602294923,
+      30.0988037109375
+    ],
+    "boosted": {
+      "mode": "paused",
+      "version": "11.0.0",
+      "physics": {
+        "speed": 40.35745620727539,
+        "acceleration": 0.135498046875,
+        "driveAcceleration": 1.2294596417248105,
+        "distance": 2888.282370759558,
+        "odometer": 728.1383666992188,
+        "elapsed": 35.27499999999864,
+        "countdown": 0,
+        "throttle": 1,
+        "grade": 0,
+        "governor": false,
+        "suspensionY": 0.0000021401533762399616,
+        "suspensionVelocity": -0.000013976366972201504,
+        "contactImpulse": 0,
+        "collisionCount": 0,
+        "rapierSteps": 3873,
+        "solverVersion": "0.21.0",
+        "turboKmh": 30.000000000000004
+      },
+      "renderMotion": {
+        "distance": 2888.282370759558,
+        "odometer": 728.1383666992188,
+        "speed": 40.35745620727539,
+        "suspensionY": 0.0000021401533762399616,
+        "suspensionVelocity": -0.000013976366972201504
+      },
+      "config": {
+        "biomeMix": [
+          {
+            "biome": "Lakeside",
+            "percent": 22
+          },
+          {
+            "biome": "Volcano",
+            "percent": 19
+          },
+          {
+            "biome": "Rural",
+            "percent": 31
+          },
+          {
+            "biome": "Desert",
+            "percent": 28.000000000000004
+          }
+        ],
+        "biomeA": "Lakeside",
+        "biomeB": "Volcano",
+        "length": 6,
+        "turns": 3,
+        "stations": 3,
+        "vehicle": "Vehicle_Minecart_GoldenOak_001",
+        "driverChoice": "Animal_CubePet_Fox_001",
+        "driver": "Animal_CubePet_Fox_001",
+        "fleet": [
+          {
+            "vehicle": "Vehicle_Minecart_AzureLake_001",
+            "driverChoice": "Animal_CubePet_Bunny_001",
+            "driver": "Animal_CubePet_Bunny_001"
+          },
+          {
+            "vehicle": "Vehicle_Minecart_GoldenOak_001",
+            "driverChoice": "Animal_CubePet_Fox_001",
+            "driver": "Animal_CubePet_Fox_001"
+          },
+          {
+            "vehicle": "Vehicle_Minecart_RedCopper_001",
+            "driverChoice": "Animal_CubePet_Deer_001",
+            "driver": "Animal_CubePet_Deer_001"
+          }
+        ],
+        "playable": true,
+        "density": 1000,
+        "viewDistance": 300,
+        "resolution": 1,
+        "shadows": true,
+        "sceneryShadows": true,
+        "shadowQuality": "near",
+        "elevationLimit": 100,
+        "features": true,
+        "skyline": true,
+        "sleeperFilter": true,
+        "sleeperSpacing": 0.75,
+        "seed": "V11-THREE-CHASE"
+      },
+      "biomes": {
+        "basis": "map-area-soft-weight",
+        "mapAreaSquareMetres": 1291064.9093663099,
+        "transitionIncluded": true,
+        "nominalTransitionMetres": 144.62106185384692,
+        "routeLengthMetres": 6000,
+        "regions": [
+          {
+            "biome": "Lakeside",
+            "requestedPercent": 22,
+            "actualPercent": 22.00001510366089,
+            "weightedSquareMetres": 284034.4750586539,
+            "routePercent": 5.219971597329561,
+            "routeWeightedMetres": 313.19829583977366
+          },
+          {
+            "biome": "Volcano",
+            "requestedPercent": 19,
+            "actualPercent": 18.999975863552113,
+            "weightedSquareMetres": 245302.02116238984,
+            "routePercent": 33.573492249722584,
+            "routeWeightedMetres": 2014.4095349833551
+          },
+          {
+            "biome": "Rural",
+            "requestedPercent": 31,
+            "actualPercent": 31.000003181679688,
+            "weightedSquareMetres": 400230.162981106,
+            "routePercent": 50.81150414478166,
+            "routeWeightedMetres": 3048.6902486869
+          },
+          {
+            "biome": "Desert",
+            "requestedPercent": 28.000000000000004,
+            "actualPercent": 28.000005851107247,
+            "weightedSquareMetres": 361498.2501641592,
+            "routePercent": 10.395032008166154,
+            "routeWeightedMetres": 623.7019204899693
+          }
+        ]
+      },
+      "scenery": {
+        "requested": 1000,
+        "placed": 1000,
+        "uniqueModels": 131,
+        "models": {
+          "Building_Settlement_AdobeTerraceHouse_001": 3,
+          "Building_Settlement_SawtoothWorkshop_001": 1,
+          "Building_Settlement_StoneForge_001": 1,
+          "Building_Settlement_TimberLonghouse_001": 1,
+          "Building_Settlement_HalfTimberTownhouse_001": 1,
+          "Building_Settlement_CornerBakery_001": 1,
+          "Building_Settlement_CourtyardDwelling_001": 2,
+          "Building_Settlement_HippedCottage_001": 1,
+          "Building_Settlement_MarketStallPair_001": 1,
+          "Building_Rural_VillageHouse6m_001": 1,
+          "Building_Landmark_Observatory_001": 1,
+          "Environment_Landmark_Geothermal_001": 1,
+          "Environment_Volcano_Cone16m_001": 1,
+          "Environment_Feature_Volcano_RopedLava_001": 2,
+          "Environment_Feature_Volcano_BrokenLavaShell_001": 1,
+          "Plant_Feature_Rural_FloweringCherry_001": 1,
+          "Environment_Feature_Rural_WisteriaPergola_001": 3,
+          "Environment_Feature_Desert_YardangFins_001": 1,
+          "Plant_Feature_Desert_OcotilloFan_001": 4,
+          "Prop_Daily_TarpaulinCargo_001": 1,
+          "Prop_Daily_MeshFence_001": 1,
+          "Prop_Daily_CableReel_001": 2,
+          "Prop_Daily_PicnicTable_001": 2,
+          "Prop_Daily_OutdoorWashbasin_001": 5,
+          "Prop_Daily_RainBarrel_001": 4,
+          "Prop_Daily_PottingBench_001": 3,
+          "Prop_Daily_FirewoodRack_001": 3,
+          "Prop_Daily_PotteryBucketSet_001": 2,
+          "Prop_Daily_DeckChair_001": 2,
+          "Prop_Daily_BicycleStand_001": 2,
+          "Prop_Rural_Mailbox_001": 2,
+          "Plant_Pastoral_WheatCluster_001": 136,
+          "Prop_Daily_Scarecrow_001": 1,
+          "Prop_Daily_ProduceCrates_001": 1,
+          "Prop_Daily_Wheelbarrow_001": 1,
+          "Prop_Daily_PumpAndTrough_001": 1,
+          "Plant_Pastoral_CornCluster_001": 72,
+          "Plant_Feature_Pastoral_Sunflowers_001": 72,
+          "Plant_Feature_Pastoral_PumpkinVines_001": 67,
+          "Prop_Daily_HandPlough_001": 1,
+          "Plant_Feature_Lakeside_LotusPatch_001": 12,
+          "Plant_Quaternius_BushFlowers_001": 2,
+          "Plant_Quaternius_BushLargeFlowers_001": 5,
+          "Plant_Quaternius_BushLarge_001": 7,
+          "Plant_Quaternius_BushSmallFlowers_001": 3,
+          "Plant_Quaternius_BushSmall_001": 9,
+          "Plant_Quaternius_Bush_001": 6,
+          "Plant_Quaternius_Petals_001": 1,
+          "Plant_Quaternius_Petals_002": 1,
+          "Plant_Quaternius_Petals_003": 4,
+          "Plant_Quaternius_Petals_004": 6,
+          "Plant_Quaternius_FlowerClump_001": 5,
+          "Plant_Quaternius_FlowerClump_002": 5,
+          "Plant_Quaternius_FlowerClump_003": 7,
+          "Plant_Quaternius_FlowerClump_004": 2,
+          "Plant_Quaternius_FlowerClump_005": 5,
+          "Plant_Quaternius_Flower_001": 10,
+          "Plant_Quaternius_Flower_002": 1,
+          "Plant_Quaternius_GrassLargeExtruded_001": 5,
+          "Plant_Quaternius_GrassLarge_001": 6,
+          "Plant_Quaternius_GrassSmall_001": 3,
+          "Plant_Quaternius_LeafyPlantFlowers_001": 5,
+          "Plant_Quaternius_LeafyPlant_001": 5,
+          "Plant_Quaternius_LeafyPlant_002": 3,
+          "Plant_Quaternius_BirchTree_001": 3,
+          "Plant_Quaternius_BirchTree_002": 1,
+          "Plant_Quaternius_BirchTree_003": 4,
+          "Plant_Quaternius_BirchTree_004": 1,
+          "Plant_Quaternius_BirchTree_005": 5,
+          "Plant_Quaternius_DeadTree_001": 2,
+          "Plant_Quaternius_DeadTree_002": 4,
+          "Plant_Quaternius_DeadTree_003": 1,
+          "Plant_Quaternius_DeadTree_004": 3,
+          "Plant_Quaternius_DeadTree_005": 4,
+          "Plant_Quaternius_DeadTree_006": 1,
+          "Plant_Quaternius_DeadTree_007": 2,
+          "Plant_Quaternius_DeadTree_008": 2,
+          "Plant_Quaternius_DeadTree_009": 1,
+          "Plant_Quaternius_DeadTree_010": 2,
+          "Plant_Quaternius_MapleTree_001": 2,
+          "Plant_Quaternius_MapleTree_002": 4,
+          "Plant_Quaternius_MapleTree_003": 4,
+          "Plant_Quaternius_MapleTree_004": 2,
+          "Plant_Quaternius_MapleTree_005": 2,
+          "Plant_Quaternius_NormalTree_001": 2,
+          "Plant_Quaternius_NormalTree_002": 2,
+          "Plant_Quaternius_NormalTree_003": 3,
+          "Plant_Quaternius_NormalTree_004": 2,
+          "Plant_Quaternius_NormalTree_005": 2,
+          "Plant_Quaternius_PineTree_001": 8,
+          "Plant_Quaternius_PineTree_002": 6,
+          "Plant_Quaternius_PineTree_003": 2,
+          "Plant_Quaternius_PineTree_004": 2,
+          "Plant_Quaternius_PineTree_005": 3,
+          "Environment_Quaternius_Rock_001": 30,
+          "Environment_Quaternius_Rock_002": 41,
+          "Environment_Quaternius_Rock_003": 39,
+          "Environment_Quaternius_Rock_004": 53,
+          "Environment_Quaternius_Rock_005": 47,
+          "Plant_Common_BerryThicket_001": 3,
+          "Plant_Common_ColumnarPoplar_001": 3,
+          "Prop_Common_RoundedBoulder_001": 38,
+          "Prop_Common_SplitBoulder_001": 13,
+          "Plant_Feature_Desert_AgaveRosette_001": 6,
+          "Prop_Common_LichenOutcrop_001": 9,
+          "Plant_Common_PollardedTree_001": 1,
+          "Plant_Common_DryReedTuft_001": 4,
+          "Prop_Desert_Tumbleweed_001": 2,
+          "Plant_Desert_SaguaroCactus_001": 9,
+          "Prop_Common_ScreeHeap_001": 26,
+          "Prop_Common_RootClaspedBoulder_001": 1,
+          "Prop_Common_ErodedRockWindow_001": 3,
+          "Prop_Common_LayeredStoneStack_001": 7,
+          "Plant_Common_DeadSnag_001": 3,
+          "Prop_Common_ForkedDriftwood_001": 1,
+          "Prop_Volcano_FumaroleVent_001": 6,
+          "Prop_Volcano_ObsidianCluster_001": 9,
+          "Prop_Desert_SandstoneCluster_001": 2,
+          "Prop_Common_ArchingDeadTrunk_001": 1,
+          "Environment_Feature_Hills_HoodooCluster_001": 2,
+          "Prop_Common_BranchTangle_001": 5,
+          "Plant_Feature_Desert_BarrelCactus_001": 6,
+          "Plant_Common_SpreadingShrub_001": 5,
+          "Plant_Common_BroadleafGroundcover_001": 7,
+          "Plant_Common_FloweringShrub_001": 1,
+          "Environment_Volcano_BasaltCliff8m_001": 1,
+          "Prop_Volcano_BoulderCluster_001": 2,
+          "Prop_Common_HollowLog_001": 2,
+          "Environment_Desert_DuneTile16m_001": 1,
+          "Environment_Desert_SandstoneArch9m_001": 1,
+          "Plant_Feature_Hills_HeatherTuft_001": 1
+        },
+        "roles": {
+          "home": 9,
+          "workshop": 2,
+          "shop": 2,
+          "landmark": 2,
+          "feature": 12,
+          "tree": 90,
+          "shrub": 152,
+          "prop-lineside": 4,
+          "prop-domestic": 25,
+          "crop": 347,
+          "prop-farm": 5,
+          "aquatic": 12,
+          "rock": 329,
+          "deadwood": 9
+        },
+        "biomes": {
+          "Volcano": 188,
+          "Rural": 639,
+          "Desert": 107,
+          "Lakeside": 66
+        },
+        "naturePack": {
+          "available": 63,
+          "eligible": 63,
+          "placed": 58,
+          "missing": [
+            "Plant_Quaternius_PalmTree_001",
+            "Plant_Quaternius_PalmTree_002",
+            "Plant_Quaternius_PalmTree_003",
+            "Plant_Quaternius_PalmTree_004",
+            "Plant_Quaternius_PalmTree_005"
+          ],
+          "incompatible": [],
+          "modelCounts": {
+            "Plant_Quaternius_BushFlowers_001": 2,
+            "Plant_Quaternius_BushLargeFlowers_001": 5,
+            "Plant_Quaternius_BushLarge_001": 7,
+            "Plant_Quaternius_BushSmallFlowers_001": 3,
+            "Plant_Quaternius_BushSmall_001": 9,
+            "Plant_Quaternius_Bush_001": 6,
+            "Plant_Quaternius_Petals_001": 1,
+            "Plant_Quaternius_Petals_002": 1,
+            "Plant_Quaternius_Petals_003": 4,
+            "Plant_Quaternius_Petals_004": 6,
+            "Plant_Quaternius_FlowerClump_001": 5,
+            "Plant_Quaternius_FlowerClump_002": 5,
+            "Plant_Quaternius_FlowerClump_003": 7,
+            "Plant_Quaternius_FlowerClump_004": 2,
+            "Plant_Quaternius_FlowerClump_005": 5,
+            "Plant_Quaternius_Flower_001": 10,
+            "Plant_Quaternius_Flower_002": 1,
+            "Plant_Quaternius_GrassLargeExtruded_001": 5,
+            "Plant_Quaternius_GrassLarge_001": 6,
+            "Plant_Quaternius_GrassSmall_001": 3,
+            "Plant_Quaternius_LeafyPlantFlowers_001": 5,
+            "Plant_Quaternius_LeafyPlant_001": 5,
+            "Plant_Quaternius_LeafyPlant_002": 3,
+            "Plant_Quaternius_BirchTree_001": 3,
+            "Plant_Quaternius_BirchTree_002": 1,
+            "Plant_Quaternius_BirchTree_003": 4,
+            "Plant_Quaternius_BirchTree_004": 1,
+            "Plant_Quaternius_BirchTree_005": 5,
+            "Plant_Quaternius_DeadTree_001": 2,
+            "Plant_Quaternius_DeadTree_002": 4,
+            "Plant_Quaternius_DeadTree_003": 1,
+            "Plant_Quaternius_DeadTree_004": 3,
+            "Plant_Quaternius_DeadTree_005": 4,
+            "Plant_Quaternius_DeadTree_006": 1,
+            "Plant_Quaternius_DeadTree_007": 2,
+            "Plant_Quaternius_DeadTree_008": 2,
+            "Plant_Quaternius_DeadTree_009": 1,
+            "Plant_Quaternius_DeadTree_010": 2,
+            "Plant_Quaternius_MapleTree_001": 2,
+            "Plant_Quaternius_MapleTree_002": 4,
+            "Plant_Quaternius_MapleTree_003": 4,
+            "Plant_Quaternius_MapleTree_004": 2,
+            "Plant_Quaternius_MapleTree_005": 2,
+            "Plant_Quaternius_NormalTree_001": 2,
+            "Plant_Quaternius_NormalTree_002": 2,
+            "Plant_Quaternius_NormalTree_003": 3,
+            "Plant_Quaternius_NormalTree_004": 2,
+            "Plant_Quaternius_NormalTree_005": 2,
+            "Plant_Quaternius_PineTree_001": 8,
+            "Plant_Quaternius_PineTree_002": 6,
+            "Plant_Quaternius_PineTree_003": 2,
+            "Plant_Quaternius_PineTree_004": 2,
+            "Plant_Quaternius_PineTree_005": 3,
+            "Environment_Quaternius_Rock_001": 30,
+            "Environment_Quaternius_Rock_002": 41,
+            "Environment_Quaternius_Rock_003": 39,
+            "Environment_Quaternius_Rock_004": 53,
+            "Environment_Quaternius_Rock_005": 47
+          }
+        },
+        "settlementCount": 3,
+        "buildingCount": 13,
+        "stationVillageCount": 3,
+        "farmCount": 4,
+        "landmarkCount": 2,
+        "composedInstances": 473,
+        "naturalInstances": 527
+      },
+      "rapier": {
+        "engine": "Rapier",
+        "version": "0.21.0",
+        "disposed": false,
+        "model": "Dynamic rail-distance bogie and sprung chassis; vertical prismatic force motor",
+        "massKg": 650,
+        "bogieMassKg": 130,
+        "sprungMassKg": 520,
+        "actualMassKg": 650,
+        "fixedStepSeconds": 0.008333333333333333,
+        "solverIterations": 8,
+        "ccd": true,
+        "rapierSteps": 3873,
+        "collisionCount": 0,
+        "contactImpulseNs": 0,
+        "peakContactForceN": 0,
+        "normalAccelerationMps2": 0,
+        "rebaseCount": 3,
+        "rebaseDistanceMetres": 192,
+        "maxAbsLocalX": 192.10894775390625,
+        "originMetres": 2736.423926545691,
+        "localX": 151.8584442138672,
+        "distance": 2888.282370759558,
+        "speed": 40.35745620727539,
+        "turboKmh": 30.000000000000004,
+        "bumperDistance": null,
+        "suspensionEquilibriumMetres": 0.31500903333333335,
+        "suspensionStiffnessNpm": 60000,
+        "suspensionDampingNspm": 9000
+      },
+      "turboOn": true,
+      "cart": [
+        221.4416888434533,
+        0.6051991493570658,
+        -204.0827766080852
+      ],
+      "camera": {
+        "position": [
+          204.05288548986672,
+          7.066037512805948,
+          -208.73353116302528
+        ],
+        "direction": [
+          0.927341069420785,
+          -0.2057667974362081,
+          0.3125676983284762
+        ],
+        "cartNDC": [
+          -0.16951975615308204,
+          -0.23003940511501136,
+          0.9873205130240242
+        ],
+        "cartVisible": true,
+        "near": 0.12,
+        "far": 18000,
+        "fog": [
+          108,
+          300
+        ],
+        "visibleGroups": 310
+      },
+      "carts": [
+        {
+          "vehicle": "Vehicle_Minecart_AzureLake_001",
+          "driver": "Animal_CubePet_Bunny_001",
+          "departure": 4125.470637035713,
+          "state": {
+            "speed": 39.755157470703125,
+            "acceleration": 0.201416015625,
+            "driveAcceleration": 1.253048881539304,
+            "distance": 4837.107737255439,
+            "odometer": 711.6371002197266,
+            "elapsed": 35.27499999999864,
+            "countdown": 0,
+            "throttle": 1,
+            "grade": -0.000018221352819227244,
+            "governor": false,
+            "suspensionY": 0.000013494838205951876,
+            "suspensionVelocity": 0.000022794107280788012,
+            "contactImpulse": 0,
+            "collisionCount": 0,
+            "rapierSteps": 3873,
+            "solverVersion": "0.21.0",
+            "turboKmh": 30.000000000000004
+          },
+          "position": [
+            248.3139099349544,
+            6.805022818885296,
+            -158.15986077714965
+          ],
+          "viewport": {
+            "x": 0,
+            "y": 0,
+            "width": 640,
+            "height": 1080
+          },
+          "camera": [
+            231.06389194563224,
+            13.265861182334177,
+            -163.30154137478127
+          ],
+          "direction": [
+            0.9175366840102761,
+            -0.20582335821751757,
+            0.3402398840634211
+          ],
+          "cartVisible": true,
+          "turboVisible": true,
+          "pods": [
+            {
+              "position": [
+                -1.6289883673191072,
+                0.96,
+                -0.2
+              ],
+              "scale": 1,
+              "exhaust": true
+            },
+            {
+              "position": [
+                1.6289883673191072,
+                0.96,
+                -0.2
+              ],
+              "scale": 1,
+              "exhaust": true
+            }
+          ]
+        },
+        {
+          "vehicle": "Vehicle_Minecart_GoldenOak_001",
+          "driver": "Animal_CubePet_Fox_001",
+          "departure": 2160.1440040603393,
+          "state": {
+            "speed": 40.35745620727539,
+            "acceleration": 0.135498046875,
+            "driveAcceleration": 1.2294596417248105,
+            "distance": 2888.282370759558,
+            "odometer": 728.1383666992188,
+            "elapsed": 35.27499999999864,
+            "countdown": 0,
+            "throttle": 1,
+            "grade": 0,
+            "governor": false,
+            "suspensionY": 0.0000021401533762399616,
+            "suspensionVelocity": -0.000013976366972201504,
+            "contactImpulse": 0,
+            "collisionCount": 0,
+            "rapierSteps": 3873,
+            "solverVersion": "0.21.0",
+            "turboKmh": 30.000000000000004
+          },
+          "position": [
+            221.4416888434533,
+            0.6051991493570658,
+            -204.0827766080852
+          ],
+          "viewport": {
+            "x": 640,
+            "y": 0,
+            "width": 640,
+            "height": 1080
+          },
+          "camera": [
+            204.05288548986672,
+            7.066037512805948,
+            -208.73353116302528
+          ],
+          "direction": [
+            0.927341069420785,
+            -0.2057667974362081,
+            0.3125676983284762
+          ],
+          "cartVisible": true,
+          "turboVisible": true,
+          "pods": [
+            {
+              "position": [
+                -1.6289883673191072,
+                0.96,
+                -0.2
+              ],
+              "scale": 1,
+              "exhaust": true
+            },
+            {
+              "position": [
+                1.6289883673191072,
+                0.96,
+                -0.2
+              ],
+              "scale": 1,
+              "exhaust": true
+            }
+          ]
+        },
+        {
+          "vehicle": "Vehicle_Minecart_RedCopper_001",
+          "driver": "Animal_CubePet_Deer_001",
+          "departure": 0,
+          "state": {
+            "speed": 41.09495162963867,
+            "acceleration": 0.05859375,
+            "driveAcceleration": 1.2017588640019594,
+            "distance": 741.9776000976562,
+            "odometer": 741.9776000976562,
+            "elapsed": 35.27499999999864,
+            "countdown": 0,
+            "throttle": 1,
+            "grade": 0,
+            "governor": false,
+            "suspensionY": -0.0016288217416127737,
+            "suspensionVelocity": 0.009229927323758602,
+            "contactImpulse": 0,
+            "collisionCount": 0,
+            "rapierSteps": 3873,
+            "solverVersion": "0.21.0",
+            "turboKmh": 30.000000000000004
+          },
+          "position": [
+            187.5650098990324,
+            0.6035681874620767,
+            -249.20073314840494
+          ],
+          "viewport": {
+            "x": 1280,
+            "y": 0,
+            "width": 640,
+            "height": 1080
+          },
+          "camera": [
+            169.85184354199316,
+            7.064406550910959,
+            -252.4013170963515
+          ],
+          "direction": [
+            0.9500113393496711,
+            -0.20570338027768756,
+            0.23487139981142313
+          ],
+          "cartVisible": true,
+          "turboVisible": true,
+          "pods": [
+            {
+              "position": [
+                -1.6289883673191072,
+                0.96,
+                -0.2
+              ],
+              "scale": 1,
+              "exhaust": true
+            },
+            {
+              "position": [
+                1.6289883673191072,
+                0.96,
+                -0.2
+              ],
+              "scale": 1,
+              "exhaust": true
+            }
+          ]
+        }
+      ],
+      "wheels": [
+        [
+          221.7766137402149,
+          0.9751970139720612,
+          -202.93689080564783
+        ],
+        [
+          222.55740399399593,
+          0.9751970139720612,
+          -204.50752201600378
+        ],
+        [
+          220.32597369291068,
+          0.9751970139720612,
+          -203.65803120016662
+        ],
+        [
+          221.1067639466917,
+          0.9751970139720612,
+          -205.22866241052256
+        ]
+      ],
+      "textures": 45,
+      "materials": 13
+    },
+    "performance": {
+      "main": {
+        "calls": 271,
+        "triangles": 4058014
+      },
+      "shadows": {
+        "drawCalls": 240,
+        "triangles": 948499
+      },
+      "shadowProfile": {
+        "quality": "near",
+        "mapSize": 1024,
+        "radius": 80,
+        "minimumSceneryHeight": 0.85
+      },
+      "views": [
+        {
+          "main": {
+            "calls": 77,
+            "triangles": 942427
+          },
+          "shadows": {
+            "drawCalls": 68,
+            "triangles": 295617
+          }
+        },
+        {
+          "main": {
+            "calls": 92,
+            "triangles": 1411758
+          },
+          "shadows": {
+            "drawCalls": 96,
+            "triangles": 346392
+          }
+        },
+        {
+          "main": {
+            "calls": 102,
+            "triangles": 1703829
+          },
+          "shadows": {
+            "drawCalls": 76,
+            "triangles": 306490
+          }
+        }
+      ],
+      "meanFrameMs": 28.238888888888898,
+      "buffer": [
+        1920,
+        1080
+      ],
+      "frames": 72
+    },
+    "performance075": {
+      "main": {
+        "calls": 271,
+        "triangles": 4058014
+      },
+      "shadows": {
+        "drawCalls": 240,
+        "triangles": 948499
+      },
+      "shadowProfile": {
+        "quality": "near",
+        "mapSize": 1024,
+        "radius": 80,
+        "minimumSceneryHeight": 0.85
+      },
+      "views": [
+        {
+          "main": {
+            "calls": 77,
+            "triangles": 942427
+          },
+          "shadows": {
+            "drawCalls": 68,
+            "triangles": 295617
+          }
+        },
+        {
+          "main": {
+            "calls": 92,
+            "triangles": 1411758
+          },
+          "shadows": {
+            "drawCalls": 96,
+            "triangles": 346392
+          }
+        },
+        {
+          "main": {
+            "calls": 102,
+            "triangles": 1703829
+          },
+          "shadows": {
+            "drawCalls": 76,
+            "triangles": 306490
+          }
+        }
+      ],
+      "meanFrameMs": 24.541666666666668,
+      "buffer": [
+        1440,
+        810
+      ],
+      "frames": 72
+    },
+    "decreases": [
+      29.805564880371094,
+      29.866003417968752,
+      29.943333435058594
+    ],
+    "linkedCameraOffsets": [
+      10.048481730343358,
+      10.848782670320293,
+      11.354145098618789
+    ],
+    "cab": [
+      true,
+      true,
+      true
+    ],
+    "hudPanelCount": 9
+  },
+  "single": {
+    "launch": {
+      "mode": "paused",
+      "version": "11.0.0",
+      "physics": {
+        "speed": 0,
+        "acceleration": 0,
+        "driveAcceleration": 0,
+        "distance": 0,
+        "odometer": 0,
+        "elapsed": 0.24999999999999997,
+        "countdown": 2.750000000000001,
+        "throttle": 1,
+        "grade": 0,
+        "governor": false,
+        "suspensionY": -5.613835674100898e-9,
+        "suspensionVelocity": 0,
+        "contactImpulse": 0,
+        "collisionCount": 0,
+        "rapierSteps": 0,
+        "solverVersion": "0.21.0",
+        "turboKmh": 0
+      },
+      "renderMotion": {
+        "distance": 0,
+        "odometer": 0,
+        "speed": 0,
+        "suspensionY": -5.613835674100898e-9,
+        "suspensionVelocity": 0
+      },
+      "config": {
+        "biomeMix": [
+          {
+            "biome": "Lakeside",
+            "percent": 22
+          },
+          {
+            "biome": "Volcano",
+            "percent": 19
+          },
+          {
+            "biome": "Rural",
+            "percent": 31
+          },
+          {
+            "biome": "Desert",
+            "percent": 28.000000000000004
+          }
+        ],
+        "biomeA": "Lakeside",
+        "biomeB": "Volcano",
+        "length": 6,
+        "turns": 1,
+        "stations": 3,
+        "vehicle": "Vehicle_Minecart_GoldenOak_001",
+        "driver": "Animal_CubePet_Bunny_001",
+        "driverChoice": "Animal_CubePet_Bunny_001",
+        "playable": true,
+        "density": 1000,
+        "viewDistance": 300,
+        "resolution": 1,
+        "shadows": true,
+        "sceneryShadows": true,
+        "shadowQuality": "near",
+        "elevationLimit": 100,
+        "features": true,
+        "skyline": true,
+        "sleeperFilter": true,
+        "sleeperSpacing": 0.75,
+        "seed": "V11-THREE-CHASE"
+      },
+      "biomes": {
+        "basis": "map-area-soft-weight",
+        "mapAreaSquareMetres": 4056857.148238077,
+        "transitionIncluded": true,
+        "nominalTransitionMetres": 210,
+        "routeLengthMetres": 6000,
+        "regions": [
+          {
+            "biome": "Lakeside",
+            "requestedPercent": 22,
+            "actualPercent": 21.999987766596494,
+            "weightedSquareMetres": 892508.0763206723,
+            "routePercent": 23.201131296029057,
+            "routeWeightedMetres": 1392.0678777617434
+          },
+          {
+            "biome": "Volcano",
+            "requestedPercent": 19,
+            "actualPercent": 19.000004035917552,
+            "weightedSquareMetres": 770803.0218966444,
+            "routePercent": 15.311099929841493,
+            "routeWeightedMetres": 918.6659957904895
+          },
+          {
+            "biome": "Rural",
+            "requestedPercent": 31,
+            "actualPercent": 31.00003448514669,
+            "weightedSquareMetres": 1257627.1149669422,
+            "routePercent": 36.275880732519866,
+            "routeWeightedMetres": 2176.552843951192
+          },
+          {
+            "biome": "Desert",
+            "requestedPercent": 28.000000000000004,
+            "actualPercent": 27.99997371233926,
+            "weightedSquareMetres": 1135918.9350538177,
+            "routePercent": 25.211888041609576,
+            "routeWeightedMetres": 1512.7132824965745
+          }
+        ]
+      },
+      "scenery": {
+        "requested": 1000,
+        "placed": 1000,
+        "uniqueModels": 141,
+        "models": {
+          "Building_Settlement_HalfTimberTownhouse_001": 1,
+          "Building_Rural_VillageHouse6m_001": 2,
+          "Building_Settlement_CornerBakery_001": 1,
+          "Building_Settlement_TimberLonghouse_001": 1,
+          "Building_Settlement_CourtyardDwelling_001": 2,
+          "Building_Settlement_AdobeTerraceHouse_001": 2,
+          "Building_Settlement_VillageClinic_001": 1,
+          "Building_Settlement_MarketStallPair_001": 2,
+          "Building_Settlement_HippedCottage_001": 1,
+          "Environment_Landmark_Geothermal_001": 1,
+          "Building_Landmark_ClockTower_001": 1,
+          "Environment_Volcano_Cone16m_001": 1,
+          "Environment_Feature_Volcano_RopedLava_001": 1,
+          "Environment_Feature_Volcano_BrokenLavaShell_001": 1,
+          "Plant_Feature_Rural_FloweringCherry_001": 1,
+          "Environment_Feature_Rural_WisteriaPergola_001": 3,
+          "Environment_Feature_Desert_YardangFins_001": 1,
+          "Plant_Feature_Desert_OcotilloFan_001": 4,
+          "Building_Settlement_StoneForge_001": 1,
+          "Prop_Daily_OutdoorWashbasin_001": 5,
+          "Prop_Daily_RainBarrel_001": 7,
+          "Prop_Daily_PotteryBucketSet_001": 3,
+          "Prop_Daily_PicnicTable_001": 4,
+          "Prop_Daily_DeckChair_001": 2,
+          "Prop_Daily_FirewoodRack_001": 1,
+          "Prop_Daily_BicycleStand_001": 2,
+          "Prop_Daily_PottingBench_001": 3,
+          "Prop_Rural_Clothesline_001": 1,
+          "Prop_Rural_Mailbox_001": 1,
+          "Prop_Rural_RoofedWell_001": 1,
+          "Prop_Daily_CableReel_001": 1,
+          "Prop_Daily_MeshFence_001": 1,
+          "Prop_Daily_TarpaulinCargo_001": 1,
+          "Plant_Pastoral_WheatCluster_001": 136,
+          "Prop_Daily_Scarecrow_001": 3,
+          "Prop_Daily_OrchardLadder_001": 3,
+          "Prop_Daily_Wheelbarrow_001": 2,
+          "Prop_Daily_FarmCart_001": 1,
+          "Plant_Pastoral_CornCluster_001": 72,
+          "Prop_Daily_PumpAndTrough_001": 1,
+          "Plant_Feature_Pastoral_Sunflowers_001": 72,
+          "Plant_Feature_Pastoral_PumpkinVines_001": 72,
+          "Prop_Daily_HandPlough_001": 1,
+          "Prop_Daily_ProduceCrates_001": 1,
+          "Plant_Feature_Lakeside_LotusPatch_001": 12,
+          "Plant_Quaternius_BushFlowers_001": 7,
+          "Plant_Quaternius_BushLargeFlowers_001": 8,
+          "Plant_Quaternius_BushLarge_001": 1,
+          "Plant_Quaternius_BushSmallFlowers_001": 10,
+          "Plant_Quaternius_BushSmall_001": 2,
+          "Plant_Quaternius_Bush_001": 5,
+          "Plant_Quaternius_Petals_001": 1,
+          "Plant_Quaternius_Petals_002": 3,
+          "Plant_Quaternius_Petals_003": 1,
+          "Plant_Quaternius_Petals_004": 2,
+          "Plant_Quaternius_FlowerClump_001": 4,
+          "Plant_Quaternius_FlowerClump_002": 2,
+          "Plant_Quaternius_FlowerClump_003": 5,
+          "Plant_Quaternius_FlowerClump_004": 6,
+          "Plant_Quaternius_FlowerClump_005": 8,
+          "Plant_Quaternius_Flower_001": 3,
+          "Plant_Quaternius_Flower_002": 3,
+          "Plant_Quaternius_GrassLargeExtruded_001": 2,
+          "Plant_Quaternius_GrassLarge_001": 7,
+          "Plant_Quaternius_GrassSmall_001": 4,
+          "Plant_Quaternius_LeafyPlantFlowers_001": 6,
+          "Plant_Quaternius_LeafyPlant_001": 3,
+          "Plant_Quaternius_LeafyPlant_002": 5,
+          "Plant_Quaternius_BirchTree_001": 3,
+          "Plant_Quaternius_BirchTree_002": 1,
+          "Plant_Quaternius_BirchTree_003": 6,
+          "Plant_Quaternius_BirchTree_004": 1,
+          "Plant_Quaternius_BirchTree_005": 4,
+          "Plant_Quaternius_DeadTree_001": 1,
+          "Plant_Quaternius_DeadTree_002": 3,
+          "Plant_Quaternius_DeadTree_003": 3,
+          "Plant_Quaternius_DeadTree_004": 2,
+          "Plant_Quaternius_DeadTree_005": 1,
+          "Plant_Quaternius_DeadTree_006": 1,
+          "Plant_Quaternius_DeadTree_007": 4,
+          "Plant_Quaternius_DeadTree_008": 2,
+          "Plant_Quaternius_DeadTree_009": 2,
+          "Plant_Quaternius_DeadTree_010": 1,
+          "Plant_Quaternius_MapleTree_001": 5,
+          "Plant_Quaternius_MapleTree_002": 3,
+          "Plant_Quaternius_MapleTree_003": 5,
+          "Plant_Quaternius_MapleTree_004": 3,
+          "Plant_Quaternius_MapleTree_005": 1,
+          "Plant_Quaternius_NormalTree_001": 9,
+          "Plant_Quaternius_NormalTree_002": 2,
+          "Plant_Quaternius_NormalTree_003": 3,
+          "Plant_Quaternius_NormalTree_004": 2,
+          "Plant_Quaternius_NormalTree_005": 4,
+          "Plant_Quaternius_PineTree_001": 4,
+          "Plant_Quaternius_PineTree_002": 5,
+          "Plant_Quaternius_PineTree_003": 3,
+          "Plant_Quaternius_PineTree_004": 1,
+          "Plant_Quaternius_PineTree_005": 2,
+          "Environment_Quaternius_Rock_001": 34,
+          "Environment_Quaternius_Rock_002": 26,
+          "Environment_Quaternius_Rock_003": 39,
+          "Environment_Quaternius_Rock_004": 30,
+          "Environment_Quaternius_Rock_005": 36,
+          "Prop_Common_LichenOutcrop_001": 3,
+          "Plant_Common_WhiteBarkBirch_001": 2,
+          "Prop_Feature_Volcano_SulfurFans_001": 1,
+          "Prop_Common_ScreeHeap_001": 27,
+          "Prop_Common_ForkedDriftwood_001": 1,
+          "Prop_Volcano_FumaroleVent_001": 6,
+          "Plant_Common_ColumnarPoplar_001": 3,
+          "Plant_Desert_SaguaroCactus_001": 11,
+          "Prop_Desert_Tumbleweed_001": 14,
+          "Environment_Desert_DuneTile16m_001": 2,
+          "Prop_Common_RoundedBoulder_001": 32,
+          "Plant_Feature_Desert_AgaveRosette_001": 5,
+          "Prop_Volcano_ObsidianCluster_001": 4,
+          "Prop_Desert_SandstoneCluster_001": 9,
+          "Prop_Common_SplitBoulder_001": 18,
+          "Plant_Common_BroadleafGroundcover_001": 4,
+          "Prop_Common_RootClaspedBoulder_001": 1,
+          "Plant_Feature_Desert_BarrelCactus_001": 10,
+          "Prop_Common_ErodedRockWindow_001": 2,
+          "Plant_Common_SpreadingShrub_001": 7,
+          "Plant_Common_VaseCrownElm_001": 3,
+          "Plant_Common_CreepingVine_001": 3,
+          "Prop_Volcano_BoulderCluster_001": 7,
+          "Prop_Common_LayeredStoneStack_001": 8,
+          "Plant_Common_FloweringShrub_001": 5,
+          "Environment_Feature_Hills_HoodooCluster_001": 1,
+          "Environment_Desert_SandstoneArch9m_001": 1,
+          "Prop_Lakeside_ShoreBoulders_001": 5,
+          "Plant_Common_DeadSnag_001": 2,
+          "Plant_Common_TallGrassFan_001": 4,
+          "Prop_Common_BranchTangle_001": 4,
+          "Prop_Common_HollowLog_001": 1,
+          "Plant_Common_DryReedTuft_001": 1,
+          "Plant_Common_BerryThicket_001": 1,
+          "Plant_Common_UmbrellaTree_001": 1,
+          "Prop_Common_UpturnedRootBall_001": 1,
+          "Prop_Common_SplinteredStump_001": 2,
+          "Plant_Feature_Forest_TreeFern_001": 1
+        },
+        "roles": {
+          "home": 9,
+          "shop": 3,
+          "civic": 1,
+          "landmark": 2,
+          "feature": 11,
+          "tree": 100,
+          "shrub": 153,
+          "workshop": 1,
+          "prop-domestic": 30,
+          "prop-lineside": 3,
+          "crop": 352,
+          "prop-farm": 12,
+          "aquatic": 12,
+          "rock": 302,
+          "deadwood": 9
+        },
+        "biomes": {
+          "Lakeside": 164,
+          "Desert": 157,
+          "Rural": 553,
+          "Volcano": 126
+        },
+        "naturePack": {
+          "available": 63,
+          "eligible": 63,
+          "placed": 58,
+          "missing": [
+            "Plant_Quaternius_PalmTree_001",
+            "Plant_Quaternius_PalmTree_002",
+            "Plant_Quaternius_PalmTree_003",
+            "Plant_Quaternius_PalmTree_004",
+            "Plant_Quaternius_PalmTree_005"
+          ],
+          "incompatible": [],
+          "modelCounts": {
+            "Plant_Quaternius_BushFlowers_001": 7,
+            "Plant_Quaternius_BushLargeFlowers_001": 8,
+            "Plant_Quaternius_BushLarge_001": 1,
+            "Plant_Quaternius_BushSmallFlowers_001": 10,
+            "Plant_Quaternius_BushSmall_001": 2,
+            "Plant_Quaternius_Bush_001": 5,
+            "Plant_Quaternius_Petals_001": 1,
+            "Plant_Quaternius_Petals_002": 3,
+            "Plant_Quaternius_Petals_003": 1,
+            "Plant_Quaternius_Petals_004": 2,
+            "Plant_Quaternius_FlowerClump_001": 4,
+            "Plant_Quaternius_FlowerClump_002": 2,
+            "Plant_Quaternius_FlowerClump_003": 5,
+            "Plant_Quaternius_FlowerClump_004": 6,
+            "Plant_Quaternius_FlowerClump_005": 8,
+            "Plant_Quaternius_Flower_001": 3,
+            "Plant_Quaternius_Flower_002": 3,
+            "Plant_Quaternius_GrassLargeExtruded_001": 2,
+            "Plant_Quaternius_GrassLarge_001": 7,
+            "Plant_Quaternius_GrassSmall_001": 4,
+            "Plant_Quaternius_LeafyPlantFlowers_001": 6,
+            "Plant_Quaternius_LeafyPlant_001": 3,
+            "Plant_Quaternius_LeafyPlant_002": 5,
+            "Plant_Quaternius_BirchTree_001": 3,
+            "Plant_Quaternius_BirchTree_002": 1,
+            "Plant_Quaternius_BirchTree_003": 6,
+            "Plant_Quaternius_BirchTree_004": 1,
+            "Plant_Quaternius_BirchTree_005": 4,
+            "Plant_Quaternius_DeadTree_001": 1,
+            "Plant_Quaternius_DeadTree_002": 3,
+            "Plant_Quaternius_DeadTree_003": 3,
+            "Plant_Quaternius_DeadTree_004": 2,
+            "Plant_Quaternius_DeadTree_005": 1,
+            "Plant_Quaternius_DeadTree_006": 1,
+            "Plant_Quaternius_DeadTree_007": 4,
+            "Plant_Quaternius_DeadTree_008": 2,
+            "Plant_Quaternius_DeadTree_009": 2,
+            "Plant_Quaternius_DeadTree_010": 1,
+            "Plant_Quaternius_MapleTree_001": 5,
+            "Plant_Quaternius_MapleTree_002": 3,
+            "Plant_Quaternius_MapleTree_003": 5,
+            "Plant_Quaternius_MapleTree_004": 3,
+            "Plant_Quaternius_MapleTree_005": 1,
+            "Plant_Quaternius_NormalTree_001": 9,
+            "Plant_Quaternius_NormalTree_002": 2,
+            "Plant_Quaternius_NormalTree_003": 3,
+            "Plant_Quaternius_NormalTree_004": 2,
+            "Plant_Quaternius_NormalTree_005": 4,
+            "Plant_Quaternius_PineTree_001": 4,
+            "Plant_Quaternius_PineTree_002": 5,
+            "Plant_Quaternius_PineTree_003": 3,
+            "Plant_Quaternius_PineTree_004": 1,
+            "Plant_Quaternius_PineTree_005": 2,
+            "Environment_Quaternius_Rock_001": 34,
+            "Environment_Quaternius_Rock_002": 26,
+            "Environment_Quaternius_Rock_003": 39,
+            "Environment_Quaternius_Rock_004": 30,
+            "Environment_Quaternius_Rock_005": 36
+          }
+        },
+        "settlementCount": 4,
+        "buildingCount": 14,
+        "stationVillageCount": 3,
+        "farmCount": 4,
+        "landmarkCount": 2,
+        "composedInstances": 490,
+        "naturalInstances": 510
+      },
+      "rapier": {
+        "engine": "Rapier",
+        "version": "0.21.0",
+        "disposed": false,
+        "model": "Dynamic rail-distance bogie and sprung chassis; vertical prismatic force motor",
+        "massKg": 650,
+        "bogieMassKg": 130,
+        "sprungMassKg": 520,
+        "actualMassKg": 650,
+        "fixedStepSeconds": 0.008333333333333333,
+        "solverIterations": 8,
+        "ccd": true,
+        "rapierSteps": 0,
+        "collisionCount": 0,
+        "contactImpulseNs": 0,
+        "peakContactForceN": 0,
+        "normalAccelerationMps2": 0,
+        "rebaseCount": 0,
+        "rebaseDistanceMetres": 192,
+        "maxAbsLocalX": 0,
+        "originMetres": 0,
+        "localX": 0,
+        "distance": 0,
+        "speed": 0,
+        "turboKmh": 0,
+        "bumperDistance": null,
+        "suspensionEquilibriumMetres": 0.31500903333333335,
+        "suspensionStiffnessNpm": 60000,
+        "suspensionDampingNspm": 9000
+      },
+      "turboOn": false,
+      "cart": [
+        -1281.0136224111682,
+        0.38099999438616433,
+        5.062140131780322e-14
+      ],
+      "camera": {
+        "position": [
+          -1285.6586572662368,
+          6.841838357835046,
+          17.390332118599655
+        ],
+        "direction": [
+          0.3388105577328286,
+          -0.20688217493524802,
+          -0.9178274193239332
+        ],
+        "cartNDC": [
+          -0.09138663055112832,
+          -0.25502748317250384,
+          0.9872958222387024
+        ],
+        "cartVisible": true,
+        "near": 0.12,
+        "far": 18000,
+        "fog": [
+          108,
+          300
+        ],
+        "visibleGroups": 162
+      },
+      "carts": [
+        {
+          "vehicle": "Vehicle_Minecart_GoldenOak_001",
+          "driver": "Animal_CubePet_Bunny_001",
+          "departure": 0,
+          "state": {
+            "speed": 0,
+            "acceleration": 0,
+            "driveAcceleration": 0,
+            "distance": 0,
+            "odometer": 0,
+            "elapsed": 0.24999999999999997,
+            "countdown": 2.750000000000001,
+            "throttle": 1,
+            "grade": 0,
+            "governor": false,
+            "suspensionY": -5.613835674100898e-9,
+            "suspensionVelocity": 0,
+            "contactImpulse": 0,
+            "collisionCount": 0,
+            "rapierSteps": 0,
+            "solverVersion": "0.21.0",
+            "turboKmh": 0
+          },
+          "position": [
+            -1281.0136224111682,
+            0.38099999438616433,
+            5.062140131780322e-14
+          ],
+          "viewport": {
+            "x": 0,
+            "y": 0,
+            "width": 1920,
+            "height": 1080
+          },
+          "camera": [
+            -1285.6586572662368,
+            6.841838357835046,
+            17.390332118599655
+          ],
+          "direction": [
+            0.3388105577328286,
+            -0.20688217493524802,
+            -0.9178274193239332
+          ],
+          "cartVisible": true,
+          "turboVisible": false,
+          "pods": [
+            {
+              "position": [
+                0,
+                0,
+                0
+              ],
+              "scale": 1,
+              "exhaust": true
+            },
+            {
+              "position": [
+                0,
+                0,
+                0
+              ],
+              "scale": 1,
+              "exhaust": true
+            }
+          ]
+        }
+      ],
+      "wheels": [
+        [
+          -1279.8678468327307,
+          0.7510000047683716,
+          -0.33530177833517505
+        ],
+        [
+          -1281.4387347722043,
+          0.7510000047683716,
+          -1.1155753848093002
+        ],
+        [
+          -1280.588510050132,
+          0.7510000047683716,
+          1.1155753848094014
+        ],
+        [
+          -1282.1593979896056,
+          0.7510000047683716,
+          0.3353017783352763
+        ]
+      ],
+      "textures": 48,
+      "materials": 13
+    },
+    "performance": {
+      "main": {
+        "calls": 76,
+        "triangles": 774922
+      },
+      "shadows": {
+        "drawCalls": 21,
+        "triangles": 36314
+      },
+      "shadowProfile": {
+        "quality": "near",
+        "mapSize": 1024,
+        "radius": 80,
+        "minimumSceneryHeight": 0.85
+      },
+      "views": [
+        {
+          "main": {
+            "calls": 76,
+            "triangles": 774922
+          },
+          "shadows": {
+            "drawCalls": 21,
+            "triangles": 36314
+          }
+        }
+      ],
+      "meanFrameMs": 16.6652777777778,
+      "buffer": [
+        1920,
+        1080
+      ],
+      "frames": 72
+    }
+  }
+}

@@ -1,6 +1,37 @@
 {
   "version": "8.0.0",
   "models": {
+    "Prop_Aircraft_TurbofanExterior_LowPoly_001": {
+      "id": "Prop_Aircraft_TurbofanExterior_LowPoly_001",
+      "name": "完整渦扇引擎・輕量旋轉版",
+      "url": "assets/models/Prop_Aircraft_TurbofanExterior_LowPoly_001.glb",
+      "category": "08_Props",
+      "sceneRole": "fixed",
+      "dimensions": [
+        1.5999599695205688,
+        1.5999599966817186,
+        3.070000410079956
+      ],
+      "bounds": {
+        "min": [
+          -0.7999799847602844,
+          1.9999999494757503e-05,
+          -1.5350004434585571
+        ],
+        "max": [
+          0.7999799847602844,
+          1.5999799966812134,
+          1.534999966621399
+        ]
+      },
+      "triangles": 8612,
+      "bytes": 237564,
+      "meshNodeCount": 2,
+      "license": "CC0-1.0",
+      "provenance": "assets/provenance/Prop_Aircraft_TurbofanExterior_LowPoly_001.json",
+      "sha256": "1c0194fd3ff83982f8b9831d011f3662b02aca4ea6659495094236b18fc64a61",
+      "animationClip": "FanSpin"
+    },
     "Vehicle_Minecart_GoldenOak_001": {
       "id": "Vehicle_Minecart_GoldenOak_001",
       "name": "金橡礦車",

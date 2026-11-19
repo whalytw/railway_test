@@ -1,0 +1,88 @@
+.fleet-choices {
+  display: grid;
+  gap: 7px;
+  margin: 8px 0 10px;
+}
+.fleet-choice {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-width: 0;
+  margin: 0;
+  padding: 8px;
+  gap: 8px;
+  border: 1px solid #d6ddcd;
+  border-left: 4px solid var(--cart-colour);
+  border-radius: 8px;
+}
+.fleet-choice legend {
+  margin-left: 5px;
+  padding: 0 4px;
+  font-size: 11px;
+  color: #526b57;
+}
+.fleet-choice label { min-width: 0; font-size: 10px; color: #687d67; }
+.fleet-choice select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin-top: 3px;
+  padding: 4px 2px;
+  border: 0;
+  background: transparent;
+  color: #264e3c;
+  font: inherit;
+  font-size: 13px;
+}
+.fleet-status {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  pointer-events: none;
+}
+.fleet-pane { position: relative; }
+.fleet-pane:not(:last-child) { border-right: 1px solid #f2efdaa0; }
+.fleet-reading {
+  position: absolute;
+  top: clamp(104px, 19vh, 220px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 6px 9px;
+  border-radius: 7px;
+  border: 1px solid #c9dcca60;
+  background: #173c37df;
+  color: #fff9e6;
+  font-size: 10px;
+  white-space: nowrap;
+}
+.fleet-reading b { color: var(--cart-colour); }
+.fleet-reading strong { font: 700 13px var(--mono, monospace); }
+.route-panel-heading > span:first-child { min-width: 0; overflow-wrap: anywhere; }
+#route-label { flex: none; }
+.throttle-panel #turbo-toggle {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 9px;
+  margin-top: 7px;
+  color: #d9edee;
+  border-color: #85bbbd85;
+  background: #285656;
+  font-weight: 700;
+}
+#turbo-toggle span { font-weight: 500; }
+.throttle-panel #turbo-toggle[aria-pressed="true"] {
+  color: #e4f9ff;
+  background: #165e79;
+  border-color: #8ddaff;
+}
+.throttle-panel #turbo-toggle:disabled { opacity: .62; cursor: default; }
+@media (min-width: 761px) {
+  .game-hud[data-split="true"] .physics-tools { top: auto; bottom: 85px; }
+}
+@media (max-width: 760px) {
+  .fleet-reading { top: 64px; padding: 3px 5px; gap: 4px; font-size: 8px; }
+  .fleet-reading strong { font-size: 10px; }
+}

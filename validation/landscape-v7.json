@@ -33,7 +33,7 @@
     "maxWidth": 39.5680952734079,
     "lateralRange": 80.30656557228704
   },
-  "tunnelCutWidthMax": 19,
+  "tunnelCutWidthMax": 28.5,
   "tunnelApproachLength": 72,
   "grassTufts": 26744,
   "grassTrianglesPerTuft": 7

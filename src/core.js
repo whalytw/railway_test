@@ -2,6 +2,9 @@
 export const TAU = Math.PI * 2;
 export const MAX_FORWARD = 120 / 3.6;
 export const MAX_REVERSE = 30 / 3.6;
+export const TURBO_SPEED = 30 / 3.6;
+export const TURBO_RAMP_SECONDS = 0.36;
+export const TURBO_DROP_SECONDS = 0.4;
 export const FIXED_STEP = 1 / 120;
 export const MAX_GRADE = 0.025;
 export const MIN_VERTICAL_RADIUS = 5000;
