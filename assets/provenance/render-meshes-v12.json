@@ -1,0 +1,41 @@
+{
+  "blender": "5.2.3 LTS",
+  "meshes": [
+    {
+      "source": "assets/models/Environment_Rail_RailSection_1m_001.glb",
+      "sourceSha256": "1de6200ceed7e99790341e858df6cac80c3e5c97805765bc2af242cd499c65b7",
+      "url": "assets/models/lod/Environment_Rail_RailSection_1m_001_v12_LOD1.glb",
+      "sha256": "7c7754eed1262dc3aafb54631e48e7d0bd773e7cd64655782eb368e0503f6bc9",
+      "triangles": 60,
+      "bytes": 4416,
+      "reuseMaterials": true
+    },
+    {
+      "source": "assets/models/Environment_Rail_Sleeper_001.glb",
+      "sourceSha256": "417feecdb3628a859ff3d653d72a7e052f2c4d7861eac2a58a332629787ec24e",
+      "url": "assets/models/lod/Environment_Rail_Sleeper_001_v12_LOD1.glb",
+      "sha256": "6848fda3e6601b1be7d5d973f247f6b866650fb79a50dcb65185cffc89664403",
+      "triangles": 12,
+      "bytes": 1816,
+      "reuseMaterials": true
+    },
+    {
+      "source": "assets/models/Building_Tunnel_RockStraight4m_001.glb",
+      "sourceSha256": "9b770d749a461424d25328bba0445bc0b8a986d9036d342841d46380380b649c",
+      "url": "assets/models/lod/Building_Tunnel_RockStraight4m_001_v12_Lining.glb",
+      "sha256": "1598a85cf0b9b9347c8a2a35159883c44d1d5f26d357d1d62fcb6bffc85471b9",
+      "triangles": 3751,
+      "bytes": 948428,
+      "reuseMaterials": false
+    },
+    {
+      "source": "assets/models/Plant_Hills_SlopeGrass_001.glb",
+      "sourceSha256": "29bd0c9de4969bec3b6c0e20d3da7ddb61bab2a53f2d4d31aa7361ac26b75a55",
+      "url": "assets/models/lod/Plant_Hills_SlopeGrass_001_v12_LOD1.glb",
+      "sha256": "803e96977ffa337dfe7c000f122c484ca0378a35d8e1629d76b52c6d7c273843",
+      "triangles": 658,
+      "bytes": 23620,
+      "reuseMaterials": false
+    }
+  ]
+}

@@ -1,0 +1,516 @@
+{
+  "viewport": [
+    1920,
+    1080
+  ],
+  "framebuffer": [
+    1440,
+    810
+  ],
+  "config": {
+    "track-turns": 3,
+    "route-length": 6,
+    "station-count": 3,
+    "elevation-limit": 100,
+    "density": 1000,
+    "view-distance": 300,
+    "resolution": 0.75,
+    "shadows": "on",
+    "scenery-shadows": "on",
+    "shadow-quality": "near",
+    "seed": "V11-THREE-CHASE"
+  },
+  "mix": [
+    {
+      "biome": "Lakeside",
+      "percent": 22
+    },
+    {
+      "biome": "Volcano",
+      "percent": 19
+    },
+    {
+      "biome": "Rural",
+      "percent": 31
+    },
+    {
+      "biome": "Desert",
+      "percent": 28
+    }
+  ],
+  "results": {
+    "11": {
+      "state": {
+        "version": "11.0.0",
+        "mode": "paused",
+        "carts": [
+          {
+            "position": [
+              136.05337434297905,
+              6.8062217346640494,
+              -199.89601555330006
+            ],
+            "camera": [
+              118.0794033632263,
+              13.267060098112932,
+              -200.86367624745176
+            ],
+            "viewport": {
+              "x": 0,
+              "y": 0,
+              "width": 640,
+              "height": 1080
+            },
+            "distance": 4717.0756985667795,
+            "speed": 38.800052642822266
+          },
+          {
+            "position": [
+              105.9882116617636,
+              0.6050182898090115,
+              -245.46866651143685
+            ],
+            "camera": [
+              87.99762533419695,
+              7.065856653257893,
+              -246.0507348840289
+            ],
+            "viewport": {
+              "x": 640,
+              "y": 0,
+              "width": 640,
+              "height": 1080
+            },
+            "distance": 2765.369975282263,
+            "speed": 39.703914642333984
+          },
+          {
+            "position": [
+              65.78970156616835,
+              1.5216490792905557,
+              -279.56132537502066
+            ],
+            "camera": [
+              47.88420357835447,
+              7.982487442739438,
+              -277.71927711061676
+            ],
+            "viewport": {
+              "x": 1280,
+              "y": 0,
+              "width": 640,
+              "height": 1080
+            },
+            "distance": 616.0350723266602,
+            "speed": 40.47574996948242
+          }
+        ],
+        "buffer": [
+          1440,
+          810
+        ]
+      },
+      "fixed": {
+        "meanMs": 34.722916666666684,
+        "fps": 28.799424011519754,
+        "p95Ms": 50.29999999999927,
+        "main": {
+          "calls": 354,
+          "triangles": 5508935
+        },
+        "shadows": {
+          "drawCalls": 205,
+          "triangles": 1004665
+        },
+        "shadowProfile": {
+          "quality": "near",
+          "mapSize": 1024,
+          "radius": 80,
+          "minimumSceneryHeight": 0.85
+        },
+        "views": [
+          {
+            "main": {
+              "calls": 114,
+              "triangles": 1762986
+            },
+            "shadows": {
+              "drawCalls": 67,
+              "triangles": 375539
+            }
+          },
+          {
+            "main": {
+              "calls": 120,
+              "triangles": 2088166
+            },
+            "shadows": {
+              "drawCalls": 78,
+              "triangles": 397382
+            }
+          },
+          {
+            "main": {
+              "calls": 120,
+              "triangles": 1657783
+            },
+            "shadows": {
+              "drawCalls": 60,
+              "triangles": 231744
+            }
+          }
+        ],
+        "frames": 96
+      },
+      "moving": {
+        "start": 31.399999999998858,
+        "end": 38.44999999999846,
+        "meanMs": 40.8268456375839,
+        "fps": 24.493687532877427,
+        "p95Ms": 50.299999999995634,
+        "frames": 149,
+        "render": {
+          "main": {
+            "calls": 288,
+            "triangles": 3555577
+          },
+          "shadows": {
+            "drawCalls": 198,
+            "triangles": 380829
+          },
+          "shadowProfile": {
+            "quality": "near",
+            "mapSize": 1024,
+            "radius": 80,
+            "minimumSceneryHeight": 0.85
+          },
+          "views": [
+            {
+              "main": {
+                "calls": 137,
+                "triangles": 1612701
+              },
+              "shadows": {
+                "drawCalls": 63,
+                "triangles": 109735
+              }
+            },
+            {
+              "main": {
+                "calls": 80,
+                "triangles": 1137537
+              },
+              "shadows": {
+                "drawCalls": 78,
+                "triangles": 149336
+              }
+            },
+            {
+              "main": {
+                "calls": 71,
+                "triangles": 805339
+              },
+              "shadows": {
+                "drawCalls": 57,
+                "triangles": 121758
+              }
+            }
+          ]
+        }
+      }
+    },
+    "12": {
+      "state": {
+        "version": "12.0.0",
+        "mode": "paused",
+        "carts": [
+          {
+            "position": [
+              136.05337434297905,
+              6.8062217346640494,
+              -199.89601555330006
+            ],
+            "camera": [
+              118.0794033632263,
+              13.267060098112932,
+              -200.86367624745176
+            ],
+            "viewport": {
+              "x": 0,
+              "y": 0,
+              "width": 640,
+              "height": 1080
+            },
+            "distance": 4717.0756985667795,
+            "speed": 38.800052642822266
+          },
+          {
+            "position": [
+              105.9882116617636,
+              0.6050182898090115,
+              -245.46866651143685
+            ],
+            "camera": [
+              87.99762533419695,
+              7.065856653257893,
+              -246.0507348840289
+            ],
+            "viewport": {
+              "x": 640,
+              "y": 0,
+              "width": 640,
+              "height": 1080
+            },
+            "distance": 2765.369975282263,
+            "speed": 39.703914642333984
+          },
+          {
+            "position": [
+              65.78970156616835,
+              1.5216490792905557,
+              -279.56132537502066
+            ],
+            "camera": [
+              47.88420357835447,
+              7.982487442739438,
+              -277.71927711061676
+            ],
+            "viewport": {
+              "x": 1280,
+              "y": 0,
+              "width": 640,
+              "height": 1080
+            },
+            "distance": 616.0350723266602,
+            "speed": 40.47574996948242
+          }
+        ],
+        "buffer": [
+          1440,
+          810
+        ]
+      },
+      "independent": {
+        "meanMs": 24.304166666666713,
+        "fps": 41.145208297616925,
+        "p95Ms": 33.799999999995634,
+        "main": {
+          "calls": 381,
+          "triangles": 3129325
+        },
+        "shadows": {
+          "drawCalls": 205,
+          "triangles": 1004665,
+          "maps": 3
+        },
+        "shadowProfile": {
+          "quality": "near",
+          "mapSize": 1024,
+          "radius": 80,
+          "minimumSceneryHeight": 0.85
+        },
+        "sharedShadowSize": null,
+        "views": [
+          {
+            "main": {
+              "calls": 122,
+              "triangles": 933311
+            },
+            "shadows": {
+              "drawCalls": 67,
+              "triangles": 375539
+            }
+          },
+          {
+            "main": {
+              "calls": 127,
+              "triangles": 1245870
+            },
+            "shadows": {
+              "drawCalls": 78,
+              "triangles": 397382
+            }
+          },
+          {
+            "main": {
+              "calls": 132,
+              "triangles": 950144
+            },
+            "shadows": {
+              "drawCalls": 60,
+              "triangles": 231744
+            }
+          }
+        ],
+        "frames": 96
+      },
+      "fixed": {
+        "meanMs": 22.222916666666606,
+        "fps": 44.99859379394406,
+        "p95Ms": 33.5,
+        "main": {
+          "calls": 381,
+          "triangles": 3129325
+        },
+        "shadows": {
+          "drawCalls": 98,
+          "triangles": 424418,
+          "maps": 1
+        },
+        "shadowProfile": {
+          "quality": "near",
+          "mapSize": 1024,
+          "radius": 80,
+          "minimumSceneryHeight": 0.85
+        },
+        "sharedShadowSize": [
+          1792,
+          1280
+        ],
+        "views": [
+          {
+            "main": {
+              "calls": 122,
+              "triangles": 933311
+            },
+            "shadows": {
+              "drawCalls": 98,
+              "triangles": 424418
+            }
+          },
+          {
+            "main": {
+              "calls": 127,
+              "triangles": 1245870
+            },
+            "shadows": {
+              "drawCalls": 0,
+              "triangles": 0
+            }
+          },
+          {
+            "main": {
+              "calls": 132,
+              "triangles": 950144
+            },
+            "shadows": {
+              "drawCalls": 0,
+              "triangles": 0
+            }
+          }
+        ],
+        "frames": 96
+      },
+      "moving": {
+        "start": 31.399999999998858,
+        "end": 38.433333333331795,
+        "meanMs": 36.56666666666667,
+        "fps": 27.347310847766632,
+        "p95Ms": 50.30000000000291,
+        "frames": 165,
+        "render": {
+          "main": {
+            "calls": 317,
+            "triangles": 1872564
+          },
+          "shadows": {
+            "drawCalls": 196,
+            "triangles": 380665,
+            "maps": 3
+          },
+          "shadowProfile": {
+            "quality": "near",
+            "mapSize": 1024,
+            "radius": 80,
+            "minimumSceneryHeight": 0.85
+          },
+          "sharedShadowSize": null,
+          "views": [
+            {
+              "main": {
+                "calls": 155,
+                "triangles": 779623
+              },
+              "shadows": {
+                "drawCalls": 63,
+                "triangles": 109735
+              }
+            },
+            {
+              "main": {
+                "calls": 89,
+                "triangles": 622994
+              },
+              "shadows": {
+                "drawCalls": 77,
+                "triangles": 149292
+              }
+            },
+            {
+              "main": {
+                "calls": 73,
+                "triangles": 469947
+              },
+              "shadows": {
+                "drawCalls": 56,
+                "triangles": 121638
+              }
+            }
+          ]
+        }
+      },
+      "fallback": {
+        "main": {
+          "calls": 759,
+          "triangles": 2186553
+        },
+        "shadows": {
+          "drawCalls": 201,
+          "triangles": 355735,
+          "maps": 3
+        },
+        "shadowProfile": {
+          "quality": "near",
+          "mapSize": 1024,
+          "radius": 80,
+          "minimumSceneryHeight": 0.85
+        },
+        "sharedShadowSize": null,
+        "views": [
+          {
+            "main": {
+              "calls": 268,
+              "triangles": 883408
+            },
+            "shadows": {
+              "drawCalls": 67,
+              "triangles": 117349
+            }
+          },
+          {
+            "main": {
+              "calls": 253,
+              "triangles": 690170
+            },
+            "shadows": {
+              "drawCalls": 78,
+              "triangles": 138124
+            }
+          },
+          {
+            "main": {
+              "calls": 238,
+              "triangles": 612975
+            },
+            "shadows": {
+              "drawCalls": 56,
+              "triangles": 100262
+            }
+          }
+        ]
+      }
+    }
+  },
+  "gpu": "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "errors": []
+}

@@ -92,6 +92,17 @@ test('grass grows in patches on real ground, leaving tracks, water, buildings an
     assert.ok(Math.abs(p.y + 0.012 - renderedGroundHeight(world.terrainGrid, p.x, p.z)) < 1e-6);
   }
   buildGrassCover(world); world.overviewTrack = new THREE.Group();
+  const patch = world.cullGroups.find(c => c.kind === 'grass');
+  const camera = { position: { x: patch.bounds.min.x, z: patch.bounds.min.z } };
+  world.setVisibility(camera, 300);
+  assert.equal(patch.group.geometry.attributes.position.count, 21);
+  assert.equal(patch.group.castShadow, false);
+  camera.position.x -= 65;
+  world.setVisibility(camera, 300);
+  assert.equal(patch.group.geometry.attributes.position.count, 6);
+  camera.position.x -= 47;
+  world.setVisibility(camera, 300);
+  assert.equal(patch.group.visible, false);
   world.setVisibility({ position: { x: 1e6, z: 1e6 } }, 2000, false);
   assert.ok(world.cullGroups.filter(c => c.kind === 'grass').every(c => !c.group.visible), 'grass must not render throughout the full draw distance');
   world.setVisibility({ position: world.route.sample(100) }, 2000, true);

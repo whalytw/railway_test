@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { TURBO_DROP_SECONDS, clamp, lerp, smoothstep } from './core.js?v=11.0.0';
+import { TURBO_DROP_SECONDS, clamp, lerp, smoothstep } from './core.js?v=12.0.0';
 
 export const TURBO_ASSET_ID = 'Prop_Aircraft_TurbofanExterior_LowPoly_001';
 const DEPLOY_SECONDS = 0.18;

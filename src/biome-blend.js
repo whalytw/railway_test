@@ -1,5 +1,5 @@
 // Each geographical coordinate has one shared biome mixture.
-import { TAU, clamp, smoothstep, randomGenerator } from './core.js?v=11.0.0';
+import { TAU, clamp, smoothstep, randomGenerator } from './core.js?v=12.0.0';
 
 export const BIOME_IDS = ['Forest','Hills','Pastoral','Desert','Rural','Lakeside','Snow','Volcano'];
 export const BIOME_COLORS = { Forest:'#58816a', Hills:'#9eac71', Pastoral:'#d0b662', Desert:'#d4a879', Rural:'#a68162', Lakeside:'#6da7b4', Snow:'#c6dcdf', Volcano:'#897389' };

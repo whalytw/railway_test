@@ -1,14 +1,14 @@
 import * as THREE from 'three';
-import { AssetStore, RailWorld, createAtmosphere, PALETTES } from './world.js?v=11.0.0';
-import { createPhysics, stepPhysics, FIXED_STEP, clamp, lerp, wrap, resolveBiomes, randomGenerator, nextStation, biomeMix, createElevationProfile, leverReference, leverForSpeed, RATED_POWER, CART_MASS, MAX_GRADE, MIN_VERTICAL_RADIUS } from './core.js?v=11.0.0';
-import { riverProfile, riverPoint } from './route-features.js?v=11.0.0';
-import { copyMotion, interpolateMotion, zoomView, anchorCamera, partitionViewports } from './presentation.js?v=11.0.0';
-import { DENSITY_OPTIONS, SCENERY_VERSION } from './scenery-plan.js?v=11.0.0';
-import { chooseDriver } from './drivers.js?v=11.0.0';
-import { MixControls } from './mix-controls.js?v=11.0.0';
-import { BIOME_COLORS, DEFAULT_MIX } from './biome-blend.js?v=11.0.0';
-import { initRapier, RapierRailPhysics, RAPIER_VERSION } from './rapier-rail.js?v=11.0.0';
-import { FLYOVER_RAIL_SEPARATION, turnIndexAt } from './circuit-route.js?v=11.0.0';
+import { AssetStore, RailWorld, createAtmosphere, PALETTES } from './world.js?v=12.0.0';
+import { createPhysics, stepPhysics, FIXED_STEP, clamp, lerp, wrap, resolveBiomes, randomGenerator, nextStation, biomeMix, createElevationProfile, leverReference, leverForSpeed, RATED_POWER, CART_MASS, MAX_GRADE, MIN_VERTICAL_RADIUS } from './core.js?v=12.0.0';
+import { riverProfile, riverPoint } from './route-features.js?v=12.0.0';
+import { copyMotion, interpolateMotion, zoomView, anchorCamera, partitionViewports } from './presentation.js?v=12.0.0';
+import { DENSITY_OPTIONS, SCENERY_VERSION } from './scenery-plan.js?v=12.0.0';
+import { chooseDriver } from './drivers.js?v=12.0.0';
+import { MixControls } from './mix-controls.js?v=12.0.0';
+import { BIOME_COLORS, DEFAULT_MIX } from './biome-blend.js?v=12.0.0';
+import { initRapier, RapierRailPhysics, RAPIER_VERSION } from './rapier-rail.js?v=12.0.0';
+import { FLYOVER_RAIL_SEPARATION, turnIndexAt } from './circuit-route.js?v=12.0.0';
 
 const $ = id => document.getElementById(id);
 let renderer, scene, camera, atmosphere, manifest, store, world;
@@ -32,9 +32,10 @@ const cartLabels = ['左車', '中車', '右車'], cartColours = ['#83d6e5', '#f
 const percentFormat = new Intl.NumberFormat('zh-TW', { maximumFractionDigits: 1 });
 const fleetFields = [], randomFleetDrivers = [];
 const mixLabel = row => `${manifest.biomes[row.biome].name} ${percentFormat.format(row.percent)}%`;
-const mainPass = { calls: 0, triangles: 0 }, shadowPass = { drawCalls: 0, triangles: 0 };
+const mainPass = { calls: 0, triangles: 0 }, shadowPass = { drawCalls: 0, triangles: 0, maps: 0 };
 const viewShadow = { drawCalls: 0, triangles: 0 };
 let drawCallsBeforeShadow = 0, trianglesBeforeShadow = 0;
+let shadowCasterViews = null, sharedShadowFrame = null, allowSharedShadows = true;
 function countShadowPass(renderer) {
   const info = renderer.info.render;
   viewShadow.drawCalls = info.calls - drawCallsBeforeShadow;
@@ -66,20 +67,31 @@ function renderFrame(dt = 0, snap = false) {
   const updateVisibility = visibilityElapsed > 0.18 || snap;
   // The carts and shared landscape update their world matrices once per frame.
   scene.updateMatrixWorld();
+  for (const view of views) updateCamera(view, dt, snap);
+  const shadowsEnabled = world.config.shadows || world.config.sceneryShadows;
+  const canShare = allowSharedShadows && shadowsEnabled && split && cameraMode === 'chase' && views.every(view => view.cartVisible);
+  sharedShadowFrame = canShare
+    ? atmosphere.sharedShadowFor(views.map(view => view.rig.root.position), renderer.capabilities.maxTextureSize)
+    : null;
+  atmosphere.setShadowFrame(sharedShadowFrame);
+  renderer.shadowMap.autoUpdate = !sharedShadowFrame;
+  renderer.shadowMap.needsUpdate = Boolean(sharedShadowFrame);
+  shadowPass.maps = shadowsEnabled ? (sharedShadowFrame ? 1 : views.length) : 0;
   renderer.setScissorTest(split);
-  for (const view of views) {
+  for (const [index, view] of views.entries()) {
     const { x, y, width, height } = view.viewport;
     renderer.setViewport(x, y, width, height);
     if (split) renderer.setScissor(x, y, width, height);
-    updateCamera(view, dt, snap);
+    applyViewEnvironment(view, shadowsEnabled);
     world.updateTrackFilter(mode === 'running' ? view.motion.speed : 0, filteredFrameTime);
     if (split || updateVisibility) world.setVisibility(view.camera, world.config.viewDistance, cameraMode === 'overview');
     view.rig.root.visible = view.cartVisible;
     drawCallsBeforeShadow = info.calls;
     trianglesBeforeShadow = info.triangles;
     viewShadow.drawCalls = viewShadow.triangles = 0;
-    renderer.render(scene, view.camera);
-    view.rig.root.visible = true;
+    shadowCasterViews = sharedShadowFrame && index === 0 ? views.map(peer => peer.camera) : null;
+    try { renderer.render(scene, view.camera); }
+    finally { shadowCasterViews = null; view.rig.root.visible = true; }
     mainPass.calls += info.calls; mainPass.triangles += info.triangles;
     shadowPass.drawCalls += viewShadow.drawCalls; shadowPass.triangles += viewShadow.triangles;
     view.main.calls = info.calls; view.main.triangles = info.triangles;
@@ -565,13 +577,17 @@ function updateCamera(view, dt, snap = false) {
   } else anchorCamera(camera, cart, desiredCamera, lookTarget, offset, lookOffset, dt, reset, cameraMode === 'cab' ? 30 : 10);
   camera.fov = lerp(camera.fov, targetFov, blend); camera.updateProjectionMatrix();
   view.snapped = true;
+  view.cartVisible = cameraMode !== 'cab' && !(cameraMode === 'chase' && camera.position.distanceTo(cart) < 4.2);
+}
+function applyViewEnvironment(view, shadowsEnabled) {
+  const { camera, rig, motion } = view;
   const overview = cameraMode === 'overview', far = world.config.viewDistance;
+  const playing = mode === 'running' || mode === 'paused';
   scene.fog.near = overview ? world.route.squareSize * 2.5 : far * 0.36;
   scene.fog.far = overview ? world.route.squareSize * 6 : far;
-  const insideTunnel = playing && !overview ? world.tunnelFactor(distanceAlong - (cameraMode === 'cab' ? 0 : Math.min(7.5, orbitDistance))) : 0;
+  const insideTunnel = playing && !overview ? world.tunnelFactor(motion.distance - (cameraMode === 'cab' ? 0 : Math.min(7.5, orbitDistance))) : 0;
   scene.fog.near = lerp(scene.fog.near, 3, insideTunnel); scene.fog.far = lerp(scene.fog.far, 68, insideTunnel);
-  view.cartVisible = cameraMode !== 'cab' && !(cameraMode === 'chase' && camera.position.distanceTo(cart) < 4.2);
-  atmosphere.update(camera, cart, world.config.shadows || world.config.sceneryShadows, insideTunnel);
+  atmosphere.update(camera, rig.root.position, shadowsEnabled, insideTunnel);
   atmosphere.sun.updateMatrixWorld();
   atmosphere.sky.updateMatrixWorld();
 }
@@ -724,7 +740,7 @@ function recordMetrics(dt) {
     $('triangles').textContent = mainPass.triangles >= 1e6 ? `${(mainPass.triangles / 1e6).toFixed(2)}M` : `${(mainPass.triangles / 1e3).toFixed(0)}K`;
     fpsHistory.push({ elapsedSeconds: Number(physics.elapsed.toFixed(3)), fps: Number(fps.toFixed(2)), frameTimeMs: Number((1000 / fps).toFixed(3)),
       onePercentLowFps: Number(low.toFixed(2)), drawCalls: mainPass.calls, triangles: mainPass.triangles,
-      shadowDrawCalls: shadowPass.drawCalls, shadowTriangles: shadowPass.triangles, geometries: info.memory.geometries,
+      shadowDrawCalls: shadowPass.drawCalls, shadowTriangles: shadowPass.triangles, shadowMaps: shadowPass.maps, geometries: info.memory.geometries,
       cartSpeedsKmh: views.map(view => Number((view.state.speed * 3.6).toFixed(2))), turboOn,
       textures: info.memory.textures, speedKmh: Number((physics.speed * 3.6).toFixed(2)), flatReferenceKmh: Number(leverReference(physics.throttle).kmh.toFixed(2)),
       powerPercent: Number(leverReference(physics.throttle).powerPercent.toFixed(3)), gradePermille: Number((world.cartSample.grade * 1000).toFixed(3)), altitudeMetres: Number(world.cartSample.y.toFixed(3)), camera: cameraMode });
@@ -734,7 +750,7 @@ function recordMetrics(dt) {
 }
 function exportReport() {
   const samples = fpsHistory;
-  const report = { application: 'LOOP · 軌道試驗場', version: '11.0.0', threeVersion: THREE.REVISION, generatedAt: new Date().toISOString(),
+  const report = { application: 'LOOP · 軌道試驗場', version: '12.0.0', threeVersion: THREE.REVISION, generatedAt: new Date().toISOString(),
     settings: sessionConfig, actualTrackLengthMetres: world.route.length, worldUnit: 'metre', elapsedSecondsIncludingCountdown: physics.elapsed,
     trackLayout: { turns: world.route.turns, turnStartsMetres: world.route.turnStarts, crossings: world.route.crossings,
       stations: world.stations.map(s => ({ name: s.name, platformDistancesMetres: (s.passes ?? [s]).map(pass => pass.distance) })) },
@@ -749,7 +765,7 @@ function exportReport() {
     biomeDistribution: world.biomeReport,
     shadowSettings: { ...world.shadowProfile, widthMetres: world.shadowProfile.radius * 2 },
     elevation: world.route.elevation, physicsModel: { engine: 'Rapier', ...railPhysics.diagnostics(), suspensionYMetres: physics.suspensionY, suspensionVelocityMetresPerSecond: physics.suspensionVelocity, massKg: CART_MASS, ratedPowerWatts: RATED_POWER, ratedHorsepower: RATED_POWER / 745.699872, maximumGrade: MAX_GRADE, minimumVerticalRadiusMetres: MIN_VERTICAL_RADIUS },
-    landscape: { version: '11.0.0', ...world.landscapeStats },
+    landscape: { version: '12.0.0', ...world.landscapeStats },
     landmarks: world.features, sleepers: { averagePitchMetres: world.sleeperPitch, instances: world.sleeperInstances, filterEnabled: world.config.sleeperFilter, exposureMetres: world.sleeperUniforms.exposure.value },
     presentation: { fixedPhysicsStepSeconds: FIXED_STEP, interpolatedMotion: true, chaseAnchoredToCart: true, camera: cameraMode, chaseDistanceMetres: orbitDistance, cabYawRadians: cabYaw, cabPitchRadians: cabPitch },
     viewport: { width: innerWidth, height: innerHeight, pixelRatio: renderer.getPixelRatio(), viewCount: views.length },
@@ -814,13 +830,20 @@ function frame(time) {
 
 async function boot() {
   if (location.protocol === 'file:') throw new Error('請透過 HTTP 開啟此專案：執行 START_LOCAL.cmd 後前往 http://127.0.0.1:4173，或使用 GitHub Pages 網址。');
-  const response = await fetch('./asset-manifest.json?v=11.0.0'); if (!response.ok) throw new Error(`找不到資產清單（HTTP ${response.status}）。請完整解壓縮 ZIP。`);
+  const response = await fetch('./asset-manifest.json?v=12.0.0'); if (!response.ok) throw new Error(`找不到資產清單（HTTP ${response.status}）。請完整解壓縮 ZIP。`);
   manifest = await response.json();
   loadingProgress(.02,'初始化本機 Rapier 物理引擎…'); await initRapier();
   populateForm(); installControls();
   renderer = new THREE.WebGLRenderer({ canvas: $('scene'), antialias: true, powerPreference: 'high-performance', alpha: false });
   renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  const renderShadowMap = renderer.shadowMap.render.bind(renderer.shadowMap);
+  // Three has assembled the main render list before this callback. Temporarily
+  // include the other cameras' casters only while rendering the shared depth map.
+  renderer.shadowMap.render = (lights, shadowScene, shadowCamera) => {
+    const draw = () => renderShadowMap(lights, shadowScene, shadowCamera);
+    return shadowCasterViews ? world.withSharedShadowCasters(shadowCasterViews, draw) : draw();
+  };
   renderer.setClearColor('#b9cebd');
   scene = new THREE.Scene(); scene.matrixWorldAutoUpdate = false;
   atmosphere = createAtmosphere(scene, renderer); store = new AssetStore(manifest);
@@ -833,7 +856,7 @@ async function boot() {
 
 window.__LOOP_TEST__ = {
   snapshot: () => ({
-    mode, version: '11.0.0', physics: { ...physics }, renderMotion: { ...renderMotion },
+    mode, version: '12.0.0', physics: { ...physics }, renderMotion: { ...renderMotion },
     config: world?.config, biomes: world?.biomeReport, scenery: world?.sceneryStats, rapier: railPhysics?.diagnostics(), turboOn,
     cart: world?.cart?.position.toArray(),
     camera: camera ? { position: camera.position.toArray(), direction: camera.getWorldDirection(new THREE.Vector3()).toArray(),
@@ -867,8 +890,13 @@ if(location.hostname==='127.0.0.1' && new URLSearchParams(location.search).get('
     main: { ...mainPass },
     shadows: { ...shadowPass },
     shadowProfile: world.shadowProfile,
+    sharedShadowSize: sharedShadowFrame ? [sharedShadowFrame.width, sharedShadowFrame.height] : null,
     views: views.map(view => ({ main: { ...view.main }, shadows: { ...view.shadows } })),
   });
+  window.__LOOP_TEST__.setSharedShadows = enabled => {
+    allowSharedShadows = Boolean(enabled);
+    renderFrame(0, true);
+  };
 }
 
 boot().catch(showError);

@@ -1,9 +1,9 @@
 import * as THREE from 'three';
-import { clamp, lerp, smoothstep, randomGenerator, TAU } from './core.js?v=11.0.0';
-import { riverProfile, riverPoint } from './route-features.js?v=11.0.0';
-import { renderedGroundHeight } from './grounding.js?v=11.0.0';
-import { TUNNEL_WIDTH_SCALE, TUNNEL_HEIGHT_SCALE, tunnelFrontShift, tunnelMoundHeight, tunnelCutFactor, GRASS_HABITAT, landNoise } from './landscape-profile.js?v=11.0.0';
-import { createGroundMaterial } from './ground-cover.js?v=11.0.0';
+import { clamp, lerp, smoothstep, randomGenerator, TAU } from './core.js?v=12.0.0';
+import { riverProfile, riverPoint } from './route-features.js?v=12.0.0';
+import { renderedGroundHeight } from './grounding.js?v=12.0.0';
+import { TUNNEL_WIDTH_SCALE, TUNNEL_HEIGHT_SCALE, tunnelFrontShift, tunnelMoundHeight, tunnelCutFactor, GRASS_HABITAT, landNoise } from './landscape-profile.js?v=12.0.0';
+import { createGroundMaterial } from './ground-cover.js?v=12.0.0';
 
 const up = new THREE.Vector3(0, 1, 0), frameEuler = new THREE.Euler(0, 0, 0, 'YXZ');
 function ownMesh(world, geometry, material) { const mesh = new THREE.Mesh(geometry, material); world.group.add(mesh); world.ownedGeometry.push(geometry); return mesh; }
@@ -242,7 +242,7 @@ export function buildGirderBridge(world, span, turnIndex) {
     mesh.computeBoundingSphere();
   }
   const posts = [];
-  for (let s = span.start + 1; s < span.end; s += 3.6) for (const side of [-1, 1]) posts.push({ p: route.sample(s), x: side * edgeOffset, y: 0.43 });
+  for (let s = span.start + 1; s < span.end; s += 5.4) for (const side of [-1, 1]) posts.push({ p: route.sample(s), x: side * edgeOffset, y: 0.43 });
   boxInstances(0.11, 1.02, 0.13, posts, steel);
   const piers = [], caps = [];
   for (let s = span.start + 4; s < span.end; s += 18) {

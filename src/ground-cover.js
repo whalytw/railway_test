@@ -1,8 +1,12 @@
 import * as THREE from 'three';
-import { lerp, smoothstep, randomGenerator, TAU } from './core.js?v=11.0.0';
-import { riverLocation, bridgeCoordinates } from './route-features.js?v=11.0.0';
-import { renderedGroundHeight } from './grounding.js?v=11.0.0';
-import { GRASS_HABITAT, grassPatch, inFarm } from './landscape-profile.js?v=11.0.0';
+import { lerp, smoothstep, randomGenerator, TAU } from './core.js?v=12.0.0';
+import { riverLocation, bridgeCoordinates } from './route-features.js?v=12.0.0';
+import { renderedGroundHeight } from './grounding.js?v=12.0.0';
+import { GRASS_HABITAT, grassPatch, inFarm } from './landscape-profile.js?v=12.0.0';
+
+export const GRASS_NEAR_DISTANCE = 36;
+export const GRASS_FADE_START = 84;
+export const GRASS_DRAW_DISTANCE = 108;
 
 export function grassHabitatAt(world, x, z, near) {
   const habitat = world.blendValue(GRASS_HABITAT,x,z);
@@ -80,51 +84,65 @@ export function planGrassCover(world) {
   return result;
 }
 
-export function buildGrassCover(world) {
-  const placements = planGrassCover(world), positions = [], colors = [];
+function grassGeometry(leafCount) {
+  const positions = [], colors = [];
   const root = new THREE.Color('#708f53'), tip = new THREE.Color('#b1bd7c');
-  // Seven opaque triangles per tuft. No alpha cutouts, transparent sorting,
-  // individual grass draw calls or shadow maps are required.
-  for (let leaf = 0; leaf < 7; leaf++) {
-    const a = leaf * 2.39996, c = Math.cos(a), s = Math.sin(a), height = 0.40 + (leaf % 3) * 0.14;
+  for (let leaf = 0; leaf < leafCount; leaf++) {
+    const a = leaf * (leafCount === 2 ? Math.PI / 2 : 2.39996);
+    const c = Math.cos(a), s = Math.sin(a), height = 0.40 + (leaf % 3) * 0.14;
     const vertices = [[-0.065, 0, 0], [0.065, 0, 0], [0.13 + leaf % 2 * 0.10, height, 0.04]];
     for (let k = 0; k < vertices.length; k++) {
       const [x, y, z] = vertices[k]; positions.push(c * x + s * z, y, -s * x + c * z);
       const color = k === 2 ? tip : root; colors.push(color.r, color.g, color.b);
     }
   }
-  const geometry = new THREE.BufferGeometry(); geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-  geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3)); geometry.computeVertexNormals();
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+  geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+  geometry.computeVertexNormals();
+  return geometry;
+}
+
+export function buildGrassCover(world) {
+  const placements = planGrassCover(world);
+  const nearGeometry = grassGeometry(7), farGeometry = grassGeometry(2);
   const material = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 1, side: THREE.DoubleSide });
   world.grassWind = { value: 0 };
   material.onBeforeCompile = shader => {
     shader.uniforms.grassTime = world.grassWind;
     shader.vertexShader = shader.vertexShader.replace('#include <common>', '#include <common>\nuniform float grassTime;')
       .replace('#include <begin_vertex>', `#include <begin_vertex>
-        transformed.x += position.y * position.y * 0.13 * sin(grassTime * 1.1 + instanceMatrix[3].x * 0.21 + instanceMatrix[3].z * 0.13);`);
+        transformed.x += position.y * position.y * 0.13 * sin(grassTime * 1.1 + instanceMatrix[3].x * 0.21 + instanceMatrix[3].z * 0.13);
+        vec2 grassBase = (modelMatrix * instanceMatrix[3]).xz;
+        float grassDistance = distance(grassBase, cameraPosition.xz);
+        transformed *= 1.0 - smoothstep(${GRASS_FADE_START.toFixed(1)}, ${GRASS_DRAW_DISTANCE.toFixed(1)}, grassDistance);`);
   };
-  material.customProgramCacheKey = () => 'loop-grass-v7';
-  world.ownedGeometry.push(geometry); world.ownedMaterials.push(material);
-  const bins = new Map(), cell = 112;
+  material.customProgramCacheKey = () => 'loop-grass-v12';
+  world.ownedGeometry.push(nearGeometry, farGeometry); world.ownedMaterials.push(material);
+  const bins = new Map(), cell = 56;
   for (const p of placements) {
     const key = `${Math.floor(p.x / cell)},${Math.floor(p.z / cell)}`;
     if (!bins.has(key)) bins.set(key, []); bins.get(key).push(p);
   }
   const matrix = new THREE.Matrix4(), q = new THREE.Quaternion(), axis = new THREE.Vector3(0, 1, 0), pos = new THREE.Vector3(), scale = new THREE.Vector3();
   for (const [key, values] of bins) {
-    const mesh = new THREE.InstancedMesh(geometry, material, values.length); mesh.name = 'grass-tufts';
+    const mesh = new THREE.InstancedMesh(nearGeometry, material, values.length); mesh.name = 'grass-tufts';
     for (let i = 0; i < values.length; i++) {
       const p = values[i]; pos.set(p.x, p.y, p.z); q.setFromAxisAngle(axis, p.yaw); scale.set(p.width, p.height, p.width);
       mesh.setMatrixAt(i, matrix.compose(pos, q, scale)); mesh.setColorAt(i, new THREE.Color().setRGB(0.92 + p.tone * 0.08, 0.96 + p.tone * 0.04, 0.90 + p.tone * 0.08));
     }
-    mesh.instanceMatrix.needsUpdate = true; mesh.computeBoundingSphere(); mesh.receiveShadow = true;
+    mesh.instanceMatrix.needsUpdate = true; mesh.computeBoundingSphere(); mesh.computeBoundingBox(); mesh.receiveShadow = true;
+    mesh.boundingBox.expandByScalar(0.15);
+    mesh.boundingSphere.radius += 0.15;
     world.group.add(mesh);
     const [ix, iz] = key.split(',').map(Number);
-    world.cullGroups.push({ group: mesh, x: (ix + 0.5) * cell, z: (iz + 0.5) * cell, radius: cell * 0.75, kind: 'grass' });
+    world.cullGroups.push({ group: mesh, x: (ix + 0.5) * cell, z: (iz + 0.5) * cell,
+      radius: cell * 0.75, kind: 'grass', bounds: mesh.boundingBox, nearGeometry, farGeometry });
   }
   world.groundCoverCount = placements.length;
   world.groundCoverPreview = placements.find(p => p.along > 140 && p.along < 950 && world.route.distanceTo(p.x, p.z, 35) < 23) || placements[0];
-  world.landscapeStats = { ...world.landscapeStats, grassTufts: placements.length, grassTrianglesPerTuft: 7, grassVisibleRange: 190 };
+  world.landscapeStats = { ...world.landscapeStats, grassTufts: placements.length, grassTrianglesPerTuft: 7,
+    grassMidTrianglesPerTuft: 2, grassDetailRange: GRASS_NEAR_DISTANCE, grassVisibleRange: GRASS_DRAW_DISTANCE };
 }
 
 export function buildFarmland(world) {

@@ -151,6 +151,14 @@
       "triangles": 108,
       "meshNodeCount": 1,
       "bytes": 536624,
+      "lod": {
+        "url": "assets/models/lod/Environment_Rail_Sleeper_001_v12_LOD1.glb",
+        "triangles": 12,
+        "bytes": 1816,
+        "switchDistance": 60,
+        "nearestBounds": true,
+        "reuseMaterials": true
+      },
       "bounds": {
         "min": [
           -1.25,
@@ -185,6 +193,14 @@
       "triangles": 764,
       "meshNodeCount": 1,
       "bytes": 581324,
+      "lod": {
+        "url": "assets/models/lod/Environment_Rail_RailSection_1m_001_v12_LOD1.glb",
+        "triangles": 60,
+        "bytes": 4416,
+        "switchDistance": 90,
+        "nearestBounds": true,
+        "reuseMaterials": true
+      },
       "bounds": {
         "min": [
           -0.10499999672174454,
@@ -661,6 +677,14 @@
       "triangles": 2904,
       "meshNodeCount": 1,
       "bytes": 103704,
+      "lod": {
+        "url": "assets/models/lod/Plant_Hills_SlopeGrass_001_v12_LOD1.glb",
+        "triangles": 658,
+        "bytes": 23620,
+        "switchDistance": 65,
+        "nearestBounds": true,
+        "batchSize": 88
+      },
       "bounds": {
         "min": [
           -0.6759406,
@@ -2930,7 +2954,8 @@
     "Building_Tunnel_RockStraight4m_001": {
       "id": "Building_Tunnel_RockStraight4m_001",
       "name": "岩壁直線隧道・4m",
-      "url": "assets/models/Building_Tunnel_RockStraight4m_001.glb",
+      "url": "assets/models/lod/Building_Tunnel_RockStraight4m_001_v12_Lining.glb",
+      "originalUrl": "assets/models/Building_Tunnel_RockStraight4m_001.glb",
       "category": "06_Buildings",
       "biome": null,
       "dimensions": [
@@ -2938,9 +2963,9 @@
         4.462912738323212,
         4.015449047088623
       ],
-      "triangles": 9380,
+      "triangles": 3751,
       "meshNodeCount": 2,
-      "bytes": 1300680,
+      "bytes": 948428,
       "coordinates": {
         "up": "+Y",
         "forward": "+Z",

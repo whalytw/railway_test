@@ -1,5 +1,5 @@
 import * as RAPIER from '../vendor/rapier/rapier.mjs';
-import { CART_MASS, FIXED_STEP, GRAVITY, MAX_FORWARD, MAX_REVERSE, TURBO_SPEED, TURBO_RAMP_SECONDS, clamp, createPhysics, stepPhysics } from './core.js?v=11.0.0';
+import { CART_MASS, FIXED_STEP, GRAVITY, MAX_FORWARD, MAX_REVERSE, TURBO_SPEED, TURBO_RAMP_SECONDS, clamp, createPhysics, stepPhysics } from './core.js?v=12.0.0';
 
 export const RAPIER_VERSION = '0.21.0';
 const BOGIE_MASS = CART_MASS * 0.2;

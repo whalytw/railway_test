@@ -1,16 +1,18 @@
 import * as THREE from 'three';
 import { GLTFLoader } from '../vendor/GLTFLoader.js';
-import { TAU, lerp, clamp, wrap, smoothstep, randomGenerator, stationsFor, biomeMix, trackSegments } from './core.js?v=11.0.0';
-import { createCircuitRoute } from './circuit-route.js?v=11.0.0';
-import { sleeperLayout, sleeperFilter, planRouteFeatures, routeStructures, bridgeCoordinates, bridgeGroundHeight } from './route-features.js?v=11.0.0';
-import { buildMountainBackdrop, buildVariedClouds, updateClouds, buildBridgeAndRiver, buildTunnel, buildGirderBridge } from './scenery.js?v=11.0.0';
-import { fitGroundContact, prepareGroundedParts, groundBatchGeometry, renderedGroundHeight } from './grounding.js?v=11.0.0';
-import { planScenery, indexGroundPads, paddedHeight } from './scenery-plan.js?v=11.0.0';
-import { createBiomeLayout } from './biome-blend.js?v=11.0.0';
-import { shadowProfile, keepSceneryShadow } from './shadow-profile.js?v=11.0.0';
-import { createStandingDriver } from './drivers.js?v=11.0.0';
-import { TURBO_ASSET_ID, TurboPair, createTurboResources } from './turbo-visual.js?v=11.0.0';
-import { createGroundMaterial, grassHabitatAt, buildGrassCover, buildFarmland } from './ground-cover.js?v=11.0.0';
+import { TAU, lerp, clamp, wrap, smoothstep, randomGenerator, stationsFor, biomeMix, trackSegments } from './core.js?v=12.0.0';
+import { createCircuitRoute } from './circuit-route.js?v=12.0.0';
+import { sleeperLayout, sleeperFilter, planRouteFeatures, routeStructures, bridgeCoordinates, bridgeGroundHeight } from './route-features.js?v=12.0.0';
+import { buildMountainBackdrop, buildVariedClouds, updateClouds, buildBridgeAndRiver, buildTunnel, buildGirderBridge } from './scenery.js?v=12.0.0';
+import { fitGroundContact, prepareGroundedParts, groundBatchGeometry, renderedGroundHeight } from './grounding.js?v=12.0.0';
+import { planScenery, indexGroundPads, paddedHeight } from './scenery-plan.js?v=12.0.0';
+import { createBiomeLayout } from './biome-blend.js?v=12.0.0';
+import { shadowProfile, keepSceneryShadow } from './shadow-profile.js?v=12.0.0';
+import { createStandingDriver } from './drivers.js?v=12.0.0';
+import { TURBO_ASSET_ID, TurboPair, createTurboResources } from './turbo-visual.js?v=12.0.0';
+import { createGroundMaterial, grassHabitatAt, buildGrassCover, buildFarmland, GRASS_NEAR_DISTANCE, GRASS_DRAW_DISTANCE } from './ground-cover.js?v=12.0.0';
+import { chooseFarGeometry, distanceToXZBounds } from './render-lod.js?v=12.0.0';
+import { planSharedShadow, SHADOW_DEPTH } from './shared-shadow.js?v=12.0.0';
 
 export const PALETTES = {
   Forest: { ground: '#829565', detail: '#62794d', sky: '#bed0ba', amplitude: 12 },
@@ -344,7 +346,8 @@ export class RailWorld {
       const [cx, cz] = key.split(',').map(Number);
       const group = new THREE.Group(); group.name = `${kind}:${id}:${key}`;
       const lod = info?.lod;
-      const farSource = lod && !values[0].groundPatch ? this.store.get(id, 1) : null;
+      const farSource = lod && !values[0].groundPatch ? this.partsOverrides.get(`${id}#lod1`) || this.store.get(id, 1) : null;
+      const bounds = lod?.nearestBounds ? new THREE.Box3() : null;
       const castsHere = casts && (kind !== 'scenery' || keepSceneryShadow(info, values, this.shadowProfile));
       for (const [partIndex, part] of source.parts.entries()) {
         const geometry = values[0].groundPatch ? groundBatchGeometry(part, values) : part.geometry;
@@ -365,15 +368,17 @@ export class RailWorld {
         }
         mesh.instanceMatrix.needsUpdate = true;
         mesh.computeBoundingSphere(); mesh.computeBoundingBox();
+        if (bounds) bounds.union(mesh.boundingBox);
         mesh.castShadow = Boolean(castsHere); mesh.receiveShadow = true;
         if (farSource?.parts[partIndex]) {
           const far = farSource.parts[partIndex];
-          mesh.userData.sceneryLOD = { nearGeometry: geometry, nearMaterial: part.material, farGeometry: far.geometry, farMaterial: far.material, switchDistance: lod.switchDistance, far: false };
+          mesh.userData.sceneryLOD = { nearGeometry: geometry, nearMaterial: part.material,
+            farGeometry: far.geometry, farMaterial: lod.reuseMaterials ? part.material : far.material, switchDistance: lod.switchDistance, far: false };
         }
         group.add(mesh);
       }
       this.group.add(group);
-      this.cullGroups.push({ group, x: (cx + 0.5) * size, z: (cz + 0.5) * size, radius: size * 0.82, kind });
+      this.cullGroups.push({ group, x: (cx + 0.5) * size, z: (cz + 0.5) * size, radius: size * 0.82, kind, bounds });
     }
     this.instanceCount += placements.length;
   }
@@ -385,7 +390,8 @@ export class RailWorld {
       for (const side of [-1, 1]) rails.push({ x: s.x + p.nx * side * 0.8885 + p.upX * 0.205,
         y: s.y + p.upY * 0.205, z: s.z + p.nz * side * 0.8885 + p.upZ * 0.205, yaw: s.yaw, pitch: s.pitch, sz: s.length });
     }
-    this.addBatches('Environment_Rail_RailSection_1m_001', rails, { size: 96, kind: 'track' });
+    this.prepareRailMaterial();
+    this.addBatches('Environment_Rail_RailSection_1m_001', rails, { size: 56, kind: 'track' });
     this.prepareSleeperMaterial();
     const layout = sleeperLayout(this.route.length, this.config.sleeperSpacing || 0.75, this.config.seed), ties = [], bolts = [];
     this.sleeperPitch = layout.pitch;
@@ -395,7 +401,7 @@ export class RailWorld {
       for (const side of [-1, 1]) bolts.push({ x: p.x + p.nx * side * 0.8885 + p.upX * 0.18,
         y: p.y + p.upY * 0.18, z: p.z + p.nz * side * 0.8885 + p.upZ * 0.18, yaw: p.yaw, pitch: p.pitch });
     }
-    this.addBatches('Environment_Rail_Sleeper_001', ties, { size: 96, kind: 'sleepers' });
+    this.addBatches('Environment_Rail_Sleeper_001', ties, { size: 56, kind: 'sleepers' });
     this.addBatches('Environment_Rail_Fastener_001', bolts, { size: 96, kind: 'fasteners' });
     this.sleeperInstances = ties.length;
     const bed = [], bedIndices = [], bedCount = Math.ceil(this.route.length / 2);
@@ -414,11 +420,45 @@ export class RailWorld {
     this.overviewTrack = new THREE.LineLoop(geometry, material); this.overviewTrack.visible = false;
     this.group.add(this.overviewTrack); this.ownedGeometry.push(geometry); this.ownedMaterials.push(material);
   }
+  prepareRailMaterial() {
+    const id = 'Environment_Rail_RailSection_1m_001';
+    const original = this.store.get(id);
+    const tone = new THREE.Color('#8b5d37').toArray().map(v => v.toFixed(5)).join(', ');
+    const prepare = source => {
+      const material = source.clone();
+      material.onBeforeCompile = shader => {
+        shader.vertexShader = 'varying float vRailDistance;\n' + shader.vertexShader;
+        shader.vertexShader = shader.vertexShader.replace('#include <project_vertex>',
+          '#include <project_vertex>\nvRailDistance = length(mvPosition.xyz);');
+        shader.fragmentShader = 'varying float vRailDistance;\n' + shader.fragmentShader;
+        // Match the sub-pixel colour of the detail meshes before the batch LOD
+        // changes. Mip filtering alone gives their differently laid-out UVs
+        // different hues when a full rail is smaller than a pixel.
+        shader.fragmentShader = shader.fragmentShader
+          .replace('#include <map_fragment>', `#include <map_fragment>
+            float railTone = smoothstep(52.0, 76.0, vRailDistance);
+            diffuseColor.rgb = mix(diffuseColor.rgb, vec3(${tone}), railTone);`)
+          .replace('#include <roughnessmap_fragment>', '#include <roughnessmap_fragment>\nroughnessFactor = mix(roughnessFactor, 0.82, railTone);')
+          .replace('#include <metalnessmap_fragment>', '#include <metalnessmap_fragment>\nmetalnessFactor = mix(metalnessFactor, 0.18, railTone);');
+      };
+      material.customProgramCacheKey = () => 'loop-rail-v12';
+      this.ownedMaterials.push(material);
+      return material;
+    };
+    const parts = original.parts.map(part => ({ ...part,
+      material: Array.isArray(part.material) ? part.material.map(prepare) : prepare(part.material) }));
+    this.partsOverrides.set(id, { parts });
+  }
   prepareSleeperMaterial() {
-    const original = this.store.get('Environment_Rail_Sleeper_001');
-    const parts = original.parts.map(part => {
+    const id = 'Environment_Rail_Sleeper_001';
+    const original = this.store.get(id);
+    const withExposureBounds = part => {
       const geometry = part.geometry.clone(); geometry.computeBoundingBox(); geometry.computeBoundingSphere();
       geometry.boundingBox.min.z -= 0.8; geometry.boundingBox.max.z += 0.8; geometry.boundingSphere.radius += 0.8;
+      this.ownedGeometry.push(geometry);
+      return { ...part, geometry };
+    };
+    const parts = original.parts.map(part => {
       const makeMaterial = source => {
         const material = source.clone(); material.transparent = true; material.depthWrite = false; material.alphaTest = 0.008;
         material.onBeforeCompile = shader => {
@@ -437,9 +477,12 @@ export class RailWorld {
         material.customProgramCacheKey = () => 'sleeper-exposure-v3'; this.ownedMaterials.push(material); return material;
       };
       const material = Array.isArray(part.material) ? part.material.map(makeMaterial) : makeMaterial(part.material);
-      this.ownedGeometry.push(geometry); return { ...part, geometry, material };
+      return { ...withExposureBounds(part), material };
     });
-    this.partsOverrides.set('Environment_Rail_Sleeper_001', { parts });
+    this.partsOverrides.set(id, { parts });
+    if (this.store.manifest?.models[id]?.lod) {
+      this.partsOverrides.set(`${id}#lod1`, { parts: this.store.get(id, 1).parts.map(withExposureBounds) });
+    }
   }
   async buildTerrain() {
     await this.prepareScenery();
@@ -545,7 +588,10 @@ export class RailWorld {
       if (!batches.has(p.id)) batches.set(p.id, []);
       batches.get(p.id).push(p);
     }
-    for (const [id, placements] of batches) this.addBatches(id, placements, { size: this.store.manifest.models[id].lod ? 224 : 160, kind: 'scenery' });
+    for (const [id, placements] of batches) {
+      const lod = this.store.manifest.models[id].lod;
+      this.addBatches(id, placements, { size: lod?.batchSize ?? (lod ? 224 : 160), kind: 'scenery' });
+    }
     this.sceneryCount = this.sceneryPlan.placements.length;
     this.buildDistrictPaths();
     buildFarmland(this); buildGrassCover(this);
@@ -763,14 +809,22 @@ export class RailWorld {
     const radius = overview ? this.route.squareSize * 4 : farDistance;
     for (const item of this.cullGroups) {
       const distance = Math.hypot(cx - item.x, cz - item.z);
+      const nearest = item.bounds ? distanceToXZBounds(item.bounds, cx, cz) : distance;
+      if (item.kind === 'grass') {
+        item.group.visible = !overview && nearest < Math.min(radius, GRASS_DRAW_DISTANCE);
+        if (item.group.visible) {
+          const far = chooseFarGeometry(nearest, GRASS_NEAR_DISTANCE, item.group.geometry === item.farGeometry, 3);
+          item.group.geometry = far ? item.farGeometry : item.nearGeometry;
+        }
+        continue;
+      }
       item.group.visible = !(overview && ['track', 'sleepers', 'fasteners'].includes(item.kind)) && distance < radius + item.radius;
-      if (item.kind === 'grass') item.group.visible = !overview && distance < Math.min(radius, 190) + item.radius;
       if (item.kind === 'fasteners') item.group.visible = item.group.visible && Math.abs(this.lastSpeed) < 12 && distance < 95;
       if (item.group.visible) for (const mesh of item.group.children) {
         const lod = mesh.userData.sceneryLOD;
         if (!lod) continue;
-        const threshold = lod.switchDistance + item.radius * 0.5;
-        const far = overview || distance > threshold + (lod.far ? -12 : 12);
+        const threshold = lod.switchDistance + (item.bounds ? 0 : item.radius * 0.5);
+        const far = overview || chooseFarGeometry(nearest, threshold, lod.far, item.bounds ? 5 : 12);
         if (far !== lod.far) {
           mesh.geometry = far ? lod.farGeometry : lod.nearGeometry;
           mesh.material = far ? lod.farMaterial : lod.nearMaterial; lod.far = far;
@@ -779,6 +833,36 @@ export class RailWorld {
     }
     this.overviewTrack.visible = overview;
     if (this.clouds) this.clouds.visible = !overview;
+  }
+  withSharedShadowCasters(cameras, draw) {
+    const newlyVisible = [], detailed = [];
+    const range = this.config.viewDistance;
+    for (const item of this.cullGroups) {
+      const { group } = item;
+      if (!group.castShadow && !group.children.some(mesh => mesh.castShadow)) continue;
+      let distance = Infinity, nearest = Infinity;
+      for (const { position } of cameras) {
+        distance = Math.min(distance, Math.hypot(position.x - item.x, position.z - item.z));
+        if (item.bounds) nearest = Math.min(nearest, distanceToXZBounds(item.bounds, position.x, position.z));
+      }
+      if (distance >= range + item.radius) continue;
+      if (!group.visible) { group.visible = true; newlyVisible.push(group); }
+      for (const mesh of group.children) {
+        const lod = mesh.userData.sceneryLOD;
+        if (!mesh.castShadow || !lod?.far) continue;
+        const useDetail = item.bounds ? nearest <= lod.switchDistance + 5 : distance <= lod.switchDistance + item.radius * 0.5 + 12;
+        if (!useDetail) continue;
+        mesh.geometry = lod.nearGeometry; mesh.material = lod.nearMaterial; detailed.push(mesh);
+      }
+    }
+    try { return draw(); }
+    finally {
+      for (const group of newlyVisible) group.visible = false;
+      for (const mesh of detailed) {
+        const lod = mesh.userData.sceneryLOD;
+        mesh.geometry = lod.farGeometry; mesh.material = lod.farMaterial;
+      }
+    }
   }
   dispose() {
     this.disposed = true; ++this.driverRequest; this.driver = null;
@@ -796,7 +880,7 @@ export class RailWorld {
 export function createAtmosphere(scene, renderer) {
   const hemi = new THREE.HemisphereLight('#e8f0e2', '#6c7652', 2.2); scene.add(hemi);
   const sun = new THREE.DirectionalLight('#fff0cf', 3.1); sun.position.set(-160, 240, 90); scene.add(sun); scene.add(sun.target);
-  sun.shadow.mapSize.set(2048, 2048); sun.shadow.camera.near = 1; sun.shadow.camera.far = 650;
+  sun.shadow.mapSize.set(2048, 2048); sun.shadow.camera.near = 1; sun.shadow.camera.far = SHADOW_DEPTH;
   sun.shadow.camera.left = -70; sun.shadow.camera.right = 70; sun.shadow.camera.top = 70; sun.shadow.camera.bottom = -70;
   sun.shadow.bias = -0.00012; sun.shadow.normalBias = 0.04;
   const skyMaterial = new THREE.ShaderMaterial({
@@ -814,30 +898,50 @@ export function createAtmosphere(scene, renderer) {
   const lightOffset = new THREE.Vector3(-100, 170, 70), lightZ = lightOffset.clone().normalize();
   const lightX = new THREE.Vector3().crossVectors(new THREE.Vector3(0, 1, 0), lightZ).normalize();
   const lightY = new THREE.Vector3().crossVectors(lightZ, lightX), focus = new THREE.Vector3();
+  const shadowTargets = [null, null];
+  let shadowSlot = 0, shadowSettings = { mapSize: 2048, radius: 70 }, sharedFrame = null;
+  function setShadowFrame(frame) {
+    const shadow = sun.shadow, shadowCamera = shadow.camera;
+    const { mapSize, radius } = shadowSettings;
+    const slot = frame ? 1 : 0;
+    const width = frame?.width ?? mapSize, height = frame?.height ?? mapSize;
+    if (slot !== shadowSlot) {
+      shadowTargets[shadowSlot] = shadow.map;
+      shadow.map = shadowTargets[slot]; shadowSlot = slot;
+    }
+    if (shadow.mapSize.x !== width || shadow.mapSize.y !== height) {
+      shadow.map?.setSize(width, height);
+      shadow.mapSize.set(width, height);
+      shadow.needsUpdate = true;
+    }
+    const halfX = frame?.halfX ?? radius, halfY = frame?.halfY ?? radius, far = frame?.far ?? SHADOW_DEPTH;
+    if (shadowCamera.right !== halfX || shadowCamera.top !== halfY || shadowCamera.far !== far) {
+      shadowCamera.left = -halfX; shadowCamera.right = halfX;
+      shadowCamera.bottom = -halfY; shadowCamera.top = halfY;
+      shadowCamera.far = far; shadowCamera.updateProjectionMatrix();
+      shadow.bias = -0.00012 * (SHADOW_DEPTH - 1) / (far - 1);
+    }
+    sharedFrame = frame;
+  }
   return { sun, hemi, sky, environment, setBiomes(a, b, mixture) {
     const fog = new THREE.Color(0);
     for(const row of mixture || [{biome:a,percent:50},{biome:b,percent:50}]){ const c=new THREE.Color(PALETTES[row.biome].sky),w=row.percent/100;fog.r+=c.r*w;fog.g+=c.g*w;fog.b+=c.b*w; }
     skyMaterial.uniforms.bottom.value.copy(fog); scene.fog = new THREE.Fog(fog, 170, 600);
     outsideFog.copy(fog);
   }, setShadowProfile(profile) {
-    const { mapSize, radius } = profile, shadowCamera = sun.shadow.camera;
-    if (sun.shadow.mapSize.x !== mapSize) {
-      sun.shadow.map?.dispose(); sun.shadow.map = null;
-      sun.shadow.mapPass?.dispose(); sun.shadow.mapPass = null;
-      sun.shadow.mapSize.set(mapSize, mapSize);
-      sun.shadow.needsUpdate = true;
-    }
-    if (shadowCamera.right !== radius) {
-      shadowCamera.left = shadowCamera.bottom = -radius; shadowCamera.right = shadowCamera.top = radius;
-      shadowCamera.updateProjectionMatrix();
-    }
+    shadowSettings = profile; setShadowFrame(null);
+  }, setShadowFrame,
+  sharedShadowFor(positions, maxTextureSize) {
+    const projected = positions.map(position => ({ x: position.dot(lightX), y: position.dot(lightY), z: position.dot(lightZ) }));
+    return planSharedShadow(shadowSettings, projected, maxTextureSize, sharedFrame);
   }, update(camera, position, shadows, tunnel = 0) {
     sky.position.copy(camera.position); sun.castShadow = shadows;
-    const radius = sun.shadow.camera.right;
     // Keep the shadow projection on whole texels as the cart moves.
-    const texel = radius * 2 / sun.shadow.mapSize.x;
-    const x = Math.round(position.dot(lightX) / texel) * texel, y = Math.round(position.dot(lightY) / texel) * texel;
-    focus.copy(lightX).multiplyScalar(x).addScaledVector(lightY, y).addScaledVector(lightZ, position.dot(lightZ));
+    const texel = shadowSettings.radius * 2 / shadowSettings.mapSize;
+    const x = sharedFrame?.x ?? Math.round(position.dot(lightX) / texel) * texel;
+    const y = sharedFrame?.y ?? Math.round(position.dot(lightY) / texel) * texel;
+    const z = sharedFrame?.z ?? position.dot(lightZ);
+    focus.copy(lightX).multiplyScalar(x).addScaledVector(lightY, y).addScaledVector(lightZ, z);
     sun.position.copy(focus).add(lightOffset); sun.target.position.copy(focus);
     sun.target.updateMatrixWorld();
     hemi.intensity = lerp(2.2, 0.70, tunnel); sun.intensity = lerp(3.1, 0.30, tunnel);

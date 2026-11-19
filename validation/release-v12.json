@@ -1,0 +1,20 @@
+{
+  "version": "12.0.0",
+  "base": {
+    "file": "RailLoopLab-v11-20261119.zip",
+    "version": "11.0.0",
+    "sha256": "82b9592bdd23623f5f8b959e88f33e46111fb9cd6bdc14b58d67af2e15762861"
+  },
+  "testsPassed": 98,
+  "sourceSha256": "f8d0c76ac65bb091cfdf39999ba6b8b64af69b8b9c43cb7e6bcc0334f41ee471",
+  "preservedAssetAndVendorFiles": 886,
+  "addedRenderingAssets": [
+    "assets/models/lod/Building_Tunnel_RockStraight4m_001_v12_Lining.glb",
+    "assets/models/lod/Environment_Rail_RailSection_1m_001_v12_LOD1.glb",
+    "assets/models/lod/Environment_Rail_Sleeper_001_v12_LOD1.glb",
+    "assets/models/lod/Plant_Hills_SlopeGrass_001_v12_LOD1.glb",
+    "assets/provenance/render-meshes-v12.json"
+  ],
+  "glbs": 428,
+  "published": false
+}
