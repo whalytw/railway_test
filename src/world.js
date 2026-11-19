@@ -1,18 +1,19 @@
 import * as THREE from 'three';
 import { GLTFLoader } from '../vendor/GLTFLoader.js';
-import { TAU, lerp, clamp, wrap, smoothstep, randomGenerator, stationsFor, biomeMix, trackSegments } from './core.js?v=12.0.0';
-import { createCircuitRoute } from './circuit-route.js?v=12.0.0';
-import { sleeperLayout, sleeperFilter, planRouteFeatures, routeStructures, bridgeCoordinates, bridgeGroundHeight } from './route-features.js?v=12.0.0';
-import { buildMountainBackdrop, buildVariedClouds, updateClouds, buildBridgeAndRiver, buildTunnel, buildGirderBridge } from './scenery.js?v=12.0.0';
-import { fitGroundContact, prepareGroundedParts, groundBatchGeometry, renderedGroundHeight } from './grounding.js?v=12.0.0';
-import { planScenery, indexGroundPads, paddedHeight } from './scenery-plan.js?v=12.0.0';
-import { createBiomeLayout } from './biome-blend.js?v=12.0.0';
-import { shadowProfile, keepSceneryShadow } from './shadow-profile.js?v=12.0.0';
-import { createStandingDriver } from './drivers.js?v=12.0.0';
-import { TURBO_ASSET_ID, TurboPair, createTurboResources } from './turbo-visual.js?v=12.0.0';
-import { createGroundMaterial, grassHabitatAt, buildGrassCover, buildFarmland, GRASS_NEAR_DISTANCE, GRASS_DRAW_DISTANCE } from './ground-cover.js?v=12.0.0';
-import { chooseFarGeometry, distanceToXZBounds } from './render-lod.js?v=12.0.0';
-import { planSharedShadow, SHADOW_DEPTH } from './shared-shadow.js?v=12.0.0';
+import { TAU, lerp, clamp, wrap, smoothstep, randomGenerator, stationsFor, biomeMix, trackSegments } from './core.js?v=13.0.0';
+import { createCircuitRoute } from './circuit-route.js?v=13.0.0';
+import { createStraightRoute, straightStations } from './straight-route.js?v=13.0.0';
+import { sleeperLayout, sleeperFilter, planRouteFeatures, routeStructures, bridgeCoordinates, bridgeGroundHeight } from './route-features.js?v=13.0.0';
+import { buildMountainBackdrop, buildVariedClouds, updateClouds, buildBridgeAndRiver, buildTunnel, buildGirderBridge } from './scenery.js?v=13.0.0';
+import { fitGroundContact, prepareGroundedParts, groundBatchGeometry, renderedGroundHeight } from './grounding.js?v=13.0.0';
+import { planScenery, indexGroundPads, paddedHeight } from './scenery-plan.js?v=13.0.0';
+import { createBiomeLayout } from './biome-blend.js?v=13.0.0';
+import { shadowProfile, keepSceneryShadow } from './shadow-profile.js?v=13.0.0';
+import { createStandingDriver } from './drivers.js?v=13.0.0';
+import { TURBO_ASSET_ID, TurboPair, createTurboResources } from './turbo-visual.js?v=13.0.0';
+import { createGroundMaterial, grassHabitatAt, buildGrassCover, buildFarmland, GRASS_NEAR_DISTANCE, GRASS_DRAW_DISTANCE } from './ground-cover.js?v=13.0.0';
+import { chooseFarGeometry, distanceToXZBounds } from './render-lod.js?v=13.0.0';
+import { planSharedShadow, SHADOW_DEPTH } from './shared-shadow.js?v=13.0.0';
 
 export const PALETTES = {
   Forest: { ground: '#829565', detail: '#62794d', sky: '#bed0ba', amplitude: 12 },
@@ -110,8 +111,9 @@ export class RailWorld {
   constructor(scene, store, config) {
     this.scene = scene; this.store = store; this.config = config;
     this.shadowProfile = shadowProfile(config);
-    this.route = createCircuitRoute(config.length * 1000, config.seed, { elevationLimit: config.elevationLimit, stations: config.stations, turns: config.turns });
-    this.stations = stationsFor(this.route, config.stations);
+    const createLayout = config.routeMode === 'straight' ? createStraightRoute : createCircuitRoute;
+    this.route = createLayout(config.length * 1000, config.seed, { elevationLimit: config.elevationLimit, stations: config.stations, turns: config.turns });
+    this.stations = this.route.lanes ? straightStations(this.route, config.stations) : stationsFor(this.route, config.stations);
     this.stationPasses = this.stations.flatMap(s => s.passes ?? [s]).sort((a, b) => a.distance - b.distance);
     this.features = config.features ? planRouteFeatures(this.route, this.stations, config.seed) : { bridge: null, tunnel: null };
     const { overpass, crossings } = this.route;
@@ -125,8 +127,8 @@ export class RailWorld {
       });
       const steps = Math.ceil(overpass.length / 12);
       this.flyoverSamples = Array.from({ length: steps + 1 }, (_, i) => this.route.sample(lerp(overpass.start, overpass.end, i / steps)));
-      this.groundProximities = Array.from({ length: this.route.turns }, () => ({}));
     }
+    this.groundProximities = Array.from({ length: this.route.lanes?.length ?? this.route.turns }, () => ({}));
     this.structures = routeStructures(this.features);
     this.group = new THREE.Group(); scene.add(this.group);
     this.cullGroups = []; this.ownedGeometry = []; this.ownedMaterials = []; this.ownedTextures = [];
@@ -147,7 +149,7 @@ export class RailWorld {
     this.colorA = new THREE.Color(this.paletteA.ground); this.colorB = new THREE.Color(this.paletteB.ground);
     this.detailA = new THREE.Color(this.paletteA.detail); this.detailB = new THREE.Color(this.paletteB.detail);
     this.tmpSample = {}; this.cartSample = {}; this.cartFrontSample = {}; this.cartRearSample = {};
-    this.elevationField = this.createElevationField();
+    this.elevationField = this.route.lanes ? null : this.createElevationField();
     this.lake = this.planLake();
     if (this.features.bridge) {
       const b = this.features.bridge, biome = this.dominantBiomeAt(b.x, b.z);
@@ -172,6 +174,7 @@ export class RailWorld {
     return { nx, nz, values };
   }
   baseElevation(x, z) {
+    if (this.route.lanes) return this.route.nearestOnTurn(1, x, 0, Infinity, this.raceGroundSample ||= {}).y;
     const { nx, nz, values } = this.elevationField, d = this.route.squareSize;
     const fx = clamp((x + d) / (2 * d) * nx, 0, nx), fz = clamp((z + d / 2) / d * nz, 0, nz);
     const ix = Math.min(nx - 1, Math.floor(fx)), iz = Math.min(nz - 1, Math.floor(fz)), a = iz * (nx + 1) + ix;
@@ -181,9 +184,10 @@ export class RailWorld {
     if (this.biomeLayout) return this.planBlendedLake();
     if (![this.config.biomeA, this.config.biomeB].includes('Lakeside')) return null;
     const side = this.config.biomeA === 'Lakeside' ? -1 : 1, d = this.route.squareSize;
+    const depth = this.route.halfDepth ? this.route.halfDepth * 2 : d;
     let chosen = null, best = 0;
     for (let i = 0; i < 70; i++) {
-      const x = side * d * (0.16 + (i % 10) * 0.065), z = d * (-0.25 + Math.floor(i / 10) * 0.08);
+      const x = side * d * (0.16 + (i % 10) * 0.065), z = depth * (-0.25 + Math.floor(i / 10) * 0.08);
       if (this.stations.some(s => Math.hypot(x - s.x - s.nx * 47, z - s.z - s.nz * 47) < 215)) continue;
       const distance = this.route.distanceTo(x, z, 230);
       if (distance > best) { best = distance; chosen = { x, z }; }
@@ -207,11 +211,12 @@ export class RailWorld {
     const biome = this.activeBiomes.includes('Lakeside') ? 'Lakeside' : this.activeBiomes.includes('Desert') ? 'Desert' : null;
     if (!biome) return null;
     const region = this.biomeReport.regions.find(row => row.biome === biome), d = this.route.squareSize;
+    const halfDepth = this.route.halfDepth ?? d / 2;
     const maximumRadius = Math.min(biome === 'Desert' ? 60 : 135, Math.sqrt(region.weightedSquareMetres) * 0.22);
     const bridge = this.features.bridge;
     let chosen = null, best = -Infinity;
     const consider = (x, z) => {
-      const edge = Math.min(d - Math.abs(x), (d / 2 - Math.abs(z)) / 0.68);
+      const edge = Math.min(d - Math.abs(x), (halfDepth - Math.abs(z)) / 0.68);
       if (edge < 34 || this.biomeWeight(biome, x, z) < 0.72) return;
       const distance = this.route.distanceTo(x, z, 225);
       const radius = Math.min(maximumRadius, distance * 0.62, edge - 17);
@@ -232,7 +237,7 @@ export class RailWorld {
       for (const offset of [-176, -128, -84, -50, 50, 84, 128, 176]) consider(p.x + p.nx * offset, p.z + p.nz * offset);
     }
     if (!chosen) for (let j = 0; j < 13; j++) for (let i = 0; i < 26; i++) {
-      consider(-d + (i + 0.5) / 26 * 2 * d, (j + 0.5) / 13 * d - d / 2);
+      consider(-d + (i + 0.5) / 26 * 2 * d, (j + 0.5) / 13 * (2 * halfDepth) - halfDepth);
     }
     return chosen;
   }
@@ -260,19 +265,19 @@ export class RailWorld {
   heightAt(x, z, knownProximity) {
     const near = typeof knownProximity === 'object' ? knownProximity : this.route.nearestTo(x, z, 110);
     const terrain = this.rawHeight(x, z);
-    if (this.route.turns > 1) return this.circuitGroundHeight(x, z, near, terrain);
+    if (this.route.turns > 1 || this.route.lanes) return this.parallelGroundHeight(x, z, near, terrain);
     if (near.y === undefined) return paddedHeight(this.groundPadIndex, x, z, bridgeGroundHeight(this.features.bridge, x, z, terrain));
     // A graded earthwork supports the rails; distant land follows the same
     // elevation field, rather than leaving an elevated railway floating in air.
     return paddedHeight(this.groundPadIndex, x, z, bridgeGroundHeight(this.features.bridge, x, z, lerp(near.y - 0.09, terrain, smoothstep(20, 105, near.distance))));
   }
-  circuitGroundHeight(x, z, near, terrain) {
+  parallelGroundHeight(x, z, near, terrain) {
     const route = this.route, overpass = route.overpass;
     if (near.distance < 61) {
       // Each supported track contributes its embankment or cut. The flyover
       // itself is excluded, so the roadbed below always follows the lower rail.
       let weightSum = 0, heightSum = 0, influence = 0, closest = null;
-      for (let lane = 0; lane < route.turns; lane++) {
+      for (let lane = 0; lane < this.groundProximities.length; lane++) {
         const p = route.nearestOnTurn(lane, x, z, 55, this.groundProximities[lane], true);
         if (p.y === undefined) continue;
         const w = 1 - smoothstep(7, 44, p.distance);
@@ -286,7 +291,7 @@ export class RailWorld {
         terrain = lerp(terrain, heightSum / weightSum, influence);
         terrain = lerp(terrain, closest.y - 0.10, 1 - smoothstep(5.3, 8, closest.distance));
       }
-      if (this.flyoverSamples.some(p => (p.x - x) ** 2 + (p.z - z) ** 2 < 20 ** 2)) {
+      if (overpass && this.flyoverSamples.some(p => (p.x - x) ** 2 + (p.z - z) ** 2 < 20 ** 2)) {
         const deck = route.nearestTo(x, z, 16, this.deckProximity ||= {}, i => !route.groundSegment(i));
         if (deck.y !== undefined) {
           const end = Math.min(deck.distanceAlong - overpass.start, overpass.end - deck.distanceAlong);
@@ -317,7 +322,7 @@ export class RailWorld {
       ...this.store.manifest.stationModels, 'Environment_Rail_RailSection_1m_001', 'Environment_Rail_Sleeper_001', 'Environment_Rail_Fastener_001', ...infrastructure,
       ...vehicles, ...(this.config.playable ? [TURBO_ASSET_ID] : [])];
     await this.store.load(ids, (p, id) => onProgress(0.08 + p * 0.32, `讀取 ${this.store.manifest.models[id].name}`));
-    onProgress(0.42, '鋪設閉合軌道…'); await yieldFrame(); this.buildTrack();
+    onProgress(0.42, this.route.lanes ? '鋪設三條直線賽道…' : '鋪設閉合軌道…'); await yieldFrame(); this.buildTrack();
     onProgress(0.55, `混合 ${this.activeBiomes.length} 種環境地表…`); await yieldFrame(); await this.buildTerrain();
     onProgress(0.70, '佈置沿線地景…'); await yieldFrame(); await this.buildScenery();
     onProgress(0.87, '建立橋梁、立體交會與隧道…'); await yieldFrame();
@@ -383,42 +388,48 @@ export class RailWorld {
     this.instanceCount += placements.length;
   }
   buildTrack() {
-    const segments = trackSegments(this.route);
-    const rails = [];
-    for (const s of segments) {
-      const p = this.route.sample(s.start);
-      for (const side of [-1, 1]) rails.push({ x: s.x + p.nx * side * 0.8885 + p.upX * 0.205,
-        y: s.y + p.upY * 0.205, z: s.z + p.nz * side * 0.8885 + p.upZ * 0.205, yaw: s.yaw, pitch: s.pitch, sz: s.length });
+    const tracks = this.route.lanes ?? [this.route], rails = [];
+    const layout = sleeperLayout(this.route.length, this.config.sleeperSpacing || 0.75, this.config.seed), ties = [], bolts = [];
+    this.sleeperPitch = layout.pitch;
+    for (const track of tracks) {
+      for (const s of trackSegments(track)) {
+        const p = track.sample(s.start);
+        for (const side of [-1, 1]) rails.push({ x: s.x + p.nx * side * 0.8885 + p.upX * 0.205,
+          y: s.y + p.upY * 0.205, z: s.z + p.nz * side * 0.8885 + p.upZ * 0.205, yaw: s.yaw, pitch: s.pitch, sz: s.length });
+      }
+      for (const item of layout.placements) {
+        const p = track.sample(item.distance);
+        ties.push({ x: p.x, y: p.y, z: p.z, yaw: p.yaw, pitch: p.pitch, tone: item.tone });
+        for (const side of [-1, 1]) bolts.push({ x: p.x + p.nx * side * 0.8885 + p.upX * 0.18,
+          y: p.y + p.upY * 0.18, z: p.z + p.nz * side * 0.8885 + p.upZ * 0.18, yaw: p.yaw, pitch: p.pitch });
+      }
     }
     this.prepareRailMaterial();
     this.addBatches('Environment_Rail_RailSection_1m_001', rails, { size: 56, kind: 'track' });
     this.prepareSleeperMaterial();
-    const layout = sleeperLayout(this.route.length, this.config.sleeperSpacing || 0.75, this.config.seed), ties = [], bolts = [];
-    this.sleeperPitch = layout.pitch;
-    for (const item of layout.placements) {
-      const p = this.route.sample(item.distance);
-      ties.push({ x: p.x, y: p.y, z: p.z, yaw: p.yaw, pitch: p.pitch, tone: item.tone });
-      for (const side of [-1, 1]) bolts.push({ x: p.x + p.nx * side * 0.8885 + p.upX * 0.18,
-        y: p.y + p.upY * 0.18, z: p.z + p.nz * side * 0.8885 + p.upZ * 0.18, yaw: p.yaw, pitch: p.pitch });
-    }
     this.addBatches('Environment_Rail_Sleeper_001', ties, { size: 56, kind: 'sleepers' });
     this.addBatches('Environment_Rail_Fastener_001', bolts, { size: 96, kind: 'fasteners' });
     this.sleeperInstances = ties.length;
-    const bed = [], bedIndices = [], bedCount = Math.ceil(this.route.length / 2);
+    this.trackInstances = rails.length / 2;
+    const bedMaterial = new THREE.MeshStandardMaterial({ color: '#a79a7d', roughness: 1, side: THREE.DoubleSide });
+    const overviewMaterial = new THREE.LineBasicMaterial({ color: '#926848' });
+    this.ownedMaterials.push(bedMaterial, overviewMaterial);
+    this.overviewTrack = new THREE.Group(); this.overviewTrack.visible = false; this.group.add(this.overviewTrack);
+    for (const track of tracks) this.buildTrackBase(track, bedMaterial, overviewMaterial);
+  }
+  buildTrackBase(track, bedMaterial, overviewMaterial) {
+    const bed = [], bedIndices = [], bedCount = Math.ceil(track.length / 2);
     for (let i = 0; i <= bedCount; i++) {
-      const p = this.route.sample(i / bedCount * this.route.length);
+      const p = track.sample(i / bedCount * track.length);
       for (const side of [-1, 1]) bed.push(p.x + p.nx * side * 1.49, p.y - 0.035, p.z + p.nz * side * 1.49);
       if (i) { const a = (i - 1) * 2; bedIndices.push(a, a + 2, a + 1, a + 1, a + 2, a + 3); }
     }
     const bedGeometry = new THREE.BufferGeometry(); bedGeometry.setAttribute('position', new THREE.Float32BufferAttribute(bed, 3)); bedGeometry.setIndex(bedIndices); bedGeometry.computeVertexNormals();
-    const bedMaterial = new THREE.MeshStandardMaterial({ color: '#a79a7d', roughness: 1, side: THREE.DoubleSide });
-    const bedMesh = new THREE.Mesh(bedGeometry, bedMaterial); bedMesh.receiveShadow = true; this.group.add(bedMesh); this.ownedGeometry.push(bedGeometry); this.ownedMaterials.push(bedMaterial);
-    this.trackInstances = segments.length;
-    const overviewPoints = this.route.points.filter((_, i) => i % 8 === 0).map(p => new THREE.Vector3(p.x, p.y + 0.46, p.z));
+    const bedMesh = new THREE.Mesh(bedGeometry, bedMaterial); bedMesh.receiveShadow = true; this.group.add(bedMesh); this.ownedGeometry.push(bedGeometry);
+    const overviewPoints = track.points.filter((_, i) => i % 8 === 0).map(p => new THREE.Vector3(p.x, p.y + 0.46, p.z));
     const geometry = new THREE.BufferGeometry().setFromPoints(overviewPoints);
-    const material = new THREE.LineBasicMaterial({ color: '#926848' });
-    this.overviewTrack = new THREE.LineLoop(geometry, material); this.overviewTrack.visible = false;
-    this.group.add(this.overviewTrack); this.ownedGeometry.push(geometry); this.ownedMaterials.push(material);
+    const overview = this.route.lanes ? new THREE.Line(geometry, overviewMaterial) : new THREE.LineLoop(geometry, overviewMaterial);
+    this.overviewTrack.add(overview); this.ownedGeometry.push(geometry);
   }
   prepareRailMaterial() {
     const id = 'Environment_Rail_RailSection_1m_001';
@@ -486,13 +497,14 @@ export class RailWorld {
   }
   async buildTerrain() {
     await this.prepareScenery();
-    const d = this.route.squareSize, multi = this.route.turns > 1, tile = multi ? 128 : 192;
+    const d = this.route.squareSize, halfDepth = this.route.halfDepth ?? d / 2;
+    const multi = this.route.turns > 1 || Boolean(this.route.lanes), tile = multi ? 128 : 192;
     const material = createGroundMaterial(this);
     this.ownedMaterials.push(material);
     const color = new THREE.Color(), detail = new THREE.Color();
-    const nx = Math.ceil(2 * d / tile), nz = Math.ceil(d / tile);
-    const width = 2 * d / nx, depth = d / nz;
-    this.terrainGrid = { d, nx, nz, width, depth, tiles: [] };
+    const nx = Math.ceil(2 * d / tile), nz = Math.ceil(2 * halfDepth / tile);
+    const width = 2 * d / nx, depth = 2 * halfDepth / nz;
+    this.terrainGrid = { d, halfDepth, nx, nz, width, depth, tiles: [] };
     const detailedAt = (x, z) => {
       if (this.sceneryPlan?.pads.some(p => Math.abs(x - p.x) < tile * 0.55 + p.outer && Math.abs(z - p.z) < tile * 0.55 + p.outer)) return true;
       if (multi && this.route.distanceTo(x, z, tile + 55) < tile * 0.75 + 43) return true;
@@ -503,7 +515,7 @@ export class RailWorld {
     };
     for (let iz = 0; iz < nz; iz++) {
       for (let ix = 0; ix < nx; ix++) {
-        const x0 = -d + ix * width, z0 = -d * 0.5 + iz * depth;
+        const x0 = -d + ix * width, z0 = -halfDepth + iz * depth;
         const cx = x0 + width / 2, cz = z0 + depth / 2, detailed = detailedAt(cx, cz);
         const coarseLeft = !detailedAt(cx - width, cz), coarseRight = !detailedAt(cx + width, cz);
         const coarseTop = !detailedAt(cx, cz - depth), coarseBottom = !detailedAt(cx, cz + depth);
@@ -655,16 +667,29 @@ export class RailWorld {
   }
   buildStations() {
     const platform = [], canopy = [], hut = [], signs = [], lamps = [];
+    const straight = Boolean(this.route.lanes);
     for (const s of this.stationPasses) {
-      const main = !s.turnIndex;
-      const side = s.turnIndex ? 1 : this.stations[s.index].platformSide ?? 1;
-      const at = (offset, along = 0, y = 0) => ({ x: s.x + s.nx * offset * side + s.tx * along, z: s.z + s.nz * offset * side + s.tz * along, y: s.y + y, yaw: s.yaw });
-      for (let i = -2; i < 3; i++) { platform.push(at(3.2, i * 4)); if (i >= -1 && i <= 1) canopy.push(at(3.2, i * 4)); }
+      const main = straight ? s.turnIndex === this.route.lanes.length - 1 : !s.turnIndex;
+      const side = straight ? (s.turnIndex === 0 ? -1 : 1) : (s.turnIndex ? 1 : this.stations[s.index].platformSide ?? 1);
+      const platformShift = straight && s.distance === this.route.length ? 8 : 0;
+      const at = (offset, along = 0, y = 0) => ({
+        x: s.x + s.nx * offset * side + s.tx * (along + platformShift),
+        z: s.z + s.nz * offset * side + s.tz * (along + platformShift), y: s.y + y, yaw: s.yaw,
+      });
+      const platformOffset = straight ? 4.2 : 3.2;
+      for (let i = -2; i < 3; i++) {
+        platform.push(at(platformOffset, i * 4));
+        if (i >= -1 && i <= 1) canopy.push(at(platformOffset, i * 4));
+      }
       if (main) hut.push(at(10.5, -4));
       signs.push(at(6.1, 8)); lamps.push(at(6.3, -10), at(6.3, 11));
-      const subtitle = this.route.turns > 1 ? `第 ${s.turnIndex + 1} 圈月台` : s.index === 0 ? 'A / DEPARTURE' : `STATION 0${s.index + 1}`;
+      const subtitle = straight ? `第 ${s.turnIndex + 1} 道 · ${s.distance / 1000} km`
+        : this.route.turns > 1 ? `第 ${s.turnIndex + 1} 圈月台` : s.index === 0 ? 'A / DEPARTURE' : `STATION 0${s.index + 1}`;
       const board = this.makeLabel(s.name, subtitle);
-      const p = at(4.7, 0, 5.6); board.position.set(p.x, p.y, p.z); board.scale.set(9.6, 3.0, 1); this.group.add(board);
+      const p = straight ? at(5.8, 6, 4.2) : at(4.7, 0, 5.6);
+      board.position.set(p.x, p.y, p.z);
+      if (straight) board.scale.set(6.4, 2, 1); else board.scale.set(9.6, 3.0, 1);
+      this.group.add(board);
       const padGeo = new THREE.BoxGeometry(main ? 23 : 8.5, 0.18, main ? 35 : 29);
       const padMat = new THREE.MeshStandardMaterial({ color: '#c3bda5', roughness: 0.95 });
       const pad = new THREE.Mesh(padGeo, padMat); const padP = at(main ? 9 : 4.5, 0, -0.08);
@@ -677,6 +702,26 @@ export class RailWorld {
     this.addBatches('Building_Station_TicketHut_001', hut, { kind: 'station', castShadow: shadow });
     this.addBatches('Prop_Station_StationSign_001', signs, { kind: 'station', castShadow: shadow });
     this.addBatches('Prop_Lineside_TracksideLamp_001', lamps, { kind: 'station', castShadow: shadow });
+    if (this.route.lanes) this.buildRaceLines();
+  }
+  buildRaceLines() {
+    const geometry = new THREE.BoxGeometry(0.31, 0.024, 0.55);
+    const material = new THREE.MeshBasicMaterial();
+    const lanes = this.route.lanes, squaresPerLine = 16;
+    const lines = new THREE.InstancedMesh(geometry, material, lanes.length * 2 * squaresPerLine);
+    const transform = new THREE.Matrix4(), colour = new THREE.Color();
+    let index = 0;
+    for (const lane of lanes) for (const distance of [0, lane.length]) {
+      const position = lane.sample(distance);
+      for (let row = 0; row < 2; row++) for (let col = 0; col < 8; col++) {
+        transform.makeTranslation(position.x + (row - 0.5) * 0.31, position.y + 0.045, position.z + (col - 3.5) * 0.55);
+        lines.setMatrixAt(index, transform);
+        colour.set((row + col) % 2 ? '#f5f1d5' : distance ? '#342f2d' : '#2d735f');
+        lines.setColorAt(index++, colour);
+      }
+    }
+    lines.name = 'straight-start-and-finish'; lines.computeBoundingSphere();
+    this.group.add(lines); this.ownedGeometry.push(geometry); this.ownedMaterials.push(material);
   }
   makeLabel(title, subtitle) {
     const canvas = document.createElement('canvas'); canvas.width = 768; canvas.height = 240;
@@ -693,7 +738,12 @@ export class RailWorld {
   buildCart() {
     const fleet = this.config.fleet ?? [this.config];
     const resources = this.config.playable ? createTurboResources(this) : null;
-    this.carts = fleet.map((selection, index) => this.buildCartRig(selection, this.route.turnStarts[fleet.length - index - 1], resources));
+    this.carts = fleet.map((selection, index) => {
+      const laneIndex = fleet.length === 1 ? 1 : index;
+      const track = this.route.lanes?.[laneIndex] ?? this.route;
+      const departure = this.route.lanes ? 0 : this.route.turnStarts[fleet.length - index - 1];
+      return { ...this.buildCartRig(selection, departure, resources), track, laneIndex };
+    });
     this.primaryCart = this.carts[Math.floor(this.carts.length / 2)];
     this.cart = this.primaryCart.root;
     this.wheels = this.primaryCart.wheels;
@@ -745,14 +795,14 @@ export class RailWorld {
     if (this.config.skyline === false) { this.clouds = null; return; }
     buildMountainBackdrop(this); buildVariedClouds(this);
   }
-  structureAt(distance, padding = 0) {
-    const s = wrap(distance, this.route.length);
-    return this.structures.find(f => s >= f.start - padding && s <= f.end + padding) || null;
+  structureAt(distance, padding = 0, rig = this.primaryCart) {
+    const s = this.route.lanes ? clamp(distance, 0, this.route.length) : wrap(distance, this.route.length);
+    return this.structures.find(f => (!this.route.lanes || f.turnIndex === rig?.laneIndex) && s >= f.start - padding && s <= f.end + padding) || null;
   }
-  tunnelFactor(distance) {
+  tunnelFactor(distance, rig = this.primaryCart) {
     const tunnel = this.features.tunnel;
-    if (!tunnel) return 0;
-    const s = wrap(distance, this.route.length);
+    if (!tunnel || (this.route.lanes && tunnel.turnIndex !== rig?.laneIndex)) return 0;
+    const s = this.route.lanes ? clamp(distance, 0, this.route.length) : wrap(distance, this.route.length);
     return smoothstep(tunnel.start, tunnel.start + 6, s) * (1 - smoothstep(tunnel.end - 6, tunnel.end, s));
   }
   updateEnvironment(dt, speed, frameSeconds) {
@@ -769,10 +819,11 @@ export class RailWorld {
   }
   updateCart(distance, odometer, throttle, suspensionY = 0, rig = this.primaryCart) {
     const cart = rig?.root ?? this.cart;
-    const p = this.route.sample(distance, rig?.sample ?? this.cartSample);
+    const track = rig?.track ?? this.route;
+    const p = track.sample(distance, rig?.sample ?? this.cartSample);
     // Use a two-metre track chord for body attitude. The arc-table position is
     // exact; this removes tiny tangent jumps at successive polyline samples.
-    const front = this.route.sample(distance + 1, rig?.frontSample ?? this.cartFrontSample), rear = this.route.sample(distance - 1, rig?.rearSample ?? this.cartRearSample);
+    const front = track.sample(distance + 1, rig?.frontSample ?? this.cartFrontSample), rear = track.sample(distance - 1, rig?.rearSample ?? this.cartRearSample);
     const dx = front.x - rear.x, dy = front.y - rear.y, dz = front.z - rear.z;
     const horizontal = Math.hypot(dx, dz), length = Math.hypot(horizontal, dy);
     p.tx = dx / horizontal; p.tz = dz / horizontal; p.tx3 = dx / length; p.ty = dy / length; p.tz3 = dz / length;

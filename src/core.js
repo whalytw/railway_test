@@ -6,6 +6,7 @@ export const TURBO_SPEED = 30 / 3.6;
 export const TURBO_RAMP_SECONDS = 0.36;
 export const TURBO_DROP_SECONDS = 0.4;
 export const FIXED_STEP = 1 / 120;
+export const DEPARTURE_COUNTDOWN = 3;
 export const MAX_GRADE = 0.025;
 export const MIN_VERTICAL_RADIUS = 5000;
 export const GRAVITY = 9.80665;
@@ -132,7 +133,7 @@ export function createRoute(lengthMetres, seed = 1, samples = 8192, options = {}
 }
 
 // The cart, rail meshes and surveys share a single arc-length table in every mode.
-export function routeFromPolyline(points, distances, lengthMetres, squareSize, elevation) {
+export function routeFromPolyline(points, distances, lengthMetres, squareSize, elevation, { closed = true } = {}) {
   const samples = points.length - 1;
   const spatial = new Map(), cell = 64;
   // Index segments, not just vertices, so distance queries remain accurate.
@@ -143,7 +144,7 @@ export function routeFromPolyline(points, distances, lengthMetres, squareSize, e
     spatial.get(key).push(i);
   }
   function sample(distance, out = {}) {
-    const d = wrap(distance, lengthMetres);
+    const d = closed ? wrap(distance, lengthMetres) : clamp(distance, 0, lengthMetres);
     let lo = 0, hi = samples;
     while (lo + 1 < hi) { const mid = (lo + hi) >>> 1; if (distances[mid] <= d) lo = mid; else hi = mid; }
     const a = points[lo], b = points[lo + 1];
@@ -202,7 +203,7 @@ export function trackSegments(route, tolerance = 0.007) {
 }
 
 export function createPhysics() {
-  return { speed: 0, acceleration: 0, driveAcceleration: 0, distance: 0, odometer: 0, elapsed: 0, countdown: 3, throttle: 0.42, grade: 0, governor: false };
+  return { speed: 0, acceleration: 0, driveAcceleration: 0, distance: 0, odometer: 0, elapsed: 0, countdown: DEPARTURE_COUNTDOWN, throttle: 0.42, grade: 0, governor: false };
 }
 
 export const flatResistanceForce = speed => CART_MASS * ROLLING_COEFFICIENT * GRAVITY + AIR_DRAG * speed * speed;

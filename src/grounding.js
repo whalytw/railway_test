@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { clamp, lerp, smoothstep } from './core.js?v=12.0.0';
+import { clamp, lerp, smoothstep } from './core.js?v=13.0.0';
 
 export function groundContactWeight(placement, x, y, z) {
   const conform = placement.terrainConform, w = conform.weight;
@@ -21,7 +21,7 @@ export function groundContactWeight(placement, x, y, z) {
 
 export function renderedGroundHeight(grid, x, z) {
   const ix = clamp(Math.floor((x + grid.d) / grid.width), 0, grid.nx - 1);
-  const iz = clamp(Math.floor((z + grid.d / 2) / grid.depth), 0, grid.nz - 1);
+  const iz = clamp(Math.floor((z + (grid.halfDepth ?? grid.d / 2)) / grid.depth), 0, grid.nz - 1);
   const tile = grid.tiles[iz * grid.nx + ix], n = tile.segments, a = tile.geometry.attributes.position;
   const fx = clamp((x - tile.x0) / grid.width * n, 0, n), fz = clamp((z - tile.z0) / grid.depth * n, 0, n);
   const i = Math.min(n - 1, Math.floor(fx)), j = Math.min(n - 1, Math.floor(fz)), tx = fx - i, tz = fz - j, k = j * (n + 1) + i;
@@ -44,7 +44,8 @@ export function footprintMaximum(grid, p, bounds) {
   const x0 = Math.min(...corners.map(v => v[0])), x1 = Math.max(...corners.map(v => v[0]));
   const z0 = Math.min(...corners.map(v => v[1])), z1 = Math.max(...corners.map(v => v[1]));
   let highest = renderedGroundHeight(grid, p.x, p.z);
-  for (let iz = Math.max(0, Math.floor((z0 + grid.d / 2) / grid.depth)); iz <= Math.min(grid.nz - 1, Math.floor((z1 + grid.d / 2) / grid.depth)); iz++) {
+  const halfDepth = grid.halfDepth ?? grid.d / 2;
+  for (let iz = Math.max(0, Math.floor((z0 + halfDepth) / grid.depth)); iz <= Math.min(grid.nz - 1, Math.floor((z1 + halfDepth) / grid.depth)); iz++) {
     for (let ix = Math.max(0, Math.floor((x0 + grid.d) / grid.width)); ix <= Math.min(grid.nx - 1, Math.floor((x1 + grid.d) / grid.width)); ix++) {
       const tile = grid.tiles[iz * grid.nx + ix], n = tile.segments, a = tile.geometry.attributes.position;
       const firstX = clamp(Math.floor((x0 - tile.x0) / grid.width * n), 0, n - 1), lastX = clamp(Math.floor((x1 - tile.x0) / grid.width * n), 0, n - 1);

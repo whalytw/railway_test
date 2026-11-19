@@ -1,9 +1,9 @@
 import * as THREE from 'three';
-import { clamp, lerp, smoothstep, randomGenerator, TAU } from './core.js?v=12.0.0';
-import { riverProfile, riverPoint } from './route-features.js?v=12.0.0';
-import { renderedGroundHeight } from './grounding.js?v=12.0.0';
-import { TUNNEL_WIDTH_SCALE, TUNNEL_HEIGHT_SCALE, tunnelFrontShift, tunnelMoundHeight, tunnelCutFactor, GRASS_HABITAT, landNoise } from './landscape-profile.js?v=12.0.0';
-import { createGroundMaterial } from './ground-cover.js?v=12.0.0';
+import { clamp, lerp, smoothstep, randomGenerator, TAU } from './core.js?v=13.0.0';
+import { riverProfile, riverPoint } from './route-features.js?v=13.0.0';
+import { renderedGroundHeight } from './grounding.js?v=13.0.0';
+import { TUNNEL_WIDTH_SCALE, TUNNEL_HEIGHT_SCALE, tunnelFrontShift, tunnelMoundHeight, tunnelCutFactor, GRASS_HABITAT, landNoise } from './landscape-profile.js?v=13.0.0';
+import { createGroundMaterial } from './ground-cover.js?v=13.0.0';
 
 const up = new THREE.Vector3(0, 1, 0), frameEuler = new THREE.Euler(0, 0, 0, 'YXZ');
 function ownMesh(world, geometry, material) { const mesh = new THREE.Mesh(geometry, material); world.group.add(mesh); world.ownedGeometry.push(geometry); return mesh; }
@@ -186,6 +186,8 @@ export function buildBridgeAndRiver(world) {
 // railway: each pier is checked against every other turn before being built.
 export function buildGirderBridge(world, span, turnIndex) {
   const route = world.route;
+  const track = route.lanes?.[turnIndex] ?? route;
+  const tracks = route.lanes ?? route.turnStarts;
   const concrete = new THREE.MeshStandardMaterial({ color: '#b6b3a4', roughness: 0.91 });
   const steel = new THREE.MeshStandardMaterial({ color: '#486461', roughness: 0.65, metalness: 0.18 });
   const group = new THREE.Group();
@@ -202,7 +204,7 @@ export function buildGirderBridge(world, span, turnIndex) {
   function girder(left, right, bottom, top, material) {
     const steps = Math.ceil(span.length / 2.0), vertices = [], indices = [];
     for (let i = 0; i <= steps; i++) {
-      const p = route.sample(lerp(span.start, span.end, i / steps));
+      const p = track.sample(lerp(span.start, span.end, i / steps));
       for (const [x, y] of [[left, bottom], [right, bottom], [right, top], [left, top]]) {
         vertices.push(...atFrame(p, x, y));
       }
@@ -242,15 +244,15 @@ export function buildGirderBridge(world, span, turnIndex) {
     mesh.computeBoundingSphere();
   }
   const posts = [];
-  for (let s = span.start + 1; s < span.end; s += 5.4) for (const side of [-1, 1]) posts.push({ p: route.sample(s), x: side * edgeOffset, y: 0.43 });
+  for (let s = span.start + 1; s < span.end; s += 5.4) for (const side of [-1, 1]) posts.push({ p: track.sample(s), x: side * edgeOffset, y: 0.43 });
   boxInstances(0.11, 1.02, 0.13, posts, steel);
   const piers = [], caps = [];
   for (let s = span.start + 4; s < span.end; s += 18) {
     for (const shift of [0, 3, -3, 6, -6]) {
       const distance = s + shift;
       if (distance < span.start + 1 || distance > span.end - 1) continue;
-      const p = route.sample(distance);
-      const blocked = route.turnStarts.some((_, lane) => lane !== turnIndex && route.nearestOnTurn(lane, p.x, p.z, 6).distance < 4.9);
+      const p = track.sample(distance);
+      const blocked = tracks.some((_, lane) => lane !== turnIndex && route.nearestOnTurn(lane, p.x, p.z, 6).distance < 4.9);
       if (blocked) continue;
       const ground = world.groundHeight(p.x, p.z), depth = p.y - 0.82 - ground;
       if (depth < 0.30) continue;
@@ -265,8 +267,9 @@ export function buildGirderBridge(world, span, turnIndex) {
 }
 
 export function buildTunnel(world) {
-  const tunnel = world.features.tunnel, route = world.route;
+  const tunnel = world.features.tunnel;
   if (!tunnel) return;
+  const route = world.route.lanes?.[tunnel.turnIndex] ?? world.route;
   const modules = [], portals = [];
   for (let s = tunnel.start; s < tunnel.end - 0.1; s += 4) {
     modules.push({ ...alongPlacement(route, s, s + 4, 4), sx: TUNNEL_WIDTH_SCALE, sy: TUNNEL_HEIGHT_SCALE });

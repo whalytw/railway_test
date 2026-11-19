@@ -1,4 +1,4 @@
-import { DEFAULT_MIX, normalizeMix, proportionalIntegers, redistributeShares, randomMix, BIOME_COLORS } from './biome-blend.js?v=12.0.0';
+import { DEFAULT_MIX, normalizeMix, proportionalIntegers, redistributeShares, randomMix, BIOME_COLORS } from './biome-blend.js?v=13.0.0';
 
 export class MixControls {
   constructor(container,biomes,onChange) {

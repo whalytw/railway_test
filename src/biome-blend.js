@@ -1,5 +1,5 @@
 // Each geographical coordinate has one shared biome mixture.
-import { TAU, clamp, smoothstep, randomGenerator } from './core.js?v=12.0.0';
+import { TAU, clamp, smoothstep, randomGenerator } from './core.js?v=13.0.0';
 
 export const BIOME_IDS = ['Forest','Hills','Pastoral','Desert','Rural','Lakeside','Snow','Volcano'];
 export const BIOME_COLORS = { Forest:'#58816a', Hills:'#9eac71', Pastoral:'#d0b662', Desert:'#d4a879', Rural:'#a68162', Lakeside:'#6da7b4', Snow:'#c6dcdf', Volcano:'#897389' };
@@ -47,7 +47,7 @@ export function randomMix(random=Math.random,count=4,selected=null) {
 }
 
 export function createBiomeLayout(route, input, seed = 'map') {
-  const mix = normalizeMix(input), d = route.squareSize, area = 2 * d * d;
+  const mix = normalizeMix(input), d = route.squareSize, halfDepth = route.halfDepth ?? d / 2, area = 4 * d * halfDepth;
   const random = randomGenerator(seed + ':biome-field');
   const phase = Array.from({ length: 3 }, () => random() * TAU);
   const tilt = (random() - 0.5) * 0.58;
@@ -64,7 +64,7 @@ export function createBiomeLayout(route, input, seed = 'map') {
   const nx = 160, nz = 80, samples = new Float64Array(nx * nz);
   let low = Infinity, high = -Infinity;
   for (let j = 0; j < nz; j++) for (let i = 0; i < nx; i++) {
-    const value = field(-d + (i + 0.5) / nx * 2 * d, (j + 0.5) / nz * d - d / 2);
+    const value = field(-d + (i + 0.5) / nx * 2 * d, (j + 0.5) / nz * (2 * halfDepth) - halfDepth);
     samples[j * nx + i] = value;
     low = Math.min(low, value); high = Math.max(high, value);
   }
@@ -125,7 +125,7 @@ export function createBiomeLayout(route, input, seed = 'map') {
     // Independently measure the finished field with a finer grid.
     const columns = 192, rows = 96;
     for (let j = 0; j < rows; j++) for (let i = 0; i < columns; i++) {
-      weightsAt(-d + (i + 0.5) / columns * 2 * d, (j + 0.5) / rows * d - d / 2, weights);
+      weightsAt(-d + (i + 0.5) / columns * 2 * d, (j + 0.5) / rows * (2 * halfDepth) - halfDepth, weights);
       mix.forEach((row, k) => { areaShares[k] += weights[row.biome]; });
     }
     for (let i = 0; i < railSamples; i++) {

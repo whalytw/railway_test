@@ -1,5 +1,5 @@
 import * as RAPIER from '../vendor/rapier/rapier.mjs';
-import { CART_MASS, FIXED_STEP, GRAVITY, MAX_FORWARD, MAX_REVERSE, TURBO_SPEED, TURBO_RAMP_SECONDS, clamp, createPhysics, stepPhysics } from './core.js?v=12.0.0';
+import { CART_MASS, FIXED_STEP, GRAVITY, MAX_FORWARD, MAX_REVERSE, TURBO_SPEED, TURBO_RAMP_SECONDS, clamp, createPhysics, stepPhysics } from './core.js?v=13.0.0';
 
 export const RAPIER_VERSION = '0.21.0';
 const BOGIE_MASS = CART_MASS * 0.2;
@@ -194,6 +194,20 @@ export class RapierRailPhysics {
     if (this.bumper) this.bumper.setTranslation({ x: this.bumperDistance - this.origin, y: 0.2, z: 0 });
     this.world.propagateModifiedBodyPositionsToColliders();
     this.rebaseCount++;
+  }
+
+  holdAt(state, distance) {
+    const x = distance - this.origin;
+    for (const body of [this.bogie, this.chassis]) {
+      const { y, z } = body.translation();
+      body.setTranslation({ x, y, z }, true);
+      body.setLinvel({ x: 0, y: 0, z: 0 }, true);
+    }
+    this.world.propagateModifiedBodyPositionsToColliders();
+    this.turboSpeed = 0;
+    state.distance = distance;
+    state.speed = state.acceleration = state.driveAcceleration = 0;
+    this.writeOutputs(state);
   }
 
   placeBumper(unwrappedDistance) {

@@ -1,0 +1,44 @@
+.route-fields .course-field { grid-column: 1 / -1; }
+#course-headline { font-weight: inherit; }
+
+.fleet-reading:has(.race-progress) {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 6px;
+  row-gap: 2px;
+}
+.race-progress {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding-top: 3px;
+  border-top: 1px solid #d8e2c840;
+  color: #d9e8cb;
+}
+
+.race-results {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(275px, 78vw);
+  padding: 17px 21px 19px;
+  border: 1px solid #fffaf3;
+  border-radius: 12px;
+  background: #f5f3e8f5;
+  box-shadow: 0 15px 45px #173c3840;
+  color: #183e37;
+}
+.race-results h2 { font-size: 22px; margin: 0 0 4px; }
+.race-results p { margin: 0 0 13px; color: #637966; font-size: 11px; }
+.race-results ol { list-style: none; padding: 0; margin: 0; }
+.race-results li {
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  align-items: center;
+  gap: 9px;
+  padding-block: 8px;
+  border-top: 1px solid #d6dece;
+  font-size: 13px;
+}
+.race-results li span:first-child { color: #557160; }
+.race-results li strong { font: 650 14px var(--mono, monospace); }

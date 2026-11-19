@@ -1,8 +1,8 @@
 import * as THREE from 'three';
-import { lerp, smoothstep, randomGenerator, TAU } from './core.js?v=12.0.0';
-import { riverLocation, bridgeCoordinates } from './route-features.js?v=12.0.0';
-import { renderedGroundHeight } from './grounding.js?v=12.0.0';
-import { GRASS_HABITAT, grassPatch, inFarm } from './landscape-profile.js?v=12.0.0';
+import { lerp, smoothstep, randomGenerator, TAU } from './core.js?v=13.0.0';
+import { riverLocation, bridgeCoordinates } from './route-features.js?v=13.0.0';
+import { renderedGroundHeight } from './grounding.js?v=13.0.0';
+import { GRASS_HABITAT, grassPatch, inFarm } from './landscape-profile.js?v=13.0.0';
 
 export const GRASS_NEAR_DISTANCE = 36;
 export const GRASS_FADE_START = 84;
@@ -59,6 +59,7 @@ export function createGroundMaterial(world) {
 
 export function planGrassCover(world) {
   const random = randomGenerator(`${world.config.seed}:grass-v7`), result = [];
+  const halfDepth = world.route.halfDepth ?? world.route.squareSize / 2;
   // Vegetation density is an art layer independent of the stress-load setting.
   // A 50,000-model test uses exactly the same seeded ground cover as 1,000.
   for (let s = 0; s < world.route.length; s += 4.2) {
@@ -71,7 +72,7 @@ export function planGrassCover(world) {
       const count = 2 + Math.floor(patch * 4);
       for (let i = 0; i < count; i++) {
         const x = cx + (random() - 0.5) * 4.8, z = cz + (random() - 0.5) * 4.8;
-        if (Math.abs(x) > world.route.squareSize - 8 || Math.abs(z) > world.route.squareSize / 2 - 8) continue;
+        if (Math.abs(x) > world.route.squareSize - 8 || Math.abs(z) > halfDepth - 8) continue;
         const near = world.route.nearestTo(x, z, 115), habitat = grassHabitatAt(world, x, z, near);
         if (habitat < 0.3 || random() > habitat) continue;
         const y = renderedGroundHeight(world.terrainGrid, x, z);

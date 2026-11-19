@@ -1,8 +1,8 @@
 // Seeded scene composition. This module uses metres and catalog metadata only;
 // no renderer or Blender source files are needed to reproduce a population.
-import { TAU, clamp, lerp, randomGenerator, wrap } from './core.js?v=12.0.0';
-import { bridgeCoordinates, riverLocation } from './route-features.js?v=12.0.0';
-import { inFarm } from './landscape-profile.js?v=12.0.0';
+import { TAU, clamp, lerp, randomGenerator, wrap } from './core.js?v=13.0.0';
+import { bridgeCoordinates, riverLocation } from './route-features.js?v=13.0.0';
+import { inFarm } from './landscape-profile.js?v=13.0.0';
 
 export const SCENERY_VERSION = '11.0.0';
 export const DENSITY_OPTIONS = [1000, 2000, 3500, 5000, 8000, 10000, 12000, 16000, 20000, 30000, 50000];
@@ -59,7 +59,8 @@ export function compatibleScenery(info, biome, context = 'wild', nearWater = fal
 
 export async function planScenery(world, onProgress = () => {}) {
   const { route, config, stations, features, lake } = world;
-  const manifest = world.store.manifest, d = route.squareSize, goal = config.density;
+  const manifest = world.store.manifest, d = route.squareSize, halfDepth = route.halfDepth ?? d / 2, goal = config.density;
+  const routeGap = (a, b) => route.lanes ? Math.abs(a - b) : alongGap(a, b, route.length);
   if (!Number.isSafeInteger(goal) || goal < 1) throw new Error('場景物件數必須是正整數。');
   const random = randomGenerator(`${config.seed}:composition-v7`);
   const natureRandom = randomGenerator(`${config.seed}:nature-v5`);
@@ -93,7 +94,7 @@ export async function planScenery(world, onProgress = () => {}) {
   function candidate(info, x, z, options = {}) {
     if (!info) return null;
     const scale = options.scale ?? scaleFor(info, options.random || random), radius = info.footprintRadius * scale;
-    if (Math.abs(x) + radius > d - 10 || Math.abs(z) + radius > d / 2 - 10) return null;
+    if (Math.abs(x) + radius > d - 10 || Math.abs(z) + radius > halfDepth - 10) return null;
     const clearance = Math.max(7 + radius, (info.minimumRailOffset || 0) * scale + 2);
     const nearest = route.nearestTo(x, z, Math.max(115, clearance + 1));
     if (nearest.distance < clearance) return null;
@@ -108,7 +109,7 @@ export async function planScenery(world, onProgress = () => {}) {
     }
     if (features.tunnel) {
       const t = features.tunnel;
-      const n = route.turns > 1 ? route.nearestOnTurn(t.turnIndex, x, z, t.halfWidth + radius + 12) : route.nearestTo(x, z, t.halfWidth + radius + 12);
+      const n = route.turns > 1 || route.lanes ? route.nearestOnTurn(t.turnIndex, x, z, t.halfWidth + radius + 12) : route.nearestTo(x, z, t.halfWidth + radius + 12);
       if (n.distanceAlong !== undefined && n.distanceAlong > t.start - t.approachLength - radius && n.distanceAlong < t.end + t.approachLength + radius) return null;
     }
     // A field is an actual reserved plot, not a few crop models sharing a
@@ -165,7 +166,7 @@ export async function planScenery(world, onProgress = () => {}) {
   // A single village serves all the platforms at the same geographic station.
   for (const station of stations) {
     let best = null;
-    const sides = route.turns === 1 ? [1, -1] : [1];
+    const sides = route.turns === 1 && !route.lanes ? [1, -1] : [1];
     for (const side of sides) {
       for (const [offset, jog] of [[35, 0], [38, -17], [38, 17], [48, 0], [54, -22], [54, 22], [50, -39], [50, 39], [65, 0]]) {
         const at = (width, along = 0) => ({ x: station.x + station.nx * width * side + station.tx * along,
@@ -178,7 +179,7 @@ export async function planScenery(world, onProgress = () => {}) {
         const district = { id: `settlement-${districts.length}`, ...origin, yaw: station.yaw, along: station.distance, side,
           groundY: ground(rowCentre.x, rowCentre.z) - 0.025, station: true, stationIndex: station.index, biome, buildings: [], laneHalfLength: 36,
           accessPath: [at(17, 6), at(offset, jog + 6)], laneEnds: [at(offset, jog - 36), at(offset, jog + 36)] };
-        if ([...district.accessPath, ...district.laneEnds].some(p => Math.abs(p.x) > d - 12 || Math.abs(p.z) > d / 2 - 12
+        if ([...district.accessPath, ...district.laneEnds].some(p => Math.abs(p.x) > d - 12 || Math.abs(p.z) > halfDepth - 12
           || world.lakeRadiusAt(p.x, p.z) < (lake?.radius || 0) + 7)) continue;
         const target = ['Volcano', 'Snow', 'Desert'].includes(biome) ? 3 : 5, used = new Set();
         for (const [slot, along] of [-24, 24, -8, 8, 0].slice(0, target).entries()) {
@@ -222,7 +223,7 @@ export async function planScenery(world, onProgress = () => {}) {
       if (!info) continue;
       const nearest = route.nearestTo(x, z, 220);
       if (nearest.distance < 50 || nearest.distance > 180 || nearest.distanceAlong === undefined) continue;
-      if (landmarks.some(l => Math.hypot(l.x - x, l.z - z) < 350 || alongGap(l.along, nearest.distanceAlong, route.length) < 800)) continue;
+      if (landmarks.some(l => Math.hypot(l.x - x, l.z - z) < 350 || routeGap(l.along, nearest.distanceAlong) < 800)) continue;
       const p = candidate(info, x, z, { biome, along: nearest.distanceAlong, district: 'landmark', scale: scaleFor(info), yaw: a.yaw + Math.PI / 2 });
       if (commit(p)) { landmarks.push(p); landmarkIds.add(info.id); break; }
     }
@@ -254,7 +255,7 @@ export async function planScenery(world, onProgress = () => {}) {
   const anchors = [];
   for (let i = 0; i < Math.round(route.length / 2600); i++) {
     const along = wrap((i + 0.56) / Math.round(route.length / 2600) * route.length, route.length);
-    if (world.stationPasses.every(s => alongGap(s.distance, along, route.length) > 375)) anchors.push(along);
+    if (world.stationPasses.every(s => routeGap(s.distance, along) > 375)) anchors.push(along);
   }
   for (const along of anchors) {
     const a = route.sample(along), side = random() < 0.5 ? -1 : 1;
@@ -319,7 +320,7 @@ export async function planScenery(world, onProgress = () => {}) {
         const px = x + a.nx * u + a.tx * v, pz = z + a.nz * u + a.tz * v;
         corners.push({ x: px, z: pz }); heights.push(ground(px, pz));
       }
-      if (Math.max(...heights) - Math.min(...heights) > 4.8 || corners.some(p => Math.abs(p.x) > d - 12 || Math.abs(p.z) > d / 2 - 12 || route.distanceTo(p.x, p.z, 30) < 11 || waterAt(p.x, p.z))) continue;
+      if (Math.max(...heights) - Math.min(...heights) > 4.8 || corners.some(p => Math.abs(p.x) > d - 12 || Math.abs(p.z) > halfDepth - 12 || route.distanceTo(p.x, p.z, 30) < 11 || waterAt(p.x, p.z))) continue;
       const cropPlacements = [];
       farm.rowSpacing = (farm.halfWidth * 2 - 4.6) / (farm.rowCount - 1);
       farm.plantsPerRow = info.id.includes('Wheat') ? 17 : 9;

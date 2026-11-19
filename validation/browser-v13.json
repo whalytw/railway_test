@@ -1,0 +1,1367 @@
+{
+  "version": "13.0.0",
+  "gpu": "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "first": {
+    "modes": [
+      "loop",
+      "straight"
+    ],
+    "straight": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "loop": [
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
+    ],
+    "straightVisible": false,
+    "loopVisible": true,
+    "turnsVisible": true,
+    "fleetVisible": false,
+    "selected": [
+      "8",
+      "1",
+      "3"
+    ]
+  },
+  "straightMenu": {
+    "modes": [
+      "loop",
+      "straight"
+    ],
+    "straight": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "loop": [
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
+    ],
+    "straightVisible": true,
+    "loopVisible": false,
+    "turnsVisible": false,
+    "fleetVisible": true,
+    "selected": [
+      "14",
+      "3",
+      "3"
+    ]
+  },
+  "launch": {
+    "version": "13.0.0",
+    "mode": "paused",
+    "config": {
+      "biomeMix": [
+        {
+          "biome": "Forest",
+          "percent": 60
+        },
+        {
+          "biome": "Lakeside",
+          "percent": 40
+        }
+      ],
+      "biomeA": "Forest",
+      "biomeB": "Lakeside",
+      "routeMode": "straight",
+      "turns": 1,
+      "length": 3,
+      "stations": 3,
+      "vehicle": "Vehicle_Minecart_GoldenOak_001",
+      "driverChoice": "Animal_CubePet_Fox_001",
+      "driver": "Animal_CubePet_Fox_001",
+      "fleet": [
+        {
+          "vehicle": "Vehicle_Minecart_AzureLake_001",
+          "driverChoice": "Animal_CubePet_Bunny_001",
+          "driver": "Animal_CubePet_Bunny_001"
+        },
+        {
+          "vehicle": "Vehicle_Minecart_GoldenOak_001",
+          "driverChoice": "Animal_CubePet_Fox_001",
+          "driver": "Animal_CubePet_Fox_001"
+        },
+        {
+          "vehicle": "Vehicle_Minecart_RedCopper_001",
+          "driverChoice": "Animal_CubePet_Deer_001",
+          "driver": "Animal_CubePet_Deer_001"
+        }
+      ],
+      "playable": true,
+      "density": 1000,
+      "viewDistance": 300,
+      "resolution": 0.75,
+      "shadows": true,
+      "sceneryShadows": true,
+      "shadowQuality": "near",
+      "elevationLimit": 100,
+      "features": true,
+      "skyline": true,
+      "sleeperFilter": true,
+      "sleeperSpacing": 0.75,
+      "seed": "STRAIGHT-THREE-V13"
+    },
+    "primary": {
+      "speed": 0,
+      "acceleration": 0,
+      "driveAcceleration": 0,
+      "distance": 0,
+      "odometer": 0,
+      "elapsed": 0,
+      "countdown": 3,
+      "throttle": 0.42,
+      "grade": 0,
+      "governor": false,
+      "suspensionY": -5.613835674100898e-9,
+      "suspensionVelocity": 0,
+      "contactImpulse": 0,
+      "collisionCount": 0,
+      "rapierSteps": 0,
+      "solverVersion": "0.21.0",
+      "turboKmh": 0
+    },
+    "carts": [
+      {
+        "laneLength": 3000,
+        "finishSeconds": null,
+        "departure": 0,
+        "distance": 0,
+        "speed": 0,
+        "position": [
+          -1499.956969480554,
+          2.132738296429766,
+          24
+        ],
+        "viewport": {
+          "x": 0,
+          "y": 0,
+          "width": 640,
+          "height": 1080
+        },
+        "turboVisible": false
+      },
+      {
+        "laneLength": 3000,
+        "finishSeconds": null,
+        "departure": 0,
+        "distance": 0,
+        "speed": 0,
+        "position": [
+          -1499.956969480554,
+          2.132738296429766,
+          0
+        ],
+        "viewport": {
+          "x": 640,
+          "y": 0,
+          "width": 640,
+          "height": 1080
+        },
+        "turboVisible": false
+      },
+      {
+        "laneLength": 3000,
+        "finishSeconds": null,
+        "departure": 0,
+        "distance": 0,
+        "speed": 0,
+        "position": [
+          -1499.956969480554,
+          2.132738296429766,
+          -24
+        ],
+        "viewport": {
+          "x": 1280,
+          "y": 0,
+          "width": 640,
+          "height": 1080
+        },
+        "turboVisible": false
+      }
+    ],
+    "render": {
+      "main": {
+        "calls": 325,
+        "triangles": 2123626
+      },
+      "shadows": {
+        "drawCalls": 76,
+        "triangles": 415284,
+        "maps": 1
+      },
+      "shadowProfile": {
+        "quality": "near",
+        "mapSize": 1024,
+        "radius": 80,
+        "minimumSceneryHeight": 0.85
+      },
+      "sharedShadowSize": [
+        1792,
+        1280
+      ],
+      "views": [
+        {
+          "main": {
+            "calls": 105,
+            "triangles": 652996
+          },
+          "shadows": {
+            "drawCalls": 76,
+            "triangles": 415284
+          }
+        },
+        {
+          "main": {
+            "calls": 108,
+            "triangles": 712391
+          },
+          "shadows": {
+            "drawCalls": 0,
+            "triangles": 0
+          }
+        },
+        {
+          "main": {
+            "calls": 112,
+            "triangles": 758239
+          },
+          "shadows": {
+            "drawCalls": 0,
+            "triangles": 0
+          }
+        }
+      ]
+    }
+  },
+  "clamped": {
+    "version": "13.0.0",
+    "mode": "paused",
+    "config": {
+      "biomeMix": [
+        {
+          "biome": "Forest",
+          "percent": 60
+        },
+        {
+          "biome": "Lakeside",
+          "percent": 40
+        }
+      ],
+      "biomeA": "Forest",
+      "biomeB": "Lakeside",
+      "routeMode": "straight",
+      "turns": 1,
+      "length": 3,
+      "stations": 3,
+      "vehicle": "Vehicle_Minecart_GoldenOak_001",
+      "driverChoice": "Animal_CubePet_Fox_001",
+      "driver": "Animal_CubePet_Fox_001",
+      "fleet": [
+        {
+          "vehicle": "Vehicle_Minecart_AzureLake_001",
+          "driverChoice": "Animal_CubePet_Bunny_001",
+          "driver": "Animal_CubePet_Bunny_001"
+        },
+        {
+          "vehicle": "Vehicle_Minecart_GoldenOak_001",
+          "driverChoice": "Animal_CubePet_Fox_001",
+          "driver": "Animal_CubePet_Fox_001"
+        },
+        {
+          "vehicle": "Vehicle_Minecart_RedCopper_001",
+          "driverChoice": "Animal_CubePet_Deer_001",
+          "driver": "Animal_CubePet_Deer_001"
+        }
+      ],
+      "playable": true,
+      "density": 1000,
+      "viewDistance": 300,
+      "resolution": 0.75,
+      "shadows": true,
+      "sceneryShadows": true,
+      "shadowQuality": "near",
+      "elevationLimit": 100,
+      "features": true,
+      "skyline": true,
+      "sleeperFilter": true,
+      "sleeperSpacing": 0.75,
+      "seed": "STRAIGHT-THREE-V13"
+    },
+    "primary": {
+      "speed": 0,
+      "acceleration": 0,
+      "driveAcceleration": 0,
+      "distance": 0,
+      "odometer": 0,
+      "elapsed": 5.000000000000038,
+      "countdown": 0,
+      "throttle": -1,
+      "grade": 0,
+      "governor": false,
+      "suspensionY": -5.613835674100898e-9,
+      "suspensionVelocity": 0,
+      "contactImpulse": 0,
+      "collisionCount": 0,
+      "rapierSteps": 240,
+      "solverVersion": "0.21.0",
+      "turboKmh": 0
+    },
+    "carts": [
+      {
+        "laneLength": 3000,
+        "finishSeconds": null,
+        "departure": 0,
+        "distance": 0,
+        "speed": 0,
+        "position": [
+          -1499.956969480554,
+          2.1327382908159302,
+          24
+        ],
+        "viewport": {
+          "x": 0,
+          "y": 0,
+          "width": 640,
+          "height": 1080
+        },
+        "turboVisible": false
+      },
+      {
+        "laneLength": 3000,
+        "finishSeconds": null,
+        "departure": 0,
+        "distance": 0,
+        "speed": 0,
+        "position": [
+          -1499.956969480554,
+          2.1327382908159302,
+          0
+        ],
+        "viewport": {
+          "x": 640,
+          "y": 0,
+          "width": 640,
+          "height": 1080
+        },
+        "turboVisible": false
+      },
+      {
+        "laneLength": 3000,
+        "finishSeconds": null,
+        "departure": 0,
+        "distance": 0,
+        "speed": 0,
+        "position": [
+          -1499.956969480554,
+          2.1327382908159302,
+          -24
+        ],
+        "viewport": {
+          "x": 1280,
+          "y": 0,
+          "width": 640,
+          "height": 1080
+        },
+        "turboVisible": false
+      }
+    ],
+    "render": {
+      "main": {
+        "calls": 325,
+        "triangles": 2123626
+      },
+      "shadows": {
+        "drawCalls": 76,
+        "triangles": 415284,
+        "maps": 1
+      },
+      "shadowProfile": {
+        "quality": "near",
+        "mapSize": 1024,
+        "radius": 80,
+        "minimumSceneryHeight": 0.85
+      },
+      "sharedShadowSize": [
+        1792,
+        1280
+      ],
+      "views": [
+        {
+          "main": {
+            "calls": 105,
+            "triangles": 652996
+          },
+          "shadows": {
+            "drawCalls": 76,
+            "triangles": 415284
+          }
+        },
+        {
+          "main": {
+            "calls": 108,
+            "triangles": 712391
+          },
+          "shadows": {
+            "drawCalls": 0,
+            "triangles": 0
+          }
+        },
+        {
+          "main": {
+            "calls": 112,
+            "triangles": 758239
+          },
+          "shadows": {
+            "drawCalls": 0,
+            "triangles": 0
+          }
+        }
+      ]
+    }
+  },
+  "accelerating": {
+    "version": "13.0.0",
+    "mode": "paused",
+    "config": {
+      "biomeMix": [
+        {
+          "biome": "Forest",
+          "percent": 60
+        },
+        {
+          "biome": "Lakeside",
+          "percent": 40
+        }
+      ],
+      "biomeA": "Forest",
+      "biomeB": "Lakeside",
+      "routeMode": "straight",
+      "turns": 1,
+      "length": 3,
+      "stations": 3,
+      "vehicle": "Vehicle_Minecart_GoldenOak_001",
+      "driverChoice": "Animal_CubePet_Fox_001",
+      "driver": "Animal_CubePet_Fox_001",
+      "fleet": [
+        {
+          "vehicle": "Vehicle_Minecart_AzureLake_001",
+          "driverChoice": "Animal_CubePet_Bunny_001",
+          "driver": "Animal_CubePet_Bunny_001"
+        },
+        {
+          "vehicle": "Vehicle_Minecart_GoldenOak_001",
+          "driverChoice": "Animal_CubePet_Fox_001",
+          "driver": "Animal_CubePet_Fox_001"
+        },
+        {
+          "vehicle": "Vehicle_Minecart_RedCopper_001",
+          "driverChoice": "Animal_CubePet_Deer_001",
+          "driver": "Animal_CubePet_Deer_001"
+        }
+      ],
+      "playable": true,
+      "density": 1000,
+      "viewDistance": 300,
+      "resolution": 0.75,
+      "shadows": true,
+      "sceneryShadows": true,
+      "shadowQuality": "near",
+      "elevationLimit": 100,
+      "features": true,
+      "skyline": true,
+      "sleeperFilter": true,
+      "sleeperSpacing": 0.75,
+      "seed": "STRAIGHT-THREE-V13"
+    },
+    "primary": {
+      "speed": 27.066402435302734,
+      "acceleration": 1.710205078125,
+      "driveAcceleration": 2.103283426711982,
+      "distance": 93.18991088867188,
+      "odometer": 93.18991088867188,
+      "elapsed": 14.499999999999817,
+      "countdown": 0,
+      "throttle": 1,
+      "grade": 1.4333210001986223e-7,
+      "governor": false,
+      "suspensionY": -5.613835674100898e-9,
+      "suspensionVelocity": -0.0000021905768790020375,
+      "contactImpulse": 0,
+      "collisionCount": 0,
+      "rapierSteps": 1380,
+      "solverVersion": "0.21.0",
+      "turboKmh": 30.000000000000004
+    },
+    "carts": [
+      {
+        "laneLength": 3000,
+        "finishSeconds": null,
+        "departure": 0,
+        "distance": 93.18991088867188,
+        "speed": 27.066402435302734,
+        "position": [
+          -1406.767058643705,
+          2.1327383917019884,
+          24
+        ],
+        "viewport": {
+          "x": 0,
+          "y": 0,
+          "width": 640,
+          "height": 1080
+        },
+        "turboVisible": true
+      },
+      {
+        "laneLength": 3000,
+        "finishSeconds": null,
+        "departure": 0,
+        "distance": 93.18991088867188,
+        "speed": 27.066402435302734,
+        "position": [
+          -1406.767058643705,
+          2.1327383917019884,
+          0
+        ],
+        "viewport": {
+          "x": 640,
+          "y": 0,
+          "width": 640,
+          "height": 1080
+        },
+        "turboVisible": true
+      },
+      {
+        "laneLength": 3000,
+        "finishSeconds": null,
+        "departure": 0,
+        "distance": 93.18991088867188,
+        "speed": 27.066402435302734,
+        "position": [
+          -1406.767058643705,
+          2.1327383917019884,
+          -24
+        ],
+        "viewport": {
+          "x": 1280,
+          "y": 0,
+          "width": 640,
+          "height": 1080
+        },
+        "turboVisible": true
+      }
+    ],
+    "render": {
+      "main": {
+        "calls": 391,
+        "triangles": 2557306
+      },
+      "shadows": {
+        "drawCalls": 100,
+        "triangles": 441806,
+        "maps": 1
+      },
+      "shadowProfile": {
+        "quality": "near",
+        "mapSize": 1024,
+        "radius": 80,
+        "minimumSceneryHeight": 0.85
+      },
+      "sharedShadowSize": [
+        1792,
+        1280
+      ],
+      "views": [
+        {
+          "main": {
+            "calls": 132,
+            "triangles": 873872
+          },
+          "shadows": {
+            "drawCalls": 100,
+            "triangles": 441806
+          }
+        },
+        {
+          "main": {
+            "calls": 133,
+            "triangles": 882817
+          },
+          "shadows": {
+            "drawCalls": 0,
+            "triangles": 0
+          }
+        },
+        {
+          "main": {
+            "calls": 126,
+            "triangles": 800617
+          },
+          "shadows": {
+            "drawCalls": 0,
+            "triangles": 0
+          }
+        }
+      ]
+    }
+  },
+  "finish": {
+    "version": "13.0.0",
+    "mode": "finished",
+    "config": {
+      "biomeMix": [
+        {
+          "biome": "Forest",
+          "percent": 60
+        },
+        {
+          "biome": "Lakeside",
+          "percent": 40
+        }
+      ],
+      "biomeA": "Forest",
+      "biomeB": "Lakeside",
+      "routeMode": "straight",
+      "turns": 1,
+      "length": 3,
+      "stations": 3,
+      "vehicle": "Vehicle_Minecart_GoldenOak_001",
+      "driverChoice": "Animal_CubePet_Fox_001",
+      "driver": "Animal_CubePet_Fox_001",
+      "fleet": [
+        {
+          "vehicle": "Vehicle_Minecart_AzureLake_001",
+          "driverChoice": "Animal_CubePet_Bunny_001",
+          "driver": "Animal_CubePet_Bunny_001"
+        },
+        {
+          "vehicle": "Vehicle_Minecart_GoldenOak_001",
+          "driverChoice": "Animal_CubePet_Fox_001",
+          "driver": "Animal_CubePet_Fox_001"
+        },
+        {
+          "vehicle": "Vehicle_Minecart_RedCopper_001",
+          "driverChoice": "Animal_CubePet_Deer_001",
+          "driver": "Animal_CubePet_Deer_001"
+        }
+      ],
+      "playable": true,
+      "density": 1000,
+      "viewDistance": 300,
+      "resolution": 0.75,
+      "shadows": true,
+      "sceneryShadows": true,
+      "shadowQuality": "near",
+      "elevationLimit": 100,
+      "features": true,
+      "skyline": true,
+      "sleeperFilter": true,
+      "sleeperSpacing": 0.75,
+      "seed": "STRAIGHT-THREE-V13"
+    },
+    "primary": {
+      "speed": 0,
+      "acceleration": 0,
+      "driveAcceleration": 0,
+      "distance": 3000,
+      "odometer": 3000,
+      "elapsed": 87.6250000000158,
+      "countdown": 0,
+      "throttle": 0,
+      "grade": 0,
+      "governor": false,
+      "suspensionY": 2.328047434274616e-7,
+      "suspensionVelocity": 0,
+      "contactImpulse": 0,
+      "collisionCount": 0,
+      "rapierSteps": 10153,
+      "solverVersion": "0.21.0",
+      "turboKmh": 0
+    },
+    "carts": [
+      {
+        "laneLength": 3000,
+        "finishSeconds": 84.61872552701338,
+        "departure": 0,
+        "distance": 3000,
+        "speed": 0,
+        "position": [
+          1499.956969480554,
+          2.1327381716066407,
+          24
+        ],
+        "viewport": {
+          "x": 0,
+          "y": 0,
+          "width": 640,
+          "height": 1080
+        },
+        "turboVisible": true
+      },
+      {
+        "laneLength": 3000,
+        "finishSeconds": 84.60725779283233,
+        "departure": 0,
+        "distance": 3000,
+        "speed": 0,
+        "position": [
+          1499.956969480554,
+          2.1327385292345094,
+          0
+        ],
+        "viewport": {
+          "x": 640,
+          "y": 0,
+          "width": 640,
+          "height": 1080
+        },
+        "turboVisible": true
+      },
+      {
+        "laneLength": 3000,
+        "finishSeconds": 84.59690484562427,
+        "departure": 0,
+        "distance": 3000,
+        "speed": 0,
+        "position": [
+          1499.956969480554,
+          2.132738499432187,
+          -24
+        ],
+        "viewport": {
+          "x": 1280,
+          "y": 0,
+          "width": 640,
+          "height": 1080
+        },
+        "turboVisible": true
+      }
+    ],
+    "render": {
+      "main": {
+        "calls": 143,
+        "triangles": 1199163
+      },
+      "shadows": {
+        "drawCalls": 81,
+        "triangles": 334088,
+        "maps": 1
+      },
+      "shadowProfile": {
+        "quality": "near",
+        "mapSize": 1024,
+        "radius": 80,
+        "minimumSceneryHeight": 0.85
+      },
+      "sharedShadowSize": [
+        1792,
+        1280
+      ],
+      "views": [
+        {
+          "main": {
+            "calls": 45,
+            "triangles": 362768
+          },
+          "shadows": {
+            "drawCalls": 81,
+            "triangles": 334088
+          }
+        },
+        {
+          "main": {
+            "calls": 49,
+            "triangles": 467773
+          },
+          "shadows": {
+            "drawCalls": 0,
+            "triangles": 0
+          }
+        },
+        {
+          "main": {
+            "calls": 49,
+            "triangles": 368622
+          },
+          "shadows": {
+            "drawCalls": 0,
+            "triangles": 0
+          }
+        }
+      ]
+    }
+  },
+  "standings": [
+    [
+      "第 1",
+      "右車",
+      "84.597 秒"
+    ],
+    [
+      "第 2",
+      "中車",
+      "84.607 秒"
+    ],
+    [
+      "第 3",
+      "左車",
+      "84.619 秒"
+    ]
+  ],
+  "maximum": {
+    "carts": [
+      {
+        "laneLength": 10000,
+        "finishSeconds": null,
+        "departure": 0,
+        "distance": 0,
+        "speed": 0,
+        "position": [
+          -4999.7138708335115,
+          4.381,
+          24
+        ],
+        "viewport": {
+          "x": 0,
+          "y": 0,
+          "width": 640,
+          "height": 1080
+        },
+        "turboVisible": false
+      },
+      {
+        "laneLength": 10000,
+        "finishSeconds": null,
+        "departure": 0,
+        "distance": 0,
+        "speed": 0,
+        "position": [
+          -4999.7138708335115,
+          4.381,
+          0
+        ],
+        "viewport": {
+          "x": 640,
+          "y": 0,
+          "width": 640,
+          "height": 1080
+        },
+        "turboVisible": false
+      },
+      {
+        "laneLength": 10000,
+        "finishSeconds": null,
+        "departure": 0,
+        "distance": 0,
+        "speed": 0,
+        "position": [
+          -4999.7138708335115,
+          4.381,
+          -24
+        ],
+        "viewport": {
+          "x": 1280,
+          "y": 0,
+          "width": 640,
+          "height": 1080
+        },
+        "turboVisible": false
+      }
+    ],
+    "config": {
+      "biomeMix": [
+        {
+          "biome": "Forest",
+          "percent": 60
+        },
+        {
+          "biome": "Lakeside",
+          "percent": 40
+        }
+      ],
+      "biomeA": "Forest",
+      "biomeB": "Lakeside",
+      "routeMode": "straight",
+      "turns": 1,
+      "length": 10,
+      "stations": 2,
+      "vehicle": "Vehicle_Minecart_GoldenOak_001",
+      "driverChoice": "Animal_CubePet_Fox_001",
+      "driver": "Animal_CubePet_Fox_001",
+      "fleet": [
+        {
+          "vehicle": "Vehicle_Minecart_AzureLake_001",
+          "driverChoice": "Animal_CubePet_Bunny_001",
+          "driver": "Animal_CubePet_Bunny_001"
+        },
+        {
+          "vehicle": "Vehicle_Minecart_GoldenOak_001",
+          "driverChoice": "Animal_CubePet_Fox_001",
+          "driver": "Animal_CubePet_Fox_001"
+        },
+        {
+          "vehicle": "Vehicle_Minecart_RedCopper_001",
+          "driverChoice": "Animal_CubePet_Deer_001",
+          "driver": "Animal_CubePet_Deer_001"
+        }
+      ],
+      "playable": true,
+      "density": 1000,
+      "viewDistance": 300,
+      "resolution": 0.75,
+      "shadows": true,
+      "sceneryShadows": true,
+      "shadowQuality": "near",
+      "elevationLimit": 100,
+      "features": false,
+      "skyline": true,
+      "sleeperFilter": true,
+      "sleeperSpacing": 0.75,
+      "seed": "STRAIGHT-THREE-V13"
+    }
+  },
+  "loopMenu": {
+    "modes": [
+      "loop",
+      "straight"
+    ],
+    "straight": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "loop": [
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
+    ],
+    "straightVisible": false,
+    "loopVisible": true,
+    "turnsVisible": true,
+    "fleetVisible": true,
+    "selected": [
+      "14",
+      "3",
+      "10"
+    ]
+  },
+  "loop": {
+    "launch": {
+      "version": "13.0.0",
+      "mode": "paused",
+      "config": {
+        "biomeMix": [
+          {
+            "biome": "Forest",
+            "percent": 60
+          },
+          {
+            "biome": "Lakeside",
+            "percent": 40
+          }
+        ],
+        "biomeA": "Forest",
+        "biomeB": "Lakeside",
+        "routeMode": "loop",
+        "turns": 3,
+        "length": 5,
+        "stations": 3,
+        "vehicle": "Vehicle_Minecart_GoldenOak_001",
+        "driverChoice": "Animal_CubePet_Fox_001",
+        "driver": "Animal_CubePet_Fox_001",
+        "fleet": [
+          {
+            "vehicle": "Vehicle_Minecart_AzureLake_001",
+            "driverChoice": "Animal_CubePet_Bunny_001",
+            "driver": "Animal_CubePet_Bunny_001"
+          },
+          {
+            "vehicle": "Vehicle_Minecart_GoldenOak_001",
+            "driverChoice": "Animal_CubePet_Fox_001",
+            "driver": "Animal_CubePet_Fox_001"
+          },
+          {
+            "vehicle": "Vehicle_Minecart_RedCopper_001",
+            "driverChoice": "Animal_CubePet_Deer_001",
+            "driver": "Animal_CubePet_Deer_001"
+          }
+        ],
+        "playable": true,
+        "density": 1000,
+        "viewDistance": 300,
+        "resolution": 0.75,
+        "shadows": true,
+        "sceneryShadows": true,
+        "shadowQuality": "near",
+        "elevationLimit": 100,
+        "features": false,
+        "skyline": true,
+        "sleeperFilter": true,
+        "sleeperSpacing": 0.75,
+        "seed": "STRAIGHT-THREE-V13"
+      },
+      "primary": {
+        "speed": 0,
+        "acceleration": 0,
+        "driveAcceleration": 0,
+        "distance": 1829.6426114252672,
+        "odometer": 0,
+        "elapsed": 0,
+        "countdown": 3,
+        "throttle": 0.42,
+        "grade": 0,
+        "governor": false,
+        "suspensionY": -5.613835674100898e-9,
+        "suspensionVelocity": 0,
+        "contactImpulse": 0,
+        "collisionCount": 0,
+        "rapierSteps": 0,
+        "solverVersion": "0.21.0",
+        "turboKmh": 0
+      },
+      "carts": [
+        {
+          "laneLength": 5000,
+          "finishSeconds": null,
+          "departure": 3480.0566383101705,
+          "distance": 3480.0566383101705,
+          "speed": 0,
+          "position": [
+            -266.932891411646,
+            0.381,
+            0
+          ],
+          "viewport": {
+            "x": 0,
+            "y": 0,
+            "width": 640,
+            "height": 1080
+          },
+          "turboVisible": false
+        },
+        {
+          "laneLength": 5000,
+          "finishSeconds": null,
+          "departure": 1829.6426114252672,
+          "distance": 1829.6426114252672,
+          "speed": 0,
+          "position": [
+            -301.16687400359746,
+            0.381,
+            0
+          ],
+          "viewport": {
+            "x": 640,
+            "y": 0,
+            "width": 640,
+            "height": 1080
+          },
+          "turboVisible": false
+        },
+        {
+          "laneLength": 5000,
+          "finishSeconds": null,
+          "departure": 0,
+          "distance": 0,
+          "speed": 0,
+          "position": [
+            -329.95481092011676,
+            6.581,
+            0
+          ],
+          "viewport": {
+            "x": 1280,
+            "y": 0,
+            "width": 640,
+            "height": 1080
+          },
+          "turboVisible": false
+        }
+      ],
+      "render": {
+        "main": {
+          "calls": 258,
+          "triangles": 3048546
+        },
+        "shadows": {
+          "drawCalls": 142,
+          "triangles": 500578,
+          "maps": 1
+        },
+        "shadowProfile": {
+          "quality": "near",
+          "mapSize": 1024,
+          "radius": 80,
+          "minimumSceneryHeight": 0.85
+        },
+        "sharedShadowSize": [
+          1280,
+          1792
+        ],
+        "views": [
+          {
+            "main": {
+              "calls": 87,
+              "triangles": 990592
+            },
+            "shadows": {
+              "drawCalls": 142,
+              "triangles": 500578
+            }
+          },
+          {
+            "main": {
+              "calls": 88,
+              "triangles": 1122596
+            },
+            "shadows": {
+              "drawCalls": 0,
+              "triangles": 0
+            }
+          },
+          {
+            "main": {
+              "calls": 83,
+              "triangles": 935358
+            },
+            "shadows": {
+              "drawCalls": 0,
+              "triangles": 0
+            }
+          }
+        ]
+      }
+    },
+    "progress": {
+      "version": "13.0.0",
+      "mode": "paused",
+      "config": {
+        "biomeMix": [
+          {
+            "biome": "Forest",
+            "percent": 60
+          },
+          {
+            "biome": "Lakeside",
+            "percent": 40
+          }
+        ],
+        "biomeA": "Forest",
+        "biomeB": "Lakeside",
+        "routeMode": "loop",
+        "turns": 3,
+        "length": 5,
+        "stations": 3,
+        "vehicle": "Vehicle_Minecart_GoldenOak_001",
+        "driverChoice": "Animal_CubePet_Fox_001",
+        "driver": "Animal_CubePet_Fox_001",
+        "fleet": [
+          {
+            "vehicle": "Vehicle_Minecart_AzureLake_001",
+            "driverChoice": "Animal_CubePet_Bunny_001",
+            "driver": "Animal_CubePet_Bunny_001"
+          },
+          {
+            "vehicle": "Vehicle_Minecart_GoldenOak_001",
+            "driverChoice": "Animal_CubePet_Fox_001",
+            "driver": "Animal_CubePet_Fox_001"
+          },
+          {
+            "vehicle": "Vehicle_Minecart_RedCopper_001",
+            "driverChoice": "Animal_CubePet_Deer_001",
+            "driver": "Animal_CubePet_Deer_001"
+          }
+        ],
+        "playable": true,
+        "density": 1000,
+        "viewDistance": 300,
+        "resolution": 0.75,
+        "shadows": true,
+        "sceneryShadows": true,
+        "shadowQuality": "near",
+        "elevationLimit": 100,
+        "features": false,
+        "skyline": true,
+        "sleeperFilter": true,
+        "sleeperSpacing": 0.75,
+        "seed": "STRAIGHT-THREE-V13"
+      },
+      "primary": {
+        "speed": 33.33332061767578,
+        "acceleration": 0,
+        "driveAcceleration": 1.1811298022746646,
+        "distance": 7683.97126285349,
+        "odometer": 5854.328651428223,
+        "elapsed": 189.99999999999153,
+        "countdown": 0,
+        "throttle": 1,
+        "grade": -0.00021525939243394968,
+        "governor": true,
+        "suspensionY": -0.0000033136716207082806,
+        "suspensionVelocity": -0.000014404780813492835,
+        "contactImpulse": 0,
+        "collisionCount": 0,
+        "rapierSteps": 22440,
+        "solverVersion": "0.21.0",
+        "turboKmh": 0
+      },
+      "carts": [
+        {
+          "laneLength": 5000,
+          "finishSeconds": null,
+          "departure": 3480.0566383101705,
+          "distance": 9314.765531132436,
+          "speed": 33.0385627746582,
+          "position": [
+            231.60381096257356,
+            6.6175236954378285,
+            92.12957025440456
+          ],
+          "viewport": {
+            "x": 0,
+            "y": 0,
+            "width": 640,
+            "height": 1080
+          },
+          "turboVisible": false
+        },
+        {
+          "laneLength": 5000,
+          "finishSeconds": null,
+          "departure": 1829.6426114252672,
+          "distance": 7683.97126285349,
+          "speed": 33.33332061767578,
+          "position": [
+            340.4781328308376,
+            0.43602657277817536,
+            8.916542586018327
+          ],
+          "viewport": {
+            "x": 640,
+            "y": 0,
+            "width": 640,
+            "height": 1080
+          },
+          "turboVisible": false
+        },
+        {
+          "laneLength": 5000,
+          "finishSeconds": null,
+          "departure": 0,
+          "distance": 5875.607559204102,
+          "speed": 33.33333206176758,
+          "position": [
+            360.0671991252337,
+            0.4494752817373593,
+            -57.88238647367935
+          ],
+          "viewport": {
+            "x": 1280,
+            "y": 0,
+            "width": 640,
+            "height": 1080
+          },
+          "turboVisible": false
+        }
+      ],
+      "render": {
+        "main": {
+          "calls": 318,
+          "triangles": 2873517
+        },
+        "shadows": {
+          "drawCalls": 200,
+          "triangles": 744926,
+          "maps": 3
+        },
+        "shadowProfile": {
+          "quality": "near",
+          "mapSize": 1024,
+          "radius": 80,
+          "minimumSceneryHeight": 0.85
+        },
+        "sharedShadowSize": null,
+        "views": [
+          {
+            "main": {
+              "calls": 113,
+              "triangles": 1065241
+            },
+            "shadows": {
+              "drawCalls": 65,
+              "triangles": 331730
+            }
+          },
+          {
+            "main": {
+              "calls": 124,
+              "triangles": 1120499
+            },
+            "shadows": {
+              "drawCalls": 69,
+              "triangles": 241450
+            }
+          },
+          {
+            "main": {
+              "calls": 81,
+              "triangles": 687777
+            },
+            "shadows": {
+              "drawCalls": 66,
+              "triangles": 171746
+            }
+          }
+        ]
+      }
+    }
+  },
+  "errors": []
+}

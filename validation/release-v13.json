@@ -1,0 +1,28 @@
+{
+  "version": "13.0.0",
+  "base": {
+    "file": "RailLoopLab-v12-20261119.zip",
+    "version": "12.0.0",
+    "sha256": "c61e1c08e9c8941f3c8935d4b2936ca4eeb9c70d8f0e1ecd3e3a9069e6030874"
+  },
+  "testsPassed": 103,
+  "sourceSha256": "8bb5d6f9898382a32e4a2c73bd42f23fc6f9d4015b5336da8539507ada284ad0",
+  "preservedAssetAndVendorFiles": 891,
+  "glbs": 428,
+  "straightLengthsPerLaneKm": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "browserQA": {
+    "lanesCompleting3Km": 3,
+    "maximumLoadedPerLaneMetres": 10000,
+    "loopStillWraps": true
+  },
+  "published": false
+}
